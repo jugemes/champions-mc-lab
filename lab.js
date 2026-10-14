@@ -40,11 +40,13 @@ function load(){
 function check(sim){
   if(!sim.Dex.formats.get(FORMAT).exists)throw Error('Format '+FORMAT+' not found');
   const validator=sim.TeamValidator.get(FORMAT);
+  const bad=[];
   for(const [name,team] of Object.entries(all)){
-    prelim(team,name);
-    const problems=validator.validateTeam(normalize(team));
-    if(problems?.length)throw Error(name+' invalid:\n'+problems.join('\n'));
+    try { prelim(team,name); const problems=validator.validateTeam(normalize(team));
+      if(problems?.length)bad.push(name+': '+problems.join('; '));
+    } catch(err){bad.push(name+': '+err.message);}
   }
+  if(bad.length)throw Error('Illegal teams ('+bad.length+'):\n'+bad.join('\n'));
   console.log('LEGALITY CHECK PASSED: '+Object.keys(all).length+' teams');
 }
 function hashSeed(n){let x=n+1;const r=[];for(let i=0;i<4;i++){x=(Math.imul(x^x>>>16,0x7feb352d))>>>0;x=(Math.imul(x^x>>>15,0x846ca68b))>>>0;r.push(x&65535);x=(x+0x9e3779b9)>>>0;}return r;}
