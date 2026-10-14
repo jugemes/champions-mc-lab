@@ -15,7 +15,7 @@ test('Ice type coverage is not assumed if unknown: public STAB only',()=>{
   assert.equal(publicThreat(dex,'Toxapex','UnknownThing'),0);
 });
 test('defensive coverage rewards at least one safer switch into same Ghost attacker',()=>{
-  const ghost=[{species:'Gholdengo'}];
+  const ghost=['Gholdengo'];
   const vulnerable=[{species:'Gholdengo'},{species:'Gholdengo'},{species:'Gholdengo'}];
   const mixed=[{species:'Gholdengo'},{species:'Gholdengo'},{species:'Lucario'}];
   assert.ok(defensiveCoverage(dex,mixed,ghost)<defensiveCoverage(dex,vulnerable,ghost));
