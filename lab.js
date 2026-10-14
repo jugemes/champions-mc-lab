@@ -5,6 +5,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const {variants,archetypes,scenarios}=require('./fixtures');
+const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -80,11 +81,13 @@ function chooseThree(dex,team,opp){
   return chosen;
 }
 class Bot{
-  constructor(stream,dex,team,side,trace,forcedSelection=null){
+  constructor(stream,dex,team,side,trace,forcedSelection=null,scriptScenario=null){
     this.stream=stream;this.dex=dex;this.team=team;this.side=side;
     this.foe=side==='p1'?'p2':'p1';this.opp=[];this.foeActive='';
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
-    this.forcedSelection=forcedSelection;this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
+    this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
+    this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
+    this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};
   }
   async run(){
     for await(const chunk of this.stream){
@@ -94,7 +97,10 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
-          if(a[1]!=='detailschange'){this.foeBoosts={};this.foeHP=1;this.foeItem='';}
+          if(a[1]!=='detailschange'){
+            this.foeBoosts={};this.foeHP=1;this.foeItem='';this.foeStatus='';
+            this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+          }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
         if(['-boost','-unboost','-setboost'].includes(a[1])){
@@ -108,6 +114,11 @@ class Bot{
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.foe+'a:'))this.foeBoosts={};
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
+        if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
+        if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
+        if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus='';
+        if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':'))this.hazards[canonical(a[3])]=(this.hazards[canonical(a[3])]||0)+1;
+        if(a[1]==='-sideend'&&a[2]?.startsWith(this.foe+':'))delete this.hazards[canonical(a[3])];
         if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
@@ -117,7 +128,12 @@ class Bot{
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
         }
         if(a[1]==='-damage'&&line.includes('item: Rocky Helmet')&&line.includes('[of] '+this.foe+'a:'))this.foeItem='Rocky Helmet';
-        if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:'))this.lastMove=a[3];
+        if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:')){this.lastMove=a[3];this.foeLastMoveTurn=this.turn;}
+        if(a[1]==='move'&&a[2]?.startsWith(this.side+'a:')){
+          const move=canonical(a[3]);
+          if(move==='trick')this.lastStatuses.trickDone=true;
+          if(['reflect','lightscreen','stealthrock'].includes(move))this.lastStatuses[move]=true;
+        }
         if(a[1]==='turn')this.turn=Number(a[2]);
         if(a[1]==='error'){this.errors++;this.trace.errors.push({side:this.side,line});if(this.errors>4)throw Error('Repeated unavailable choices: '+line);}
         if(a[1]==='request'){
@@ -158,6 +174,22 @@ class Bot{
     const my={...this.getSet(current),species:nameOf(current.details)};
     const available=active.moves.map((m,i)=>({m,i})).filter(x=>!x.m.disabled&&x.m.pp>0);
     if(!available.length)return 'default';
+    const [selfhp,selfmax]=String(current.condition).split('/').map(Number);
+    const ratio=selfmax>0?selfhp/selfmax:1;
+    if(this.scriptScenario==='stall'&&this.getSet(current).species==='Toxapex'&&this.turn===1){
+      const spikes=available.find(x=>canonical(x.m.id||x.m.move)==='toxicspikes');
+      if(spikes)return 'move '+(spikes.i+1);
+    }
+    const scripted=shouldScriptedSetup({scenario:this.scriptScenario,ownSpecies:this.getSet(current).species,stage:this.boosts,ratio,turn:this.turn});
+    if(scripted){
+      const found=available.find(x=>canonical(x.m.id||x.m.move)===scripted);
+      if(found)return 'move '+(found.i+1)+(active.canMegaEvo?' mega':'');
+    }
+    if(shouldScriptedRegen({scenario:this.scriptScenario,ownSpecies:this.getSet(current).species,ratio,turn:this.turn,switches:this.switches})){
+      const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
+      bench.sort((a,b)=>Number(this.getSet(b.p).species==='Umbreon')-Number(this.getSet(a.p).species==='Umbreon'));
+      if(bench.length&&!active.trapped){this.switches++;return 'switch '+(bench[0].i+1);}
+    }
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
@@ -170,18 +202,13 @@ class Bot{
         if(def.priority>0&&this.foeHP<=0.35)score+=25;
         if(this.foeItem==='Rocky Helmet'&&def.flags?.contact)score-=32;
       }
-      const [hp,maxhp]=String(current.condition).split('/').map(Number);
-      const ratio=maxhp>0?hp/maxhp:1;
-      if(def.category==='Status'){
-        score=0;
-        if(['slackoff','recover','roost','softboiled'].includes(def.id))score=ratio<0.5?240:ratio<0.72?85:0;
-        if(['swordsdance','nastyplot','dragondance','quiverdance'].includes(def.id))score=ratio>0.7&&this.turn<=3?95:5;
-        if(def.id==='trick')score=this.turn<5?48:6;
-        if(def.id==='haze')score=Math.max(this.foeBoosts.atk||0,this.foeBoosts.spa||0,this.foeBoosts.spe||0)>=2?140:0;
-        if(def.id==='encore')score=['swordsdance','dragondance','quiverdance','recover','roost','slackoff'].includes(this.lastMove.toLowerCase().replace(/[^a-z]/g,''))?150:0;
-        if(['stealthrock','reflect','lightscreen'].includes(def.id))score=this.turn<3?68:3;
-        if(['willowisp','thunderwave','toxic'].includes(def.id))score=35;
-      }
+      if(def.category==='Status')score=policyStatusScore(def.id,{
+        ratio,turn:this.turn,boosts:this.boosts,foeBoosts:this.foeBoosts,foeSpecies:this.foeActive,
+        foeHP:this.foeHP,foeStatus:this.foeStatus,foeLastMove:this.lastMove,
+        foeLastMoveTurn:this.foeLastMoveTurn,foeAbility:this.foeAbility,
+        ownItem:this.getSet(current).item,ownSpecies:my.species,
+        lastStatuses:this.lastStatuses,hazards:this.hazards,
+      });
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
@@ -200,8 +227,8 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse){
   const trace={choices:[],selections:[],errors:[]};
   const stress=scenarios[scenario];
   if(!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null);
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen);
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null,reverse?scenario:null);
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen,reverse?null:scenario);
   const logs=[];let winner='',turns=0,rainObserved=false;
   const observer=(async()=>{for await(const msg of streams.omniscient){
     if(captureLog)logs.push(msg);
