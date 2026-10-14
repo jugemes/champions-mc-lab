@@ -1,0 +1,14 @@
+{
+  "name": "champions-mc-lab",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Experimental Pokemon Champions Reg M-C selection and battle bot",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node lab.js --check",
+    "smoke": "node lab.js --count 1 --logs 1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
