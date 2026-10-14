@@ -4,7 +4,7 @@
 // Win rates reflect this heuristic agent versus another heuristic agent, NOT ladder rank.
 const fs=require('node:fs');
 const path=require('node:path');
-const {variants,archetypes}=require('./fixtures');
+const {variants,archetypes,scenarios}=require('./fixtures');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -80,10 +80,11 @@ function chooseThree(dex,team,opp){
   return chosen;
 }
 class Bot{
-  constructor(stream,dex,team,side,trace){
+  constructor(stream,dex,team,side,trace,forcedSelection=null){
     this.stream=stream;this.dex=dex;this.team=team;this.side=side;
     this.foe=side==='p1'?'p2':'p1';this.opp=[];this.foeActive='';
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
+    this.forcedSelection=forcedSelection;this.boosts={};
   }
   async run(){
     for await(const chunk of this.stream){
@@ -104,11 +105,21 @@ class Bot{
       }
     }
   }
-  getSet(p){const name=nameOf(p.details);return this.team.find(x=>x.species===name)||this.team[0];}
+  getSet(p){
+    const name=nameOf(p.details);
+    const base=this.dex.species.get(name).baseSpecies||name;
+    const found=this.team.find(x=>x.species===name||x.species===base);
+    if(!found)throw Error('No known set for active '+name+' on '+this.side);
+    return found;
+  }
   decide(req){
     if(this.errors>0){this.errors=0;return 'default';}
     if(req.teamPreview){
-      const selected=chooseThree(this.dex,this.team,this.opp);
+      const selected=this.forcedSelection?this.forcedSelection.map(name=>{
+        const index=this.team.findIndex(x=>x.species===name);
+        if(index<0)throw Error('Scenario member not in team: '+name);
+        return index+1;
+      }):chooseThree(this.dex,this.team,this.opp);
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
@@ -151,14 +162,18 @@ class Bot{
     return 'move '+(best.i+1)+(active.canMegaEvo?' mega':'');
   }
 }
-async function game(sim,one,two,seed,captureLog){
+async function game(sim,one,two,seed,captureLog,scenario,reverse){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
   const trace={choices:[],selections:[],errors:[]};
-  const b1=new Bot(streams.p1,dex,one,'p1',trace),b2=new Bot(streams.p2,dex,two,'p2',trace);
-  const logs=[];let winner='',turns=0;
+  const stress=scenarios[scenario];
+  if(!stress)throw Error('Unknown scenario '+scenario);
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null);
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen);
+  const logs=[];let winner='',turns=0,rainObserved=false;
   const observer=(async()=>{for await(const msg of streams.omniscient){
     if(captureLog)logs.push(msg);
+    if(msg.includes('|-weather|RainDance'))rainObserved=true;
     for(const line of msg.split('\n')){
       if(line.startsWith('|win|'))winner=line.slice(5);
       if(line.startsWith('|turn|'))turns=Number(line.slice(6));
@@ -168,7 +183,11 @@ async function game(sim,one,two,seed,captureLog){
   await streams.omniscient.write('>start '+JSON.stringify({formatid:FORMAT,seed})+'\n>player p1 '+JSON.stringify({name:'candidate',team:normalize(one)})+'\n>player p2 '+JSON.stringify({name:'opponent',team:normalize(two)}));
   await Promise.all([observer,run1,run2]);
   if(!winner)throw Error('Game had no winner. Errors: '+JSON.stringify(trace.errors));
-  return {winner,turns,trace,log:logs.join('\n')};
+  if(stress.mustSeeRain&&!rainObserved)throw Error('Rain stress test did not activate rain!');
+  const enemy=reverse?'p1':'p2';
+  const selected=trace.selections.find(x=>x.side===enemy);
+  if(!selected||selected.chosen.join('/')!==stress.chosen.join('/'))throw Error('Forced scenario selection failed');
+  return {winner,turns,trace,log:logs.join('\n'),rainObserved};
 }
 function args(argv){let count=1,logs=1,checkOnly=false;for(let i=0;i<argv.length;i++){
   if(argv[i]==='--check')checkOnly=true;
@@ -184,22 +203,22 @@ async function main(){
   const cfg=args(process.argv.slice(2)),sim=load();check(sim);
   if(cfg.checkOnly)return;
   const out=path.join(root,'output');fs.mkdirSync(out,{recursive:true});
-  const rows=[],header=['variant','archetype','index','seed','side','win','turns','selection','errors'];
+  const rows=[],header=['variant','archetype','index','seed','side','win','turns','selection','errors','rain_observed'];
   for(const [name,team] of Object.entries(variants))for(const [match,opponent] of Object.entries(archetypes)){
     let wins=0;
     for(let i=0;i<cfg.count;i++){
       const seed=hashSeed(100000+archetypeIndex(match)*20000+i),reverse=Boolean(i%2);
-      const g=reverse?await game(sim,opponent,team,seed,i<cfg.logs):await game(sim,team,opponent,seed,i<cfg.logs);
+      const g=reverse?await game(sim,opponent,team,seed,i<cfg.logs,match,true):await game(sim,team,opponent,seed,i<cfg.logs,match,false);
       const own=reverse?'p2':'p1';
       const won=g.winner==='candidate'&&!reverse||g.winner==='opponent'&&reverse;
       wins+=Number(won);
-      rows.push([name,match,i,seed.join('-'),own,Number(won),g.turns,JSON.stringify(g.trace.selections.find(s=>s.side===own)||{}),g.trace.errors.length]);
+      rows.push([name,match,i,seed.join('-'),own,Number(won),g.turns,JSON.stringify(g.trace.selections.find(s=>s.side===own)||{}),g.trace.errors.length,Number(g.rainObserved)]);
       if(i<cfg.logs)fs.writeFileSync(path.join(out,name+'_'+match+'_'+i+'.log'),g.log+'\nCHOICES\n'+JSON.stringify(g.trace,null,2));
     }
-    console.log(name+'/'+match+' '+wins+'/'+cfg.count+' (HEURISTIC AI ONLY)');
+    console.log(name+'/'+match+' '+wins+'/'+cfg.count+' (FIXED-SCENARIO STRESS TEST; HEURISTIC AI ONLY)');
   }
   fs.writeFileSync(path.join(out,'results.csv'),[header,...rows].map(r=>r.map(csv).join(',')).join('\n')+'\n');
-  fs.writeFileSync(path.join(out,'experiment.json'),JSON.stringify({format:FORMAT,versions:'see showdown-commit.txt',note:'Synthetic opponent rosters and noncompetitive heuristic AI; not ladder win rates',count:cfg.count},null,2));
+  fs.writeFileSync(path.join(out,'experiment.json'),JSON.stringify({format:FORMAT,versions:'see showdown-commit.txt',note:'FIXED three-member synthetic opponent scenarios, noncompetitive heuristic AI; NOT ladder win rates',count:cfg.count},null,2));
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
