@@ -1,0 +1,72 @@
+name: Champions M-C Improvement Cycle Two
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cycle2.yml'
+  workflow_dispatch:
+    inputs:
+      per_case:
+        type: choice
+        default: '75'
+        options: ['2', '25', '75', '150']
+permissions:
+  contents: read
+concurrency:
+  group: champions-improvement-cycle-two
+  cancel-in-progress: false
+jobs:
+  test-and-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.per_case || '75' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned simulator
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify engine and unit tests
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: Test roster changes small
+        run: node cycle2.js --per-case 2
+      - name: Complete comparable roster experiments
+        run: node cycle2.js --per-case "$PER_CASE"
+      - name: Summarize changes and unmodified controls
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/cycle2/summary.json');
+          console.log('# Actual cycle 2: new opponent-specific team countermeasures');
+          console.log('|variant|AI wins|sample size|minimum case|');
+          console.log('|---|---:|---:|---:|');
+          for(const r of s.results)
+            console.log('|'+r.name+'|'+r.wins+'|'+r.total+'|'+(r.worst*100).toFixed(1)+'%|');
+          console.log('**Synthetic opponents, not ranked matches. Unmodified C/E/B are control groups.**');
+          NODE
+      - name: Preserve complete match records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-cycle2-${{ github.run_id }}
+          path: output/cycle2/
+          retention-days: 30
