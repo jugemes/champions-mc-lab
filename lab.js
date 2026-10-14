@@ -254,4 +254,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot};
