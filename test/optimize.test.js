@@ -2,9 +2,8 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {pool,candidates,score,args,CASES}=require('../optimize');
-const {prelim,scenarios,archetypes}=require('../fixtures').variants?
-  {prelim:require('../lab').prelim,...require('../fixtures')}:
-  {prelim:require('../lab').prelim,...require('../fixtures')};
+const {prelim}=require('../lab');
+const {scenarios,archetypes}=require('../fixtures');
 test('eight distinct fixed stress matchup definitions are wired',()=>{
   assert.equal(CASES.length,8);
   for(const s of CASES){
