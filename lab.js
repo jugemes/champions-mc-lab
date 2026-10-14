@@ -108,7 +108,7 @@ class Bot{
     this.decisionPolicy=options.decisionPolicy||'baseline';
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
-    this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};
+    this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';
   }
   async run(){
     for await(const chunk of this.stream){
@@ -140,6 +140,8 @@ class Bot{
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
+        if(a[1]==='-fieldstart'&&String(a[2]).startsWith('move: '))this.terrain=canonical(a[2].slice(6));
+        if(a[1]==='-fieldend'&&canonical(String(a[2]).replace(/^move: /,''))===this.terrain)this.terrain='';
         if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
         if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus='';
         if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':')){
@@ -225,7 +227,7 @@ class Bot{
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
-      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts});
+      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain});
       if(def.category!=='Status'){
         // Already applied exactly once by moveUtility's public-state range calculator.
         if(def.priority>0&&this.foeHP<=0.35)score+=25;
@@ -243,7 +245,7 @@ class Bot{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
-          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,
+          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,terrain:this.terrain,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
