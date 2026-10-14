@@ -51,6 +51,12 @@ const archetypes={
   ],
 };
 archetypes.mence=archetypes.setup;
+// Same six preview species but distinct forced opponent trios: stress diversity,
+// not a distribution estimate from competitive ladder usage.
+archetypes.rain2=archetypes.rain;
+archetypes.setup2=archetypes.setup;
+archetypes.stall2=archetypes.stall;
+archetypes.mence2=archetypes.mence;
 // This is an explicit *stress test*: opponent's actual 3 and lead are fixed in advance.
 // The candidate AI must still select only from the opponent's public six-species preview.
 const scenarios={
@@ -58,5 +64,9 @@ const scenarios={
   setup: {chosen:['Gholdengo','Salamence','Volcarona'],lead:'Gholdengo',mustSeeSetup:true},
   mence: {chosen:['Salamence','Volcarona','Rillaboom'],lead:'Salamence'}, 
   stall: {chosen:['Toxapex','Umbreon','Corviknight'],lead:'Toxapex'},
+  rain2: {chosen:['Pelipper','Swampert','Gholdengo'],lead:'Pelipper',mustSeeRain:true,scriptAs:'rain'},
+  setup2: {chosen:['Gholdengo','Dragonite','Volcarona'],lead:'Gholdengo',mustSeeSetup:true,scriptAs:'setup'},
+  stall2: {chosen:['Toxapex','Slowbro','Skarmory'],lead:'Toxapex',scriptAs:'stall'},
+  mence2: {chosen:['Salamence','Dragonite','Gholdengo'],lead:'Salamence',scriptAs:'mence'},
 };
 module.exports={variants,archetypes,scenarios};
