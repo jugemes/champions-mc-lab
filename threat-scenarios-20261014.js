@@ -29,6 +29,7 @@ const skeledirge=get('Skeledirge');
 const rillaboom=get('Rillaboom');
 const toxapex=get('Toxapex');
 const archaludon=get('Archaludon');
+const archaludonAlternate={...archaludon,item:'Eject Button'};
 const pelipper=get('Pelipper');
 const opponents={
   sun_charizard_y:[
@@ -41,7 +42,7 @@ const opponents={
     indeedee,gengar,dragonite,gholdengo,volcarona,rillaboom
   ].map(copy),
   psychic_terrain_hybrid:[
-    indeedee,gengar,dragonite,primarina,archaludon,skeledirge
+    indeedee,gengar,dragonite,primarina,archaludonAlternate,skeledirge
   ].map(copy)
 };
 module.exports={opponents};
