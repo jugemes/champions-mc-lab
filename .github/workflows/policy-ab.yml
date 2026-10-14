@@ -1,0 +1,74 @@
+name: Champions M-C Decision Policy A-B Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/policy-ab.yml'
+  workflow_dispatch:
+    inputs:
+      per_case:
+        type: choice
+        default: '50'
+        options: ['2', '10', '50', '100']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-policy-ab
+  cancel-in-progress: false
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.per_case || '50' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build simulator
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify exact engine and regression
+        run: |
+          git -C showdown rev-parse HEAD
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: A-B preflight
+        run: node policy-ab.js --per-case 2
+      - name: A-B seeded actual battles
+        run: node policy-ab.js --per-case "$PER_CASE"
+      - name: Publish exact paired outcome
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/policy-ab/summary.json');
+          console.log('# AI policy change, same team, same opposing baseline');
+          console.log('|Team|old wins|v2 wins|difference|');
+          console.log('|---|---:|---:|---:|');
+          for(const r of s.results)
+            console.log('|'+r.candidate+'|'+r.baseline.wins+'/'+r.baseline.games+
+              '|'+r.v2.wins+'/'+r.v2.games+'|'+r.differenceWins+'|');
+          console.log('**Synthetic AI, not ranked battle win rates.**');
+          NODE
+      - name: Save raw A-B per-match records and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-policy-ab-${{ github.run_id }}
+          path: output/policy-ab/
+          retention-days: 30
