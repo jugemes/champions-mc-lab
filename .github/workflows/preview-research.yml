@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/preview-research.yml'
+      - 'preview-opponents.js'
+      - 'preview-policy.js'
+      - 'optimize-preview.js'
+      - 'test/preview.test.js'
+      - 'lab.js'
   workflow_dispatch:
     inputs:
       matches_per_pair:
