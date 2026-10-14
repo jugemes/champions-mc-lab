@@ -70,7 +70,7 @@ function chooseThree(dex,team,opp){
   let best=-Infinity,chosen=[1,2,3];
   for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)for(let k=j+1;k<6;k++){
     const selected=[i,j,k];
-    const cov=opp.map(f=>Math.max(...selected.map(n=>Math.max(...team[n].moves.map(m=>moveUtility(dex,team[n],f,m))))));
+    const cov=opp.map(f=>Math.max(...selected.map(n=>maxHit(dex,team[n],f))));
     const score=cov.reduce((x,y)=>x+y,0)/(cov.length||1)
       - defensiveCoverage(dex,selected.map(n=>team[n]),opp)/5
       + (selected.some(n=>team[n].item==='Choice Scarf')?8:0)
