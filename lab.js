@@ -6,6 +6,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
+const {publicThreat,defensiveCoverage}=require('./threat');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -70,6 +71,7 @@ function chooseThree(dex,team,opp){
     const selected=[i,j,k];
     const cov=opp.map(f=>Math.max(...selected.map(n=>maxHit(dex,team[n],f))));
     const score=cov.reduce((x,y)=>x+y,0)/(cov.length||1)
+      - defensiveCoverage(dex,selected.map(n=>team[n]),opp)/5
       + (selected.some(n=>team[n].item==='Choice Scarf')?8:0)
       - (selected.filter(n=>Boolean(dex.items.get(team[n].item).megaStone)).length>1?25:0);
     if(score>best){
@@ -168,7 +170,8 @@ class Bot{
     const side=req.side.pokemon;
     if(req.forceSwitch){
       const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
-      bench.sort((a,b)=>maxHit(this.dex,this.getSet(b.p),this.foeActive)-maxHit(this.dex,this.getSet(a.p),this.foeActive));
+      const score=p=>maxHit(this.dex,this.getSet(p),this.foeActive)-0.7*publicThreat(this.dex,this.getSet(p).species,this.foeActive);
+      bench.sort((a,b)=>score(b.p)-score(a.p));
       return bench.length?'switch '+(bench[0].i+1):'default';
     }
     const active=req.active?.[0], current=side.find(p=>p.active);
@@ -215,8 +218,12 @@ class Bot{
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
     if(!active.trapped&&bench.length&&this.switches<3){
-      bench.sort((a,b)=>maxHit(this.dex,this.getSet(b.p),this.foeActive)-maxHit(this.dex,this.getSet(a.p),this.foeActive));
-      if(maxHit(this.dex,this.getSet(bench[0].p),this.foeActive)>Math.max(70,best.score*1.65+25)){
+      const riskOf=p=>publicThreat(this.dex,this.getSet(p).species,this.foeActive);
+      const score=p=>maxHit(this.dex,this.getSet(p),this.foeActive)-0.6*riskOf(p);
+      const currentRisk=publicThreat(this.dex,my.species,this.foeActive);
+      bench.sort((a,b)=>score(b.p)-score(a.p));
+      if(score(bench[0].p)>Math.max(55,best.score*1.1+15)
+        && (riskOf(bench[0].p)<currentRisk*0.95||ratio<0.30)){
         this.switches++;return 'switch '+(bench[0].i+1);
       }
     }
