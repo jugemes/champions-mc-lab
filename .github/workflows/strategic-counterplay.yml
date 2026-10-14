@@ -1,0 +1,72 @@
+name: M-C Strategic Counterplay Charizard-Y Psychic Field
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/strategic-counterplay.yml']
+  workflow_dispatch:
+    inputs:
+      per_pair:
+        default: '80'
+        type: choice
+        options: ['2','20','80','150']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-strategic-counterplay
+  cancel-in-progress: false
+jobs:
+  paired:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_PAIR: ${{ inputs.per_pair || '80' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Legal opponent sets, policy regression and format verification
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+      - name: Preflight independent six-to-three against strategically chosen opposition
+        run: node strategic-threat-audit.js --per-pair 2
+      - name: Paired strategic six-to-three versus stochastic control
+        run: node strategic-threat-audit.js --per-pair "$PER_PAIR"
+      - name: Display actual field activation and per-team outcomes
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/strategic-threats/summary.json');
+          console.log('## Strategic counterplay A/B – both players pick 3 from visible 6');
+          console.log('Total: '+s.games+' games');
+          console.log('|Team|Threat|Enemy AI|Own preview|Win|Setter|Sun|Psychic Terrain|Priority denied|');
+          console.log('|---|---|---|---|---:|---:|---:|---:|---:|');
+          for(const r of s.rows) console.log('|'+r.team+'|'+r.scenario+'|'+r.foePolicy+'|'+r.ourPolicy+
+            '|'+r.wins+'/'+r.total+'|'+r.setterSelected+'|'+r.sunObserved+'|'+r.psychicTerrainObserved+'|'+r.priorityBlocked+'|');
+          console.log('**All numbers are synthetic AI matches, not rank-battle probabilities.**');
+          NODE
+      - name: Archive full choices, match conditions and selected three
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-strategic-counterplay-${{ github.run_id }}
+          path: output/strategic-threats/
+          retention-days: 30
+          if-no-files-found: warn
