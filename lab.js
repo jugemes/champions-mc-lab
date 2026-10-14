@@ -11,6 +11,7 @@ const {moveUtility,incomingRisk}=require('./damage');
 const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
+const {chooseStrategicPreview}=require('./preview-strategic');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -193,7 +194,9 @@ class Bot{
         return index+1;
       }):this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
-        :chooseThree(this.dex,this.team,this.opp);
+        :this.previewPolicy==='strategic'
+          ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
+          :chooseThree(this.dex,this.team,this.opp);
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
@@ -288,8 +291,8 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const trace={choices:[],selections:[],errors:[]};
   const stress=scenario==null?null:scenarios[scenario];
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),seed});
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),seed});
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed});
   const logs=[];let winner='',turns=0,rainObserved=false,sunObserved=false,psychicTerrainObserved=false,priorityBlocked=0,megaCharizardObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
