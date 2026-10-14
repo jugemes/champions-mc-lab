@@ -31,6 +31,8 @@ test('Scripted setup only targets the opposing stall/setup scenario',()=>{
   assert.equal(shouldScriptedSetup({scenario:'setup',ownSpecies:'Salamence',stage:{},ratio:1,turn:1}),'dragondance');
   assert.equal(shouldScriptedSetup({scenario:'setup',ownSpecies:'Volcarona',stage:{},ratio:1,turn:1}),'quiverdance');
   assert.equal(shouldScriptedSetup({scenario:'setup',ownSpecies:'Salamence',stage:{atk:1},ratio:1,turn:1}),null);
+  assert.equal(shouldScriptedSetup({scenario:'mence',ownSpecies:'Salamence',foeSpecies:'Primarina',stage:{},ratio:1,turn:1}),null);
+  assert.equal(shouldScriptedSetup({scenario:'setup',ownSpecies:'Gholdengo',foeSpecies:'Primarina',stage:{},ratio:1,turn:1}),'nastyplot');
   assert.equal(shouldScriptedSetup({scenario:'rain',ownSpecies:'Salamence',stage:{},ratio:1,turn:1}),null);
 });
 test('Regenerator script only swaps a damaged Toxapex',()=>{
