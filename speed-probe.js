@@ -7,7 +7,7 @@ const {normalize}=require('./lab');
 const {variants,archetypes}=require('./fixtures');
 const serperior={species:'Serperior',item:'Choice Scarf',ability:'Contrary',nature:'Timid',
   evs:{hp:2,spa:32,spe:32},moves:['Leaf Storm','Dragon Pulse','Glare','Taunt']};
-const others=archetypes.setup.filter(s=>s.species!=='Garchomp');
+const others=archetypes.setup.filter(s=>s.species!=='Gholdengo');
 const opponents=[serperior,...others];
 const validator=sim.TeamValidator.get('gen9championsbssregmc');
 assert.equal(opponents.length,6);
