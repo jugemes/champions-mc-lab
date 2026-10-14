@@ -117,8 +117,10 @@ class Bot{
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
         if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
         if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus='';
-        if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':'))this.hazards[canonical(a[3])]=(this.hazards[canonical(a[3])]||0)+1;
-        if(a[1]==='-sideend'&&a[2]?.startsWith(this.foe+':'))delete this.hazards[canonical(a[3])];
+        if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':')){
+          const key=canonical(String(a[3]).replace(/^move: /,''));this.hazards[key]=(this.hazards[key]||0)+1;
+        }
+        if(a[1]==='-sideend'&&a[2]?.startsWith(this.foe+':'))delete this.hazards[canonical(String(a[3]).replace(/^move: /,''))];
         if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
@@ -230,12 +232,29 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse){
   const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null,reverse?scenario:null);
   const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen,reverse?null:scenario);
   const logs=[];let winner='',turns=0,rainObserved=false;
+  const oppSide=reverse?'p1':'p2';
+  let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
+  let opponentActive='',opponentActiveHP=1;
   const observer=(async()=>{for await(const msg of streams.omniscient){
     if(captureLog)logs.push(msg);
     if(msg.includes('|-weather|RainDance'))rainObserved=true;
     for(const line of msg.split('\n')){
       if(line.startsWith('|win|'))winner=line.slice(5);
       if(line.startsWith('|turn|'))turns=Number(line.slice(6));
+      const a=line.split('|');
+      if(a[1]==='move'&&a[2]?.startsWith(oppSide+'a:')){
+        if(['Dragon Dance','Quiver Dance','Swords Dance','Nasty Plot'].includes(a[3]))opponentSetupMoves++;
+        if(a[3]==='Toxic Spikes')opponentToxicSpikes++;
+      }
+      if(a[1]==='-damage'&&a[2]?.startsWith(oppSide+'a:')){
+        const pair=String(a[3]).split('/').map(Number);
+        if(pair.length===2&&pair[1]>0)opponentActiveHP=pair[0]/pair[1];
+      }
+      if(a[1]==='switch'&&a[2]?.startsWith(oppSide+'a:')){
+        if(opponentActive==='Toxapex'&&opponentActiveHP<0.84&&opponentActiveHP>0)regenSwitchOuts++;
+        opponentActive=nameOf(a[3]);const pair=String(a[4]).split('/').map(Number);
+        opponentActiveHP=pair.length===2&&pair[1]>0?pair[0]/pair[1]:1;
+      }
     }
   }})();
   const run1=b1.run(),run2=b2.run();
@@ -246,7 +265,7 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse){
   const enemy=reverse?'p1':'p2';
   const selected=trace.selections.find(x=>x.side===enemy);
   if(!selected||selected.chosen.join('/')!==stress.chosen.join('/'))throw Error('Forced scenario selection failed');
-  return {winner,turns,trace,log:logs.join('\n'),rainObserved};
+  return {winner,turns,trace,log:logs.join('\n'),rainObserved,opponentSetupMoves,opponentToxicSpikes,regenSwitchOuts};
 }
 function args(argv){let count=1,logs=1,checkOnly=false;for(let i=0;i<argv.length;i++){
   if(argv[i]==='--check')checkOnly=true;
@@ -262,7 +281,7 @@ async function main(){
   const cfg=args(process.argv.slice(2)),sim=load();check(sim);
   if(cfg.checkOnly)return;
   const out=path.join(root,'output');fs.mkdirSync(out,{recursive:true});
-  const rows=[],header=['variant','archetype','index','seed','side','win','turns','selection','errors','rain_observed'];
+  const rows=[],header=['variant','archetype','index','seed','side','win','turns','selection','errors','rain_observed','opponent_setup_moves','opponent_toxic_spikes','regen_switchouts'];
   for(const [name,team] of Object.entries(variants))for(const [match,opponent] of Object.entries(archetypes)){
     let wins=0;
     for(let i=0;i<cfg.count;i++){
@@ -271,10 +290,14 @@ async function main(){
       const own=reverse?'p2':'p1';
       const won=g.winner==='candidate'&&!reverse||g.winner==='opponent'&&reverse;
       wins+=Number(won);
-      rows.push([name,match,i,seed.join('-'),own,Number(won),g.turns,JSON.stringify(g.trace.selections.find(s=>s.side===own)||{}),g.trace.errors.length,Number(g.rainObserved)]);
+      rows.push([name,match,i,seed.join('-'),own,Number(won),g.turns,JSON.stringify(g.trace.selections.find(s=>s.side===own)||{}),g.trace.errors.length,Number(g.rainObserved),g.opponentSetupMoves,g.opponentToxicSpikes,g.regenSwitchOuts]);
       if(i<cfg.logs)fs.writeFileSync(path.join(out,name+'_'+match+'_'+i+'.log'),g.log+'\nCHOICES\n'+JSON.stringify(g.trace,null,2));
     }
-    console.log(name+'/'+match+' '+wins+'/'+cfg.count+' (FIXED-SCENARIO STRESS TEST; HEURISTIC AI ONLY)');
+    const focused=rows.filter(r=>r[0]===name&&r[1]===match);
+    const extras=' setup='+focused.reduce((n,r)=>n+r[10],0)+' toxspikes='+focused.reduce((n,r)=>n+r[11],0)+' regenSwitch='+focused.reduce((n,r)=>n+r[12],0);
+    if(match==='setup'&&!focused.some(r=>r[10]>0))throw Error('NO ACTUAL SETUP MOVE OBSERVED for '+name);
+    if(match==='stall'&&!focused.some(r=>r[11]>0))throw Error('NO ACTUAL STALL HAZARD OBSERVED for '+name);
+    console.log(name+'/'+match+' '+wins+'/'+cfg.count+' '+extras+' (SCRIPTED STRESS TEST; HEURISTIC AI ONLY)');
   }
   fs.writeFileSync(path.join(out,'results.csv'),[header,...rows].map(r=>r.map(csv).join(',')).join('\n')+'\n');
   fs.writeFileSync(path.join(out,'experiment.json'),JSON.stringify({format:FORMAT,versions:'see showdown-commit.txt',note:'FIXED three-member synthetic opponent scenarios, noncompetitive heuristic AI; NOT ladder win rates',count:cfg.count},null,2));
