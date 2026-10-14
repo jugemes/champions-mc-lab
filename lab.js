@@ -101,7 +101,10 @@ class Bot{
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
           if(a[1]!=='detailschange'){
-            this.foeBoosts={};this.foeHP=1;this.foeItem='';this.foeStatus='';
+            this.foeBoosts={};
+            const hp=String(a[4]||'').match(/^(\\d+)\/(\\d+)/);
+            this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
+            this.foeItem='';this.foeStatus='';
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
           }
         }
@@ -313,4 +316,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game};
