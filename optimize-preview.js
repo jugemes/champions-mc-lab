@@ -37,7 +37,7 @@ function rank(counts,n){
   return {mean,worst,score:0.75*mean+0.25*worst,scenarioWins:counts};
 }
 function record(map,selection){
-  const key=selection?.chosen?.join('/')||'UNRECORDED';
+  const key=selection?.chosen?.slice().sort().join('/')||'UNRECORDED';
   map[key]=(map[key]||0)+1;
 }
 async function run(cfg){
