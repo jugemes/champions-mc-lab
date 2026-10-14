@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/five-cycles.yml'
       - 'optimize.js'
+      - 'lab.js'
+      - 'test/traps.test.js'
   workflow_dispatch:
     inputs:
       matches_per_scenario:
