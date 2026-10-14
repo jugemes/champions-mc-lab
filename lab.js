@@ -290,13 +290,17 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
   const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),seed});
   const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),seed});
-  const logs=[];let winner='',turns=0,rainObserved=false;
+  const logs=[];let winner='',turns=0,rainObserved=false,sunObserved=false,psychicTerrainObserved=false,priorityBlocked=0,megaCharizardObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
   let opponentActive='',opponentActiveHP=1;
   const observer=(async()=>{for await(const msg of streams.omniscient){
     if(captureLog)logs.push(msg);
     if(msg.includes('|-weather|RainDance'))rainObserved=true;
+    if(msg.includes('|-weather|SunnyDay'))sunObserved=true;
+    if(msg.includes('|-fieldstart|move: Psychic Terrain'))psychicTerrainObserved=true;
+    if(msg.includes('Charizard-Mega-Y'))megaCharizardObserved=true;
+    priorityBlocked+=(msg.match(/\|-activate\|[^\n]*\|move: Psychic Terrain/g)||[]).length;
     for(const line of msg.split('\n')){
       if(line.startsWith('|win|'))winner=line.slice(5);
       if(line.startsWith('|turn|'))turns=Number(line.slice(6));
@@ -324,7 +328,7 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const enemy=reverse?'p1':'p2';
   const selected=trace.selections.find(x=>x.side===enemy);
   if(stress&&(!selected||selected.chosen.join('/')!==stress.chosen.join('/')))throw Error('Forced scenario selection failed');
-  return {winner,turns,trace,log:logs.join('\n'),rainObserved,opponentSetupMoves,opponentToxicSpikes,regenSwitchOuts};
+  return {winner,turns,trace,log:logs.join('\n'),rainObserved,sunObserved,psychicTerrainObserved,priorityBlocked,megaCharizardObserved,opponentSetupMoves,opponentToxicSpikes,regenSwitchOuts};
 }
 function args(argv){let count=1,logs=1,checkOnly=false;for(let i=0;i<argv.length;i++){
   if(argv[i]==='--check')checkOnly=true;
