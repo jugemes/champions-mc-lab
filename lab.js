@@ -83,6 +83,19 @@ function chooseThree(dex,team,opp){
   }
   return chosen;
 }
+// Switching legality from public state, not inaccessible opponent sets.
+function canSwitchAgainst(dex,active,own,foeName,revealedAbility=''){
+  if(active?.trapped||active?.maybeTrapped)return false;
+  const us=dex.species.get(own.species),foe=dex.species.get(foeName);
+  if(!us.exists||!foe.exists)return true;
+  const types=us.types;
+  // A disclosed Mega form has a public and fixed ability.
+  const ability=canonical(revealedAbility||(foe.isMega?foe.abilities['0']:''));
+  if(ability==='shadowtag'&&!types.includes('Ghost')&&canonical(own.ability)!=='shadowtag')return false;
+  if(ability==='magnetpull'&&types.includes('Steel'))return false;
+  if(ability==='arenatrap'&&!types.includes('Flying')&&canonical(own.ability)!=='levitate'&&own.item!=='Air Balloon')return false;
+  return true;
+}
 class Bot{
   constructor(stream,dex,team,side,trace,forcedSelection=null,scriptScenario=null){
     this.stream=stream;this.dex=dex;this.team=team;this.side=side;
@@ -200,7 +213,7 @@ class Bot{
     if(shouldScriptedRegen({scenario:this.scriptScenario,ownSpecies:this.getSet(current).species,ratio,turn:this.turn,switches:this.switches})){
       const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
       bench.sort((a,b)=>Number(this.getSet(b.p).species==='Umbreon')-Number(this.getSet(a.p).species==='Umbreon'));
-      if(bench.length&&!active.trapped){this.switches++;return 'switch '+(bench[0].i+1);}
+      if(bench.length&&canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)){this.switches++;return 'switch '+(bench[0].i+1);}
     }
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
@@ -221,7 +234,7 @@ class Bot{
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
-    if(!active.trapped&&bench.length&&this.switches<3){
+    if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
       const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
       const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
@@ -316,4 +329,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst};
