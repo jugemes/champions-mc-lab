@@ -41,8 +41,9 @@ test('sun increases fire damage, cuts water damage and raises public threat',()=
  const water=estimateDamage(dex,prim,'Charizard','Sparkling Aria');
  const sunWater=estimateDamage(dex,prim,'Charizard','Sparkling Aria',{weather:'SunnyDay'});
  assert.ok(sunWater.mid<water.mid*.56);
- const risk=incomingRisk(dex,prim,'Charizard-Mega-Y');
- const sunRisk=incomingRisk(dex,prim,'Charizard-Mega-Y',{weather:'SunnyDay'});
+ const rilla=teams().C_rill_gholdengo_for_gengar.find(p=>p.species==='Rillaboom');
+ const risk=incomingRisk(dex,rilla,'Charizard-Mega-Y');
+ const sunRisk=incomingRisk(dex,rilla,'Charizard-Mega-Y',{weather:'SunnyDay'});
  assert.ok(sunRisk>risk);
 });
 test('real battle chooses both sides independently with no forced three',async()=>{
