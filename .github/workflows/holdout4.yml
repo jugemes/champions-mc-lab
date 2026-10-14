@@ -1,0 +1,33 @@
+name: Champions M-C Independent Holdout 4
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/holdout4.yml']
+permissions:
+  contents: read
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: cd showdown && npm ci && npm run build
+      - run: npm test && npm run check
+      - run: node holdout4.js --per-case 2
+      - run: node holdout4.js --per-case 100
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: holdout4-results
+          path: output/holdout4/
