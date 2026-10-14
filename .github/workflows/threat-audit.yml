@@ -1,0 +1,80 @@
+name: M-C Charizard-Y and Psychic Terrain Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/threat-audit.yml'
+  workflow_dispatch:
+    inputs:
+      per_pair:
+        description: 'Games per team, threat preview, opponent AI and policy'
+        type: choice
+        default: '80'
+        options: ['2','20','80','150']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-new-threats
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_PAIR: ${{ inputs.per_pair || '80' }}
+    steps:
+      - name: Checkout lab
+        uses: actions/checkout@v4
+      - name: Checkout pinned Showdown
+        uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed simulator
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Unit tests and legality
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: Preflight independent 6 to 3
+        run: node threat-audit.js --per-pair 2
+      - name: Full threat vs candidate policy paired evaluation
+        run: node threat-audit.js --per-pair "$PER_PAIR"
+      - name: Report exposure and policy changes
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/new-threats/summary.json');
+          console.log('## Charizard-Y / Psychic Terrain independently chosen 6→3 audit');
+          console.log('- Pinned engine: '+s.engine);
+          console.log('- Battles: '+s.games);
+          console.log('|Team|Preview|Enemy AI|Own AI|Wins|Sun active|Psychic active|Setter picked|Priority blocked|');
+          console.log('|---|---|---|---|---:|---:|---:|---:|---:|');
+          for(const r of s.rows)console.log('|'+r.team+'|'+r.scenario+'|'+r.foePolicy+'|'+r.ourPolicy+
+            '|'+r.wins+'/'+r.total+'|'+r.sunObserved+'|'+r.psychicTerrainObserved+
+            '|'+r.setterSelected+'|'+r.priorityBlocked+'|');
+          console.log('**Not ranked-play win rates; public sixes and AI are constructed.**');
+          NODE
+      - name: Save seeds, full matchup breakdown, six-to-three selections, logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-new-threats-${{ github.run_id }}
+          path: output/new-threats/
+          if-no-files-found: warn
+          retention-days: 30
