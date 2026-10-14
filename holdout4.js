@@ -23,7 +23,12 @@ async function run({perCase}){
  candidates.E_original=original.E_control;
  candidates.B_original=original.B_control;
  validatePool(sim,candidates);
- const cases=Object.keys(opponents),names=Object.keys(candidates);
+ const cases=Object.keys(opponents),names=[
+  'C_original','E_original','B_original',
+  'C_rill_control','C_rill_electross_for_gengar',
+  'C_rill_gholdengo_for_gengar','C_rill_corviknight_for_skeledirge',
+  'E_ee_control','E_ee_primarina_for_rillaboom','E_ee_primarina_for_skeledirge'
+ ];
  const configurations=names.map(name=>({name,team:name,policy:'v2'}));
  fs.mkdirSync(OUT,{recursive:true});
  const csv=fs.createWriteStream(path.join(OUT,'games.csv'));
