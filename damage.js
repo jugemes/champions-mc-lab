@@ -68,8 +68,13 @@ function estimateDamage(dex,attacker,foeName,moveName,info={}){
   const maxDef=Math.floor((foe.baseStats[def]+32+20)*1.1);
   const minHp=foe.baseStats.hp+75,maxHp=minHp+32;
   const accuracy=typeof move.accuracy==='number'?move.accuracy/100:1;
-  let min=damage(50,power,atk,maxDef*scaleStage(defStage),stab,eff,.85)/maxHp;
-  let max=damage(50,power,atk,minDef*scaleStage(defStage),stab,eff,1)/minHp;
+  const weather=canon(info.weather);
+  const weatherMultiplier=weather==='sunnyday'
+    ?(move.type==='Fire'?1.5:move.type==='Water'?0.5:1)
+    :weather==='raindance'
+      ?(move.type==='Water'?1.5:move.type==='Fire'?0.5:1):1;
+  let min=damage(50,power,atk,maxDef*scaleStage(defStage),stab,eff,.85)*weatherMultiplier/maxHp;
+  let max=damage(50,power,atk,minDef*scaleStage(defStage),stab,eff,1)*weatherMultiplier/minHp;
   if(info.burned&&move.category==='Physical'&&canon(attacker.ability)!=='guts'&&move.id!=='facade'){
     min*=0.5;max*=0.5;
   }
@@ -99,7 +104,12 @@ function incomingRisk(dex,defender,foeName,info={}){
     const atk=(foe.baseStats[stat]+32+20)*1.1*scaleStage(stage);
     const ourDef=knownStat(dex,defender,def);
     const stab=foe.types.includes(move.type)?1.5:1;
-    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)/hp);
+    const weather=canon(info.weather);
+    const multiplier=weather==='sunnyday'
+      ?(move.type==='Fire'?1.5:move.type==='Water'?0.5:1)
+      :weather==='raindance'
+        ?(move.type==='Water'?1.5:move.type==='Fire'?0.5:1):1;
+    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)*multiplier/hp);
   }
   return peak;
 }
