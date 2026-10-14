@@ -1,5 +1,7 @@
 name: Champions M-C Pilot
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       showdown_ref:
