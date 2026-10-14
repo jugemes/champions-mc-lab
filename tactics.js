@@ -57,11 +57,23 @@ function policyStatusScore(move,{ratio,turn,boosts={},foeBoosts={},foeSpecies=''
   if(id==='protect')return hp<0.4?5:10;
   return 0;
 }
-function shouldScriptedSetup({scenario,ownSpecies,stage={},ratio,turn}){
-  if(scenario!=='setup'||turn>4||ratio<0.45)return null;
-  const my=canonical(ownSpecies);
-  if(my==='salamence'&&boost(stage,'atk')<1)return 'dragondance';
-  if(my==='volcarona'&&boost(stage,'spa')<1)return 'quiverdance';
+function shouldScriptedSetup({scenario,ownSpecies,foeSpecies='',stage={},ratio,turn}){
+  if(!['setup','mence'].includes(scenario)||turn>5||ratio<0.55)return null;
+  const my=canonical(ownSpecies),foe=canonical(foeSpecies);
+  // Never knowingly sacrifice Salamence to a Fairy or a fast ice attacker.
+  if(my==='salamence'){
+    if(['primarina','starmie','skeledirge','garchomp','dragonite'].includes(foe))return null;
+    return boost(stage,'atk')<1?'dragondance':null;
+  }
+  // Volcarona must not waste a turn against its common Water/Rock counters.
+  if(my==='volcarona'){
+    if(['primarina','starmie','garchomp','skeledirge','gyarados'].includes(foe))return null;
+    return boost(stage,'spa')<1?'quiverdance':null;
+  }
+  if(my==='gholdengo'){
+    if(['skeledirge','garchomp','rillaboom'].includes(foe))return null;
+    return boost(stage,'spa')<2?'nastyplot':null;
+  }
   return null;
 }
 function shouldScriptedRegen({scenario,ownSpecies,ratio,turn,switches}){
