@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/five-cycles.yml'
+      - 'optimize.js'
   workflow_dispatch:
     inputs:
       matches_per_scenario:
