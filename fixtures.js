@@ -50,4 +50,11 @@ const archetypes={
     go,
   ],
 };
-module.exports={variants,archetypes};
+// This is an explicit *stress test*: opponent's actual 3 and lead are fixed in advance.
+// The candidate AI must still select only from the opponent's public six-species preview.
+const scenarios={
+  rain:  {chosen:['Pelipper','Swampert','Archaludon'],lead:'Pelipper',mustSeeRain:true},
+  setup: {chosen:['Salamence','Volcarona','Rillaboom'],lead:'Salamence'},
+  stall: {chosen:['Toxapex','Umbreon','Corviknight'],lead:'Toxapex'},
+};
+module.exports={variants,archetypes,scenarios};
