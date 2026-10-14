@@ -55,7 +55,14 @@ function estimateDamage(dex,attacker,foeName,moveName,info={}){
   const atkStage=bypass?0:Number(info.boosts?.[stat]||0);
   const defStage=Number(info.foeBoosts?.[def]||0);
   const atk=knownStat(dex,attacker,stat)*scaleStage(atkStage);
-  const power=powerOf(move,foe);
+  // Grassy Terrain halves Earthquake/Bulldoze into grounded targets.
+  // This is a public battle-state rule, not a guessed opponent set.
+  const grounded=!foe.types.includes('Flying')
+    &&canon(info.foeAbility)!=='levitate'
+    &&canon(info.foeItem)!=='airballoon';
+  const terrainReduction=canon(info.terrain)==='grassyterrain'
+    &&grounded&&['earthquake','bulldoze','magnitude'].includes(move.id)?0.5:1;
+  const power=powerOf(move,foe)*terrainReduction;
   const stab=species.types.includes(move.type)?1.5:1;
   const minDef=Math.floor((foe.baseStats[def]+20)*0.9);
   const maxDef=Math.floor((foe.baseStats[def]+32+20)*1.1);
