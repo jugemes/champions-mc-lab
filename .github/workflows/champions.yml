@@ -54,6 +54,8 @@ jobs:
         run: npm test
       - name: Verify legal Pokemon Champions M-C teams
         run: npm run check
+      - name: Verify speed benchmarks using Showdown battle state
+        run: node speed-probe.js
       - name: Run experimental games
         run: node lab.js --count "$MATCHES" --logs 3
       - name: Summarize experimental matches
