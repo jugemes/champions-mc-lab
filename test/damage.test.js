@@ -10,7 +10,7 @@ const dex=sim.Dex.mod('champions');
 const st=variants.A_rillaboom[0],g=variants.A_rillaboom[3];
 test('Champions HP and offensive stat-point ranges use M-C rules, not 252 EV math',()=>{
   assert.equal(knownStat(dex,st,'hp'),dex.species.get('Starmie').baseStats.hp+3+75);
-  assert.equal(knownStat(dex,st,'spa'),Math.floor((dex.species.get('Starmie').baseStats.spa+32+20)*.9));
+  assert.equal(knownStat(dex,st,'spa'),dex.species.get('Starmie').baseStats.spa+32+20);
 });
 test('Air Balloon revealed on field makes Earthquake absolutely worthless, then popping restores coverage',()=>{
   const ch=variants.C_master[1];
