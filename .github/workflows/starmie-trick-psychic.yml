@@ -1,4 +1,5 @@
 name: Champions M-C Starmie Trick vs Psychic Actual Audit
+# A/B comparators rely on each observed Trick log event within its own move.
 on:
   push:
     branches: [main]
