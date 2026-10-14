@@ -8,6 +8,7 @@ const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const {publicThreat,defensiveCoverage}=require('./threat');
 const {moveUtility,incomingRisk}=require('./damage');
+const {seededRandom,choosePreview}=require('./preview-policy');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -97,11 +98,13 @@ function canSwitchAgainst(dex,active,own,foeName,revealedAbility=''){
   return true;
 }
 class Bot{
-  constructor(stream,dex,team,side,trace,forcedSelection=null,scriptScenario=null){
+  constructor(stream,dex,team,side,trace,forcedSelection=null,scriptScenario=null,options={}){
     this.stream=stream;this.dex=dex;this.team=team;this.side=side;
     this.foe=side==='p1'?'p2':'p1';this.opp=[];this.foeActive='';
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
     this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
+    this.previewPolicy=options.previewPolicy||'legacy';
+    this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};
   }
@@ -182,7 +185,9 @@ class Bot{
         const index=this.team.findIndex(x=>x.species===name);
         if(index<0)throw Error('Scenario member not in team: '+name);
         return index+1;
-      }):chooseThree(this.dex,this.team,this.opp);
+      }):this.previewPolicy==='stochastic'
+        ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
+        :chooseThree(this.dex,this.team,this.opp);
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
@@ -248,14 +253,14 @@ class Bot{
     return 'move '+(best.i+1)+(active.canMegaEvo?' mega':'');
   }
 }
-async function game(sim,one,two,seed,captureLog,scenario,reverse){
+async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
   const trace={choices:[],selections:[],errors:[]};
-  const stress=scenarios[scenario];
-  if(!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null,reverse?(stress.scriptAs||scenario):null);
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen,reverse?null:(stress.scriptAs||scenario));
+  const stress=scenario==null?null:scenarios[scenario];
+  if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,seed});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,seed});
   const logs=[];let winner='',turns=0,rainObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
@@ -286,10 +291,10 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse){
   await streams.omniscient.write('>start '+JSON.stringify({formatid:FORMAT,seed})+'\n>player p1 '+JSON.stringify({name:'candidate',team:normalize(one)})+'\n>player p2 '+JSON.stringify({name:'opponent',team:normalize(two)}));
   await Promise.all([observer,run1,run2]);
   if(!winner)throw Error('Game had no winner. Errors: '+JSON.stringify(trace.errors));
-  if(stress.mustSeeRain&&!rainObserved)throw Error('Rain stress test did not activate rain!');
+  if(stress?.mustSeeRain&&!rainObserved)throw Error('Rain stress test did not activate rain!');
   const enemy=reverse?'p1':'p2';
   const selected=trace.selections.find(x=>x.side===enemy);
-  if(!selected||selected.chosen.join('/')!==stress.chosen.join('/'))throw Error('Forced scenario selection failed');
+  if(stress&&(!selected||selected.chosen.join('/')!==stress.chosen.join('/')))throw Error('Forced scenario selection failed');
   return {winner,turns,trace,log:logs.join('\n'),rainObserved,opponentSetupMoves,opponentToxicSpikes,regenSwitchOuts};
 }
 function args(argv){let count=1,logs=1,checkOnly=false;for(let i=0;i<argv.length;i++){
