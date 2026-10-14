@@ -1,0 +1,64 @@
+name: Champions M-C Pilot
+on:
+  workflow_dispatch:
+    inputs:
+      showdown_ref:
+        description: "Showdown commit to test (use master only for compatibility checks)"
+        default: "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640"
+        required: true
+        type: string
+      matches_per_matchup:
+        description: "Games per candidate x opponent"
+        type: choice
+        options: ["1", "10", "100", "1000"]
+        default: "1"
+  schedule:
+    - cron: "15 1 * * 1"
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      MATCHES: ${{ github.event_name == 'schedule' && '1' || inputs.matches_per_matchup }}
+    steps:
+      - name: Checkout lab
+        uses: actions/checkout@v4
+      - name: Checkout Pokemon Showdown
+        uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: ${{ github.event_name == 'schedule' && 'master' || inputs.showdown_ref }}
+          path: showdown
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Record exact engine version
+        run: |
+          mkdir -p output
+          git -C showdown rev-parse HEAD > output/showdown-commit.txt
+      - name: Test fixtures
+        run: npm test
+      - name: Verify legal Pokemon Champions M-C teams
+        run: npm run check
+      - name: Run experimental games
+        run: node lab.js --count "$MATCHES" --logs 3
+      - name: Upload logs and CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-mc-${{ github.run_id }}
+          path: output/
+          retention-days: 30
+          if-no-files-found: warn
