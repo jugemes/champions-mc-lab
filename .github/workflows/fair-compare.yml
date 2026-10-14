@@ -1,0 +1,85 @@
+name: Champions M-C All-Candidates Fair Comparison
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fair-compare.yml'
+  workflow_dispatch:
+    inputs:
+      games_per_pair:
+        description: 'Per candidate per synthetic public-six (250 = 28,000 total)'
+        required: true
+        type: choice
+        options: ['2', '10', '50', '250']
+        default: '250'
+permissions:
+  contents: read
+concurrency:
+  group: champions-all-candidates-fair
+  cancel-in-progress: false
+jobs:
+  fair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      MATCHES: ${{ inputs.games_per_pair || '250' }}
+    steps:
+      - name: Checkout lab
+        uses: actions/checkout@v4
+      - name: Checkout pinned Showdown
+        uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build official engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify exact engine and unit tests
+        run: |
+          mkdir -p output
+          git -C showdown rev-parse HEAD > output/showdown-commit.txt
+          test "$(cat output/showdown-commit.txt)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: Fair comparison preflight
+        run: node compare-all.js --per-pair 2
+      - name: Fair comparison all 14 x 8 x 250
+        run: node compare-all.js --per-pair "$MATCHES"
+      - name: Report all 14 candidate results without adaptive preselection
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/fair-compare/summary.json');
+          console.log('## All '+s.results.length+' candidates, equal synthetic preview conditions');
+          console.log('- Battles: '+s.completed);
+          console.log('- Showdown version: '+s.engine);
+          console.log('|Candidate|Games|AI wins|Mean synthetic win fraction|Worst scenario fraction|');
+          console.log('|---|---:|---:|---:|---:|');
+          for(const r of s.results){
+            console.log('|'+r.variant+'|'+r.games+'|'+r.wins+'|'+(100*r.mean).toFixed(2)+'%|'+(100*r.worst).toFixed(2)+'%|');
+          }
+          console.log('**These scores are not ranked ladder win rates.**');
+          NODE
+      - name: Save all 28,000 matches and full selection frequencies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-all-candidates-${{ github.run_id }}
+          path: |
+            output/fair-compare/
+            output/showdown-commit.txt
+          retention-days: 30
+          if-no-files-found: warn
