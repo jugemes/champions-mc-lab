@@ -204,10 +204,7 @@ class Bot{
       const def=this.dex.moves.get(m.id||m.move);
       let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts});
       if(def.category!=='Status'){
-        const stat=def.category==='Physical'?'atk':'spa';
-        const stage=this.boosts[stat]||0,foeStage=this.foeBoosts[def.category==='Physical'?'def':'spd']||0;
-        const scale=n=>n>=0?(2+n)/2:2/(2-n);
-        score*=scale(stage)/scale(foeStage);
+        // Already applied exactly once by moveUtility's public-state range calculator.
         if(def.priority>0&&this.foeHP<=0.35)score+=25;
         if(this.foeItem==='Rocky Helmet'&&def.flags?.contact)score-=32;
       }
