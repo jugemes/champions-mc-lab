@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: smogon/pokemon-showdown
-          ref: ${{ github.event_name == 'schedule' && 'master' || inputs.showdown_ref }}
+          ref: ${{ github.event_name == 'schedule' && 'master' || inputs.showdown_ref || '3a766f2cfb5e51c1e428cfe87d0dba91a8f01640' }}
           path: showdown
           persist-credentials: false
       - name: Node 22
@@ -56,6 +56,18 @@ jobs:
         run: npm run check
       - name: Run experimental games
         run: node lab.js --count "$MATCHES" --logs 3
+      - name: Summarize experimental matches
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs=require('fs');
+          const csv=fs.readFileSync('output/results.csv','utf8').trim().split('\\n');
+          const weather=csv.slice(1).filter(s=>s.includes(',rain,')&&s.endsWith(',1')).length;
+          console.log('## Experimental M-C simulator smoke test');
+          console.log('- Games completed: '+(csv.length-1));
+          console.log('- Rain scenario games with rain confirmed: '+weather);
+          console.log('- Heuristic AI + fixed stress-test opponents: results are **not** ranked-battle win rate estimates.');
+          NODE
       - name: Upload logs and CSV
         if: always()
         uses: actions/upload-artifact@v4
