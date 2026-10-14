@@ -28,7 +28,7 @@ const archetypes={
   rain:[
     row('Pelipper','Focus Sash','Drizzle','Bold','H32,B32,D2','Hurricane/Weather Ball/U-turn/Roost'),
     row('Swampert','Swampertite','Torrent','Adamant','H2,A32,S32','Liquidation/Earthquake/Ice Punch/Flip Turn'),
-    row('Archaludon','Sitrus Berry','Stamina','Modest','H32,C32,D2','Electro Shot/Draco Meteor/Flash Cannon/Body Press'),
+    row('Archaludon','Sitrus Berry','Stamina','Modest','H32,C32,D2','Electro Shot/Draco Meteor/Flash Cannon/Thunderbolt'),
     row('Dragonite','Lum Berry','Multiscale','Adamant','H2,A32,S32','Dragon Dance/Extreme Speed/Earthquake/Fire Punch'),
     row('Gholdengo','Air Balloon','Good as Gold','Modest','H2,C32,S32','Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt'),
     ri,
