@@ -8,10 +8,10 @@ const {blockedByPsychicTerrain,evaluateMoveV3}=require('../field-counterplay');
 const {teams}=require('../cycle3-teams');
 const sim=require(path.join(process.env.SHOWDOWN_DIR,'dist/sim/index.js'));
 const dex=sim.Dex.mod('champions');
-test('four new public-six opponents are distinct and M-C legal',()=>{
+test('five new public-six opponents are distinct and M-C legal',()=>{
   const v=sim.TeamValidator.get('gen9championsbssregmc');
   const keys=new Set();
-  assert.equal(Object.keys(opponents).length,4);
+  assert.equal(Object.keys(opponents).length,5);
   for(const [name,team]of Object.entries(opponents)){
     assert.doesNotThrow(()=>prelim(team,name));
     const issues=v.validateTeam(normalize(team));
