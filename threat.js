@@ -14,6 +14,9 @@ function publicThreat(dex,defenderName,attackerName){
   return worst*100;
 }
 function defensiveCoverage(dex,selected,opponentSix){
+  if(!Array.isArray(opponentSix)||opponentSix.some(name=>typeof name!=='string')){
+    throw new TypeError('defensiveCoverage expects a public six-species string list');
+  }
   if(!opponentSix.length)return 0;
   // Each major opposing type should have at least one defensively plausible answer.
   return opponentSix.reduce((sum,foe)=>
