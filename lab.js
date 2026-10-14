@@ -60,7 +60,7 @@ function matchup(dex,p,foe,move){
   const effective=b.exists?(dex.getImmunity(m.type,b.types)?2**dex.getEffectiveness(m.type,b.types):0):1;
   const attack=m.category==='Physical'?a.baseStats.atk:a.baseStats.spa;
   const defend=b.exists?(m.category==='Physical'?b.baseStats.def:b.baseStats.spd):100;
-  return power*stab*effective*(attack/Math.max(40,defend))*(typeof m.accuracy==='number'?m.accuracy/100:1)+(m.priority>0?20:0);
+  return power*stab*effective*(attack/Math.max(40,defend))*(typeof m.accuracy==='number'?m.accuracy/100:1);
 }
 function maxHit(dex,p,foe){return Math.max(...p.moves.map(m=>matchup(dex,p,foe,m)));}
 function chooseThree(dex,team,opp){
@@ -84,7 +84,7 @@ class Bot{
     this.stream=stream;this.dex=dex;this.team=team;this.side=side;
     this.foe=side==='p1'?'p2':'p1';this.opp=[];this.foeActive='';
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
-    this.forcedSelection=forcedSelection;this.boosts={};
+    this.forcedSelection=forcedSelection;this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
   }
   async run(){
     for await(const chunk of this.stream){
@@ -92,7 +92,31 @@ class Bot{
         if(!line.startsWith('|'))continue;
         const a=line.split('|');
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
-        if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeActive=nameOf(a[3]);
+        if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
+          this.foeActive=nameOf(a[3]);
+          if(a[1]!=='detailschange'){this.foeBoosts={};this.foeHP=1;this.foeItem='';}
+        }
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(['-boost','-unboost','-setboost'].includes(a[1])){
+          const target=a[2]?.startsWith(this.side+'a:')?this.boosts:a[2]?.startsWith(this.foe+'a:')?this.foeBoosts:null;
+          if(target){
+            const stat=a[3],value=Number(a[4])||0;
+            target[stat]=Math.max(-6,Math.min(6,a[1]==='-setboost'?value:(target[stat]||0)+(a[1]==='-boost'?value:-value)));
+          }
+        }
+        if(a[1]==='-clearallboost'){this.boosts={};this.foeBoosts={};}
+        if(a[1]==='-clearboost'&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(a[1]==='-clearboost'&&a[2]?.startsWith(this.foe+'a:'))this.foeBoosts={};
+        if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
+        if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
+          const pair=String(a[3]).split('/').map(Number);
+          if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
+        }
+        if(a[1]==='-heal'&&a[2]?.startsWith(this.foe+'a:')){
+          const pair=String(a[3]).split('/').map(Number);
+          if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
+        }
+        if(a[1]==='-damage'&&line.includes('item: Rocky Helmet')&&line.includes('[of] '+this.foe+'a:'))this.foeItem='Rocky Helmet';
         if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:'))this.lastMove=a[3];
         if(a[1]==='turn')this.turn=Number(a[2]);
         if(a[1]==='error'){this.errors++;this.trace.errors.push({side:this.side,line});if(this.errors>4)throw Error('Repeated unavailable choices: '+line);}
@@ -131,13 +155,21 @@ class Bot{
     }
     const active=req.active?.[0], current=side.find(p=>p.active);
     if(!active||!current)return 'default';
-    const my=this.getSet(current);
+    const my={...this.getSet(current),species:nameOf(current.details)};
     const available=active.moves.map((m,i)=>({m,i})).filter(x=>!x.m.disabled&&x.m.pp>0);
     if(!available.length)return 'default';
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
       let score=matchup(this.dex,my,this.foeActive,m.id||m.move);
+      if(def.category!=='Status'){
+        const stat=def.category==='Physical'?'atk':'spa';
+        const stage=this.boosts[stat]||0,foeStage=this.foeBoosts[def.category==='Physical'?'def':'spd']||0;
+        const scale=n=>n>=0?(2+n)/2:2/(2-n);
+        score*=scale(stage)/scale(foeStage);
+        if(def.priority>0&&this.foeHP<=0.35)score+=25;
+        if(this.foeItem==='Rocky Helmet'&&def.flags?.contact)score-=32;
+      }
       const [hp,maxhp]=String(current.condition).split('/').map(Number);
       const ratio=maxhp>0?hp/maxhp:1;
       if(def.category==='Status'){
@@ -145,7 +177,7 @@ class Bot{
         if(['slackoff','recover','roost','softboiled'].includes(def.id))score=ratio<0.5?240:ratio<0.72?85:0;
         if(['swordsdance','nastyplot','dragondance','quiverdance'].includes(def.id))score=ratio>0.7&&this.turn<=3?95:5;
         if(def.id==='trick')score=this.turn<5?48:6;
-        if(def.id==='haze')score=this.turn>3?35:3;
+        if(def.id==='haze')score=Math.max(this.foeBoosts.atk||0,this.foeBoosts.spa||0,this.foeBoosts.spe||0)>=2?140:0;
         if(def.id==='encore')score=['swordsdance','dragondance','quiverdance','recover','roost','slackoff'].includes(this.lastMove.toLowerCase().replace(/[^a-z]/g,''))?150:0;
         if(['stealthrock','reflect','lightscreen'].includes(def.id))score=this.turn<3?68:3;
         if(['willowisp','thunderwave','toxic'].includes(def.id))score=35;
@@ -153,9 +185,9 @@ class Bot{
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
-    if(!active.trapped&&bench.length&&this.switches<2&&best.score<35){
+    if(!active.trapped&&bench.length&&this.switches<3){
       bench.sort((a,b)=>maxHit(this.dex,this.getSet(b.p),this.foeActive)-maxHit(this.dex,this.getSet(a.p),this.foeActive));
-      if(maxHit(this.dex,this.getSet(bench[0].p),this.foeActive)>best.score*2+60){
+      if(maxHit(this.dex,this.getSet(bench[0].p),this.foeActive)>Math.max(70,best.score*1.65+25)){
         this.switches++;return 'switch '+(bench[0].i+1);
       }
     }
