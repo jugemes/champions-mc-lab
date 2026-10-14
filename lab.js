@@ -8,6 +8,7 @@ const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const {publicThreat,defensiveCoverage}=require('./threat');
 const {moveUtility,incomingRisk}=require('./damage');
+const {evaluateMove}=require('./decision-v2');
 const {seededRandom,choosePreview}=require('./preview-policy');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
@@ -104,6 +105,7 @@ class Bot{
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
     this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
     this.previewPolicy=options.previewPolicy||'legacy';
+    this.decisionPolicy=options.decisionPolicy||'baseline';
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};
@@ -236,6 +238,17 @@ class Bot{
         ownItem:this.getSet(current).item,ownSpecies:my.species,
         lastStatuses:this.lastStatuses,hazards:this.hazards,
       });
+      if(this.decisionPolicy==='v2'){
+        score=evaluateMove(this.dex,my,this.foeActive,m.id||m.move,{
+          ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
+          boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
+          foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
+          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,
+          available:available.map(x=>x.m.id||x.m.move),
+          ownStatus:String(current.condition).includes(' brn')?'brn':'',
+          lastStatuses:this.lastStatuses,hazards:this.hazards
+        });
+      }
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
@@ -259,8 +272,8 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const trace={choices:[],selections:[],errors:[]};
   const stress=scenario==null?null:scenarios[scenario];
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,seed});
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,seed});
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),seed});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),seed});
   const logs=[];let winner='',turns=0,rainObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
