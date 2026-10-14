@@ -1,0 +1,93 @@
+name: Champions M-C Adaptive 5 x 10000
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/five-cycles.yml'
+  workflow_dispatch:
+    inputs:
+      matches_per_scenario:
+        description: 'Games per team x scenario (250 = 10,000 per round)'
+        required: true
+        default: '250'
+        type: choice
+        options: ['1', '10', '50', '250']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: champions-mc-five-cycles
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.matches_per_scenario || '250' }}
+    steps:
+      - name: Checkout research lab
+        uses: actions/checkout@v4
+      - name: Checkout pinned Pokemon Showdown
+        uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build official simulator
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Record engine SHA
+        run: |
+          mkdir -p output
+          git -C showdown rev-parse HEAD > output/showdown-commit.txt
+          test "$(cat output/showdown-commit.txt)" = "$RESEARCH_SHOWDOWN_COMMIT"
+      - name: Unit tests
+        run: npm test
+      - name: M-C legality check
+        run: npm run check
+      - name: Verify actual speed lines
+        run: node speed-probe.js
+      - name: Candidate legality and 80-game preflight
+        run: node optimize.js --cycles 1 --per-case 2
+      - name: Five adaptive experimental rounds
+        run: node optimize.js --cycles 5 --per-case "$PER_CASE"
+      - name: Summarize experimental cycles
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/cycles/summary.json');
+          console.log('# Experimental Champions M-C stress test');
+          console.log('- Showdown pinned commit: '+s.showDownCommit);
+          console.log('- Completed BattleStream games: '+s.completed);
+          console.log('- Eight fixed synthetic three-member stress scenarios, NOT ladder estimates');
+          console.log('- Stress test leader: '+s.stressLeader);
+          for(const c of s.cycles){
+            console.log('## Round '+c.cycle+' ('+c.games+' games)');
+            for(const r of c.results)console.log('- '+r.variant+': mean '+(r.mean*100).toFixed(2)+'%, worst '+(r.worst*100).toFixed(2)+'%');
+          }
+          console.log('**NOT a competitive win-rate estimate.**');
+          NODE
+      - name: Upload results and battle excerpts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-mc-adaptive-${{ github.run_id }}
+          path: |
+            output/cycles/
+            output/showdown-commit.txt
+          retention-days: 30
+          if-no-files-found: warn
