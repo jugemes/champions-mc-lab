@@ -35,8 +35,7 @@ function validatePool(sim,teams){
     prelim(team,name);
     const problems=v.validateTeam(normalize(team));
     if(problems?.length)throw Error('Illegal '+name+': '+problems.join('; '));
-    if(team.filter(p=>Boolean(sim.Dex.items.get(p.item).megaStone)).length>1)
-      throw Error('Multiple megas in '+name);
+    // Two Mega stones on a team are legal; only one can be used per battle.
   }
 }
 function candidates(cycle,previous,seen,records,teams){
