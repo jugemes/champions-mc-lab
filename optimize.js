@@ -98,6 +98,12 @@ async function run(options){
           const own=reverse?'p2':'p1';
           const won=reverse?g.winner==='opponent':g.winner==='candidate';
           wins+=Number(won);errors+=g.trace.errors.length;
+          if(g.trace.errors.length){
+            const detail={cycle,variant:name,scenario,index:i,seed,errors:g.trace.errors,
+              selections:g.trace.selections,choices:g.trace.choices};
+            fs.writeFileSync(path.join(OUT,'invalid-choice.json'),JSON.stringify(detail,null,2));
+            throw Error('Invalid Showdown choice: '+JSON.stringify(detail));
+          }
           setupMoves+=g.opponentSetupMoves;rainCount+=Number(g.rainObserved);
           const sel=g.trace.selections.find(s=>s.side===own);
           rows.write([cycle,name,scenario,i,seed.join('-'),own,Number(won),g.turns,sel?.lead||'',
