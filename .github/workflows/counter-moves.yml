@@ -1,0 +1,73 @@
+name: M-C Rock Coverage Sun Countermove A-B
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/counter-moves.yml']
+  workflow_dispatch:
+    inputs:
+      per_case:
+        default: '80'
+        type: choice
+        options: ['2','20','50','80']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-counter-moves
+  cancel-in-progress: false
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.per_case || '80' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned Showdown
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Check correctness, legality, and existing experiments
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+      - name: Legal six-to-three preflight
+        run: node counter-move-audit.js --per-case 2
+      - name: All seven techs, threat and alternate six-preview pools
+        run: node counter-move-audit.js --per-case "$PER_CASE"
+      - name: Report paired outcomes, not ranked win predictions
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/counter-moves/summary.json');
+          console.log('## Sun / Psychic Terrain tech: seven one-move roster candidates');
+          console.log('Completed: '+s.completed+' battles; opponent 3 are independently chosen');
+          console.log('|Variant|Wins|Total|Sun conditional|Psychic conditional|');
+          console.log('|---|---:|---:|---:|---:|');
+          for(const r of s.results) console.log('|'+r.name+'|'+r.wins+'|'+r.games+
+            '|'+r.winsSun+'/'+r.sunBattles+'|'+r.winsPsy+'/'+r.psyBattles+'|');
+          for(const r of s.pairFlips)console.log('- '+r.name+': L→W '+r.loseToWin+', W→L '+r.winToLose);
+          console.log('**Synthetic AI, not ranked-play win rates.**');
+          NODE
+      - name: Save paired records, choices, previews and replays
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-counter-moves-${{ github.run_id }}
+          path: output/counter-moves/
+          retention-days: 30
+          if-no-files-found: warn
