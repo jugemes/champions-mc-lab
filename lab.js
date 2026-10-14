@@ -241,8 +241,8 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse){
   const trace={choices:[],selections:[],errors:[]};
   const stress=scenarios[scenario];
   if(!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null,reverse?scenario:null);
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen,reverse?null:scenario);
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress.chosen:null,reverse?(stress.scriptAs||scenario):null);
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress.chosen,reverse?null:(stress.scriptAs||scenario));
   const logs=[];let winner='',turns=0,rainObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
