@@ -2,6 +2,10 @@ name: Champions M-C Pilot
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'reports/**'
   workflow_dispatch:
     inputs:
       showdown_ref:
