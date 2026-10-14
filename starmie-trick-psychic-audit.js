@@ -42,7 +42,9 @@ function extractStarmieUse(log,side){
   if(parts[3]==='Trick'){
    trick++;targets.push(String(parts[4]||'').trim());
    // The same turn must show two explicit Trick item exchanges.
-   const tail=lines.slice(i+1,i+10).join('\n');
+   let end=i+1;
+   while(end<lines.length&&end<i+12&&!lines[end].startsWith('|move|')&&!lines[end].startsWith('|turn|'))end++;
+   const tail=lines.slice(i+1,end).join('\n');
    if(/\|-item\|[^|\n]+\|Choice Scarf\|\[from\] move: Trick/.test(tail))swap++;
    if(/\|-fail\|/.test(tail))failed++;
   }
