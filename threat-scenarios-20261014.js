@@ -19,6 +19,13 @@ const charizard=p('Charizard','Charizardite Y','Blaze','Timid',atk,
   'Flamethrower/Solar Beam/Air Slash/Roost');
 const indeedee=p('Indeedee','Focus Sash','Psychic Surge','Timid',atk,
   'Expanding Force/Mystical Fire/Encore/Trick Room');
+const alakazam=p('Alakazam','Alakazite','Synchronize','Timid',atk,
+  'Expanding Force/Shadow Ball/Focus Blast/Encore');
+const sneasler=p('Sneasler','Psychic Seed','Unburden','Jolly',physical,
+  'Close Combat/Dire Claw/Acrobatics/Swords Dance');
+const armarouge=p('Armarouge','Life Orb','Flash Fire','Modest',atk,
+  'Expanding Force/Armor Cannon/Energy Ball/Shadow Ball');
+const salamence=get('Salamence');
 const gengar=get('Gengar');
 const volcarona=get('Volcarona');
 const dragonite=get('Dragonite');
@@ -43,6 +50,9 @@ const opponents={
   ].map(copy),
   psychic_terrain_hybrid:[
     indeedee,gengar,dragonite,primarina,archaludonAlternate,skeledirge
+  ].map(copy),
+  psychic_terrain_credible:[
+    indeedee,alakazam,sneasler,armarouge,garchomp,salamence
   ].map(copy)
 };
 module.exports={opponents};
