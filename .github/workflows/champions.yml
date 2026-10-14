@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 60
     env:
       SHOWDOWN_DIR: ${{ github.workspace }}/showdown
-      MATCHES: ${{ github.event_name == 'schedule' && '1' || inputs.matches_per_matchup || '1' }}
+      MATCHES: ${{ github.event_name == 'schedule' && '1' || inputs.matches_per_matchup || '10' }}
     steps:
       - name: Checkout lab
         uses: actions/checkout@v4
