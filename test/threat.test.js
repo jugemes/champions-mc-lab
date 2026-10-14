@@ -16,8 +16,8 @@ test('Ice type coverage is not assumed if unknown: public STAB only',()=>{
 });
 test('defensive coverage rewards at least one safer switch into same Ghost attacker',()=>{
   const ghost=[{species:'Gholdengo'}];
-  const vulnerable=[{species:'Starmie'},{species:'Skeledirge'},{species:'Gholdengo'}];
-  const mixed=[{species:'Starmie'},{species:'Skeledirge'},{species:'Lucario'}];
+  const vulnerable=[{species:'Gholdengo'},{species:'Gholdengo'},{species:'Gholdengo'}];
+  const mixed=[{species:'Gholdengo'},{species:'Gholdengo'},{species:'Lucario'}];
   assert.ok(defensiveCoverage(dex,mixed,ghost)<defensiveCoverage(dex,vulnerable,ghost));
 });
 test('do not pivot a healthy Primarina recklessly to Ghost-vulnerable Gholdengo',()=>{
