@@ -182,7 +182,7 @@ class Bot{
       const spikes=available.find(x=>canonical(x.m.id||x.m.move)==='toxicspikes');
       if(spikes)return 'move '+(spikes.i+1);
     }
-    const scripted=shouldScriptedSetup({scenario:this.scriptScenario,ownSpecies:this.getSet(current).species,stage:this.boosts,ratio,turn:this.turn});
+    const scripted=shouldScriptedSetup({scenario:this.scriptScenario,ownSpecies:this.getSet(current).species,foeSpecies:this.foeActive,stage:this.boosts,ratio,turn:this.turn});
     if(scripted){
       const found=available.find(x=>canonical(x.m.id||x.m.move)===scripted);
       if(found)return 'move '+(found.i+1)+(active.canMegaEvo?' mega':'');
@@ -295,7 +295,7 @@ async function main(){
     }
     const focused=rows.filter(r=>r[0]===name&&r[1]===match);
     const extras=' setup='+focused.reduce((n,r)=>n+r[10],0)+' toxspikes='+focused.reduce((n,r)=>n+r[11],0)+' regenSwitch='+focused.reduce((n,r)=>n+r[12],0);
-    if(match==='setup'&&!focused.some(r=>r[10]>0))throw Error('NO ACTUAL SETUP MOVE OBSERVED for '+name);
+    if(scenarios[match].mustSeeSetup&&!focused.some(r=>r[10]>0))throw Error('NO ACTUAL SETUP MOVE OBSERVED for '+name);
     if(match==='stall'&&!focused.some(r=>r[11]>0))throw Error('NO ACTUAL STALL HAZARD OBSERVED for '+name);
     console.log(name+'/'+match+' '+wins+'/'+cfg.count+' '+extras+' (SCRIPTED STRESS TEST; HEURISTIC AI ONLY)');
   }
