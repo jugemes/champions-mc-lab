@@ -1,0 +1,77 @@
+name: Champions M-C E Unaware Counterplay A-B
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/e-unaware.yml'
+  workflow_dispatch:
+    inputs:
+      games_per_case:
+        default: '75'
+        type: choice
+        options: ['2', '20', '50', '75']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-e-unaware-ab
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.games_per_case || '75' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed Showdown version
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify mechanics and M-C legality
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: Six-team 6v3 preflight
+        run: node e-unaware-audit.js --per-case 2
+      - name: Equal-condition Unaware restoration A-B
+        run: node e-unaware-audit.js --per-case "$PER_CASE"
+      - name: Report every candidate with uniform denominator
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/e-unaware-audit/summary.json');
+          console.log('## E restoring Unaware: independent 6→3, same seats/seeds');
+          console.log('Total synthetic Showdown games: '+s.completed);
+          console.log('|team|wins|games|Skeledirge selected|');
+          console.log('|---|---:|---:|---:|');
+          for(const r of s.results)
+            console.log('|'+r.candidate+'|'+r.wins+'|'+r.games+'|'+r.skeledirgeSelected+'|');
+          console.log('Paired flips against unchanged E:');
+          for(const r of s.comparisons)
+            console.log('- '+r.candidate+' L→W '+r.loseToWin+', W→L '+r.winToLose);
+          console.log('These are NOT actual ranked-play win rates.');
+          NODE
+      - name: Upload paired games, logs, and selection distributions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-e-unaware-${{ github.run_id }}
+          path: output/e-unaware-audit/
+          retention-days: 30
+          if-no-files-found: warn
