@@ -1,0 +1,79 @@
+name: Champions M-C Garchomp Move A-B
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/garchomp-moves.yml'
+  workflow_dispatch:
+    inputs:
+      games_per_case:
+        description: 'Per six-preview case, enemy policy, team candidate (100 = 16k battles)'
+        default: '100'
+        type: choice
+        options: ['2', '20', '50', '100']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-garchomp-move-ab
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.games_per_case || '100' }}
+    steps:
+      - name: Checkout research repository
+        uses: actions/checkout@v4
+      - name: Checkout pinned Showdown
+        uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build official Showdown engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify engine, tests, legality, speed
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+          node speed-probe.js
+      - name: Preflight (all opponent pools and two AI policies)
+        run: node garchomp-move-audit.js --per-case 2
+      - name: Run identical-conditions Garchomp move comparison
+        run: node garchomp-move-audit.js --per-case "$PER_CASE"
+      - name: Show match-up- and policy-specific results
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/garchomp-move-audit/summary.json');
+          console.log('## Garchomp one-move A/B comparison');
+          console.log('Total games: '+s.completed+'; pinned engine: '+s.engine);
+          console.log('|Candidate|Synthetic wins|Total|Garchomp chosen|');
+          console.log('|---|---:|---:|---:|');
+          for(const r of s.results)console.log('|'+r.candidate+'|'+r.wins+'|'+r.games+'|'+r.garchompSelected+'|');
+          console.log('Paired seed changes versus C0:');
+          for(const r of s.comparisons)console.log('- '+r.candidate+': L→W '+r.loseToWin+', W→L '+r.winToLose);
+          console.log('**NOT ladder win rates; opponent sixes are synthetic.**');
+          NODE
+      - name: Upload full raw results, decisions, seeds and combat logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-garchomp-move-ab-${{ github.run_id }}
+          path: output/garchomp-move-audit/
+          retention-days: 30
+          if-no-files-found: warn
