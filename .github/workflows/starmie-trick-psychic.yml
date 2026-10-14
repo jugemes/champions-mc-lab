@@ -1,0 +1,74 @@
+name: Champions M-C Starmie Trick vs Psychic Actual Audit
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/starmie-trick-psychic.yml']
+  workflow_dispatch:
+    inputs:
+      per_pair:
+        description: 'Each public six × opponent policy × variant (100 = 8400 total)'
+        type: choice
+        default: '100'
+        options: ['2','20','50','100']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-starmie-trick-psychic
+  cancel-in-progress: false
+jobs:
+  test-and-ab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_PAIR: ${{ inputs.per_pair || '100' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build official fixed M-C battle engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify exact engine and legality, unit tests
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+      - name: Preflight Trick audit and paired match rules
+        run: node starmie-trick-psychic-audit.js --per-pair 2
+      - name: Run full Choice Scarf Trick vs Psychic A-B and count actual uses
+        run: node starmie-trick-psychic-audit.js --per-pair "$PER_PAIR"
+      - name: Report actual move usage and paired win flips
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/starmie-trick-psychic/summary.json');
+          console.log('## Actual Choice Scarf Starmie fourth move: Trick vs Psychic');
+          console.log('Matches: '+s.completed+' (independent 6→3; all pairs same seed / opponent / AI)');
+          console.log('|Move|Wins|Total|Starmie picked|Trick attempts|Successful item exchanges|Trick-use wins|Psychic uses|');
+          console.log('|---|---:|---:|---:|---:|---:|---:|---:|');
+          for(const [name,r] of Object.entries(s.results))console.log('|'+name+'|'+r.wins+'|'+r.games+'|'+r.starmieSelected+
+            '|'+r.actualTrickUses+'|'+r.actualTrickSuccesses+'|'+r.trickUsedWins+'|'+r.psychicUses+'|');
+          console.log('Paired-only wins: '+JSON.stringify(s.pairedFlips));
+          console.log('**Not real Pokémon Champions ranked matches or win rates.**');
+          NODE
+      - name: Preserve every battle use in CSV and illustrative match logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-starmie-trick-psychic-${{ github.run_id }}
+          path: output/starmie-trick-psychic/
+          retention-days: 30
+          if-no-files-found: warn
