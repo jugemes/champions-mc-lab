@@ -1,0 +1,72 @@
+name: M-C Sand Stream Anti-Sun Anti-Psychic Roster A-B
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sand-counter.yml']
+  workflow_dispatch:
+    inputs:
+      per_case:
+        default: '60'
+        type: choice
+        options: ['2','20','60','100']
+permissions:
+  contents: read
+concurrency:
+  group: champions-mc-sand-counter
+  cancel-in-progress: false
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CASE: ${{ inputs.per_case || '60' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build official simulator
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify M-C rules, legality and regressions
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+      - name: Preflight changes, both teams and all opponents
+        run: node sand-counter-audit.js --per-case 2
+      - name: Matched seeds, two cores and five specialist counters
+        run: node sand-counter-audit.js --per-case "$PER_CASE"
+      - name: Compare with unchanged control
+        if: success()
+        run: |
+          node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const s=require('./output/sand-counter/summary.json');
+          console.log('## Sand Stream Tyranitar anti-Drought field counter');
+          console.log('Battles: '+s.completed+', opponent 3 independent public-six selection');
+          console.log('|Variant|Wins|Games|Sun conditional|Psychic conditional|Tyranitar selected|');
+          console.log('|---|---:|---:|---:|---:|---:|');
+          for(const r of s.results)console.log('|'+r.name+'|'+r.wins+'|'+r.games+'|'+r.winsSun+'/'+r.sunBattles+'|'+r.winsPsy+'/'+r.psyBattles+'|'+r.tyranitarSelected+'|');
+          for(const r of s.pairFlips)console.log('- '+r.name+' net '+r.net+' (L→W '+r.loseToWin+', W→L '+r.winToLose+')');
+          console.log('**Synthetic only; no ladder win-rate inference.**');
+          NODE
+      - name: Archive actual selections, battle choices, log and seeds
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-sand-counter-${{ github.run_id }}
+          path: output/sand-counter/
+          if-no-files-found: warn
+          retention-days: 30
