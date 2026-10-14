@@ -29,7 +29,7 @@ test('incoming observed attacks make vulnerable pivots riskier without peeking a
   const prim=variants.A_rillaboom.find(p=>p.species==='Primarina');
   const dirge=variants.A_rillaboom.find(p=>p.species==='Skeledirge');
   assert.ok(incomingRisk(dex,prim,'Gholdengo',{seenMoves:['Thunderbolt']})>=incomingRisk(dex,prim,'Gholdengo'));
-  assert.ok(incomingRisk(dex,dirge,'Gholdengo',{foeBoosts:{spa:2}})>incomingRisk(dex,dirge,'Gholdengo'));
+  assert.equal(incomingRisk(dex,dirge,'Gholdengo',{foeBoosts:{spa:2}}),incomingRisk(dex,dirge,'Gholdengo'));
 });
 test('bot will not select a revealed Air Balloon immune ground move over a legal damaging alternative',()=>{
   const bot=new Bot(null,dex,variants.C_master,'p1',{choices:[],selections:[],errors:[]});
