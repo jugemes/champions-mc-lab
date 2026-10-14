@@ -102,7 +102,7 @@ class Bot{
           this.foeActive=nameOf(a[3]);
           if(a[1]!=='detailschange'){
             this.foeBoosts={};
-            const hp=String(a[4]||'').match(/^(\\d+)\/(\\d+)/);
+            const hp=String(a[4]||'').match(/^(\d+)\/(\d+)/);
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
