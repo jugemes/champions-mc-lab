@@ -37,7 +37,7 @@ const archetypes={
     row('Salamence','Salamencite','Intimidate','Jolly','H2,A32,S32','Dragon Dance/Double-Edge/Earthquake/Roost'),
     row('Volcarona','Leftovers','Flame Body','Timid','H2,C32,S32','Quiver Dance/Fiery Dance/Bug Buzz/Giga Drain'),
     row('Dragonite','Lum Berry','Multiscale','Adamant','H2,A32,S32','Dragon Dance/Extreme Speed/Earthquake/Fire Punch'),
-    ga,
+    go,
     row('Skeledirge','Sitrus Berry','Unaware','Bold','H32,B32,D2','Torch Song/Shadow Ball/Will-O-Wisp/Slack Off'),
     ri,
   ],
@@ -50,11 +50,13 @@ const archetypes={
     go,
   ],
 };
+archetypes.mence=archetypes.setup;
 // This is an explicit *stress test*: opponent's actual 3 and lead are fixed in advance.
 // The candidate AI must still select only from the opponent's public six-species preview.
 const scenarios={
   rain:  {chosen:['Pelipper','Swampert','Archaludon'],lead:'Pelipper',mustSeeRain:true},
-  setup: {chosen:['Salamence','Volcarona','Rillaboom'],lead:'Salamence'},
+  setup: {chosen:['Gholdengo','Salamence','Volcarona'],lead:'Gholdengo',mustSeeSetup:true},
+  mence: {chosen:['Salamence','Volcarona','Rillaboom'],lead:'Salamence'}, 
   stall: {chosen:['Toxapex','Umbreon','Corviknight'],lead:'Toxapex'},
 };
 module.exports={variants,archetypes,scenarios};
