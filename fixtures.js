@@ -43,10 +43,10 @@ const archetypes={
   ],
   stall:[
     row('Toxapex','Rocky Helmet','Regenerator','Bold','H32,B32,D2','Recover/Haze/Toxic Spikes/Chilling Water'),
-    row('Blissey','Leftovers','Natural Cure','Bold','H32,B32,D2','Soft-Boiled/Seismic Toss/Thunder Wave/Shadow Ball'),
+    row('Umbreon','Leftovers','Synchronize','Bold','H32,B32,D2','Foul Play/Moonlight/Yawn/Protect'),
     row('Corviknight','Sitrus Berry','Mirror Armor','Impish','H32,B32,D2','Roost/U-turn/Body Press/Iron Head'),
-    row('Clodsire','Covert Cloak','Water Absorb','Careful','H32,D32,B2','Earthquake/Toxic/Recover/Stealth Rock'),
-    row('Dondozo','Chesto Berry','Unaware','Impish','H32,B32,D2','Wave Crash/Rest/Sleep Talk/Curse'),
+    row('Slowbro','Eject Button','Regenerator','Bold','H32,B32,D2','Surf/Slack Off/Psychic/Thunder Wave'),
+    row('Skarmory','Chesto Berry','Sturdy','Impish','H32,B32,D2','Roost/Spikes/Brave Bird/Whirlwind'),
     go,
   ],
 };
