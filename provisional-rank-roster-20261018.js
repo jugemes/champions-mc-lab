@@ -11,7 +11,7 @@ function provisional(){
  return [
   row('Metagross','Metagrossite','Clear Body','Jolly','H2,A32,S32',
    'Meteor Mash/Zen Headbutt/Bullet Punch/Thunder Punch'),
-  row('Hydreigon','Choice Specs','Levitate','Timid','H2,C32,S32',
+  row('Hydreigon','Life Orb','Levitate','Timid','H2,C32,S32',
    'Draco Meteor/Dark Pulse/Flamethrower/Flash Cannon'),
   find('Primarina'),
   find('Garchomp'),
