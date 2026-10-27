@@ -4,6 +4,7 @@
 // at level 50 without Level Clause Mod: HP = base + points + 75;
 // other stats = nature(base + points + 20).
 // The opponent's stat points, nature, moves, and items are NOT assumed known.
+const {certainPublicAbility,ignoresAbilities,couldIgnoreAbilities}=require('./public-abilities');
 const scaleStage=n=>n>=0?(2+n)/2:2/(2-n);
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 function natureMod(dex,nature,stat){
@@ -29,7 +30,8 @@ function powerOf(move,foe){
 function effectiveness(dex,move,foe,info={}){
   if(!dex.getImmunity(move.type,foe.types))return 0;
   if(move.type==='Ground'&&canon(info.foeItem)==='airballoon')return 0;
-  if(move.type==='Ground'&&canon(info.foeAbility)==='levitate')return 0;
+  if(move.type==='Ground'&&move.id!=='thousandarrows'&&canon(info.foeAbility)==='levitate'
+    &&!ignoresAbilities(info.attackerAbility)&&!info.attackerMayBypass&&!info.gravity)return 0;
   if(move.type==='Fire'&&canon(info.foeAbility)==='flashfire')return 0;
   if(move.type==='Electric'&&['voltabsorb','lightningrod','motordrive'].includes(canon(info.foeAbility)))return 0;
   if(move.type==='Water'&&['waterabsorb','stormdrain','dryskin'].includes(canon(info.foeAbility)))return 0;
@@ -47,7 +49,10 @@ function estimateDamage(dex,attacker,foeName,moveName,info={}){
   const move=dex.moves.get(moveName),species=dex.species.get(attacker.species),foe=dex.species.get(foeName);
   const zero={min:0,max:0,mid:0,accuracy:1,immune:true};
   if(!move.exists||!species.exists||!foe.exists||move.category==='Status')return zero;
-  const eff=effectiveness(dex,move,foe,info);
+  // A one-option opposing ability is public information even before reveal.
+  const foeAbility=info.foeAbility||certainPublicAbility(dex,foeName);
+  const resolved={...info,foeAbility,attackerAbility:attacker.ability};
+  const eff=effectiveness(dex,move,foe,resolved);
   if(!eff)return zero;
   const stat=move.category==='Physical'?'atk':'spa';
   const def=move.category==='Physical'?'def':'spd';
@@ -58,7 +63,7 @@ function estimateDamage(dex,attacker,foeName,moveName,info={}){
   // Grassy Terrain halves Earthquake/Bulldoze into grounded targets.
   // This is a public battle-state rule, not a guessed opponent set.
   const grounded=!foe.types.includes('Flying')
-    &&canon(info.foeAbility)!=='levitate'
+    &&canon(resolved.foeAbility)!=='levitate'
     &&canon(info.foeItem)!=='airballoon';
   const terrainReduction=canon(info.terrain)==='grassyterrain'
     &&grounded&&['earthquake','bulldoze','magnitude'].includes(move.id)?0.5:1;
@@ -97,7 +102,10 @@ function incomingRisk(dex,defender,foeName,info={}){
   let peak=0;
   for(const move of moves){
     if(move.id==='publicstab'&&!foe.types.includes(move.type))continue;
-    const eff=effectiveness(dex,move,own,{foeAbility:defender.ability,foeItem:defender.item});
+    // The rival's private ability is unknown. Retain a Mold Breaker path if
+    // any listed ability can bypass Levitate, rather than claiming immunity.
+    const eff=effectiveness(dex,move,own,{foeAbility:defender.ability,foeItem:defender.item,
+      attackerMayBypass:couldIgnoreAbilities(dex,foeName)});
     if(!eff)continue;
     const stat=move.category==='Physical'?'atk':'spa',def=move.category==='Physical'?'def':'spd';
     const stage=canon(defender.ability)==='unaware'?0:Number(info.foeBoosts?.[stat]||0);
