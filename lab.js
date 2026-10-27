@@ -7,6 +7,7 @@ const path=require('node:path');
 const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const {publicThreat,defensiveCoverage}=require('./threat');
+const {isLevitateImmuneToGround}=require('./public-abilities');
 const {moveUtility,incomingRisk}=require('./damage');
 const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
@@ -64,7 +65,12 @@ function matchup(dex,p,foe,move){
   const a=dex.species.get(p.species),b=dex.species.get(foe);
   const power=m.basePower||60;
   const stab=a.types.includes(m.type)?1.5:1;
-  const effective=b.exists?(dex.getImmunity(m.type,b.types)?2**dex.getEffectiveness(m.type,b.types):0):1;
+  // A single legal ability of a public species/form is known at preview.
+  // Mold Breaker/Teravolt/Turboblaze on our OWN set are also known.
+  // Gravity and ability-suppression are separate situational battle states.
+  const levitate= m.type==='Ground' && m.id!=='thousandarrows'
+    && isLevitateImmuneToGround(dex,foe,{attackerAbility:p.ability});
+  const effective=levitate?0:b.exists?(dex.getImmunity(m.type,b.types)?2**dex.getEffectiveness(m.type,b.types):0):1;
   const attack=m.category==='Physical'?a.baseStats.atk:a.baseStats.spa;
   const defend=b.exists?(m.category==='Physical'?b.baseStats.def:b.baseStats.spd):100;
   return power*stab*effective*(attack/Math.max(40,defend))*(typeof m.accuracy==='number'?m.accuracy/100:1);
