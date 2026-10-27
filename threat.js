@@ -1,11 +1,16 @@
 'use strict';
 // Public typing and base stats only; never query the opponent's unrevealed set.
 // This is a rough STAB exposure metric, NOT a damage calculator.
+const {isLevitateImmuneToGround,couldIgnoreAbilities}=require('./public-abilities');
 function publicThreat(dex,defenderName,attackerName){
   const defender=dex.species.get(defenderName),attacker=dex.species.get(attackerName);
   if(!defender.exists||!attacker.exists)return 0;
   let worst=0;
   for(const type of attacker.types){
+    // Assume no Gravity at preview. If any legal attacker ability can bypass
+    // Levitate, keep that possibility in this conservative worst-case risk.
+    if(type==='Ground'&&isLevitateImmuneToGround(dex,defenderName,
+      {attackerMayBypass:couldIgnoreAbilities(dex,attackerName)}))continue;
     const mult=dex.getImmunity(type,defender.types)?2**dex.getEffectiveness(type,defender.types):0;
     const phys=attacker.baseStats.atk/Math.max(40,defender.baseStats.def);
     const special=attacker.baseStats.spa/Math.max(40,defender.baseStats.spd);
