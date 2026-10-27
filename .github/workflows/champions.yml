@@ -1,5 +1,11 @@
 name: Champions M-C Pilot
 on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'reports/**'
   push:
     branches: [main]
     paths-ignore:
