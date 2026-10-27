@@ -162,9 +162,9 @@ test('engine: Rotom-Wash (only legal ability Levitate) is immune to Earthquake',
  const b=A.engineBattle(sim,A.padTo6(chomp,A.FILLER()),A.padTo6(rotom,A.FILLER()),[4,4,4,4],[['move 1','move 4']]);
  assert.ok(b.log.some(l=>l.startsWith('|-immune|p2a: Rotom')));
 });
-test('preview/threat/damage should apply a single-option public ability (Levitate)',{todo:'P0: public ability inference'},()=>{
+test('preview/threat/damage apply public single-option Levitate instead of inventing Ground damage',()=>{
  const chomp=provisional().find(p=>p.species==='Garchomp');
- assert.equal(matchup(dex,chomp,'Rotom-Wash','Earthquake'),0,'currently 364: rated super effective');
+ assert.equal(matchup(dex,chomp,'Rotom-Wash','Earthquake'),0);
  assert.ok(estimateDamage(dex,chomp,'Rotom-Wash','Earthquake',{}).immune);
  assert.ok(publicThreat(dex,'Rotom-Wash','Garchomp')<150,'currently 243 from Ground STAB');
 });
