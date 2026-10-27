@@ -1,8 +1,8 @@
 # Pokémon Champions M-C Lab
 
-**2026-10-27より ChatGPT × Claude Code のハイブリッド研究**。目標はM-Cシングルのチャンピオン級到達。AI同士の人工勝率ではなく、実際の対人戦で合理的な選出・行動に耐える3体選出と勝ち筋を検証する。
+**2026-10-27より ChatGPT × Claude Code のハイブリッド研究**。PC常時起動なしを標準とし、Claude Codeはクラウドセッション、検証はGitHub-hosted Actionsで実行。目標はM-Cシングルのチャンピオン級到達。AI同士の人工勝率ではなく、実際の対人戦で合理的な選出・行動に耐える3体選出と勝ち筋を検証する。
 
-- **[Windows Claude Code 導入・連携・共同開発手順](docs/HYBRID-COLLAB-2026-10-27.md)**
+- **[PC常時起動不要：Claude Code Cloud Sessions + GitHub Actionsによる共同研究手順](docs/HYBRID-COLLAB-2026-10-27.md)**
 - **[Claude Code初回依頼（コピペ用）](docs/CLAUDE-FIRST-TASK-2026-10-27.md)**
 - **[人間相手の実戦反例・現行6体](docs/REAL-BATTLE-CASES-2026-10-27.md)**
 - **[Hybrid-01：最初の独立監査 Issue #2](https://github.com/jugemes/champions-mc-lab/issues/2)**
