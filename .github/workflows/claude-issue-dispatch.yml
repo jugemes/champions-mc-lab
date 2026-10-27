@@ -1,0 +1,35 @@
+# Claude Code をIssueコメントから起動する（GitHub公式連携）
+# 有効化前にAnthropic GitHub Appを接続し、Actions Secretをユーザー本人が登録すること。
+# ChatGPTは別途GitHubにIssueを作り、登録されたユーザー権限で @claude コメントを行う。
+# 未認証、権限・費用が未確認の間は、このPRをマージしない。
+name: Claude Code - on-demand hybrid review
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  claude:
+    # パブリックrepoで第三者にClaudeの計算資源を起動されないよう、所有者コメント限定。
+    if: ${{ github.event.comment.user.login == 'jugemes' && contains(github.event.comment.body, '@claude') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    concurrency:
+      group: claude-hybrid-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout research repo
+        uses: actions/checkout@v4
+      - name: Run Claude Code on requested Issue or PR
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Claude Pro/Max等のサブスクリプションを使う場合の認証。
+          # Claude API課金を選ぶ場合は別PRでanthropic_api_keyへ変更する。
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --max-turns 20
