@@ -11,6 +11,8 @@ test('second turn is simulated with actual showdown HP/switch state, not assumed
   assert.ok(rows.some(x=>x.secondAction==='switch:Metagross'&&x.secondExecuted));
   assert.ok(rows.some(x=>x.secondAction==='Moonblast'));
   for(const row of rows){
+   assert.deepEqual(row.ownThree,['Primarina','Metagross','Hydreigon']);
+   assert.equal(row.assumedEnemyThreeAfterwards[0],'Golisopod');
    assert.ok(row.primarinaHP>=0);
    assert.ok(row.goliHP>=0);
   }
