@@ -62,7 +62,7 @@ function customHoldouts(){
   {
    name:'HO_D_base_golisopod',
    six:[
-    {...goli,item:'Heavy-Duty Boots'},
+    {...goli,item:'Rocky Helmet'},
     lookup('01_M7_golisopod_balance','Garchomp'),
     lookup('01_M7_golisopod_balance','Primarina'),
     lookup('01_M7_golisopod_balance','Mimikyu'),
@@ -71,7 +71,7 @@ function customHoldouts(){
    ],
    a:['Golisopod','Garchomp','Mimikyu'],
    b:['Hippowdon','Primarina','Gholdengo'],
-   reason:'same displayed six but a legal non-Mega item hypothesis; do not assume 100 percent Golisopodite'
+   reason:'same displayed six but a Rocky Helmet non-Mega item hypothesis; do not assume 100 percent Golisopodite'
   }
  ];
  return holdouts.map(x=>({
