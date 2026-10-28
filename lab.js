@@ -160,6 +160,15 @@ class Bot{
           // caused by an old ability. Future immune events will re-teach.
           delete this.knownImmuneMoves[this.foeActive];
         }
+        // A learned immunity only holds while its public cause persists. Release
+        // it when the foe's balloon/levitation publicly ends or it is grounded.
+        if(this.publicImmunityAware&&a[2]?.startsWith(this.foe+'a:')&&(
+           (a[1]==='-enditem'&&a[3]==='Air Balloon')||
+           (a[1]==='-end'&&['Magnet Rise','Telekinesis'].includes(a[3]))||
+           (a[1]==='-start'&&a[3]==='Smack Down')))
+          delete this.knownImmuneMoves[this.foeActive];
+        if(this.publicImmunityAware&&a[1]==='-fieldstart'&&a[2]==='move: Gravity')
+          this.knownImmuneMoves={};
         // A public|-immune| follows the actor's public move line. Record only
         // a move that this Bot actually used on the CURRENT opponent. Never
         // infer unseen opposing sets or abilities from private Battle state.
