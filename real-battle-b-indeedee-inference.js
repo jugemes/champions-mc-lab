@@ -32,10 +32,19 @@ function hypotheticalEnemySix(item){
  indeedee.moves=['Dazzling Gleam','Expanding Force','Mystical Fire','Encore'];
  indeedee.nature='Timid';
  indeedee.evs={hp:2,spa:32,spe:32};
+ const placeholderItems={
+  Hippowdon:'Leftovers',Garchomp:'Life Orb',
+  Umbreon:'Rocky Helmet',Gengar:'Gengarite',
+  Gyarados:'Sitrus Berry'
+ };
  const team=[indeedee,...publicSix.slice(1).map(name=>{
   const p=fallback(name);
   if(!p)throw Error('No documented valid hypothetical set for '+name);
-  return copy(p);
+  const x=copy(p);
+  // M-C item clause: no duplicates across six, even the five completely
+  // unobserved sets. These choices are NOT attributed to the real user rival.
+  x.item=placeholderItems[name];
+  return x;
  })];
  if(team.map(p=>p.species).join('/')!==publicSix.join('/'))
   throw Error('Mismatch with user-recorded six');
