@@ -59,6 +59,7 @@ function publicTurnOrdering(events){
  return {
    indeedeeMoveIndex:theirs?.index??null,
    hydreigonMoveIndex:ours?.index??null,
+   hydreigonMoveSeen:Boolean(ours),
    indeedeeMovedBeforeHydreigon:Boolean(theirs&&(!ours||theirs.index<ours.index)),
    hydreigonActedBeforeKO:Boolean(ours&&faintIndex>=0&&ours.index<faintIndex),
    hydreigonFaintedBeforeActing:faintIndex>=0&&(!ours||faintIndex<ours.index),
