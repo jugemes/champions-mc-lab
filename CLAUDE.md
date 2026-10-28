@@ -24,3 +24,10 @@
 - `npm test` / `npm run check`（`SHOWDOWN_DIR` 設定必須）と必要なケース固有試験。比較ではShowdown SHA、同シード・相手6体・左右・選出条件・選出率・成績・個別負け筋を記録。
 - PR本文は「観測した失敗→原因仮説→実装とテスト→通過・未解決・新規育成への影響→他AIが疑うべき点」で報告。
 - **Claude CodeからChatGPTへの自動会話同期はない。** GitHub Issue、PR、コード、レポートを共有の正本にして相互レビューする。
+
+## ChatGPT × Claudeの自律的な共同研究（2026-10-28）
+- ChatGPTはユーザーが「Claudeにも依頼」と言わなくても必要性を判断し、コード修正・反例再現・回帰テスト・独立監査に有効なら自らGitHub経由で発注。普通の対戦助言は即時回答し、無用な起動をしない。
+- 詳細は[ハイブリッド研究手順 §7–8](docs/HYBRID-COLLAB-2026-10-27.md)。Claude Team Cloud Tasksの`pull_request.opened`で、`jugemes`が作成した`main`向けの`chatgpt/claude-request-*`通常PR（`CLAUDE-TASK:`、draft=false）のみが起動対象。依頼PRはマージ禁止。
+- 通常PR #11でClaude実行開始をユーザー確認。Issue #9のACK書込はなお検収未了で、GitHub返信が得られるまでは全経路完成と判定しない。
+- 二重依頼抑止、未完了Claude作業は原則同時1件、既存Issue/PR/CIを確認。相互レビュー後のmain採用はユーザー判断。
+- Claude Team既存利用枠だけを使用。追加クレジットは無効化済み。API従量課金/新契約/常時PC/有料ランナー禁止。OAuth Actions方式のPR #7は使用しない。

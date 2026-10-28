@@ -127,7 +127,18 @@ Showdownが既にあるなら再cloneせずそのフォルダを `SHOWDOWN_DIR` 
 - 報告には**失敗する最小の再現例と、何を直せばよいか**を記載。現行6体の置換は**提案**にとどめ、実戦用個体/研究用型を勝手に変更しない。
 - ChatGPTにはClaude Codeが出したPRのURLを共有するだけでよい。このChatGPTは接続済みGitHubリポジトリのコード/PRを確認し、独立評価を続けられる。
 
-## 7. ClaudeのGitHubイベント起動は「任意の第2段階」
-Cloud Sessionsを選べば、**ローカルCLIをインストールしなくてもGitHubを介した共同研究を開始できる**。追加でIssueやPRに`@claude`と書いて自動反応させたい場合は、リポジトリ管理者が[Claude Code GitHub Actions公式手順](https://code.claude.com/docs/en/github-actions)に従い、Claude Code内で`/install-github-app`を実行する。GitHub CLIと認証、GitHub Appの許可、必要なSecretの設定、生成されたワークフローPRの承認が必要。
+## 7. 現在の連携方法（2026-10-28現在）
+**Claude Team Cloud Scheduled Tasks（旧Routines）を使用し、GitHubでClaudeを起動する。** 対象は`jugemes/champions-mc-lab`。Team既存利用枠のみを使い、ユーザーが追加使用量クレジットを使えない設定に変更済み（再確認不要）。追加契約、API従量課金、有料ランナー、PC常時起動は禁止。
 
-**このGitHub App・Claude用認証/課金は未設定とする。** 本リポジトリにワークフローを置いただけで`@claude`が動くとは言わない。ユーザーの明示的な接続操作が必要。APIキーをチャットやIssueに貼らない。
+ChatGPTは`chatgpt/claude-request-*`という専用ブランチに依頼用ファイルを作り、`main`向けの**通常PR（draft=false）**をタイトル`CLAUDE-TASK:`で作成する。Claude側のイベント`pull_request.opened`が起動する条件は **Author = jugemes / base = main / head startsWith chatgpt/claude-request- / title startsWith CLAUDE-TASK: / draft=false**（すべてAND）。このPRは依頼票だけであり、**絶対にmainへマージしない**。Claudeは独立した`claude/*`ブランチで実装PRを作成する。レビュー・CIの確認とユーザーの採否を経てから実装PRのマージを検討する。
+
+**Draft PRは起動しない既知の不具合** [Anthropic #100782](https://github.com/anthropics/claude-code/issues/100782) がある。Draft [#10](https://github.com/jugemes/champions-mc-lab/pull/10) は発火せず、通常PR [#11](https://github.com/jugemes/champions-mc-lab/pull/11)では**ユーザーがClaudeの実行開始を確認**した。ただし、[Issue #9](https://github.com/jugemes/champions-mc-lab/issues/9)へのClaude ACK書き込みはGitHubで未確認である。**起動成功と成果返送成功を混同しない**。未検収の際は新しい連続起動を控える。PR #7のClaude OAuth/GitHub Actions方式は未稼働で、Cloud Tasksと**併用しない**。
+
+## 8. ユーザーから「Claudeに依頼して」と言われなくても行う自律協業ルール
+- **ChatGPTが各対戦研究の依頼で判断する**。実戦の選出3体・初手・プレミ診断・公開資料照合など即答できる仕事はChatGPTだけで完了する。Claudeへの依頼をユーザーに要求しない。
+- **自発的にClaudeを依頼する案件**：実戦の重要な反例をShowdown上で再現する、選出/ダメージ/交代AIのバグ調査と改修、回帰テスト、複数PRの競合/副作用監査、双方の見解が分かれる技術的問題、構築案比較の実験条件を独立監査する場合。Claudeの利用で実質的改善が見込めるものだけに限定。
+- ChatGPTは毎回、**既存main・open Issue/PR・完了レポートを先に照合**し、重複発注と未完了タスクへの上乗せを避ける。原則、**Claudeに起動依頼中のPRは同時1件**。新しいタスクはIssueに観測事実、問題仮説、禁止事項、受入条件、検証環境/固定SHA、再現方法を明示し、新規通常PRを1つ開く。コード・研究構築の勝手な上書きは指示しない。
+- Claudeの成果はIssueコメントまたは独立の改善PRとしてGitHubに残す。ChatGPTは実際に**GitHubの結果を再読取**し、CI成功と実戦の勝率改善を区別したうえで独立レビューする。ユーザーの明示的な「Claudeに頼んで」がなくても適切なタイミングで依頼し、技術的反証を進める。
+- **自動連続起動は禁止**：依頼PR、Claudeが提出した実装PRを連鎖させて新規のClaude依頼を無制限に増やさない。Team上限を無視した大量試行や成果の出ない定期実行はしない。ChatGPTはClaudeの処理待ちで実戦相談を停止しない。
+- **コード変更と承認**：通常の研究コードはbranch→PR→CI→相互レビュー→ユーザー最終判断。依頼票PR自体はマージしない。Claudeが本番構築・育成個体を無断変更しない。
+- **チャットを閉じている間**も、ChatGPTの条件監視タスク **`Champions Claude協業監視`**（Automation ID `6ae165deff208191972d3872704f3e36`、2026-10-28有効化確認、Asia/Tokyo基準6時間間隔）がGitHub Issue #9、依頼PR、成果PR、CIを検収する。GitHub上に意味のある進捗がある場合のみ通知する。接続未検収中は新規Claude依頼を重複発行しない。これはGitHub監視でありClaude内部のセッション状態そのものをリアルタイムで取得する機能ではない。
