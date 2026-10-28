@@ -5,6 +5,7 @@ on:
     paths:
       - 'm7-rational-mimikyu-response.js'
       - 'm7-wash-skeledirge-opening.js'
+      - 'm7-post-mimikyu-reentry.js'
       - '.github/workflows/m7-rational-mimikyu-response.yml'
       - 'engine-three-branch.js'
 permissions:
@@ -41,6 +42,10 @@ jobs:
         run: |
           set -o pipefail
           node m7-wash-skeledirge-opening.js | tee m7-wash-skeledirge-opening.log
+      - name: Check mandatory Golisopod and Garchomp replacement after Mimikyu faint
+        run: |
+          set -o pipefail
+          node m7-post-mimikyu-reentry.js | tee m7-post-mimikyu-reentry.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -50,5 +55,7 @@ jobs:
             m7-rational-mimikyu-response.log
             output/m7-roster-deltas/wash-skeledirge-opening.json
             m7-wash-skeledirge-opening.log
+            output/m7-roster-deltas/post-mimikyu-reentry.json
+            m7-post-mimikyu-reentry.log
           retention-days: 30
           if-no-files-found: warn
