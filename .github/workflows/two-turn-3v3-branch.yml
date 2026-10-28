@@ -1,0 +1,40 @@
+name: Champions M-C Two-turn 3v3 Engine Branch P0-4
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'engine-three-branch.js'
+      - 'test/engine-three-branch.test.js'
+      - '.github/workflows/two-turn-3v3-branch.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed Showdown
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: M-C legality
+        run: npm run check
+      - name: Exact selected-three turn-2 branch smoke test
+        run: node --test test/engine-three-branch.test.js
