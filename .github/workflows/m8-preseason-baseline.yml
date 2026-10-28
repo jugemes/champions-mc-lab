@@ -6,6 +6,9 @@ on:
       - 'm8-baseline-core.js'
       - 'm8-preseason-benchmark.js'
       - 'test/m8-preseason-benchmark.test.js'
+      - 'm8-counterfactual-selection.js'
+      - 'test/m8-counterfactual-selection.test.js'
+      - 'lab.js'
       - '.github/workflows/m8-preseason-baseline.yml'
   workflow_dispatch:
 permissions:
@@ -38,9 +41,11 @@ jobs:
       - name: Check Champions M-C legality
         run: npm run check
       - name: Test baseline set consistency and scenario coverage
-        run: node --test test/m8-preseason-benchmark.test.js
+        run: node --test test/m8-preseason-benchmark.test.js test/m8-counterfactual-selection.test.js
       - name: Reproducible live-six all-14 matchup baseline
         run: node m8-preseason-benchmark.js | tee m8-run.log
+      - name: Test preregistered trios across BOTH hypothetical rival threes
+        run: node m8-counterfactual-selection.js | tee m8-counterfactual.log
       - name: Store per-match and per-threat evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,5 +54,6 @@ jobs:
           path: |
             output/m8-preseason/
             m8-run.log
+            m8-counterfactual.log
           retention-days: 30
           if-no-files-found: warn
