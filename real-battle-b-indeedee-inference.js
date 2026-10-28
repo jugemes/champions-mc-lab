@@ -50,6 +50,21 @@ function hypotheticalEnemySix(item){
   throw Error('Mismatch with user-recorded six');
  return team;
 }
+function publicTurnOrdering(events){
+ const moveLines=events.map((line,index)=>({line,index}))
+   .filter(x=>x.line.startsWith('|move|'));
+ const ours=moveLines.find(x=>x.line.includes('|p1a: Hydreigon|'));
+ const theirs=moveLines.find(x=>x.line.includes('|p2a: Indeedee|'));
+ const faintIndex=events.findIndex(x=>x.startsWith('|faint|p1a: Hydreigon'));
+ return {
+   indeedeeMoveIndex:theirs?.index??null,
+   hydreigonMoveIndex:ours?.index??null,
+   indeedeeMovedBeforeHydreigon:Boolean(theirs&&(!ours||theirs.index<ours.index)),
+   hydreigonActedBeforeKO:Boolean(ours&&faintIndex>=0&&ours.index<faintIndex),
+   hydreigonFaintedBeforeActing:faintIndex>=0&&(!ours||faintIndex<ours.index),
+   hydreigonFaintedByTurnEnd:faintIndex>=0
+ };
+}
 function runInference(){
  const sim=load(),ourSix=reportedLive();
  const results={};
@@ -65,12 +80,14 @@ function runInference(){
     ourLead:'Hydreigon',opponentLead:'Indeedee',ourMove:'Dark Pulse',
     opponentMove:knownMove,seed:[2026,10,28,66]
   });
+  const observed=publicTurnOrdering(turn.events);
   results[item]={
     assumedItem:item,
     speedOfIndeedee:incoming.ourSpeed,speedOfHydreigon:incoming.opponentSpeed,
     incomingDazzlingGleamFraction:incoming.fraction,
-    hydreigonFaintedBeforeActing:turn.ourAfter.fainted,
-    hydreigonMoveSeen:turn.events.some(e=>e.includes('|move|p1a:')&&e.includes('Dark Pulse')),
+    ...observed,
+    compatibleWithObservedFirstMoveAndKO:
+      observed.indeedeeMovedBeforeHydreigon&&observed.hydreigonFaintedBeforeActing,
     engineEvents:turn.events,
     unknown:'Actual opponent item and other five sets remain unknown.'
   };
@@ -79,10 +96,10 @@ function runInference(){
   observedFromHumanReport:'Indeedee moved first and KOed our Hydreigon with Dazzling Gleam; item unknown',
   publicSix,ownMoveForScenario:'Dark Pulse (hypothesis, user did not report their chosen move)',
   results,
-  interpretation:'Mechanics-counterfactual only. Not proof of real opponent item or six-set; independent legal hypothesis validation.',
+  interpretation:'At equal max speed points and no external speed modifier, Focus Sash hypothetical moves second and is inconsistent with reported first-move KO; Choice Scarf hypothetical moves first and is compatible. Other unobserved speed control (Trick Room, Tailwind, stages, etc.) was not modeled. Actual item still unknown.',
  };
 }
-module.exports={publicSix,hypotheticalEnemySix,runInference};
+module.exports={publicSix,hypotheticalEnemySix,publicTurnOrdering,runInference};
 if(require.main===module){
  try{console.log('REAL_BATTLE_B_MECHANICS '+JSON.stringify(runInference()));}
  catch(e){console.error(e.stack||e);process.exitCode=1;}
