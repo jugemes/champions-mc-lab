@@ -217,9 +217,29 @@ class Bot{
     if(req.teamPreview){
       let enginePreview=null;
       if(!this.forcedSelection&&
-         ['engine-mega-cover','engine-two-turn'].includes(this.previewPolicy)){
+         ['engine-mega-cover','engine-two-turn','engine-two-turn-coverage'].includes(this.previewPolicy)){
         try{
-          if(this.previewPolicy==='engine-two-turn'){
+          if(this.previewPolicy==='engine-two-turn-coverage'){
+            const {rankCoverageOpening}=require('./engine-opening-coverage');
+            const report=rankCoverageOpening(this.sim,this.team,this.opp,{
+              maxScenes:6,limit:60});
+            if(!report.selected)throw Error(report.winnerReason);
+            const chosen=report.selected;
+            enginePreview=chosen.ownThree.map(name=>{
+              const i=this.team.findIndex(p=>p.species===name);
+              if(i<0)throw Error('Own selection not on roster: '+name);
+              return i+1;
+            });
+            this.trace.enginePreviews?.push({
+              side:this.side,policy:'engine-two-turn-coverage',
+              chosen:[...chosen.ownThree],lead:chosen.lead,
+              oldBaseline:report.baseline,megaCoverage:chosen.megaCoverage,
+              excludedByCoverage:report.excludedByCoverage,
+              opponentsConsidered:chosen.scenarioLeads.map(x=>x.enemyLead),
+              possibleMegaThreats:report.possibleMegaThreats,
+              riskScore:chosen.scoreWorst,caveat:report.caveat
+            });
+          }else if(this.previewPolicy==='engine-two-turn'){
             const {rankOpeningTrioLeads}=require('./engine-opening-ranker');
             const report=rankOpeningTrioLeads(this.sim,this.team,this.opp,{
               maxScenes:4,limit:60,seed:[2026,10,28,1]});
