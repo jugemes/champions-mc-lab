@@ -19,7 +19,10 @@ function selectedIndices(six,three) {
 }
 function matchesExpectedActive(p,expected){
   const form=p?.species.name||'';
-  // A publicly observed forme change (e.g. Mimikyu -> Mimikyu-Busted)\n  // must not be mistaken for a different opposing active or free switch.\n  return form===expected||p?.species.baseSpecies===expected||\n    form.startsWith(expected+'-Mega');
+  // A publicly observed forme change (e.g. Mimikyu -> Mimikyu-Busted)
+  // must not be mistaken for a different opposing active or free switch.
+  return form===expected||p?.species.baseSpecies===expected||
+    form.startsWith(expected+'-Mega');
 }
 function makeThreeBattle(sim,ownSix,assumedFoeSix,{
   ownThree,foeThree,seed=[2026,10,28,1]
