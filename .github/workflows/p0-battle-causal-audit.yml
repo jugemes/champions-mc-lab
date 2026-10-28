@@ -1,0 +1,53 @@
+name: Champions M-C P0-6 Paired Battle Causal Audit
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'battle-loss-audit.js'
+      - 'battle-causal-audit-run.js'
+      - 'test/battle-loss-audit.test.js'
+      - '.github/workflows/p0-battle-causal-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  losses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed M-C Showdown engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: Legal Champions teams
+        run: npm run check
+      - name: Audit output and no hidden request disclosure
+        run: node --test test/battle-loss-audit.test.js
+      - name: Capture paired after-match public action traces
+        run: node battle-causal-audit-run.js | tee battle-causal-summary.log
+      - name: Preserve all evidence without changing source of truth
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: champions-winloss-root-causes-${{ github.run_id }}
+          path: |
+            output/p0-winloss-audit/
+            battle-causal-summary.log
+          retention-days: 30
+          if-no-files-found: warn

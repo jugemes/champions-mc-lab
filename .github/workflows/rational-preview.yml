@@ -1,0 +1,82 @@
+name: M-C Rational Preview Own-Mega Audit (Issue 4)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'own-form.js'
+      - 'preview-rational.js'
+      - 'rational-preview-audit.js'
+      - 'lab.js'
+      - 'reported-live-roster-20261027.js'
+      - 'test/rational-preview.test.js'
+      - 'test/hybrid01-audit.test.js'
+      - 'public-risk-bands.js'
+      - 'preview-risk.js'
+      - 'risk-preview-audit.js'
+      - 'test/preview-risk.test.js'
+      - '.github/workflows/rational-preview.yml'
+  workflow_dispatch:
+    inputs:
+      per_condition:
+        default: '10'
+        type: choice
+        options: ['0','4','10','20']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      RESEARCH_SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CONDITION: ${{ inputs.per_condition || '10' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned engine
+        run: |
+          cd showdown
+          npm ci
+          npm run build
+      - name: Unit tests and M-C legality
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$RESEARCH_SHOWDOWN_COMMIT"
+          npm test
+          npm run check
+      - name: Own-Mega preview, engine checks, Charizard-in/out forced threes
+        run: node rational-preview-audit.js --per-condition "$PER_CONDITION" | tee output-audit.txt
+      - name: Risk-opt-in paired preview audit (no ladder interpretation)
+        run: node risk-preview-audit.js | tee risk-preview-audit.txt
+      - name: Summary (heuristic AI, not ladder win rates)
+        if: success()
+        run: |
+          {
+            echo '## Rational preview audit (Issue 4)'
+            echo 'Opposing sets are hypotheses. Heuristic AI vs heuristic AI; not ladder win rates.'
+            echo '```'
+            cat output-audit.txt
+            echo '```'
+            echo '## Opt-in risk-preview paired A/B (synthetic hypotheses)'
+            echo '```'
+            cat risk-preview-audit.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rational-preview-${{ github.run_id }}
+          path: output/rational-preview/
+          retention-days: 30
+          if-no-files-found: warn
