@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'm7-mimikyu-three-turn.js'
+      - 'm7-current-six-selection-alternatives.js'
       - '.github/workflows/m7-mimikyu-three-turn.yml'
       - 'engine-three-branch.js'
 permissions:
@@ -36,6 +37,10 @@ jobs:
         run: |
           set -o pipefail
           node m7-mimikyu-three-turn.js | tee m7-mimikyu-three-turn.log
+      - name: Current live six versus Heat using identical opponent public six and fixed own preview trios
+        run: |
+          set -o pipefail
+          node m7-current-six-selection-alternatives.js | tee m7-current-six-selection-alternatives.log
       - name: Preserve reproducible move-level counterplays
         if: always()
         uses: actions/upload-artifact@v4
@@ -44,5 +49,7 @@ jobs:
           path: |
             output/m7-roster-deltas/mimikyu-three-turn-branches.json
             m7-mimikyu-three-turn.log
+            output/m7-roster-deltas/current-six-selection-alternatives.json
+            m7-current-six-selection-alternatives.log
           retention-days: 30
           if-no-files-found: warn
