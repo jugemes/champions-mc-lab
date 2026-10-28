@@ -28,8 +28,8 @@ function ownTeam(form){
 }
 function snapshot(result,species,who='own'){
  const a=result.secondAfter||result.firstAfter;
- return a[who].pokemon.find(p=>p.species===species)||
-   null;
+ return a[who].pokemon.find(p=>p.species===species||
+   p.species.startsWith(species+'-'))||null;
 }
 const group=groups.find(g=>g.name==='01_M7_golisopod_balance');
 assert.ok(group);
@@ -96,6 +96,8 @@ function main(){
     'Mimikyu switch must actually happen; no simulated free knockout');
    assert.ok(row.firstPublicEvents.some(s=>s.includes('|move|')&&s.includes(row.firstOwn)),
     'Our move must actually execute after the rival switch');
+   assert.equal(row.executedSecond,true,
+    'Mimikyu Disguise form change must not be treated as a forced switch or turn end');
   }
  }
  const result={
