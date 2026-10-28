@@ -38,7 +38,7 @@ jobs:
       - name: Validate M-C teams and Encore public observation tests
         run: |
           npm run check
-          node --test test/public-encore-rationality.test.js
+          npm test
       - name: Compare 56 identical seeded public-six AI decisions
         run: |
           set -o pipefail
