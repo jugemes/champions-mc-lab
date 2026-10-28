@@ -118,7 +118,7 @@ function execute(c,policy,response,seed){
    completed:frames.filter(f=>f.executed).length,
    leadHP:lead.hp,leadFainted:lead.fainted,metaHP:meta.hp,
    mimikyuHP:mimi.hp,mimikyuFainted:mimi.fainted,mimikyuStatus:mimi.status,
-   golisopodHP:gol.hp,garchompHP:chomp.hp,
+   golisopodHP:gol.hp,garchompHP:chomp.hp,garchompFainted:chomp.fainted,
    ownActive:last.own.active,foeActive:last.foe.active,
    endReason:frames.find(f=>!f.executed)?.reason||''};
  }finally{b.destroy();}
@@ -149,6 +149,9 @@ function main(){
      minMimikyuHP:Math.min(...a.map(x=>x.mimikyuHP)),
      maxMimikyuHP:Math.max(...a.map(x=>x.mimikyuHP)),
      minGolisopodHP:Math.min(...a.map(x=>x.golisopodHP)),
+     minGarchompHP:Math.min(...a.map(x=>x.garchompHP)),
+     maxGarchompHP:Math.max(...a.map(x=>x.garchompHP)),
+     garchompFainted:a.filter(x=>x.garchompFainted).length,
      endReasons:[...new Set(a.map(x=>x.endReason).filter(Boolean))]};
    })
   }))
