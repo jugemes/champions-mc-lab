@@ -33,15 +33,26 @@ function robustLeadOutcomes(results){
   }
   const assessments=[];
   for(const [enemyLead,actions] of grouped){
-    const scored=[...actions].map(([action,rows])=>({
-      action,adversarialWorst:Math.min(...rows.map(scoreBranch)),
-      meanUnweighted:rows.reduce((s,x)=>s+scoreBranch(x),0)/rows.length,
-      tested:rows.length,secondExecuted:rows.filter(x=>x.secondExecuted).length,
-      unfinished:rows.filter(x=>x.secondSkipped&&!x.secondExecuted).length
-    }));
-    scored.sort((a,b)=>b.adversarialWorst-a.adversarialWorst
-      ||b.meanUnweighted-a.meanUnweighted||a.action.localeCompare(b.action));
-    assessments.push({enemyLead,bestAvailableFirstAction:scored[0],options:scored});
+    const scored=[...actions].map(([action,rows])=>{
+      const unresolved=rows.filter(x=>!x.secondExecuted&&
+        x.secondSkipped!=='faint-or-game-end');
+      const complete=unresolved.length===0;
+      return {
+        action,complete,
+        adversarialWorst:complete?Math.min(...rows.map(scoreBranch)):null,
+        meanUnweighted:complete?
+          rows.reduce((sum,x)=>sum+scoreBranch(x),0)/rows.length:null,
+        tested:rows.length,secondExecuted:rows.filter(x=>x.secondExecuted).length,
+        unresolved:unresolved.length,
+        skippedReasons:[...new Set(unresolved.map(x=>x.secondSkipped||'unclassified'))]
+      };
+    });
+    scored.sort((a,b)=>Number(b.complete)-Number(a.complete)
+      ||(b.adversarialWorst??-Infinity)-(a.adversarialWorst??-Infinity)
+      ||(b.meanUnweighted??-Infinity)-(a.meanUnweighted??-Infinity)
+      ||a.action.localeCompare(b.action));
+    assessments.push({enemyLead,
+      bestAvailableFirstAction:scored.find(x=>x.complete)||null,options:scored});
   }
   return assessments;
 }
@@ -57,16 +68,21 @@ function rankOpeningTrioLeads(sim,ownSix,publicSix,{
         ownLead:ownThree[0],ownThree,maxScenes,seed
       });
       const threats=robustLeadOutcomes(audit.results);
-      const values=threats.map(t=>t.bestAvailableFirstAction.adversarialWorst);
+      const comparable=threats.length>0&&threats.every(t=>t.bestAvailableFirstAction);
+      const values=comparable?threats.map(t=>t.bestAvailableFirstAction.adversarialWorst):[];
       evaluated.push({
         ownThree,lead:ownThree[0],
-        scoreWorst:Math.min(...values),scoreScenarioMean:values.reduce((a,b)=>a+b,0)/values.length,
+        comparable,
+        scoreWorst:comparable?Math.min(...values):null,
+        scoreScenarioMean:comparable?values.reduce((a,b)=>a+b,0)/values.length:null,
         oldRationalTrioRank:ranked.indexOf(candidate)+1,
         oldRationalTrioScore:+candidate.score.toFixed(3),
         scenarioLeads:threats.map(t=>({enemyLead:t.enemyLead,
-          bestFirstAction:t.bestAvailableFirstAction.action,
-          payoff:t.bestAvailableFirstAction.adversarialWorst,
-          horizonCoverage:t.bestAvailableFirstAction.secondExecuted+'/'+t.bestAvailableFirstAction.tested
+          bestFirstAction:t.bestAvailableFirstAction?.action||null,
+          payoff:t.bestAvailableFirstAction?.adversarialWorst??null,
+          horizonCoverage:t.bestAvailableFirstAction?
+            (t.bestAvailableFirstAction.secondExecuted+'/'+t.bestAvailableFirstAction.tested):
+            'no-complete-two-turn-action'
         })),
         opponentScenarios:audit.opponentScenes,
         comparisons:audit.results.length
@@ -75,8 +91,9 @@ function rankOpeningTrioLeads(sim,ownSix,publicSix,{
     }
     if(evaluated.length>=limit)break;
   }
-  evaluated.sort((a,b)=>b.scoreWorst-a.scoreWorst
-    ||b.scoreScenarioMean-a.scoreScenarioMean
+  evaluated.sort((a,b)=>Number(b.comparable)-Number(a.comparable)
+    ||(b.scoreWorst??-Infinity)-(a.scoreWorst??-Infinity)
+    ||(b.scoreScenarioMean??-Infinity)-(a.scoreScenarioMean??-Infinity)
     ||a.oldRationalTrioRank-b.oldRationalTrioRank
     ||a.lead.localeCompare(b.lead));
   return {
@@ -87,7 +104,7 @@ function rankOpeningTrioLeads(sim,ownSix,publicSix,{
     },
     top:evaluated.slice(0,10),
     all:evaluated,
-    warning:'Exploratory risk-averse two-turn script ranking; NOT true game-theoretic minimax, measured usage odds, complete 3v3 strategy or proved ladder improvement. Some branches stop at forced replacement. Record alternative opponent leads, not their actual hidden three.'
+    warning:'Exploratory risk-averse two-turn script ranking; UNRESOLVED pivot/forced-replacement branches are NOT scored as favorable. An incomplete best action makes a candidate non-comparable; this is NOT proof that pivoting is weak. Scores are not true game-theoretic minimax, empirical usage odds, 3v3 win probabilities or proved ladder improvement.'
   };
 }
 module.exports={scoreBranch,robustLeadOutcomes,rankOpeningTrioLeads};
