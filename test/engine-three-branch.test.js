@@ -44,3 +44,16 @@ test('rejects nonexistent selected species and illegal pre-selected trios',()=>{
  assert.throws(()=>makeThreeBattle(sim,own,fixture.team,{ownThree:us,foeThree:['Golisopod','Golisopod','Mimikyu']}),/three distinct/);
  assert.throws(()=>makeThreeBattle(sim,own,fixture.team,{ownThree:['Wooloo','Garchomp','Tyranitar'],foeThree:them}),/absent/);
 });
+
+test('planned switch to known selected teammate is a legal Showdown action, not an imagined replacement',()=>{
+ const ownThree=['Rotom-Wash','Hydreigon','Tyranitar'];
+ const r=twoTurnBranch(sim,own,fixture.team,{
+   ownThree,foeThree:them,
+   first:{own:'switch:Hydreigon',foe:'Swords Dance',foeMega:true},
+   second:{own:'Flamethrower',foe:'Leech Life'}
+ });
+ assert.equal(r.firstAfter.own.active,'Hydreigon');
+ assert.equal(r.firstAfter.assumedFoe.active,'Golisopod-Mega');
+ assert.equal(r.second.executed,true);
+ assert.ok(r.events.first.some(line=>line.includes('switch|')));
+});
