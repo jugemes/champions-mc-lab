@@ -23,6 +23,9 @@ test('Showdown separates Timid Indeedee move order and 4x Dazzling Gleam from un
  // A faint at END of turn is NOT a faint before our move. The old
  // audit mislabeled these and falsely certified incompatible hypotheses.
  assert.equal(scarf.hydreigonFaintedBeforeActing,true);
+ assert.equal(sash.hydreigonFaintedBeforeActing,false);
+ assert.equal(sash.hydreigonMoveSeen,true);
+ assert.equal(scarf.hydreigonMoveSeen,false);
  assert.equal(scarf.hydreigonActedBeforeKO,false);
  assert.equal(scarf.indeedeeMovedBeforeHydreigon,true);
  assert.equal(scarf.compatibleWithObservedFirstMoveAndKO,true);
