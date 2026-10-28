@@ -24,16 +24,30 @@ for(const {own,opp,move} of cases){
   interpretation:'single Showdown engine noncrit sample; foe item/moves are explicitly assumed, not scouted'}));
 }
 
+let hitSeed=null;
+for(let i=0;i<32;i++){
+ const candidate=[2026,10,28,i];
+ const t=engineTurnSample(sim,our,op,{
+   ourLead:'Hydreigon',opponentLead:'Golisopod',ourMove:'Draco Meteor',
+   opponentMove:'Swords Dance',opponentMega:true,seed:candidate
+ });
+ if(t.opponentAfter.hp>0&&t.opponentAfter.hp<t.opponentAfter.maxhp){
+   hitSeed=candidate;break;
+ }
+}
+if(!hitSeed)throw Error('No landed-but-nonlethal Draco scenario among 32 fixed seeds');
 for(const move of ['Flamethrower','Draco Meteor']){
  const t=engineTurnSample(sim,our,op,{
    ourLead:'Hydreigon',opponentLead:'Golisopod',
-   ourMove:move,opponentMove:'Swords Dance',opponentMega:true,seed:[2026,10,28,2]
+   ourMove:move,opponentMove:'Swords Dance',opponentMega:true,seed:hitSeed
  });
  console.log('ENGINE_TURN '+JSON.stringify({
-   case:'Hydreigon vs Mega Golisopod using Swords Dance',move,
+   case:'Hydreigon vs Mega Golisopod using Swords Dance',
+   seed:hitSeed,move,
    ownRemaining:t.ourAfter.hp,ownMaxHP:t.ourAfter.maxhp,
    foeRemaining:t.opponentAfter.hp,foeMaxHP:t.opponentAfter.maxhp,
    foeAttackBoost:t.opponentAfter.boosts.atk,
-   events:t.events,assumption:t.assumption
+   events:t.events,assumption:t.assumption,
+   condition:'seed selected specifically for a landed Draco; no accuracy frequency is inferred'
  }));
 }
