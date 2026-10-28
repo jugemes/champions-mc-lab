@@ -274,7 +274,13 @@ class Bot{
           this.trace.enginePreviews?.push({side:this.side,
             policy:this.previewPolicy,status:'fallback',
             error:String(error.message).slice(0,220)});
-          enginePreview=chooseRationalPreview(this.dex,this.team,this.opp,this.random);
+          if(this.previewPolicy==='engine-two-turn-coverage'){
+            const top=rankRationalPreview(this.dex,this.team,this.opp)[0];
+            const lead=top.leads[0].i;
+            enginePreview=[lead,...top.three.filter(i=>i!==lead)].map(i=>i+1);
+          }else{
+            enginePreview=chooseRationalPreview(this.dex,this.team,this.opp,this.random);
+          }
         }
       }
       const selected=this.forcedSelection?this.forcedSelection.map(name=>{
