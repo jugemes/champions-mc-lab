@@ -1,0 +1,46 @@
+name: M-7 defensive fire core versus same constructed singles teams
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-defensive-fire-slot-comparison.js'
+      - '.github/workflows/m7-defensive-cores.yml'
+permissions:
+  contents: read
+jobs:
+  fire_defensive_cores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Pinned Showdown build
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Compare 6 team skeletons and inspect First Impression against alternative defenders
+        run: |
+          set -o pipefail
+          node m7-defensive-fire-slot-comparison.js | tee m7-defensive-fire-slot-comparison.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: defensive-fire-cores-${{ github.run_id }}
+          path: |
+            output/m7-roster-deltas/fire-defensive-cores.json
+            m7-defensive-fire-slot-comparison.log
+          retention-days: 30
+          if-no-files-found: warn
