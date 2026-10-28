@@ -15,7 +15,8 @@ const {chooseStrategicPreview}=require('./preview-strategic');
 const {chooseRationalPreview}=require('./preview-rational');
 const {chooseRationalRiskPreview}=require('./preview-risk');
 const {ownForm,weatherOf}=require('./own-form');
-const {adviseEngineTurn}=require('./engine-turn-advisor');
+// Engine advisor is loaded only inside opt-in Bot decisions to avoid a circular
+// dependency: public-hypotheses -> lab.normalize.
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -275,6 +276,7 @@ class Bot{
         entry.status='ineligible-current-state';
       }else{
         try{
+          const {adviseEngineTurn}=require('./engine-turn-advisor');
           const proposed=adviseEngineTurn(this.sim,this.team,this.opp,{
             ourLead:this.getSet(current).species,opponentLead:this.foeActive,
             assumptions:1,seed:[2026,10,28,1],
