@@ -47,16 +47,27 @@ test('oracle refuses unvalidated or non-own move instead of peeking enemy hidden
    ourLead:'Hydreigon',opponentLead:'Golisopod'}),/illegal hypothetical team/);
 });
 
-test('one full Showdown turn: Flamethrower prevents Mega-Golisopod Swords Dance, Draco Meteor does not',()=>{
+test('Showdown full turn: *landed* Draco is resisted while Flamethrower KOs Mega before setup',()=>{
  const common={ourLead:'Hydreigon',opponentLead:'Golisopod',
-   opponentMove:'Swords Dance',opponentMega:true,seed:[2026,10,28,2]};
- const fire=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Flamethrower'});
- const dragon=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Draco Meteor'});
+   opponentMove:'Swords Dance',opponentMega:true};
+ // Avoid conflating a Draco miss with a resisted hit. The oracle uses real
+ // accuracy RNG, so find and disclose a deterministic seed where it landed.
+ let hit=null,seed=null;
+ for(let i=0;i<32;i++){
+   const candidate=[2026,10,28,i];
+   const result=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Draco Meteor',seed:candidate});
+   if(result.opponentAfter.hp>0&&result.opponentAfter.hp<result.opponentAfter.maxhp){
+     hit=result;seed=candidate;break;
+   }
+ }
+ assert.ok(hit,'require actual landed-but-nonlethal Draco before comparing choices');
+ const fire=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Flamethrower',seed});
  assert.equal(fire.opponentAfter.form,'Golisopod-Mega');
- assert.equal(dragon.opponentAfter.form,'Golisopod-Mega');
+ assert.equal(hit.opponentAfter.form,'Golisopod-Mega');
  assert.equal(fire.opponentAfter.hp,0,'engine should KO before setup');
- assert.ok(dragon.opponentAfter.hp>0,'resisted Draco should fail to stop setup');
- assert.ok(dragon.opponentAfter.boosts.atk>=2,'Showdown itself applies Swords Dance after resisted hit');
+ assert.ok(hit.opponentAfter.hp>0&&hit.opponentAfter.hp<hit.opponentAfter.maxhp,
+   'Draco *landed* but Golisopod survived');
+ assert.ok(hit.opponentAfter.boosts.atk>=2,'Showdown applies Swords Dance after survived resisted hit');
  assert.ok(fire.events.some(x=>x.includes('Flamethrower')));
- assert.ok(dragon.events.some(x=>x.includes('Swords Dance')));
+ assert.ok(hit.events.some(x=>x.includes('Swords Dance')));
 });
