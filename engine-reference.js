@@ -119,8 +119,9 @@ function engineTurnSample(sim,ourSix,assumedOpponentSix,{
     if(battle.p1.choice.error||battle.p2.choice.error)
       throw Error('Showdown rejected a hypothetical turn action: '+
         (battle.p1.choice.error||'')+' / '+(battle.p2.choice.error||''));
-    const events=battle.log.slice(start).filter(line=>
-      /\\|(move|detailschange|faint|cant|turn|\\-damage|\\-boost|\\-fail|\\-formechange|\\-activate)\\|/.test(line));
+    const eventTypes=new Set(['move','detailschange','faint','cant','turn',
+      '-damage','-boost','-fail','-formechange','-activate']);
+    const events=battle.log.slice(start).filter(line=>eventTypes.has(line.split('|')[1]));
     return {
       assumption:'fully specified hypothetical scenario only',
       engine:'showdown-Battle.makeChoices',
