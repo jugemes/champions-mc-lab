@@ -32,3 +32,24 @@ for(const move of ['Flamethrower','Draco Meteor']){
     foeFainted:x.foeFainted,foeAttackBoost:x.foeAttackBoost,
     source:x.source,events:x.events}))}));
 }
+
+for(const name of ['01_M7_golisopod_balance','06_M7_golisopod_basculegion','07_M7_baxcalibur_offense']){
+ const g=groups.find(x=>x.name===name);
+ const publicSix=g.team.map(x=>x.species);
+ const options=[];
+ for(const member of own){
+  const usesMega=Boolean(sim.Dex.mod('champions').items.get(member.item).megaStone);
+  const result=publicMoveOutcomes(sim,own,publicSix,{
+    ourLead:member.species,opponentLead:'Golisopod',opponentMoves:['Swords Dance'],
+    ourMega:usesMega,assumptions:1,seed:[2026,10,28,1]
+  });
+  const melee=result.cases.filter(c=>c.opponentMega);
+  options.push({ourLead:member.species,ourMega:usesMega,
+    megaOutcomes:melee.map(c=>({move:c.ownMove,foeFainted:c.foeFainted,
+      foeHP:+c.foeHP.toFixed(3),ownFainted:c.ownFainted,
+      foeBoost:c.foeAttackBoost}))});
+ }
+ console.log('PUBLIC_LEAD_COUNTERS '+JSON.stringify({group:name,opponentPublicSix:publicSix,
+   scenario:'Golisopod chooses Mega + Swords Dance, hypothetical one turn',
+   results:options,warning:'not a 3v3 result, no empirical lead frequency'}));
+}
