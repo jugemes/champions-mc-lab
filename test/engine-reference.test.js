@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const {load}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {groups}=require('../environment-m7-teams');
-const {engineDamageSample,createHypotheticalBattle,FORMAT}=require('../engine-reference');
+const {engineDamageSample,engineTurnSample,createHypotheticalBattle,FORMAT}=require('../engine-reference');
 const sim=load();
 const live=reportedLive();
 const megaBug=groups.find(g=>g.name==='01_M7_golisopod_balance').team;
@@ -45,4 +45,18 @@ test('oracle refuses unvalidated or non-own move instead of peeking enemy hidden
  bad[1]={...bad[1],item:bad[0].item};
  assert.throws(()=>createHypotheticalBattle(sim,live,bad,{
    ourLead:'Hydreigon',opponentLead:'Golisopod'}),/illegal hypothetical team/);
+});
+
+test('one full Showdown turn: Flamethrower prevents Mega-Golisopod Swords Dance, Draco Meteor does not',()=>{
+ const common={ourLead:'Hydreigon',opponentLead:'Golisopod',
+   opponentMove:'Swords Dance',opponentMega:true,seed:[2026,10,28,2]};
+ const fire=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Flamethrower'});
+ const dragon=engineTurnSample(sim,live,megaBug,{...common,ourMove:'Draco Meteor'});
+ assert.equal(fire.opponentAfter.form,'Golisopod-Mega');
+ assert.equal(dragon.opponentAfter.form,'Golisopod-Mega');
+ assert.equal(fire.opponentAfter.hp,0,'engine should KO before setup');
+ assert.ok(dragon.opponentAfter.hp>0,'resisted Draco should fail to stop setup');
+ assert.ok(dragon.opponentAfter.boosts.atk>=2,'Showdown itself applies Swords Dance after resisted hit');
+ assert.ok(fire.events.some(x=>x.includes('Flamethrower')));
+ assert.ok(dragon.events.some(x=>x.includes('Swords Dance')));
 });
