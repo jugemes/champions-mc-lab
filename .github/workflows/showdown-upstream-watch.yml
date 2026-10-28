@@ -1,0 +1,35 @@
+name: Champions M-C Showdown Upstream Watch
+on:
+  # Only executes from repository default branch once reviewed and merged.
+  schedule:
+    - cron: '19 1 * * *'
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/showdown-upstream-watch.js'
+      - 'test/showdown-upstream-watch.test.js'
+      - '.github/workflows/showdown-upstream-watch.yml'
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: champions-showdown-upstream-watch
+  cancel-in-progress: false
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unit tests for safe change classification and dedup
+        run: node --test test/showdown-upstream-watch.test.js
+      - name: Check upstream and record only relevant changes on Issue 20
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/showdown-upstream-watch.js

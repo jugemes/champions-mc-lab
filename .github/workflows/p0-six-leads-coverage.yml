@@ -1,0 +1,53 @@
+name: Champions M-C P0-5 Six Leads & Mega Coverage A-B
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'engine-opening-coverage.js'
+      - 'engine-coverage-ab.js'
+      - 'engine-opening-branches.js'
+      - 'engine-opening-ranker.js'
+      - 'test/engine-opening-coverage.test.js'
+      - '.github/workflows/p0-six-leads-coverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned Showdown
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: All real-use and test team legality
+        run: npm run check
+      - name: Six lead coverage and safe Bot preview tests
+        run: node --test test/engine-opening-coverage.test.js
+      - name: Actual 3v3 opt-in A/B versus pinned old preview
+        run: node engine-coverage-ab.js | tee p0-5-ab.txt
+      - name: Save complete A/B evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-six-leads-coverage-${{ github.run_id }}
+          path: p0-5-ab.txt
+          retention-days: 30
+          if-no-files-found: warn
