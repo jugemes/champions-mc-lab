@@ -5,6 +5,9 @@ on:
     paths:
       - 'engine-three-branch.js'
       - 'test/engine-three-branch.test.js'
+      - 'engine-opening-branches.js'
+      - 'test/engine-opening-branches.test.js'
+      - 'engine-opening-audit.js'
       - '.github/workflows/two-turn-3v3-branch.yml'
   workflow_dispatch:
 permissions:
@@ -37,4 +40,14 @@ jobs:
       - name: M-C legality
         run: npm run check
       - name: Exact selected-three turn-2 branch smoke test
-        run: node --test test/engine-three-branch.test.js
+        run: node --test test/engine-three-branch.test.js test/engine-opening-branches.test.js
+      - name: Audit alternate 3v3 opening hypotheses with real 2-turn engine
+        run: node engine-opening-audit.js | tee engine-opening-proof.txt
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: two-turn-3v3-branches-${{ github.run_id }}
+          path: engine-opening-proof.txt
+          retention-days: 30
+          if-no-files-found: warn
