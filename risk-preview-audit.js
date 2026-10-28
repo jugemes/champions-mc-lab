@@ -56,5 +56,50 @@ async function main(){
  console.log('PAIRED FIXED THREE '+JSON.stringify({forced,seedStart:13370,n:6,
   oldWins,newWins,oldLeads,newLeads,
   warning:'Fixed synthetic opponent three, known hypothesis sets. Does NOT show ladder win rates.'}));
+ // Compare lead preferences *conditional on the exact three chosen by the
+ // user in real case B (Hydreigon / Metagross / Rotom-Wash). Neither policy
+ // is allowed to know the opponent's hidden three at preview.
+ const {rankRationalPreview,SAMPLE}=require('./preview-rational');
+ const {rankRationalRisk}=require('./preview-risk');
+ const publicB=cases['Real-B public six / our live six'].six;
+ const desired=['Metagross','Hydreigon','Rotom-Wash'];
+ const conditional=ranked=>{
+  const c=ranked.find(x=>desired.every(name=>x.three.some(i=>live[i].species===name)));
+  if(!c)throw Error('real B chosen three not found');
+  const leads=c.leads.filter(l=>l.score>=c.leads[0].score-SAMPLE.leadRange);
+  const w=leads.map(l=>Math.exp((l.score-leads[0].score)/SAMPLE.leadTemperature));
+  const total=w.reduce((a,b)=>a+b,0);
+  return {teamScore:+c.score.toFixed(2),
+    leads:leads.map((l,j)=>({species:live[l.i].species,prob:+(w[j]/total).toFixed(3),
+      score:+l.score.toFixed(1),riskPenalty:+(l.riskAdjustment||0).toFixed(2)}))};
+ };
+ console.log('REAL B FIXED OWN THREE '+JSON.stringify({ownThree:desired,
+   historical:conditional(rankRationalPreview(dex,live,publicB)),
+   risk:conditional(rankRationalRisk(dex,live,publicB,validator))}));
+
+ // Counterexample: one plausible opponent 3 brings the *known* live Scarf
+ // Garchomp. The model is still only given the opposing public 6 to decide.
+ const sunTeam=opponents.sun_charizard_y;
+ const forcedLive=['Garchomp','Tyranitar','Primarina'];
+ let winsOld=0,winsRisk=0;
+ const leadsOld=[],leadsRisk=[];
+ for(let i=0;i<6;i++){
+  const seed=hashSeed(14000+i);
+  const common={opponentForced:forcedLive,opponentPreviewPolicy:'rational',
+    decisionPolicy:'v2',megaAware:true};
+  const a=await game(sim,sunTeam,live,seed,false,null,false,
+    {...common,candidatePreviewPolicy:'rational'});
+  const b=await game(sim,sunTeam,live,seed,false,null,false,
+    {...common,candidatePreviewPolicy:'rational-risk'});
+  winsOld+=Number(a.winner==='candidate');winsRisk+=Number(b.winner==='candidate');
+  leadsOld.push(a.trace.selections.find(x=>x.side==='p1')?.lead);
+  leadsRisk.push(b.trace.selections.find(x=>x.side==='p1')?.lead);
+  if(a.trace.errors.length||b.trace.errors.length)throw Error('Bot error in Mega-Y counterexample');
+ }
+ console.log('MEGA-Y RISK COUNTEREXAMPLE '+JSON.stringify({ourHypothesis:'sun_charizard_y',
+  enemyRealLivePublicSix:true,forcedOpponentThree:forcedLive,n:6,
+  oldWins:winsOld,riskWins:winsRisk,oldLeads:leadsOld,riskLeads:leadsRisk,
+  warning:'The fixture sets and chosen enemy 3 are hypothetical. Not ladder outcomes.'}));
+
 }
 main().catch(e=>{console.error(e.stack||String(e));process.exitCode=1;});
