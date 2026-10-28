@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'm7-rational-mimikyu-response.js'
+      - 'm7-wash-skeledirge-opening.js'
       - '.github/workflows/m7-rational-mimikyu-response.yml'
       - 'engine-three-branch.js'
 permissions:
@@ -36,6 +37,10 @@ jobs:
         run: |
           set -o pipefail
           node m7-rational-mimikyu-response.js | tee m7-rational-mimikyu-response.log
+      - name: Stress predeclared three and lead against Golisopod, Scarf Garchomp and Mimikyu leads
+        run: |
+          set -o pipefail
+          node m7-wash-skeledirge-opening.js | tee m7-wash-skeledirge-opening.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -43,5 +48,7 @@ jobs:
           path: |
             output/m7-roster-deltas/rational-mimikyu-response.json
             m7-rational-mimikyu-response.log
+            output/m7-roster-deltas/wash-skeledirge-opening.json
+            m7-wash-skeledirge-opening.log
           retention-days: 30
           if-no-files-found: warn
