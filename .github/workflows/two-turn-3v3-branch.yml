@@ -12,7 +12,7 @@ on:
       - 'engine-opening-ab.js'
       - 'test/engine-preview-optin.test.js'
       - 'lab.js'
-      - 'test/engine-opening-ranker.test.js test/engine-preview-optin.test.js'
+      - 'test/engine-opening-ranker.test.js'
       - '.github/workflows/two-turn-3v3-branch.yml'
   workflow_dispatch:
 permissions:
@@ -45,7 +45,7 @@ jobs:
       - name: M-C legality
         run: npm run check
       - name: Exact selected-three turn-2 branch smoke test
-        run: node --test test/engine-three-branch.test.js test/engine-opening-branches.test.js test/engine-opening-ranker.test.js
+        run: node --test test/engine-three-branch.test.js test/engine-opening-branches.test.js test/engine-opening-ranker.test.js test/engine-preview-optin.test.js
       - name: Audit alternate 3v3 opening hypotheses with real 2-turn engine
         run: node engine-opening-audit.js | tee engine-opening-proof.txt
       - name: A/B old and opt-in preview in actual 3v3 Bot, fixed seed
