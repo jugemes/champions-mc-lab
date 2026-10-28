@@ -33,7 +33,7 @@ test('known mechanical paths are classified; UI changes are ignored',()=>{
 });
 test('old saved head comes only from authenticated Issue comment marker',()=>{
  const text='<!-- showdown-upstream-reviewed-head:'+other+' -->';
- assert.equal(lastBaseline([{body:'unrelated'},{body:text}]),other);
+ assert.equal(lastBaseline([{body:'unrelated'},{body:text,user:{login:'github-actions[bot]'}}]),other);
  assert.equal(lastBaseline([{body:'unrelated'}]),BASELINE);
 });
 test('no change does not create an Issue comment',async()=>{
@@ -54,7 +54,7 @@ test('new mechanics diff is written once, without changing pinned SHA',async()=>
  assert.equal(x.status,'recorded');assert.equal(g.posts.length,1);
  assert.match(g.posts[0],/champions\/items\.ts/);
  assert.ok(g.posts[0].includes(PINNED));
- const nextRun=mockGitHub({files,comments:[{body:g.posts[0]}]});
+ const nextRun=mockGitHub({files,comments:[{body:g.posts[0],user:{login:'github-actions[bot]'}}]});
  const y=await reviewUpstream({token:'fake',repository:'jugemes/champions-mc-lab',fetcher:nextRun.fetcher});
  assert.equal(y.status,'unchanged');assert.equal(nextRun.posts.length,0);
 });
