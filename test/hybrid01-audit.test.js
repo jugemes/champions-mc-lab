@@ -35,17 +35,21 @@ test('provisional roster still has Zen Headbutt (historical runs stay reproducib
  const m=provisional().find(p=>p.species==='Metagross');
  assert.deepEqual(m.moves,['Meteor Mash','Zen Headbutt','Bullet Punch','Thunder Punch']);
 });
-test('reported live six differs from provisional ONLY by Zen Headbutt -> Psychic Fangs and is M-C legal',()=>{
+test('reported live six (defined independently) differs from provisional ONLY by Zen Headbutt -> Psychic Fangs and is M-C legal',()=>{
+ const source=require('node:fs').readFileSync(path.join(__dirname,'..','reported-live-roster-20261027.js'),'utf8');
+ assert.ok(!/require\([^)]*provisional/.test(source),'live roster must not be derived from the provisional file');
  const live=reportedLive(),old=provisional();
+ assert.deepEqual(live.map(p=>p.species),old.map(p=>p.species));
  const diffs=[];
- for(let i=0;i<6;i++)for(const k of ['species','item','ability','nature'])
-  if(live[i][k]!==old[i][k])diffs.push(live[i].species+'.'+k);
  for(let i=0;i<6;i++){
-  if(JSON.stringify(live[i].evs)!==JSON.stringify(old[i].evs))diffs.push(live[i].species+'.evs');
-  if(live[i].moves.join()!==old[i].moves.join())diffs.push(live[i].species+'.moves');
+  for(const k of ['item','ability','nature'])
+   if(live[i][k]!==old[i][k])diffs.push({species:live[i].species,field:k,provisional:old[i][k],reported:live[i][k]});
+  for(const k of ['hp','atk','def','spa','spd','spe'])
+   if((live[i].evs[k]||0)!==(old[i].evs[k]||0))diffs.push({species:live[i].species,field:'evs.'+k});
+  const gone=old[i].moves.filter(m=>!live[i].moves.includes(m)),added=live[i].moves.filter(m=>!old[i].moves.includes(m));
+  gone.forEach((m,j)=>diffs.push({species:live[i].species,field:'moves',provisional:m,reported:added[j]}));
  }
- assert.deepEqual(diffs,['Metagross.moves']);
- assert.equal(DIFF_FROM_PROVISIONAL.length,1);
+ assert.deepEqual(diffs,DIFF_FROM_PROVISIONAL.map(({source,...d})=>d));
  assert.ok(live[0].moves.includes('Psychic Fangs')&&!live[0].moves.includes('Zen Headbutt'));
  prelim(live,'reported_live_20261027');
  const issues=validator.validateTeam(normalize(live));
@@ -127,16 +131,33 @@ test('engine: switching Tyranitar in after Mega-Y restores sand',()=>{
  const sun=L.indexOf('|-weather|SunnyDay|[from] ability: Drought');
  assert.ok(sun>=0&&L.indexOf('|-weather|Sandstorm|[from] ability: Sand Stream',sun)>sun);
 });
-test('opponent preview should bring its own Mega-Y holder into a Fire-weak six',{todo:'P0: own-Mega/Drought-aware preview'},()=>{
- const E=cycle3().E_ee_primarina_for_skeledirge.map(p=>p.species);
- const rate=A.selectionRate(sim,threatSixes.sun_charizard_y,E,'strategic','Charizard',200);
- assert.ok(rate>=0.9,'currently ~0.3: the AI cuts Charizard in ~70% of games');
+// Issue #4 replaced the original "select >= 90%" expectation: a selection
+// rate is not a target. What must hold is that the cut no longer comes from
+// scoring the own Mega-Y holder as base Charizard without Drought.
+test('rational preview no longer cuts its own Mega-Y holder because of base-form undervaluation',()=>{
+ const R=require('../preview-rational');
+ const sun=threatSixes.sun_charizard_y,E=cycle3().E_ee_primarina_for_skeledirge.map(p=>p.species);
+ const old=rankPreview(dex,sun,E,matchup);
+ const has=c=>c.three.some(i=>sun[i].species==='Charizard');
+ assert.ok(old.find(has).score<old.find(c=>!has(c)).score,'historical policy: Charizard trio loses');
+ const cmp=R.compareInclusion(dex,sun,E,'Charizard');
+ assert.ok(cmp.margin>0);
+ assert.equal(cmp.with.mega.form,'Charizard-Mega-Y');
+ assert.equal(cmp.with.weather.setter[sun.findIndex(p=>p.species==='Charizard')],'sunnyday');
 });
-test('on the Mega turn the move evaluator should see Mega-Y stats and Drought',{todo:'P1: pre-Mega evaluation'},()=>{
- const cz=A.CHARIZARD_Y_HYPOTHESIS;
- const asLabSeesIt=estimateDamage(dex,{...cz,species:'Charizard'},'Rillaboom','Flamethrower',{});
+test('on the Mega turn the move evaluator sees Mega-Y stats and Drought (megaAware bots)',()=>{
+ const cz=A.CHARIZARD_Y_HYPOTHESIS,team=A.padTo6(cz,A.FILLER());
+ const current={details:'Charizard, L50, M',active:true,condition:'155/155'};
+ const view=o=>new Bot(null,dex,team,'p1',{choices:[],selections:[],errors:[]},null,null,o)
+  .activeView(current,{canMegaEvo:true});
+ const v=view({megaAware:true});
+ const asLabSeesIt=estimateDamage(dex,v.my,'Rillaboom','Flamethrower',{weather:v.weather});
  const actual=estimateDamage(dex,{...cz,species:'Charizard-Mega-Y'},'Rillaboom','Flamethrower',{weather:'SunnyDay'});
- assert.ok(asLabSeesIt.mid>=actual.mid*0.9,'currently about half');
+ assert.ok(asLabSeesIt.mid>=actual.mid*0.9);
+ // Default bots keep the historical (pre-Mega) view for reproducibility.
+ const h=view({});
+ assert.equal(h.my.species,'Charizard');
+ assert.equal(h.weather,'');
 });
 
 // ---------- Gyarados (C case) ----------
