@@ -48,3 +48,19 @@ test('a plain miss never creates learned immunity; base v3 does not silently cha
  assert.equal(baseline.publicImmunityAware,false);
  assert.equal(baseline.knownImmuneMoves.Baxcalibur,undefined);
 });
+// Claude independent audit (PR #30): a confirmed immunity is only valid while the
+// public cause persists. Each log below publicly ends that cause, so the learned
+// ban on the move must be released instead of staying -1e6 for the whole game.
+const sit='|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Baxcalibur|Baxcalibur, L50|192/192\n'+
+  '|turn|6\n|move|p1a: Rotom|Thunderbolt|p2a: Baxcalibur\n|-immune|p2a: Baxcalibur\n';
+for(const [name,release] of [
+  ['Air Balloon popping','|-enditem|p2a: Baxcalibur|Air Balloon\n'],
+  ['Magnet Rise ending','|-end|p2a: Baxcalibur|Magnet Rise\n'],
+  ['Smack Down grounding','|-start|p2a: Baxcalibur|Smack Down\n'],
+  ['Gravity starting','|-fieldstart|move: Gravity\n'],
+])test('learned immunity is released after public '+name,async()=>{
+  const t=trace(),b=new Bot(fakeStream(sit+release),dex,own,'p1',t,null,null,
+    {decisionPolicy:'v3-public-immunity'});
+  await b.run();
+  assert.equal(b.knownImmuneMoves.Baxcalibur?.has('thunderbolt')||false,false);
+});
