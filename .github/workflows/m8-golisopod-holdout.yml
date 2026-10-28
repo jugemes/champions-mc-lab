@@ -7,6 +7,8 @@ on:
       - 'm8-golisopod-public-policy-holdout.js'
       - 'test/m8-golisopod-public-policy.test.js'
       - 'm8-golisopod-human-audit.js'
+      - 'm8-golisopod-ironhead-rebuttal.js'
+      - 'test/m8-golisopod-ironhead-rebuttal.test.js'
       - '.github/workflows/m8-golisopod-holdout.yml'
   workflow_dispatch:
 permissions:
@@ -39,11 +41,13 @@ jobs:
       - name: Verify all live-team and hypothesis rules
         run: |
           npm run check
-          node --test test/m8-golisopod-public-policy.test.js
+          node --test test/m8-golisopod-public-policy.test.js test/m8-golisopod-ironhead-rebuttal.test.js
       - name: Simulate both candidates and baseline across seen plus four novel rival sixes
         run: node m8-golisopod-public-policy-holdout.js | tee m8-public-goli-holdout.log
       - name: Preserve public action logs to audit opponent rationality after the battle
         run: node m8-golisopod-human-audit.js | tee m8-goli-rationality-audit.log
+      - name: Check whether rational Mega Golisopod would Iron Head instead of Swords Dance
+        run: node m8-golisopod-ironhead-rebuttal.js | tee m8-goli-ironhead-counter.log
       - name: Keep complete per-opponent scenario evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -54,5 +58,6 @@ jobs:
             m8-public-goli-holdout.log
             output/m8-preseason/opponent-human-rationality-audit.json
             m8-goli-rationality-audit.log
+            m8-goli-ironhead-counter.log
           retention-days: 30
           if-no-files-found: warn
