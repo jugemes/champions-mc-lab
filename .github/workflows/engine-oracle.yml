@@ -1,0 +1,52 @@
+name: Champions M-C Showdown Engine Oracle P0
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'engine-reference.js'
+      - 'engine-reference-audit.js'
+      - 'test/engine-reference.test.js'
+      - '.github/workflows/engine-oracle.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build exact Champions simulator
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$SHOWDOWN_COMMIT"
+          cd showdown
+          npm ci
+          npm run build
+      - name: Existing team legality
+        run: npm run check
+      - name: Engine-oracle exact game mechanics (isolated hypothetical cases)
+        run: node --test test/engine-reference.test.js
+      - name: Inspect numbers vs manual estimate
+        run: node engine-reference-audit.js | tee engine-proof.txt
+      - name: Preserve reproducible evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: engine-oracle-${{ github.run_id }}
+          path: engine-proof.txt
+          retention-days: 30
+          if-no-files-found: warn

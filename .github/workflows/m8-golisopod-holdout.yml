@@ -1,0 +1,68 @@
+name: M-C Golisopod public-six policy true holdouts
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'm8-golisopod-public-policy.js'
+      - 'm8-golisopod-public-policy-holdout.js'
+      - 'test/m8-golisopod-public-policy.test.js'
+      - 'm8-golisopod-human-audit.js'
+      - 'm8-golisopod-ironhead-rebuttal.js'
+      - 'test/m8-golisopod-ironhead-rebuttal.test.js'
+      - 'm8-goli-ironhead-second-turn.js'
+      - 'test/m8-goli-ironhead-second-turn.test.js'
+      - '.github/workflows/m8-golisopod-holdout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Check pinned Showdown and build
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: Verify all live-team and hypothesis rules
+        run: |
+          npm run check
+          node --test test/m8-golisopod-public-policy.test.js test/m8-golisopod-ironhead-rebuttal.test.js test/m8-goli-ironhead-second-turn.test.js
+      - name: Simulate both candidates and baseline across seen plus four novel rival sixes
+        run: node m8-golisopod-public-policy-holdout.js | tee m8-public-goli-holdout.log
+      - name: Preserve public action logs to audit opponent rationality after the battle
+        run: node m8-golisopod-human-audit.js | tee m8-goli-rationality-audit.log
+      - name: Check whether rational Mega Golisopod would Iron Head instead of Swords Dance
+        run: node m8-golisopod-ironhead-rebuttal.js | tee m8-goli-ironhead-counter.log
+      - name: Actual second-turn strategy after Mega Golisopod Iron Head
+        run: node m8-goli-ironhead-second-turn.js | tee m8-goli-second-turn.log
+      - name: Keep complete per-opponent scenario evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: goli-public-policy-holdout-${{ github.run_id }}
+          path: |
+            output/m8-preseason/golisopod-public-rule-holdout.json
+            m8-public-goli-holdout.log
+            output/m8-preseason/opponent-human-rationality-audit.json
+            m8-goli-rationality-audit.log
+            m8-goli-ironhead-counter.log
+            m8-goli-second-turn.log
+          retention-days: 30
+          if-no-files-found: warn
