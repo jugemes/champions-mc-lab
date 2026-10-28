@@ -1,0 +1,278 @@
+[
+ {
+  "k": 0,
+  "seed": "20974,53188,37590,1440",
+  "reverse": false,
+  "win": true,
+  "turns": 10,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Hydreigon"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|131/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod\n|-status|p2a: Golisopod|brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|76/157\n|-heal|p2a: Golisopod|172/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|85/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|161/182 brn|[from] brn\n|turn|3\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|113/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|10/157\n|-heal|p2a: Golisopod|151/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|19/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|140/182 brn|[from] brn\n|turn|4\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|86/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|96/182 brn|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|-damage|p2a: Golisopod|85/182 brn|[from] brn\n|switch|p1a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|5\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|6\n|switch|p1a: Metagross|Metagross, L50|157/157\n|move|p2a: Mimikyu|Play Rough|p1a: Metagross\n|-damage|p1a: Metagross|119/157\n|-damage|p2a: Mimikyu|119/132|[from] item: Life Orb\n|turn|7\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p1a: Metagross|Meteor Mash|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|119/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|103/132|[from] pokemon: Mimikyu-Busted\n|move|p2a: Mimikyu|Shadow Claw|p1a: Metagross\n|-damage|p1a: Metagross|7/157\n|-damage|p2a: Mimikyu|90/132|[from] item: Life Orb\n|turn|8\n|move|p2a: Mimikyu|Shadow Sneak|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|-damage|p2a: Mimikyu|77/132|[from] item: Life Orb\n|switch|p1a: Hydreigon|Hydreigon, L50, F|153/169\n|turn|9\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-damage|p1a: Hydreigon|137/169|[from] item: Life Orb\n|switch|p2a: Basculegion|Basculegion, L50, M|197/197\n|turn|10\n|move|p2a: Basculegion|Wave Crash|p1a: Hydreigon\n|-damage|p1a: Hydreigon|62/169\n|-damage|p2a: Basculegion|172/197|[from] Recoil\n|move|p1a: Hydreigon|Dark Pulse|p2a: Basculegion\n|-damage|p2a: Basculegion|0 fnt\n|faint|p2a: Basculegion\n|-damage|p1a: Hydreigon|46/169|[from] item: Life Orb\n|win|candidate"
+ },
+ {
+  "k": 1,
+  "seed": "54845,20426,39883,57377",
+  "reverse": true,
+  "win": false,
+  "turns": 8,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|134/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod\n|-status|p1a: Golisopod|brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|73/157\n|-heal|p1a: Golisopod|176/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|82/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|165/182 brn|[from] brn\n|turn|3\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|114/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|7/157\n|-heal|p1a: Golisopod|152/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|16/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|141/182 brn|[from] brn\n|turn|4\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|93/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|101/182 brn|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|-damage|p1a: Golisopod|90/182 brn|[from] brn\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|29/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|55/185\n|-heal|p1a: Golisopod|94/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|72/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|61/182 brn|[from] brn\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|1/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|29/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|7/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|-damage|p1a: Golisopod|0 fnt|[from] brn\n|faint|p1a: Golisopod\n|switch|p2a: Metagross|Metagross, L50|157/157\n|switch|p1a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Basculegion|Wave Crash|p2a: Metagross\n|-damage|p2a: Metagross|49/157\n|-damage|p1a: Basculegion|161/197|[from] Recoil\n|move|p2a: Metagross|Thunder Punch|p1a: Basculegion\n|-damage|p1a: Basculegion|0 fnt\n|faint|p1a: Basculegion\n|switch|p1a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|8\n|move|p1a: Mimikyu|Shadow Sneak|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|-damage|p1a: Mimikyu|119/132|[from] item: Life Orb\n|win|candidate"
+ },
+ {
+  "k": 2,
+  "seed": "3980,50020,63157,32502",
+  "reverse": false,
+  "win": false,
+  "turns": 8,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|134/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod\n|-status|p2a: Golisopod|brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|76/157\n|-heal|p2a: Golisopod|175/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|85/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|164/182 brn|[from] brn\n|turn|3\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|112/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|10/157\n|-heal|p2a: Golisopod|150/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|19/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|139/182 brn|[from] brn\n|turn|4\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|87/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|97/182 brn|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|-damage|p2a: Golisopod|86/182 brn|[from] brn\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|28/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|55/185\n|-heal|p2a: Golisopod|93/182 brn|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|71/182 brn|[from] ability: Rough Skin|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|60/182 brn|[from] brn\n|turn|6\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|3/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|31/182 brn|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|9/182 brn|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|-damage|p2a: Golisopod|0 fnt|[from] brn\n|faint|p2a: Golisopod\n|switch|p1a: Metagross|Metagross, L50|157/157\n|switch|p2a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Basculegion|Wave Crash|p1a: Metagross\n|-damage|p1a: Metagross|59/157\n|-damage|p2a: Basculegion|165/197|[from] Recoil\n|move|p1a: Metagross|Thunder Punch|p2a: Basculegion\n|-damage|p2a: Basculegion|0 fnt\n|faint|p2a: Basculegion\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|8\n|move|p1a: Metagross|Meteor Mash|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|move|p2a: Mimikyu|Shadow Claw|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|win|opponent"
+ },
+ {
+  "k": 3,
+  "seed": "62729,21665,53912,31955",
+  "reverse": true,
+  "win": false,
+  "turns": 7,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 1,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|128/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod\n|-status|p1a: Golisopod|brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|71/157\n|-heal|p1a: Golisopod|171/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|80/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|160/182 brn|[from] brn\n|turn|3\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|105/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|145/182 brn|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|-damage|p1a: Golisopod|134/182 brn|[from] brn\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|4\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|73/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|70/185\n|-heal|p1a: Golisopod|131/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|109/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|98/182 brn|[from] brn\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|38/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|73/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|51/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|-damage|p1a: Golisopod|40/182 brn|[from] brn\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|6\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|56/157\n|move|p2a: Metagross|Thunder Punch|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|switch|p1a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|move|p1a: Basculegion|Wave Crash|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|-damage|p1a: Basculegion|179/197|[from] Recoil\n|win|candidate"
+ },
+ {
+  "k": 4,
+  "seed": "20364,18960,33413,39482",
+  "reverse": false,
+  "win": false,
+  "turns": 9,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|127/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod\n|-status|p2a: Golisopod|brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|75/157\n|-heal|p2a: Golisopod|168/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|84/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|157/182 brn|[from] brn\n|turn|3\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|102/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|7/157\n|-heal|p2a: Golisopod|141/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|16/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|130/182 brn|[from] brn\n|turn|4\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|84/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|92/182 brn|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|-damage|p2a: Golisopod|81/182 brn|[from] brn\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|27/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|52/185\n|-heal|p2a: Golisopod|94/182 brn|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|72/182 brn|[from] ability: Rough Skin|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|61/182 brn|[from] brn\n|turn|6\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|switch|p2a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|move|p1a: Garchomp|Earthquake|p2a: Basculegion\n|-damage|p2a: Basculegion|56/197\n|move|p2a: Basculegion|Wave Crash|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-damage|p2a: Basculegion|32/197|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|-damage|p2a: Basculegion|15/197|[from] Recoil\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|8\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Basculegion|Wave Crash|p1a: Metagross\n|-damage|p1a: Metagross|55/157\n|-damage|p2a: Basculegion|0 fnt|[from] Recoil\n|faint|p2a: Basculegion\n|move|p1a: Metagross|Thunder Punch|p2: Basculegion|[notarget]\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|9\n|move|p2a: Mimikyu|Shadow Sneak|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|-damage|p2a: Mimikyu|119/132|[from] item: Life Orb\n|win|opponent"
+ },
+ {
+  "k": 5,
+  "seed": "63047,58856,18186,38814",
+  "reverse": true,
+  "win": false,
+  "turns": 9,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|130/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod\n|-status|p1a: Golisopod|brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|76/157\n|-heal|p1a: Golisopod|171/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|85/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|160/182 brn|[from] brn\n|turn|3\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|105/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|1/157\n|-heal|p1a: Golisopod|147/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|10/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|136/182 brn|[from] brn\n|turn|4\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|85/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|90/182 brn|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|-damage|p1a: Golisopod|79/182 brn|[from] brn\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|15/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|55/185\n|-heal|p1a: Golisopod|80/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|58/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|47/182 brn|[from] brn\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|switch|p1a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|move|p2a: Garchomp|Earthquake|p1a: Basculegion\n|-damage|p1a: Basculegion|71/197\n|move|p1a: Basculegion|Wave Crash|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-damage|p1a: Basculegion|47/197|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|-damage|p1a: Basculegion|29/197|[from] Recoil\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|8\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Basculegion|Wave Crash|p2a: Metagross\n|-damage|p2a: Metagross|57/157\n|-damage|p1a: Basculegion|0 fnt|[from] Recoil\n|faint|p1a: Basculegion\n|move|p2a: Metagross|Thunder Punch|p1: Basculegion|[notarget]\n|switch|p1a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|9\n|move|p1a: Mimikyu|Shadow Sneak|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|-damage|p1a: Mimikyu|119/132|[from] item: Life Orb\n|win|candidate"
+ },
+ {
+  "k": 6,
+  "seed": "55971,44980,56432,7817",
+  "reverse": false,
+  "win": true,
+  "turns": 10,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Hydreigon"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|131/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod\n|-status|p2a: Golisopod|brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|80/157\n|-heal|p2a: Golisopod|170/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|89/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|159/182 brn|[from] brn\n|turn|3\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|111/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|11/157\n|-heal|p2a: Golisopod|150/182 brn|[from] drain|[of] p1a: Rotom\n|-heal|p1a: Rotom|20/157|[from] item: Leftovers\n|-damage|p2a: Golisopod|139/182 brn|[from] brn\n|turn|4\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|85/182 brn\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|95/182 brn|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|-damage|p2a: Golisopod|84/182 brn|[from] brn\n|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|5\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|switch|p2a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|6\n|switch|p1a: Metagross|Metagross, L50|157/157\n|move|p2a: Mimikyu|Play Rough|p1a: Metagross\n|-damage|p1a: Metagross|122/157\n|-damage|p2a: Mimikyu|119/132|[from] item: Life Orb\n|turn|7\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p1a: Metagross|Meteor Mash|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|119/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p2a: Mimikyu|103/132|[from] pokemon: Mimikyu-Busted\n|move|p2a: Mimikyu|Shadow Claw|p1a: Metagross\n|-damage|p1a: Metagross|21/157\n|-damage|p2a: Mimikyu|90/132|[from] item: Life Orb\n|turn|8\n|move|p2a: Mimikyu|Shadow Sneak|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|-damage|p2a: Mimikyu|77/132|[from] item: Life Orb\n|switch|p1a: Hydreigon|Hydreigon, L50, M|153/169\n|turn|9\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-damage|p1a: Hydreigon|137/169|[from] item: Life Orb\n|switch|p2a: Basculegion|Basculegion, L50, M|197/197\n|turn|10\n|move|p2a: Basculegion|Wave Crash|p1a: Hydreigon\n|-damage|p1a: Hydreigon|52/169\n|-damage|p2a: Basculegion|169/197|[from] Recoil\n|move|p1a: Hydreigon|Dark Pulse|p2a: Basculegion\n|-damage|p2a: Basculegion|0 fnt\n|faint|p2a: Basculegion\n|-damage|p1a: Hydreigon|36/169|[from] item: Life Orb\n|win|candidate"
+ },
+ {
+  "k": 7,
+  "seed": "47594,39970,55618,2796",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|128/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod|[miss]\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|125/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|160/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 8,
+  "seed": "57768,57953,38270,57083",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|128/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod|[miss]\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|125/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|160/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 9,
+  "seed": "53979,14355,25411,34748",
+  "reverse": true,
+  "win": false,
+  "turns": 8,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 1,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|133/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod\n|-status|p1a: Golisopod|brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|81/157\n|-heal|p1a: Golisopod|171/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|90/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|160/182 brn|[from] brn\n|turn|3\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|114/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|6/157\n|-heal|p1a: Golisopod|156/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|15/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|145/182 brn|[from] brn\n|turn|4\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|93/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|101/182 brn|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|-damage|p1a: Golisopod|90/182 brn|[from] brn\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|33/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|58/185\n|-heal|p1a: Golisopod|97/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|75/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|64/182 brn|[from] brn\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|6/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|35/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|13/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|-damage|p1a: Golisopod|2/182 brn|[from] brn\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|7\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|59/157\n|move|p2a: Metagross|Thunder Punch|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|switch|p1a: Basculegion|Basculegion, L50, M|197/197\n|turn|8\n|move|p1a: Basculegion|Wave Crash|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|-damage|p1a: Basculegion|178/197|[from] Recoil\n|win|candidate"
+ },
+ {
+  "k": 10,
+  "seed": "40119,41855,33343,8575",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Rotom|Rotom-Wash, L50|157/157\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Rotom|Thunderbolt|p2a: Golisopod\n|-damage|p2a: Golisopod|130/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|2\n|move|p1a: Rotom|Will-O-Wisp|p2a: Golisopod|[miss]\n|move|p2a: Golisopod|Leech Life|p1a: Rotom\n|-damage|p1a: Rotom|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Rotom\n|faint|p1a: Rotom\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|119/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|160/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 11,
+  "seed": "56963,14891,28963,34886",
+  "reverse": true,
+  "win": false,
+  "turns": 9,
+  "mine": [
+   "Rotom-Wash",
+   "Metagross",
+   "Garchomp"
+  ],
+  "myLead": "Rotom-Wash",
+  "theirs": [
+   "Golisopod",
+   "Basculegion",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|130/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|2\n|move|p2a: Rotom|Will-O-Wisp|p1a: Golisopod\n|-status|p1a: Golisopod|brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|70/157\n|-heal|p1a: Golisopod|174/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|79/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|163/182 brn|[from] brn\n|turn|3\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|114/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|4/157\n|-heal|p1a: Golisopod|152/182 brn|[from] drain|[of] p2a: Rotom\n|-heal|p2a: Rotom|13/157|[from] item: Leftovers\n|-damage|p1a: Golisopod|141/182 brn|[from] brn\n|turn|4\n|move|p2a: Rotom|Thunderbolt|p1a: Golisopod\n|-damage|p1a: Golisopod|86/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Rotom\n|-damage|p2a: Rotom|0 fnt\n|-heal|p1a: Golisopod|93/182 brn|[from] drain|[of] p2a: Rotom\n|faint|p2a: Rotom\n|-damage|p1a: Golisopod|82/182 brn|[from] brn\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|24/182 brn\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|52/185\n|-heal|p1a: Golisopod|91/182 brn|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|69/182 brn|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|58/182 brn|[from] brn\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|switch|p1a: Basculegion|Basculegion, L50, M|197/197\n|turn|7\n|move|p2a: Garchomp|Earthquake|p1a: Basculegion\n|-damage|p1a: Basculegion|74/197\n|move|p1a: Basculegion|Wave Crash|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-damage|p1a: Basculegion|50/197|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|-damage|p1a: Basculegion|33/197|[from] Recoil\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|8\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Basculegion|Wave Crash|p2a: Metagross\n|-damage|p2a: Metagross|11/157\n|-damage|p1a: Basculegion|0 fnt|[from] Recoil\n|faint|p1a: Basculegion\n|move|p2a: Metagross|Thunder Punch|p1: Basculegion|[notarget]\n|switch|p1a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|9\n|move|p1a: Mimikyu|Shadow Sneak|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|-damage|p1a: Mimikyu|119/132|[from] item: Life Orb\n|win|candidate"
+ }
+]
