@@ -77,14 +77,21 @@ function sample(t,reply,seed){
       /\|move\||\|switch\||\|-damage\||\|-status\||\|-boost\||\|faint\||\|-start\||\|-end\||\|-miss\|/.test(x))});
   }
   const fin=snap(b);
+  const ownLead=fin.own.selected.find(p=>p.species===t.firstSpecies||
+   p.species.startsWith(t.firstSpecies+'-'));
+  const mimi=fin.foe.selected.find(p=>p.species==='Mimikyu'||
+   p.species.startsWith('Mimikyu-'));
+  const goli=fin.foe.selected.find(p=>p.species==='Golisopod'||
+   p.species.startsWith('Golisopod-'));
+  if(!ownLead||!mimi||!goli)throw Error('Active snapshots missing expected selected species');
   return {treatment:t.name,reply,seed:seed[3],ownThree,foeThreePosthoc:foeThree,
    executed:data.filter(x=>x.executed).length,
    steps:data,final:fin,
-   ownLeadHP:fin.own.selected[0].hp,ownLeadFaint:fin.own.selected[0].fainted,
-   opponentMimikyuHP:fin.foe.selected[1].hp,
-   opponentMimikyuFaint:fin.foe.selected[1].fainted,
-   opponentMimikyuStatus:fin.foe.selected[1].status,
-   untouchedGoliHP:fin.foe.selected[0].hp};
+   ownLeadHP:ownLead.hp,ownLeadFaint:ownLead.fainted,
+   opponentMimikyuHP:mimi.hp,
+   opponentMimikyuFaint:mimi.fainted,
+   opponentMimikyuStatus:mimi.status,
+   untouchedGoliHP:goli.hp};
  }finally{b.destroy();}
 }
 const rows=[];
