@@ -39,12 +39,15 @@ test('real pinned Showdown Encore public event toggles ONLY v4 status tracking',
  });
  let logs;
  try{
-  const a1=b.p1.active[0].moveSlots.findIndex(x=>x.id==='moonblast');
-  const b1=b.p2.active[0].moveSlots.findIndex(x=>x.id==='swordsdance');
-  assert.ok(a1>=0&&b1>=0);
-  b.makeChoices('move '+(a1+1),'move '+(b1+1));
   const enc=b.p1.active[0].moveSlots.findIndex(x=>x.id==='encore');
-  assert.ok(enc>=0);
+  const b1=b.p2.active[0].moveSlots.findIndex(x=>x.id==='swordsdance');
+  assert.ok(enc>=0&&b1>=0);
+  // A damaging first hit could trigger Emergency Exit and force an
+  // opponent switch, making the next scripted move choice illegal.
+  // Real first-turn Encore precedes the target's first Swords Dance and
+  // thus fails; on turn two, the observed Swords Dance can be Encored.
+  b.makeChoices('move '+(enc+1),'move '+(b1+1));
+  assert.equal(b.requestState,'move','No forced replacement in setup test');
   b.makeChoices('move '+(enc+1),'move '+(b1+1));
   logs=b.log.join('\n');
   assert.ok(logs.includes('|-start|p2a:')&&logs.includes('|Encore'),
