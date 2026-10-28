@@ -4,7 +4,6 @@
 // A legal move is a POSSIBLE coverage hypothesis, not an estimated usage rate.
 const {ownStat}=require('./own-form');
 const {incomingRisk}=require('./damage');
-const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 function speedInterval(dex,speciesName,{scarf=false}={}){
   const species=dex.species.get(speciesName);
   if(!species.exists)throw Error('Unknown public species: '+speciesName);
@@ -18,7 +17,9 @@ function speedInterval(dex,speciesName,{scarf=false}={}){
     max:scarf?Math.floor(max*1.5):max,scarfHypothesis:scarf};
 }
 function speedOutlook(dex,ownSet,opponentSpecies,{mega=true}={}){
-  const ownSpeed=ownStat(dex,ownSet,'spe',{mega});
+  const effectiveOwn=ownStat(dex,ownSet,'spe',{mega});
+  // Our own item is known at preview; a Scarf must affect our speed too.
+  const ownSpeed=ownSet.item==='Choice Scarf'?Math.floor(effectiveOwn*1.5):effectiveOwn;
   const normal=speedInterval(dex,opponentSpecies);
   const scarf=speedInterval(dex,opponentSpecies,{scarf:true});
   const view=range=>({
