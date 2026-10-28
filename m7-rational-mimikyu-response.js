@@ -18,6 +18,8 @@ const {FORMAT}=require('./engine-reference');
 const sim=load(),base=reportedLive(),publicFoe=groups.find(g=>g.name==='01_M7_golisopod_balance');
 assert.ok(publicFoe);
 const foeThree=['Golisopod','Mimikyu','Garchomp']; // post-preview stress only
+assert.ok(publicFoe.team.find(x=>x.species==='Garchomp')?.moves.includes('Earthquake'),
+ 'counter-switch must use real STAB Earthquake, not an artificially weak Dragon Claw');
 const skel=structuredClone(archetypes.setup.find(x=>x.species==='Skeledirge'));
 skel.item='Rocky Helmet';
 const candidates=[
@@ -32,7 +34,7 @@ const foePolicies=[
  {name:'immediate-shadow-claw',second:'Shadow Claw',third:'Shadow Sneak'},
  {name:'immediate-play-rough',second:'Play Rough',third:'Shadow Sneak'},
  {name:'swords-dance',second:'Swords Dance',third:'Shadow Sneak'},
- {name:'switch-scarf-garchomp',second:'switch:Garchomp',third:'Dragon Claw'},
+ {name:'switch-scarf-garchomp',second:'switch:Garchomp',third:'Earthquake'},
  {name:'switch-goli-back',second:'switch:Golisopod',third:'Sucker Punch',thirdMega:true}
 ];
 const responses=[
