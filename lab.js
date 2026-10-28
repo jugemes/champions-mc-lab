@@ -216,20 +216,44 @@ class Bot{
     if(this.errors>0){this.errors=0;return 'default';}
     if(req.teamPreview){
       let enginePreview=null;
-      if(!this.forcedSelection&&this.previewPolicy==='engine-mega-cover'){
+      if(!this.forcedSelection&&
+         ['engine-mega-cover','engine-two-turn'].includes(this.previewPolicy)){
         try{
-          const {screenMegaCoverage}=require('./engine-mega-preview');
-          const report=screenMegaCoverage(this.sim,this.team,this.opp);
-          const lead=report.selected.leads[0].i;
-          enginePreview=[lead,...report.selected.three.filter(i=>i!==lead)].map(i=>i+1);
-          this.trace.enginePreviews?.push({side:this.side,
-            chosen:enginePreview.map(n=>this.team[n-1].species),
-            changed:report.changed,coverage:report.coverage,
-            baselineCoverage:report.baselineCoverage,reason:report.reason,
-            hypotheses:report.perFoe.map(x=>({species:x.species,item:x.item}))});
+          if(this.previewPolicy==='engine-two-turn'){
+            const {rankOpeningTrioLeads}=require('./engine-opening-ranker');
+            const report=rankOpeningTrioLeads(this.sim,this.team,this.opp,{
+              maxScenes:4,limit:60,seed:[2026,10,28,1]});
+            const chosen=report.top.find(x=>x.comparable);
+            if(!chosen)throw Error('No complete two-turn option across all hypothetical leads');
+            enginePreview=chosen.ownThree.map(name=>{
+              const index=this.team.findIndex(p=>p.species===name);
+              if(index<0)throw Error('Unknown own choice '+name);
+              return index+1;
+            });
+            this.trace.enginePreviews?.push({
+              side:this.side,policy:'engine-two-turn',
+              chosen:[...chosen.ownThree],lead:chosen.lead,
+              oldBaseline:report.baseline,
+              scenarioLeads:chosen.scenarioLeads,
+              hypotheses:chosen.opponentScenarios,
+              riskScore:chosen.scoreWorst,
+              caveat:report.warning
+            });
+          }else{
+            const {screenMegaCoverage}=require('./engine-mega-preview');
+            const report=screenMegaCoverage(this.sim,this.team,this.opp);
+            const lead=report.selected.leads[0].i;
+            enginePreview=[lead,...report.selected.three.filter(i=>i!==lead)].map(i=>i+1);
+            this.trace.enginePreviews?.push({side:this.side,
+              chosen:enginePreview.map(n=>this.team[n-1].species),
+              changed:report.changed,coverage:report.coverage,
+              baselineCoverage:report.baselineCoverage,reason:report.reason,
+              hypotheses:report.perFoe.map(x=>({species:x.species,item:x.item}))});
+          }
         }catch(error){
-          // Missing hypothetical sets must not be silently invented.
-          this.trace.enginePreviews?.push({side:this.side,error:String(error.message).slice(0,180)});
+          this.trace.enginePreviews?.push({side:this.side,
+            policy:this.previewPolicy,status:'fallback',
+            error:String(error.message).slice(0,220)});
           enginePreview=chooseRationalPreview(this.dex,this.team,this.opp,this.random);
         }
       }
