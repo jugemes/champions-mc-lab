@@ -95,19 +95,35 @@ function twoTurnBranch(sim,ownSix,assumedFoeSix,{
     // a counterfactual outcome for a new, unmodelled active.
     const resolved=Boolean(b.p1.active[0]?.fainted||
       b.p2.active[0]?.fainted||b.ended||positionChanged);
-    let secondAfter=null,secondLog=[];
+    let secondAfter=null,secondLog=[],secondSkipReason='';
     if(second&&!resolved){
-      const n=b.log.length;
-      b.makeChoices(actionChoice(b.p1,second.own,Boolean(second.ownMega)),
-        actionChoice(b.p2,second.foe,Boolean(second.foeMega)));
-      secondAfter=sides(b);
-      secondLog=b.log.slice(n);
+      if(b.requestState&&b.requestState!=='move'){
+        // A pivot, Emergency Exit or a faint can force a mandatory switch
+        // request before any second-turn attacks become legal.
+        secondSkipReason='pending-'+b.requestState+'-request';
+      }else{
+        const n=b.log.length;
+        try{
+          b.makeChoices(actionChoice(b.p1,second.own,Boolean(second.ownMega)),
+            actionChoice(b.p2,second.foe,Boolean(second.foeMega)));
+          secondAfter=sides(b);
+          secondLog=b.log.slice(n);
+        }catch(e){
+          // A fixed script can become illegal due to Choice lock, Encore,
+          // Disable, forced switches or another mechanic. Preserve the fact
+          // it was NOT executed. Do not invent a future turn.
+          if(!/Not all choices done|Can't|invalid|unavailable|disabled/i.test(String(e.message)))
+            throw e;
+          secondSkipReason='mechanics-rejected-second-choice: '+String(e.message);
+        }
+      }
     }
     return {
       chosen:{ownThree:[...ownThree],assumedFoeThree:[...foeThree]},
       first:{own:ownMove1,foe:foeMove1,ownMega,foeMega},
       second:second?{own:second.own,foe:second.foe,
-        executed:Boolean(secondAfter),notExecutedReason:positionChanged?'lead-changed-or-forced-replacement':resolved?'faint-or-game-end':''}:null,
+        executed:Boolean(secondAfter),notExecutedReason:secondSkipReason||
+          (positionChanged?'lead-changed-or-forced-replacement':resolved?'faint-or-game-end':'')}:null,
       initial,firstAfter,secondAfter,ended:b.ended,winner:b.winner,
       events:{first:firstLog,second:secondLog},
       caveat:'Two explicit synthetic Showdown turns, with selected three on each side. Non-lead opponents/unknown actions are NOT inferred as real choices.'
