@@ -8,6 +8,7 @@ on:
       - 'test/m8-preseason-benchmark.test.js'
       - 'm8-counterfactual-selection.js'
       - 'test/m8-counterfactual-selection.test.js'
+      - 'm8-cross-archetype-validation.js'
       - 'lab.js'
       - '.github/workflows/m8-preseason-baseline.yml'
   workflow_dispatch:
@@ -46,6 +47,8 @@ jobs:
         run: node m8-preseason-benchmark.js | tee m8-run.log
       - name: Test preregistered trios across BOTH hypothetical rival threes
         run: node m8-counterfactual-selection.js | tee m8-counterfactual.log
+      - name: Recheck focus-derived candidates against 10 off-focus synthetic sixes
+        run: node m8-cross-archetype-validation.js | tee m8-cross-archetype.log
       - name: Store per-match and per-threat evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -55,5 +58,6 @@ jobs:
             output/m8-preseason/
             m8-run.log
             m8-counterfactual.log
+            m8-cross-archetype.log
           retention-days: 30
           if-no-files-found: warn
