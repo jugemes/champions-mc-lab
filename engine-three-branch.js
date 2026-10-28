@@ -60,6 +60,19 @@ function moveChoice(side,name,mega=false){
   if(i<0)throw Error('move not on explicitly hypothesized current active: '+name);
   return 'move '+(i+1)+(mega?' mega':'');
 }
+function actionChoice(side,name,mega=false){
+  if(typeof name==='string'&&name.startsWith('switch:')){
+    if(mega)throw Error('switch choice cannot Mega');
+    const target=name.slice('switch:'.length);
+    const i=side.pokemon.findIndex(p=>p.species.name===target||
+      p.species.baseSpecies===target);
+    if(i<0)throw Error('switch target not on selected side: '+target);
+    const mon=side.pokemon[i];
+    if(mon.fainted||mon.active)throw Error('switch target is fainted or already active: '+target);
+    return 'switch '+(i+1);
+  }
+  return moveChoice(side,name,mega);
+}
 function twoTurnBranch(sim,ownSix,assumedFoeSix,{
   ownThree,foeThree,
   first:{own:ownMove1,foe:foeMove1,ownMega=false,foeMega=false},
@@ -69,21 +82,24 @@ function twoTurnBranch(sim,ownSix,assumedFoeSix,{
   const b=makeThreeBattle(sim,ownSix,assumedFoeSix,{ownThree,foeThree,seed});
   try{
     const logIndex=b.log.length,initial=sides(b);
-    b.makeChoices(moveChoice(b.p1,ownMove1,ownMega),
-      moveChoice(b.p2,foeMove1,foeMega));
+    b.makeChoices(actionChoice(b.p1,ownMove1,ownMega),
+      actionChoice(b.p2,foeMove1,foeMega));
     const firstAfter=sides(b),firstLog=b.log.slice(logIndex);
+    const plannedOwn=ownMove1.startsWith('switch:')?ownMove1.slice(7):ownThree[0];
+    const plannedFoe=foeMove1.startsWith('switch:')?foeMove1.slice(7):foeThree[0];
     const positionChanged=
-      b.p1.active[0]?.species.baseSpecies!==ownThree[0]||
-      b.p2.active[0]?.species.baseSpecies!==foeThree[0];
-    // An Emergency Exit, pivot move or forced replacement changes the lead.
-    // Do not execute a scripted second move for an entirely different active.
-    const resolved=firstAfter.own.pokemon[0].fainted||
-      firstAfter.assumedFoe.pokemon[0].fainted||b.ended||positionChanged;
+      b.p1.active[0]?.species.baseSpecies!==plannedOwn||
+      b.p2.active[0]?.species.baseSpecies!==plannedFoe;
+    // Pivot / Emergency Exit / replacement beyond an explicitly scheduled
+    // switch invalidates a pre-written next action. Stop rather than leak
+    // a counterfactual outcome for a new, unmodelled active.
+    const resolved=Boolean(b.p1.active[0]?.fainted||
+      b.p2.active[0]?.fainted||b.ended||positionChanged);
     let secondAfter=null,secondLog=[];
     if(second&&!resolved){
       const n=b.log.length;
-      b.makeChoices(moveChoice(b.p1,second.own,Boolean(second.ownMega)),
-        moveChoice(b.p2,second.foe,Boolean(second.foeMega)));
+      b.makeChoices(actionChoice(b.p1,second.own,Boolean(second.ownMega)),
+        actionChoice(b.p2,second.foe,Boolean(second.foeMega)));
       secondAfter=sides(b);
       secondLog=b.log.slice(n);
     }
