@@ -11,7 +11,11 @@
  */
 const {rankOpeningTrioLeads}=require('./engine-opening-ranker');
 const {screenMegaCoverage}=require('./engine-mega-preview');
+const cache=new Map();
+
 function rankCoverageOpening(sim,ownSix,publicSix,{maxScenes=6,limit=60}={}){
+ const key=JSON.stringify({ownSix,publicSix,maxScenes,limit});
+ if(cache.has(key))return structuredClone(cache.get(key));
  const search=rankOpeningTrioLeads(sim,ownSix,publicSix,{maxScenes,limit});
  const coverage=screenMegaCoverage(sim,ownSix,publicSix,{sampleLimit:3});
  const perFoe=coverage.perFoe;
@@ -26,7 +30,7 @@ function rankCoverageOpening(sim,ownSix,publicSix,{maxScenes=6,limit=60}={}){
  });
  const candidates=detail.filter(x=>x.comparable&&x.megaCoveragePassed);
  const selected=candidates[0]||null;
- return {
+ const result={
    selected,baseline:search.baseline,
    inspected:search.evaluated,
    possibleMegaThreats:perFoe.map(f=>({species:f.species,item:f.item})),
@@ -42,5 +46,8 @@ function rankCoverageOpening(sim,ownSix,publicSix,{maxScenes=6,limit=60}={}){
    })),
    caveat:'This is not tested Mega probability, a proof that a hit can actually land, or 3v3 win-rate. Every public rival can lead; AI uses only public species + documented synthetic assumptions.'
  };
+ if(cache.size>=24)cache.delete(cache.keys().next().value);
+ cache.set(key,structuredClone(result));
+ return result;
 }
 module.exports={rankCoverageOpening};
