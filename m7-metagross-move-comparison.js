@@ -32,7 +32,7 @@ const targets=[
  ['08_M7_metagross_balance','Metagross',true,'mega-metagross'],
  ['09_M7_gyarados_megagarchompZ','Gyarados',false,'gyarados'],
  ['09_M7_gyarados_megagarchompZ','Gholdengo',false,'gholdengo'],
- ['10_M7_lucario_hazard','Archaludon',false,'archaludon'],
+ ['02_M7_lucarioZ_offense','Archaludon',false,'archaludon'],
  ['13_M7_stall','Toxapex',false,'toxapex'],
  ['13_M7_stall','Skarmory',false,'skarmory'],
  ['14_M7_salamence_setup','Volcarona',false,'volcarona'],
