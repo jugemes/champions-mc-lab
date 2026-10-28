@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
-const {hypotheticalEnemySix,publicSix,runInference}=require('../real-battle-b-indeedee-inference');
+const {hypotheticalEnemySix,publicSix,publicTurnOrdering,runInference}=require('../real-battle-b-indeedee-inference');
 test('actual human reported public six matches synthetic placeholders but never asserts rival item',()=>{
  assert.deepEqual(publicSix,[
   'Indeedee','Hippowdon','Garchomp','Umbreon','Gengar','Gyarados']);
@@ -20,7 +20,35 @@ test('Showdown separates Timid Indeedee move order and 4x Dazzling Gleam from un
  assert.equal(scarf.speedOfIndeedee>sash.speedOfIndeedee,true);
  assert.equal(scarf.speedOfHydreigon,sash.speedOfHydreigon);
  assert.equal(scarf.speedOfIndeedee>scarf.speedOfHydreigon,true);
+ // A faint at END of turn is NOT a faint before our move. The old
+ // audit mislabeled these and falsely certified incompatible hypotheses.
  assert.equal(scarf.hydreigonFaintedBeforeActing,true);
- // Without Scarf, Timid Hydreigon should act first at equal points/IV
+ assert.equal(scarf.hydreigonActedBeforeKO,false);
+ assert.equal(scarf.indeedeeMovedBeforeHydreigon,true);
+ assert.equal(scarf.compatibleWithObservedFirstMoveAndKO,true);
+ assert.equal(sash.hydreigonFaintedByTurnEnd,true);
+ assert.equal(sash.hydreigonActedBeforeKO,true);
+ assert.equal(sash.hydreigonFaintedBeforeActing,false);
+ assert.equal(sash.indeedeeMovedBeforeHydreigon,false);
+ assert.equal(sash.compatibleWithObservedFirstMoveAndKO,false);
+ // Without Scarf, Timid Hydreigon moves first under these explicitly
+ // declared bare-start, no external speed modifications assumptions.
  assert.equal(sash.speedOfIndeedee<sash.speedOfHydreigon,true);
+});
+
+test('turn chronology does not invent move execution after an actual first-turn KO',()=>{
+ const noMove=publicTurnOrdering([
+  '|move|p2a: Indeedee|Dazzling Gleam|p1a: Hydreigon',
+  '|-damage|p1a: Hydreigon|0 fnt',
+  '|faint|p1a: Hydreigon'
+ ]);
+ assert.equal(noMove.hydreigonActedBeforeKO,false);
+ assert.equal(noMove.hydreigonFaintedBeforeActing,true);
+ const acted=publicTurnOrdering([
+  '|move|p1a: Hydreigon|Dark Pulse|p2a: Indeedee',
+  '|move|p2a: Indeedee|Dazzling Gleam|p1a: Hydreigon',
+  '|faint|p1a: Hydreigon'
+ ]);
+ assert.equal(acted.hydreigonFaintedBeforeActing,false);
+ assert.equal(acted.hydreigonActedBeforeKO,true);
 });
