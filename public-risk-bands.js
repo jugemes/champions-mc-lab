@@ -35,13 +35,14 @@ function candidateCoverage(dex,opponentSpecies,validator,{candidateMoveNames}={}
   if(!species.exists)throw Error('Unknown public species: '+opponentSpecies);
   if(!validator||typeof validator.validateSet!=='function')
     throw Error('M-C TeamValidator required for legal coverage diagnostics');
-  const learned=dex.learnsets.get(species.name).learnset||{};
-  const names=candidateMoveNames===undefined?Object.keys(learned):candidateMoveNames;
+  // This pinned Showdown Dex exposes moves and TeamValidator, but not
+  // dex.learnsets. The M-C validator itself is the legal-move authority.
+  const names=candidateMoveNames===undefined?dex.moves.all().map(m=>m.name):candidateMoveNames;
   if(!Array.isArray(names))throw TypeError('candidateMoveNames must be an array');
   const out=[],seen=new Set();
   for(const input of names){
     const m=dex.moves.get(input);
-    if(!m.exists||seen.has(m.id)||!Object.hasOwn(learned,m.id))continue;
+    if(!m.exists||seen.has(m.id))continue;
     seen.add(m.id);
     if(m.category==='Status'||m.basePower<50||species.types.includes(m.type))continue;
     // Validate a hypothetical one-move set against *this* M-C validator.
