@@ -11,7 +11,7 @@ test('holdout adversaries remain legal M-C six-member teams and distinct forced 
  for(const x of h){
   assert.equal(x.team.length,6);
   const errors=sim.TeamValidator.get(FORMAT).validateTeam(normalize(x.team));
-  assert.equal(errors,null,'invalid '+x.name+' '+JSON.stringify(errors));
+  assert.ok(!errors||errors.length===0,'invalid '+x.name+' '+JSON.stringify(errors));
   for(const k of ['forcedA','forcedB']){
    assert.equal(x[k].length,3);
    assert.equal(new Set(x[k]).size,3);
