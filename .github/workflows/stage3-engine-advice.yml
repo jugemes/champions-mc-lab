@@ -1,0 +1,40 @@
+name: Champions M-C Stage3 Conditional Engine Advice
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'engine-turn-advisor.js'
+      - 'test/engine-turn-advisor.test.js'
+      - '.github/workflows/stage3-engine-advice.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-advice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed Showdown
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: Existing team legality
+        run: npm run check
+      - name: Engine scenario advisor versus public-opponent hypotheses
+        run: node --test test/engine-turn-advisor.test.js test/public-hypotheses.test.js
