@@ -8,10 +8,18 @@ const {load}=require('./lab');
 const {reportedLive}=require('./reported-live-roster-20261027');
 const {groups}=require('./environment-m7-teams');
 const {checkOpeningBranches}=require('./engine-opening-branches');
+const {rankOpeningTrioLeads}=require('./engine-opening-ranker');
 const sim=load(),own=reportedLive();
 async function main(){
  for(const gname of ['01_M7_golisopod_balance','03_M7_charizardY_offense','07_M7_baxcalibur_offense']){
   const g=groups.find(x=>x.name===gname),publicSix=g.team.map(x=>x.species);
+  // Evaluate ALL 20 own trios × their 3 leads, but note the horizon
+  // is only two real engine turns and selected reserve effects are limited.
+  const search=rankOpeningTrioLeads(sim,own,publicSix,{maxScenes:4,limit:60});
+  console.log('OPENING_RANK '+JSON.stringify({
+    group:gname,publicSix,baseline:search.baseline,evaluated:search.evaluated,
+    best:search.top.slice(0,5),warning:search.warning
+  }));
   const openings=[
     ['Rotom-Wash','Metagross','Hydreigon'],
     ['Hydreigon','Garchomp','Tyranitar'],
