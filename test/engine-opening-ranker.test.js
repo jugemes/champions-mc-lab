@@ -39,3 +39,21 @@ test('all-trio ranker yields distinct selected three, legal lead and scenario tr
    assert.ok(row.comparisons>0);
  }
 });
+
+test('incomplete Volt Switch pivot continuation is NOT credited as a superior two-turn payoff',()=>{
+ const sample=(move,skipped,executed)=>({
+  assumedEnemyLead:'Golisopod',assumedEnemyThree:['Golisopod','Mimikyu','Garchomp'],
+  enemyMega:true,enemyFirstMove:'Swords Dance',ourFirstMove:move,
+  ownFaintedCount:0,foeFaintedCount:0,ownTeamRemaining:1,
+  foeTeamRemaining:0.8,foeAttackBoost:0,
+  secondExecuted:executed,secondSkipped:skipped
+ });
+ const result=robustLeadOutcomes([
+  sample('Volt Switch','lead-changed-or-forced-replacement',false),
+  sample('Flamethrower','',true)
+ ]);
+ assert.equal(result.length,1);
+ assert.equal(result[0].bestAvailableFirstAction.action,'Flamethrower');
+ assert.equal(result[0].options.find(x=>x.action==='Volt Switch').complete,false);
+ assert.equal(result[0].options.find(x=>x.action==='Volt Switch').adversarialWorst,null);
+});
