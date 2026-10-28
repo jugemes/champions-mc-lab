@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'm7-defensive-fire-slot-comparison.js'
+      - 'm7-unaware-mimikyu-branch.js'
       - '.github/workflows/m7-defensive-cores.yml'
 permissions:
   contents: read
@@ -35,6 +36,10 @@ jobs:
         run: |
           set -o pipefail
           node m7-defensive-fire-slot-comparison.js | tee m7-defensive-fire-slot-comparison.log
+      - name: Compare manual Unaware and status plans versus Mimikyu setup
+        run: |
+          set -o pipefail
+          node m7-unaware-mimikyu-branch.js | tee m7-unaware-mimikyu-branch.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -42,5 +47,7 @@ jobs:
           path: |
             output/m7-roster-deltas/fire-defensive-cores.json
             m7-defensive-fire-slot-comparison.log
+            output/m7-roster-deltas/unaware-mimikyu-branches.json
+            m7-unaware-mimikyu-branch.log
           retention-days: 30
           if-no-files-found: warn
