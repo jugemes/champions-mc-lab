@@ -65,6 +65,22 @@ async function main(){
       requiredJudgments:comparison.causes
     };
     summary.push(last);
+    if(last.oldWon!==last.newWon){
+      const essential=new Set(['turn','move','switch','drag','replace',
+        'detailschange','faint','cant','-boost','-unboost','-damage',
+        '-heal','-status','-weather','-fieldstart','-activate','-fail']);
+      const short=(turns)=>turns.slice(0,9).map(turn=>({
+        number:turn.number,
+        events:turn.events.filter(e=>essential.has(e.kind))
+          .map(e=>e.line).slice(0,34)
+      }));
+      console.log('BATTLE_DIVERGENCE_TURN_EVENTS '+JSON.stringify({
+        case:name,mode,seed,
+        before:{lead:last.oldLead,three:last.oldThree,turns:short(comparison.timeline.old)},
+        after:{lead:last.newLead,three:last.newThree,turns:short(comparison.timeline.new)},
+        warning:'Public completed-match evidence only. This does not adjudicate rationality or assign a premistake.'
+      }));
+    }
     const file=name+'_'+mode+'_'+i+'.json';
     fs.writeFileSync(path.join(out,file),JSON.stringify({
       metadata:last,
