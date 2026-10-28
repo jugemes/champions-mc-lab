@@ -1,0 +1,62 @@
+name: Champions M-C Stage3 Engine Opt-in Bot
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'lab.js'
+      - 'engine-bot-ab.js'
+      - 'switch-budget-ab.js'
+      - 'engine-mega-preview.js'
+      - 'engine-preview-ab.js'
+      - 'test/engine-mega-preview.test.js'
+      - 'test/engine-bot-optin.test.js'
+      - '.github/workflows/stage3-engine-bot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build exact Showdown
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: M-C legality
+        run: npm run check
+      - name: Bot public information and first-turn opt-in tests
+        run: node --test test/engine-bot-optin.test.js test/engine-turn-advisor.test.js test/engine-mega-preview.test.js
+      - name: Small equal-seed 3v3 A/B, not ladder data
+        run: node engine-bot-ab.js | tee engine-bot-ab.txt
+      - name: Switch limit A/B under controlled opponent policy
+        run: node switch-budget-ab.js | tee switch-budget-ab.txt
+      - name: Public-six preview with engine Mega coverage pilot
+        run: node engine-preview-ab.js | tee engine-preview-ab.txt
+      - name: Upload simulation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: engine-bot-optin-${{ github.run_id }}
+          path: |
+            engine-bot-ab.txt
+            switch-budget-ab.txt
+            engine-preview-ab.txt
+          retention-days: 30
+          if-no-files-found: warn

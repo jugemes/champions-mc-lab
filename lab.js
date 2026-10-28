@@ -12,6 +12,11 @@ const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
 const {chooseStrategicPreview}=require('./preview-strategic');
+const {chooseRationalPreview,rankRationalPreview}=require('./preview-rational');
+const {chooseRationalRiskPreview}=require('./preview-risk');
+const {ownForm,weatherOf}=require('./own-form');
+// Engine advisor is loaded only inside opt-in Bot decisions to avoid a circular
+// dependency: public-hypotheses -> lab.normalize.
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -107,7 +112,12 @@ class Bot{
     this.turn=0;this.lastMove='';this.switches=0;this.errors=0;this.trace=trace;
     this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
     this.previewPolicy=options.previewPolicy||'legacy';
+    this.previewValidator=options.previewValidator||null;
     this.decisionPolicy=options.decisionPolicy||'baseline';
+    this.sim=options.sim||null;
+    this.unlimitedSwitches=Boolean(options.unlimitedSwitches);
+    // Opt-in: on the Mega turn evaluate moves as the Mega form and its weather.
+    this.megaAware=Boolean(options.megaAware);
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
@@ -185,18 +195,84 @@ class Bot{
     if(!found)throw Error('No known set for active '+name+' on '+this.side);
     return found;
   }
+  // Own active as it will act this turn. A Mega form has one fixed ability, so
+  // after Mega Evolution the set's pre-Mega ability is replaced. With megaAware,
+  // the Mega turn itself is evaluated as the Mega form plus its weather ability
+  // (Mega Evolution resolves before moves); otherwise the historical view.
+  activeView(current,active){
+    const set=this.getSet(current),shown=this.dex.species.get(nameOf(current.details));
+    let my={...set,species:shown.name,ability:shown.isMega?shown.abilities['0']:set.ability};
+    let weather=this.weather;
+    if(this.megaAware&&active?.canMegaEvo){
+      const form=ownForm(this.dex,set,{mega:true});
+      if(form.isMega){
+        my={...set,species:form.species,ability:form.ability};
+        weather=weatherOf(form.ability)||weather;
+      }
+    }
+    return {my,weather};
+  }
   decide(req){
     if(this.errors>0){this.errors=0;return 'default';}
     if(req.teamPreview){
+      let enginePreview=null;
+      if(!this.forcedSelection&&
+         ['engine-mega-cover','engine-two-turn'].includes(this.previewPolicy)){
+        try{
+          if(this.previewPolicy==='engine-two-turn'){
+            const {rankOpeningTrioLeads}=require('./engine-opening-ranker');
+            const report=rankOpeningTrioLeads(this.sim,this.team,this.opp,{
+              maxScenes:4,limit:60,seed:[2026,10,28,1]});
+            const chosen=report.top.find(x=>x.comparable);
+            if(!chosen)throw Error('No complete two-turn option across all hypothetical leads');
+            enginePreview=chosen.ownThree.map(name=>{
+              const index=this.team.findIndex(p=>p.species===name);
+              if(index<0)throw Error('Unknown own choice '+name);
+              return index+1;
+            });
+            this.trace.enginePreviews?.push({
+              side:this.side,policy:'engine-two-turn',
+              chosen:[...chosen.ownThree],lead:chosen.lead,
+              oldBaseline:report.baseline,
+              scenarioLeads:chosen.scenarioLeads,
+              hypotheses:chosen.opponentScenarios,
+              riskScore:chosen.scoreWorst,
+              caveat:report.warning
+            });
+          }else{
+            const {screenMegaCoverage}=require('./engine-mega-preview');
+            const report=screenMegaCoverage(this.sim,this.team,this.opp);
+            const lead=report.selected.leads[0].i;
+            enginePreview=[lead,...report.selected.three.filter(i=>i!==lead)].map(i=>i+1);
+            this.trace.enginePreviews?.push({side:this.side,
+              chosen:enginePreview.map(n=>this.team[n-1].species),
+              changed:report.changed,coverage:report.coverage,
+              baselineCoverage:report.baselineCoverage,reason:report.reason,
+              hypotheses:report.perFoe.map(x=>({species:x.species,item:x.item}))});
+          }
+        }catch(error){
+          this.trace.enginePreviews?.push({side:this.side,
+            policy:this.previewPolicy,status:'fallback',
+            error:String(error.message).slice(0,220)});
+          enginePreview=chooseRationalPreview(this.dex,this.team,this.opp,this.random);
+        }
+      }
       const selected=this.forcedSelection?this.forcedSelection.map(name=>{
         const index=this.team.findIndex(x=>x.species===name);
         if(index<0)throw Error('Scenario member not in team: '+name);
         return index+1;
-      }):this.previewPolicy==='stochastic'
+      }):enginePreview|| (this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
-          :chooseThree(this.dex,this.team,this.opp);
+          :this.previewPolicy==='rational'
+            ?chooseRationalPreview(this.dex,this.team,this.opp,this.random)
+            :this.previewPolicy==='rational-top'
+              ?(()=>{const top=rankRationalPreview(this.dex,this.team,this.opp)[0];const lead=top.leads[0].i;
+                return [lead,...top.three.filter(i=>i!==lead)].map(i=>i+1);})()
+            :this.previewPolicy==='rational-risk'
+              ?chooseRationalRiskPreview(this.dex,this.team,this.opp,this.random,this.previewValidator)
+            :chooseThree(this.dex,this.team,this.opp));
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
@@ -210,7 +286,7 @@ class Bot{
     }
     const active=req.active?.[0], current=side.find(p=>p.active);
     if(!active||!current)return 'default';
-    const my={...this.getSet(current),species:nameOf(current.details)};
+    const {my,weather}=this.activeView(current,active);
     const available=active.moves.map((m,i)=>({m,i})).filter(x=>!x.m.disabled&&x.m.pp>0);
     if(!available.length)return 'default';
     const [selfhp,selfmax]=String(current.condition).split('/').map(Number);
@@ -229,10 +305,50 @@ class Bot{
       bench.sort((a,b)=>Number(this.getSet(b.p).species==='Umbreon')-Number(this.getSet(a.p).species==='Umbreon'));
       if(bench.length&&canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)){this.switches++;return 'switch '+(bench[0].i+1);}
     }
+    // Only turn 1, full HP and neutral field: synthetic Battle evaluations
+    // are initialized from turn zero. They MUST NOT be used after damage,
+    // hazards, weather, status, boosts or observed opponent item/ability.
+    // This does not inspect the actual hidden opponent Battle or its 3 picks.
+    if(this.decisionPolicy==='engine-conditional'){
+      const entry={side:this.side,turn:this.turn,foe:this.foeActive,
+        own:this.getSet(current).species,policy:'engine-conditional',
+        status:'not-evaluated'};
+      if(!this.sim || this.turn!==1 || ratio!==1 || this.foeHP!==1 ||
+         this.weather || this.terrain || this.foeStatus || this.foeItem ||
+         this.foeAbility || Object.values(this.boosts).some(Boolean) ||
+         Object.values(this.foeBoosts).some(Boolean) ||
+         !this.opp.includes(this.foeActive)){
+        entry.status='ineligible-current-state';
+      }else{
+        try{
+          const {adviseEngineTurn}=require('./engine-turn-advisor');
+          const proposed=adviseEngineTurn(this.sim,this.team,this.opp,{
+            ourLead:this.getSet(current).species,opponentLead:this.foeActive,
+            assumptions:1,seed:[2026,10,28,1],
+            ourMega:Boolean(active.canMegaEvo)
+          });
+          entry.status=proposed.decision;
+          entry.covered=proposed.byScenario.length;
+          entry.commonMove=proposed.commonMove;
+          const found=available.find(x=>canonical(x.m.id||x.m.move)===canonical(proposed.commonMove));
+          if(found && proposed.commonMove){
+            entry.status='engine-applied';
+            this.trace.engineAdvices?.push(entry);
+            return 'move '+(found.i+1)+(active.canMegaEvo?' mega':'');
+          }
+        }catch(error){
+          // An uncovered public species, unavailable move or missing legal
+          // synthetic scenario must NOT fabricate an action. Keep v3 fallback.
+          entry.status='engine-fallback';
+          entry.reason=String(error.message).slice(0,220);
+        }
+      }
+      this.trace.engineAdvices?.push(entry);
+    }
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
-      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather:this.weather});
+      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather});
       if(def.category!=='Status'){
         // Already applied exactly once by moveUtility's public-state range calculator.
         if(def.priority>0&&this.foeHP<=0.35)score+=25;
@@ -250,19 +366,19 @@ class Bot{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
-          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,terrain:this.terrain,weather:this.weather,
+          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,terrain:this.terrain,weather,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
-      if(this.decisionPolicy==='v3'){
+      if(this.decisionPolicy==='v3'||this.decisionPolicy==='engine-conditional'){
         score=evaluateMoveV3(this.dex,my,this.foeActive,m.id||m.move,{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
           seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,
-          terrain:this.terrain,weather:this.weather,
+          terrain:this.terrain,weather,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
@@ -271,7 +387,7 @@ class Bot{
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
-    if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
+    if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&(this.switches<3||this.unlimitedSwitches)){
       const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
       const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
@@ -288,11 +404,15 @@ class Bot{
 async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
-  const trace={choices:[],selections:[],errors:[]};
+  const previewValidator=sim.TeamValidator.get(FORMAT);
+  const trace={choices:[],selections:[],errors:[],engineAdvices:[],enginePreviews:[]};
   const stress=scenario==null?null:scenarios[scenario];
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?stress?.chosen:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed});
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:stress?.chosen,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed});
+  // options.opponentForced: fix the opponent's three (lead first) for a stress
+  // test without a scripted scenario. The candidate still sees only six species.
+  const forced=stress?.chosen||options.opponentForced||null;
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?forced:null,reverse?(stress?.scriptAs||scenario):null,{...options,sim,unlimitedSwitches:reverse?Boolean(options.opponentUnlimitedSwitches):Boolean(options.candidateUnlimitedSwitches),decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed,previewValidator});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:forced,reverse?null:(stress?.scriptAs||scenario),{...options,sim,unlimitedSwitches:reverse?Boolean(options.candidateUnlimitedSwitches):Boolean(options.opponentUnlimitedSwitches),decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed,previewValidator});
   const logs=[];let winner='',turns=0,rainObserved=false,sunObserved=false,psychicTerrainObserved=false,priorityBlocked=0,megaCharizardObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
@@ -330,7 +450,7 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   if(stress?.mustSeeRain&&!rainObserved)throw Error('Rain stress test did not activate rain!');
   const enemy=reverse?'p1':'p2';
   const selected=trace.selections.find(x=>x.side===enemy);
-  if(stress&&(!selected||selected.chosen.join('/')!==stress.chosen.join('/')))throw Error('Forced scenario selection failed');
+  if(forced&&(!selected||selected.chosen.join('/')!==forced.join('/')))throw Error('Forced scenario selection failed');
   return {winner,turns,trace,log:logs.join('\n'),rainObserved,sunObserved,psychicTerrainObserved,priorityBlocked,megaCharizardObserved,opponentSetupMoves,opponentToxicSpikes,regenSwitchOuts};
 }
 function args(argv){let count=1,logs=1,checkOnly=false;for(let i=0;i<argv.length;i++){
