@@ -12,7 +12,7 @@ const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
 const {chooseStrategicPreview}=require('./preview-strategic');
-const {chooseRationalPreview}=require('./preview-rational');
+const {chooseRationalPreview,rankRationalPreview}=require('./preview-rational');
 const {chooseRationalRiskPreview}=require('./preview-risk');
 const {ownForm,weatherOf}=require('./own-form');
 // Engine advisor is loaded only inside opt-in Bot decisions to avoid a circular
@@ -243,6 +243,9 @@ class Bot{
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
           :this.previewPolicy==='rational'
             ?chooseRationalPreview(this.dex,this.team,this.opp,this.random)
+            :this.previewPolicy==='rational-top'
+              ?(()=>{const top=rankRationalPreview(this.dex,this.team,this.opp)[0];const lead=top.leads[0].i;
+                return [lead,...top.three.filter(i=>i!==lead)].map(i=>i+1);})()
             :this.previewPolicy==='rational-risk'
               ?chooseRationalRiskPreview(this.dex,this.team,this.opp,this.random,this.previewValidator)
             :chooseThree(this.dex,this.team,this.opp));
