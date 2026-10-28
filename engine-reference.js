@@ -93,4 +93,48 @@ function engineDamageSample(sim,ourSix,assumedOpponentSix,{
     };
   }finally{battle.destroy();}
 }
-module.exports={FORMAT,createHypotheticalBattle,engineDamageSample};
+
+/**
+ * Execute one REAL Showdown turn from a fully specified synthetic situation.
+ * Unlike getDamage(), this captures move order, actual Mega timing, status
+ * moves, damage, fainting and on-hit events. All choices are supplied as
+ * *scenario hypotheses*, never derived from hidden state of an actual rival.
+ */
+function engineTurnSample(sim,ourSix,assumedOpponentSix,{
+  ourLead,opponentLead,ourMove,opponentMove,ourMega=false,opponentMega=false,
+  seed=DEFAULT_SEED
+}={}){
+  if(!ourMove||!opponentMove)throw Error('both fully specified turn actions required');
+  const own=ourSix.find(s=>s.species===ourLead);
+  const foe=assumedOpponentSix.find(s=>s.species===opponentLead);
+  if(!own?.moves.includes(ourMove))throw Error('Our move missing from known set');
+  if(!foe?.moves.includes(opponentMove))throw Error('Opponent scenario move missing from explicit hypothesis');
+  const battle=createHypotheticalBattle(sim,ourSix,assumedOpponentSix,{ourLead,opponentLead,seed});
+  try{
+    const source=battle.p1.active[0],target=battle.p2.active[0];
+    const start=battle.log.length;
+    const ownChoice='move '+(own.moves.indexOf(ourMove)+1)+(ourMega?' mega':'');
+    const foeChoice='move '+(foe.moves.indexOf(opponentMove)+1)+(opponentMega?' mega':'');
+    battle.makeChoices(ownChoice,foeChoice);
+    if(battle.p1.choice.error||battle.p2.choice.error)
+      throw Error('Showdown rejected a hypothetical turn action: '+
+        (battle.p1.choice.error||'')+' / '+(battle.p2.choice.error||''));
+    const events=battle.log.slice(start).filter(line=>
+      /\\|(move|detailschange|faint|cant|turn|\\-damage|\\-boost|\\-fail|\\-formechange|\\-activate)\\|/.test(line));
+    return {
+      assumption:'fully specified hypothetical scenario only',
+      engine:'showdown-Battle.makeChoices',
+      format:FORMAT,seed,
+      ownChoice:{species:ourLead,move:ourMove,mega:ourMega},
+      assumedOpponentChoice:{species:opponentLead,move:opponentMove,mega:opponentMega},
+      ourAfter:{form:source.species.name,hp:source.hp,maxhp:source.maxhp,fainted:source.fainted,
+        boosts:{...source.boosts}},
+      opponentAfter:{form:target.species.name,hp:target.hp,maxhp:target.maxhp,
+        fainted:target.fainted,boosts:{...target.boosts}},
+      ended:battle.ended,winner:battle.winner||null,events,
+      limitation:'one full engine turn of an explicit opponent hypothesis; not known rival actions'
+    };
+  }finally{battle.destroy();}
+}
+
+module.exports={FORMAT,createHypotheticalBattle,engineDamageSample,engineTurnSample};
