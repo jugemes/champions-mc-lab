@@ -19,7 +19,7 @@ const pr=copy('Primarina'); // Sitrus
 const go=copy('Gholdengo'); // Air Balloon from fixtures
 const gl=copy('Golisopod'); // Golisopite
 const mt=copy('Metagross'); // Mega
-const co=copy('Corviknight'); // Rocky Helmet
+const co=clone(variants.C_master.find(x=>x.species==='Corviknight')); // explicit Rocky Helmet
 const hi=mk('Hippowdon','Leftovers','Sand Stream','Impish',{hp:32,def:32,spd:2},
  ['Earthquake','Yawn','Stealth Rock','Slack Off']);
 const mi=mk('Mimikyu','Life Orb','Disguise','Adamant',{hp:2,atk:32,spe:32},
