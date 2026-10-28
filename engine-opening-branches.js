@@ -56,13 +56,21 @@ function scriptedFirstMoves(dex,foe){
 }
 function pressureScore(branch){
  const first=branch.firstAfter,after=branch.secondAfter||first;
- const us=after.own.pokemon[0],them=after.assumedFoe.pokemon[0];
+ const leadUs=after.own.pokemon[0],leadFoe=after.assumedFoe.pokemon[0];
+ const metric=side=>({
+   fainted:side.pokemon.filter(p=>p.fainted).length,
+   meanHP:side.pokemon.reduce((sum,p)=>sum+p.hp/p.maxhp,0)/side.pokemon.length
+ });
+ const us=metric(after.own),foe=metric(after.assumedFoe);
  return {
-   ownLeadFainted:us.fainted,foeLeadFainted:them.fainted,
-   ownRemaining:+(us.hp/us.maxhp).toFixed(3),
-   foeRemaining:+(them.hp/them.maxhp).toFixed(3),
-   foeAttackBoost:them.boosts.atk||0,
-   secondExecuted:branch.second?.executed||false
+   ownLeadFainted:leadUs.fainted,foeLeadFainted:leadFoe.fainted,
+   ownRemaining:+(leadUs.hp/leadUs.maxhp).toFixed(3),
+   foeRemaining:+(leadFoe.hp/leadFoe.maxhp).toFixed(3),
+   ownFaintedCount:us.fainted,foeFaintedCount:foe.fainted,
+   ownTeamRemaining:+us.meanHP.toFixed(3),foeTeamRemaining:+foe.meanHP.toFixed(3),
+   foeAttackBoost:leadFoe.boosts.atk||0,
+   secondExecuted:branch.second?.executed||false,
+   secondSkipped:branch.second?.notExecutedReason||''
  };
 }
 function checkOpeningBranches(sim,ownSix,publicSix,{
@@ -82,11 +90,15 @@ function checkOpeningBranches(sim,ownSix,publicSix,{
   const usAttack=scriptedFirstMoves(dex,our).find(m=>dex.moves.get(m).category!=='Status')||our.moves[0];
   for(const theirMega of (scene.isMegaThreat?[false,true]:[false])){
    for(const foeFirst of foeFirstMoves){
-    for(const ownFirst of our.moves){
-     const oursMega=Boolean(dex.items.get(our.item).megaStone);
-     // On turn 2 the action is still a declared script (no perfect foresight).
-     // Same first move is required if our Choice Scarf locks it.
-     const ownSecond=our.item==='Choice Scarf'?ownFirst:usAttack;
+    for(const ownFirst of [...our.moves,...ownThree.slice(1).map(x=>'switch:'+x)]){
+     const switchInto=ownFirst.startsWith('switch:')?ownFirst.slice(7):null;
+     const actor=switchInto?ownSix.find(x=>x.species===switchInto):our;
+     const oursMega=!switchInto&&Boolean(dex.items.get(our.item).megaStone);
+     // On turn 2, an openly selected teammate can act. This is a script,
+     // not an unknown rival's actual choice or hidden set.
+     const ownAttack=scriptedFirstMoves(dex,actor)
+       .find(m=>dex.moves.get(m).category!=='Status')||actor.moves[0];
+     const ownSecond=!switchInto&&our.item==='Choice Scarf'?ownFirst:ownAttack;
      const r=twoTurnBranch(sim,ownSix,scene.assumedTeam,{
        ownThree,foeThree:scene.assumedThree,seed,
        first:{own:ownFirst,foe:foeFirst,ownMega:oursMega,foeMega:theirMega},
