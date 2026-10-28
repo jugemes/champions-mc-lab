@@ -10,6 +10,10 @@ on:
       - 'reported-live-roster-20261027.js'
       - 'test/rational-preview.test.js'
       - 'test/hybrid01-audit.test.js'
+      - 'public-risk-bands.js'
+      - 'preview-risk.js'
+      - 'risk-preview-audit.js'
+      - 'test/preview-risk.test.js'
       - '.github/workflows/rational-preview.yml'
   workflow_dispatch:
     inputs:
@@ -52,6 +56,8 @@ jobs:
           npm run check
       - name: Own-Mega preview, engine checks, Charizard-in/out forced threes
         run: node rational-preview-audit.js --per-condition "$PER_CONDITION" | tee output-audit.txt
+      - name: Risk-opt-in paired preview audit (no ladder interpretation)
+        run: node risk-preview-audit.js | tee risk-preview-audit.txt
       - name: Summary (heuristic AI, not ladder win rates)
         if: success()
         run: |
@@ -60,6 +66,10 @@ jobs:
             echo 'Opposing sets are hypotheses. Heuristic AI vs heuristic AI; not ladder win rates.'
             echo '```'
             cat output-audit.txt
+            echo '```'
+            echo '## Opt-in risk-preview paired A/B (synthetic hypotheses)'
+            echo '```'
+            cat risk-preview-audit.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Upload summary
