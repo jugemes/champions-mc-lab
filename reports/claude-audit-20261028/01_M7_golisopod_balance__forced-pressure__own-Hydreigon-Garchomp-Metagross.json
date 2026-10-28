@@ -1,0 +1,278 @@
+[
+ {
+  "k": 0,
+  "seed": "45901,39969,34040,9359",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|114/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|128/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|71/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|164/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|142/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 1,
+  "seed": "55833,375,63569,28507",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|113/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|127/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|64/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|157/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|135/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 2,
+  "seed": "59504,61318,13113,62448",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|120/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|118/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|58/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|151/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|129/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 3,
+  "seed": "61618,46321,19928,27520",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|112/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|122/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|59/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|152/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|130/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 4,
+  "seed": "50888,63347,5143,28413",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|113/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|128/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|68/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|161/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|139/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 5,
+  "seed": "30475,30328,61367,50983",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|113/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|128/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|64/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|157/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|135/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 6,
+  "seed": "56959,60965,11706,52761",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, F|169/169\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|120/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|121/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|66/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|159/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|137/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 7,
+  "seed": "2758,37710,33130,7791",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|120/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|121/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|66/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|159/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|137/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 8,
+  "seed": "55895,13968,46317,5009",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, F|169/169\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|112/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|128/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|37/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|130/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|108/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 9,
+  "seed": "45047,4497,6569,35616",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|122/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|125/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|64/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|157/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|135/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ },
+ {
+  "k": 10,
+  "seed": "60102,36697,43693,59870",
+  "reverse": false,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Hydreigon|Draco Meteor|p2a: Golisopod\n|-damage|p2a: Golisopod|117/182\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|move|p2a: Golisopod|Leech Life|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Hydreigon\n|faint|p1a: Hydreigon\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|118/182\n|move|p2a: Golisopod|Swords Dance|p2a: Golisopod\n|-boost|p2a: Golisopod|atk|2\n|turn|3\n|move|p1a: Garchomp|Earthquake|p2a: Golisopod\n|-damage|p2a: Golisopod|64/182\n|move|p2a: Golisopod|Leech Life|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-heal|p2a: Golisopod|157/182|[from] drain|[of] p1a: Garchomp\n|-damage|p2a: Golisopod|135/182|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|switch|p1a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p1a: Metagross|Metagross-Mega, L50\n|-mega|p1a: Metagross|Metagross|Metagrossite\n|move|p2a: Golisopod|Sucker Punch|p1a: Metagross\n|-damage|p1a: Metagross|0 fnt\n|faint|p1a: Metagross\n|win|opponent"
+ },
+ {
+  "k": 11,
+  "seed": "38268,64197,21913,31475",
+  "reverse": true,
+  "win": false,
+  "turns": 4,
+  "mine": [
+   "Hydreigon",
+   "Garchomp",
+   "Metagross"
+  ],
+  "myLead": "Hydreigon",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 0,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Hydreigon|Draco Meteor|p1a: Golisopod\n|-damage|p1a: Golisopod|120/182\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|move|p1a: Golisopod|Leech Life|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Hydreigon\n|faint|p2a: Hydreigon\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|2\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|125/182\n|move|p1a: Golisopod|Swords Dance|p1a: Golisopod\n|-boost|p1a: Golisopod|atk|2\n|turn|3\n|move|p2a: Garchomp|Earthquake|p1a: Golisopod\n|-damage|p1a: Golisopod|67/182\n|move|p1a: Golisopod|Leech Life|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-heal|p1a: Golisopod|160/182|[from] drain|[of] p2a: Garchomp\n|-damage|p1a: Golisopod|138/182|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|switch|p2a: Metagross|Metagross, L50|157/157\n|turn|4\n|detailschange|p2a: Metagross|Metagross-Mega, L50\n|-mega|p2a: Metagross|Metagross|Metagrossite\n|move|p1a: Golisopod|Sucker Punch|p2a: Metagross\n|-damage|p2a: Metagross|0 fnt\n|faint|p2a: Metagross\n|win|candidate"
+ }
+]

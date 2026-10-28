@@ -1,0 +1,278 @@
+[
+ {
+  "k": 0,
+  "seed": "45901,39969,34040,9359",
+  "reverse": false,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, F|207/207\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|116/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|3\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|4\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|85/185\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|33/185\n|-damage|p2a: Garchomp|62/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|-weather|none\n|turn|6\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-damage|p2a: Garchomp|39/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|win|opponent"
+ },
+ {
+  "k": 1,
+  "seed": "55833,375,63569,28507",
+  "reverse": true,
+  "win": true,
+  "turns": 7,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, M|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|118/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|3/207\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|turn|2\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|113/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|-heal|p1a: Golisopod|115/182|[from] drain|[of] p2a: Tyranitar\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|3\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|4\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-damage|p1a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Mimikyu|95/132|[from] Sandstorm\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-weather|none\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|88/185\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|23/185\n|-damage|p1a: Garchomp|65/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|turn|7\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|faint|p1a: Garchomp\n|win|opponent"
+ },
+ {
+  "k": 2,
+  "seed": "59504,61318,13113,62448",
+  "reverse": false,
+  "win": true,
+  "turns": 7,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, M|207/207\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|115/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|3/207\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|turn|2\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|122/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|124/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|3\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|4\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|none\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|6\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|91/185\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|33/185\n|-damage|p2a: Garchomp|68/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|turn|7\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 3,
+  "seed": "61618,46321,19928,27520",
+  "reverse": true,
+  "win": true,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, F|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|112/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Tyranitar\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|3\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-damage|p1a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Mimikyu|95/132|[from] Sandstorm\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|4\n|move|p2a: Garchomp|Earthquake|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|95/185\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|23/185\n|-damage|p1a: Garchomp|72/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|-weather|none\n|turn|6\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|faint|p1a: Garchomp\n|win|opponent"
+ },
+ {
+  "k": 4,
+  "seed": "50888,63347,5143,28413",
+  "reverse": false,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, M|207/207\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|121/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|3\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|4\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|39/185\n|-damage|p2a: Garchomp|162/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|66/185\n|-weather|none\n|turn|6\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-damage|p2a: Garchomp|43/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|win|opponent"
+ },
+ {
+  "k": 5,
+  "seed": "30475,30328,61367,50983",
+  "reverse": true,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, F|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod|[miss]\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|3\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-damage|p1a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Mimikyu|95/132|[from] Sandstorm\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|4\n|move|p2a: Garchomp|Earthquake|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|39/185\n|-damage|p1a: Garchomp|162/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|72/185\n|-weather|none\n|turn|6\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-damage|p1a: Garchomp|49/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 6,
+  "seed": "56959,60965,11706,52761",
+  "reverse": false,
+  "win": true,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, F|207/207\n|switch|p2a: Golisopod|Golisopod, L50, M|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|121/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|2\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|3\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|4\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|83/185\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|17/185\n|-damage|p2a: Garchomp|60/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|-weather|none\n|turn|6\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 7,
+  "seed": "2758,37710,33130,7791",
+  "reverse": true,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, M|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, M|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, M\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|77/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|-heal|p1a: Golisopod|181/182|[from] drain|[of] p2a: Tyranitar\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|3\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-damage|p1a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Mimikyu|95/132|[from] Sandstorm\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|4\n|move|p2a: Garchomp|Earthquake|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|23/185\n|-damage|p1a: Garchomp|162/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|60/185\n|-weather|none\n|turn|6\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-damage|p1a: Garchomp|37/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 8,
+  "seed": "55895,13968,46317,5009",
+  "reverse": false,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, F|207/207\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|86/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|2\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|3\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, M|185/185\n|turn|4\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|83/185\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|21/185\n|-damage|p2a: Garchomp|60/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|-weather|none\n|turn|6\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|0 fnt\n|-damage|p2a: Garchomp|37/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p1a: Garchomp\n|win|opponent"
+ },
+ {
+  "k": 9,
+  "seed": "45047,4497,6569,35616",
+  "reverse": true,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, M|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|115/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Tyranitar\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|2\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, M|132/132\n|turn|3\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, M\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon|[miss]\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|117/169|[from] Sandstorm\n|-damage|p1a: Mimikyu|108/132|[from] Sandstorm\n|turn|4\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-damage|p2a: Hydreigon|101/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|91/169|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p1a: Garchomp|Dragon Claw|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-weather|none\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|6\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|21/185\n|-damage|p1a: Garchomp|162/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|18/185\n|-damage|p2a: Garchomp|0 fnt|[from] ability: Rough Skin|[of] p1a: Garchomp\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 10,
+  "seed": "60102,36697,43693,59870",
+  "reverse": false,
+  "win": true,
+  "turns": 7,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 3,
+  "myFaints": 2,
+  "errors": 0,
+  "log": "|switch|p1a: Tyranitar|Tyranitar, L50, F|207/207\n|switch|p2a: Golisopod|Golisopod, L50, F|182/182\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar\n|turn|1\n|detailschange|p2a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p2a: Golisopod|Golisopod|Golisopite\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|121/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|3/207\n|-heal|p2a: Golisopod|182/182|[from] drain|[of] p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|turn|2\n|move|p1a: Tyranitar|Stone Edge|p2a: Golisopod\n|-damage|p2a: Golisopod|112/182\n|move|p2a: Golisopod|Leech Life|p1a: Tyranitar\n|-damage|p1a: Tyranitar|0 fnt\n|-heal|p2a: Golisopod|114/182|[from] drain|[of] p1a: Tyranitar\n|faint|p1a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Hydreigon|Hydreigon, L50, M|169/169\n|turn|3\n|move|p1a: Hydreigon|Flamethrower|p2a: Golisopod\n|-damage|p2a: Golisopod|0 fnt\n|faint|p2a: Golisopod\n|-damage|p1a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Hydreigon|143/169|[from] Sandstorm\n|switch|p2a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|4\n|move|p1a: Hydreigon|Flash Cannon|p2a: Mimikyu\n|-activate|p2a: Mimikyu|ability: Disguise\n|-damage|p2a: Mimikyu|132/132\n|detailschange|p2a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p2a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p1a: Hydreigon|127/169|[from] item: Life Orb\n|move|p2a: Mimikyu|Play Rough|p1a: Hydreigon\n|-damage|p1a: Hydreigon|0 fnt\n|faint|p1a: Hydreigon\n|-damage|p2a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Mimikyu|95/132|[from] Sandstorm\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p1a: Garchomp|Earthquake|p2a: Mimikyu\n|-damage|p2a: Mimikyu|0 fnt\n|faint|p2a: Mimikyu\n|-weather|none\n|switch|p2a: Garchomp|Garchomp, L50, M|185/185\n|turn|6\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|89/185\n|move|p2a: Garchomp|Dragon Claw|p1a: Garchomp\n|-damage|p1a: Garchomp|27/185\n|-damage|p2a: Garchomp|66/185|[from] ability: Rough Skin|[of] p1a: Garchomp\n|turn|7\n|move|p1a: Garchomp|Earthquake|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|faint|p2a: Garchomp\n|win|candidate"
+ },
+ {
+  "k": 11,
+  "seed": "38268,64197,21913,31475",
+  "reverse": true,
+  "win": false,
+  "turns": 6,
+  "mine": [
+   "Tyranitar",
+   "Hydreigon",
+   "Garchomp"
+  ],
+  "myLead": "Tyranitar",
+  "theirs": [
+   "Golisopod",
+   "Garchomp",
+   "Mimikyu"
+  ],
+  "theirLead": "Golisopod",
+  "foeFaints": 2,
+  "myFaints": 3,
+  "errors": 0,
+  "log": "|switch|p1a: Golisopod|Golisopod, L50, F|182/182\n|switch|p2a: Tyranitar|Tyranitar, L50, F|207/207\n|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar\n|turn|1\n|detailschange|p1a: Golisopod|Golisopod-Mega, L50, F\n|-mega|p1a: Golisopod|Golisopod|Golisopite\n|move|p2a: Tyranitar|Stone Edge|p1a: Golisopod\n|-damage|p1a: Golisopod|118/182\n|move|p1a: Golisopod|Leech Life|p2a: Tyranitar\n|-damage|p2a: Tyranitar|0 fnt\n|-heal|p1a: Golisopod|182/182|[from] drain|[of] p2a: Tyranitar\n|faint|p2a: Tyranitar\n|-weather|Sandstorm|[upkeep]\n|switch|p2a: Hydreigon|Hydreigon, L50, F|169/169\n|turn|2\n|move|p2a: Hydreigon|Flamethrower|p1a: Golisopod\n|-damage|p1a: Golisopod|0 fnt\n|faint|p1a: Golisopod\n|-damage|p2a: Hydreigon|153/169|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p2a: Hydreigon|143/169|[from] Sandstorm\n|switch|p1a: Mimikyu|Mimikyu, L50, F|132/132\n|turn|3\n|move|p2a: Hydreigon|Flash Cannon|p1a: Mimikyu\n|-activate|p1a: Mimikyu|ability: Disguise\n|-damage|p1a: Mimikyu|132/132\n|detailschange|p1a: Mimikyu|Mimikyu-Busted, L50, F\n|-damage|p1a: Mimikyu|116/132|[from] pokemon: Mimikyu-Busted\n|-damage|p2a: Hydreigon|127/169|[from] item: Life Orb\n|move|p1a: Mimikyu|Play Rough|p2a: Hydreigon\n|-damage|p2a: Hydreigon|0 fnt\n|faint|p2a: Hydreigon\n|-damage|p1a: Mimikyu|103/132|[from] item: Life Orb\n|-weather|Sandstorm|[upkeep]\n|-damage|p1a: Mimikyu|95/132|[from] Sandstorm\n|switch|p2a: Garchomp|Garchomp, L50, F|185/185\n|turn|4\n|move|p2a: Garchomp|Earthquake|p1a: Mimikyu\n|-damage|p1a: Mimikyu|0 fnt\n|faint|p1a: Mimikyu\n|-weather|Sandstorm|[upkeep]\n|switch|p1a: Garchomp|Garchomp, L50, F|185/185\n|turn|5\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|41/185\n|-damage|p1a: Garchomp|162/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|move|p2a: Garchomp|Earthquake|p1a: Garchomp\n|-damage|p1a: Garchomp|57/185\n|-weather|none\n|turn|6\n|move|p1a: Garchomp|Dragon Claw|p2a: Garchomp\n|-damage|p2a: Garchomp|0 fnt\n|-damage|p1a: Garchomp|34/185|[from] ability: Rough Skin|[of] p2a: Garchomp\n|faint|p2a: Garchomp\n|win|candidate"
+ }
+]
