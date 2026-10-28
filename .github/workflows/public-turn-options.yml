@@ -1,0 +1,53 @@
+name: Champions M-C Public Hypotheses Engine Turns P0-1
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public-hypotheses.js'
+      - 'public-turn-options.js'
+      - 'public-turn-audit.js'
+      - 'test/public-hypotheses.test.js'
+      - '.github/workflows/public-turn-options.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build exact Champions simulator
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$SHOWDOWN_COMMIT"
+          cd showdown
+          npm ci
+          npm run build
+      - name: Existing M-C team legality
+        run: npm run check
+      - name: Public-six hypothesis and turn branch tests
+        run: node --test test/public-hypotheses.test.js test/engine-reference.test.js
+      - name: Public team scenarios and exact Showdown counterfactual logs
+        run: node public-turn-audit.js | tee public-turn-proof.txt
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-turn-options-${{ github.run_id }}
+          path: public-turn-proof.txt
+          retention-days: 30
+          if-no-files-found: warn
