@@ -12,36 +12,33 @@
 const {publicHypotheses}=require('./public-hypotheses');
 const {rankRationalPreview}=require('./preview-rational');
 const {twoTurnBranch}=require('./engine-three-branch');
-function opponentLeadHypotheses(sim,ownSix,publicSix,{hypothesisLimit=1,maxScenes=5}={}){
+function opponentLeadHypotheses(sim,ownSix,publicSix,{hypothesisLimit=1,maxScenes=6}={}){
  const dex=sim.Dex.mod('champions');
  const sets=publicHypotheses(sim,publicSix,{limit:hypothesisLimit}).assumptions;
  const scenarios=[],seen=new Set();
+ // Each species of the PUBLIC SIX is considered an opposing lead. The
+ // old shortlist omitted Garchomp/Mimikyu etc because opponent preview AI
+ // wasn't reliable; that systematically hid adversarial opening lines.
  for(let h=0;h<sets.length;h++){
   const six=sets[h].team;
   const ranked=rankRationalPreview(dex,six,ownSix.map(p=>p.species));
-  // Opponent strategy is itself uncertain: top-ranked trios are hypotheses,
-  // not the actual hidden opponent selection. Add potential Mega threat lead
-  // even when an imperfect opponent AI omits it.
-  const chosen=[...ranked.slice(0,2)];
-  const mega=ranked.find(r=>r.three.some(i=>Boolean(dex.items.get(six[i].item).megaStone)));
-  if(mega&&!chosen.includes(mega))chosen.push(mega);
-  for(const candidate of chosen){
-   const species=candidate.three.map(i=>six[i].species);
-   const leads=[candidate.leads[0].i,
-     ...candidate.three.filter(i=>Boolean(dex.items.get(six[i].item).megaStone))];
-   for(const lead of new Set(leads)){
-    const tr=[lead,...candidate.three.filter(i=>i!==lead)].map(i=>six[i].species);
-    const key=JSON.stringify([h,tr]);
-    if(seen.has(key))continue;seen.add(key);
-    scenarios.push({
-      source:'synthetic public-six hypothetical opponent selection',
-      assumedTeam:six,assumedThree:tr,assumedLead:six[lead].species,
-      isMegaThreat:Boolean(dex.items.get(six[lead].item).megaStone),
-      candidateRank:ranked.indexOf(candidate),
-      evidence:'rational heuristic top trios + explicit potential Mega holder, not hidden actual three'
-    });
-    if(scenarios.length>=maxScenes)return scenarios;
-   }
+  for(const enemy of publicSix){
+   const selected=ranked.find(candidate=>candidate.three.some(i=>
+     six[i].species===enemy));
+   if(!selected)throw Error('no hypothetical opponent trio contains '+enemy);
+   const lead=selected.three.find(i=>six[i].species===enemy);
+   const trio=[lead,...selected.three.filter(i=>i!==lead)].map(i=>six[i].species);
+   const key=JSON.stringify([h,trio]);
+   if(seen.has(key))continue;
+   seen.add(key);
+   scenarios.push({
+     source:'all-public-opponent-leads hypothetical, not true opponent selection',
+     assumedTeam:six,assumedThree:trio,assumedLead:enemy,
+     isMegaThreat:Boolean(dex.items.get(six[lead].item).megaStone),
+     candidateRank:ranked.indexOf(selected),
+     evidence:'every visible opposing species can potentially lead; backing 3 is a separate legal constructed rational heuristic hypothesis, not known actual'
+   });
+   if(scenarios.length>=maxScenes)return scenarios;
   }
  }
  return scenarios;
@@ -74,7 +71,7 @@ function pressureScore(branch){
  };
 }
 function checkOpeningBranches(sim,ownSix,publicSix,{
-  ownLead,ownThree,seed=[2026,10,28,1],maxScenes=4
+  ownLead,ownThree,seed=[2026,10,28,1],maxScenes=6
 }={}){
  const dex=sim.Dex.mod('champions');
  if(!Array.isArray(ownThree)||ownThree[0]!==ownLead)
