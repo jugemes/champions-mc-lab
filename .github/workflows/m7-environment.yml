@@ -46,7 +46,9 @@ jobs:
       - name: Check M-C core legality
         run: npm run check
       - name: Constructed M-7 opponents, paired old/new win rate audit
-        run: node environment-m7-audit.js "$PER_CELL" | tee env-m7-log.txt
+        run: |
+          set -o pipefail
+          node environment-m7-audit.js "$PER_CELL" | tee env-m7-log.txt
       - name: Upload evidence JSON
         if: always()
         uses: actions/upload-artifact@v4
