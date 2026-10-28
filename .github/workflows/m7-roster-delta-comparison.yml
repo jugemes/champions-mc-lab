@@ -5,6 +5,7 @@ on:
     paths:
       - 'm7-roster-delta-comparison.js'
       - 'm7-predeclared-triples-stress.js'
+      - 'm7-goli-counterplay.js'
       - '.github/workflows/m7-roster-delta-comparison.yml'
 permissions:
   contents: read
@@ -40,6 +41,10 @@ jobs:
         run: |
           set -o pipefail
           node m7-predeclared-triples-stress.js | tee m7-predeclared-triples-stress.log
+      - name: Opponent counterplay via real Showdown two-turn Mimikyu and Scarf Garchomp pivots
+        run: |
+          set -o pipefail
+          node m7-goli-counterplay.js | tee m7-goli-counterplay.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -49,5 +54,7 @@ jobs:
             m7-roster-delta-comparison.log
             output/m7-roster-deltas/predeclared-human-triples.json
             m7-predeclared-triples-stress.log
+            output/m7-roster-deltas/golisopod-adversarial-switches.json
+            m7-goli-counterplay.log
           retention-days: 30
           if-no-files-found: warn
