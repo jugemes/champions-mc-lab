@@ -40,7 +40,7 @@ test('Levitate immunity and known Choice Scarf speed are resolved in Showdown it
 });
 test('oracle refuses unvalidated or non-own move instead of peeking enemy hidden battle info',()=>{
  assert.throws(()=>engineDamageSample(sim,live,megaBug,{
-   ourLead:'Hydreigon',opponentLead:'Golisopod',move:'Dazzling Gleam'}),/own explicitly known set/);
+   ourLead:'Hydreigon',opponentLead:'Golisopod',move:'Dazzling Gleam'}),/our explicitly known set/);
  const bad=megaBug.map(x=>({...x}));
  bad[1]={...bad[1],item:bad[0].item};
  assert.throws(()=>createHypotheticalBattle(sim,live,bad,{
