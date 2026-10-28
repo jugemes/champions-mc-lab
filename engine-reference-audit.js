@@ -3,7 +3,7 @@
 const {load}=require('./lab');
 const {reportedLive}=require('./reported-live-roster-20261027');
 const {groups}=require('./environment-m7-teams');
-const {engineDamageSample}=require('./engine-reference');
+const {engineDamageSample,engineTurnSample}=require('./engine-reference');
 const {estimateDamage}=require('./damage');
 const sim=load(),dex=sim.Dex.mod('champions');
 const our=reportedLive(),op=groups.find(x=>x.name==='01_M7_golisopod_balance').team;
@@ -22,4 +22,18 @@ for(const {own,opp,move} of cases){
     hp:mega.opponentMaxHP,percent:+(100*mega.fraction).toFixed(2)},
   oldCustomMidPercent:+(100*custom.mid).toFixed(2),
   interpretation:'single Showdown engine noncrit sample; foe item/moves are explicitly assumed, not scouted'}));
+}
+
+for(const move of ['Flamethrower','Draco Meteor']){
+ const t=engineTurnSample(sim,our,op,{
+   ourLead:'Hydreigon',opponentLead:'Golisopod',
+   ourMove:move,opponentMove:'Swords Dance',opponentMega:true,seed:[2026,10,28,2]
+ });
+ console.log('ENGINE_TURN '+JSON.stringify({
+   case:'Hydreigon vs Mega Golisopod using Swords Dance',move,
+   ownRemaining:t.ourAfter.hp,ownMaxHP:t.ourAfter.maxhp,
+   foeRemaining:t.opponentAfter.hp,foeMaxHP:t.opponentAfter.maxhp,
+   foeAttackBoost:t.opponentAfter.boosts.atk,
+   events:t.events,assumption:t.assumption
+ }));
 }
