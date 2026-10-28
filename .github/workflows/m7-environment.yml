@@ -1,0 +1,72 @@
+name: M-7 Singles Environment Benchmark (constructed opponents)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'environment-m7-teams.js'
+      - 'environment-m7-audit.js'
+      - '.github/workflows/m7-environment.yml'
+  workflow_dispatch:
+    inputs:
+      per_cell:
+        description: 'Paired battle seeds per (team, mode, policy)'
+        required: true
+        default: '12'
+        type: choice
+        options: ['4', '8', '12', '20']
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+      SHOWDOWN_COMMIT: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+      PER_CELL: ${{ inputs.per_cell || '12' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build fixed Showdown engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$SHOWDOWN_COMMIT"
+          cd showdown
+          npm ci
+          npm run build
+      - name: Check M-C core legality
+        run: npm run check
+      - name: Constructed M-7 opponents, paired old/new win rate audit
+        run: node environment-m7-audit.js "$PER_CELL" | tee env-m7-log.txt
+      - name: Upload evidence JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m7-environment-${{ github.run_id }}
+          path: |
+            output/m7-environment/m7-benchmark.json
+            env-m7-log.txt
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish strictly labeled summary
+        if: success()
+        run: |
+          {
+            echo '## M-7 Constructed Opponent Benchmark — not a ranked winrate'
+            echo '14 synthetic 6-Pokemon templates. Every game is heuristic AI vs heuristic AI. No empirical co-occurrence weights.'
+            echo 'Three opponent-selection modes: rational heuristic, forced pressure three, forced alternative three.'
+            echo 'Speed, coverage and most held items are hypotheses in the supplied fixtures. Do not extrapolate to actual ladder directly.'
+            echo '### Results'
+            echo '```'
+            grep -E 'META_SUMMARY|META_TOPHEAVY' env-m7-log.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
