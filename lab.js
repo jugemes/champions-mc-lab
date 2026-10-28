@@ -215,11 +215,29 @@ class Bot{
   decide(req){
     if(this.errors>0){this.errors=0;return 'default';}
     if(req.teamPreview){
+      let enginePreview=null;
+      if(!this.forcedSelection&&this.previewPolicy==='engine-mega-cover'){
+        try{
+          const {screenMegaCoverage}=require('./engine-mega-preview');
+          const report=screenMegaCoverage(this.sim,this.team,this.opp);
+          const lead=report.selected.leads[0].i;
+          enginePreview=[lead,...report.selected.three.filter(i=>i!==lead)].map(i=>i+1);
+          this.trace.enginePreviews?.push({side:this.side,
+            chosen:enginePreview.map(n=>this.team[n-1].species),
+            changed:report.changed,coverage:report.coverage,
+            baselineCoverage:report.baselineCoverage,reason:report.reason,
+            hypotheses:report.perFoe.map(x=>({species:x.species,item:x.item}))});
+        }catch(error){
+          // Missing hypothetical sets must not be silently invented.
+          this.trace.enginePreviews?.push({side:this.side,error:String(error.message).slice(0,180)});
+          enginePreview=chooseRationalPreview(this.dex,this.team,this.opp,this.random);
+        }
+      }
       const selected=this.forcedSelection?this.forcedSelection.map(name=>{
         const index=this.team.findIndex(x=>x.species===name);
         if(index<0)throw Error('Scenario member not in team: '+name);
         return index+1;
-      }):this.previewPolicy==='stochastic'
+      }):enginePreview|| (this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
@@ -227,7 +245,7 @@ class Bot{
             ?chooseRationalPreview(this.dex,this.team,this.opp,this.random)
             :this.previewPolicy==='rational-risk'
               ?chooseRationalRiskPreview(this.dex,this.team,this.opp,this.random,this.previewValidator)
-            :chooseThree(this.dex,this.team,this.opp);
+            :chooseThree(this.dex,this.team,this.opp));
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
@@ -360,7 +378,7 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
   const previewValidator=sim.TeamValidator.get(FORMAT);
-  const trace={choices:[],selections:[],errors:[],engineAdvices:[]};
+  const trace={choices:[],selections:[],errors:[],engineAdvices:[],enginePreviews:[]};
   const stress=scenario==null?null:scenarios[scenario];
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
   // options.opponentForced: fix the opponent's three (lead first) for a stress
