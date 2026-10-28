@@ -43,7 +43,7 @@ async function run(){
      const reverse=Boolean(k%2);
      const options={megaAware:true,
        candidatePreviewPolicy:policy,opponentPreviewPolicy:'rational',
-       candidateDecisionPolicy:'v3',opponentDecisionPolicy:'v2'};
+       candidateDecisionPolicy:'v3',opponentDecisionPolicy:'v3'};
      if(mode!=='rational-opponent')options.opponentForced=mode==='forced-pressure'?grp.forcedA:grp.forcedB;
      const g=await game(sim,reverse?grp.team:own,reverse?own:grp.team,seed,false,null,reverse,options);
      if(g.trace.errors.length)invalid+=g.trace.errors.length;
