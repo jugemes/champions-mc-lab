@@ -8,7 +8,7 @@ on:
       - 'test/m8-golisopod-public-policy.test.js'
       - 'm8-golisopod-human-audit.js'
       - 'm8-golisopod-ironhead-rebuttal.js'
-      - 'test/m8-golisopod-ironhead-rebuttal.test.js test/m8-goli-ironhead-second-turn.test.js'
+      - 'test/m8-golisopod-ironhead-rebuttal.test.js'
       - 'm8-goli-ironhead-second-turn.js'
       - 'test/m8-goli-ironhead-second-turn.test.js'
       - '.github/workflows/m8-golisopod-holdout.yml'
@@ -43,7 +43,7 @@ jobs:
       - name: Verify all live-team and hypothesis rules
         run: |
           npm run check
-          node --test test/m8-golisopod-public-policy.test.js test/m8-golisopod-ironhead-rebuttal.test.js
+          node --test test/m8-golisopod-public-policy.test.js test/m8-golisopod-ironhead-rebuttal.test.js test/m8-goli-ironhead-second-turn.test.js
       - name: Simulate both candidates and baseline across seen plus four novel rival sixes
         run: node m8-golisopod-public-policy-holdout.js | tee m8-public-goli-holdout.log
       - name: Preserve public action logs to audit opponent rationality after the battle
