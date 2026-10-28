@@ -1,5 +1,6 @@
 # Claude独立監査（Issue #20 / 依頼PR #37）部分報告 2026-10-29
 
+注: PR #36 head(0d20897)に積み上げ（probeが engine-three-branch.js に依存）。
 Showdown: pinned `3a766f2cfb5e51c1e428cfe87d0dba91a8f01640`, `gen9championsbssregmc`。
 
 ## 実施した範囲（正直な限界）
