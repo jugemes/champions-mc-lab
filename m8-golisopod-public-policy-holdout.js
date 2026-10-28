@@ -54,7 +54,6 @@ async function main(){
       'Rejected battle input '+g.name+': '+JSON.stringify(match.trace.errors));
      const side=reverse?'p2':'p1';
      const sel=match.trace.selections.find(s=>s.side===side);
-     const opp=match.trace.selections.find(s=>s.side!==(reverse?'p1':'p2'));
      // Check own choice equals preregistered policy regardless of enemy hidden 3.
      if(treatment!=='rational-public-six'&&
        sel.chosen.join('/')!==prechosen[treatment].join('/'))
