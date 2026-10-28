@@ -1,0 +1,47 @@
+name: M-7 Mega Metagross move-slot decision audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-metagross-move-comparison.js'
+      - '.github/workflows/m7-metagross-move-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  verify_move_swap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Pin Showdown and build exact engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Validate four move configurations and inspect showdown matchup damage and actual first turn
+        run: |
+          set -o pipefail
+          node m7-metagross-move-comparison.js | tee m7-metagross-move-comparison.log
+      - name: Save reproducible results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m7-metagross-coverage-${{ github.run_id }}
+          path: |
+            output/m7-mega-metagross/coverage.json
+            m7-metagross-move-comparison.log
+          retention-days: 30
+          if-no-files-found: warn
