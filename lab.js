@@ -470,8 +470,15 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   // options.opponentForced: fix the opponent's three (lead first) for a stress
   // test without a scripted scenario. The candidate still sees only six species.
   const forced=stress?.chosen||options.opponentForced||null;
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?forced:null,reverse?(stress?.scriptAs||scenario):null,{...options,sim,unlimitedSwitches:reverse?Boolean(options.opponentUnlimitedSwitches):Boolean(options.candidateUnlimitedSwitches),decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed,previewValidator});
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:forced,reverse?null:(stress?.scriptAs||scenario),{...options,sim,unlimitedSwitches:reverse?Boolean(options.candidateUnlimitedSwitches):Boolean(options.opponentUnlimitedSwitches),decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed,previewValidator});
+  // Offline counterfactual ONLY: explicit own selection is an externally
+  // specified experimental treatment, never chosen using the rival's
+  // actual hidden three. Defaults to null for production Bot behavior.
+  const candidateForced=options.candidateForced||null;
+  if(candidateForced&&(!Array.isArray(candidateForced)||
+    candidateForced.length!==3||new Set(candidateForced).size!==3))
+    throw Error('Candidate experimental forced selection needs three distinct members');
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?forced:candidateForced,reverse?(stress?.scriptAs||scenario):null,{...options,sim,unlimitedSwitches:reverse?Boolean(options.opponentUnlimitedSwitches):Boolean(options.candidateUnlimitedSwitches),decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed,previewValidator});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?candidateForced:forced,reverse?null:(stress?.scriptAs||scenario),{...options,sim,unlimitedSwitches:reverse?Boolean(options.candidateUnlimitedSwitches):Boolean(options.opponentUnlimitedSwitches),decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed,previewValidator});
   const logs=[];let winner='',turns=0,rainObserved=false,sunObserved=false,psychicTerrainObserved=false,priorityBlocked=0,megaCharizardObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
