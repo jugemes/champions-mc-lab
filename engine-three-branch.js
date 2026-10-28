@@ -17,6 +17,10 @@ function selectedIndices(six,three) {
     return index;
   });
 }
+function matchesExpectedActive(p,expected){
+  const form=p?.species.name||'';
+  return form===expected||form.startsWith(expected+'-Mega');
+}
 function makeThreeBattle(sim,ownSix,assumedFoeSix,{
   ownThree,foeThree,seed=[2026,10,28,1]
 }={}){
@@ -36,8 +40,8 @@ function makeThreeBattle(sim,ownSix,assumedFoeSix,{
   });
   try{
     battle.makeChoices('team '+a.map(i=>i+1).join(''),'team '+b.map(i=>i+1).join(''));
-    if(battle.p1.active[0]?.species.baseSpecies!==ownThree[0]||
-       battle.p2.active[0]?.species.baseSpecies!==foeThree[0])
+    if(!matchesExpectedActive(battle.p1.active[0],ownThree[0])||
+       !matchesExpectedActive(battle.p2.active[0],foeThree[0]))
       throw Error('team preview lead mismatch');
     return battle;
   }catch(e){battle.destroy();throw e;}
@@ -88,8 +92,8 @@ function twoTurnBranch(sim,ownSix,assumedFoeSix,{
     const plannedOwn=ownMove1.startsWith('switch:')?ownMove1.slice(7):ownThree[0];
     const plannedFoe=foeMove1.startsWith('switch:')?foeMove1.slice(7):foeThree[0];
     const positionChanged=
-      b.p1.active[0]?.species.baseSpecies!==plannedOwn||
-      b.p2.active[0]?.species.baseSpecies!==plannedFoe;
+      !matchesExpectedActive(b.p1.active[0],plannedOwn)||
+      !matchesExpectedActive(b.p2.active[0],plannedFoe);
     // Pivot / Emergency Exit / replacement beyond an explicitly scheduled
     // switch invalidates a pre-written next action. Stop rather than leak
     // a counterfactual outcome for a new, unmodelled active.
