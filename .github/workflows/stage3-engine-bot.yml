@@ -6,6 +6,9 @@ on:
       - 'lab.js'
       - 'engine-bot-ab.js'
       - 'switch-budget-ab.js'
+      - 'engine-mega-preview.js'
+      - 'engine-preview-ab.js'
+      - 'test/engine-mega-preview.test.js'
       - 'test/engine-bot-optin.test.js'
       - '.github/workflows/stage3-engine-bot.yml'
   workflow_dispatch:
@@ -39,11 +42,13 @@ jobs:
       - name: M-C legality
         run: npm run check
       - name: Bot public information and first-turn opt-in tests
-        run: node --test test/engine-bot-optin.test.js test/engine-turn-advisor.test.js
+        run: node --test test/engine-bot-optin.test.js test/engine-turn-advisor.test.js test/engine-mega-preview.test.js
       - name: Small equal-seed 3v3 A/B, not ladder data
         run: node engine-bot-ab.js | tee engine-bot-ab.txt
       - name: Switch limit A/B under controlled opponent policy
         run: node switch-budget-ab.js | tee switch-budget-ab.txt
+      - name: Public-six preview with engine Mega coverage pilot
+        run: node engine-preview-ab.js | tee engine-preview-ab.txt
       - name: Upload simulation evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -52,5 +57,6 @@ jobs:
           path: |
             engine-bot-ab.txt
             switch-budget-ab.txt
+            engine-preview-ab.txt
           retention-days: 30
           if-no-files-found: warn
