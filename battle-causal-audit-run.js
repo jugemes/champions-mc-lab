@@ -68,8 +68,9 @@ async function main(){
     if(last.oldWon!==last.newWon){
       const essential=new Set(['turn','move','switch','drag','replace',
         'detailschange','faint','cant','-boost','-unboost','-damage',
-        '-heal','-status','-weather','-fieldstart','-activate','-fail']);
-      const short=(turns)=>turns.slice(0,9).map(turn=>({
+        '-heal','-status','-weather','-fieldstart','-activate','-fail',
+        '-immune','-miss','-ability','-item']);
+      const short=(turns)=>turns.slice(0,26).map(turn=>({
         number:turn.number,
         events:turn.events.filter(e=>essential.has(e.kind))
           .map(e=>e.line).slice(0,34)
