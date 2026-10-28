@@ -30,7 +30,7 @@ function twoTurnIronHead(){
    const current=r.secondAfter||r.firstAfter;
    rows.push({
     group:group.name,
-    ownThree,assumedEnemyThreeAfterwards:foeThree,
+    ownThree:[...ourThree],assumedEnemyThreeAfterwards:[...foeThree],
     first:'Moonblast versus Mega Golisopod Iron Head',
     secondAction:action,secondExecuted:r.second?.executed,
     unresolved:r.second?.notExecutedReason||'',
