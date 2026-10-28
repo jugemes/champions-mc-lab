@@ -8,7 +8,9 @@ on:
       - 'test/m8-golisopod-public-policy.test.js'
       - 'm8-golisopod-human-audit.js'
       - 'm8-golisopod-ironhead-rebuttal.js'
-      - 'test/m8-golisopod-ironhead-rebuttal.test.js'
+      - 'test/m8-golisopod-ironhead-rebuttal.test.js test/m8-goli-ironhead-second-turn.test.js'
+      - 'm8-goli-ironhead-second-turn.js'
+      - 'test/m8-goli-ironhead-second-turn.test.js'
       - '.github/workflows/m8-golisopod-holdout.yml'
   workflow_dispatch:
 permissions:
@@ -48,6 +50,8 @@ jobs:
         run: node m8-golisopod-human-audit.js | tee m8-goli-rationality-audit.log
       - name: Check whether rational Mega Golisopod would Iron Head instead of Swords Dance
         run: node m8-golisopod-ironhead-rebuttal.js | tee m8-goli-ironhead-counter.log
+      - name: Actual second-turn strategy after Mega Golisopod Iron Head
+        run: node m8-goli-ironhead-second-turn.js | tee m8-goli-second-turn.log
       - name: Keep complete per-opponent scenario evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -59,5 +63,6 @@ jobs:
             output/m8-preseason/opponent-human-rationality-audit.json
             m8-goli-rationality-audit.log
             m8-goli-ironhead-counter.log
+            m8-goli-second-turn.log
           retention-days: 30
           if-no-files-found: warn
