@@ -114,6 +114,9 @@ class Bot{
     this.previewPolicy=options.previewPolicy||'legacy';
     this.previewValidator=options.previewValidator||null;
     this.decisionPolicy=options.decisionPolicy||'baseline';
+    // Opt-in: learn only CONFIRMED immune outcomes from public battle events.
+    this.publicImmunityAware=this.decisionPolicy==='v3-public-immunity';
+    this.knownImmuneMoves={};this.latestOwnPublicMove=null;
     this.sim=options.sim||null;
     this.unlimitedSwitches=Boolean(options.unlimitedSwitches);
     // Opt-in: on the Mega turn evaluate moves as the Mega form and its weather.
@@ -151,7 +154,31 @@ class Bot{
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.foe+'a:'))this.foeBoosts={};
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
-        if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
+        if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:')){
+          this.foeAbility=a[3];
+          // An actual change of ability invalidates observations potentially
+          // caused by an old ability. Future immune events will re-teach.
+          delete this.knownImmuneMoves[this.foeActive];
+        }
+        // A public|-immune| follows the actor's public move line. Record only
+        // a move that this Bot actually used on the CURRENT opponent. Never
+        // infer unseen opposing sets or abilities from private Battle state.
+        if(this.publicImmunityAware && a[1]==='-immune'&&
+           a[2]?.startsWith(this.foe+'a:') &&
+           this.latestOwnPublicMove?.turn===this.turn &&
+           this.latestOwnPublicMove?.foe===this.foeActive &&
+           this.latestOwnPublicMove?.targetsFoe){
+          const move=this.latestOwnPublicMove.move;
+          const set=this.knownImmuneMoves[this.foeActive]||
+            (this.knownImmuneMoves[this.foeActive]=new Set());
+          if(!set.has(move)){
+            set.add(move);
+            this.trace.immuneObservations?.push({
+              side:this.side,turn:this.turn,opponent:this.foeActive,move,
+              evidence:line
+            });
+          }
+        }
         if(a[1]==='-fieldstart'&&String(a[2]).startsWith('move: '))this.terrain=canonical(a[2].slice(6));
         if(a[1]==='-weather')this.weather=canonical(a[2])==='none'?'':canonical(a[2]);
         if(a[1]==='-fieldend'&&canonical(String(a[2]).replace(/^move: /,''))===this.terrain)this.terrain='';
@@ -174,6 +201,8 @@ class Bot{
           const old=this.seenMoves[this.foeActive]||[];if(!old.includes(a[3]))old.push(a[3]);this.seenMoves[this.foeActive]=old;}
         if(a[1]==='move'&&a[2]?.startsWith(this.side+'a:')){
           const move=canonical(a[3]);
+          this.latestOwnPublicMove={move,turn:this.turn,foe:this.foeActive,
+            targetsFoe:String(a[4]||'').startsWith(this.foe+'a:')};
           if(move==='trick')this.lastStatuses.trickDone=true;
           if(['reflect','lightscreen','stealthrock'].includes(move))this.lastStatuses[move]=true;
         }
@@ -398,7 +427,7 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
-      if(this.decisionPolicy==='v3'||this.decisionPolicy==='engine-conditional'){
+      if(['v3','v3-public-immunity','engine-conditional'].includes(this.decisionPolicy)){
         score=evaluateMoveV3(this.dex,my,this.foeActive,m.id||m.move,{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
@@ -409,6 +438,10 @@ class Bot{
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
+      }
+      if(this.publicImmunityAware &&
+         this.knownImmuneMoves[this.foeActive]?.has(canonical(m.id||m.move))){
+        score=-1e6; // confirmed failed against this actual rival, not a guessed set
       }
       if(score>best.score)best={score,i};
     }
@@ -431,7 +464,7 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
   const previewValidator=sim.TeamValidator.get(FORMAT);
-  const trace={choices:[],selections:[],errors:[],engineAdvices:[],enginePreviews:[]};
+  const trace={choices:[],selections:[],errors:[],engineAdvices:[],enginePreviews:[],immuneObservations:[]};
   const stress=scenario==null?null:scenarios[scenario];
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
   // options.opponentForced: fix the opponent's three (lead first) for a stress
