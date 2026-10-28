@@ -15,6 +15,7 @@ const {chooseStrategicPreview}=require('./preview-strategic');
 const {chooseRationalPreview}=require('./preview-rational');
 const {chooseRationalRiskPreview}=require('./preview-risk');
 const {ownForm,weatherOf}=require('./own-form');
+const {foeMegaForms,chooseFoeMegaPreview}=require('./preview-foe-mega');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -114,6 +115,7 @@ class Bot{
     this.decisionPolicy=options.decisionPolicy||'baseline';
     // Opt-in: on the Mega turn evaluate moves as the Mega form and its weather.
     this.megaAware=Boolean(options.megaAware);
+    this.foeMegaHedge=Boolean(options.foeMegaHedge);
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
@@ -208,6 +210,13 @@ class Bot{
     }
     return {my,weather};
   }
+  // Opt-in (options.foeMegaHedge, audit candidate): until a freshly switched-in rival
+  // has acted, its held item is unknown. A Mega-capable public species is therefore
+  // evaluated as the worst (min) of its base form and every Mega form. No weights.
+  foeForms(){
+    if(!this.foeMegaHedge||!this.foeActive||this.lastMove)return [this.foeActive];
+    return foeMegaForms(this.dex,this.foeActive);
+  }
   decide(req){
     if(this.errors>0){this.errors=0;return 'default';}
     if(req.teamPreview){
@@ -221,6 +230,8 @@ class Bot{
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
           :this.previewPolicy==='rational'
             ?chooseRationalPreview(this.dex,this.team,this.opp,this.random)
+            :this.previewPolicy==='rational-foe-mega'
+              ?chooseFoeMegaPreview(this.dex,this.team,this.opp,this.random)
             :this.previewPolicy==='rational-risk'
               ?chooseRationalRiskPreview(this.dex,this.team,this.opp,this.random,this.previewValidator)
             :chooseThree(this.dex,this.team,this.opp);
@@ -284,7 +295,7 @@ class Bot{
         });
       }
       if(this.decisionPolicy==='v3'){
-        score=evaluateMoveV3(this.dex,my,this.foeActive,m.id||m.move,{
+        score=this.foeForms().reduce((lo,foeName)=>Math.min(lo,evaluateMoveV3(this.dex,my,foeName,m.id||m.move,{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
@@ -293,7 +304,7 @@ class Bot{
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
-        });
+        })),Infinity);
       }
       if(score>best.score)best={score,i};
     }
@@ -321,9 +332,11 @@ async function game(sim,one,two,seed,captureLog,scenario,reverse,options={}){
   if(scenario!=null&&!stress)throw Error('Unknown scenario '+scenario);
   // options.opponentForced: fix the opponent's three (lead first) for a stress
   // test without a scripted scenario. The candidate still sees only six species.
+  // options.candidateForced (opt-in, audit only): fix OUR three, lead first, to test a
+  // counterfactual preview. Never used by a preview policy.
   const forced=stress?.chosen||options.opponentForced||null;
-  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?forced:null,reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed,previewValidator});
-  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?null:forced,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed,previewValidator});
+  const b1=new Bot(streams.p1,dex,one,'p1',trace,reverse?forced:(options.candidateForced||null),reverse?(stress?.scriptAs||scenario):null,{...options,decisionPolicy:reverse?(options.opponentDecisionPolicy||options.decisionPolicy):(options.candidateDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.opponentPreviewPolicy||options.previewPolicy):(options.candidatePreviewPolicy||options.previewPolicy),seed,previewValidator});
+  const b2=new Bot(streams.p2,dex,two,'p2',trace,reverse?(options.candidateForced||null):forced,reverse?null:(stress?.scriptAs||scenario),{...options,decisionPolicy:reverse?(options.candidateDecisionPolicy||options.decisionPolicy):(options.opponentDecisionPolicy||options.decisionPolicy),previewPolicy:reverse?(options.candidatePreviewPolicy||options.previewPolicy):(options.opponentPreviewPolicy||options.previewPolicy),seed,previewValidator});
   const logs=[];let winner='',turns=0,rainObserved=false,sunObserved=false,psychicTerrainObserved=false,priorityBlocked=0,megaCharizardObserved=false;
   const oppSide=reverse?'p1':'p2';
   let opponentSetupMoves=0,opponentToxicSpikes=0,regenSwitchOuts=0;
