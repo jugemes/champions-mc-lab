@@ -1,0 +1,51 @@
+name: Champions M-C P0-7 Observed Immunity Bot Audit
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'lab.js'
+      - 'test/observed-immunity-bot.test.js'
+      - 'observed-immunity-ab.js'
+      - '.github/workflows/p0-observed-immunity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 26
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Pin Showdown and build game engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          cd showdown
+          npm ci
+          npm run build
+      - name: Check all M-C research teams remain legal
+        run: npm run check
+      - name: Verify immune results are only learned from public evidence
+        run: node --test test/observed-immunity-bot.test.js
+      - name: Compare old Bot with candidate-only and both-sides observed immunity variants
+        run: node observed-immunity-ab.js | tee observed-immunity-evidence.log
+      - name: Save experimental evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-immunity-turn-ai-${{ github.run_id }}
+          path: observed-immunity-evidence.log
+          retention-days: 30
+          if-no-files-found: warn
