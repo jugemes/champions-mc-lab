@@ -72,8 +72,13 @@ function twoTurnBranch(sim,ownSix,assumedFoeSix,{
     b.makeChoices(moveChoice(b.p1,ownMove1,ownMega),
       moveChoice(b.p2,foeMove1,foeMega));
     const firstAfter=sides(b),firstLog=b.log.slice(logIndex);
+    const positionChanged=
+      b.p1.active[0]?.species.baseSpecies!==ownThree[0]||
+      b.p2.active[0]?.species.baseSpecies!==foeThree[0];
+    // An Emergency Exit, pivot move or forced replacement changes the lead.
+    // Do not execute a scripted second move for an entirely different active.
     const resolved=firstAfter.own.pokemon[0].fainted||
-      firstAfter.assumedFoe.pokemon[0].fainted||b.ended;
+      firstAfter.assumedFoe.pokemon[0].fainted||b.ended||positionChanged;
     let secondAfter=null,secondLog=[];
     if(second&&!resolved){
       const n=b.log.length;
@@ -86,7 +91,7 @@ function twoTurnBranch(sim,ownSix,assumedFoeSix,{
       chosen:{ownThree:[...ownThree],assumedFoeThree:[...foeThree]},
       first:{own:ownMove1,foe:foeMove1,ownMega,foeMega},
       second:second?{own:second.own,foe:second.foe,
-        executed:Boolean(secondAfter),notExecutedReason:resolved?'faint-or-game-end':''}:null,
+        executed:Boolean(secondAfter),notExecutedReason:positionChanged?'lead-changed-or-forced-replacement':resolved?'faint-or-game-end':''}:null,
       initial,firstAfter,secondAfter,ended:b.ended,winner:b.winner,
       events:{first:firstLog,second:secondLog},
       caveat:'Two explicit synthetic Showdown turns, with selected three on each side. Non-lead opponents/unknown actions are NOT inferred as real choices.'
