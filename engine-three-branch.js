@@ -49,7 +49,7 @@ function makeThreeBattle(sim,ownSix,assumedFoeSix,{
 function sides(battle){
   const snapshot=side=>({
     active:side.active[0]?.species.name,
-    pokemon:side.pokemon.map(p=>({
+    pokemon:side.pokemon.slice(0,3).map(p=>({
       species:p.species.name,hp:p.hp,maxhp:p.maxhp,
       fainted:p.fainted,boosts:{...p.boosts},item:p.getItem().name
     }))
