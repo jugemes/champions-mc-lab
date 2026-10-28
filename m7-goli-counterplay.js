@@ -68,7 +68,7 @@ function testScenario(variant,plan){
   second:{own:secondOwn,foe:plan.secondEnemy}
  });
  const end=result.secondAfter||result.firstAfter;
- return {plan:plan.name,variant,ownThree,enemyThreePosthoc:plan.foeThree,
+ return {plan:plan.name,variant,ownThree:ourThree,enemyThreePosthoc:plan.foeThree,
   firstOwn:ownMain,firstEnemy:plan.firstEnemy,secondOwn,secondEnemy:plan.secondEnemy,
   firstAfter:result.firstAfter,secondAfter:result.secondAfter,
   executedSecond:result.second?.executed||false,
