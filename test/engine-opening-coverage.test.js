@@ -35,3 +35,15 @@ test('actual Battle Bot can opt in; recommendation from public six only or uncha
  assert.equal(new Set(choice.slice(5).split('')).size,3);
  assert.equal(trace.enginePreviews[0].policy,'engine-two-turn-coverage');
 });
+
+test('identical public-six searches are memoized without leaking mutable result state across matches',()=>{
+ const first=rankCoverageOpening(sim,own,publicSix,{maxScenes:6});
+ const second=rankCoverageOpening(sim,own,publicSix,{maxScenes:6});
+ assert.deepEqual(first,second);
+ if(first.selected){
+  const expected=first.selected.ownThree[0];
+  first.selected.ownThree[0]='MUTATED_TEST_ONLY';
+  const third=rankCoverageOpening(sim,own,publicSix,{maxScenes:6});
+  assert.equal(third.selected.ownThree[0],expected);
+ }
+});
