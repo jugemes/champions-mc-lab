@@ -13,7 +13,7 @@ function fixture({move,hiddenThree,mega,score}) {
     ourFirstMove:move,
     ownFaintedCount:0,foeFaintedCount:score>=2?1:0,
     ownTeamRemaining:1,foeTeamRemaining:score>=2?0.7:1,
-    foeAttackBoost:0,secondExecuted:false,secondSkipped:''
+    foeAttackBoost:0,secondExecuted:true,secondSkipped:''
   };
 }
 test('conditional preview action must NOT depend on the enemy hidden backline or the unannounced Mega',()=>{
