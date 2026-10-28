@@ -57,7 +57,7 @@ function robustLeadOutcomes(results){
   return assessments;
 }
 function rankOpeningTrioLeads(sim,ownSix,publicSix,{
-  maxScenes=4,seed=[2026,10,28,1],limit=60
+  maxScenes=6,seed=[2026,10,28,1],limit=60
 }={}){
   const ranked=rankRationalPreview(sim.Dex.mod('champions'),ownSix,publicSix);
   const evaluated=[];
