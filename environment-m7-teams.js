@@ -15,9 +15,12 @@ const copy=s=>clone(live.find(p=>p.species===s)||
     .flat().find(p=>p.species===s)||(()=>{throw Error('Missing set '+s)})());
 const mk=(s,item,ability,nature,points,moves)=>A.set(s,item,ability,nature,points,moves);
 const ga=copy('Garchomp'); // Scarf
+const gaZ=mk('Garchomp','Garchompite Z','Rough Skin','Timid',{hp:2,spa:32,spe:32},
+ ['Earth Power','Draco Meteor','Flamethrower','Stealth Rock']); // common M-7 special Mega Z hypothesis
 const pr=copy('Primarina'); // Sitrus
 const go=copy('Gholdengo'); // Air Balloon from fixtures
-const gl=copy('Golisopod'); // Golisopite
+const gl=mk('Golisopod','Golisopite','Emergency Exit','Adamant',{hp:32,atk:32,spd:2},
+ ['Sucker Punch','Leech Life','Swords Dance','Iron Head']); // M-7 common move quartet
 const mt=copy('Metagross'); // Mega
 const co=clone(variants.C_master.find(x=>x.species==='Corviknight')); // explicit Rocky Helmet
 const hi=mk('Hippowdon','Leftovers','Sand Stream','Impish',{hp:32,def:32,spd:2},
@@ -42,7 +45,7 @@ const dn=copy('Dragonite');
 const rill=copy('Rillaboom');
 const vol=copy('Volcarona');
 const skel=copy('Skeledirge');
-const p={gl,ga,pr,go,mt,co,hi,mi,ba,lu,ar,bas,gy,charY,charX,sa,dn,rill,vol,skel};
+const p={gl,ga,gaZ,pr,go,mt,co,hi,mi,ba,lu,ar,bas,gy,charY,charX,sa,dn,rill,vol,skel};
 const group=(name,tags,members,forcedA,forcedB)=>({name,tags,team:members.map(x=>C(p[x])),
  forcedA:forcedA.map(x=>p[x].species),forcedB:forcedB.map(x=>p[x].species)});
 const groups=[
@@ -54,7 +57,7 @@ const groups=[
  group('06_M7_golisopod_basculegion',['top-heavy','last-respects'],['gl','bas','pr','mi','hi','go'],['gl','bas','mi'],['pr','hi','go']),
  group('07_M7_baxcalibur_offense',['top-heavy','priority'],['gl','ga','ba','pr','mi','go'],['gl','ba','mi'],['ga','pr','go']),
  group('08_M7_metagross_balance',['top-heavy','mega'],['mt','ga','pr','mi','co','hi'],['mt','ga','mi'],['hi','pr','co']),
- group('09_M7_gyarados_setup',['mid','setup'],['gy','ga','mi','go','co','ba'],['gy','ga','ba'],['mi','go','co']),
+ group('09_M7_gyarados_megagarchompZ',['mid','setup'],['gy','gaZ','mi','go','co','ba'],['gy','gaZ','ba'],['mi','go','co']),
  group('10_M7_lucario_hazard',['mid','hazards'],['lu','ga','hi','mi','go','pr'],['lu','ga','mi'],['hi','pr','go']),
  group('11_M7_psychic_terrain',['mid','psychic'],[],[],[]),
  group('12_M7_rain',['mid','rain'],[],[],[]),
