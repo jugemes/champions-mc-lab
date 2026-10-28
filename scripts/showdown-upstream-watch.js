@@ -25,8 +25,10 @@ function markerFrom(body){
   const m=String(body||'').match(/<!-- showdown-upstream-reviewed-head:([a-f0-9]{40}) -->/);
   return m?.[1]||null;
 }
+function trustedWatchComment(c){return c?.user?.login==='github-actions[bot]';}
 function lastBaseline(comments){
   for(let i=comments.length-1;i>=0;i--){
+    if(!trustedWatchComment(comments[i]))continue;
     const sha=markerFrom(comments[i].body);
     if(sha)return sha;
   }
@@ -95,7 +97,7 @@ async function reviewUpstream({token,repository,fetcher=fetch,write=true}={}){
   const compare=await api('/repos/'+UPSTREAM+'/compare/'+previous+'...'+latest);
   const d=summarizeDiff(compare,previous,latest);
   if(!d.relevant.length&&!d.needsReview)return {status:'no-mechanics-diff',...d};
-  if(comments.some(c=>markerFrom(c.body)===latest))
+  if(comments.some(c=>trustedWatchComment(c)&&markerFrom(c.body)===latest))
     return {status:'already-recorded',...d};
   if(write)await api('/repos/'+repository+'/issues/'+ISSUE+'/comments',{
     method:'POST',body:{body:commentText(d)}
