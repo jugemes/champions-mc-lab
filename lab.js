@@ -115,7 +115,10 @@ class Bot{
     this.previewValidator=options.previewValidator||null;
     this.decisionPolicy=options.decisionPolicy||'baseline';
     // Opt-in: learn only CONFIRMED immune outcomes from public battle events.
-    this.publicImmunityAware=this.decisionPolicy==='v3-public-immunity';
+    this.publicImmunityAware=['v3-public-immunity','v4-public-status'].includes(this.decisionPolicy);
+    // Opt-in: only visible volatile state, never opponent hidden item/moves.
+    this.publicStatusAware=this.decisionPolicy==='v4-public-status';
+    this.foeEncoreActive=false;
     this.knownImmuneMoves={};this.latestOwnPublicMove=null;
     this.sim=options.sim||null;
     this.unlimitedSwitches=Boolean(options.unlimitedSwitches);
@@ -139,6 +142,7 @@ class Bot{
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+            this.foeEncoreActive=false;
           }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
@@ -152,6 +156,13 @@ class Bot{
         if(a[1]==='-clearallboost'){this.boosts={};this.foeBoosts={};}
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.foe+'a:'))this.foeBoosts={};
+        // Showdown publicly announces Encore as a volatile start/end.
+        // It is NOT an opponent private set inference and resets on switch.
+        if(this.publicStatusAware&&a[2]?.startsWith(this.foe+'a:')&&
+           canonical(a[3])==='encore'){
+          if(a[1]==='-start')this.foeEncoreActive=true;
+          if(a[1]==='-end')this.foeEncoreActive=false;
+        }
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:')){
@@ -427,7 +438,7 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
-      if(['v3','v3-public-immunity','engine-conditional'].includes(this.decisionPolicy)){
+      if(['v3','v3-public-immunity','v4-public-status','engine-conditional'].includes(this.decisionPolicy)){
         score=evaluateMoveV3(this.dex,my,this.foeActive,m.id||m.move,{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
@@ -436,7 +447,8 @@ class Bot{
           terrain:this.terrain,weather,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
-          lastStatuses:this.lastStatuses,hazards:this.hazards
+          lastStatuses:this.lastStatuses,hazards:this.hazards,
+          foeEncoreActive:this.publicStatusAware&&this.foeEncoreActive
         });
       }
       if(this.publicImmunityAware &&
