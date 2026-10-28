@@ -36,7 +36,11 @@ test('exact Showdown counterfactual compares *both* Mega and non-Mega SD respons
  assert.equal(fire.testedCases,2);
  assert.equal(fire.enemyKO,1,'Fire KOs Mega but not base form');
  assert.equal(dragon.enemyKO,0);
- assert.ok(fire.enemyBoosted<dragon.enemyBoosted,'Fire should stop the enemy Mega SD');
+ const megaFire=outcome.cases.find(x=>x.opponentMega&&x.ownMove==='Flamethrower');
+ const megaDraco=outcome.cases.find(x=>x.opponentMega&&x.ownMove==='Draco Meteor');
+ assert.ok(megaFire.foeFainted,'Flamethrower prevents Swords Dance on the Mega branch');
+ assert.ok(!megaDraco.foeFainted,'Draco cannot KO the Mega');
+ assert.ok(megaDraco.foeAttackBoost>=2,'Mega survives Draco and executes Swords Dance');
  assert.ok(outcome.cases.some(x=>x.opponentMega===true&&x.foeForm==='Golisopod-Mega'));
  assert.ok(outcome.cases.some(x=>x.opponentMega===false&&x.foeForm==='Golisopod'));
 });
