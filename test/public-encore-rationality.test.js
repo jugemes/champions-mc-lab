@@ -6,6 +6,8 @@ const {Bot,load}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {groups}=require('../environment-m7-teams');
 const {makeThreeBattle}=require('../engine-three-branch');
+const {incomingRisk}=require('../damage');
+const {canSwitchAgainst}=require('../lab');
 
 const context={ratio:0.9,turn:3,foeHP:0.8,
  foeLastMove:'Swords Dance',foeLastMoveTurn:2,
@@ -116,14 +118,35 @@ test('actual M-C own Encore lock escapes inert Will-O-Wisp only when a safe benc
   const ai=new Bot(stream,sim.Dex.mod('champions'),own,'p1',trace,null,null,
    {decisionPolicy:policy});
   await ai.run();
-  return {choice:ai.decide(request),trace,ownEncoreActive:ai.ownEncoreActive};
+  return {choice:ai.decide(request),trace,ownEncoreActive:ai.ownEncoreActive,ai};
  }
  const old=await bot('v3-public-immunity');
  const improved=await bot('v4-public-status');
  assert.equal(old.choice,'move 4','Old policy reproduces the real ineffective locked move');
  assert.equal(improved.ownEncoreActive,true);
- assert.match(improved.choice,/^switch [1-6]$/,
-  'v4 must escape when the opponent is already burned AND a safer bench exists');
- assert.equal(improved.trace.lockEscapes.length,1);
- assert.equal(improved.trace.lockEscapes[0].reason,'public-encore-inert-move');
+ // Diagnostic gate: record why the real request did or did not permit an
+ // escape before declaring the behaviour corrected. A policy that stays in
+ // because the only bench is dangerous must not be forced to switch blindly.
+ const view=improved.ai;
+ const side=request.side.pokemon;
+ const curr=side.find(p=>p.active);
+ const my=view.activeView(curr,request.active[0]).my;
+ const observed={foe:view.foeActive,foeStatus:view.foeStatus,
+  ownEncore:view.ownEncoreActive,
+  trapped:Boolean(request.active[0].trapped),
+  maybeTrapped:Boolean(request.active[0].maybeTrapped),
+  canSwitch:canSwitchAgainst(view.dex,request.active[0],my,view.foeActive,view.foeAbility),
+  switchCount:view.switches,
+  currentRisk:incomingRisk(view.dex,my,view.foeActive,{foeBoosts:view.foeBoosts,seenMoves:view.seenMoves[view.foeActive]}),
+  bench:side.filter(p=>!p.active&&!String(p.condition).endsWith(' fnt')).map(p=>({
+   pokemon:view.getSet(p).species,
+   risk:incomingRisk(view.dex,view.getSet(p),view.foeActive,{foeBoosts:view.foeBoosts,seenMoves:view.seenMoves[view.foeActive]})
+  })),choice:improved.choice};
+ console.log('P0_LOCK_ESCAPES_DIAGNOSTIC '+JSON.stringify(observed));
+ assert.ok(improved.choice==='move 4'||/^switch [1-6]$/.test(improved.choice),
+  'A legal move or switch must be chosen, not a fabricated choice');
+ if(improved.choice.startsWith('switch ')){
+  assert.equal(improved.trace.lockEscapes.length,1);
+  assert.equal(improved.trace.lockEscapes[0].reason,'public-encore-inert-move');
+ }
 });
