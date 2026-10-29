@@ -8,6 +8,7 @@ const {groups}=require('../environment-m7-teams');
 const {makeThreeBattle}=require('../engine-three-branch');
 const {incomingRisk}=require('../damage');
 const {canSwitchAgainst}=require('../lab');
+const {archetypes}=require('../fixtures');
 
 const context={ratio:0.9,turn:3,foeHP:0.8,
  foeLastMove:'Swords Dance',foeLastMoveTurn:2,
@@ -145,8 +146,53 @@ test('actual M-C own Encore lock escapes inert Will-O-Wisp only when a safe benc
  console.log('P0_LOCK_ESCAPES_DIAGNOSTIC '+JSON.stringify(observed));
  assert.ok(improved.choice==='move 4'||/^switch [1-6]$/.test(improved.choice),
   'A legal move or switch must be chosen, not a fabricated choice');
- if(improved.choice.startsWith('switch ')){
+ assert.equal(observed.canSwitch,true,'The server permits legal voluntary switches here');
+ assert.ok(observed.bench.every(x=>x.risk>=0.42),
+  'Primarina and Hydreigon are NOT low-risk switches on this synthetic information');
+ assert.equal(improved.choice,'move 4',
+  'Conservative v4 must not auto-switch when ALL candidate switches are risky');
+ assert.equal(improved.trace.lockEscapes.length,0);
+});
+
+test('v4 own Encore policy escapes to a real safer Toxapex bench, v3 wastes the turn',async()=>{
+ const sim=load(),foe=reportedLive(),team=structuredClone(reportedLive());
+ const pex=structuredClone(archetypes.stall.find(p=>p.species==='Toxapex'));
+ team[team.findIndex(p=>p.species==='Hydreigon')]=pex;
+ const b=makeThreeBattle(sim,team,foe,{
+  ownThree:['Rotom-Wash','Primarina','Toxapex'],
+  foeThree:['Primarina','Metagross','Hydreigon'],
+  seed:[2026,10,29,77]
+ });
+ try{
+  const slot=(side,id)=>{
+   const i=side.active[0].moveSlots.findIndex(m=>m.id===id);
+   assert.ok(i>=0,'required scripted move is legal: '+id);
+   return i+1;
+  };
+  b.makeChoices('move '+slot(b.p1,'willowisp'),
+    'move '+slot(b.p2,'encore'));
+  const request=structuredClone(b.p1.activeRequest);
+  const logs=b.log.join('\n');
+  async function decide(policy){
+   const trace={selections:[],choices:[],errors:[],lockEscapes:[]};
+   const bot=new Bot((async function*(){yield logs;})(),
+    sim.Dex.mod('champions'),team,'p1',trace,null,null,{decisionPolicy:policy});
+   await bot.run();
+   const choice=bot.decide(request);
+   return {choice,trace};
+  }
+  const old=await decide('v3-public-immunity');
+  const improved=await decide('v4-public-status');
+  assert.equal(old.choice,'move 4','Baseline still repeats Encore-locked burn');
+  const switched=Number(improved.choice.match(/^switch (\d+)$/)?.[1]);
+  assert.ok(switched>0,'v4 must escape to an actually safer bench');
+  assert.equal(request.side.pokemon[switched-1].details.split(',')[0],'Toxapex',
+   'Rational escape goes to a Water/Fairy-resistant Toxapex, not a vulnerable Dragon');
   assert.equal(improved.trace.lockEscapes.length,1);
   assert.equal(improved.trace.lockEscapes[0].reason,'public-encore-inert-move');
- }
+  // Unlike a fabricated request, this is a real legal M-C next turn.
+  b.makeChoices(improved.choice,'move '+slot(b.p2,'moonblast'));
+  assert.equal(b.p1.active[0].species.name,'Toxapex',
+    'The full Showdown engine accepted and executed the AI-selected switch');
+ }finally{b.destroy();}
 });
