@@ -87,3 +87,43 @@ test('real pinned Showdown Encore public event toggles ONLY v4 status tracking',
  assert.notEqual(moveName(newChoice),'encore',
   'Only opt-in v4 should use public lock to avoid redundant Encore');
 });
+
+test('actual M-C own Encore lock escapes inert Will-O-Wisp only when a safe bench exists',async()=>{
+ const sim=load(),own=reportedLive();
+ const b=makeThreeBattle(sim,own,reportedLive(),{
+  ownThree:['Rotom-Wash','Primarina','Hydreigon'],
+  foeThree:['Primarina','Metagross','Hydreigon'],
+  seed:[2026,10,29,77]
+ });
+ let logs,request;
+ try{
+  const move=(side,id)=>side.active[0].moveSlots.findIndex(x=>x.id===id)+1;
+  const wis=move(b.p1,'willowisp'),enc=move(b.p2,'encore');
+  assert.ok(wis>0&&enc>0);
+  b.makeChoices('move '+wis,'move '+enc);
+  logs=b.log.join('\n');
+  request=structuredClone(b.p1.activeRequest);
+  assert.ok(logs.includes('|-start|p1a:')&&logs.includes('|Encore'),
+   'We must be locked by the REAL Showdown Encore public event');
+  assert.ok(logs.includes('|-status|p2a:')&&logs.includes('|brn'),
+   'Opponent is already burned, proving locked Will-O-Wisp would be inert');
+  assert.equal(request.active[0].moves.filter(m=>!m.disabled&&m.pp>0).length,1,
+   'Actual M-C request restricts the Encore-locked move');
+ }finally{b.destroy();}
+ async function bot(policy){
+  const trace={selections:[],choices:[],errors:[],immuneObservations:[],engineAdvices:[],lockEscapes:[]};
+  const stream=(async function*(){yield logs;})();
+  const ai=new Bot(stream,sim.Dex.mod('champions'),own,'p1',trace,null,null,
+   {decisionPolicy:policy});
+  await ai.run();
+  return {choice:ai.decide(request),trace,ownEncoreActive:ai.ownEncoreActive};
+ }
+ const old=await bot('v3-public-immunity');
+ const improved=await bot('v4-public-status');
+ assert.equal(old.choice,'move 4','Old policy reproduces the real ineffective locked move');
+ assert.equal(improved.ownEncoreActive,true);
+ assert.match(improved.choice,/^switch [1-6]$/,
+  'v4 must escape when the opponent is already burned AND a safer bench exists');
+ assert.equal(improved.trace.lockEscapes.length,1);
+ assert.equal(improved.trace.lockEscapes[0].reason,'public-encore-inert-move');
+});
