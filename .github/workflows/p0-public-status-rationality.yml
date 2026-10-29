@@ -1,0 +1,55 @@
+name: P0 public Encore observation and paired AI rationality audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'lab.js'
+      - 'decision-v2.js'
+      - 'tactics.js'
+      - 'p0-public-status-paired-benchmark.js'
+      - 'test/public-encore-rationality.test.js'
+      - '.github/workflows/p0-public-status-rationality.yml'
+permissions:
+  contents: read
+jobs:
+  public_status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build pinned M-C engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Validate M-C teams and Encore public observation tests
+        run: |
+          npm run check
+          npm test
+      - name: Compare 56 identical seeded public-six AI decisions
+        run: |
+          set -o pipefail
+          node p0-public-status-paired-benchmark.js | tee p0-public-status-paired-benchmark.log
+      - name: Preserve per-game evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0-status-rationality-${{ github.run_id }}
+          path: |
+            output/p0-public-status/paired-report.json
+            p0-public-status-paired-benchmark.log
+          retention-days: 30
+          if-no-files-found: warn

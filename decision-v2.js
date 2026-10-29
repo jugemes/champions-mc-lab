@@ -66,6 +66,8 @@ function evaluateMove(dex,own,foeName,moveName,context={}){
     return score;
   }
   if(kind==='encore'){
+    // An already visible Encore lock cannot be refreshed by spamming Encore.
+    if(context.foeEncoreActive)return 0;
     if(lethal&&enemyBoost<2)return 0;
     if(easyKO)return Math.min(score,35);
   }

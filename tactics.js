@@ -8,7 +8,7 @@ const SETUP=new Set(['swordsdance','nastyplot','dragondance','quiverdance']);
 const CONTROLS=new Set(['swordsdance','nastyplot','dragondance','quiverdance','recover','slackoff','roost','softboiled','moonlight','haze']);
 const boost=(o,kind)=>Number(o?.[kind]||0);
 const canonical=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
-function policyStatusScore(move,{ratio,turn,boosts={},foeBoosts={},foeSpecies='',foeHP=1,foeStatus='',foeLastMove='',foeLastMoveTurn=-999,foeAbility='',ownItem='',ownSpecies='',lastStatuses={},hazards={}}){
+function policyStatusScore(move,{ratio,turn,boosts={},foeBoosts={},foeSpecies='',foeHP=1,foeStatus='',foeLastMove='',foeLastMoveTurn=-999,foeAbility='',ownItem='',ownSpecies='',lastStatuses={},hazards={},foeEncoreActive=false}){
   const id=canonical(move),foe=canonical(foeSpecies),my=canonical(ownSpecies);
   const saved=Math.max(boost(foeBoosts,'atk'),boost(foeBoosts,'spa'),boost(foeBoosts,'spe'));
   const hp=Number.isFinite(ratio)?ratio:1;
@@ -34,6 +34,7 @@ function policyStatusScore(move,{ratio,turn,boosts={},foeBoosts={},foeSpecies=''
     return saved>=2?195:saved===1?97:0;
   }
   if(id==='encore'){
+    if(foeEncoreActive)return 0;
     if(turn-foeLastMoveTurn>1)return 0;
     if(!CONTROLS.has(canonical(foeLastMove)))return 0;
     return 180;

@@ -115,7 +115,11 @@ class Bot{
     this.previewValidator=options.previewValidator||null;
     this.decisionPolicy=options.decisionPolicy||'baseline';
     // Opt-in: learn only CONFIRMED immune outcomes from public battle events.
-    this.publicImmunityAware=this.decisionPolicy==='v3-public-immunity';
+    this.publicImmunityAware=['v3-public-immunity','v4-public-status'].includes(this.decisionPolicy);
+    // Opt-in: only visible volatile state, never opponent hidden item/moves.
+    this.publicStatusAware=this.decisionPolicy==='v4-public-status';
+    this.foeEncoreActive=false;
+    this.ownEncoreActive=false;
     this.knownImmuneMoves={};this.latestOwnPublicMove=null;
     this.sim=options.sim||null;
     this.unlimitedSwitches=Boolean(options.unlimitedSwitches);
@@ -139,9 +143,12 @@ class Bot{
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+            this.foeEncoreActive=false;
           }
         }
-        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){
+          this.boosts={};this.ownEncoreActive=false;
+        }
         if(['-boost','-unboost','-setboost'].includes(a[1])){
           const target=a[2]?.startsWith(this.side+'a:')?this.boosts:a[2]?.startsWith(this.foe+'a:')?this.foeBoosts:null;
           if(target){
@@ -152,6 +159,18 @@ class Bot{
         if(a[1]==='-clearallboost'){this.boosts={};this.foeBoosts={};}
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
         if(a[1]==='-clearboost'&&a[2]?.startsWith(this.foe+'a:'))this.foeBoosts={};
+        // Showdown publicly announces Encore as a volatile start/end.
+        // It is NOT an opponent private set inference and resets on switch.
+        if(this.publicStatusAware&&canonical(a[3])==='encore'){
+          if(a[2]?.startsWith(this.foe+'a:')){
+            if(a[1]==='-start')this.foeEncoreActive=true;
+            if(a[1]==='-end')this.foeEncoreActive=false;
+          }
+          if(a[2]?.startsWith(this.side+'a:')){
+            if(a[1]==='-start')this.ownEncoreActive=true;
+            if(a[1]==='-end')this.ownEncoreActive=false;
+          }
+        }
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:')){
@@ -427,7 +446,7 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
-      if(['v3','v3-public-immunity','engine-conditional'].includes(this.decisionPolicy)){
+      if(['v3','v3-public-immunity','v4-public-status','engine-conditional'].includes(this.decisionPolicy)){
         score=evaluateMoveV3(this.dex,my,this.foeActive,m.id||m.move,{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
@@ -436,7 +455,8 @@ class Bot{
           terrain:this.terrain,weather,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
-          lastStatuses:this.lastStatuses,hazards:this.hazards
+          lastStatuses:this.lastStatuses,hazards:this.hazards,
+          foeEncoreActive:this.publicStatusAware&&this.foeEncoreActive
         });
       }
       if(this.publicImmunityAware &&
@@ -450,6 +470,43 @@ class Bot{
       const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
       const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+      // Opt-in: own Encore is publicly confirmed, and the server's own
+      // move request shows only one legal move. If that move is certainly
+      // inert given PUBLIC battle state, do not repeatedly waste turns
+      // when a substantially safer legal bench exists. Never auto-switch
+      // into a dangerous counter or fabricate opponent moves/items.
+      if(this.publicStatusAware&&this.ownEncoreActive&&available.length===1){
+        const locked=canonical(available[0].m.id||available[0].m.move);
+        const inert=(['willowisp','thunderwave','toxic'].includes(locked)&&Boolean(this.foeStatus))
+          ||(locked==='encore'&&this.foeEncoreActive)
+          ||(locked==='swordsdance'&&Number(this.boosts.atk||0)>=6)
+          ||(locked==='nastyplot'&&Number(this.boosts.spa||0)>=6);
+        if(inert){
+          // Compare expected MAX-HP damage with CURRENT HP on both sides.
+          // Locked status has zero value; prefer a legal, survivable pivot
+          // that reduces damage or escapes a predicted immediate knockout.
+          const hpFraction=p=>{
+            const m=String(p.condition||'').match(/^(\d+)\/(\d+)/);
+            return m&&Number(m[2])>0?Number(m[1])/Number(m[2]):0;
+          };
+          const currentHP=hpFraction(current);
+          const safe=bench.map(x=>({...x,risk:riskOf(x.p),hp:hpFraction(x.p)}))
+            .filter(x=>x.risk<x.hp &&
+              (x.risk<currentRisk ||
+                (currentRisk>=currentHP &&
+                 x.hp-x.risk>currentHP-currentRisk)));
+          if(safe.length){
+            safe.sort((a,b)=>(b.hp-b.risk)-(a.hp-a.risk) ||
+              score(b.p)-score(a.p));
+            this.trace.lockEscapes?.push({side:this.side,turn:this.turn,
+              own:this.getSet(current).species,foe:this.foeActive,move:locked,
+              currentRisk,currentHP,bench:this.getSet(safe[0].p).species,
+              benchRisk:safe[0].risk,benchHP:safe[0].hp,
+              reason:'public-encore-inert-move'});
+            this.switches++;return 'switch '+(safe[0].i+1);
+          }
+        }
+      }
       bench.sort((a,b)=>score(b.p)-score(a.p));
       if(score(bench[0].p)>Math.max(25,best.score+18)
         && (riskOf(bench[0].p)<currentRisk*0.70||ratio<0.25)
