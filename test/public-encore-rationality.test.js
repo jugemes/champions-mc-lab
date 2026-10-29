@@ -147,11 +147,15 @@ test('actual M-C own Encore lock escapes inert Will-O-Wisp only when a safe benc
  assert.ok(improved.choice==='move 4'||/^switch [1-6]$/.test(improved.choice),
   'A legal move or switch must be chosen, not a fabricated choice');
  assert.equal(observed.canSwitch,true,'The server permits legal voluntary switches here');
- assert.ok(observed.bench.every(x=>x.risk>=0.42),
-  'Primarina and Hydreigon are NOT low-risk switches on this synthetic information');
- assert.equal(improved.choice,'move 4',
-  'Conservative v4 must not auto-switch when ALL candidate switches are risky');
- assert.equal(improved.trace.lockEscapes.length,0);
+ const viable=observed.bench.find(x=>x.pokemon==='Primarina');
+ assert.ok(viable&&viable.risk<observed.currentRisk,
+  'Primarina has lower public-STAB risk than an inertly locked Rotom');
+ const switched=Number(improved.choice.match(/^switch (\d+)$/)?.[1]);
+ assert.ok(switched>0,'Escape the inert Encore lock to a survivable lower-risk bench');
+ assert.equal(request.side.pokemon[switched-1].details.split(',')[0],'Primarina',
+  'Do not pivot to a Fairy-weak Hydreigon');
+ assert.equal(improved.trace.lockEscapes.length,1);
+ assert.equal(improved.trace.lockEscapes[0].reason,'public-encore-inert-move');
 });
 
 test('v4 own Encore policy escapes to a real safer Toxapex bench, v3 wastes the turn',async()=>{
@@ -195,4 +199,36 @@ test('v4 own Encore policy escapes to a real safer Toxapex bench, v3 wastes the 
   assert.equal(b.p1.active[0].species.name,'Toxapex',
     'The full Showdown engine accepted and executed the AI-selected switch');
  }finally{b.destroy();}
+});
+
+test('Claude counterexample: two Moonblast turns, inert lock stay vs Primarina escape in actual M-C battle',()=>{
+ const sim=load(),ours=reportedLive(),enemy=reportedLive();
+ const run=escape=>{
+  const battle=makeThreeBattle(sim,ours,enemy,{
+   ownThree:['Rotom-Wash','Primarina','Hydreigon'],
+   foeThree:['Primarina','Metagross','Hydreigon'],seed:[2026,10,29,77]
+  });
+  const command=(side,name)=>{
+   const i=side.active[0].moveSlots.findIndex(x=>x.id===sim.Dex.moves.get(name).id);
+   assert.ok(i>=0,'Must have real move '+name);
+   return 'move '+(i+1);
+  };
+  try{
+   battle.makeChoices(command(battle.p1,'Will-O-Wisp'),command(battle.p2,'Encore'));
+   assert.ok(battle.log.some(x=>x.includes('|-start|p1a:')&&x.includes('|Encore')));
+   const second=escape?'switch 2':command(battle.p1,'Will-O-Wisp');
+   battle.makeChoices(second,command(battle.p2,'Moonblast'));
+   if(!battle.ended&&battle.requestState==='move'){
+    battle.makeChoices(command(battle.p1,escape?'Sparkling Aria':'Will-O-Wisp'),
+      command(battle.p2,'Moonblast'));
+   }
+   const rot=battle.p1.pokemon.find(x=>x.species.name==='Rotom-Wash');
+   const pri=battle.p1.pokemon.find(x=>x.species.name==='Primarina');
+   return {rotHP:rot.hp,rotFaint:rot.fainted,priHP:pri.hp};
+  }finally{battle.destroy();}
+ };
+ const stays=run(false),escapes=run(true);
+ assert.equal(stays.rotFaint,true,'Repeating a nonfunctional burn loses Rotom to two Moonblasts');
+ assert.equal(escapes.rotFaint,false,'Switch preserves Rotom in the same enemy line');
+ assert.ok(escapes.priHP>0,'The switched-in Primarina survives the two-turn battle');
 });

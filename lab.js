@@ -482,14 +482,27 @@ class Bot{
           ||(locked==='swordsdance'&&Number(this.boosts.atk||0)>=6)
           ||(locked==='nastyplot'&&Number(this.boosts.spa||0)>=6);
         if(inert){
-          const safe=bench.filter(x=>riskOf(x.p)<0.42&&
-            riskOf(x.p)<currentRisk*0.78);
+          // Compare expected MAX-HP damage with CURRENT HP on both sides.
+          // Locked status has zero value; prefer a legal, survivable pivot
+          // that reduces damage or escapes a predicted immediate knockout.
+          const hpFraction=p=>{
+            const m=String(p.condition||'').match(/^(\d+)\/(\d+)/);
+            return m&&Number(m[2])>0?Number(m[1])/Number(m[2]):0;
+          };
+          const currentHP=hpFraction(current);
+          const safe=bench.map(x=>({...x,risk:riskOf(x.p),hp:hpFraction(x.p)}))
+            .filter(x=>x.risk<x.hp &&
+              (x.risk<currentRisk ||
+                (currentRisk>=currentHP &&
+                 x.hp-x.risk>currentHP-currentRisk)));
           if(safe.length){
-            safe.sort((a,b)=>score(b.p)-score(a.p));
+            safe.sort((a,b)=>(b.hp-b.risk)-(a.hp-a.risk) ||
+              score(b.p)-score(a.p));
             this.trace.lockEscapes?.push({side:this.side,turn:this.turn,
               own:this.getSet(current).species,foe:this.foeActive,move:locked,
-              currentRisk,bench:this.getSet(safe[0].p).species,
-              benchRisk:riskOf(safe[0].p),reason:'public-encore-inert-move'});
+              currentRisk,currentHP,bench:this.getSet(safe[0].p).species,
+              benchRisk:safe[0].risk,benchHP:safe[0].hp,
+              reason:'public-encore-inert-move'});
             this.switches++;return 'switch '+(safe[0].i+1);
           }
         }
