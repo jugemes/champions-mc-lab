@@ -1,0 +1,62 @@
+name: M-C Mimikyu adversarial three-turn Heat Rotom audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-mimikyu-three-turn.js'
+      - 'm7-current-six-selection-alternatives.js'
+      - 'm7-goli-first-impression-lead.js'
+      - '.github/workflows/m7-mimikyu-three-turn.yml'
+      - 'engine-three-branch.js'
+permissions:
+  contents: read
+jobs:
+  mimikyu_adversarial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build exact M-C battle engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Test Mimikyu bait and adversarial back-switches
+        run: |
+          set -o pipefail
+          node m7-mimikyu-three-turn.js | tee m7-mimikyu-three-turn.log
+      - name: Current live six versus Heat using identical opponent public six and fixed own preview trios
+        run: |
+          set -o pipefail
+          node m7-current-six-selection-alternatives.js | tee m7-current-six-selection-alternatives.log
+      - name: Compare actual current Hydreigon lead against legal First Impression Mega Golisopod
+        run: |
+          set -o pipefail
+          node m7-goli-first-impression-lead.js | tee m7-goli-first-impression-lead.log
+      - name: Preserve reproducible move-level counterplays
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mimikyu-adversarial-${{ github.run_id }}
+          path: |
+            output/m7-roster-deltas/mimikyu-three-turn-branches.json
+            m7-mimikyu-three-turn.log
+            output/m7-roster-deltas/current-six-selection-alternatives.json
+            m7-current-six-selection-alternatives.log
+            output/m7-roster-deltas/goli-first-impression-lead.json
+            m7-goli-first-impression-lead.log
+          retention-days: 30
+          if-no-files-found: warn

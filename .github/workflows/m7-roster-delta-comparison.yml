@@ -1,0 +1,60 @@
+name: M-7 full-six matched opponent six candidate comparison
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-roster-delta-comparison.js'
+      - 'm7-predeclared-triples-stress.js'
+      - 'm7-goli-counterplay.js'
+      - '.github/workflows/m7-roster-delta-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  team_deltas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Pin engine and build
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Match teams against identical adversary public six and actual AI conditions
+        run: |
+          set -o pipefail
+          node m7-roster-delta-comparison.js | tee m7-roster-delta-comparison.log
+      - name: Compare predeclared lead/trio options for main problem archetypes
+        run: |
+          set -o pipefail
+          node m7-predeclared-triples-stress.js | tee m7-predeclared-triples-stress.log
+      - name: Opponent counterplay via real Showdown two-turn Mimikyu and Scarf Garchomp pivots
+        run: |
+          set -o pipefail
+          node m7-goli-counterplay.js | tee m7-goli-counterplay.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m7-roster-compare-${{ github.run_id }}
+          path: |
+            output/m7-roster-deltas/four-candidates.json
+            m7-roster-delta-comparison.log
+            output/m7-roster-deltas/predeclared-human-triples.json
+            m7-predeclared-triples-stress.log
+            output/m7-roster-deltas/golisopod-adversarial-switches.json
+            m7-goli-counterplay.log
+          retention-days: 30
+          if-no-files-found: warn

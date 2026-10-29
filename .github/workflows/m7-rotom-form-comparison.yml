@@ -1,0 +1,47 @@
+name: M-7 Rotom-Wash versus Rotom-Heat same-six comparison
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-rotom-form-comparison.js'
+      - '.github/workflows/m7-rotom-form-comparison.yml'
+permissions:
+  contents: read
+jobs:
+  rotom_forms:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Pin and build M-C engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Verify legality and one-for-one matchup tradeoffs
+        run: |
+          set -o pipefail
+          node m7-rotom-form-comparison.js | tee m7-rotom-form-comparison.log
+      - name: Preserve matchups
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m7-rotom-forms-${{ github.run_id }}
+          path: |
+            output/m7-rotom-form/comparison.json
+            m7-rotom-form-comparison.log
+          retention-days: 30
+          if-no-files-found: warn

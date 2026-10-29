@@ -1,0 +1,61 @@
+name: M-C rational Mimikyu immediate-action and counter-switch audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'm7-rational-mimikyu-response.js'
+      - 'm7-wash-skeledirge-opening.js'
+      - 'm7-post-mimikyu-reentry.js'
+      - '.github/workflows/m7-rational-mimikyu-response.yml'
+      - 'engine-three-branch.js'
+permissions:
+  contents: read
+jobs:
+  rational_mimikyu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: smogon/pokemon-showdown
+          ref: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          path: showdown
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - name: Build exact pinned M-C engine
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+          npm --prefix showdown ci
+          npm --prefix showdown run build
+      - name: Execute 360 scripted Mimikyu immediate move and switch tests
+        run: |
+          set -o pipefail
+          node m7-rational-mimikyu-response.js | tee m7-rational-mimikyu-response.log
+      - name: Stress predeclared three and lead against Golisopod, Scarf Garchomp and Mimikyu leads
+        run: |
+          set -o pipefail
+          node m7-wash-skeledirge-opening.js | tee m7-wash-skeledirge-opening.log
+      - name: Check mandatory Golisopod and Garchomp replacement after Mimikyu faint
+        run: |
+          set -o pipefail
+          node m7-post-mimikyu-reentry.js | tee m7-post-mimikyu-reentry.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rational-mimikyu-${{ github.run_id }}
+          path: |
+            output/m7-roster-deltas/rational-mimikyu-response.json
+            m7-rational-mimikyu-response.log
+            output/m7-roster-deltas/wash-skeledirge-opening.json
+            m7-wash-skeledirge-opening.log
+            output/m7-roster-deltas/post-mimikyu-reentry.json
+            m7-post-mimikyu-reentry.log
+          retention-days: 30
+          if-no-files-found: warn
