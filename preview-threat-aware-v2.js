@@ -11,8 +11,10 @@
 //  2. The Mega holder is fixed by the hypothesis: every (three, Mega holder)
 //     pair is its own hypothesis; no second, independent Mega draw.
 //  3. The lead is scored per scenario against the SAME rival lead variant
-//     for staying and for pivoting; pivoting gives a rival that can set up a
-//     free turn; and the worst plausible rival lead counts, not only the mean.
+//     for staying and for pivoting; the pivot takes the rival's move aimed at
+//     our lead (a predicted resist is credited, a weak entry is not); pivoting
+//     gives a rival that can set up a free turn; and the worst plausible rival
+//     lead counts, not only the mean.
 //  4. Learnable priority moves are kept apart from same-type stronger moves
 //     (Sucker Punch was lost behind other Dark moves in PR #58).
 //  5. Weather comes from the scenario's setters (rival variants and our known
@@ -123,10 +125,24 @@ function scenarios(dex,hyp,maxScenarios=DEFAULTS.maxScenarios){
   const sum=out.reduce((a,b)=>a+b.w,0);
   return out.map(s=>({...s,w:s.w/sum}));
 }
-function duelCached(dex,own,v,weather,cache){
-  const key=own.species+'|'+v.form+'|'+v.ability+'|'+v.scarf+'|'+weather;
-  if(!cache.has(key))cache.set(key,duel(dex,own,v,{...OPTS,weather}));
+function duelCached(dex,own,v,weather,cache,entry){
+  const key=own.species+'|'+v.form+'|'+v.ability+'|'+v.scarf+'|'+weather+(entry?'|'+entry.stab.toFixed(4)+'/'+entry.cov.toFixed(4):'');
+  if(!cache.has(key))cache.set(key,duel(dex,own,v,{...OPTS,weather,entry}));
   return cache.get(key);
+}
+// What a bench member takes when it switches in on the rival's move aimed at
+// our lead: the rival's best move into the lead (STAB-only and any learnable
+// move, the same two branches as the duel), priced on the bench member.
+function entryHits(dex,v,lead,bench,weather,cache){
+  const key='entry|'+lead.species+'|'+bench.species+'|'+v.form+'|'+v.ability+'|'+weather;
+  if(cache.has(key))return cache.get(key);
+  const o={knownDefender:true,weather,priorityKeys:true,detail:true};
+  const L=T.variantAttack(dex,v,ownMegaForm(dex,lead),o).detail,B=T.variantAttack(dex,v,ownMegaForm(dex,bench),o).detail;
+  const pick=f=>{let bi=-1;L.forEach((m,k)=>{if(f(m)&&(bi<0||m.frac>L[bi].frac))bi=k;});return bi;};
+  const s=pick(m=>m.stab),c=pick(()=>true);
+  const out={stab:s<0?0:B[s].frac,cov:c<0?0:B[c].frac};
+  cache.set(key,out);
+  return out;
 }
 // ---- 3. One of our threes + lead against one hypothesis.
 function evaluateAgainst(dex,team,three,lead,hyp,cache,opt){
@@ -150,9 +166,11 @@ function evaluateAgainst(dex,team,three,lead,hyp,cache,opt){
       // Both leads enter together: the free (no entry hit) race, in the
       // weather the two leads actually leave up.
       const stay=duelCached(dex,team[lead],v,leadWeather(dex,team[lead],v),cache).free;
-      // Pivot: the bench takes the hit; a rival that can set up gets the turn.
+      // Pivot: the bench takes the hit aimed at our lead; a rival that can set
+      // up gets the turn.
       const tempo=coverageMoves(dex,v.form,{priorityKeys:true}).setup>0?opt.setupTempo:opt.pivotTempo;
-      const pivot=Math.max(...three.filter(i=>i!==lead).map(i=>duelCached(dex,team[i],v,weather,cache).swap))*tempo;
+      const pivot=Math.max(...three.filter(i=>i!==lead).map(i=>
+        duelCached(dex,team[i],v,weather,cache,entryHits(dex,v,team[lead],team[i],weather,cache)).swap))*tempo;
       const reserved=best.p.indexOf(li);
       const cost=reserved>=0&&reserved!==r&&stay<0.5?0.15:0;
       return {species:l.species,p:l.p,stay,pivot,value:Math.max(stay,pivot)-cost};

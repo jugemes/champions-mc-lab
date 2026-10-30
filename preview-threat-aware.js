@@ -90,7 +90,9 @@ function rawDamage(power,attack,defence,mult){
 // opts.weather (v2): 'sun'|'sand'|'none' from the scenario's weather setters.
 // Undefined = PR #58 behaviour (sun only from the attacker's own Drought, and
 // the Sand Force branch never fires).
-function variantAttack(dex,v,defender,{knownDefender,weather,priorityKeys=false}){
+// opts.detail (v2): also return every candidate move's fraction (0 when
+// immune) in a defender-independent order, to price a hit aimed elsewhere.
+function variantAttack(dex,v,defender,{knownDefender,weather,priorityKeys=false,detail=false}){
   const form=dex.species.get(v.form),def=dex.species.get(defender.species);
   const hp=knownDefender?knownStat(dex,defender,'hp'):maxStat(dex,defender.species,'hp')-32;
   const ability=canon(v.ability);
@@ -102,9 +104,10 @@ function variantAttack(dex,v,defender,{knownDefender,weather,priorityKeys=false}
   for(const m of coverageMoves(dex,v.form,{priorityKeys}))moves.push({...m,stab:form.types.includes(m.type)});
   if(sun)moves.push({type:'Grass',category:'Special',basePower:120,stab:false});
   let stab=0,coverage=0,priority=0,physical=0,special=0;
+  const list=[];
   for(const m of moves){
     const eff=effectiveness(dex,m,def,{foeAbility:knownDefender?defender.ability:fixedAbility(def),foeItem:knownDefender?defender.item:''});
-    if(!eff)continue;
+    if(!eff){list.push({stab:m.stab,frac:0});continue;}
     const stat=m.category==='Physical'?'atk':'spa',dstat=m.category==='Physical'?'def':'spd';
     const atk=maxStat(dex,v.form,m.useDef?'def':stat);
     const dfn=knownDefender?knownStat(dex,defender,dstat):Math.floor((def.baseStats[dstat]+20)*1.0);
@@ -116,11 +119,14 @@ function variantAttack(dex,v,defender,{knownDefender,weather,priorityKeys=false}
     if(sand&&ability==='sandforce'&&['Rock','Ground','Steel'].includes(m.type))mult*=1.3;
     // Average roll: the rival's attack is already the max-investment case.
     const frac=rawDamage(m.basePower,atk,dfn,mult)*0.925/hp;
+    list.push({stab:m.stab,frac});
     if(m.stab)stab=Math.max(stab,frac);else coverage=Math.max(coverage,frac);
     if(m.category==='Physical')physical=Math.max(physical,frac);else special=Math.max(special,frac);
     if(m.priority>0)priority=Math.max(priority,frac);
   }
-  return {stab,coverage,priority,physical,special,worst:Math.max(stab,coverage)};
+  const out={stab,coverage,priority,physical,special,worst:Math.max(stab,coverage)};
+  if(detail)out.detail=list;
+  return out;
 }
 function ownForm(dex,set){
   const item=dex.items.get(set.item);
@@ -163,7 +169,9 @@ function hitsToKO(frac){return frac<=0?99:Math.ceil(1/Math.max(frac,1e-6)-1e-9);
 // Encore, when we outspeed, turns a rival setup turn into a lock instead of a
 // boost, so the setup penalty is dropped), speedSpread (the rival's speed
 // investment is hidden: average the max-invested and the uninvested neutral
-// speed cases instead of assuming max speed only).
+// speed cases instead of assuming max speed only), entry ({stab,cov}: the
+// fraction this member takes when it switches in on a hit aimed at another
+// member; replaces "one of its own best hits" in the swap value).
 function duel(dex,own,v,opts={}){
   if(opts.speedSpread){
     const hi=duel(dex,own,v,{...opts,speedSpread:false,rivalSpeed:'max'});
@@ -202,7 +210,7 @@ function duel(dex,own,v,opts={}){
     const diff=(turnsThem-turnsUs)-0.5;
     return diff>0?Math.min(1,0.7+0.3*diff):Math.max(0,0.3+0.3*diff);
   };
-  const branch=(hit,prio=0,setup=0)=>{
+  const branch=(hit,prio=0,setup=0,entry)=>{
     let them=hitsToKO(hit);
     let free=Math.max(race(ours,them)*acc,oursPrio===1?1:0);
     // Rival priority moves first regardless of speed; a learnable setup
@@ -215,7 +223,9 @@ function duel(dex,own,v,opts={}){
       if(prio>0)free=Math.min(free,raceSlow(ours,1+hitsToKO(prio*f))*acc);
       them=Math.min(them,boosted);
     }
-    let swap=hit>=1?0:race(ours,Math.max(0,them-1))*acc*(1-Math.min(0.5,hit/2));
+    let swap=entry===undefined
+      ?hit>=1?0:race(ours,Math.max(0,them-1))*acc*(1-Math.min(0.5,hit/2))
+      :entry>=1?0:race(ours,hit>0?hitsToKO(hit/(1-entry)):99)*acc*(1-Math.min(0.5,entry/2));
     if(wisp){
       // 85% accuracy; after the burn the race restarts with one turn lost.
       free=Math.max(free,0.85*race(ours+1,burned(hit))*acc);
@@ -223,14 +233,14 @@ function duel(dex,own,v,opts={}){
     }
     return {free,swap,them};
   };
-  const stab=branch(theirs.stab);
+  const stab=branch(theirs.stab,0,0,opts.entry?.stab);
   // Pessimistic branch: worst learnable coverage AND learnable recovery,
   // which turns a 2-3HKO that cannot outpace 50% healing into a stall.
   const plainOurs=ours;
   if(coverageMoves(dex,v.form).recovery&&ours>1)ours=mine.best.min*intimidate>=0.5?ours+1:99;
   const pool=coverageMoves(dex,v.form,{priorityKeys:opts.priorityKeys});
   const encoreLock=opts.encore&&faster===1&&set.moves.some(m=>canon(m)==='encore');
-  const cov=branch(Math.max(theirs.stab,theirs.coverage),theirs.priority,encoreLock?0:pool.setup);
+  const cov=branch(Math.max(theirs.stab,theirs.coverage),theirs.priority,encoreLock?0:pool.setup,opts.entry?.cov);
   ours=plainOurs;
   const free=(stab.free+cov.free)/2,swap=(stab.swap+cov.swap)/2;
   const value=0.6*free+0.4*swap;

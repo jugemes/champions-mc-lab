@@ -15,7 +15,9 @@ const {turnLines}=require('./threat-lead-counterfactual');
 const {groups}=require('./environment-m7-teams');
 const {teams:holdoutTeams}=require('./holdout-20261030');
 const {reportedLive}=require('./reported-live-roster-20261027');
-const SEED_BASES=[5600000,5700000,5800000];
+// 5600000-5800000 are the PR #58 seeds (also seen while revising v2's pivot);
+// 5900000 was first run with the final v2 (seed holdout).
+const SEED_BASES=(process.env.AUDIT_SEED_BASES||'5600000,5700000,5800000,5900000').split(',').map(Number);
 function allGroups(){
   const env=BATTLE_GROUPS.map(n=>groups.find(g=>g.name===n));
   const hold=Object.entries(holdoutTeams()).map(([name,t])=>({name:'H_'+name,team:t.team,forcedA:t.forcedA,forcedB:t.forcedB}));
