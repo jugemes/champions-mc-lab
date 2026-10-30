@@ -1,0 +1,834 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "ais": {
+  "base": {},
+  "v1": {
+   "encoreGuard": true
+  },
+  "new": {
+   "encoreGuard": "speed",
+   "publicMegaAbility": true
+  }
+ },
+ "cases": {
+  "B_lucarioZ": {
+   "legacy": {
+    "three": "Garchomp/Hydreigon/Metagross",
+    "base": [
+     13,
+     36
+    ],
+    "v1": [
+     13,
+     36
+    ],
+    "new": [
+     13,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Garchomp/Metagross/Hydreigon",
+    "base": [
+     13,
+     36
+    ],
+    "v1": [
+     13,
+     36
+    ],
+    "new": [
+     13,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Primarina/Garchomp/Rotom-Wash",
+    "base": [
+     15,
+     36
+    ],
+    "v1": [
+     15,
+     36
+    ],
+    "new": [
+     15,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 38,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "C_charizardY": {
+   "legacy": {
+    "three": "Tyranitar/Hydreigon/Metagross",
+    "base": [
+     22,
+     36
+    ],
+    "v1": [
+     22,
+     36
+    ],
+    "new": [
+     22,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Tyranitar/Metagross/Hydreigon",
+    "base": [
+     22,
+     36
+    ],
+    "v1": [
+     22,
+     36
+    ],
+    "new": [
+     22,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Hydreigon/Primarina/Tyranitar",
+    "base": [
+     9,
+     36
+    ],
+    "v1": [
+     9,
+     36
+    ],
+    "new": [
+     9,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Garchomp/Metagross/Primarina",
+    "base": [
+     23,
+     36
+    ],
+    "v1": [
+     23,
+     36
+    ],
+    "new": [
+     23,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "C_charizardX": {
+   "legacy": {
+    "three": "Tyranitar/Hydreigon/Metagross",
+    "base": [
+     24,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Tyranitar/Hydreigon/Garchomp",
+    "base": [
+     16,
+     36
+    ],
+    "v1": [
+     16,
+     36
+    ],
+    "new": [
+     16,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Tyranitar/Metagross/Rotom-Wash",
+    "base": [
+     26,
+     36
+    ],
+    "v1": [
+     26,
+     36
+    ],
+    "new": [
+     26,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Garchomp/Rotom-Wash",
+    "base": [
+     25,
+     36
+    ],
+    "v1": [
+     25,
+     36
+    ],
+    "new": [
+     25,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "Real_indeedee_scarf": {
+   "legacy": {
+    "three": "Garchomp/Primarina/Rotom-Wash",
+    "base": [
+     36,
+     36
+    ],
+    "v1": [
+     36,
+     36
+    ],
+    "new": [
+     36,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 6,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Primarina/Metagross/Garchomp",
+    "base": [
+     24,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Rotom-Wash/Hydreigon/Tyranitar",
+    "base": [
+     34,
+     36
+    ],
+    "v1": [
+     34,
+     36
+    ],
+    "new": [
+     34,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "Real_indeedee_sash": {
+   "legacy": {
+    "three": "Garchomp/Primarina/Rotom-Wash",
+    "base": [
+     34,
+     36
+    ],
+    "v1": [
+     34,
+     36
+    ],
+    "new": [
+     34,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 12,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Tyranitar/Metagross/Primarina",
+    "base": [
+     16,
+     36
+    ],
+    "v1": [
+     18,
+     36
+    ],
+    "new": [
+     18,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 12,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Primarina/Metagross/Garchomp",
+    "base": [
+     24,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 12,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "NEW_realE_sun": {
+   "legacy": {
+    "three": "Tyranitar/Garchomp/Primarina",
+    "base": [
+     16,
+     36
+    ],
+    "v1": [
+     28,
+     36
+    ],
+    "new": [
+     28,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 72,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Tyranitar/Primarina/Garchomp",
+    "base": [
+     16,
+     36
+    ],
+    "v1": [
+     28,
+     36
+    ],
+    "new": [
+     28,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 72,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Rotom-Wash/Garchomp/Tyranitar",
+    "base": [
+     24,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Rotom-Wash/Metagross/Garchomp",
+    "base": [
+     18,
+     36
+    ],
+    "v1": [
+     18,
+     36
+    ],
+    "new": [
+     18,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "HOLD_sun_balance": {
+   "legacy": {
+    "three": "Tyranitar/Garchomp/Rotom-Wash",
+    "base": [
+     32,
+     36
+    ],
+    "v1": [
+     32,
+     36
+    ],
+    "new": [
+     32,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Rotom-Wash/Garchomp/Tyranitar",
+    "base": [
+     12,
+     36
+    ],
+    "v1": [
+     12,
+     36
+    ],
+    "new": [
+     12,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Primarina/Tyranitar",
+    "base": [
+     20,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 22,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "HOLD_psychic_offense": {
+   "legacy": {
+    "three": "Metagross/Tyranitar/Hydreigon",
+    "base": [
+     16,
+     36
+    ],
+    "v1": [
+     16,
+     36
+    ],
+    "new": [
+     16,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "strategic": {
+    "three": "Metagross/Garchomp/Tyranitar",
+    "base": [
+     26,
+     36
+    ],
+    "v1": [
+     26,
+     36
+    ],
+    "new": [
+     26,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search": {
+    "three": "Garchomp/Metagross/Primarina",
+    "base": [
+     24,
+     36
+    ],
+    "v1": [
+     24,
+     36
+    ],
+    "new": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Garchomp/Rotom-Wash",
+    "base": [
+     28,
+     36
+    ],
+    "v1": [
+     28,
+     36
+    ],
+    "new": [
+     28,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  },
+  "NEW_setup_dd_np": {
+   "legacyPreview": {
+    "three": "legacy",
+    "base": [
+     12,
+     36
+    ],
+    "v1": [
+     12,
+     36
+    ],
+    "new": [
+     12,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   },
+   "primarinaTrio": {
+    "three": "Primarina/Metagross/Garchomp",
+    "base": [
+     2,
+     36
+    ],
+    "v1": [
+     2,
+     36
+    ],
+    "new": [
+     2,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncoreFail": {
+     "base": 0,
+     "v1": 0,
+     "new": 0
+    },
+    "flipSeeds": []
+   }
+  }
+ },
+ "total": {
+  "base": [
+   622,
+   1080
+  ],
+  "v1": [
+   652,
+   1080
+  ],
+  "new": [
+   652,
+   1080
+  ],
+  "flipsV1toNew": {
+   "winToLoss": 0,
+   "lossToWin": 0
+  },
+  "diffV1New": 0,
+  "games": 1080
+ }
+}

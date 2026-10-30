@@ -1,0 +1,1366 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "newSix": {
+  "id": "NEW_setup_dd_np",
+  "gi": 9,
+  "team": [
+   {
+    "species": "Dragonite",
+    "item": "Lum Berry",
+    "ability": "Multiscale",
+    "nature": "Adamant",
+    "evs": {
+     "hp": 2,
+     "atk": 32,
+     "spe": 32
+    },
+    "moves": [
+     "Dragon Dance",
+     "Extreme Speed",
+     "Earthquake",
+     "Fire Punch"
+    ]
+   },
+   {
+    "species": "Gyarados",
+    "item": "Sitrus Berry",
+    "ability": "Intimidate",
+    "nature": "Jolly",
+    "evs": {
+     "hp": 2,
+     "atk": 32,
+     "spe": 32
+    },
+    "moves": [
+     "Dragon Dance",
+     "Waterfall",
+     "Earthquake",
+     "Taunt"
+    ]
+   },
+   {
+    "species": "Lucario",
+    "item": "Lucarionite Z",
+    "ability": "Inner Focus",
+    "nature": "Timid",
+    "evs": {
+     "hp": 2,
+     "spa": 32,
+     "spe": 32
+    },
+    "moves": [
+     "Aura Sphere",
+     "Dark Pulse",
+     "Flash Cannon",
+     "Nasty Plot"
+    ]
+   },
+   {
+    "species": "Hippowdon",
+    "item": "Leftovers",
+    "ability": "Sand Stream",
+    "nature": "Impish",
+    "evs": {
+     "hp": 32,
+     "def": 32,
+     "spd": 2
+    },
+    "moves": [
+     "Earthquake",
+     "Yawn",
+     "Stealth Rock",
+     "Slack Off"
+    ]
+   },
+   {
+    "species": "Gholdengo",
+    "item": "Air Balloon",
+    "ability": "Good as Gold",
+    "nature": "Modest",
+    "evs": {
+     "hp": 2,
+     "spa": 32,
+     "spe": 32
+    },
+    "moves": [
+     "Shadow Ball",
+     "Make It Rain",
+     "Nasty Plot",
+     "Thunderbolt"
+    ]
+   },
+   {
+    "species": "Skarmory",
+    "item": "Rocky Helmet",
+    "ability": "Sturdy",
+    "nature": "Impish",
+    "evs": {
+     "hp": 32,
+     "def": 32,
+     "spd": 2
+    },
+    "moves": [
+     "Roost",
+     "Spikes",
+     "Brave Bird",
+     "Whirlwind"
+    ]
+   }
+  ],
+  "forcedA": [
+   "Dragonite",
+   "Gyarados",
+   "Hippowdon"
+  ],
+  "forcedB": [
+   "Lucario",
+   "Gholdengo",
+   "Skarmory"
+  ]
+ },
+ "cases": {
+  "B_lucarioZ": {
+   "legacy": {
+    "three": "Garchomp/Hydreigon/Metagross",
+    "old": [
+     13,
+     36
+    ],
+    "guard": [
+     13,
+     36
+    ],
+    "cleanOld": [
+     13,
+     36
+    ],
+    "cleanGuard": [
+     13,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Garchomp/Metagross/Hydreigon",
+    "old": [
+     13,
+     36
+    ],
+    "guard": [
+     13,
+     36
+    ],
+    "cleanOld": [
+     13,
+     36
+    ],
+    "cleanGuard": [
+     13,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Primarina/Garchomp/Rotom-Wash",
+    "old": [
+     15,
+     36
+    ],
+    "guard": [
+     15,
+     36
+    ],
+    "cleanOld": [
+     14,
+     34
+    ],
+    "cleanGuard": [
+     14,
+     34
+    ],
+    "flips": {
+     "winToLoss": 1,
+     "lossToWin": 1
+    },
+    "differentGames": 12,
+    "ownEncore": {
+     "old": 72,
+     "guard": 40
+    },
+    "winsWithRivalStay": {
+     "old": 6,
+     "guard": 6
+    },
+    "ownEncoreFail": {
+     "old": 38,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Primarina/Garchomp/Rotom-Wash",
+    "old": [
+     15,
+     36
+    ],
+    "guard": [
+     15,
+     36
+    ],
+    "cleanOld": [
+     14,
+     34
+    ],
+    "cleanGuard": [
+     14,
+     34
+    ],
+    "flips": {
+     "winToLoss": 1,
+     "lossToWin": 1
+    },
+    "differentGames": 12,
+    "ownEncore": {
+     "old": 72,
+     "guard": 40
+    },
+    "winsWithRivalStay": {
+     "old": 6,
+     "guard": 6
+    },
+    "ownEncoreFail": {
+     "old": 38,
+     "guard": 0
+    }
+   }
+  },
+  "C_charizardY": {
+   "legacy": {
+    "three": "Tyranitar/Hydreigon/Metagross",
+    "old": [
+     22,
+     36
+    ],
+    "guard": [
+     22,
+     36
+    ],
+    "cleanOld": [
+     22,
+     36
+    ],
+    "cleanGuard": [
+     22,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Tyranitar/Metagross/Hydreigon",
+    "old": [
+     22,
+     36
+    ],
+    "guard": [
+     22,
+     36
+    ],
+    "cleanOld": [
+     22,
+     36
+    ],
+    "cleanGuard": [
+     22,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Hydreigon/Primarina/Tyranitar",
+    "old": [
+     9,
+     36
+    ],
+    "guard": [
+     9,
+     36
+    ],
+    "cleanOld": [
+     9,
+     36
+    ],
+    "cleanGuard": [
+     9,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Garchomp/Metagross/Primarina",
+    "old": [
+     23,
+     36
+    ],
+    "guard": [
+     23,
+     36
+    ],
+    "cleanOld": [
+     23,
+     36
+    ],
+    "cleanGuard": [
+     23,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 12,
+     "guard": 12
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  },
+  "C_charizardX": {
+   "legacy": {
+    "three": "Tyranitar/Hydreigon/Metagross",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     24,
+     36
+    ],
+    "cleanGuard": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Tyranitar/Hydreigon/Garchomp",
+    "old": [
+     16,
+     36
+    ],
+    "guard": [
+     16,
+     36
+    ],
+    "cleanOld": [
+     16,
+     36
+    ],
+    "cleanGuard": [
+     16,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Tyranitar/Metagross/Rotom-Wash",
+    "old": [
+     26,
+     36
+    ],
+    "guard": [
+     26,
+     36
+    ],
+    "cleanOld": [
+     26,
+     30
+    ],
+    "cleanGuard": [
+     26,
+     30
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 10,
+     "guard": 10
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Garchomp/Rotom-Wash",
+    "old": [
+     25,
+     36
+    ],
+    "guard": [
+     25,
+     36
+    ],
+    "cleanOld": [
+     25,
+     36
+    ],
+    "cleanGuard": [
+     25,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 4,
+     "guard": 4
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  },
+  "Real_indeedee_scarf": {
+   "legacy": {
+    "three": "Garchomp/Primarina/Rotom-Wash",
+    "old": [
+     36,
+     36
+    ],
+    "guard": [
+     36,
+     36
+    ],
+    "cleanOld": [
+     22,
+     22
+    ],
+    "cleanGuard": [
+     22,
+     22
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 2,
+    "ownEncore": {
+     "old": 10,
+     "guard": 2
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 6,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Garchomp/Primarina/Rotom-Wash",
+    "old": [
+     36,
+     36
+    ],
+    "guard": [
+     36,
+     36
+    ],
+    "cleanOld": [
+     22,
+     22
+    ],
+    "cleanGuard": [
+     22,
+     22
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 2,
+    "ownEncore": {
+     "old": 10,
+     "guard": 2
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 6,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Primarina/Metagross/Garchomp",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     24,
+     36
+    ],
+    "cleanGuard": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 12,
+     "guard": 12
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Rotom-Wash/Hydreigon/Tyranitar",
+    "old": [
+     34,
+     36
+    ],
+    "guard": [
+     34,
+     36
+    ],
+    "cleanOld": [
+     10,
+     10
+    ],
+    "cleanGuard": [
+     10,
+     10
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  },
+  "Real_indeedee_sash": {
+   "legacy": {
+    "three": "Garchomp/Primarina/Rotom-Wash",
+    "old": [
+     34,
+     36
+    ],
+    "guard": [
+     34,
+     36
+    ],
+    "cleanOld": [
+     17,
+     18
+    ],
+    "cleanGuard": [
+     17,
+     18
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 4,
+    "ownEncore": {
+     "old": 20,
+     "guard": 4
+    },
+    "winsWithRivalStay": {
+     "old": 12,
+     "guard": 12
+    },
+    "ownEncoreFail": {
+     "old": 12,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Tyranitar/Metagross/Primarina",
+    "old": [
+     16,
+     36
+    ],
+    "guard": [
+     18,
+     36
+    ],
+    "cleanOld": [
+     14,
+     26
+    ],
+    "cleanGuard": [
+     16,
+     28
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 2
+    },
+    "differentGames": 4,
+    "ownEncore": {
+     "old": 18,
+     "guard": 4
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 12,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Primarina/Metagross/Garchomp",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     12,
+     24
+    ],
+    "cleanGuard": [
+     12,
+     24
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 4,
+    "ownEncore": {
+     "old": 32,
+     "guard": 16
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 12,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Primarina/Metagross/Garchomp",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     12,
+     24
+    ],
+    "cleanGuard": [
+     12,
+     24
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 4,
+    "ownEncore": {
+     "old": 32,
+     "guard": 16
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 12,
+     "guard": 0
+    }
+   }
+  },
+  "NEW_realE_sun": {
+   "legacy": {
+    "three": "Tyranitar/Garchomp/Primarina",
+    "old": [
+     16,
+     36
+    ],
+    "guard": [
+     28,
+     36
+    ],
+    "cleanOld": [
+     16,
+     30
+    ],
+    "cleanGuard": [
+     28,
+     28
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 12
+    },
+    "differentGames": 24,
+    "ownEncore": {
+     "old": 114,
+     "guard": 66
+    },
+    "winsWithRivalStay": {
+     "old": 2,
+     "guard": 2
+    },
+    "ownEncoreFail": {
+     "old": 72,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Tyranitar/Primarina/Garchomp",
+    "old": [
+     16,
+     36
+    ],
+    "guard": [
+     28,
+     36
+    ],
+    "cleanOld": [
+     16,
+     30
+    ],
+    "cleanGuard": [
+     28,
+     28
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 12
+    },
+    "differentGames": 24,
+    "ownEncore": {
+     "old": 114,
+     "guard": 66
+    },
+    "winsWithRivalStay": {
+     "old": 6,
+     "guard": 6
+    },
+    "ownEncoreFail": {
+     "old": 72,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Rotom-Wash/Garchomp/Tyranitar",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     18,
+     30
+    ],
+    "cleanGuard": [
+     18,
+     30
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Rotom-Wash/Metagross/Garchomp",
+    "old": [
+     18,
+     36
+    ],
+    "guard": [
+     18,
+     36
+    ],
+    "cleanOld": [
+     16,
+     30
+    ],
+    "cleanGuard": [
+     16,
+     30
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 6,
+     "guard": 6
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  },
+  "HOLD_sun_balance": {
+   "legacy": {
+    "three": "Tyranitar/Garchomp/Rotom-Wash",
+    "old": [
+     32,
+     36
+    ],
+    "guard": [
+     32,
+     36
+    ],
+    "cleanOld": [
+     24,
+     28
+    ],
+    "cleanGuard": [
+     24,
+     28
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 4,
+     "guard": 4
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Tyranitar/Garchomp/Rotom-Wash",
+    "old": [
+     32,
+     36
+    ],
+    "guard": [
+     32,
+     36
+    ],
+    "cleanOld": [
+     24,
+     28
+    ],
+    "cleanGuard": [
+     24,
+     28
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 4,
+     "guard": 4
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Rotom-Wash/Garchomp/Tyranitar",
+    "old": [
+     12,
+     36
+    ],
+    "guard": [
+     12,
+     36
+    ],
+    "cleanOld": [
+     0,
+     8
+    ],
+    "cleanGuard": [
+     0,
+     8
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Primarina/Tyranitar",
+    "old": [
+     20,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     18,
+     34
+    ],
+    "cleanGuard": [
+     22,
+     34
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 4
+    },
+    "differentGames": 8,
+    "ownEncore": {
+     "old": 40,
+     "guard": 12
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 22,
+     "guard": 0
+    }
+   }
+  },
+  "HOLD_psychic_offense": {
+   "legacy": {
+    "three": "Metagross/Tyranitar/Hydreigon",
+    "old": [
+     16,
+     36
+    ],
+    "guard": [
+     16,
+     36
+    ],
+    "cleanOld": [
+     16,
+     36
+    ],
+    "cleanGuard": [
+     16,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "strategic": {
+    "three": "Metagross/Garchomp/Tyranitar",
+    "old": [
+     26,
+     36
+    ],
+    "guard": [
+     26,
+     36
+    ],
+    "cleanOld": [
+     26,
+     36
+    ],
+    "cleanGuard": [
+     26,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search": {
+    "three": "Garchomp/Metagross/Primarina",
+    "old": [
+     24,
+     36
+    ],
+    "guard": [
+     24,
+     36
+    ],
+    "cleanOld": [
+     24,
+     36
+    ],
+    "cleanGuard": [
+     24,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 10,
+     "guard": 10
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "legal-search-v2": {
+    "three": "Metagross/Garchomp/Rotom-Wash",
+    "old": [
+     28,
+     36
+    ],
+    "guard": [
+     28,
+     36
+    ],
+    "cleanOld": [
+     28,
+     36
+    ],
+    "cleanGuard": [
+     28,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  },
+  "NEW_setup_dd_np": {
+   "legacyPreview": {
+    "three": "legacy preview",
+    "old": [
+     12,
+     36
+    ],
+    "guard": [
+     12,
+     36
+    ],
+    "cleanOld": [
+     0,
+     24
+    ],
+    "cleanGuard": [
+     0,
+     24
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 0,
+     "guard": 0
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   },
+   "primarinaTrio": {
+    "three": "Primarina/Metagross/Garchomp",
+    "old": [
+     2,
+     36
+    ],
+    "guard": [
+     2,
+     36
+    ],
+    "cleanOld": [
+     2,
+     36
+    ],
+    "cleanGuard": [
+     2,
+     36
+    ],
+    "flips": {
+     "winToLoss": 0,
+     "lossToWin": 0
+    },
+    "differentGames": 0,
+    "ownEncore": {
+     "old": 22,
+     "guard": 22
+    },
+    "winsWithRivalStay": {
+     "old": 0,
+     "guard": 0
+    },
+    "ownEncoreFail": {
+     "old": 0,
+     "guard": 0
+    }
+   }
+  }
+ }
+}
