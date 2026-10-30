@@ -1,0 +1,150 @@
+{
+ "n": 40,
+ "seedBase": 900000,
+ "summary": {
+  "baseline-vs-baseline": {
+   "wins": 208,
+   "games": 440,
+   "errors": 0,
+   "cand": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 355,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "opp": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 476,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "byOpp": {
+    "dragon_offense": "39/40",
+    "mixed_rain": "40/40",
+    "steel_bunker": "0/40",
+    "hazard_shift": "0/40",
+    "multi_mega_offense": "19/40",
+    "rain_pivot": "24/40",
+    "bulky_rotation": "40/40",
+    "mixed_electric": "5/40",
+    "rain": "1/40",
+    "setup": "40/40",
+    "stall": "0/40"
+   },
+   "wilson": [
+    0.427,
+    0.519
+   ]
+  },
+  "rational-vs-baseline": {
+   "wins": 218,
+   "games": 440,
+   "errors": 0,
+   "cand": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 176,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "opp": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 476,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "byOpp": {
+    "dragon_offense": "40/40",
+    "mixed_rain": "40/40",
+    "steel_bunker": "0/40",
+    "hazard_shift": "0/40",
+    "multi_mega_offense": "19/40",
+    "rain_pivot": "24/40",
+    "bulky_rotation": "40/40",
+    "mixed_electric": "14/40",
+    "rain": "1/40",
+    "setup": "40/40",
+    "stall": "0/40"
+   },
+   "wilson": [
+    0.449,
+    0.542
+   ]
+  },
+  "baseline-vs-rational": {
+   "wins": 190,
+   "games": 440,
+   "errors": 0,
+   "cand": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 344,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "opp": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 158,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "byOpp": {
+    "dragon_offense": "39/40",
+    "mixed_rain": "40/40",
+    "steel_bunker": "0/40",
+    "hazard_shift": "0/40",
+    "multi_mega_offense": "19/40",
+    "rain_pivot": "6/40",
+    "bulky_rotation": "40/40",
+    "mixed_electric": "5/40",
+    "rain": "1/40",
+    "setup": "40/40",
+    "stall": "0/40"
+   },
+   "wilson": [
+    0.386,
+    0.478
+   ]
+  },
+  "rational-vs-rational": {
+   "wins": 200,
+   "games": 440,
+   "errors": 0,
+   "cand": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 165,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "opp": {
+    "helmetChip": 0,
+    "helmetFaints": 0,
+    "immuneHits": 158,
+    "setupAtCap": 0,
+    "movesWhileEncored": 0
+   },
+   "byOpp": {
+    "dragon_offense": "40/40",
+    "mixed_rain": "40/40",
+    "steel_bunker": "0/40",
+    "hazard_shift": "0/40",
+    "multi_mega_offense": "19/40",
+    "rain_pivot": "6/40",
+    "bulky_rotation": "40/40",
+    "mixed_electric": "14/40",
+    "rain": "1/40",
+    "setup": "40/40",
+    "stall": "0/40"
+   },
+   "wilson": [
+    0.409,
+    0.501
+   ]
+  }
+ }
+}
