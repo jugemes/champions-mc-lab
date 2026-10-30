@@ -52,8 +52,11 @@ function publicVariants(dex,name){
   return out;
 }
 const coverageCache=new Map();
-function coverageMoves(dex,form){
-  const key=canon(form);
+// opts.priorityKeys (v2): keep the best PRIORITY move of each type apart, so
+// e.g. Sucker Punch is not overwritten by a stronger non-priority Dark move.
+// Default off = the PR #58 behaviour, unchanged.
+function coverageMoves(dex,form,{priorityKeys=false}={}){
+  const key=canon(form)+(priorityKeys?'|prio':'');
   if(coverageCache.has(key))return coverageCache.get(key);
   const species=dex.species.get(form);
   let pool=new Set();
@@ -65,7 +68,7 @@ function coverageMoves(dex,form){
     if(!m.exists||m.category==='Status'||!m.basePower||m.basePower>=150)continue;
     if(m.flags?.charge||m.selfdestruct||m.ohko||m.isZ||m.isMax)continue;
     if(m.id==='solarbeam'||m.id==='solarblade')continue; // only in sun, handled below
-    const k=m.type+m.category,acc=typeof m.accuracy==='number'?m.accuracy/100:1;
+    const k=m.type+m.category+(priorityKeys&&m.priority>0?'prio':''),acc=typeof m.accuracy==='number'?m.accuracy/100:1;
     const value=Math.min(m.basePower,100)*acc;
     if(!best[k]||best[k].value<value)best[k]={type:m.type,category:m.category,basePower:Math.min(m.basePower,100)*acc,
       priority:m.priority,contact:Boolean(m.flags?.contact),useDef:m.overrideOffensiveStat==='def',value};
@@ -84,16 +87,19 @@ function rawDamage(power,attack,defence,mult){
   return (Math.floor(Math.floor(22*power*attack/defence)/50)+2)*mult;
 }
 // Public-only attack of a variant on a (public or known) defender.
-function variantAttack(dex,v,defender,{knownDefender}){
+// opts.weather (v2): 'sun'|'sand'|'none' from the scenario's weather setters.
+// Undefined = PR #58 behaviour (sun only from the attacker's own Drought, and
+// the Sand Force branch never fires).
+function variantAttack(dex,v,defender,{knownDefender,weather,priorityKeys=false}){
   const form=dex.species.get(v.form),def=dex.species.get(defender.species);
   const hp=knownDefender?knownStat(dex,defender,'hp'):maxStat(dex,defender.species,'hp')-32;
   const ability=canon(v.ability);
-  const sun=ability==='drought';
-  const sand=ability==='sandstream';
+  const sun=weather===undefined?ability==='drought':weather==='sun';
+  const sand=weather==='sand';
   const moves=[];
   for(const type of form.types)for(const category of ['Physical','Special'])
     moves.push({type,category,basePower:90,stab:true,contact:category==='Physical'});
-  for(const m of coverageMoves(dex,v.form))moves.push({...m,stab:form.types.includes(m.type)});
+  for(const m of coverageMoves(dex,v.form,{priorityKeys}))moves.push({...m,stab:form.types.includes(m.type)});
   if(sun)moves.push({type:'Grass',category:'Special',basePower:120,stab:false});
   let stab=0,coverage=0,priority=0,physical=0,special=0;
   for(const m of moves){
@@ -153,12 +159,24 @@ function ownAttack(dex,set,v){
 function hitsToKO(frac){return frac<=0?99:Math.ceil(1/Math.max(frac,1e-6)-1e-9);}
 // Duel value in [0,1] for one of OUR known sets vs one PUBLIC rival variant.
 // free: we enter safely (after a KO); swap: we enter by taking one hit first.
-function duel(dex,own,v){
+// opts (v2 only; defaults = PR #58): weather, priorityKeys, encore (our known
+// Encore, when we outspeed, turns a rival setup turn into a lock instead of a
+// boost, so the setup penalty is dropped), speedSpread (the rival's speed
+// investment is hidden: average the max-invested and the uninvested neutral
+// speed cases instead of assuming max speed only).
+function duel(dex,own,v,opts={}){
+  if(opts.speedSpread){
+    const hi=duel(dex,own,v,{...opts,speedSpread:false,rivalSpeed:'max'});
+    const lo=duel(dex,own,v,{...opts,speedSpread:false,rivalSpeed:'none'});
+    const avg=k=>(hi[k]+lo[k])/2;
+    return {...hi,value:avg('value'),free:avg('free'),swap:avg('swap'),faster:avg('faster'),
+      encoreLock:hi.encoreLock||lo.encoreLock,speedCases:{max:hi,none:lo}};
+  }
   const set=ownForm(dex,own);
   const mine=ownAttack(dex,set,v);
-  const theirs=variantAttack(dex,v,set,{knownDefender:true});
+  const theirs=variantAttack(dex,v,set,{knownDefender:true,weather:opts.weather,priorityKeys:opts.priorityKeys});
   const ourSpe=knownStat(dex,set,'spe')*(canon(own.item)==='choicescarf'?1.5:1);
-  const theirSpe=maxStat(dex,v.form,'spe')*(v.scarf?1.5:1);
+  const theirSpe=(opts.rivalSpeed==='none'?dex.species.get(v.form).baseStats.spe+20:maxStat(dex,v.form,'spe'))*(v.scarf?1.5:1);
   const faster=ourSpe>theirSpe?1:ourSpe===theirSpe?0.5:0;
   // Public ability effects of this variant on our attacks.
   const ab=canon(v.ability);
@@ -210,12 +228,13 @@ function duel(dex,own,v){
   // which turns a 2-3HKO that cannot outpace 50% healing into a stall.
   const plainOurs=ours;
   if(coverageMoves(dex,v.form).recovery&&ours>1)ours=mine.best.min*intimidate>=0.5?ours+1:99;
-  const pool=coverageMoves(dex,v.form);
-  const cov=branch(Math.max(theirs.stab,theirs.coverage),theirs.priority,pool.setup);
+  const pool=coverageMoves(dex,v.form,{priorityKeys:opts.priorityKeys});
+  const encoreLock=opts.encore&&faster===1&&set.moves.some(m=>canon(m)==='encore');
+  const cov=branch(Math.max(theirs.stab,theirs.coverage),theirs.priority,encoreLock?0:pool.setup);
   ours=plainOurs;
   const free=(stab.free+cov.free)/2,swap=(stab.swap+cov.swap)/2;
   const value=0.6*free+0.4*swap;
-  return {value,free,swap,faster,ourHits:ours,theirHits:cov.them,theirStabHits:stab.them,move:mine.best.move||'',
+  return {value,free,swap,faster,setup:pool.setup,encoreLock,priority:Number(theirs.priority.toFixed(3)),ourHits:ours,theirHits:cov.them,theirStabHits:stab.them,move:mine.best.move||'',
     theirWorst:Number(theirs.worst.toFixed(3)),ourMin:Number(mine.best.min.toFixed(3))};
 }
 // Public-vs-public duel used for the RIVAL'S selection: both sides unknown.
@@ -376,4 +395,5 @@ function explainThreatAwarePreview(dex,team,opponentSix,{top=20,...options}={}){
   };
 }
 module.exports={DEFAULTS,publicVariants,duel,publicDuel,rivalHypotheses,rankThreatAwarePreview,
-  chooseThreatAwarePreview,explainThreatAwarePreview,coverageMoves,variantAttack};
+  chooseThreatAwarePreview,explainThreatAwarePreview,coverageMoves,variantAttack,combine,weightedMean,
+  maxStat,fixedAbility,hitsToKO,TRIPLES,PERMS,canon};

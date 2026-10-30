@@ -13,6 +13,7 @@ const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
 const {chooseStrategicPreview}=require('./preview-strategic');
 const {chooseThreatAwarePreview}=require('./preview-threat-aware');
+const {chooseThreatAwarePreviewV2}=require('./preview-threat-aware-v2');
 const FORMAT='gen9championsbssregmc';
 const STAT=['hp','atk','def','spa','spd','spe'];
 const root=__dirname;
@@ -199,7 +200,9 @@ class Bot{
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
           :this.previewPolicy==='threat-aware'
             ?chooseThreatAwarePreview(this.dex,this.team,this.opp)
-            :chooseThree(this.dex,this.team,this.opp);
+            :this.previewPolicy==='threat-aware-v2'
+              ?chooseThreatAwarePreviewV2(this.dex,this.team,this.opp)
+              :chooseThree(this.dex,this.team,this.opp);
       this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
       return 'team '+selected.join('');
     }
