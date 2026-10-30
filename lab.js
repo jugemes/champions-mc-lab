@@ -7,7 +7,7 @@ const path=require('node:path');
 const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const {publicThreat,defensiveCoverage}=require('./threat');
-const {moveUtility,incomingRisk}=require('./damage');
+const {moveUtility,incomingRisk,knownStat}=require('./damage');
 const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
@@ -57,6 +57,10 @@ function check(sim){
   console.log('LEGALITY CHECK PASSED: '+Object.keys(all).length+' teams');
 }
 function hashSeed(n){let x=n+1;const r=[];for(let i=0;i<4;i++){x=(Math.imul(x^x>>>16,0x7feb352d))>>>0;x=(Math.imul(x^x>>>15,0x846ca68b))>>>0;r.push(x&65535);x=(x+0x9e3779b9)>>>0;}return r;}
+function fixedMegaAbility(dex,name){
+  const sp=dex.species.get(name);
+  return sp.exists&&sp.isMega?(sp.abilities['0']||''):'';
+}
 function nameOf(details){return String(details||'').split(',')[0].replace(/-\*/g,'').trim();}
 function matchup(dex,p,foe,move){
   const m=dex.moves.get(move);
@@ -108,6 +112,16 @@ class Bot{
     this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
     this.previewPolicy=options.previewPolicy||'legacy';
     this.decisionPolicy=options.decisionPolicy||'baseline';
+    // PR #70: opt-in turn-AI fix, default off so saved results replay unchanged.
+    // Never pick Encore into a foe that is already Encored or has not moved
+    // since it came in (Encore fails). Both read from the public log only.
+    this.encoreGuard=['speed','speedSafe'].includes(options.encoreGuard)?options.encoreGuard:Boolean(options.encoreGuard);this.foePublicStatus='';this.foeConfused=false;this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
+    // PR #72 (PR #57 audit): opt-in, default off. A visible Mega forme has one
+    // publicly fixed ability (Golisopod-Mega Tough Claws, Garchomp-Mega-Z
+    // Levitate). Set it on detailschange and on switch/drag/replace back in;
+    // a non-Mega forme change clears a stale ability. Only the public species
+    // name on the protocol line is read.
+    this.publicMegaAbility=Boolean(options.publicMegaAbility);
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
@@ -120,15 +134,25 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
+          const megaAbility=this.publicMegaAbility?fixedMegaAbility(this.dex,this.foeActive):'';
+          if(this.publicMegaAbility&&a[1]==='detailschange')this.foeAbility=megaAbility;
           if(a[1]!=='detailschange'){
             this.foeBoosts={};
             const hp=String(a[4]||'').match(/^(\d+)\/(\d+)/);
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
-            this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+            this.foeAbility=megaAbility;this.lastMove='';this.foeLastMoveTurn=-999;
+            // speedSafe bookkeeping only: the switch line carries a public status
+            // (e.g. "185/185 slp"); legacy foeStatus stays cleared as before.
+            this.foePublicStatus=(String(a[4]||'').match(/ (slp|frz|par|brn|psn|tox)$/)||[])[1]||'';this.foeConfused=false;
           }
         }
-        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeEncored=false;
+        if((a[1]==='-start'||a[1]==='-end')&&/(^|: )Encore$/.test(a[3]||'')){
+          if(a[2]?.startsWith(this.foe+'a:'))this.foeEncored=a[1]==='-start';
+          if(a[2]?.startsWith(this.side+'a:'))this.ownEncored=a[1]==='-start';
+        }
         if(['-boost','-unboost','-setboost'].includes(a[1])){
           const target=a[2]?.startsWith(this.side+'a:')?this.boosts:a[2]?.startsWith(this.foe+'a:')?this.foeBoosts:null;
           if(target){
@@ -142,15 +166,22 @@ class Bot{
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
+        // Gastro Acid style suppression is public; it ends on switch-out.
+        if(this.publicMegaAbility&&a[1]==='-endability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility='';
         if(a[1]==='-fieldstart'&&String(a[2]).startsWith('move: '))this.terrain=canonical(a[2].slice(6));
+        if(['-fieldstart','-fieldend'].includes(a[1])&&a[2]==='move: Trick Room')this.trickRoom=a[1]==='-fieldstart';
         if(a[1]==='-weather')this.weather=canonical(a[2])==='none'?'':canonical(a[2]);
         if(a[1]==='-fieldend'&&canonical(String(a[2]).replace(/^move: /,''))===this.terrain)this.terrain='';
-        if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
-        if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus='';
+        if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=this.foePublicStatus=a[3];
+        if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=this.foePublicStatus='';
+        if((a[1]==='-start'||a[1]==='-end')&&a[2]?.startsWith(this.foe+'a:')&&/^confusion$/.test(a[3]||''))this.foeConfused=a[1]==='-start';
         if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':')){
           const key=canonical(String(a[3]).replace(/^move: /,''));this.hazards[key]=(this.hazards[key]||0)+1;
         }
         if(a[1]==='-sideend'&&a[2]?.startsWith(this.foe+':'))delete this.hazards[canonical(String(a[3]).replace(/^move: /,''))];
+        // Own-side hazards: bookkeeping only (read by audit scripts), no effect on decide().
+        if(a[1]==='-sidestart'&&a[2]?.startsWith(this.side+':')){const k=canonical(String(a[3]).replace(/^move: /,''));this.ownHazards[k]=(this.ownHazards[k]||0)+1;}
+        if(a[1]==='-sideend'&&a[2]?.startsWith(this.side+':'))delete this.ownHazards[canonical(String(a[3]).replace(/^move: /,''))];
         if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
@@ -178,6 +209,55 @@ class Bot{
       }
     }
   }
+  // encoreGuard. Showdown Encore fails when the target is already Encored or
+  // has no lastMove; lastMove is cleared on switch-in and set only by a used
+  // move (a flinch / full paralysis / sleep |cant| line leaves it unset, and so
+  // does foeLastMoveTurn). PR #70 (encoreGuard true) blocks every fresh foe.
+  // 'speed' (PR #72): a fresh foe that publicly outspeeds us even at its
+  // minimum stat moves first and sets lastMove, so Encore works unless it
+  // switches; block only when we might move first. No Trick Room tracking
+  // beyond the public -fieldstart line; unknown cases keep the block.
+  // 'speedSafe' (PR #74, P0-A of the PR #73 review): 'speed' assumed a surely
+  // faster fresh foe always acts first. It does not when it picks a negative
+  // priority move (Dragon Tail -6, Trick Room -7, ...), or cannot act (asleep,
+  // frozen, fully paralysed, confused self-hit): no |move|, lastMove unset,
+  // Encore fails. The foe's moves are hidden, so block on what is public: the
+  // species' legal move pool (dex learnset of the pinned champions mod; same as
+  // TeamValidator.checkCanLearn on all 401 legal species), its possible
+  // abilities, and status/confusion lines. A foe acting first with a
+  // failencore move (Encore, Copycat, ...) also makes Encore fail, and Magic
+  // Bounce reflects it. Accepted residual risks, shared by every move: the foe
+  // switches or Protects. 'speed' is kept unchanged for PR #73 reproduction.
+  encoreSafeBlock(){
+    if(['slp','frz','par'].includes(this.foePublicStatus)||this.foeConfused)return true;
+    const foe=this.dex.species.get(this.foeActive);if(!foe.exists)return true;
+    const known=canonical(this.foeAbility);
+    const abilities=known?[known]:Object.values(foe.abilities).map(canonical);
+    if(abilities.some(x=>['stall','myceliummight','magicbounce'].includes(x)))return true;
+    this.encoreRiskCache??={};
+    if(!(foe.id in this.encoreRiskCache)){
+      const pool=[...this.dex.species.getMovePool(foe.id)].map(id=>this.dex.moves.get(id));
+      this.encoreRiskCache[foe.id]=pool.filter(m=>m.priority<0||(m.flags.failencore&&!['sleeptalk','struggle'].includes(m.id))).map(m=>m.name);
+    }
+    return this.encoreRiskCache[foe.id].length>0;
+  }
+  encoreWouldFail(my,side){
+    if(this.foeEncored)return true;
+    if(this.encoreGuard==='speedSafe'&&this.foeLastMoveTurn>=0&&this.dex.moves.get(this.lastMove).flags?.failencore)return true;
+    if(this.foeLastMoveTurn>=0)return false;
+    if(!['speed','speedSafe'].includes(this.encoreGuard)||this.trickRoom)return true;
+    if(this.encoreGuard==='speedSafe'&&this.encoreSafeBlock())return true;
+    const foe=this.dex.species.get(this.foeActive);if(!foe.exists)return true;
+    const stage=n=>n>=0?(2+n)/2:2/(2-n);
+    const cur=side.find(p=>p.active),ownPar=/ par$/.test(String(cur?.condition));
+    // Own speed is private-known: current (Mega) forme, points, nature, Scarf.
+    const scarf=canonical(cur?.item||my.item)==='choicescarf'?1.5:1;
+    const own=knownStat(this.dex,{...my,species:nameOf(cur?.details)||my.species},'spe')*scarf*stage(this.boosts.spe||0)*(ownPar?0.5:1);
+    const foeMin=Math.floor((foe.baseStats.spe+20)*0.9)*stage(this.foeBoosts.spe||0)*(this.foeStatus==='par'?0.5:1);
+    return !(own<foeMin);
+  }
+  // publicMegaAbility only: the foe's public attacking ability for incomingRisk.
+  attackerInfo(){return this.publicMegaAbility&&this.foeAbility?{attackerAbility:this.foeAbility}:{};}
   getSet(p){
     const name=nameOf(p.details);
     const base=this.dex.species.get(name).baseSpecies||name;
@@ -204,7 +284,7 @@ class Bot{
     if(req.forceSwitch){
       const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP})))
-        -75*incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+        -75*incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       return bench.length?'switch '+(bench[0].i+1):'default';
     }
@@ -268,13 +348,14 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
+      if(this.encoreGuard&&canonical(m.id||m.move)==='encore'&&this.encoreWouldFail(my,side))score=-Infinity;
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
     if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
-      const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+      const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
-      const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+      const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       if(score(bench[0].p)>Math.max(25,best.score+18)
         && (riskOf(bench[0].p)<currentRisk*0.70||ratio<0.25)
@@ -370,4 +451,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst,fixedMegaAbility};

@@ -1,0 +1,320 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "rows": [
+  {
+   "id": "negprio_dragontail",
+   "why": "fresh surely-faster Garchomp picks Dragon Tail (-6)",
+   "reverse": false,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": [
+     "Dragon Tail"
+    ]
+   },
+   "turnLog": [
+    "|move|p1a: Primarina|Encore||[still]",
+    "|-fail|p1a: Primarina",
+    "|move|p2a: Garchomp|Dragon Tail|p1a: Primarina"
+   ]
+  },
+  {
+   "id": "negprio_dragontail",
+   "why": "fresh surely-faster Garchomp picks Dragon Tail (-6)",
+   "reverse": true,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": [
+     "Dragon Tail"
+    ]
+   },
+   "turnLog": [
+    "|move|p2a: Primarina|Encore||[still]",
+    "|-fail|p2a: Primarina",
+    "|move|p1a: Garchomp|Dragon Tail|p2a: Primarina"
+   ]
+  },
+  {
+   "id": "negprio_trickroom",
+   "why": "fresh surely-faster Mimikyu picks Trick Room (-7)",
+   "reverse": false,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Mimikyu",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": [
+     "Copycat",
+     "Trick Room"
+    ]
+   },
+   "turnLog": [
+    "|move|p1a: Primarina|Encore||[still]",
+    "|-fail|p1a: Primarina",
+    "|move|p2a: Mimikyu|Trick Room|p2a: Mimikyu",
+    "|-fieldstart|move: Trick Room|[of] p2a: Mimikyu"
+   ]
+  },
+  {
+   "id": "negprio_trickroom",
+   "why": "fresh surely-faster Mimikyu picks Trick Room (-7)",
+   "reverse": true,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Mimikyu",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": [
+     "Copycat",
+     "Trick Room"
+    ]
+   },
+   "turnLog": [
+    "|move|p2a: Primarina|Encore||[still]",
+    "|-fail|p2a: Primarina",
+    "|move|p1a: Mimikyu|Trick Room|p1a: Mimikyu",
+    "|-fieldstart|move: Trick Room|[of] p1a: Mimikyu"
+   ]
+  },
+  {
+   "id": "cant_sleep_reentry",
+   "why": "non-Scarf Garchomp Rests, switches out, comes back asleep (public \"slp\" on the switch line): |cant|",
+   "reverse": false,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "slp",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|cant|p2a: Garchomp|slp",
+    "|move|p1a: Primarina|Encore||[still]",
+    "|-fail|p1a: Primarina"
+   ]
+  },
+  {
+   "id": "cant_sleep_reentry",
+   "why": "non-Scarf Garchomp Rests, switches out, comes back asleep (public \"slp\" on the switch line): |cant|",
+   "reverse": true,
+   "expect": "fail",
+   "engine": "fail",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": true,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "slp",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|cant|p1a: Garchomp|slp",
+    "|move|p2a: Primarina|Encore||[still]",
+    "|-fail|p2a: Primarina"
+   ]
+  },
+  {
+   "id": "ok_fast_no_risk",
+   "why": "fresh surely-faster Rotom-Wash (no negative-priority / failencore move in its legal pool) attacks first",
+   "reverse": false,
+   "expect": "start",
+   "engine": "start",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": false,
+    "foe": "Rotom-Wash",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|move|p2a: Rotom|Thunderbolt|p1a: Primarina",
+    "|move|p1a: Primarina|Encore|p2a: Rotom",
+    "|-start|p2a: Rotom|Encore"
+   ]
+  },
+  {
+   "id": "ok_fast_no_risk",
+   "why": "fresh surely-faster Rotom-Wash (no negative-priority / failencore move in its legal pool) attacks first",
+   "reverse": true,
+   "expect": "start",
+   "engine": "start",
+   "guards": {
+    "v1": true,
+    "speed": false,
+    "speedSafe": false,
+    "foe": "Rotom-Wash",
+    "foeLastMoveTurn": -999,
+    "foePublicStatus": "",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|move|p1a: Rotom|Thunderbolt|p2a: Primarina",
+    "|move|p2a: Primarina|Encore|p1a: Rotom",
+    "|-start|p1a: Rotom|Encore"
+   ]
+  },
+  {
+   "id": "ok_v1_moved_before",
+   "why": "v1 normal case: Garchomp already used Rock Slide last turn, uses it again",
+   "reverse": false,
+   "expect": "start",
+   "engine": "start",
+   "guards": {
+    "v1": false,
+    "speed": false,
+    "speedSafe": false,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": 1,
+    "foePublicStatus": "",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|move|p2a: Garchomp|Rock Slide|p1a: Primarina|[miss]",
+    "|move|p1a: Primarina|Encore|p2a: Garchomp",
+    "|-start|p2a: Garchomp|Encore"
+   ]
+  },
+  {
+   "id": "ok_v1_moved_before",
+   "why": "v1 normal case: Garchomp already used Rock Slide last turn, uses it again",
+   "reverse": true,
+   "expect": "start",
+   "engine": "start",
+   "guards": {
+    "v1": false,
+    "speed": false,
+    "speedSafe": false,
+    "foe": "Garchomp",
+    "foeLastMoveTurn": 1,
+    "foePublicStatus": "",
+    "safeRisk": []
+   },
+   "turnLog": [
+    "|move|p1a: Garchomp|Rock Slide|p2a: Primarina|[miss]",
+    "|move|p2a: Primarina|Encore|p1a: Garchomp",
+    "|-start|p1a: Garchomp|Encore"
+   ]
+  }
+ ],
+ "summary": [
+  {
+   "id": "negprio_dragontail",
+   "reverse": false,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "negprio_dragontail",
+   "reverse": true,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "negprio_trickroom",
+   "reverse": false,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "negprio_trickroom",
+   "reverse": true,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "cant_sleep_reentry",
+   "reverse": false,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "cant_sleep_reentry",
+   "reverse": true,
+   "engine": "fail",
+   "v1": true,
+   "speed": false,
+   "speedSafe": true
+  },
+  {
+   "id": "ok_fast_no_risk",
+   "reverse": false,
+   "engine": "start",
+   "v1": true,
+   "speed": false,
+   "speedSafe": false
+  },
+  {
+   "id": "ok_fast_no_risk",
+   "reverse": true,
+   "engine": "start",
+   "v1": true,
+   "speed": false,
+   "speedSafe": false
+  },
+  {
+   "id": "ok_v1_moved_before",
+   "reverse": false,
+   "engine": "start",
+   "v1": false,
+   "speed": false,
+   "speedSafe": false
+  },
+  {
+   "id": "ok_v1_moved_before",
+   "reverse": true,
+   "engine": "start",
+   "v1": false,
+   "speed": false,
+   "speedSafe": false
+  }
+ ],
+ "falseNegatives": {
+  "v1": 0,
+  "speed": 6,
+  "speedSafe": 0
+ },
+ "falsePositives": {
+  "v1": 2,
+  "speed": 0,
+  "speedSafe": 0
+ }
+}
