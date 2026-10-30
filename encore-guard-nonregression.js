@@ -70,3 +70,4 @@ async function main(){
   fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(out,null,1));
 }
 if(require.main===module)main().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
+module.exports={newSix};

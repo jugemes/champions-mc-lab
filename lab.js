@@ -7,7 +7,7 @@ const path=require('node:path');
 const {variants,archetypes,scenarios}=require('./fixtures');
 const {policyStatusScore,shouldScriptedSetup,shouldScriptedRegen,canonical}=require('./tactics');
 const {publicThreat,defensiveCoverage}=require('./threat');
-const {moveUtility,incomingRisk}=require('./damage');
+const {moveUtility,incomingRisk,knownStat}=require('./damage');
 const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
 const {seededRandom,choosePreview}=require('./preview-policy');
@@ -57,6 +57,10 @@ function check(sim){
   console.log('LEGALITY CHECK PASSED: '+Object.keys(all).length+' teams');
 }
 function hashSeed(n){let x=n+1;const r=[];for(let i=0;i<4;i++){x=(Math.imul(x^x>>>16,0x7feb352d))>>>0;x=(Math.imul(x^x>>>15,0x846ca68b))>>>0;r.push(x&65535);x=(x+0x9e3779b9)>>>0;}return r;}
+function fixedMegaAbility(dex,name){
+  const sp=dex.species.get(name);
+  return sp.exists&&sp.isMega?(sp.abilities['0']||''):'';
+}
 function nameOf(details){return String(details||'').split(',')[0].replace(/-\*/g,'').trim();}
 function matchup(dex,p,foe,move){
   const m=dex.moves.get(move);
@@ -111,7 +115,13 @@ class Bot{
     // PR #70: opt-in turn-AI fix, default off so saved results replay unchanged.
     // Never pick Encore into a foe that is already Encored or has not moved
     // since it came in (Encore fails). Both read from the public log only.
-    this.encoreGuard=Boolean(options.encoreGuard);this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
+    this.encoreGuard=options.encoreGuard==='speed'?'speed':Boolean(options.encoreGuard);this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
+    // PR #72 (PR #57 audit): opt-in, default off. A visible Mega forme has one
+    // publicly fixed ability (Golisopod-Mega Tough Claws, Garchomp-Mega-Z
+    // Levitate). Set it on detailschange and on switch/drag/replace back in;
+    // a non-Mega forme change clears a stale ability. Only the public species
+    // name on the protocol line is read.
+    this.publicMegaAbility=Boolean(options.publicMegaAbility);
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
@@ -124,12 +134,14 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
+          const megaAbility=this.publicMegaAbility?fixedMegaAbility(this.dex,this.foeActive):'';
+          if(this.publicMegaAbility&&a[1]==='detailschange')this.foeAbility=megaAbility;
           if(a[1]!=='detailschange'){
             this.foeBoosts={};
             const hp=String(a[4]||'').match(/^(\d+)\/(\d+)/);
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
-            this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+            this.foeAbility=megaAbility;this.lastMove='';this.foeLastMoveTurn=-999;
           }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
@@ -151,7 +163,10 @@ class Bot{
         if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))this.foeItem=a[3];
         if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeItem='';
         if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility=a[3];
+        // Gastro Acid style suppression is public; it ends on switch-out.
+        if(this.publicMegaAbility&&a[1]==='-endability'&&a[2]?.startsWith(this.foe+'a:'))this.foeAbility='';
         if(a[1]==='-fieldstart'&&String(a[2]).startsWith('move: '))this.terrain=canonical(a[2].slice(6));
+        if(['-fieldstart','-fieldend'].includes(a[1])&&a[2]==='move: Trick Room')this.trickRoom=a[1]==='-fieldstart';
         if(a[1]==='-weather')this.weather=canonical(a[2])==='none'?'':canonical(a[2]);
         if(a[1]==='-fieldend'&&canonical(String(a[2]).replace(/^move: /,''))===this.terrain)this.terrain='';
         if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
@@ -190,6 +205,29 @@ class Bot{
       }
     }
   }
+  // encoreGuard. Showdown Encore fails when the target is already Encored or
+  // has no lastMove; lastMove is cleared on switch-in and set only by a used
+  // move (a flinch / full paralysis / sleep |cant| line leaves it unset, and so
+  // does foeLastMoveTurn). PR #70 (encoreGuard true) blocks every fresh foe.
+  // 'speed' (PR #72): a fresh foe that publicly outspeeds us even at its
+  // minimum stat moves first and sets lastMove, so Encore works unless it
+  // switches; block only when we might move first. No Trick Room tracking
+  // beyond the public -fieldstart line; unknown cases keep the block.
+  encoreWouldFail(my,side){
+    if(this.foeEncored)return true;
+    if(this.foeLastMoveTurn>=0)return false;
+    if(this.encoreGuard!=='speed'||this.trickRoom)return true;
+    const foe=this.dex.species.get(this.foeActive);if(!foe.exists)return true;
+    const stage=n=>n>=0?(2+n)/2:2/(2-n);
+    const cur=side.find(p=>p.active),ownPar=/ par$/.test(String(cur?.condition));
+    // Own speed is private-known: current (Mega) forme, points, nature, Scarf.
+    const scarf=canonical(cur?.item||my.item)==='choicescarf'?1.5:1;
+    const own=knownStat(this.dex,{...my,species:nameOf(cur?.details)||my.species},'spe')*scarf*stage(this.boosts.spe||0)*(ownPar?0.5:1);
+    const foeMin=Math.floor((foe.baseStats.spe+20)*0.9)*stage(this.foeBoosts.spe||0)*(this.foeStatus==='par'?0.5:1);
+    return !(own<foeMin);
+  }
+  // publicMegaAbility only: the foe's public attacking ability for incomingRisk.
+  attackerInfo(){return this.publicMegaAbility&&this.foeAbility?{attackerAbility:this.foeAbility}:{};}
   getSet(p){
     const name=nameOf(p.details);
     const base=this.dex.species.get(name).baseSpecies||name;
@@ -216,7 +254,7 @@ class Bot{
     if(req.forceSwitch){
       const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP})))
-        -75*incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+        -75*incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       return bench.length?'switch '+(bench[0].i+1):'default';
     }
@@ -280,14 +318,14 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
-      if(this.encoreGuard&&canonical(m.id||m.move)==='encore'&&(this.foeEncored||this.foeLastMoveTurn<0))score=-Infinity;
+      if(this.encoreGuard&&canonical(m.id||m.move)==='encore'&&this.encoreWouldFail(my,side))score=-Infinity;
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
     if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
-      const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+      const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
-      const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive]});
+      const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       if(score(bench[0].p)>Math.max(25,best.score+18)
         && (riskOf(bench[0].p)<currentRisk*0.70||ratio<0.25)
@@ -383,4 +421,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst,fixedMegaAbility};
