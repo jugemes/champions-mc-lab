@@ -130,19 +130,19 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
-          if(a[1]==='detailschange'){
-            // A visibly revealed Mega has a single publicly known ability.
-            // Do not retain the previous form's observed ability (e.g. Sand Veil
-            // on Garchomp becoming Levitate on Garchomp-Mega-Z).
-            const form=this.dex.species.get(this.foeActive);
-            this.foeAbility=form.exists&&form.isMega?(form.abilities['0']||''):'';
-          }
+          // A visibly revealed Mega form has a publicly fixed ability both
+          // immediately after Mega Evolution and when returning from the bench.
+          // Never carry an old form's observed ability across this transition.
+          const publicForm=this.dex.species.get(this.foeActive);
+          const fixedMegaAbility=publicForm.exists&&publicForm.isMega
+            ?(publicForm.abilities['0']||''):'';
+          if(a[1]==='detailschange')this.foeAbility=fixedMegaAbility;
           if(a[1]!=='detailschange'){
             this.foeBoosts={};
             const hp=String(a[4]||'').match(/^(\d+)\/(\d+)/);
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
-            this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
+            this.foeAbility=fixedMegaAbility;this.lastMove='';this.foeLastMoveTurn=-999;
           }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;this.ownVolatiles={};}
