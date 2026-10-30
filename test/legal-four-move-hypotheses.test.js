@@ -69,10 +69,10 @@ test('coverage tracking exposes omitted public moves and keeps full AP profile',
 });
 
 test('a validated legal four-move rival hypothesis can actually enter fixed Showdown Battle',async()=>{
-  const {variants}=require('../fixtures');
+  const {variants:fixtureVariants}=require('../fixtures');
   const {reportedLive}=require('../reported-live-roster-20261027');
   const {game,hashSeed,normalize}=require('../lab');
-  const foe=structuredClone(variants.C_master);
+  const foe=structuredClone(fixtureVariants.C_master);
   const index=foe.findIndex(p=>p.species==='Golisopod');
   assert.ok(index>=0,'public Golisopod fixture must exist');
   const old=foe[index],v=new sim.TeamValidator('gen9championsbssregmc');
