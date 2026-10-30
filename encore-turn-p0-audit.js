@@ -163,4 +163,4 @@ async function main(){
   for(const [k,a] of Object.entries(agg))console.log(k.padEnd(40),'win',a.w+'/'+a.n,'stayWins',a.stayWins,'stayWorse',a.worse,'ownEncFail',a.fail,'intoFresh',a.fresh,'intoEncored',a.enc,'rivalSwInFaint',a.swFaint);
 }
 if(require.main===module)main().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
-module.exports={run,script,ratSwitch,facts,OWN_AI};
+module.exports={run,script,ratSwitch,riskOf,facts,OWN_AI};
