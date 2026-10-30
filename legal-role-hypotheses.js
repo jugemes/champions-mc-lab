@@ -45,6 +45,21 @@ const ABILITY_PREF=['Intimidate','Regenerator','Drought','Drizzle','Sand Stream'
   'Disguise','Unaware','Magic Guard','Protean','Adaptability','Tough Claws','Technician',
   'Huge Power','Rough Skin','Thick Fat','Supreme Overlord','Good as Gold','Thermal Exchange',
   'Moxie','Guts','Swift Swim','Chlorophyll','Sharpness','Iron Fist','Strong Jaw','Sheer Force'];
+// v2 (PR #65 review 5711453967 P0-1): "conditional" is not "unusable".
+// These moves are kept OUT of the generic roles (v1 behaviour) but, when the
+// public form/ability can create the condition, each gets its own complete
+// 'conditional' hypothesis with the power it has in that state. The pinned
+// engine then decides in battle whether the condition actually holds.
+// power = value used only to pick the other three moves; never a damage claim.
+const CONDITIONAL={
+  solarbeam:{when:'sun',holds:ab=>ab.includes('Drought'),power:120},
+  solarblade:{when:'sun',holds:ab=>ab.includes('Drought'),power:125},
+  expandingforce:{when:'psychic terrain',holds:ab=>ab.includes('Psychic Surge'),power:120},
+  // Last Respects: 50 + 50 per fainted ally; 100 = one ally down (late game).
+  lastrespects:{when:'fainted allies',holds:()=>true,power:100},
+  // First Impression: +2 priority, first turn after entering only.
+  firstimpression:{when:'first turn out',holds:()=>true,power:90},
+};
 const TYPES18=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground',
   'Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
 const id=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
@@ -62,28 +77,33 @@ function movePool(dex,species){
   if(!(pool instanceof Set))pool=new Set(pool||[]);
   return [...pool].filter(m=>{const d=dex.moves.get(m);return d.exists&&!d.isNonstandard&&!d.isZ&&!d.isMax;}).sort();
 }
-function attackValue(dex,form,mid,category){
+// cond: {moveid: power} for conditional moves whose condition this form can
+// create (v2 only). Without it the v1 rule stands: charge moves score 0, so
+// v1 allowImpractical:['solarbeam'] never selected Solar Beam (P0-1 bug).
+function attackValue(dex,form,mid,category,cond={}){
   const m=dex.moves.get(mid);
   if(m.category==='Status'||m.category!==category||!m.basePower||m.ohko)return 0;
-  if(m.flags?.charge||m.flags?.recharge)return 0;
+  if(cond[m.id]==null&&(m.flags?.charge||m.flags?.recharge))return 0;
   const acc=typeof m.accuracy==='number'?m.accuracy/100:1;
   const hits=Array.isArray(m.multihit)?(m.multihit[0]+m.multihit[1])/2:(m.multihit||1);
   const stab=form.types.includes(m.type)?1.5:1;
   // Self-drop moves (Draco Meteor, Close Combat) stay, but slightly discounted.
   const drop=m.self?.boosts&&Object.values(m.self.boosts).some(v=>v<0)?0.9:1;
-  return Math.min(150,m.basePower*hits)*acc*stab*drop;
+  return Math.min(150,(cond[m.id]??m.basePower)*hits)*acc*stab*drop;
 }
 // Greedy STAB-then-coverage: maximise the sum over 18 mono types of the best
 // effective power, so the set is not four near-duplicates of the top STAB.
-function pickAttacks(dex,form,pool,category,n,{allowImpractical=[]}={}){
-  const cand=pool.filter(m=>(!IMPRACTICAL.has(m)||allowImpractical.includes(m))&&attackValue(dex,form,m,category)>0);
-  const picked=[];
+// fixed: moves already in the set (v2 conditional role), counted for
+// coverage/type de-duplication; returned list includes them first.
+function pickAttacks(dex,form,pool,category,n,{allowImpractical=[],cond={},fixed=[]}={}){
+  const cand=pool.filter(m=>(!IMPRACTICAL.has(m)||allowImpractical.includes(m))&&attackValue(dex,form,m,category,cond)>0);
+  const picked=[...fixed];
   const cover=set=>TYPES18.reduce((s,t)=>s+Math.max(0,...set.map(m=>{
     const d=dex.moves.get(m);
     if(!dex.getImmunity(d.type,[t]))return 0;
-    return attackValue(dex,form,m,category)*2**dex.getEffectiveness(d.type,[t]);
+    return attackValue(dex,form,m,category,cond)*2**dex.getEffectiveness(d.type,[t]);
   })),0);
-  while(picked.length<n){
+  while(picked.length<n+fixed.length){
     let best=null,gain=0;
     for(const m of cand){
       if(picked.includes(m))continue;
@@ -93,7 +113,7 @@ function pickAttacks(dex,form,pool,category,n,{allowImpractical=[]}={}){
     }
     // No coverage gain left: fill with the strongest unused new type.
     if(!best)best=cand.filter(m=>!picked.includes(m)&&!picked.some(p=>dex.moves.get(p).type===dex.moves.get(m).type))
-      .sort((a,b)=>attackValue(dex,form,b,category)-attackValue(dex,form,a,category)||a.localeCompare(b))[0];
+      .sort((a,b)=>attackValue(dex,form,b,category,cond)-attackValue(dex,form,a,category,cond)||a.localeCompare(b))[0];
     if(!best)break;
     picked.push(best);
   }
@@ -127,13 +147,18 @@ const POINTS={
 const NATURE={fast:{Physical:'Jolly',Special:'Timid'},power:{Physical:'Adamant',Special:'Modest'}};
 // Up to five role templates per public species. Every template fixes the
 // whole set; a battle scenario never mixes moves from two templates.
-function roleSets(dex,species){
+// version 'v1' reproduces PR #65 exactly; 'v2' adds CONDITIONAL handling.
+function roleSets(dex,species,{version='v1'}={}){
+  const v2=version==='v2';
   const base=dex.species.get(species);
   if(!base.exists||typeof species!=='string')throw Error('Unknown species: '+JSON.stringify(species));
   const pool=movePool(dex,base.name);
   const out=[];
   const push=(role,form,item,cat,moves,points,nature,rationale)=>{
     if(moves.length!==4)return;
+    // v2: a conditional set identical to an existing role set adds nothing.
+    const key=[...moves].map(id).sort().join();
+    if(v2&&out.some(o=>o.form===form.name&&o.item===(item)&&[...o.moves].map(id).sort().join()===key))return;
     out.push({role,species:base.name,form:form.name,item,ability:chooseAbility(base),
       nature,level:50,evs:points,moves:moves.map(m=>dex.moves.get(m).name),
       speedPoints:points.spe,rationale});
@@ -144,20 +169,34 @@ function roleSets(dex,species){
     const cat=category(form),tag=form.isMega?form.name+' ':'';
     // Solar Beam is a standing pick only under the form's own sun.
     const allow=Object.values(form.abilities).includes('Drought')?['solarbeam']:[];
+    // Abilities this hypothesis can actually have: the Mega form's fixed one,
+    // otherwise the chosen pre-Mega ability.
+    const abil=form.isMega?Object.values(form.abilities):[chooseAbility(base)];
+    const condMoves=v2?Object.keys(CONDITIONAL).filter(m=>pool.includes(m)&&CONDITIONAL[m].holds(abil)&&
+      dex.moves.get(m).category===cat):[];
+    const cond=Object.fromEntries(condMoves.map(m=>[m,CONDITIONAL[m].power]));
+    const pa=(n,o={})=>pickAttacks(dex,form,pool,cat,n,{allowImpractical:allow,cond,...o});
     const prio=firstIn(pool,PRIORITY.filter(m=>dex.moves.get(m).category===cat));
     const setup=firstIn(pool,SETUP.filter(m=>{const b=dex.moves.get(m).boosts||{};
       return cat==='Physical'?b.atk:b.spa;}));
     const recov=firstIn(pool,RECOVERY);
     // 1. all-out attacker: 3 coverage + priority if any.
-    const att=pickAttacks(dex,form,pool,cat,prio?3:4,{allowImpractical:allow});
+    const att=v2?pa(prio?3:4):pickAttacks(dex,form,pool,cat,prio?3:4,{allowImpractical:allow});
     push('attacker',form,item||'Life Orb',cat,prio?[...att,prio]:att,POINTS.fast(cat),NATURE.fast[cat],
       tag+'best STAB/coverage'+(prio?' + priority':''));
     // 2. setup sweeper: setup + 2 attacks + (priority | recovery | Protect).
     if(setup){
       const last=prio||recov||(pool.includes('protect')?'protect':null);
-      const a2=pickAttacks(dex,form,pool,cat,last?2:3,{allowImpractical:allow});
+      const a2=v2?pa(last?2:3):pickAttacks(dex,form,pool,cat,last?2:3,{allowImpractical:allow});
       push('setup',form,item||'Focus Sash',cat,[setup,...a2,...(last?[last]:[])],POINTS.fast(cat),NATURE.fast[cat],
         tag+setup+' + 2 attacks + '+(last||'third attack'));
+    }
+    // v2: one complete set per conditional move = that move + 3 attacks.
+    for(const m of condMoves){
+      const mv=pa(3,{fixed:[m]});
+      if(!mv.includes(m))continue;
+      push('conditional',form,item||'Life Orb',cat,mv,POINTS.fast(cat),NATURE.fast[cat],
+        tag+dex.moves.get(m).name+' when '+CONDITIONAL[m].when);
     }
     if(form.isMega)continue; // non-Mega roles below are the same for every stone
     // 3. Choice Scarf: four attacks only (no status: coherence).
@@ -184,7 +223,7 @@ function roleSets(dex,species){
   // Interleave Mega and non-Mega hypotheses so that scenario k=0,1,2 covers
   // "Mega ace", "Scarf/regular" and "the other Mega" (Charizard X/Y).
   const mega=out.filter(s=>s.form!==base.name),plain=out.filter(s=>s.form===base.name);
-  const ROLE_ORDER=['scarf','attacker','bulky','setup','lead'];
+  const ROLE_ORDER=['scarf','attacker','bulky','setup','lead','conditional'];
   plain.sort((a,b)=>ROLE_ORDER.indexOf(a.role)-ROLE_ORDER.indexOf(b.role));
   mega.sort((a,b)=>(a.role==='attacker'?0:1)-(b.role==='attacker'?0:1)||a.form.localeCompare(b.form));
   const ordered=[];
@@ -193,14 +232,14 @@ function roleSets(dex,species){
   return out;
 }
 let cachedValidator=null;
-function legalRoleHypotheses(sim,species){
+function legalRoleHypotheses(sim,species,opts={}){
   const dex=sim.Dex.mod('champions');
   cachedValidator=cachedValidator||new sim.TeamValidator(FORMAT);
   const kept=[],rejected=[];
-  for(const s of roleSets(dex,species)){
+  for(const s of roleSets(dex,species,opts)){
     const {form,role,rationale,speedPoints,...set}=s;
     const problems=[...(cachedValidator.validateSet(structuredClone(set),{})||[]),...coherenceProblems(dex,set,{formName:form})];
-    (problems.length?rejected:kept).push({...s,problems,
+    (problems.length?rejected:kept).push({...s,problems,tags:threatTags(dex,s),
       provenance:{source:'public-learnset role template (no usage data)',validator:FORMAT,
         showdown:'3a766f2cfb5e51c1e428cfe87d0dba91a8f01640'}});
   }
@@ -228,5 +267,57 @@ function rivalScenario(hyps,k){
   }
   return team;
 }
-module.exports={FORMAT,IMPRACTICAL,megaOptions,movePool,pickAttacks,roleSets,coherenceProblems,
+// Threat archetypes a scenario set must be able to show (P0-3). Derived from
+// the hypothesis itself (public species -> legal set), never from a rival log.
+const PRIO_SET=new Set(PRIORITY);
+const WEATHER=['Drought','Drizzle','Sand Stream','Snow Warning'];
+function threatTags(dex,s){
+  const ids=s.moves.map(id),form=dex.species.get(s.form);
+  const abil=form.isMega?Object.values(form.abilities):[s.ability];
+  const t=[];
+  if(ids.some(m=>SETUP.includes(m)))t.push('setup');
+  if(ids.some(m=>PRIO_SET.has(m)||dex.moves.get(m).priority>0&&dex.moves.get(m).category!=='Status'))t.push('priority');
+  if(ids.some(m=>RECOVERY.includes(m)))t.push('recovery');
+  if(s.item==='Choice Scarf')t.push('scarf');
+  if(abil.some(a=>WEATHER.includes(a)))t.push('weather');
+  if(abil.includes('Levitate'))t.push('levitate');
+  if(form.isMega)t.push('mega:'+form.name);
+  for(const m of ids)if(CONDITIONAL[m])t.push('cond:'+m);
+  return t;
+}
+// v2 scenarios (P0-3): instead of role index k=0..2, build scenarios
+// greedily until every (species, threat tag) that ANY coherent hypothesis of
+// that species carries appears in at least one scenario. Item clause is
+// respected per scenario. Returns coverage; missing pairs mean the score for
+// that public six is NOT verified.
+function coverageScenarios(hyps,{max=8}={}){
+  const need=new Set();
+  hyps.forEach((h,i)=>h.sets.forEach(s=>s.tags.forEach(t=>need.add(i+'|'+t))));
+  const covered=new Set(),scenarios=[];
+  while(scenarios.length<max){
+    const used=new Set(),team=new Array(hyps.length);
+    let gain=0;
+    // Species with the most uncovered tags claim items first.
+    const order=hyps.map((h,i)=>({i,u:h.sets.reduce((n,s)=>n+s.tags.filter(t=>!covered.has(i+'|'+t)).length,0)}))
+      .sort((a,b)=>b.u-a.u||(a.i+scenarios.length)%hyps.length-(b.i+scenarios.length)%hyps.length);
+    for(const {i} of order){
+      const h=hyps[i];
+      const val=s=>s.tags.filter(t=>!covered.has(i+'|'+t)).length;
+      const free=h.sets.filter(s=>!used.has(s.item));
+      const pick=free.slice().sort((a,b)=>val(b)-val(a))[0];
+      let s;
+      if(pick)s=structuredClone(pick);
+      else{s=structuredClone(h.sets[0]);s.item=ITEM_FALLBACK.find(x=>!used.has(x));s.itemSwapped=true;}
+      used.add(s.item);team[i]=s;
+      // An item-swapped set does not certify its item-based tags.
+      for(const t of s.tags)if(!(s.itemSwapped&&(t==='scarf'||t.startsWith('mega:')))&&!covered.has(i+'|'+t)){covered.add(i+'|'+t);gain++;}
+    }
+    if(!gain&&scenarios.length)break;
+    scenarios.push(team);
+    if([...need].every(x=>covered.has(x)))break;
+  }
+  const missing=[...need].filter(x=>!covered.has(x)).map(x=>{const [i,t]=x.split('|');return hyps[+i].species+':'+t;});
+  return {scenarios,coverage:{required:need.size,covered:need.size-missing.length,missing}};
+}
+module.exports={FORMAT,IMPRACTICAL,CONDITIONAL,threatTags,coverageScenarios,megaOptions,movePool,pickAttacks,roleSets,coherenceProblems,
   legalRoleHypotheses,rivalScenario};
