@@ -18,11 +18,13 @@ function wilson(k,n,z=1.96){
   return [(c-r)/d,(c+r)/d];
 }
 const OPPONENTS={...holdout,rain:archetypes.rain,setup:archetypes.setup,stall:archetypes.stall};
+// RATIONAL_POLICY=rational2 swaps the candidate policy (default keeps PR #51 runs reproducible).
+const P=process.env.RATIONAL_POLICY||'rational';
 const CONDITIONS=[
   {name:'baseline-vs-baseline',cand:'baseline',opp:'baseline'},
-  {name:'rational-vs-baseline',cand:'rational',opp:'baseline'},
-  {name:'baseline-vs-rational',cand:'baseline',opp:'rational'},
-  {name:'rational-vs-rational',cand:'rational',opp:'rational'},
+  {name:P+'-vs-baseline',cand:P,opp:'baseline'},
+  {name:'baseline-vs-'+P,cand:'baseline',opp:P},
+  {name:P+'-vs-'+P,cand:P,opp:P},
 ];
 const KEYS=['helmetChip','helmetFaints','immuneHits','setupAtCap','movesWhileEncored'];
 async function main(){

@@ -176,4 +176,85 @@ function chooseSwitch(rows){
   sw.sort((a,b)=>v(b)-v(a)||b.mean-a.mean);
   return sw[0]||null;
 }
-module.exports={RECOVERY,contactRecoil,setupIsCapped,speedBand,foePublicActions,foeHit,simultaneousMatrix,rationalMoveScore,lockedMoveIsBad,noProgressLoop,chooseSwitch};
+// ---------------------------------------------------------------------------
+// 'rational2' (PR #54 follow-up). 'rational' above stays byte-identical so the
+// PR #51 runs remain reproducible; rational2 only ADDS the checks below.
+// ---------------------------------------------------------------------------
+// Champions PP (pinned champions mod calculatePP): no PP Ups, (pp/5+1)*4.
+function championsPP(dex,moveName){
+  const m=dex.moves.get(moveName);
+  if(!m.exists)return 0;
+  return m.noPPBoosts?m.pp:(m.pp/5+1)*4;
+}
+// estimateDamage ignores two PUBLIC, fixed facts that mattered in the B
+// counterexample: a Mega form's single fixed ability (Mega Metagross = Tough
+// Claws, x1.3 contact) and Body Press using the user's Defense.
+function hitBand(dex,own,foeName,moveName,info={}){
+  const h=estimateDamage(dex,own,foeName,moveName,info);
+  if(h.immune)return h;
+  const move=dex.moves.get(moveName),sp=dex.species.get(own.species);
+  const ability=canonical(sp.isMega?sp.abilities['0']:own.ability);
+  let k=1;
+  if(ability==='toughclaws'&&move.flags?.contact)k*=1.3;
+  if(move.id==='bodypress'){
+    const atk=knownStat(dex,own,'atk')*stageMult(Number(info.boosts?.atk||0));
+    if(atk>0)k*=knownStat(dex,own,'def')*stageMult(Number(info.boosts?.def||0))/atk;
+  }
+  return {...h,min:h.min*k,max:h.max*k,mid:h.mid*k};
+}
+// Why is exactly one move selectable? Observed from the request (pp,
+// disabled) plus PUBLIC volatiles and our own CURRENT item from req.side.
+// 'choice' | 'encore' | 'taunt' | 'disable' | 'pp' | 'unknown' | ''.
+function classifyRestriction({moves=[],ownItem='',lastOwnMove='',volatiles={}}){
+  const usable=moves.filter(m=>!m.disabled&&m.pp>0);
+  if(moves.length<=1||usable.length!==1)return '';
+  const only=canonical(usable[0].id||usable[0].move);
+  const blocked=moves.filter(m=>m!==usable[0]);
+  if(blocked.every(m=>m.pp<=0))return 'pp';
+  if(volatiles.encore)return 'encore';
+  if(/^choice(band|specs|scarf)$/.test(canonical(ownItem))&&canonical(lastOwnMove)===only)return 'choice';
+  if(volatiles.taunt)return 'taunt';
+  if(volatiles.disable)return 'disable';
+  return 'unknown';
+}
+// Hazard damage taken on entry, from PUBLIC side conditions on our side.
+function hazardEntry(dex,set,hazards={}){
+  const sp=dex.species.get(set.species);
+  if(!sp.exists||canonical(set.item)==='heavydutyboots'||canonical(set.ability)==='magicguard')return 0;
+  let d=0;
+  if(hazards.stealthrock)d+=2**dex.getEffectiveness('Rock',sp.types)/8;
+  const grounded=!sp.types.includes('Flying')&&canonical(set.ability)!=='levitate'&&canonical(set.item)!=='airballoon';
+  const spikes=Math.min(3,Number(hazards.spikes||0));
+  if(grounded&&spikes)d+=[0,1/8,1/6,1/4][spikes];
+  return d;
+}
+// rational1's loop detector plus three public exits:
+//  - our hit (observed this game if available, else the corrected band)
+//    out-damages one recovery, so the loop is progress, not a stall;
+//  - the foe has at most one recovery PP left (Champions PP is fixed);
+//  - samples=2 needs two consecutive stalled cycles (a single Roost after one
+//    hit is not yet a loop; switching then hands the foe a free full Roost).
+function noProgressLoopV2(history,foe,now,{hit=0,heal=0.5,recoveryLeft=Infinity,samples=1}={}){
+  if(!noProgressLoop(history,foe,now))return false;
+  if(samples>=2){
+    const prev=history[history.length-1];
+    if(!noProgressLoop(history.slice(0,-1),foe,{foeHP:prev.foeHP,ratio:prev.ratio}))return false;
+  }
+  if(hit>=heal+0.05)return false;
+  if(recoveryLeft<=1)return false;
+  return true;
+}
+// Bench choice with entry hazards, KO-on-entry and a stay-vs-switch gate.
+// Returns null when the best switch is clearly worse than staying.
+function chooseSwitchV2(rows,{stayWorst=-Infinity,margin=0.15}={}){
+  const sw=rows.filter(r=>r.action.startsWith('switch '));
+  const v=r=>r.worst-(r.hazard||0)-(r.koOnEntry?0.5:0)+0.5*(r.offense||0);
+  sw.sort((a,b)=>v(b)-v(a)||b.mean-a.mean);
+  const best=sw[0];
+  if(!best)return null;
+  if(best.koOnEntry)return null;
+  if(best.worst-(best.hazard||0)<stayWorst-margin)return null;
+  return best;
+}
+module.exports={RECOVERY,contactRecoil,setupIsCapped,speedBand,foePublicActions,foeHit,simultaneousMatrix,rationalMoveScore,lockedMoveIsBad,noProgressLoop,chooseSwitch,
+  championsPP,hitBand,classifyRestriction,hazardEntry,noProgressLoopV2,chooseSwitchV2};

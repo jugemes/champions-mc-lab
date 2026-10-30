@@ -101,7 +101,9 @@ function metrics(log,side,dex,ownTeam){
   }
   return m;
 }
-async function runCase(sim,name,{policy='baseline',seed=[1,2,3,4],reverse=false,logMatrix=false,oppPolicy='baseline'}={}){
+// script: undefined = the case's labelled script, null = opponent plays its own
+// policy (unscripted follow-up of a scripted success condition).
+async function runCase(sim,name,{policy='baseline',seed=[1,2,3,4],reverse=false,logMatrix=false,oppPolicy='baseline',script}={}){
   const c=CASES[name];if(!c)throw Error('Unknown case '+name);
   const dex=sim.Dex.mod('champions');
   const own=c.own(),opp=c.opp;
@@ -110,7 +112,7 @@ async function runCase(sim,name,{policy='baseline',seed=[1,2,3,4],reverse=false,
   const cs=reverse?'p2':'p1',os=reverse?'p1':'p2';
   const cand=new ScriptedBot(streams[cs],dex,own,cs,trace,c.ownPick,null,{decisionPolicy:policy,seed,logMatrix});
   const foe=new ScriptedBot(streams[os],dex,opp,os,trace,c.oppPick,null,{decisionPolicy:oppPolicy,seed});
-  foe.script=SCRIPTS[c.script]||null;
+  foe.script=script===null?null:SCRIPTS[script||c.script]||null;
   const logs=[];let winner='',turns=0;
   const obs=(async()=>{for await(const msg of streams.omniscient){logs.push(msg);for(const l of msg.split('\n')){
     if(l.startsWith('|win|'))winner=l.slice(5);if(l.startsWith('|turn|'))turns=Number(l.slice(6));}}})();
@@ -120,14 +122,15 @@ async function runCase(sim,name,{policy='baseline',seed=[1,2,3,4],reverse=false,
   await Promise.all([obs,r1,r2]);
   const log=logs.join('\n');
   return {case:name,policy,seed:seed.join('-'),side:cs,win:winner==='candidate',turns,errors:trace.errors.length,
-    selections:trace.selections,metrics:metrics(log,cs,dex,own),rational:trace.rational||[],matrix:trace.matrix||[],log,
+    selections:trace.selections,metrics:metrics(log,cs,dex,own),rational:trace.rational||[],matrix:trace.matrix||[],hits:(trace.hits||[]).filter(h=>h.side===cs),log,
     candidateChoices:trace.choices.filter(x=>x.side===cs).map(x=>x.turn+':'+x.choice)};
 }
 async function main(){
   const sim=load(),n=Number(process.argv[2]||4),out=[];
   const v=sim.TeamValidator.get(FORMAT);
   for(const [name,c] of Object.entries(CASES))for(const t of [c.own(),c.opp]){const p=v.validateTeam(normalize(t));if(p?.length)throw Error(name+': '+p.join('; '));}
-  for(const name of Object.keys(CASES))for(let i=0;i<n;i++)for(const policy of ['baseline','rational']){
+  const policies=(process.env.POLICIES||'baseline,rational').split(',');
+  for(const name of Object.keys(CASES))for(let i=0;i<n;i++)for(const policy of policies){
     const r=await runCase(sim,name,{policy,seed:hashSeed(700000+i),reverse:Boolean(i%2)});
     delete r.log;delete r.matrix;out.push(r);
     console.log([name,policy,r.seed,r.side,r.win?'W':'L','T'+r.turns,JSON.stringify(r.metrics),r.rational.map(x=>'T'+x.turn+':'+x.reason).join(' ')].join(' | '));

@@ -4,7 +4,7 @@ const path=require('node:path');
 const rational=require('../decision-rational');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {runCase,H}=require('../rational-cases');
-const {Bot,hashSeed,normalize}=require('../lab');
+const {hashSeed}=require('../lab');
 const sim=require(path.join(process.env.SHOWDOWN_DIR,'dist/sim/index.js'));
 const dex=sim.Dex.mod('champions');
 const live=reportedLive();
@@ -55,19 +55,13 @@ test('simultaneous matrix reports worst and mean per own action, including switc
 });
 test('hidden-info boundary: changing an unrevealed foe move/item does not change our turn-1 choice',async()=>{
   // Two opponent sixes that differ only in Corviknight's 4th move and item,
-  // which are not revealed before our turn-1 decision.
+  // which are not revealed before our turn-1 decision. PR #54: battles are
+  // played to the end and awaited (was: void r1; void r2 after turn 1).
+  const {playToEnd,choiceAt}=require('./battle-helpers');
   const runT1=async corvi=>{
-    const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
-    const trace={choices:[],selections:[],errors:[]};
-    const a=new Bot(streams.p1,dex,live,'p1',trace,['Metagross','Garchomp','Rotom-Wash'],null,{decisionPolicy:'rational'});
     const opp=[corvi,H.archaludon,H.lucarioZ,H.primarina,H.hippowdon,H.gengar];
-    const b=new Bot(streams.p2,dex,opp,'p2',trace,['Corviknight','Archaludon','Lucario'],null,{decisionPolicy:'baseline'});
-    const r1=a.run(),r2=b.run();
-    const seed=hashSeed(4242);
-    await streams.omniscient.write('>start '+JSON.stringify({formatid:'gen9championsbssregmc',seed})+'\n>player p1 '+JSON.stringify({name:'a',team:normalize(live)})+'\n>player p2 '+JSON.stringify({name:'b',team:normalize(opp)}));
-    const t=Date.now();while(!trace.choices.some(c=>c.side==='p1'&&c.turn===1)&&Date.now()-t<5000)await new Promise(r=>setTimeout(r,5));
-    void r1;void r2;
-    return trace.choices.find(c=>c.side==='p1'&&c.turn===1).choice;
+    const t=await playToEnd(sim,dex,{own:live,opp,ownPick:['Metagross','Garchomp','Rotom-Wash'],oppPick:['Corviknight','Archaludon','Lucario'],seed:hashSeed(4242),policy:'rational'});
+    return choiceAt(t,'p1',1);
   };
   const one=await runT1(H.corviknight);
   const two=await runT1({...H.corviknight,item:'Leftovers',moves:['Roost','U-turn','Body Press','Brave Bird']});
