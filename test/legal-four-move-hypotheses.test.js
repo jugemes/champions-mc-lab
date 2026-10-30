@@ -48,3 +48,22 @@ test('input is an open species/form name, not private opponent set data',()=>{
   const b=shortlist(dex,'Golisopod-Mega');
   assert.deepEqual(a,b,'Every public species generates stable candidates');
 });
+
+test('public Indeedee has a special-invested Timid/Modest possibility (never forced Adamant)',()=>{
+  const v=new sim.TeamValidator('gen9championsbssregmc');
+  const result=legalFourMoveHypotheses(dex,v,'Indeedee',{item:'Focus Sash',maxCandidates:24});
+  assert.ok(result.sets.length>0,JSON.stringify(result.rejected));
+  assert.ok(result.sets.some(s=>s.evs.spa===32&&['Timid','Modest'].includes(s.nature)),
+    'public six cannot rule out the special-attacking Indeedee from real battle counterexample');
+  assert.ok(result.sets.every(s=>s.moves.length===4&&s.validated===true));
+});
+test('coverage tracking exposes omitted public moves and keeps full AP profile',()=>{
+  const v=new sim.TeamValidator('gen9championsbssregmc');
+  const result=legalFourMoveHypotheses(dex,v,'Garchomp',{item:'Choice Scarf',ability:'Rough Skin',maxCandidates:24});
+  const seen=new Set(result.sets.flatMap(s=>s.moves.map(m=>dex.moves.get(m).id)));
+  assert.deepEqual(result.unrepresentedMoves,result.pool.filter(id=>!seen.has(id)));
+  assert.ok(result.sets.every(s=>
+    s.level===50&&s.nature&&s.evs&&
+    Object.values(s.evs).reduce((sum,n)=>sum+n,0)===66),
+    'validated full candidate must retain its AP and nature for reproducible Battle');
+});
