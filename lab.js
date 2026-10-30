@@ -108,6 +108,10 @@ class Bot{
     this.forcedSelection=forcedSelection;this.scriptScenario=scriptScenario;
     this.previewPolicy=options.previewPolicy||'legacy';
     this.decisionPolicy=options.decisionPolicy||'baseline';
+    // PR #70: opt-in turn-AI fix, default off so saved results replay unchanged.
+    // Never pick Encore into a foe that is already Encored or has not moved
+    // since it came in (Encore fails). Both read from the public log only.
+    this.encoreGuard=Boolean(options.encoreGuard);this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
@@ -128,7 +132,12 @@ class Bot{
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
           }
         }
-        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeEncored=false;
+        if((a[1]==='-start'||a[1]==='-end')&&/(^|: )Encore$/.test(a[3]||'')){
+          if(a[2]?.startsWith(this.foe+'a:'))this.foeEncored=a[1]==='-start';
+          if(a[2]?.startsWith(this.side+'a:'))this.ownEncored=a[1]==='-start';
+        }
         if(['-boost','-unboost','-setboost'].includes(a[1])){
           const target=a[2]?.startsWith(this.side+'a:')?this.boosts:a[2]?.startsWith(this.foe+'a:')?this.foeBoosts:null;
           if(target){
@@ -151,6 +160,9 @@ class Bot{
           const key=canonical(String(a[3]).replace(/^move: /,''));this.hazards[key]=(this.hazards[key]||0)+1;
         }
         if(a[1]==='-sideend'&&a[2]?.startsWith(this.foe+':'))delete this.hazards[canonical(String(a[3]).replace(/^move: /,''))];
+        // Own-side hazards: bookkeeping only (read by audit scripts), no effect on decide().
+        if(a[1]==='-sidestart'&&a[2]?.startsWith(this.side+':')){const k=canonical(String(a[3]).replace(/^move: /,''));this.ownHazards[k]=(this.ownHazards[k]||0)+1;}
+        if(a[1]==='-sideend'&&a[2]?.startsWith(this.side+':'))delete this.ownHazards[canonical(String(a[3]).replace(/^move: /,''))];
         if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
@@ -268,6 +280,7 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
+      if(this.encoreGuard&&canonical(m.id||m.move)==='encore'&&(this.foeEncored||this.foeLastMoveTurn<0))score=-Infinity;
       if(score>best.score)best={score,i};
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));

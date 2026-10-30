@@ -25,20 +25,31 @@
 // Tag absence is NOT evidence of rational play: a rival that stays in Encore
 // with a switch available is tagged encoreStay; one that, e.g., attacks
 // with the wrong move is not tagged at all.
+// PR #70 (PR #69 review 5712337767):
+//   - move history is per ACTIVE STINT: switch/drag clears the side's
+//     history, so SD, switch out, come back, SD, SD is 2 SDs, not setupSpam
+//     (boosts are reset by the switch). {stintReset:false} = PR #69 behaviour.
+//   - three tiers. FACT_TAGS: what happened (forced repeats). REVIEW_TAGS:
+//     a switch was legal and the side stayed; NOT proven a misplay (the
+//     switch-in may die to hazards / be outclassed, staying may win).
+//     Whether the stay was counterfactually worse is decided by the audit
+//     scripts with paired real Battles, not here. VOLUNTARY = TAGS only;
+//     VOLUNTARY_PR69 keeps the old aggregate for side-by-side reporting.
 const SETUP=new Set(['Swords Dance','Dragon Dance','Nasty Plot','Calm Mind','Quiver Dance','Bulk Up','Shell Smash']);
 const WEATHER_MOVE={'Sunny Day':'SunnyDay','Rain Dance':'RainDance','Sandstorm':'Sandstorm','Snowscape':'Snowscape'};
 const CONTACT_RECOIL=/\[from\] (item: Rocky Helmet|ability: Rough Skin|ability: Iron Barbs)/;
 const PIVOT=new Set(['U-turn','Volt Switch','Flip Turn','Parting Shot','Teleport','Baton Pass','Chilly Reception','Shed Tail']);
 const TAGS=['setupSpam','encoreRepeat','immuneRepeat','resistRepeat','helmetFaint','switchLoop','chargeNoSun','weatherRedundant'];
 const INFO_TAGS=['setupForcedEncore','encoreStay','encoreStayOther','lockedRepeat','lockedStay'];
-// "Voluntary" tags: things the side could have chosen otherwise. encoreStay
-// and lockedStay are voluntary (switching was legal); the forced repeats are not.
-const VOLUNTARY=[...TAGS,'encoreStay','lockedStay'];
+const FACT_TAGS=['setupForcedEncore','encoreStayOther','lockedRepeat'];
+const REVIEW_TAGS=['encoreStay','lockedStay'];
+const VOLUNTARY=[...TAGS];
+const VOLUNTARY_PR69=[...TAGS,...REVIEW_TAGS];
 const V1_TAGS=['setupSpam','encoreRepeat','immuneRepeat'];
 const sideOf=id=>id.slice(0,2);
 // requests: optional [{side,turn,locked:bool,lockedMove:string|null,canSwitch:bool}]
 // for move decisions, as recorded by recordRequests() below.
-function misplaysV3(log,{requests=null}={}){
+function misplaysV3(log,{requests=null,stintReset=true}={}){
   const out={p1:{},p2:{}};for(const s of ['p1','p2'])for(const t of [...TAGS,...INFO_TAGS])out[s][t]=0;
   const req={};if(requests)for(const r of requests)req[r.side+'|'+r.turn]=r;
   const last={p1:[],p2:[]};let pending=null,turn=0,weather='none';
@@ -86,6 +97,7 @@ function misplaysV3(log,{requests=null}={}){
       const side=sideOf(a[2]);fainted[side]=true;if(encored[side]===a[2].slice(5))encored[side]=null;
     } else if(a[1]==='switch'||a[1]==='drag'){
       const side=sideOf(a[2]);encored[side]=null;// Encore ends on switch-out
+      if(stintReset)last[side]=[];// boosts / repeat streak end with the stint
       if(a[1]==='switch'&&turn>0&&!fainted[side]&&!pivot[side]&&!moved[side]){
         if(volTurn[side]===turn-1)out[side].switchLoop++;
         volTurn[side]=turn;
@@ -98,10 +110,17 @@ function misplaysV3(log,{requests=null}={}){
 const anyTag=(m,tags=VOLUNTARY)=>tags.some(t=>m[t]>0);
 // Per-request summary used by misplaysV3: whether the active mon could pick
 // only one move (Encore / Choice lock / Struggle) and whether a switch was legal.
-function requestInfo(req,side,turn){
+// lockReason (PR #70): a one-move request is NOT necessarily Encore. 'encore'
+// only when the caller tracked an Encore on its own active mon from the
+// public log ({encored:true}); 'choice' when the active holds a Choice item
+// and was not Encored; otherwise 'other' (Taunt / Disable / PP / Torment...).
+function requestInfo(req,side,turn,{encored=false}={}){
   if(!req.active||!req.active[0]||req.forceSwitch||req.teamPreview)return null;
   const act=req.active[0],enabled=act.moves.filter(m=>!m.disabled);
   const canSwitch=!act.trapped&&!act.maybeTrapped&&req.side.pokemon.some(p=>!p.active&&!/ fnt$/.test(p.condition));
-  return {side,turn,locked:enabled.length===1&&act.moves.length>1,lockedMove:enabled.length===1?enabled[0].move:null,canSwitch};
+  const locked=enabled.length===1&&act.moves.length>1;
+  const item=String((req.side.pokemon.find(p=>p.active)||{}).item||'');
+  const lockReason=!locked?null:encored?'encore':/^choice/.test(item)?'choice':'other';
+  return {side,turn,locked,lockedMove:enabled.length===1?enabled[0].move:null,canSwitch,lockReason};
 }
-module.exports={misplaysV3,anyTag,requestInfo,TAGS,INFO_TAGS,VOLUNTARY,V1_TAGS};
+module.exports={misplaysV3,anyTag,requestInfo,TAGS,INFO_TAGS,FACT_TAGS,REVIEW_TAGS,VOLUNTARY,VOLUNTARY_PR69,V1_TAGS};

@@ -15,7 +15,11 @@ const {reportedLive}=require('./reported-live-roster-20261027');
 const {caseList}=require('./legal-search-v2-compare');
 const {battle}=require('./encore-lead-audit');
 const {misplaysV2,anyTag:anyTagV2}=require('./misplay-tags-v2');
-const {misplaysV3,anyTag:anyTagV3}=require('./misplay-tags-v3');
+const {misplaysV3,anyTag:anyTagV3,VOLUNTARY_PR69}=require('./misplay-tags-v3');
+// PR #70: v3 now resets history per active stint and moves encoreStay /
+// lockedStay to a review tier. cleanV3pr69 recomputes the PR #69 definition
+// and is checked against the PR #69 retag JSON (PREV) when it exists.
+const PREV=process.env.PREV||path.join(__dirname,'reports','data','retag-v3-20261030.json');
 const SAVED=process.env.SAVED||path.join(__dirname,'reports','data','legal-search-v2-compare-20261030.json');
 const SEED_BASES=[7400000,7500000,7600000];
 const nz=o=>Object.fromEntries(Object.entries(o).filter(([,v])=>v));
@@ -30,7 +34,7 @@ async function main(){
     const done=new Map(),sum={};
     for(const [policy,three] of Object.entries(sc.picks)){
       const p=sum[policy]={three:three.join('/'),total:[0,0],cleanV2:[0,0],cleanV3:[0,0],
-        foeV3Games:{},ownV3Games:{},encoreGames:0,cells:{}};
+        cleanV3pr69:[0,0],foeV3Games:{},ownV3Games:{},encoreGames:0,cells:{}};
       for(const [rname,foeForced] of Object.entries(rivals))for(const base of SEED_BASES)for(const s of [0,1])for(const reverse of [false,true]){
         const seed=hashSeed(base+c.gi*1000+s*10),k=three.join('/')+'|'+rname+'|'+seed.join('-')+'|'+reverse;
         let r=done.get(k);
@@ -41,6 +45,7 @@ async function main(){
         p.total[0]+=r.won;p.total[1]++;
         if(!anyTagV2(v2[foeSide])){p.cleanV2[0]+=r.won;p.cleanV2[1]++;}
         if(!anyTagV3(fV3)){p.cleanV3[0]+=r.won;p.cleanV3[1]++;}
+        if(!anyTagV3(misplaysV3(r.log,{requests:r.reqLog,stintReset:false})[foeSide],VOLUNTARY_PR69)){p.cleanV3pr69[0]+=r.won;p.cleanV3pr69[1]++;}
         for(const [t,v] of Object.entries(nz(fV3)))p.foeV3Games[t]=(p.foeV3Games[t]||0)+1;
         for(const [t,v] of Object.entries(nz(oV3)))p.ownV3Games[t]=(p.ownV3Games[t]||0)+1;
         if(/\|-start\|p[12]a: [^|]+\|Encore/.test(r.log))p.encoreGames++;
@@ -54,8 +59,10 @@ async function main(){
       // reproduction check against the saved summary (v2 definitions)
       const old=sc.summary[policy];
       const ok=same(old.total,p.total)&&same(old.clean,p.cleanV2)&&Object.entries(old.cells).every(([k,v])=>v.w===p.cells[k].w&&v.cleanW===p.cells[k].cleanV2[0]&&v.cleanN===p.cells[k].cleanV2[1]);
+      const prev=fs.existsSync(PREV)?JSON.parse(fs.readFileSync(PREV,'utf8')).cases?.[c.id]?.summary?.[policy]:null;
+      p.reproducesPR69V3=prev?same(prev.cleanV3,p.cleanV3pr69):null;if(prev&&!p.reproducesPR69V3)mismatches++;
       p.reproducesSavedV2=ok;if(!ok)mismatches++;
-      console.log(c.id.padEnd(22),policy.padEnd(16),p.three.padEnd(32),'all',p.total.join('/'),'cleanV2',p.cleanV2.join('/'),'cleanV3',p.cleanV3.join('/'),
+      console.log(c.id.padEnd(22),policy.padEnd(16),p.three.padEnd(32),'all',p.total.join('/'),'cleanV2',p.cleanV2.join('/'),'cleanV3',p.cleanV3.join('/'),'cleanV3pr69',p.cleanV3pr69.join('/')+(p.reproducesPR69V3===false?' PR69-MISMATCH':''),
         'encoreGames',p.encoreGames,ok?'repro-ok':'REPRO-MISMATCH',
         Object.entries(p.cells).map(([k,v])=>k+' '+v.w+'/'+v.n+' v2 '+v.cleanV2.join('/')+' v3 '+v.cleanV3.join('/')+(v.stayedLocked?' stayedLocked '+v.stayedLocked:'')).join(' | '));
     }
