@@ -130,6 +130,13 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           this.foeActive=nameOf(a[3]);
+          if(a[1]==='detailschange'){
+            // A visibly revealed Mega has a single publicly known ability.
+            // Do not retain the previous form's observed ability (e.g. Sand Veil
+            // on Garchomp becoming Levitate on Garchomp-Mega-Z).
+            const form=this.dex.species.get(this.foeActive);
+            this.foeAbility=form.exists&&form.isMega?(form.abilities['0']||''):'';
+          }
           if(a[1]!=='detailschange'){
             this.foeBoosts={};
             const hp=String(a[4]||'').match(/^(\d+)\/(\d+)/);
