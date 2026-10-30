@@ -115,7 +115,7 @@ class Bot{
     // PR #70: opt-in turn-AI fix, default off so saved results replay unchanged.
     // Never pick Encore into a foe that is already Encored or has not moved
     // since it came in (Encore fails). Both read from the public log only.
-    this.encoreGuard=options.encoreGuard==='speed'?'speed':Boolean(options.encoreGuard);this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
+    this.encoreGuard=['speed','speedSafe'].includes(options.encoreGuard)?options.encoreGuard:Boolean(options.encoreGuard);this.foePublicStatus='';this.foeConfused=false;this.foeEncored=false;this.ownEncored=false;this.ownHazards={};
     // PR #72 (PR #57 audit): opt-in, default off. A visible Mega forme has one
     // publicly fixed ability (Golisopod-Mega Tough Claws, Garchomp-Mega-Z
     // Levitate). Set it on detailschange and on switch/drag/replace back in;
@@ -142,6 +142,9 @@ class Bot{
             this.foeHP=hp&&Number(hp[2])>0?Number(hp[1])/Number(hp[2]):1;
             this.foeItem='';this.foeStatus='';
             this.foeAbility=megaAbility;this.lastMove='';this.foeLastMoveTurn=-999;
+            // speedSafe bookkeeping only: the switch line carries a public status
+            // (e.g. "185/185 slp"); legacy foeStatus stays cleared as before.
+            this.foePublicStatus=(String(a[4]||'').match(/ (slp|frz|par|brn|psn|tox)$/)||[])[1]||'';this.foeConfused=false;
           }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
@@ -169,8 +172,9 @@ class Bot{
         if(['-fieldstart','-fieldend'].includes(a[1])&&a[2]==='move: Trick Room')this.trickRoom=a[1]==='-fieldstart';
         if(a[1]==='-weather')this.weather=canonical(a[2])==='none'?'':canonical(a[2]);
         if(a[1]==='-fieldend'&&canonical(String(a[2]).replace(/^move: /,''))===this.terrain)this.terrain='';
-        if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=a[3];
-        if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus='';
+        if(a[1]==='-status'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=this.foePublicStatus=a[3];
+        if(a[1]==='-curestatus'&&a[2]?.startsWith(this.foe+'a:'))this.foeStatus=this.foePublicStatus='';
+        if((a[1]==='-start'||a[1]==='-end')&&a[2]?.startsWith(this.foe+'a:')&&/^confusion$/.test(a[3]||''))this.foeConfused=a[1]==='-start';
         if(a[1]==='-sidestart'&&a[2]?.startsWith(this.foe+':')){
           const key=canonical(String(a[3]).replace(/^move: /,''));this.hazards[key]=(this.hazards[key]||0)+1;
         }
@@ -213,10 +217,36 @@ class Bot{
   // minimum stat moves first and sets lastMove, so Encore works unless it
   // switches; block only when we might move first. No Trick Room tracking
   // beyond the public -fieldstart line; unknown cases keep the block.
+  // 'speedSafe' (PR #74, P0-A of the PR #73 review): 'speed' assumed a surely
+  // faster fresh foe always acts first. It does not when it picks a negative
+  // priority move (Dragon Tail -6, Trick Room -7, ...), or cannot act (asleep,
+  // frozen, fully paralysed, confused self-hit): no |move|, lastMove unset,
+  // Encore fails. The foe's moves are hidden, so block on what is public: the
+  // species' legal move pool (dex learnset of the pinned champions mod; same as
+  // TeamValidator.checkCanLearn on all 401 legal species), its possible
+  // abilities, and status/confusion lines. A foe acting first with a
+  // failencore move (Encore, Copycat, ...) also makes Encore fail, and Magic
+  // Bounce reflects it. Accepted residual risks, shared by every move: the foe
+  // switches or Protects. 'speed' is kept unchanged for PR #73 reproduction.
+  encoreSafeBlock(){
+    if(['slp','frz','par'].includes(this.foePublicStatus)||this.foeConfused)return true;
+    const foe=this.dex.species.get(this.foeActive);if(!foe.exists)return true;
+    const known=canonical(this.foeAbility);
+    const abilities=known?[known]:Object.values(foe.abilities).map(canonical);
+    if(abilities.some(x=>['stall','myceliummight','magicbounce'].includes(x)))return true;
+    this.encoreRiskCache??={};
+    if(!(foe.id in this.encoreRiskCache)){
+      const pool=[...this.dex.species.getMovePool(foe.id)].map(id=>this.dex.moves.get(id));
+      this.encoreRiskCache[foe.id]=pool.filter(m=>m.priority<0||(m.flags.failencore&&!['sleeptalk','struggle'].includes(m.id))).map(m=>m.name);
+    }
+    return this.encoreRiskCache[foe.id].length>0;
+  }
   encoreWouldFail(my,side){
     if(this.foeEncored)return true;
+    if(this.encoreGuard==='speedSafe'&&this.foeLastMoveTurn>=0&&this.dex.moves.get(this.lastMove).flags?.failencore)return true;
     if(this.foeLastMoveTurn>=0)return false;
-    if(this.encoreGuard!=='speed'||this.trickRoom)return true;
+    if(!['speed','speedSafe'].includes(this.encoreGuard)||this.trickRoom)return true;
+    if(this.encoreGuard==='speedSafe'&&this.encoreSafeBlock())return true;
     const foe=this.dex.species.get(this.foeActive);if(!foe.exists)return true;
     const stage=n=>n>=0?(2+n)/2:2/(2-n);
     const cur=side.find(p=>p.active),ownPar=/ par$/.test(String(cur?.condition));
