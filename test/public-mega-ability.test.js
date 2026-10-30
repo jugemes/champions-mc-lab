@@ -54,3 +54,29 @@ test('public Mega-Z ability survives switch-out and re-entry without a new detai
   const attacker=own.find(x=>x.species==='Garchomp');
   assert.equal(estimateDamage(dex,attacker,bot.foeActive,'Earthquake',{foeAbility:bot.foeAbility}).immune,true);
 });
+
+test('pinned Showdown Battle emits Mega-Z and its re-entry as public forme events',async()=>{
+  const {engineBattle,padTo6,FILLER}=require('../hybrid01-audit');
+  const {H}=require('../rational-cases');
+  const base=own.find(x=>x.species==='Garchomp');
+  const mega={...base,item:'Garchompite Z',ability:'Rough Skin',
+    moves:['Earthquake','Dragon Claw','Swords Dance','Rock Slide']};
+  const p1=padTo6(mega,FILLER());
+  const p2=padTo6(H.corviknight,FILLER());
+  const battle=engineBattle(sim,p1,p2,[2026,10,30,18],[
+    ['move 1 mega','move 1'],
+    ['switch 2','move 1'],
+    ['switch 1','move 1'],
+  ]);
+  const events=battle.log.filter(l=>/^\|(switch|detailschange|drag|replace)\|p1a:/.test(l));
+  assert.ok(events.length>=3,JSON.stringify(events));
+  assert.ok(events.some(l=>l.includes('Garchomp-Mega-Z')),'engine must visibly expose Mega-Z form: '+events.join(' / '));
+  const bot=new Bot(streamOf(events.join('\n')) ,dex,own,'p2',
+    {choices:[],selections:[],errors:[]},null,null,{decisionPolicy:'rational2'});
+  await bot.run();
+  assert.equal(bot.foeActive,'Garchomp-Mega-Z','Mega-Z should be re-entered');
+  assert.equal(bot.foeAbility,'Levitate','publicly fixed Mega ability after actual switch re-entry');
+  assert.equal(estimateDamage(dex,own.find(x=>x.species==='Garchomp'),
+    bot.foeActive,'Earthquake',{foeAbility:bot.foeAbility}).immune,true);
+  battle.destroy();
+});
