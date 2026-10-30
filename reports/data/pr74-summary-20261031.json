@@ -1,0 +1,934 @@
+{
+ "pr": 74,
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "note": "Heuristic AI vs heuristic AI, NOT a ladder win rate. Human win rate unverified.",
+ "P0A": {
+  "summary": [
+   {
+    "id": "negprio_dragontail",
+    "reverse": false,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "negprio_dragontail",
+    "reverse": true,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "negprio_trickroom",
+    "reverse": false,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "negprio_trickroom",
+    "reverse": true,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "cant_sleep_reentry",
+    "reverse": false,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "cant_sleep_reentry",
+    "reverse": true,
+    "engine": "fail",
+    "v1": true,
+    "speed": false,
+    "speedSafe": true
+   },
+   {
+    "id": "ok_fast_no_risk",
+    "reverse": false,
+    "engine": "start",
+    "v1": true,
+    "speed": false,
+    "speedSafe": false
+   },
+   {
+    "id": "ok_fast_no_risk",
+    "reverse": true,
+    "engine": "start",
+    "v1": true,
+    "speed": false,
+    "speedSafe": false
+   },
+   {
+    "id": "ok_v1_moved_before",
+    "reverse": false,
+    "engine": "start",
+    "v1": false,
+    "speed": false,
+    "speedSafe": false
+   },
+   {
+    "id": "ok_v1_moved_before",
+    "reverse": true,
+    "engine": "start",
+    "v1": false,
+    "speed": false,
+    "speedSafe": false
+   }
+  ],
+  "falseNegatives": {
+   "v1": 0,
+   "speed": 6,
+   "speedSafe": 0
+  },
+  "falsePositives": {
+   "v1": 2,
+   "speed": 0,
+   "speedSafe": 0
+  }
+ },
+ "P0B": {
+  "H0": {
+   "reproducesPR73Bits": "15120/15120",
+   "totals": {
+    "old": "12/420",
+    "newStrict": "12/420",
+    "newUnknownAsPlausible": "12/420"
+   },
+   "perOwn": {
+    "Hydreigon>Primarina/Rotom-Wash": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2630->2462"
+    },
+    "Tyranitar>Metagross/Primarina": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2510->2434"
+    },
+    "Tyranitar>Hydreigon/Primarina": {
+     "old": "12/84",
+     "newStrict": "12/84",
+     "newUnknownAsPlausible": "12/84",
+     "rationalBranchGames": "2510->2434"
+    },
+    "Primarina>Metagross/Garchomp": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2952->2592"
+    },
+    "Garchomp>Metagross/Primarina": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2628->2500"
+    }
+   },
+   "labels": {
+    "plausible": 27362,
+    "weak": 1642,
+    "blunder": 864,
+    "unknown": 372
+   },
+   "why": {
+    "preempted (no executed line)": 1584,
+    "executed and failed": 532,
+    "executed move != chosen": 288,
+    "cant": 528
+   },
+   "topExcluded": [
+    [
+     "scripted:Shadow Claw:weak",
+     434
+    ],
+    [
+     "scripted:Shadow Ball:weak",
+     300
+    ],
+    [
+     "scripted:Swords Dance:blunder",
+     222
+    ],
+    [
+     "scripted:Sparkling Aria:weak",
+     216
+    ],
+    [
+     "scripted:Rock Slide:weak",
+     216
+    ],
+    [
+     "scripted:Poison Jab:weak",
+     216
+    ],
+    [
+     "scripted:Encore:blunder(executed and failed)",
+     198
+    ],
+    [
+     "scripted:Thunderbolt:blunder(executed and failed)",
+     168
+    ],
+    [
+     "scripted:Encore:weak",
+     144
+    ],
+    [
+     "scripted:Swords Dance:blunder(preempted (no executed line))",
+     82
+    ],
+    [
+     "scripted:Dragon Claw:blunder(executed and failed)",
+     74
+    ],
+    [
+     "scripted:Iron Head:weak",
+     52
+    ]
+   ]
+  },
+  "H1": {
+   "reproducesPR73Bits": "19440/19440",
+   "totals": {
+    "old": "56/540",
+    "newStrict": "61/540",
+    "newUnknownAsPlausible": "59/540"
+   },
+   "perOwn": {
+    "Hydreigon>Primarina/Rotom-Wash": {
+     "old": "10/108",
+     "newStrict": "11/108",
+     "newUnknownAsPlausible": "11/108",
+     "rationalBranchGames": "3250->2424"
+    },
+    "Tyranitar>Metagross/Primarina": {
+     "old": "18/108",
+     "newStrict": "20/108",
+     "newUnknownAsPlausible": "20/108",
+     "rationalBranchGames": "3186->2562"
+    },
+    "Tyranitar>Hydreigon/Primarina": {
+     "old": "18/108",
+     "newStrict": "20/108",
+     "newUnknownAsPlausible": "18/108",
+     "rationalBranchGames": "3198->2190"
+    },
+    "Primarina>Metagross/Garchomp": {
+     "old": "4/108",
+     "newStrict": "4/108",
+     "newUnknownAsPlausible": "4/108",
+     "rationalBranchGames": "3888->3588"
+    },
+    "Garchomp>Metagross/Primarina": {
+     "old": "6/108",
+     "newStrict": "6/108",
+     "newUnknownAsPlausible": "6/108",
+     "rationalBranchGames": "3448->2952"
+    }
+   },
+   "labels": {
+    "plausible": 32618,
+    "weak": 2262,
+    "blunder": 3114,
+    "unknown": 886
+   },
+   "why": {
+    "preempted (no executed line)": 3268,
+    "executed and failed": 2082,
+    "preempted (forced switch-out before moving)": 1152,
+    "cant": 112
+   },
+   "topExcluded": [
+    [
+     "scripted:Slack Off:blunder",
+     912
+    ],
+    [
+     "scripted:Shadow Claw:weak",
+     904
+    ],
+    [
+     "scripted:Slack Off:blunder(executed and failed)",
+     432
+    ],
+    [
+     "scripted:Swords Dance:blunder",
+     428
+    ],
+    [
+     "scripted:Sparkling Aria:weak",
+     324
+    ],
+    [
+     "scripted:Shadow Ball:weak",
+     304
+    ],
+    [
+     "scripted:Stealth Rock:blunder(executed and failed)",
+     294
+    ],
+    [
+     "scripted:Thunderbolt:blunder(executed and failed)",
+     272
+    ],
+    [
+     "scripted:Encore:blunder(executed and failed)",
+     198
+    ],
+    [
+     "scripted:Slack Off:blunder(preempted (no executed line))",
+     180
+    ],
+    [
+     "ai:Primarina:weak",
+     168
+    ],
+    [
+     "fallback:Primarina:weak",
+     168
+    ]
+   ]
+  },
+  "H0_ownSpeedSafe": {
+   "reproducesPR73Bits": "n/a (different own AI)",
+   "totals": {
+    "old": "12/420",
+    "newStrict": "12/420",
+    "newUnknownAsPlausible": "12/420"
+   },
+   "perOwn": {
+    "Hydreigon>Primarina/Rotom-Wash": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2630->2462"
+    },
+    "Tyranitar>Metagross/Primarina": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2510->2434"
+    },
+    "Tyranitar>Hydreigon/Primarina": {
+     "old": "12/84",
+     "newStrict": "12/84",
+     "newUnknownAsPlausible": "12/84",
+     "rationalBranchGames": "2510->2434"
+    },
+    "Primarina>Metagross/Garchomp": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2952->2592"
+    },
+    "Garchomp>Metagross/Primarina": {
+     "old": "0/84",
+     "newStrict": "0/84",
+     "newUnknownAsPlausible": "0/84",
+     "rationalBranchGames": "2628->2500"
+    }
+   },
+   "labels": {
+    "plausible": 27362,
+    "weak": 1642,
+    "blunder": 864,
+    "unknown": 372
+   },
+   "why": {
+    "preempted (no executed line)": 1584,
+    "executed and failed": 532,
+    "executed move != chosen": 288,
+    "cant": 528
+   },
+   "topExcluded": [
+    [
+     "scripted:Shadow Claw:weak",
+     434
+    ],
+    [
+     "scripted:Shadow Ball:weak",
+     300
+    ],
+    [
+     "scripted:Swords Dance:blunder",
+     222
+    ],
+    [
+     "scripted:Sparkling Aria:weak",
+     216
+    ],
+    [
+     "scripted:Rock Slide:weak",
+     216
+    ],
+    [
+     "scripted:Poison Jab:weak",
+     216
+    ],
+    [
+     "scripted:Encore:blunder(executed and failed)",
+     198
+    ],
+    [
+     "scripted:Thunderbolt:blunder(executed and failed)",
+     168
+    ],
+    [
+     "scripted:Encore:weak",
+     144
+    ],
+    [
+     "scripted:Swords Dance:blunder(preempted (no executed line))",
+     82
+    ],
+    [
+     "scripted:Dragon Claw:blunder(executed and failed)",
+     74
+    ],
+    [
+     "scripted:Iron Head:weak",
+     52
+    ]
+   ]
+  }
+ },
+ "P0C": {
+  "table": [
+   {
+    "policy": "robust",
+    "support": [
+     [
+      "Hydreigon>Primarina/Rotom-Wash",
+      0.243
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.163
+     ],
+     [
+      "Tyranitar>Hydreigon/Primarina",
+      0.143
+     ],
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.129
+     ],
+     [
+      "Metagross>Hydreigon/Garchomp",
+      0.121
+     ],
+     [
+      "Primarina>Hydreigon/Rotom-Wash",
+      0.08
+     ],
+     [
+      "Tyranitar>Metagross/Hydreigon",
+      0.055
+     ],
+     [
+      "Metagross>Primarina/Garchomp",
+      0.048
+     ]
+    ],
+    "security": {
+     "H0": 0.225,
+     "H1": 0.294
+    },
+    "vsOracleRival": {
+     "H0": 0.227,
+     "H1": 0.458
+    }
+   },
+   {
+    "policy": "weighted_H0=0.25",
+    "support": [
+     [
+      "Hydreigon>Metagross/Rotom-Wash",
+      0.224
+     ],
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.136
+     ],
+     [
+      "Hydreigon>Metagross/Garchomp",
+      0.125
+     ],
+     [
+      "Metagross>Hydreigon/Primarina",
+      0.102
+     ],
+     [
+      "Garchomp>Metagross/Primarina",
+      0.096
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.089
+     ],
+     [
+      "Tyranitar>Metagross/Rotom-Wash",
+      0.071
+     ],
+     [
+      "Metagross>Hydreigon/Rotom-Wash",
+      0.047
+     ],
+     [
+      "Metagross>Garchomp/Rotom-Wash",
+      0.04
+     ],
+     [
+      "Primarina>Garchomp/Rotom-Wash",
+      0.031
+     ]
+    ],
+    "security": {
+     "H0": 0.048,
+     "H1": 0.577
+    },
+    "vsOracleRival": {
+     "H0": 0.107,
+     "H1": 0.579
+    }
+   },
+   {
+    "policy": "weighted_H0=0.5",
+    "support": [
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.196
+     ],
+     [
+      "Hydreigon>Metagross/Rotom-Wash",
+      0.169
+     ],
+     [
+      "Garchomp>Metagross/Primarina",
+      0.143
+     ],
+     [
+      "Hydreigon>Primarina/Rotom-Wash",
+      0.095
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.092
+     ],
+     [
+      "Metagross>Hydreigon/Rotom-Wash",
+      0.086
+     ],
+     [
+      "Tyranitar>Metagross/Hydreigon",
+      0.069
+     ],
+     [
+      "Metagross>Hydreigon/Primarina",
+      0.05
+     ],
+     [
+      "Tyranitar>Metagross/Rotom-Wash",
+      0.05
+     ]
+    ],
+    "security": {
+     "H0": 0.118,
+     "H1": 0.524
+    },
+    "vsOracleRival": {
+     "H0": 0.15,
+     "H1": 0.551
+    }
+   },
+   {
+    "policy": "weighted_H0=0.75",
+    "support": [
+     [
+      "Hydreigon>Primarina/Rotom-Wash",
+      0.208
+     ],
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.154
+     ],
+     [
+      "Tyranitar>Hydreigon/Primarina",
+      0.136
+     ],
+     [
+      "Garchomp>Metagross/Primarina",
+      0.11
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.086
+     ],
+     [
+      "Metagross>Hydreigon/Garchomp",
+      0.065
+     ],
+     [
+      "Metagross>Hydreigon/Primarina",
+      0.061
+     ],
+     [
+      "Primarina>Hydreigon/Rotom-Wash",
+      0.061
+     ],
+     [
+      "Tyranitar>Metagross/Hydreigon",
+      0.057
+     ],
+     [
+      "Metagross>Primarina/Garchomp",
+      0.037
+     ]
+    ],
+    "security": {
+     "H0": 0.208,
+     "H1": 0.382
+    },
+    "vsOracleRival": {
+     "H0": 0.213,
+     "H1": 0.476
+    }
+   },
+   {
+    "policy": "pureRobust",
+    "support": [
+     [
+      "Metagross>Hydreigon/Primarina",
+      1
+     ]
+    ],
+    "security": {
+     "H0": 0,
+     "H1": 0
+    },
+    "vsOracleRival": {
+     "H0": 0.183,
+     "H1": 0.583
+    }
+   },
+   {
+    "policy": "oracle_H0",
+    "support": [
+     [
+      "Hydreigon>Primarina/Rotom-Wash",
+      0.235
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.176
+     ],
+     [
+      "Tyranitar>Hydreigon/Primarina",
+      0.145
+     ],
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.127
+     ],
+     [
+      "Metagross>Hydreigon/Garchomp",
+      0.116
+     ],
+     [
+      "Primarina>Hydreigon/Rotom-Wash",
+      0.092
+     ],
+     [
+      "Tyranitar>Metagross/Hydreigon",
+      0.074
+     ]
+    ],
+    "security": {
+     "H0": 0.221,
+     "H1": 0.3
+    },
+    "vsOracleRival": {
+     "H0": 0.225,
+     "H1": 0.462
+    }
+   },
+   {
+    "policy": "oracle_H1",
+    "support": [
+     [
+      "Hydreigon>Metagross/Rotom-Wash",
+      0.216
+     ],
+     [
+      "Tyranitar>Metagross/Primarina",
+      0.181
+     ],
+     [
+      "Primarina>Metagross/Hydreigon",
+      0.144
+     ],
+     [
+      "Hydreigon>Metagross/Garchomp",
+      0.111
+     ],
+     [
+      "Metagross>Hydreigon/Primarina",
+      0.098
+     ],
+     [
+      "Metagross>Hydreigon/Rotom-Wash",
+      0.095
+     ],
+     [
+      "Garchomp>Metagross/Primarina",
+      0.091
+     ]
+    ],
+    "security": {
+     "H0": 0.033,
+     "H1": 0.577
+    },
+    "vsOracleRival": {
+     "H0": 0.125,
+     "H1": 0.58
+    }
+   },
+   {
+    "policy": "legacy chooseThree Hydreigon>Metagross/Primarina",
+    "support": [
+     [
+      "Hydreigon>Metagross/Primarina",
+      1
+     ]
+    ],
+    "security": {
+     "H0": 0,
+     "H1": 0
+    },
+    "vsOracleRival": {
+     "H0": 0.132,
+     "H1": 0.436
+    }
+   }
+  ],
+  "holdout": {
+   "team": "H2 [[\"Garchomp\",\"Yache Berry\",[\"Earthquake\",\"Dragon Claw\",\"Rock Slide\",\"Swords Dance\"]],[\"Gholdengo\",\"Choice Scarf\",[\"Make It Rain\",\"Shadow Ball\",\"Thunderbolt\",\"Trick\"]]]",
+   "games": 12240,
+   "policies": {
+    "robust": {
+     "security": 0.151,
+     "coveredMass": 0.983,
+     "mean": 0.482
+    },
+    "weighted_H0=0.25": {
+     "security": 0.049,
+     "coveredMass": 0.971,
+     "mean": 0.418
+    },
+    "weighted_H0=0.5": {
+     "security": 0.087,
+     "coveredMass": 0.987,
+     "mean": 0.443
+    },
+    "weighted_H0=0.75": {
+     "security": 0.14,
+     "coveredMass": 0.997,
+     "mean": 0.482
+    },
+    "pureRobust": {
+     "security": 0,
+     "coveredMass": 1,
+     "mean": 0.475
+    },
+    "legacy Hydreigon>Metagross/Primarina": {
+     "security": 0,
+     "coveredMass": 1,
+     "mean": 0.467
+    }
+   },
+   "perPick": [
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "worst": 0,
+     "mean": 0.467,
+     "worstBy": [
+      "Golisopod>Garchomp/Mimikyu",
+      "Golisopod>Primarina/Mimikyu",
+      "Primarina>Golisopod/Mimikyu"
+     ]
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.537,
+     "worstBy": [
+      "Primarina>Golisopod/Garchomp",
+      "Mimikyu>Golisopod/Garchomp",
+      "Gholdengo>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "worst": 0,
+     "mean": 0.361,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.297,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Metagross>Primarina/Garchomp",
+     "worst": 0,
+     "mean": 0.428,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Golisopod>Garchomp/Mimikyu"
+     ]
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "worst": 0,
+     "mean": 0.449,
+     "worstBy": [
+      "Golisopod>Garchomp/Mimikyu",
+      "Golisopod>Garchomp/Gholdengo",
+      "Garchomp>Golisopod/Gholdengo"
+     ]
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "worst": 0,
+     "mean": 0.461,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Mimikyu>Golisopod/Garchomp",
+      "Golisopod>Primarina/Gholdengo"
+     ]
+    },
+    {
+     "pick": "Hydreigon>Primarina/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.522,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Primarina>Hydreigon/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.717,
+     "worstBy": [
+      "Gholdengo>Golisopod/Primarina"
+     ]
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "worst": 0,
+     "mean": 0.475,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Golisopod>Garchomp/Mimikyu",
+      "Golisopod>Garchomp/Hippowdon"
+     ]
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.253,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Metagross>Hydreigon/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.456,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Hydreigon>Metagross/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.381,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "worst": 0,
+     "mean": 0.419,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Golisopod>Garchomp/Mimikyu",
+      "Garchomp>Golisopod/Mimikyu"
+     ]
+    },
+    {
+     "pick": "Metagross>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.394,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Tyranitar>Metagross/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.386,
+     "worstBy": [
+      "Golisopod>Garchomp/Primarina",
+      "Garchomp>Golisopod/Primarina",
+      "Primarina>Golisopod/Garchomp"
+     ]
+    },
+    {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.617,
+     "worstBy": [
+      "Primarina>Golisopod/Gholdengo",
+      "Gholdengo>Golisopod/Primarina",
+      "Garchomp>Mimikyu/Hippowdon"
+     ]
+    }
+   ]
+  }
+ }
+}
