@@ -66,8 +66,17 @@ test('pinned Showdown Battle emits Mega-Z and its re-entry as public forme event
   const battle=engineBattle(sim,p1,p2,[2026,10,30,18],[
     ['move 1 mega','move 1'],
     ['switch 2','move 1'],
-    ['switch 1','move 1'],
   ]);
+  // Resolve the actual bench index from Showdown after team preview and Mega
+  // evolution. Never assume the first selected slot remains numerically "1".
+  const slot=battle.p1.pokemon.findIndex(p=>
+    p.species.baseSpecies==='Garchomp'||p.species.name==='Garchomp-Mega-Z'||p.species.name==='Garchomp');
+  assert.ok(slot>=0,'Garchomp must still be in its own selected team');
+  const select=battle.choose('p1','switch '+(slot+1));
+  assert.equal(select,true,'re-enter Mega-Z choice rejected: '+JSON.stringify({
+    error:battle.p1.choice.error,slot,active:battle.p1.active[0]?.species.name,
+    team:battle.p1.pokemon.map(x=>({n:x.species.name,hp:x.hp,fainted:x.fainted})),tail:battle.log.slice(-12)}));
+  assert.equal(battle.choose('p2','move 1'),true,'Corviknight recovery input rejected');
   const events=battle.log.filter(l=>/^\|(switch|detailschange|drag|replace)\|p1a:/.test(l));
   assert.ok(events.length>=3,JSON.stringify(events));
   assert.ok(events.some(l=>l.includes('Garchomp-Mega-Z')),'engine must visibly expose Mega-Z form: '+events.join(' / '));
