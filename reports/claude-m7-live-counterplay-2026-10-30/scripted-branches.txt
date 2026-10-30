@@ -1,0 +1,314 @@
+
+## A-W lead Rotom vs Goli
+Will-O-Wisp v Iron Head +mega: act=Rotom-Wash/Golisopod-Mega own=144-157/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx6 EE=0 1st=p1a:Rotom |T2 x8 own133-157/157(KO0) foe67-160/182(KO0)
+Will-O-Wisp v Iron Head: act=Rotom-Wash/Golisopod own=156-157/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx6 EE=0 1st=p1a:Rotom |T2 x8 own157/157(KO0) foe102-160/182(KO0)
+Will-O-Wisp v First Impression +mega: act=Rotom-Wash/Golisopod-Mega own=58-72/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx7 EE=0 1st=p2a:Golisopod |T2 x8 own46-71/157(KO0) foe93-160/182(KO0)
+Will-O-Wisp v First Impression: act=Rotom-Wash/Golisopod own=93-102/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx7 EE=0 1st=p2a:Golisopod |T2 x8 own93-107/157(KO0) foe118-160/182(KO0)
+Will-O-Wisp v Sucker Punch +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx6 EE=0 1st=p2a:Golisopod |T2 x8 own145-157/157(KO0) foe97-182/182(KO0)
+Will-O-Wisp v Swords Dance +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=171-182/182(KO0) in= wx=- st=p2Golisopod:brnx6 EE=0 1st=p1a:Rotom |T2 x8 own123-148/157(KO0) foe97-182/182(KO0)
+Will-O-Wisp v switch:Mimikyu: act=Rotom-Wash/Mimikyu own=157/157(KO0) foe=182/182(KO0) in=124-132/132 wx=- st=p2Mimikyu:brnx6 EE=0 1st=p1a:Rotom
+Volt Switch v Iron Head +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=140-146/182(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Iron Head: act=Rotom-Wash/Golisopod own=157/157(KO0) foe=78-92/182(KO0) in= wx=- st=- EE=7 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v First Impression +mega: act=Rotom-Wash/Golisopod-Mega own=49-63/157(KO0) foe=140-145/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v First Impression: act=Rotom-Wash/Golisopod own=84-93/157(KO0) foe=78-90/182(KO0) in= wx=- st=- EE=8 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Sucker Punch +mega: act=Rotom-Wash/Golisopod-Mega own=106-112/157(KO0) foe=140-145/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Swords Dance +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=140-146/182(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v switch:Mimikyu: act=Rotom-Wash/Mimikyu-Busted own=157/157(KO0) foe=182/182(KO0) in=116/132 wx=- st=- EE=0 1st=p1a:Rotom
+Hydro Pump v Iron Head +mega: act=Rotom-Wash/Golisopod-Mega own=144-147/157(KO0) foe=116-182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own120-135/157(KO0) foe28-122/182(KO0)
+Hydro Pump v Iron Head: act=Rotom-Wash/Golisopod own=156-157/157(KO0) foe=142-182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own151-157/157(KO0) foe86-145/182(KO0)
+Hydro Pump v First Impression +mega: act=Rotom-Wash/Golisopod-Mega own=58-72/157(KO0) foe=116-182/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own42-60/157(KO0) foe57-121/182(KO0)
+Hydro Pump v First Impression: act=Rotom-Wash/Golisopod own=93-102/157(KO0) foe=141-182/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own92-102/157(KO0) foe105-144/182(KO0)
+Hydro Pump v Sucker Punch +mega: act=Rotom-Wash/Golisopod-Mega own=115-121/157(KO0) foe=116-182/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own96-110/157(KO0) foe57-121/182(KO0)
+Hydro Pump v Swords Dance +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=116-182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own123-129/157(KO0) foe57-182/182(KO0)
+Hydro Pump v switch:Mimikyu: act=Rotom-Wash/Mimikyu-Busted,Mimikyu own=157/157(KO0) foe=182/182(KO0) in=116-132/132 wx=- st=- EE=0 1st=p1a:Rotom
+Thunderbolt v Iron Head +mega: act=Rotom-Wash/Golisopod-Mega own=144-147/157(KO0) foe=128-136/182(KO0) in= wx=- st=p2Golisopod:parx2 EE=0 1st=p1a:Rotom |T2 x8 own133-136/157(KO0) foe64-134/182(KO0)
+Thunderbolt v Iron Head: act=Rotom-Wash/Golisopod own=157/157(KO0) foe=48-66/182(KO0) in= wx=- st=p2Golisopod:parx2 EE=8 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Thunderbolt v First Impression +mega: act=Rotom-Wash/Golisopod-Mega own=58-72/157(KO0) foe=128-134/182(KO0) in= wx=- st=p2Golisopod:parx1 EE=0 1st=p2a:Golisopod |T2 x8 own38-62/157(KO0) foe40-74/182(KO0)
+Thunderbolt v First Impression: act=Rotom-Wash/Golisopod own=84-93/157(KO0) foe=48-62/182(KO0) in= wx=- st=p2Golisopod:parx1 EE=8 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Thunderbolt v Sucker Punch +mega: act=Rotom-Wash/Golisopod-Mega own=115-121/157(KO0) foe=128-134/182(KO0) in= wx=- st=p2Golisopod:parx1 EE=0 1st=p2a:Golisopod |T2 x8 own93-111/157(KO0) foe40-74/182(KO0)
+Thunderbolt v Swords Dance +mega: act=Rotom-Wash/Golisopod-Mega own=157/157(KO0) foe=128-136/182(KO0) in= wx=- st=p2Golisopod:parx2 EE=0 1st=p1a:Rotom |T2 x8 own104-129/157(KO0) foe64-77/182(KO0)
+Thunderbolt v switch:Mimikyu: act=Rotom-Wash/Mimikyu-Busted own=157/157(KO0) foe=182/182(KO0) in=116/132 wx=- st=p2Mimikyu:parx2 EE=0 1st=p1a:Rotom
+
+## A-P lead Primarina vs Goli
+Moonblast v Iron Head +mega: act=Primarina/Golisopod-Mega own=68-94/187(KO0) foe=140-145/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe59-75/182(KO0)
+Moonblast v Iron Head: act=Primarina/Golisopod own=187/187(KO0) foe=74-88/182(KO0) in= wx=- st=- EE=8 1st=p1a:Primarina |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Moonblast v First Impression +mega: act=Primarina/Golisopod-Mega own=98-139/187(KO0) foe=139-144/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own0/187(KO8) foe26-70/182(KO0)
+Moonblast v Sucker Punch +mega: act=Primarina/Golisopod-Mega own=140-146/187(KO0) foe=139-144/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own0/187(KO8) foe26-70/182(KO0)
+Moonblast v Swords Dance +mega: act=Primarina/Golisopod-Mega own=187/187(KO0) foe=140-145/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe59-74/182(KO0)
+Moonblast v switch:Mimikyu: act=Primarina/Mimikyu-Busted own=187/187(KO0) foe=182/182(KO0) in=116/132 wx=- st=- EE=0 1st=p1a:Primarina
+Sparkling Aria v Iron Head +mega: act=Primarina/Golisopod-Mega own=68-94/187(KO0) foe=101-110/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe20-40/182(KO0)
+Sparkling Aria v Iron Head: act=Primarina/Golisopod own=113-125/187(KO0) foe=131-137/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own98-121/187(KO0) foe81-93/182(KO0)
+Sparkling Aria v First Impression +mega: act=Primarina/Golisopod-Mega own=98-139/187(KO0) foe=100-110/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own0-139/187(KO7) foe0-35/182(KO1)
+Sparkling Aria v Sucker Punch +mega: act=Primarina/Golisopod-Mega own=140-146/187(KO0) foe=100-110/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x8 own0-143/187(KO7) foe0-35/182(KO1)
+Sparkling Aria v Swords Dance +mega: act=Primarina/Golisopod-Mega own=187/187(KO0) foe=101-110/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe20-40/182(KO0)
+Sparkling Aria v switch:Mimikyu: act=Primarina/Mimikyu-Busted own=187/187(KO0) foe=182/182(KO0) in=116/132 wx=- st=- EE=0 1st=p1a:Primarina
+Encore v Iron Head +mega: act=Primarina/Golisopod-Mega own=68-91/187(KO0) foe=182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe65-107/182(KO0)
+Encore v Iron Head: act=Primarina/Golisopod own=113-123/187(KO0) foe=182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own85-107/187(KO0) foe110-135/182(KO0)
+Encore v First Impression +mega: act=Primarina/Golisopod-Mega own=98-139/187(KO0) foe=182/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:mechanics-rejected-second-choi
+Encore v Sucker Punch +mega: act=Primarina/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in= wx=- st=- EE=0 1st=p2a:Golisopod |T2 x0 own(KO) foe(KO) skip:mechanics-rejected-second-choi
+Encore v Swords Dance +mega: act=Primarina/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in= wx=- st=- EE=0 1st=p1a:Primarina |T2 x8 own0/187(KO8) foe98-110/182(KO0)
+Encore v switch:Mimikyu: act=Primarina/Mimikyu own=187/187(KO0) foe=182/182(KO0) in=132/132 wx=- st=- EE=0 1st=p1a:Primarina
+switch:Metagross v Iron Head +mega: act=Metagross/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in=107-113/157 wx=- st=- EE=0 1st=p2a:Golisopod
+switch:Metagross v Iron Head: act=Metagross/Golisopod own=187/187(KO0) foe=182/182(KO0) in=134-137/157 wx=- st=- EE=0 1st=p2a:Golisopod
+switch:Metagross v First Impression +mega: act=Metagross/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in=31-48/157 wx=- st=- EE=0 1st=p2a:Golisopod
+switch:Metagross v Sucker Punch +mega: act=Metagross/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Golisopod
+switch:Metagross v Swords Dance +mega: act=Metagross/Golisopod-Mega own=187/187(KO0) foe=182/182(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Golisopod
+switch:Metagross v switch:Mimikyu: act=Metagross/Mimikyu own=187/187(KO0) foe=182/182(KO0) in=157/157132/132 wx=- st=- EE=0 1st=
+
+## A-W lead Rotom vs Mimikyu
+Will-O-Wisp v Swords Dance: act=Rotom-Wash/Mimikyu own=157/157(KO0) foe=124-132/132(KO0) in= wx=- st=p2Mimikyu:brnx6 EE=0 1st=p2a:Mimikyu |T2 x8 own24-157/157(KO0) foe87-116/132(KO0)
+Will-O-Wisp v Play Rough: act=Rotom-Wash/Mimikyu own=96-157/157(KO0) foe=111-124/132(KO0) in= wx=- st=p2Mimikyu:brnx7 EE=0 1st=p2a:Mimikyu |T2 x8 own51-131/157(KO0) foe74-90/132(KO0)
+Will-O-Wisp v Shadow Claw: act=Rotom-Wash/Mimikyu own=111-119/157(KO0) foe=111-119/132(KO0) in= wx=- st=p2Mimikyu:brnx7 EE=0 1st=p2a:Mimikyu |T2 x8 own52-128/157(KO0) foe74-90/132(KO0)
+Will-O-Wisp v switch:Golisopod: act=Rotom-Wash/Golisopod own=157/157(KO0) foe=132/132(KO0) in=171-182/182 wx=- st=p2Golisopod:brnx6 EE=0 1st=p1a:Rotom
+Hydro Pump v Swords Dance: act=Rotom-Wash/Mimikyu-Busted,Mimikyu own=157/157(KO0) foe=116-132/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x8 own24-44/157(KO0) foe0-103/132(KO1)
+Hydro Pump v Play Rough: act=Rotom-Wash/Mimikyu-Busted,Mimikyu own=96-157/157(KO0) foe=103-119/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x8 own10-96/157(KO0) foe14-90/132(KO0)
+Hydro Pump v Shadow Claw: act=Rotom-Wash/Mimikyu-Busted,Mimikyu own=111-119/157(KO0) foe=103-119/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x8 own52-127/157(KO0) foe0-90/132(KO1)
+Hydro Pump v switch:Golisopod: act=Rotom-Wash/Golisopod own=157/157(KO0) foe=132/132(KO0) in=142-182/182 wx=- st=- EE=0 1st=p1a:Rotom
+Volt Switch v Swords Dance: act=Rotom-Wash/Mimikyu-Busted own=157/157(KO0) foe=116/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Play Rough: act=Rotom-Wash/Mimikyu-Busted own=87-157/157(KO0) foe=103-116/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Shadow Claw: act=Rotom-Wash/Mimikyu-Busted own=102-110/157(KO0) foe=103/132(KO0) in= wx=- st=- EE=0 1st=p2a:Mimikyu |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v switch:Golisopod: act=Rotom-Wash/Golisopod own=157/157(KO0) foe=132/132(KO0) in=78-92/182 wx=- st=- EE=7 1st=p1a:Rotom
+
+## A-W Rotom vs Mimikyu: switch to Metagross
+switch:Metagross v Swords Dance: act=Metagross/Mimikyu own=157/157(KO0) foe=132/132(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Metagross v Play Rough: act=Metagross/Mimikyu own=157/157(KO0) foe=119-132/132(KO0) in=117-157/157 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Metagross v Shadow Claw: act=Metagross/Mimikyu own=157/157(KO0) foe=119/132(KO0) in=30-45/157 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Metagross v switch:Golisopod: act=Metagross/Golisopod own=157/157(KO0) foe=132/132(KO0) in=157/157182/182 wx=- st=- EE=0 1st=
+switch:Hydreigon v Swords Dance: act=Hydreigon/Mimikyu own=157/157(KO0) foe=132/132(KO0) in=169/169 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Hydreigon v Play Rough: act=Hydreigon/Mimikyu own=157/157(KO0) foe=119-132/132(KO0) in=0-169/169 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Hydreigon v Shadow Claw: act=Hydreigon/Mimikyu own=157/157(KO0) foe=119/132(KO0) in=126-133/169 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Hydreigon v switch:Golisopod: act=Hydreigon/Golisopod own=157/157(KO0) foe=132/132(KO0) in=169/169182/182 wx=- st=- EE=0 1st=
+
+## A-W lead Rotom vs Garchomp
+Hydro Pump v Dragon Claw: act=Rotom-Wash/Garchomp own=111-118/157(KO0) foe=97-185/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp
+Hydro Pump v Rock Slide: act=Rotom-Wash/Garchomp own=131-157/157(KO0) foe=95-185/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp
+Hydro Pump v switch:Mimikyu: act=Rotom-Wash/Mimikyu-Busted,Mimikyu own=157/157(KO0) foe=185/185(KO0) in=116-132/132 wx=- st=- EE=0 1st=p1a:Rotom
+Will-O-Wisp v Dragon Claw: act=Rotom-Wash/Garchomp own=111-118/157(KO0) foe=174-185/185(KO0) in= wx=- st=p2Garchomp:brnx7 EE=0 1st=p2a:Garchomp
+Will-O-Wisp v Rock Slide: act=Rotom-Wash/Garchomp own=131-157/157(KO0) foe=174-185/185(KO0) in= wx=- st=p2Garchomp:brnx6 EE=0 1st=p2a:Garchomp
+Will-O-Wisp v switch:Mimikyu: act=Rotom-Wash/Mimikyu own=157/157(KO0) foe=185/185(KO0) in=124-132/132 wx=- st=p2Mimikyu:brnx6 EE=0 1st=p1a:Rotom
+Volt Switch v Dragon Claw: act=Rotom-Wash/Garchomp own=111-118/157(KO0) foe=185/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp
+Volt Switch v Rock Slide: act=Rotom-Wash/Garchomp own=131-157/157(KO0) foe=185/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp
+Volt Switch v switch:Mimikyu: act=Rotom-Wash/Mimikyu-Busted own=157/157(KO0) foe=185/185(KO0) in=116/132 wx=- st=- EE=0 1st=p1a:Rotom
+
+## A-W lead Rotom vs Hippowdon
+Hydro Pump v Stealth Rock: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=34-215/215(KO0) in= wx=Sandstorm st=- EE=0 1st=p1a:Rotom
+Hydro Pump v Yawn: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=34-215/215(KO0) in= wx=Sandstorm st=- EE=0 1st=p1a:Rotom
+Hydro Pump v Earthquake: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=34-215/215(KO0) in= wx=Sandstorm st=- EE=0 1st=p1a:Rotom
+Hydro Pump v switch:Primarina: act=Rotom-Wash/Primarina own=157/157(KO0) foe=215/215(KO0) in=142-176/187 wx=Sandstorm st=- EE=0 1st=p1a:Rotom
+Will-O-Wisp v Stealth Rock: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=202-215/215(KO0) in= wx=Sandstorm st=p2Hippowdon:brnx6 EE=0 1st=p1a:Rotom
+Will-O-Wisp v Yawn: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=202-215/215(KO0) in= wx=Sandstorm st=p2Hippowdon:brnx6 EE=0 1st=p1a:Rotom
+Will-O-Wisp v Earthquake: act=Rotom-Wash/Hippowdon own=157/157(KO0) foe=202-215/215(KO0) in= wx=Sandstorm st=p2Hippowdon:brnx6 EE=0 1st=p1a:Rotom
+Will-O-Wisp v switch:Primarina: act=Rotom-Wash/Primarina own=157/157(KO0) foe=215/215(KO0) in=165-176/187 wx=Sandstorm st=p2Primarina:brnx6 EE=0 1st=p1a:Rotom
+
+## B-G lead Scarf Garchomp vs Lucario
+Earthquake v Aura Sphere +mega: act=Garchomp/Lucario-Mega-Z own=185/185(KO0) foe=0/147(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Nasty Plot +mega: act=Garchomp/Lucario-Mega-Z own=185/185(KO0) foe=0/147(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Vacuum Wave +mega: act=Garchomp/Lucario-Mega-Z own=128-136/185(KO0) foe=0/147(KO8) in= wx=- st=- EE=0 1st=p2a:Lucario
+Earthquake v Dark Pulse +mega: act=Garchomp/Lucario-Mega-Z own=185/185(KO0) foe=0/147(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v switch:Corviknight: act=Garchomp/Corviknight own=185/185(KO0) foe=147/147(KO0) in=205/205 wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Aura Sphere +mega: act=Garchomp/Lucario-Mega-Z own=76-89/185(KO0) foe=120-124/147(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Nasty Plot +mega: act=Garchomp/Lucario-Mega-Z own=185/185(KO0) foe=120-124/147(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Vacuum Wave +mega: act=Garchomp/Lucario-Mega-Z own=128-136/185(KO0) foe=120-124/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario
+Dragon Claw v Dark Pulse +mega: act=Garchomp/Lucario-Mega-Z own=111-123/185(KO0) foe=120-124/147(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v switch:Corviknight: act=Garchomp/Corviknight own=155/185(KO0) foe=147/147(KO0) in=176-181/205 wx=- st=- EE=0 1st=p1a:Garchomp
+
+## B-G lead Scarf Garchomp vs Corviknight
+Earthquake v Iron Head: act=Garchomp/Corviknight own=134-142/185(KO0) foe=180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Body Press: act=Garchomp/Corviknight own=131-139/185(KO0) foe=180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v U-turn: act=Garchomp/Corviknight own=155-159/185(KO0) foe=180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Roost: act=Garchomp/Corviknight own=185/185(KO0) foe=205/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Iron Head: act=Garchomp/Corviknight own=137-185/185(KO0) foe=144-180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Body Press: act=Garchomp/Corviknight own=134-185/185(KO0) foe=144-180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v U-turn: act=Garchomp/Corviknight own=157-185/185(KO0) foe=144-180/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Roost: act=Garchomp/Corviknight own=185/185(KO0) foe=171-205/205(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Primarina v Iron Head: act=Primarina/Corviknight own=185/185(KO0) foe=205/205(KO0) in=124-133/187 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Primarina v Body Press: act=Primarina/Corviknight own=185/185(KO0) foe=205/205(KO0) in=154-159/187 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Primarina v U-turn: act=Primarina/Corviknight own=185/185(KO0) foe=205/205(KO0) in=169-171/187 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Primarina v Roost: act=Primarina/Corviknight own=185/185(KO0) foe=205/205(KO0) in=187/187 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Metagross v Iron Head: act=Metagross/Corviknight own=185/185(KO0) foe=205/205(KO0) in=137-140/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Metagross v Body Press: act=Metagross/Corviknight own=185/185(KO0) foe=205/205(KO0) in=115-121/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Metagross v U-turn: act=Metagross/Corviknight own=185/185(KO0) foe=205/205(KO0) in=134-137/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Metagross v Roost: act=Metagross/Corviknight own=185/185(KO0) foe=205/205(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Corviknight
+
+## B-G lead Scarf Garchomp vs Mimikyu
+Earthquake v Swords Dance: act=Garchomp/Mimikyu-Busted own=185/185(KO0) foe=116/132(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Play Rough: act=Garchomp/Mimikyu-Busted own=0-185/185(KO6) foe=87-116/132(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v switch:Corviknight: act=Garchomp/Corviknight own=185/185(KO0) foe=132/132(KO0) in=205/205 wx=- st=- EE=0 1st=p1a:Garchomp
+Poison Jab v Swords Dance: act=Garchomp/Mimikyu-Busted own=185/185(KO0) foe=100-116/132(KO0) in= wx=- st=p2Mimikyu:psnx2 EE=0 1st=p1a:Garchomp
+Poison Jab v Play Rough: act=Garchomp/Mimikyu-Busted own=0/185(KO8) foe=71-87/132(KO0) in= wx=- st=p2Mimikyu:psnx2 EE=0 1st=p1a:Garchomp
+Poison Jab v switch:Corviknight: act=Garchomp/Corviknight own=185/185(KO0) foe=132/132(KO0) in=205/205 wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Metagross v Swords Dance: act=Metagross/Mimikyu own=185/185(KO0) foe=132/132(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Metagross v Play Rough: act=Metagross/Mimikyu own=185/185(KO0) foe=119-132/132(KO0) in=115-157/157 wx=- st=- EE=0 1st=p2a:Mimikyu
+switch:Metagross v switch:Corviknight: act=Metagross/Corviknight own=185/185(KO0) foe=132/132(KO0) in=157/157205/205 wx=- st=- EE=0 1st=
+
+## B-G lead Scarf Garchomp vs Scarf Garchomp
+Dragon Claw v Dragon Claw: act=Garchomp/Garchomp own=0-162/185(KO4) foe=0-162/185(KO2) in= wx=- st=- EE=0 1st=p2a:Garchomp,p1a:Garchomp
+Dragon Claw v Earthquake: act=Garchomp/Garchomp own=14-162/185(KO0) foe=0-33/185(KO1) in= wx=- st=- EE=0 1st=p2a:Garchomp,p1a:Garchomp
+Dragon Claw v switch:Primarina: act=Garchomp/Primarina own=185/185(KO0) foe=185/185(KO0) in=187/187 wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Dragon Claw: act=Garchomp/Garchomp own=0-41/185(KO2) foe=8-162/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp,p1a:Garchomp
+Earthquake v Earthquake: act=Garchomp/Garchomp own=37-95/185(KO0) foe=31-89/185(KO0) in= wx=- st=- EE=0 1st=p2a:Garchomp,p1a:Garchomp
+Earthquake v switch:Primarina: act=Garchomp/Primarina own=185/185(KO0) foe=185/185(KO0) in=103-124/187 wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Primarina v Dragon Claw: act=Primarina/Garchomp own=185/185(KO0) foe=185/185(KO0) in=187/187 wx=- st=- EE=0 1st=p2a:Garchomp
+switch:Primarina v Earthquake: act=Primarina/Garchomp own=185/185(KO0) foe=185/185(KO0) in=103-124/187 wx=- st=- EE=0 1st=p2a:Garchomp
+switch:Primarina v switch:Primarina: act=Primarina/Primarina own=185/185(KO0) foe=185/185(KO0) in=187/187187/187 wx=- st=- EE=0 1st=
+
+## B-R2 Scarf Garchomp vs Corviknight: switch to Rotom
+switch:Rotom-Wash v Iron Head: act=Rotom-Wash/Corviknight own=185/185(KO0) foe=205/205(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Rotom-Wash v Body Press: act=Rotom-Wash/Corviknight own=185/185(KO0) foe=205/205(KO0) in=130-135/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Rotom-Wash v U-turn: act=Rotom-Wash/Corviknight own=185/185(KO0) foe=205/205(KO0) in=137-140/157 wx=- st=- EE=0 1st=p2a:Corviknight
+switch:Rotom-Wash v Roost: act=Rotom-Wash/Corviknight own=185/185(KO0) foe=205/205(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Corviknight
+
+## B-R2 Scarf Garchomp vs Archaludon
+Earthquake v Draco Meteor: act=Garchomp/Archaludon own=0-185/185(KO7) foe=33-57/197(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Thunderbolt: act=Garchomp/Archaludon own=185/185(KO0) foe=33-57/197(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Stealth Rock: act=Garchomp/Archaludon own=185/185(KO0) foe=33-57/197(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v switch:Corviknight: act=Garchomp/Corviknight own=185/185(KO0) foe=197/197(KO0) in=205/205 wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Rotom-Wash v Draco Meteor: act=Rotom-Wash/Archaludon own=185/185(KO0) foe=197/197(KO0) in=33-157/157 wx=- st=- EE=0 1st=p2a:Archaludon
+switch:Rotom-Wash v Thunderbolt: act=Rotom-Wash/Archaludon own=185/185(KO0) foe=197/197(KO0) in=104-113/157 wx=- st=- EE=0 1st=p2a:Archaludon
+switch:Rotom-Wash v Stealth Rock: act=Rotom-Wash/Archaludon own=185/185(KO0) foe=197/197(KO0) in=157/157 wx=- st=- EE=0 1st=p2a:Archaludon
+switch:Rotom-Wash v switch:Corviknight: act=Rotom-Wash/Corviknight own=185/185(KO0) foe=197/197(KO0) in=157/157205/205 wx=- st=- EE=0 1st=
+
+## B-W lead Rotom vs Lucario
+Hydro Pump v Aura Sphere +mega: act=Rotom-Wash/Lucario-Mega-Z own=78-88/157(KO0) foe=44-147/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x8 own0-16/157(KO5) foe0-147/147(KO1)
+Hydro Pump v Nasty Plot +mega: act=Rotom-Wash/Lucario-Mega-Z own=157/157(KO0) foe=47-147/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x8 own0/157(KO8) foe47-147/147(KO0)
+Hydro Pump v Dark Pulse +mega: act=Rotom-Wash/Lucario-Mega-Z own=105-113/157(KO0) foe=2-147/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x8 own0-42/157(KO1) foe0-59/147(KO2)
+Hydro Pump v switch:Corviknight: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=147/147(KO0) in=121-205/205 wx=- st=- EE=0 1st=p1a:Rotom
+Thunderbolt v Aura Sphere +mega: act=Rotom-Wash/Lucario-Mega-Z own=78-88/157(KO0) foe=63-74/147(KO0) in= wx=- st=p2Lucario:parx1 EE=0 1st=p2a:Lucario |T2 x8 own0-18/157(KO5) foe0-74/147(KO2)
+Thunderbolt v Nasty Plot +mega: act=Rotom-Wash/Lucario-Mega-Z own=157/157(KO0) foe=62-74/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x8 own0-13/157(KO7) foe0-74/147(KO1)
+Thunderbolt v Dark Pulse +mega: act=Rotom-Wash/Lucario-Mega-Z own=105-113/157(KO0) foe=29-147/147(KO0) in= wx=- st=p2Lucario:parx1 EE=0 1st=p2a:Lucario |T2 x8 own29-46/157(KO0) foe0-69/147(KO3)
+Thunderbolt v switch:Corviknight: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=147/147(KO0) in=59-79/205 wx=- st=- EE=0 1st=p1a:Rotom
+Will-O-Wisp v Aura Sphere +mega: act=Rotom-Wash/Lucario-Mega-Z own=78-88/157(KO0) foe=138-147/147(KO0) in= wx=- st=p2Lucario:brnx7 EE=0 1st=p2a:Lucario |T2 x8 own0-17/157(KO5) foe24-147/147(KO0)
+Will-O-Wisp v Nasty Plot +mega: act=Rotom-Wash/Lucario-Mega-Z own=157/157(KO0) foe=138-147/147(KO0) in= wx=- st=p2Lucario:brnx4 EE=0 1st=p2a:Lucario |T2 x8 own0/157(KO8) foe129-147/147(KO0)
+Will-O-Wisp v Dark Pulse +mega: act=Rotom-Wash/Lucario-Mega-Z own=105-113/157(KO0) foe=138-147/147(KO0) in= wx=- st=p2Lucario:brnx5 EE=0 1st=p2a:Lucario |T2 x8 own0-42/157(KO1) foe30-129/147(KO0)
+Will-O-Wisp v switch:Corviknight: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=147/147(KO0) in=193-205/205 wx=- st=p2Corviknight:brnx4 EE=0 1st=p1a:Rotom
+Volt Switch v Aura Sphere +mega: act=Rotom-Wash/Lucario-Mega-Z own=69-79/157(KO0) foe=81-89/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Nasty Plot +mega: act=Rotom-Wash/Lucario-Mega-Z own=157/157(KO0) foe=80-89/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Dark Pulse +mega: act=Rotom-Wash/Lucario-Mega-Z own=96-109/157(KO0) foe=54-147/147(KO0) in= wx=- st=- EE=0 1st=p2a:Lucario |T2 x2 own29-42/157(KO0) foe57-59/147(KO0) skip:pending-switch-request
+Volt Switch v switch:Corviknight: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=147/147(KO0) in=91-107/205 wx=- st=- EE=0 1st=p1a:Rotom
+
+## B-W lead Rotom vs Corviknight
+Thunderbolt v Iron Head: act=Rotom-Wash/Corviknight own=155-157/157(KO0) foe=59-79/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own157/157(KO0) foe0/205(KO8)
+Thunderbolt v Body Press: act=Rotom-Wash/Corviknight own=116-134/157(KO0) foe=59-79/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own125-143/157(KO0) foe0/205(KO8)
+Thunderbolt v U-turn: act=Rotom-Wash/Corviknight own=130-139/157(KO0) foe=59-79/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Thunderbolt v Roost: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=162-182/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x8 own157/157(KO0) foe0-151/205(KO1)
+Volt Switch v Iron Head: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=91-107/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Body Press: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=91-107/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v U-turn: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=91-107/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Volt Switch v Roost: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=91-107/205(KO0) in= wx=- st=- EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Will-O-Wisp v Iron Head: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=193-205/205(KO0) in= wx=- st=p2Corviknight:brnx4 EE=0 1st=p1a:Rotom |T2 x8 own157/157(KO0) foe138-182/205(KO0)
+Will-O-Wisp v Body Press: act=Rotom-Wash/Corviknight own=132-150/157(KO0) foe=193-205/205(KO0) in= wx=- st=p2Corviknight:brnx4 EE=0 1st=p1a:Rotom |T2 x8 own141-157/157(KO0) foe108-176/205(KO0)
+Will-O-Wisp v U-turn: act=Rotom-Wash/Corviknight own=138-148/157(KO0) foe=205/205(KO0) in= wx=- st=p2Corviknight:brnx4 EE=0 1st=p1a:Rotom |T2 x0 own(KO) foe(KO) skip:pending-switch-request
+Will-O-Wisp v Roost: act=Rotom-Wash/Corviknight own=157/157(KO0) foe=193-205/205(KO0) in= wx=- st=p2Corviknight:brnx4 EE=0 1st=p1a:Rotom |T2 x8 own157/157(KO0) foe140-182/205(KO0)
+
+## C-T lead Tyranitar vs Charizard-Y
+Stone Edge v Solar Beam +mega: act=Tyranitar/Charizard-Mega-Y own=21-47/207(KO0) foe=0-155/155(KO6) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x2 own0/207(KO2) foe155/155(KO0) skip:faint-or-game-end
+Stone Edge v Flamethrower +mega: act=Tyranitar/Charizard-Mega-Y own=129-139/207(KO0) foe=0-155/155(KO7) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x1 own0/207(KO1) foe155/155(KO0) skip:faint-or-game-end
+Stone Edge v Air Slash +mega: act=Tyranitar/Charizard-Mega-Y own=163-169/207(KO0) foe=0-155/155(KO5) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x3 own0/207(KO3) foe155/155(KO0) skip:faint-or-game-end
+Stone Edge v Solar Beam: act=Tyranitar/Charizard own=207/207(KO0) foe=0-146/155(KO4) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x0 own(KO) foe(KO) skip:mechanics-rejected-second-choi
+Stone Edge v switch:Garchomp: act=Tyranitar/Garchomp own=207/207(KO0) foe=155/155(KO0) in=128-185/185 wx=Sandstorm st=- EE=0 1st=p1a:Tyranitar
+Stealth Rock v Solar Beam +mega: act=Tyranitar/Charizard-Mega-Y own=21-47/207(KO0) foe=155/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x8 own0/207(KO8) foe155/155(KO0)
+Stealth Rock v Flamethrower +mega: act=Tyranitar/Charizard-Mega-Y own=129-139/207(KO0) foe=155/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x8 own0/207(KO8) foe155/155(KO0)
+Stealth Rock v Air Slash +mega: act=Tyranitar/Charizard-Mega-Y own=163-169/207(KO0) foe=155/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p2a:Charizard |T2 x8 own0-1/207(KO7) foe0-155/155(KO1)
+Stealth Rock v Solar Beam: act=Tyranitar/Charizard own=207/207(KO0) foe=146/155(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x0 own(KO) foe(KO) skip:mechanics-rejected-second-choi
+Stealth Rock v switch:Garchomp: act=Tyranitar/Garchomp own=207/207(KO0) foe=155/155(KO0) in=185/185 wx=Sandstorm st=- EE=0 1st=p1a:Tyranitar
+switch:Garchomp v Solar Beam +mega: act=Garchomp/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=77-92/185 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Flamethrower +mega: act=Garchomp/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=95-107/185 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Air Slash +mega: act=Garchomp/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=83-97/185 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Solar Beam: act=Garchomp/Charizard own=207/207(KO0) foe=146/155(KO0) in=185/185 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v switch:Garchomp: act=Garchomp/Garchomp own=207/207(KO0) foe=155/155(KO0) in=185/185185/185 wx=Sandstorm st=- EE=0 1st=
+switch:Primarina v Solar Beam +mega: act=Primarina/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=67-89/187 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Flamethrower +mega: act=Primarina/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=117-127/187 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Air Slash +mega: act=Primarina/Charizard-Mega-Y own=207/207(KO0) foe=155/155(KO0) in=108-118/187 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Solar Beam: act=Primarina/Charizard own=207/207(KO0) foe=146/155(KO0) in=176/187 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Primarina v switch:Garchomp: act=Primarina/Garchomp own=207/207(KO0) foe=155/155(KO0) in=176/187185/185 wx=Sandstorm st=- EE=0 1st=
+
+## C-T lead Tyranitar vs Charizard-X
+Stone Edge v Dragon Dance +mega: act=Tyranitar/Charizard-Mega-X own=207/207(KO0) foe=0-146/155(KO4) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x4 own27-47/207(KO0) foe0-137/155(KO3) skip:faint-or-game-end
+Stone Edge v Earthquake +mega: act=Tyranitar/Charizard-Mega-X own=81-99/207(KO0) foe=0-146/155(KO6) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x2 own0/207(KO2) foe137/155(KO0) skip:faint-or-game-end
+Stone Edge v Flare Blitz +mega: act=Tyranitar/Charizard-Mega-X own=134-144/207(KO0) foe=0-124/155(KO7) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x1 own19/207(KO0) foe0/155(KO1) skip:faint-or-game-end
+Stone Edge v Dragon Claw +mega: act=Tyranitar/Charizard-Mega-X own=108-122/207(KO0) foe=0-146/155(KO6) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x2 own0/207(KO2) foe137/155(KO0) skip:faint-or-game-end
+Stone Edge v switch:Garchomp: act=Tyranitar/Garchomp own=207/207(KO0) foe=155/155(KO0) in=128-185/185 wx=Sandstorm st=- EE=0 1st=p1a:Tyranitar
+Stealth Rock v Dragon Dance +mega: act=Tyranitar/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x8 own19-45/207(KO0) foe0-137/155(KO6)
+Stealth Rock v Earthquake +mega: act=Tyranitar/Charizard-Mega-X own=81-99/207(KO0) foe=146/155(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x8 own0/207(KO8) foe137/155(KO0)
+Stealth Rock v Flare Blitz +mega: act=Tyranitar/Charizard-Mega-X own=134-144/207(KO0) foe=122-125/155(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x8 own0-30/207(KO1) foe0-115/155(KO6)
+Stealth Rock v Dragon Claw +mega: act=Tyranitar/Charizard-Mega-X own=108-122/207(KO0) foe=146/155(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Charizard |T2 x8 own0-8/207(KO5) foe0-137/155(KO3)
+Stealth Rock v switch:Garchomp: act=Tyranitar/Garchomp own=207/207(KO0) foe=155/155(KO0) in=185/185 wx=Sandstorm st=- EE=0 1st=p1a:Tyranitar
+switch:Garchomp v Dragon Dance +mega: act=Garchomp/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in=185/185 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Earthquake +mega: act=Garchomp/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in=114-124/185 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Flare Blitz +mega: act=Garchomp/Charizard-Mega-X own=207/207(KO0) foe=100-104/155(KO0) in=103-114/185 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v Dragon Claw +mega: act=Garchomp/Charizard-Mega-X own=207/207(KO0) foe=127/155(KO0) in=0/185 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Garchomp v switch:Garchomp: act=Garchomp/Garchomp own=207/207(KO0) foe=155/155(KO0) in=185/185185/185 wx=Sandstorm st=- EE=0 1st=
+switch:Primarina v Dragon Dance +mega: act=Primarina/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in=176/187 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Earthquake +mega: act=Primarina/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in=94-139/187 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Flare Blitz +mega: act=Primarina/Charizard-Mega-X own=207/207(KO0) foe=113-117/155(KO0) in=122-135/187 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Primarina v Dragon Claw +mega: act=Primarina/Charizard-Mega-X own=207/207(KO0) foe=146/155(KO0) in=176/187 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Primarina v switch:Garchomp: act=Primarina/Garchomp own=207/207(KO0) foe=155/155(KO0) in=176/187185/185 wx=Sandstorm st=- EE=0 1st=
+
+## C-K lead Scarf Garchomp vs Charizard-Y
+Rock Slide v Solar Beam +mega: act=Garchomp/Charizard-Mega-Y own=82-185/185(KO0) foe=0-155/155(KO7) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Flamethrower +mega: act=Garchomp/Charizard-Mega-Y own=98-185/185(KO0) foe=0-155/155(KO7) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Air Slash +mega: act=Garchomp/Charizard-Mega-Y own=88-185/185(KO0) foe=0-155/155(KO7) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Rock Slide v switch:Garchomp: act=Garchomp/Garchomp own=185/185(KO0) foe=155/155(KO0) in=159-162/185 wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Tyranitar v Solar Beam +mega: act=Tyranitar/Charizard-Mega-Y own=185/185(KO0) foe=155/155(KO0) in=25-49/207 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Tyranitar v Flamethrower +mega: act=Tyranitar/Charizard-Mega-Y own=185/185(KO0) foe=155/155(KO0) in=123-139/207 wx=SunnyDay st=p1Tyranitar:brnx2 EE=0 1st=p2a:Charizard
+switch:Tyranitar v Air Slash +mega: act=Tyranitar/Charizard-Mega-Y own=185/185(KO0) foe=155/155(KO0) in=165-170/207 wx=SunnyDay st=- EE=0 1st=p2a:Charizard
+switch:Tyranitar v switch:Garchomp: act=Tyranitar/Garchomp own=185/185(KO0) foe=155/155(KO0) in=207/207185/185 wx=Sandstorm st=- EE=0 1st=
+
+## C-K lead Scarf Garchomp vs Charizard-X
+Rock Slide v Dragon Dance +mega: act=Garchomp/Charizard-Mega-X own=185/185(KO0) foe=63-155/155(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Earthquake +mega: act=Garchomp/Charizard-Mega-X own=114-185/185(KO0) foe=63-155/155(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v Dragon Claw +mega: act=Garchomp/Charizard-Mega-X own=0-185/185(KO6) foe=44-136/155(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Rock Slide v switch:Garchomp: act=Garchomp/Garchomp own=185/185(KO0) foe=155/155(KO0) in=159-162/185 wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Dragon Dance +mega: act=Garchomp/Charizard-Mega-X own=185/185(KO0) foe=0/155(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Earthquake +mega: act=Garchomp/Charizard-Mega-X own=185/185(KO0) foe=0/155(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v Dragon Claw +mega: act=Garchomp/Charizard-Mega-X own=185/185(KO0) foe=0/155(KO8) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Earthquake v switch:Garchomp: act=Garchomp/Garchomp own=185/185(KO0) foe=155/155(KO0) in=80-94/185 wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Dragon Dance +mega: act=Garchomp/Charizard-Mega-X own=185/185(KO0) foe=9-27/155(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Earthquake +mega: act=Garchomp/Charizard-Mega-X own=115-124/185(KO0) foe=9-27/155(KO0) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Dragon Claw +mega: act=Garchomp/Charizard-Mega-X own=0/185(KO8) foe=0-8/155(KO5) in= wx=- st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v switch:Garchomp: act=Garchomp/Garchomp own=162/185(KO0) foe=155/155(KO0) in=17-39/185 wx=- st=- EE=0 1st=p1a:Garchomp
+switch:Tyranitar v Dragon Dance +mega: act=Tyranitar/Charizard-Mega-X own=185/185(KO0) foe=146/155(KO0) in=207/207 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Tyranitar v Earthquake +mega: act=Tyranitar/Charizard-Mega-X own=185/185(KO0) foe=146/155(KO0) in=85-99/207 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Tyranitar v Dragon Claw +mega: act=Tyranitar/Charizard-Mega-X own=185/185(KO0) foe=146/155(KO0) in=111-123/207 wx=Sandstorm st=- EE=0 1st=p2a:Charizard
+switch:Tyranitar v switch:Garchomp: act=Tyranitar/Garchomp own=185/185(KO0) foe=155/155(KO0) in=207/207185/185 wx=Sandstorm st=- EE=0 1st=
+
+## C-K Scarf Garchomp Dragon Claw vs Charizard-Y
+Dragon Claw v Solar Beam +mega: act=Garchomp/Charizard-Mega-Y own=79-92/185(KO0) foe=58-70/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Dragon Claw v Flamethrower +mega: act=Garchomp/Charizard-Mega-Y own=95-107/185(KO0) foe=58-70/155(KO0) in= wx=SunnyDay st=p1Garchomp:brnx1 EE=0 1st=p1a:Garchomp
+Dragon Claw v Air Slash +mega: act=Garchomp/Charizard-Mega-Y own=85-97/185(KO0) foe=58-70/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Earthquake v Solar Beam +mega: act=Garchomp/Charizard-Mega-Y own=80-93/185(KO0) foe=155/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+Earthquake v Flamethrower +mega: act=Garchomp/Charizard-Mega-Y own=91-107/185(KO0) foe=155/155(KO0) in= wx=SunnyDay st=p1Garchomp:brnx2 EE=0 1st=p1a:Garchomp
+Earthquake v Air Slash +mega: act=Garchomp/Charizard-Mega-Y own=86-98/185(KO0) foe=155/155(KO0) in= wx=SunnyDay st=- EE=0 1st=p1a:Garchomp
+
+## C-T lead Tyranitar vs Garchomp
+Ice Punch v Earthquake: act=Tyranitar/Garchomp own=0-20/207(KO3) foe=0/185(KO8) in= wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+Ice Punch v Dragon Claw: act=Tyranitar/Garchomp own=109-118/207(KO0) foe=0/185(KO8) in= wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+Ice Punch v switch:Charizard: act=Tyranitar/Charizard own=207/207(KO0) foe=185/185(KO0) in=78-86/155 wx=Sandstorm st=p2Charizard:frzx2 EE=0 1st=p1a:Tyranitar
+Stealth Rock v Earthquake: act=Tyranitar/Garchomp own=25-45/207(KO0) foe=185/185(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+Stealth Rock v Dragon Claw: act=Tyranitar/Garchomp own=134-143/207(KO0) foe=185/185(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+Stealth Rock v switch:Charizard: act=Tyranitar/Charizard own=207/207(KO0) foe=185/185(KO0) in=146/155 wx=Sandstorm st=- EE=0 1st=p1a:Tyranitar
+switch:Primarina v Earthquake: act=Primarina/Garchomp own=207/207(KO0) foe=185/185(KO0) in=95-111/187 wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+switch:Primarina v Dragon Claw: act=Primarina/Garchomp own=207/207(KO0) foe=185/185(KO0) in=176/187 wx=Sandstorm st=- EE=0 1st=p2a:Garchomp
+switch:Primarina v switch:Charizard: act=Primarina/Charizard own=207/207(KO0) foe=185/185(KO0) in=176/187146/155 wx=Sandstorm st=- EE=0 1st=
+
+## C-T lead Tyranitar vs Primarina
+Knock Off v Moonblast: act=Tyranitar/Primarina own=73-91/207(KO0) foe=106-117/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+Knock Off v Sparkling Aria: act=Tyranitar/Primarina own=79-97/207(KO0) foe=106-117/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+Knock Off v Encore: act=Tyranitar/Primarina own=207/207(KO0) foe=106-116/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+Stealth Rock v Moonblast: act=Tyranitar/Primarina own=73-91/207(KO0) foe=176/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+Stealth Rock v Sparkling Aria: act=Tyranitar/Primarina own=79-97/207(KO0) foe=176/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+Stealth Rock v Encore: act=Tyranitar/Primarina own=207/207(KO0) foe=176/187(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+switch:Garchomp v Moonblast: act=Garchomp/Primarina own=207/207(KO0) foe=176/187(KO0) in=0/185 wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+switch:Garchomp v Sparkling Aria: act=Garchomp/Primarina own=207/207(KO0) foe=176/187(KO0) in=76-89/185 wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+switch:Garchomp v Encore: act=Garchomp/Primarina own=207/207(KO0) foe=176/187(KO0) in=185/185 wx=Sandstorm st=- EE=0 1st=p2a:Primarina
+
+## C-T lead Tyranitar vs Mimikyu
+Knock Off v Swords Dance: act=Tyranitar/Mimikyu-Busted own=207/207(KO0) foe=108/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Knock Off v Play Rough: act=Tyranitar/Mimikyu-Busted own=17-207/207(KO0) foe=95-108/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Knock Off v Shadow Claw: act=Tyranitar/Mimikyu-Busted own=171-176/207(KO0) foe=95/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stealth Rock v Swords Dance: act=Tyranitar/Mimikyu own=207/207(KO0) foe=124/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stealth Rock v Play Rough: act=Tyranitar/Mimikyu own=17-207/207(KO0) foe=111-124/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stealth Rock v Shadow Claw: act=Tyranitar/Mimikyu own=171-176/207(KO0) foe=111/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stone Edge v Swords Dance: act=Tyranitar/Mimikyu,Mimikyu-Busted own=207/207(KO0) foe=108-124/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stone Edge v Play Rough: act=Tyranitar/Mimikyu,Mimikyu-Busted own=17-207/207(KO0) foe=95-124/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
+Stone Edge v Shadow Claw: act=Tyranitar/Mimikyu-Busted,Mimikyu own=171-176/207(KO0) foe=95-111/132(KO0) in= wx=Sandstorm st=- EE=0 1st=p2a:Mimikyu
