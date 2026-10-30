@@ -4,7 +4,7 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const path=require('node:path');
 const sim=require(path.join(process.env.SHOWDOWN_DIR,'dist/sim/index.js'));
-const {searchPublicSix,choosePublicSixGeneral,usableSaved,runGames,keyOf,ownHash}=require('../public-six-general');
+const {searchPublicSix,choosePublicSixGeneral,usableSaved,runGames,keyOf,ownHash,policyIdentity}=require('../public-six-general');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {caseList}=require('../legal-search-v2-compare');
 const {holdoutSixes}=require('../holdout-20261031-general');
@@ -38,21 +38,22 @@ test('search depends on the public six only: C Mega-Y and Mega-X hidden sets giv
 });
 test('saved result is reused only for the same public six AND the same own six',()=>{
   const own=reportedLive(),six=C_Y.map(p=>p.species);
-  const saved={version:'general-v1',publicKey:keyOf(six),ownHash:ownHash(own)};
+  // PR #80: a saved result now carries its whole policy identity
+  const saved={...policyIdentity(own),publicKey:keyOf(six),support:[{pick:'Tyranitar>Hydreigon/Metagross',p:1}]};
   assert.equal(usableSaved(saved,[...six].reverse(),own),true);
   assert.equal(usableSaved(saved,[...six.slice(0,5),'Indeedee'],own),false);
   const own2=structuredClone(own);own2[0].moves=[...own2[0].moves];own2[0].moves[0]='Zen Headbutt';
   assert.equal(usableSaved(saved,six,own2),false,'one move differs -> another roster');
 });
-test('seeded draw from a saved mixture is reproducible and side-dependent',async()=>{
+test('seeded draw from a saved mixture is reproducible; PR #79 side-dependent draw still reproducible on request',async()=>{
   const own=reportedLive(),six=C_Y.map(p=>p.species);
-  const saved={version:'general-v1',publicKey:keyOf(six),ownHash:ownHash(own),security:0.5,games:{total:1},seconds:1,
+  const saved={...policyIdentity(own),publicKey:keyOf(six),security:0.5,games:{total:1},seconds:1,
     support:[{pick:'Tyranitar>Hydreigon/Metagross',p:0.5},{pick:'Garchomp>Metagross/Primarina',p:0.5}]};
   const a=await choosePublicSixGeneral({sim,own,publicSix:six,seed:[5,6,7,8],saved});
   const b=await choosePublicSixGeneral({sim,own,publicSix:six,seed:[5,6,7,8],saved});
   assert.deepEqual(a,b);assert.equal(a.status,'general');
   assert.deepEqual(a.selection.map(n=>own[n-1].species),a.pick);
-  const draws=new Set();for(let s=0;s<16;s++)draws.add((await choosePublicSixGeneral({sim,own,publicSix:six,seed:[s,1,2,3],side:s%2?'p2':'p1',saved})).pick[0]);
+  const draws=new Set();for(let s=0;s<16;s++)draws.add((await choosePublicSixGeneral({sim,own,publicSix:six,seed:[s,1,2,3],side:s%2?'p2':'p1',saved,sideDependentDraw:true})).pick[0]);
   assert.equal(draws.size,2,'both support picks are drawn');
 });
 test('rival T1/T2 branches are applied and checked against the engine log',async()=>{
