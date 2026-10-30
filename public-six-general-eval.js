@@ -13,6 +13,14 @@
 //           pick) under T1/T2 branches ai/attack/setup/switch on shared seeds,
 //           with T1/T2 logs, requested-vs-executed check and v3 misplay tags
 //   seeds   3 seeds x both sides, disjoint from the search seeds
+// PR #80 item 6 adds, from the SAME saved search only (rules fixed before any
+// PR #80 evaluation was run):
+//   human1  one deterministic 3+lead = search.pure[0] (best worst-scenario
+//           mean, then mean, over the refined survivors) - what a human can
+//           actually commit to in preview
+//   top2    the two largest emitted support entries, renormalised
+// and the rival 'utility' T1/T2 branch (recovery/Encore/hazard/status move).
+// EVAL_BRANCHES=ai,attack,setup,switch reproduces the PR #79 branch set.
 // Heuristic AI vs heuristic AI. NOT a ladder win rate.
 //   SHOWDOWN_DIR=... SEARCH=reports/data/....json SET=dev OUT=... node public-six-general-eval.js
 const fs=require('node:fs');
@@ -23,9 +31,19 @@ const {caseList}=require('./legal-search-v2-compare');
 const {picks,label,hypotheses:aHyps}=require('./a-preview-matrix-audit');
 const {holdout:aHoldout,colMin}=require('./robust-preview');
 const {choosePublicSixPreview}=require('./public-six-preview');
-const {runGames,keyOf}=require('./public-six-general');
+const {runGames,keyOf,cacheCheck}=require('./public-six-general');
 const {rivalPicks}=require('./public-six-holdout');
 const {holdoutSixes}=require('./holdout-20261031-general');
+const {holdoutSixPR80}=require('./holdout-20261031-pr80');
+const BRANCH_SET=(process.env.EVAL_BRANCHES||'ai,attack,setup,switch,utility').split(',');
+// PR #80 human-actionable policies, derived from the search result only.
+function humanPolicies(search){
+  const out={};
+  if(search.pure?.length)out.human1={[search.pure[0].pick]:1};
+  const top=search.support.slice().sort((a,b)=>b.p-a.p).slice(0,2);
+  if(top.length===2)out.top2=Object.fromEntries(top.map(t=>[t.pick,t.p]));
+  return out;
+}
 const swap=(team,species,set)=>team.map(p=>p.species===species?{species,...set}:p);
 // Second legal hypotheses for dev sixes that had only one (written for this
 // evaluation, not used by the search, which never sees sets).
@@ -38,6 +56,11 @@ function devVariants(all){
 }
 function cases(set){
   const all=caseList(),c=id=>all.find(x=>x.id===id).team,v=devVariants(all);
+  if(set==='pr80'){
+    const out=[];
+    for(const [id,h] of Object.entries(holdoutSixPR80()))for(const [k,t] of Object.entries(h.hypotheses))out.push({six:id,hyp:k,team:t,ace:h.ace});
+    return out;
+  }
   if(set==='holdout'){
     const out=[];
     for(const [id,h] of Object.entries(holdoutSixes()))for(const [k,t] of Object.entries(h.hypotheses))out.push({six:id,hyp:k,team:t,ace:h.ace});
@@ -65,7 +88,7 @@ async function evalCase(sim,own,search,cs,ci,{workers}){
   const O=picks(own),F=picks(cs.team),idx=pk=>O.findIndex(o=>label(o)===pk);
   const legacy=chooseThree(dex,own,six).map(n=>own[n-1].species);
   const legacyLabel=label(O.find(o=>o[0]===legacy[0]&&o.slice().sort().join()===legacy.slice().sort().join()));
-  const pol={general:Object.fromEntries(search.support.map(s=>[s.pick,s.p])),fallback:{[legacyLabel]:1}};
+  const pol={general:Object.fromEntries(search.support.map(s=>[s.pick,s.p])),...humanPolicies(search),fallback:{[legacyLabel]:1}};
   const reg=choosePublicSixPreview({dex,own,publicSix:six,seed:[1,2,3,4]});
   if(reg.status==='registered')pol.registeredA=Object.fromEntries(reg.support);
   const rows=[...new Set(Object.values(pol).flatMap(p=>Object.keys(p)))];
@@ -77,7 +100,7 @@ async function evalCase(sim,own,search,cs,ci,{workers}){
   // Rival-view picks (PR #77): legacy + ace lead, T1/T2 branches, logs kept.
   const rp=rivalPicks(dex,cs.team,own.map(p=>p.species),cs.ace).picks;
   const bj=[];
-  for(const pk of rows)for(const r of rp)seeds.forEach((seed,si)=>{for(const reverse of [false,true])for(const branch of ['ai','attack','setup','switch'])
+  for(const pk of rows)for(const r of rp)seeds.forEach((seed,si)=>{for(const reverse of [false,true])for(const branch of BRANCH_SET)
     bj.push({pk,rsrc:r.src,rival:r.pick.join('/'),si,reverse,branch,team:0,own:O[idx(pk)],foe:r.pick,seed});});
   const br=await runGames(own,[cs.team],bj,{workers,keepLog:true});
   const seconds=Math.round((Date.now()-t0)/1000);
@@ -96,9 +119,11 @@ async function evalCase(sim,own,search,cs,ci,{workers}){
         const a=g.find(x=>x.j.branch==='ai');ai+=w[i]*a.r.won/6;
         if(!a.r.foeTagged){clean[0]+=w[i]*a.r.won;clean[1]+=w[i];}
       })));
-      rational[r.src]={rival:r.pick.join('/'),aiBranch:+ai.toFixed(3),worstBranch:+v.toFixed(3),cleanAi:clean[1]?+(clean[0]/clean[1]).toFixed(3):null};
+      const byBranch=Object.fromEntries(BRANCH_SET.map(b=>[b,+ks.reduce((t,k,i)=>t+w[i]*mean(bj.map((j,n)=>j.pk===k&&j.rsrc===r.src&&j.branch===b?br[n].won:null).filter(x=>x!=null)),0).toFixed(3)]));
+      rational[r.src]={rival:r.pick.join('/'),aiBranch:+ai.toFixed(3),worstBranch:+v.toFixed(3),cleanAi:clean[1]?+(clean[0]/clean[1]).toFixed(3):null,byBranch};
     }
     summary[name]={support:ks.map((k,i)=>[k,+w[i].toFixed(3)]),security:+sec.toFixed(3),mean:+mean(col).toFixed(3),
+      aceCoverage:+(aceCols.length?mean(aceCols):0).toFixed(3),
       aceSecurity:aceCols.length?+Math.min(...aceCols).toFixed(3):null,
       worstRival:F.map((f,j)=>[label(f),+col[j].toFixed(3)]).sort((a,b)=>a[1]-b[1]).slice(0,4),
       rivalsAtZero:col.filter(v=>v===0).length,rational};
@@ -109,7 +134,10 @@ async function evalCase(sim,own,search,cs,ci,{workers}){
     worstBy:F.filter((_,j)=>Q[k][j]===Math.min(...Q[k])).map(label).slice(0,3)}));
   const branchGames=bj.map((j,n)=>({pick:j.pk,rival:j.rival,rsrc:j.rsrc,seed:j.seed.join('-'),reverse:j.reverse,branch:j.branch,
     won:br[n].won,turns:br[n].turns,foeTagged:br[n].foeTagged,ownTagged:br[n].ownTagged,aceMega:br[n].aceMega,sun:br[n].sun,requested:br[n].requested,t1t2:br[n].t1t2}));
-  return {six:cs.six,hyp:cs.hyp,ace:cs.ace,sets:cs.team.map(p=>p.species+'@'+p.item+':'+p.moves.join('/')),
+  // PR #80: whether this saved search would be accepted by the live entry (a
+  // PR #79 general-v1 file is evaluated as a historical policy, but refused live)
+  const identity=cacheCheck(search,six,own);
+  return {six:cs.six,hyp:cs.hyp,ace:cs.ace,searchAccepted:identity.ok,searchRejected:identity.reasons,sets:cs.team.map(p=>p.species+'@'+p.item+':'+p.moves.join('/')),
     games:jobs.length+bj.length,seconds,requestedCheck:req,summary,perPick,
     rows:jobs.map((j,k)=>[rows.indexOf(j.pk),j.fj,j.si,j.reverse?1:0,res[k].won]),rowPicks:rows,branchGames};
 }
@@ -118,6 +146,7 @@ async function main(){
   const searches=JSON.parse(fs.readFileSync(process.env.SEARCH,'utf8'));
   const bySix={};for(const s of Object.values(searches))bySix[s.publicKey]=s;
   const out={showdown:'3a766f2cfb5e51c1e428cfe87d0dba91a8f01640',format:'gen9championsbssregmc',set,own:'reportedLive (reported-live-roster-20261027.js)',
+    branches:BRANCH_SET,search:process.env.SEARCH,
     note:'security = min over all 60 rival picks of our expected win fraction (3 seeds x both sides per cell). rational = PR #77 rival-view picks with T1/T2 branches; worstBranch credits the rival with its best branch per seed. Heuristic AI vs heuristic AI, NOT a ladder win rate.',
     cases:[]};
   const only=process.env.ONLY?new RegExp(process.env.ONLY):null;

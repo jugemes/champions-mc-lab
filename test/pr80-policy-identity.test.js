@@ -126,3 +126,12 @@ test('utility rival branch requests a recovery / Encore / hazard / status move o
 test('a search refuses to run on an engine other than the pinned Showdown',async()=>{
   assert.equal(G.engineSha(),G.SHOWDOWN,'tests run on the pinned engine');
 });
+test('item 5/6 helpers: T1/T2 action parser and search-only human policies',()=>{
+  const {actions}=require('../pr80-decision-trees');
+  const a=actions(['switch|OWN:Tyranitar|Tyranitar, L50, M','switch|RIVAL:Archaludon|Archaludon, L50','T1','move|RIVAL:Archaludon|Flash Cannon',
+    'move|OWN:Tyranitar|Stealth Rock','T2','move|RIVAL:Archaludon|Flash Cannon','faint|OWN:Tyranitar','switch|OWN:Primarina|Primarina, L50'],'OWN');
+  assert.deepEqual(a,{T1:'Tyranitar:Stealth Rock',T2:'Tyranitar fainted, replace→Primarina'});
+  assert.equal(actions(['T1','switch|RIVAL:Swampert|Swampert'],'RIVAL').T1,'switch→Swampert');
+  const src=require('node:fs').readFileSync(path.join(__dirname,'../public-six-general-eval.js'),'utf8');
+  assert.match(src,/human1=\{\[search\.pure\[0\]\.pick\]:1\}/,'human1 is fixed from the saved search only');
+});
