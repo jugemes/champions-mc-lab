@@ -1,0 +1,4707 @@
+[
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": false,
+  "turns": 12,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 3,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 3",
+   "7:move 4",
+   "8:move 3",
+   "8:switch 2",
+   "9:move 1",
+   "10:move 1",
+   "11:move 1",
+   "11:switch 3",
+   "12:move 2"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 3",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 4,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 2",
+   "4:move 2",
+   "4:switch 2",
+   "5:move 1",
+   "5:switch 3",
+   "6:move 3",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 2",
+   "4:move 2",
+   "4:switch 2",
+   "5:move 1",
+   "5:switch 3",
+   "6:move 3",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 12,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 3,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 3",
+   "7:move 4",
+   "8:move 3",
+   "9:move 3",
+   "9:switch 2",
+   "10:move 1",
+   "11:move 1",
+   "12:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 3",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 4,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 4",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 3,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 3",
+   "7:move 4",
+   "8:move 3",
+   "8:switch 2",
+   "9:move 1",
+   "10:move 1",
+   "11:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 3",
+   "6:switch 2",
+   "7:move 1",
+   "8:move 1",
+   "9:move 1",
+   "9:switch 3",
+   "10:move 2",
+   "11:move 2"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 4,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:move 4",
+   "5:switch 3",
+   "6:move 3",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 4",
+   "11:move 3",
+   "11:switch 2",
+   "12:move 1",
+   "13:move 1",
+   "14:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 4,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:move 4",
+   "5:switch 3",
+   "6:move 3",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 4",
+   "11:move 3",
+   "11:switch 2",
+   "12:move 1",
+   "13:move 1",
+   "14:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 3,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 3",
+   "7:switch 2",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1",
+   "10:switch 3",
+   "11:move 2"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 3",
+   "6:switch 2",
+   "7:move 1",
+   "8:move 1",
+   "9:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": false,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 2",
+   "4:move 2",
+   "4:switch 2",
+   "5:move 1",
+   "5:switch 3",
+   "6:move 4",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": false,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 2",
+   "4:move 2",
+   "4:switch 2",
+   "5:move 1",
+   "5:switch 3",
+   "6:move 4",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "baseline",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 3,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:move 4",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 4",
+   "7:move 3",
+   "8:move 3",
+   "8:switch 2",
+   "9:move 1",
+   "10:move 1",
+   "11:move 1"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "policy": "rational",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Corviknight",
+     "Archaludon",
+     "Lucario"
+    ],
+    "lead": "Corviknight"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Metagross",
+     "Garchomp",
+     "Rotom-Wash"
+    ],
+    "lead": "Metagross"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 2,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "no-progress-loop",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 146",
+   "1:move 4 mega",
+   "2:move 4",
+   "3:switch 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 3",
+   "6:switch 2",
+   "7:move 1",
+   "8:move 1",
+   "9:move 1"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": true,
+  "turns": 13,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "8:move 1",
+   "8:switch 3",
+   "9:move 1",
+   "10:move 3",
+   "11:move 3",
+   "12:move 3",
+   "13:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 1",
+   "10:move 1",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": true,
+  "turns": 12,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 1,
+   "helmetFaints": 1,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 3",
+   "7:move 3",
+   "8:move 3",
+   "9:move 4",
+   "10:move 4",
+   "11:move 4",
+   "11:switch 3",
+   "12:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   },
+   {
+    "side": "p1",
+    "turn": 9,
+    "reason": "choice-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 3",
+   "6:switch 2",
+   "7:move 1",
+   "8:move 1",
+   "9:switch 3",
+   "10:move 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3",
+   "12:move 3",
+   "13:move 3",
+   "14:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": false,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 3,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "3:move 4",
+   "3:switch 2",
+   "4:move 2 mega",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 2",
+   "9:switch 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": false,
+  "turns": 8,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 3",
+   "7:move 4",
+   "7:switch 2",
+   "8:move 1"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 5,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": true,
+  "turns": 12,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 1",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3",
+   "12:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": false,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "baseline",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": false,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 2,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "8:switch 3",
+   "9:move 4"
+  ]
+ },
+ {
+  "case": "B_scarf_poisonjab_archaludon",
+  "policy": "rational",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Archaludon",
+     "Corviknight"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 1,
+   "maxRepeatSameMove": 6,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 2,
+    "reason": "choice-locked-bad",
+    "choice": "switch 2"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 4",
+   "2:switch 2",
+   "3:move 2 mega",
+   "4:move 2",
+   "5:move 2",
+   "6:move 2",
+   "6:switch 2",
+   "7:move 1",
+   "7:switch 3",
+   "8:move 4",
+   "9:move 3",
+   "10:move 3",
+   "11:move 3",
+   "12:move 3",
+   "13:move 3",
+   "14:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 1",
+   "9:move 1",
+   "10:move 3",
+   "10:switch 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 1",
+   "9:move 1",
+   "10:move 3",
+   "10:switch 3",
+   "11:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 1",
+   "9:move 3",
+   "9:switch 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 1",
+   "9:move 3",
+   "9:switch 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 2
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 4",
+   "5:move 1",
+   "6:move 1",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": true,
+  "turns": 10,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 2
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 4",
+   "5:move 1",
+   "6:move 1",
+   "7:move 3",
+   "8:move 3",
+   "9:move 3",
+   "10:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "baseline",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "C_scarf_rockslide_corviknight",
+  "policy": "rational",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 9,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Charizard",
+     "Corviknight",
+     "Garchomp"
+    ],
+    "lead": "Charizard"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Garchomp",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "lead": "Garchomp"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 2,
+   "setupAtCap": 0,
+   "movesWhileEncored": 0,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 416",
+   "1:move 3",
+   "2:switch 3",
+   "3:move 3",
+   "4:move 3",
+   "5:move 4",
+   "6:move 1",
+   "7:move 1",
+   "8:move 3",
+   "8:switch 3",
+   "9:move 3"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": false,
+  "turns": 21,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 2",
+   "18:move 1",
+   "19:default",
+   "19:switch 2",
+   "20:move 4",
+   "21:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "28684-47118-3537-9253",
+  "side": "p1",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "11:switch 2",
+   "12:move 3",
+   "13:move 4",
+   "14:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": false,
+  "turns": 16,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "13:switch 2",
+   "14:move 2",
+   "15:move 4",
+   "16:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "52448-46799-55052-20635",
+  "side": "p2",
+  "win": true,
+  "turns": 15,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "12:move 2",
+   "13:move 3",
+   "13:switch 2",
+   "14:move 4",
+   "15:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": false,
+  "turns": 17,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 1",
+   "15:default",
+   "15:switch 2",
+   "16:move 4",
+   "17:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "27961-36601-47447-23653",
+  "side": "p1",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 21,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 1",
+   "18:default",
+   "18:switch 2",
+   "19:move 4",
+   "20:move 1",
+   "21:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "56808-35830-54167-38903",
+  "side": "p2",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "11:switch 2",
+   "12:move 1",
+   "13:move 4",
+   "14:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 18,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 1",
+   "15:default",
+   "15:switch 2",
+   "16:move 1",
+   "17:move 4",
+   "18:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "4354-43985-57071-38085",
+  "side": "p1",
+  "win": true,
+  "turns": 11,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 4,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "4:switch 3",
+   "5:move 3",
+   "6:move 3",
+   "6:switch 2",
+   "7:move 4",
+   "8:move 1",
+   "9:move 1",
+   "10:move 1",
+   "11:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": true,
+  "turns": 24,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 2",
+   "18:move 2",
+   "19:move 2",
+   "20:move 1",
+   "21:default",
+   "21:switch 2",
+   "22:move 4",
+   "23:move 1",
+   "24:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "win": false,
+  "turns": 13,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "11:switch 2",
+   "12:move 1",
+   "13:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": false,
+  "turns": 20,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 1",
+   "18:default",
+   "18:switch 2",
+   "19:move 4",
+   "20:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "55451-2017-61408-17333",
+  "side": "p1",
+  "win": true,
+  "turns": 15,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "12:move 4",
+   "12:switch 2",
+   "13:move 1",
+   "14:move 4",
+   "15:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": true,
+  "turns": 21,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 1",
+   "18:default",
+   "18:switch 2",
+   "19:move 4",
+   "20:move 1",
+   "21:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "61161-33437-55145-30722",
+  "side": "p2",
+  "win": true,
+  "turns": 14,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "11:switch 2",
+   "12:move 1",
+   "13:move 4",
+   "14:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": true,
+  "turns": 21,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 1",
+   "18:default",
+   "18:switch 2",
+   "19:move 4",
+   "20:move 1",
+   "21:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "6677-60819-30379-60660",
+  "side": "p1",
+  "win": true,
+  "turns": 15,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p1",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "11:move 1",
+   "11:switch 3",
+   "12:move 1",
+   "12:switch 2",
+   "13:move 1",
+   "14:move 4",
+   "15:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "baseline",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": false,
+  "turns": 20,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 10,
+   "setupAtCap": 7,
+   "movesWhileEncored": 9,
+   "contactIntoHelmetHolder": 0,
+   "switches": 3
+  },
+  "rational": [],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:move 2",
+   "4:move 2",
+   "5:move 3",
+   "6:move 2",
+   "7:move 2",
+   "8:move 3",
+   "9:move 2",
+   "10:move 2",
+   "11:move 3",
+   "11:switch 3",
+   "12:move 1",
+   "13:default",
+   "14:move 2",
+   "15:move 2",
+   "16:move 2",
+   "17:move 1",
+   "18:default",
+   "18:switch 2",
+   "19:move 4",
+   "20:move 1"
+  ]
+ },
+ {
+  "case": "A_golisopod_setup_encore",
+  "policy": "rational",
+  "seed": "6055-44884-18536-30113",
+  "side": "p2",
+  "win": true,
+  "turns": 15,
+  "errors": 0,
+  "selections": [
+   {
+    "side": "p1",
+    "chosen": [
+     "Primarina",
+     "Umbreon",
+     "Kingambit"
+    ],
+    "lead": "Primarina"
+   },
+   {
+    "side": "p2",
+    "chosen": [
+     "Golisopod",
+     "Mimikyu",
+     "Archaludon"
+    ],
+    "lead": "Golisopod"
+   }
+  ],
+  "metrics": {
+   "helmetChip": 0,
+   "helmetFaints": 0,
+   "immuneHits": 0,
+   "maxRepeatSameMove": 3,
+   "setupAtCap": 0,
+   "movesWhileEncored": 1,
+   "contactIntoHelmetHolder": 0,
+   "switches": 4
+  },
+  "rational": [
+   {
+    "side": "p2",
+    "turn": 3,
+    "reason": "encore-locked-bad",
+    "choice": "switch 3"
+   }
+  ],
+  "candidateChoices": [
+   "0:team 124",
+   "1:move 2 mega",
+   "2:move 3",
+   "3:switch 3",
+   "4:move 1",
+   "5:default",
+   "6:move 2",
+   "7:move 2",
+   "8:move 2",
+   "9:move 1",
+   "10:default",
+   "10:switch 3",
+   "11:move 1",
+   "12:move 3",
+   "12:switch 2",
+   "13:move 1",
+   "14:move 4",
+   "15:move 1"
+  ]
+ }
+]

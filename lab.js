@@ -10,6 +10,7 @@ const {publicThreat,defensiveCoverage}=require('./threat');
 const {moveUtility,incomingRisk}=require('./damage');
 const {evaluateMove}=require('./decision-v2');
 const {evaluateMoveV3}=require('./field-counterplay');
+const rational=require('./decision-rational');
 const {seededRandom,choosePreview}=require('./preview-policy');
 const {chooseStrategicPreview}=require('./preview-strategic');
 const FORMAT='gen9championsbssregmc';
@@ -111,6 +112,9 @@ class Bot{
     this.random=seededRandom(options.seed||[1,2,3,4],side);
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
+    // Public memory used only by decisionPolicy 'rational' (baseline ignores it).
+    this.foeMemory={};this.observedImmune={};this.ownEncored=false;this.foeEncored=false;this.lastOwnMove='';
+    this.history=[];this.rationalSwitches=0;this.logMatrix=Boolean(options.logMatrix);
   }
   async run(){
     for await(const chunk of this.stream){
@@ -128,7 +132,22 @@ class Bot{
             this.foeAbility='';this.lastMove='';this.foeLastMoveTurn=-999;
           }
         }
-        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:'))this.boosts={};
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
+        if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))this.foeEncored=false;
+        if(['-start','-end'].includes(a[1])&&canonical(String(a[3]).replace(/^move: /,''))==='encore'){
+          if(a[2]?.startsWith(this.side+'a:'))this.ownEncored=a[1]==='-start';
+          if(a[2]?.startsWith(this.foe+'a:'))this.foeEncored=a[1]==='-start';
+        }
+        if(a[1]==='-immune'&&a[2]?.startsWith(this.foe+'a:')&&this.lastOwnMove){
+          const list=this.observedImmune[this.foeActive]||(this.observedImmune[this.foeActive]=[]);
+          if(!list.includes(this.lastOwnMove))list.push(this.lastOwnMove);
+        }
+        {const mem=this.foeMemory[this.foeActive]||(this.foeMemory[this.foeActive]={});
+          const from=line.match(/\[from\] (item|ability): ([^|]+)\|\[of\] (p[12])a:/);
+          if(from&&from[3]===this.foe)mem[from[1]]=from[2].trim();
+          if(a[1]==='-item'&&a[2]?.startsWith(this.foe+'a:'))mem.item=a[3];
+          if(['-enditem','-takeitem'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:'))mem.item='';
+          if(a[1]==='-ability'&&a[2]?.startsWith(this.foe+'a:'))mem.ability=a[3];}
         if(['-boost','-unboost','-setboost'].includes(a[1])){
           const target=a[2]?.startsWith(this.side+'a:')?this.boosts:a[2]?.startsWith(this.foe+'a:')?this.foeBoosts:null;
           if(target){
@@ -163,7 +182,7 @@ class Bot{
         if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:')){this.lastMove=a[3];this.foeLastMoveTurn=this.turn;
           const old=this.seenMoves[this.foeActive]||[];if(!old.includes(a[3]))old.push(a[3]);this.seenMoves[this.foeActive]=old;}
         if(a[1]==='move'&&a[2]?.startsWith(this.side+'a:')){
-          const move=canonical(a[3]);
+          const move=canonical(a[3]);this.lastOwnMove=move;
           if(move==='trick')this.lastStatuses.trickDone=true;
           if(['reflect','lightscreen','stealthrock'].includes(move))this.lastStatuses[move]=true;
         }
@@ -173,10 +192,51 @@ class Bot{
           const req=JSON.parse(line.slice(9));if(req.wait)continue;
           const choice=this.decide(req);
           this.trace.choices.push({side:this.side,turn:this.turn,choice});
+          if(!req.teamPreview&&!req.forceSwitch&&req.active){
+            const cur=req.side.pokemon.find(p=>p.active),[hp,max]=String(cur?.condition).split('/').map(Number);
+            this.history.push({turn:this.turn,foe:this.foeActive,foeHP:this.foeHP,ratio:max>0?hp/max:0,kind:choice.startsWith('switch')?'switch':'move'});
+          }
           await this.stream.write(choice);
         }
       }
     }
+  }
+  rationalState(my,ratio){
+    const mem=this.foeMemory[this.foeActive]||{};
+    const seen=this.seenMoves[this.foeActive]||[];
+    return {ratio,foeHP:this.foeHP,foeItem:this.foeItem||mem.item||'',foeAbility:this.foeAbility||mem.ability||'',
+      boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather:this.weather,seenMoves:seen,
+      foeRecovers:seen.some(m=>rational.RECOVERY.has(canonical(m))),
+      observedImmune:this.observedImmune[this.foeActive]||[],flags:{}};
+  }
+  // Rational guards (candidate policy). Returns a choice or null to fall
+  // through to the unchanged baseline switch heuristic.
+  rationalDecide(active,side,my,available,best,ratio,rs){
+    const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
+    const canSwitch=bench.length>0&&canSwitchAgainst(this.dex,active,my,this.foeActive,rs.foeAbility)&&this.rationalSwitches<8;
+    const benchRows=bench.map(x=>{const [h,m]=String(x.p.condition).split('/').map(Number);return {set:this.getSet(x.p),slot:x.i+1,ratio:m>0?h/m:1};});
+    const rows=rational.simultaneousMatrix(this.dex,{...rs,own:my,foe:this.foeActive,moves:available.map(x=>x.m.id||x.m.move),bench:benchRows});
+    const locked=available.length===1&&(active.moves.length>1||this.ownEncored);
+    const only=available[0].m.id||available[0].m.move;
+    let reason='';
+    if(locked&&rational.lockedMoveIsBad(this.dex,my,this.foeActive,only,{...rs,statusValue:best.score}))reason=this.ownEncored?'encore-locked-bad':'choice-locked-bad';
+    else if(best.score<=-1e4)reason='all-moves-bad';
+    else{
+      const bm=available.find(x=>x.i===best.i),bflags=rs.flags[bm.m.id||bm.m.move]||[];
+      const breaker=rows.some(r=>r.action.startsWith('switch ')&&r.offense>=0.3&&r.worst>-0.6);
+      if(rs.foeRecovers&&bflags.some(f=>/contact|recovery/.test(f))&&rational.noProgressLoop(this.history,this.foeActive,{foeHP:this.foeHP,ratio}))reason='no-progress-loop';
+      else if(bflags.includes('contact-into-recovery')&&breaker)reason='contact-into-recovery';
+    }
+    const pick=reason&&canSwitch?rational.chooseSwitch(rows):null;
+    if(this.logMatrix)this.trace.matrix=(this.trace.matrix||[]).concat({side:this.side,turn:this.turn,foe:this.foeActive,reason,flags:rs.flags,
+      rows:rows.map(r=>({action:r.action,worst:+r.worst.toFixed(3),mean:+r.mean.toFixed(3)}))});
+    if(pick){this.rationalSwitches++;this.trace.rational=(this.trace.rational||[]).concat({side:this.side,turn:this.turn,reason,choice:'switch '+pick.slot});return 'switch '+pick.slot;}
+    if(reason)this.trace.rational=(this.trace.rational||[]).concat({side:this.side,turn:this.turn,reason,choice:'no-legal-switch'});
+    // Foe is publicly Encored into a non-damaging move: its next action is
+    // known, so a voluntary switch is a wasted free turn.
+    if(this.foeEncored&&this.dex.moves.get(this.lastMove).category==='Status')
+      return 'move '+(best.i+1)+(active.canMegaEvo?' mega':'');
+    return null;
   }
   getSet(p){
     const name=nameOf(p.details);
@@ -230,6 +290,7 @@ class Bot{
       if(bench.length&&canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)){this.switches++;return 'switch '+(bench[0].i+1);}
     }
     let best={score:-Infinity,i:available[0].i};
+    const rs=this.decisionPolicy==='rational'?this.rationalState(my,ratio):null;
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
       let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather:this.weather});
@@ -268,7 +329,15 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
+      if(rs){
+        const r=rational.rationalMoveScore(this.dex,my,this.foeActive,m.id||m.move,score,rs);
+        score=r.score;if(r.flags.length)(rs.flags[m.id||m.move]=r.flags);
+      }
       if(score>best.score)best={score,i};
+    }
+    if(rs){
+      const r=this.rationalDecide(active,side,my,available,best,ratio,rs);
+      if(r)return r;
     }
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
     if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
