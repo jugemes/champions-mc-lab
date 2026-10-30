@@ -57,38 +57,89 @@ function quartets(pool){
       out.push([pool[a],pool[b],pool[c],pool[d]]);
   return out;
 }
+function statProfiles(dex,moves,nature,points){
+  // Champions 66 ability points. The rival's allocation is NOT publicly
+  // known: never silently force a special attacker into Adamant/Atk32.
+  if(nature||points)return [{nature:nature||'Hardy',points:points||{hp:2,atk:32,spe:32}}];
+  const attacks=moves.map(x=>dex.moves.get(x)).filter(m=>m.category!=='Status');
+  const physical=attacks.filter(m=>m.category==='Physical');
+  const special=attacks.filter(m=>m.category==='Special');
+  const p=physical.reduce((v,m)=>v+m.basePower,0);
+  const s=special.reduce((v,m)=>v+m.basePower,0);
+  const physicalProfiles=[
+    {nature:'Jolly',points:{hp:2,atk:32,spe:32}},
+    {nature:'Adamant',points:{hp:32,atk:32,spd:2}},
+  ];
+  const specialProfiles=[
+    {nature:'Timid',points:{hp:2,spa:32,spe:32}},
+    {nature:'Modest',points:{hp:32,spa:32,spd:2}},
+  ];
+  const bulk=[{nature:'Bold',points:{hp:32,def:32,spa:2}}];
+  if(!attacks.length)return bulk;
+  const profiles=p>s?[...physicalProfiles,...(s?specialProfiles:[])]:
+    [...specialProfiles,...(p?physicalProfiles:[])];
+  if(moves.some(id=>{const m=dex.moves.get(id);return m.category==='Status'&&m.heal;}))
+    profiles.push(...bulk);
+  return profiles;
+}
 function legalFourMoveHypotheses(dex,validator,species,{
-  item='Sitrus Berry',ability,nature='Adamant',points={hp:2,atk:32,spe:32},
+  item='Sitrus Berry',ability,nature,points,
   maxCandidates=24,movePoolLimit=16,
 }={}){
+  if(typeof species!=='string'||!species.trim())throw Error('Unknown species: public name required');
   const sp=dex.species.get(species);
   if(!sp.exists)throw Error('Unknown species: '+species);
   const base=sp.isMega?dex.species.get(sp.baseSpecies):sp;
   const ab=ability||base.abilities['0'];
   const pool=shortlist(dex,species,movePoolLimit);
-  const results=[],rejected={};let considered=0;
-  // Order by a transparent heuristic, but do not call it a prior probability.
+  const results=[],rejected={},covered=new Set(),seen=new Set();let considered=0;
+  // The score is for enumerating diverse POSSIBLE sets, not a usage prior.
   const combinations=quartets(pool).map(moves=>({
     moves,score:moves.reduce((n,id)=>n+moveScore(dex,sp,id),0),
   })).sort((a,b)=>b.score-a.score||a.moves.join().localeCompare(b.moves.join()));
-  for(const candidate of combinations){
-    considered++;
-    const set={species:base.name,item,ability:ab,nature,level:50,
-      evs:{hp:points.hp||0,atk:points.atk||0,def:points.def||0,
-        spa:points.spa||0,spd:points.spd||0,spe:points.spe||0},
-      moves:candidate.moves.map(x=>dex.moves.get(x).name)};
-    const problems=validator.validateSet(structuredClone(set),{});
-    if(problems?.length){
-      const first=problems[0];
-      rejected[first]=(rejected[first]||0)+1;
-      continue;
+  function tryAdd(candidate,forceUnseen){
+    const outMoves=candidate.moves.map(x=>dex.moves.get(x).name);
+    for(const profile of statProfiles(dex,candidate.moves,nature,points)){
+      if(results.length>=maxCandidates)return;
+      const set={species:base.name,item,ability:ab,nature:profile.nature,level:50,
+        evs:{hp:profile.points.hp||0,atk:profile.points.atk||0,def:profile.points.def||0,
+          spa:profile.points.spa||0,spd:profile.points.spd||0,spe:profile.points.spe||0},
+        moves:outMoves};
+      const key=candidate.moves.join(',')+'/'+set.nature+'/'+Object.values(set.evs).join(',');
+      if(seen.has(key))continue;
+      seen.add(key);considered++;
+      const validated=structuredClone(set);
+      const problems=validator.validateSet(validated,{});
+      if(problems?.length){
+        rejected[problems[0]]=(rejected[problems[0]]||0)+1;
+        continue;
+      }
+      results.push({...validated,score:candidate.score,validated:true});
+      for(const id of candidate.moves)covered.add(id);
+      // The role-coverage phase first ensures distinct public moves are
+      // represented; subsequent passes add independent stat hypotheses.
+      if(forceUnseen)return;
     }
-    results.push({species:base.name,item,ability:ab,moves:set.moves,
-      score:candidate.score,validated:true});
+  }
+  // Avoid top-N truncation erasing important Encore/priority/recovery roles.
+  // For each still-unrepresented move, first find the best LEGAL quartet
+  // containing it, then fill remaining slots with diverse stat hypotheses.
+  for(const id of pool){
     if(results.length>=maxCandidates)break;
+    if(covered.has(id))continue;
+    for(const candidate of combinations){
+      if(!candidate.moves.includes(id))continue;
+      const before=results.length;
+      tryAdd(candidate,true);
+      if(results.length>before)break;
+    }
+  }
+  for(const candidate of combinations){
+    if(results.length>=maxCandidates)break;
+    tryAdd(candidate,false);
   }
   return {species:base.name,form:sp.name,source:'public-showdown-learnset',
-    note:'Hypothetical legal four-move candidate; not a real opponent set or usage probability.',
-    pool,considered,rejected,sets:results};
+    note:'Validated possible four-move set; not an observed rival, full-team legality, or a usage prior.',
+    pool,unrepresentedMoves:pool.filter(id=>!covered.has(id)),considered,rejected,sets:results};
 }
 module.exports={moveScore,shortlist,quartets,legalFourMoveHypotheses};
