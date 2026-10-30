@@ -1,0 +1,135 @@
+[
+ {
+  "hit": "Metagross-Mega thunderpunch -> Corviknight",
+  "n": 17,
+  "observed": [
+   0.42,
+   0.5
+  ],
+  "estimateDamage": [
+   0.322,
+   0.694
+  ],
+  "inEstimate": 17,
+  "hitBand": [
+   0.419,
+   0.902
+  ],
+  "inHitBand": 17,
+  "excluded": 5
+ },
+ {
+  "hit": "Rotom-Wash thunderbolt -> Corviknight",
+  "n": 16,
+  "observed": [
+   0.6,
+   0.71
+  ],
+  "estimateDamage": [
+   0.42,
+   0.948
+  ],
+  "inEstimate": 16,
+  "hitBand": [
+   0.42,
+   0.948
+  ],
+  "inHitBand": 16,
+  "excluded": 26
+ },
+ {
+  "hit": "Metagross-Mega psychicfangs -> Archaludon",
+  "n": 3,
+  "observed": [
+   0.23,
+   0.25
+  ],
+  "estimateDamage": [
+   0.122,
+   0.255
+  ],
+  "inEstimate": 3,
+  "hitBand": [
+   0.158,
+   0.331
+  ],
+  "inHitBand": 3,
+  "excluded": 40
+ },
+ {
+  "hit": "Rotom-Wash thunderbolt -> Primarina",
+  "n": 8,
+  "observed": [
+   0.52,
+   0.59
+  ],
+  "estimateDamage": [
+   0.385,
+   0.826
+  ],
+  "inEstimate": 8,
+  "hitBand": [
+   0.385,
+   0.826
+  ],
+  "inHitBand": 8,
+  "excluded": 4
+ },
+ {
+  "hit": "Garchomp rockslide -> Corviknight",
+  "n": 8,
+  "observed": [
+   0.15,
+   0.17
+  ],
+  "estimateDamage": [
+   0.146,
+   0.318
+  ],
+  "inEstimate": 8,
+  "hitBand": [
+   0.146,
+   0.318
+  ],
+  "inHitBand": 8,
+  "excluded": 1
+ },
+ {
+  "hit": "Rotom-Wash thunderbolt -> Charizard-Mega-Y",
+  "n": 2,
+  "observed": [
+   0.37,
+   0.75
+  ],
+  "estimateDamage": [
+   0.389,
+   0.837
+  ],
+  "inEstimate": 1,
+  "hitBand": [
+   0.389,
+   0.837
+  ],
+  "inHitBand": 1,
+  "excluded": 2
+ },
+ {
+  "hit": "Golisopod-Mega ironhead -> Primarina",
+  "n": 1,
+  "observed": [
+   0.78,
+   0.78
+  ],
+  "estimateDamage": [
+   0.39,
+   0.916
+  ],
+  "inEstimate": 1,
+  "hitBand": [
+   0.507,
+   1.191
+  ],
+  "inHitBand": 1,
+  "excluded": 0
+ }
+]

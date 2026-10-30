@@ -124,4 +124,4 @@ function moveUtility(dex,attacker,foeName,moveName,info={}){
   }
   return value;
 }
-module.exports={knownStat,estimateDamage,incomingRisk,moveUtility,effectiveness};
+module.exports={knownStat,estimateDamage,incomingRisk,moveUtility,effectiveness,damage};

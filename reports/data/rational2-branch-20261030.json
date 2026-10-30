@@ -1,0 +1,308 @@
+[
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "baseline",
+  "script": "scripted",
+  "branches": {
+   "move 4": {
+    "wins": 174,
+    "games": 200,
+    "meanTurns": 11
+   },
+   "switch 3": {
+    "wins": 182,
+    "games": 200,
+    "meanTurns": 9.4
+   },
+   "switch 2": {
+    "wins": 158,
+    "games": 200,
+    "meanTurns": 11.4
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 17,
+    "onlySecondWins": 25
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 29,
+    "onlySecondWins": 13
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "rational",
+  "script": "scripted",
+  "branches": {
+   "move 4": {
+    "wins": 175,
+    "games": 200,
+    "meanTurns": 11
+   },
+   "switch 3": {
+    "wins": 182,
+    "games": 200,
+    "meanTurns": 9.4
+   },
+   "switch 2": {
+    "wins": 158,
+    "games": 200,
+    "meanTurns": 11.4
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 17,
+    "onlySecondWins": 24
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 29,
+    "onlySecondWins": 12
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "rational2",
+  "script": "scripted",
+  "branches": {
+   "move 4": {
+    "wins": 174,
+    "games": 200,
+    "meanTurns": 11
+   },
+   "switch 3": {
+    "wins": 182,
+    "games": 200,
+    "meanTurns": 9.4
+   },
+   "switch 2": {
+    "wins": 158,
+    "games": 200,
+    "meanTurns": 11.4
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 17,
+    "onlySecondWins": 25
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 29,
+    "onlySecondWins": 13
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "baseline",
+  "script": "unscripted",
+  "branches": {
+   "move 4": {
+    "wins": 13,
+    "games": 200,
+    "meanTurns": 17.1
+   },
+   "switch 3": {
+    "wins": 2,
+    "games": 200,
+    "meanTurns": 16.7
+   },
+   "switch 2": {
+    "wins": 1,
+    "games": 200,
+    "meanTurns": 17.7
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 12,
+    "onlySecondWins": 1
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 13,
+    "onlySecondWins": 1
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "rational",
+  "script": "unscripted",
+  "branches": {
+   "move 4": {
+    "wins": 11,
+    "games": 200,
+    "meanTurns": 16.8
+   },
+   "switch 3": {
+    "wins": 2,
+    "games": 200,
+    "meanTurns": 16.7
+   },
+   "switch 2": {
+    "wins": 1,
+    "games": 200,
+    "meanTurns": 17.7
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 10,
+    "onlySecondWins": 1
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 10,
+    "onlySecondWins": 0
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ },
+ {
+  "case": "B_helmet_roost",
+  "seed": "52522-48513-31438-37827",
+  "side": "p2",
+  "turn": 3,
+  "k": 200,
+  "before": "baseline",
+  "contPolicy": "rational2",
+  "script": "unscripted",
+  "branches": {
+   "move 4": {
+    "wins": 9,
+    "games": 200,
+    "meanTurns": 16.8
+   },
+   "switch 3": {
+    "wins": 2,
+    "games": 200,
+    "meanTurns": 16.7
+   },
+   "switch 2": {
+    "wins": 1,
+    "games": 200,
+    "meanTurns": 17.7
+   }
+  },
+  "paired": {
+   "move 4 vs switch 3": {
+    "onlyFirstWins": 8,
+    "onlySecondWins": 1
+   },
+   "move 4 vs switch 2": {
+    "onlyFirstWins": 9,
+    "onlySecondWins": 1
+   }
+  },
+  "prefixTail": [
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|119/205",
+   "|-damage|p2a: Metagross|131/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Body Press|p2a: Metagross",
+   "|-damage|p2a: Metagross|97/157",
+   "|turn|2",
+   "|move|p2a: Metagross|Thunder Punch|p1a: Corviknight",
+   "|-damage|p1a: Corviknight|33/205",
+   "|-damage|p2a: Metagross|71/157|[from] item: Rocky Helmet|[of] p1a: Corviknight",
+   "|move|p1a: Corviknight|Roost|p1a: Corviknight",
+   "|-heal|p1a: Corviknight|136/205",
+   "|turn|3"
+  ]
+ }
+]
