@@ -40,3 +40,17 @@ test('a non-Mega forme change does not retain a previously disclosed stale abili
   assert.equal(bot.foeActive,'Garchomp');
   assert.equal(bot.foeAbility,'','do not carry a previous form ability to a new non-Mega form');
 });
+
+test('public Mega-Z ability survives switch-out and re-entry without a new detailschange',async()=>{
+  // A Mega form returning from the bench is public on the switch line.
+  const bot=await simulatePublicProtocol(
+    '|switch|p2a: Garchomp|Garchomp, L50|185/185\n'+
+    '|-ability|p2a: Garchomp|Sand Veil\n'+
+    '|detailschange|p2a: Garchomp|Garchomp-Mega-Z, L50\n'+
+    '|switch|p2a: Rotom|Rotom-Wash, L50|157/157\n'+
+    '|switch|p2a: Garchomp|Garchomp-Mega-Z, L50|185/185\n');
+  assert.equal(bot.foeActive,'Garchomp-Mega-Z');
+  assert.equal(bot.foeAbility,'Levitate','switch back must re-infer the fixed Mega ability');
+  const attacker=own.find(x=>x.species==='Garchomp');
+  assert.equal(estimateDamage(dex,attacker,bot.foeActive,'Earthquake',{foeAbility:bot.foeAbility}).immune,true);
+});
