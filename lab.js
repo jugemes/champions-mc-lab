@@ -62,6 +62,19 @@ function fixedMegaAbility(dex,name){
   return sp.exists&&sp.isMega?(sp.abilities['0']||''):'';
 }
 function nameOf(details){return String(details||'').split(',')[0].replace(/-\*/g,'').trim();}
+// PR #76 P0-A: one parser for a public HP condition ("80/100 par", "0 fnt",
+// "100/100"). The status suffix is what broke split('/') (80/200 par ->
+// [80,NaN]). The pinned champions mod also appends a health colour at exactly
+// 20% / 50% ("50/100g", "20/100r"; sim/pokemon.ts getHealth), which split('/')
+// drops too. hp is null when the string carries no HP (e.g. detailschange).
+const STATUSES=['slp','frz','par','brn','psn','tox'];
+function parseCondition(condition){
+  const s=String(condition??'').trim();
+  if(/^0( fnt)?$/.test(s)||/ fnt$/.test(s))return {hp:0,fainted:true,status:''};
+  const m=s.match(/^(\d+)\/(\d+)[gyr]?(?: (\w+))?$/);
+  if(!m||Number(m[2])<=0)return {hp:null,fainted:false,status:''};
+  return {hp:Number(m[1])/Number(m[2]),fainted:false,status:STATUSES.includes(m[3])?m[3]:''};
+}
 function matchup(dex,p,foe,move){
   const m=dex.moves.get(move);
   if(!m.exists||m.category==='Status')return 0;
@@ -122,7 +135,14 @@ class Bot{
     // a non-Mega forme change clears a stale ability. Only the public species
     // name on the protocol line is read.
     this.publicMegaAbility=Boolean(options.publicMegaAbility);
-    this.random=seededRandom(options.seed||[1,2,3,4],side);
+    // PR #76 P0-A: opt-in, default off so saved results replay unchanged.
+    // publicCondition: foe HP/status from every public condition string
+    // (switch/drag/replace, -damage/-heal/-sethp, faint) with parseCondition;
+    // foeStatus and foePublicStatus are then always the same value.
+    // ownCondition: own HP ratio in decide() parsed the same way (legacy
+    // split('/') gave ratio 1 for any statused own mon).
+    this.publicCondition=Boolean(options.publicCondition);this.ownCondition=Boolean(options.ownCondition);
+    this.random=seededRandom(options.seed||[1,2,3,4],side);this.previewSeed=options.seed||[1,2,3,4];
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
   }
@@ -145,6 +165,7 @@ class Bot{
             // speedSafe bookkeeping only: the switch line carries a public status
             // (e.g. "185/185 slp"); legacy foeStatus stays cleared as before.
             this.foePublicStatus=(String(a[4]||'').match(/ (slp|frz|par|brn|psn|tox)$/)||[])[1]||'';this.foeConfused=false;
+            if(this.publicCondition){const c=parseCondition(a[4]);this.foeHP=c.hp??1;this.foeStatus=this.foePublicStatus=c.status;}
           }
         }
         if(['switch','drag','replace'].includes(a[1])&&a[2]?.startsWith(this.side+'a:')){this.boosts={};this.ownEncored=false;}
@@ -182,6 +203,7 @@ class Bot{
         // Own-side hazards: bookkeeping only (read by audit scripts), no effect on decide().
         if(a[1]==='-sidestart'&&a[2]?.startsWith(this.side+':')){const k=canonical(String(a[3]).replace(/^move: /,''));this.ownHazards[k]=(this.ownHazards[k]||0)+1;}
         if(a[1]==='-sideend'&&a[2]?.startsWith(this.side+':'))delete this.ownHazards[canonical(String(a[3]).replace(/^move: /,''))];
+        if(!this.publicCondition){
         if(a[1]==='-damage'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
@@ -189,6 +211,13 @@ class Bot{
         if(a[1]==='-heal'&&a[2]?.startsWith(this.foe+'a:')){
           const pair=String(a[3]).split('/').map(Number);
           if(pair.length===2&&pair[1]>0)this.foeHP=pair[0]/pair[1];
+        }
+        }else{
+          // The condition on these lines always carries the current public status.
+          if(['-damage','-heal','-sethp'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
+            const c=parseCondition(a[3]);if(c.hp!==null){this.foeHP=c.hp;this.foeStatus=this.foePublicStatus=c.status;}
+          }
+          if(a[1]==='faint'&&a[2]?.startsWith(this.foe+'a:'))this.foeHP=0;
         }
         if(a[1]==='-damage'&&line.includes('item: Rocky Helmet')&&line.includes('[of] '+this.foe+'a:'))this.foeItem='Rocky Helmet';
         if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:')){this.lastMove=a[3];this.foeLastMoveTurn=this.turn;
@@ -272,12 +301,15 @@ class Bot{
         const index=this.team.findIndex(x=>x.species===name);
         if(index<0)throw Error('Scenario member not in team: '+name);
         return index+1;
-      }):this.previewPolicy==='stochastic'
+      }):this.previewPolicy==='publicSix'
+        // PR #76 P0-B: public-six entry point (registered robust mixture or logged legacy fallback).
+        ?(this.previewLog=require('./public-six-preview').choosePublicSixPreview({dex:this.dex,own:this.team,publicSix:this.opp.slice(),seed:this.previewSeed,side:this.side})).selection
+        :this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
           ?chooseStrategicPreview(this.dex,this.team,this.opp,this.random,matchup)
           :chooseThree(this.dex,this.team,this.opp);
-      this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species});
+      this.trace.selections.push({side:this.side,chosen:selected.map(n=>this.team[n-1].species),lead:this.team[selected[0]-1].species,...(this.previewLog?{previewLog:this.previewLog}:{})});
       return 'team '+selected.join('');
     }
     const side=req.side.pokemon;
@@ -294,7 +326,7 @@ class Bot{
     const available=active.moves.map((m,i)=>({m,i})).filter(x=>!x.m.disabled&&x.m.pp>0);
     if(!available.length)return 'default';
     const [selfhp,selfmax]=String(current.condition).split('/').map(Number);
-    const ratio=selfmax>0?selfhp/selfmax:1;
+    const ratio=this.ownCondition?(parseCondition(current.condition).hp??1):selfmax>0?selfhp/selfmax:1;
     if(this.scriptScenario==='stall'&&this.getSet(current).species==='Toxapex'&&this.turn===1){
       const spikes=available.find(x=>canonical(x.m.id||x.m.move)==='toxicspikes');
       if(spikes)return 'move '+(spikes.i+1);
@@ -451,4 +483,4 @@ async function main(){
 }
 function archetypeIndex(k){return Object.keys(archetypes).indexOf(k);}
 if(require.main===module)main().catch(err=>{console.error(err.stack||String(err));process.exitCode=1;});
-module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst,fixedMegaAbility};
+module.exports={prelim,normalize,hashSeed,args,matchup,chooseThree,Bot,load,check,game,canSwitchAgainst,fixedMegaAbility,parseCondition};

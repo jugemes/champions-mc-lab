@@ -95,12 +95,21 @@ function script(plan,dex,log){
   };
 }
 // Executed rival action of turn t from the engine log (ex-post verification only).
-function executed(lines,t,side){
+// PR #75 version, kept to reproduce the saved PR #75 labels (opts.pr75).
+// PR #76 P0-C fixes two boundaries:
+//  - no |turn|t line: indexOf -1 -> slice(0) scanned from the start of the
+//    game (a T1 move read as the T2 action). Now {kind:'noturn'} -> unknown.
+//  - any |faint| stopped the scan, so when OUR mon fainted mid-turn (recoil,
+//    Rocky Helmet, Life Orb) before the rival acted, the rival's executed move
+//    was missed and the decision label stood. Now only the rival's own faint
+//    or |upkeep| (end-of-turn replacements follow) ends the scan.
+function executed(lines,t,side,{pr75=false}={}){
   const i=lines.indexOf('|turn|'+t),j=lines.indexOf('|turn|'+(t+1));
+  if(i<0&&!pr75)return {kind:'noturn'};
   const seg=lines.slice(i+1,j>0?j:undefined);
   for(let k=0;k<seg.length;k++){
     const l=seg[k];
-    if(l.startsWith('|faint|'))break;// later switch lines are forced replacements
+    if(pr75?l.startsWith('|faint|'):l.startsWith('|faint|'+side+'a:')||l==='|upkeep')break;// later switch lines are forced replacements
     if(l.startsWith('|switch|'+side+'a:'))return {kind:'switch',name:nameOf(l.split('|')[3])};
     if(l.startsWith('|cant|'+side+'a:'))return {kind:'cant',name:l.split('|')[3]};
     if(l.startsWith('|move|'+side+'a:')){
@@ -115,6 +124,7 @@ function executed(lines,t,side){
 function finalLabel(rec,ex){
   if(!rec)return {cls:'none'};
   if(rec.kind==='forced'||rec.kind==='other')return {cls:'unknown',why:rec.kind};
+  if(ex.kind==='noturn')return {cls:'unknown',why:'turn absent from log'};
   if(ex.kind==='cant')return {cls:rec.cls,why:'cant'};
   // Pre-empted: fainted / forced out (Emergency Exit) before acting. Nothing
   // executed to check, so the decision-time label stands.
@@ -128,7 +138,7 @@ function finalLabel(rec,ex){
   return {cls:rec.cls};
 }
 const parse=l=>{const [lead,rest]=l.split('>');return [lead,...rest.split('/')];};
-async function run({own:ownPicks,hyps,foePicks,seedIdx,ownAI}){
+async function run({own:ownPicks,hyps,foePicks,seedIdx,ownAI,pr75=false}){
   const sim=load(),dex=sim.Dex.mod('champions'),H=hypotheses(),own=reportedLive(),rows=[];
   const S=SEEDS();
   for(const hyp of hyps)for(const op of ownPicks)for(const fp of foePicks[hyp])for(const t1 of BR)for(const t2 of BR)for(const si of seedIdx)for(const reverse of [false,true]){
@@ -137,11 +147,15 @@ async function run({own:ownPicks,hyps,foePicks,seedIdx,ownAI}){
       script:script({t1,t2},dex,log),ownOptions:OWN_AI[ownAI]||ownAI});
     if(r.errors)throw Error('choice errors '+[hyp,op,fp,t1,t2,si,reverse]);
     const lines=r.log.split('\n'),lab={};
-    for(const t of [1,2])lab[t]={...finalLabel(log[t],executed(lines,t,r.foeSide)),src:log[t]?.src,act:log[t]?.name,old:log[t]?.old};
+    for(const t of [1,2])lab[t]={...finalLabel(log[t],executed(lines,t,r.foeSide,{pr75})),src:log[t]?.src,act:log[t]?.name,old:log[t]?.old};
+    // PR #76 P0-C: how often the corrected executed() differs on the same game.
+    const diff={};
+    for(const t of [1,2]){const a=executed(lines,t,r.foeSide,{pr75:true}),b=executed(lines,t,r.foeSide);
+      if(JSON.stringify(a)!==JSON.stringify(b))diff[t]={pr75:a,pr76:b,rec:log[t]?.kind||null};}
     const oldOk=x=>x===undefined||x==='ai'||x==='plausible';
     rows.push({hyp,own:op,foe:fp,t1,t2,si,reverse,won:r.won,
       oldRational:oldOk(log[1]?.old)&&oldOk(log[2]?.old),
-      l1:lab[1],l2:lab[2]});
+      l1:lab[1],l2:lab[2],...(Object.keys(diff).length?{executedDiff:diff}:{})});
   }
   return rows;
 }
@@ -171,13 +185,22 @@ function summarise(rows){
   return {totals:{old:tot('old'),newStrict:tot('newStrict'),newUnknownAsPlausible:tot('newUnknownAsPlausible')},pairs,why,
     topExcluded:Object.entries(reasons).sort((a,b)=>b[1]-a[1]).slice(0,25)};
 }
+// PR #76 P0-C: rows whose PR #75 and PR #76 executed() disagree, by kind.
+function executedDiffSummary(rows){
+  const out={rows:rows.length,rowsWithDiff:0,byKind:{},examples:[]};
+  for(const r of rows){if(!r.executedDiff)continue;out.rowsWithDiff++;
+    for(const [t,d] of Object.entries(r.executedDiff)){const k='T'+t+' '+d.pr75.kind+'->'+d.pr76.kind+(d.pr76.name?'':'');out.byKind[k]=(out.byKind[k]||0)+1;
+      if(out.examples.length<8)out.examples.push({hyp:r.hyp,own:r.own,foe:r.foe,t1:r.t1,t2:r.t2,si:r.si,reverse:r.reverse,t:Number(t),...d});}}
+  return out;
+}
 async function main(){
   const H=hypotheses(),saved=JSON.parse(fs.readFileSync(path.join(__dirname,'reports','data','a-branch-audit-20261030.json'),'utf8'));
   const own=(process.env.OWN||'Tyranitar>Metagross/Primarina').split(',');
   const hyps=(process.env.HYP||'H0').split(',');
   const seedIdx=[...Array(Number(process.env.SEEDN||2)).keys()];
   const ownAI=process.env.OWN_AI||'new';
-  const rows=await run({own,hyps,foePicks:saved.candidates.foe,seedIdx,ownAI:ownAI==='speedSafe'?{...OWN_AI.new,encoreGuard:'speedSafe'}:ownAI});
+  const pr75=Boolean(process.env.PR75);
+  const rows=await run({own,hyps,foePicks:saved.candidates.foe,seedIdx,ownAI:ownAI==='speedSafe'?{...OWN_AI.new,encoreGuard:'speedSafe'}:ownAI,pr75});
   // Reproduction check against the PR #73 saved bits (same seeds/sides only).
   let match=0,cmp=0;
   if(ownAI==='new')for(const r of rows){const b=saved.bits[[r.hyp,r.own,r.foe].join('|')];if(!b)continue;
@@ -186,12 +209,13 @@ async function main(){
   const res={showdown:'3a766f2cfb5e51c1e428cfe87d0dba91a8f01640',format:'gen9championsbssregmc',ownAI,own,hyps,
     seeds:seedIdx.map(i=>SEEDS()[i].join('-')),branches:BR,reproducesPR73Bits:ownAI==='new'?match+'/'+cmp:'n/a (different own AI)',
     note:'worst = seed/side games won under EVERY branch kept by the labelling. Heuristic AI vs heuristic AI, NOT a ladder win rate.',
+    executedVersion:pr75?'PR #75 (reproduction)':'PR #76 (noturn + rival-only faint/upkeep boundary)',executedDiff:executedDiffSummary(rows),
     ...summarise(rows)};
   if(process.env.FULL_ROWS)res.rows=rows;
   if(process.env.OUT){fs.mkdirSync(path.dirname(process.env.OUT),{recursive:true});fs.writeFileSync(process.env.OUT,JSON.stringify(res,null,1));}
-  console.log('reproduces PR73 bits',res.reproducesPR73Bits,'totals',res.totals);
+  console.log('reproduces PR73 bits',res.reproducesPR73Bits,'totals',res.totals,'executedDiff',JSON.stringify({rows:res.executedDiff.rows,rowsWithDiff:res.executedDiff.rowsWithDiff,byKind:res.executedDiff.byKind}));
   for(const p of res.pairs)console.log(p.pair.padEnd(70),'old',p.old.won+'/'+p.old.games,'new',p.newStrict.won+'/'+p.newStrict.games,'(unk ok',p.newUnknownAsPlausible.won+'/'+p.newUnknownAsPlausible.games+')',JSON.stringify(p.labels),'oldOK->excl',p.oldPlausibleNowExcluded,'excl->ok',p.oldExcludedNowPlausible);
   console.log(res.why);console.log(res.topExcluded);
 }
 if(require.main===module)main().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
-module.exports={script,executed,finalLabel,classifyMove,classifySwitch,summarise,worst,run};
+module.exports={script,executed,executedDiffSummary,finalLabel,classifyMove,classifySwitch,summarise,worst,run};
