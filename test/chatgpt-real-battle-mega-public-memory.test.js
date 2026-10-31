@@ -17,9 +17,9 @@ function publicLog(lines){
   }
   return out;
 }
-async function observe(lines,dex,team){
+async function observe(lines,dex,team,options={}){
   const b=new Bot(streamOf(lines.join('\n')),dex,team,'p1',
-    {choices:[],selections:[],errors:[]},null,null,{publicMegaAbility:true});
+    {choices:[],selections:[],errors:[]},null,null,{publicMegaAbility:true,...options});
   await b.run();
   return b;
 }
@@ -27,7 +27,7 @@ const slot=(req,name)=>{
   const i=req.active?.[0]?.moves?.findIndex(m=>m.move===name&&!m.disabled&&m.pp>0)??-1;
   return i<0?null:i+1;
 };
-test('pinned real Battle: a revealed move is forgotten at Mega detailschange (public-only audit)',{
+test('pinned real Battle: opt-in Mega move memory preserves publicly revealed moves, legacy remains unchanged',{
   skip:!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR not set'
 },async t=>{
   const sim=load(),dex=sim.Dex.mod('champions'),own=reportedLive();
@@ -64,11 +64,18 @@ test('pinned real Battle: a revealed move is forgotten at Mega detailschange (pu
   }
   const before=await observe(lines.slice(0,mega),dex,own);
   const after=await observe(lines.slice(0,mega+1),dex,own);
+  const fixed=await observe(lines.slice(0,mega+1),dex,own,{publicMoveMemory:true});
   assert.equal(before.foeActive,'Golisopod');
   assert.ok(before.seenMoves.Golisopod.includes('Sucker Punch'));
   assert.equal(after.foeActive,'Golisopod-Mega');
   assert.deepEqual(after.seenMoves[after.foeActive]||[],[],
-    'observed current implementation loses the public move after Mega');
+    'baseline mode intentionally reproduces forgotten move');
+  assert.deepEqual(fixed.seenMoves[fixed.foeActive],['Sucker Punch'],
+    'opt-in mode transfers only the move actually revealed in the pinned Battle');
+  assert.deepEqual(fixed.seenMoves.Golisopod,['Sucker Punch'],
+    'the same publicly revealed move stays with the base species');
+  assert.equal(fixed.seenMoves.Garchomp,undefined,
+    'no knowledge may appear for an unrelated opponent');
   const defender=own.find(x=>x.species==='Metagross');
   const opts={attackerAbility:after.foeAbility,foeBoosts:after.foeBoosts};
   const current=incomingRisk(dex,defender,after.foeActive,{
@@ -77,11 +84,17 @@ test('pinned real Battle: a revealed move is forgotten at Mega detailschange (pu
   const remembered=incomingRisk(dex,defender,after.foeActive,{
     ...opts,seenMoves:before.seenMoves.Golisopod
   });
-  assert.ok(remembered>=current);
+  const fixedRisk=incomingRisk(dex,defender,fixed.foeActive,{
+    ...opts,seenMoves:fixed.seenMoves[fixed.foeActive]||[]
+  });
+  assert.ok(remembered>current,'public move must change the risk estimate');
+  assert.equal(fixedRisk,remembered,'opt-in path must use exactly the previously public move');
   t.diagnostic(JSON.stringify({fixedShowdown:process.env.SHOWDOWN_DIR,
     seed:hashSeed(10200001),publicMove:'Sucker Punch',mega:'Golisopod-Mega',
     currentSeen:after.seenMoves[after.foeActive]||[],
+    fixedSeen:fixed.seenMoves[fixed.foeActive],
     shouldRemember:before.seenMoves.Golisopod,
     incomingRiskCurrent:current,incomingRiskWithPublicMove:remembered,
+    incomingRiskOptIn:fixedRisk,
     battleTurns:g.turns,engineChoiceErrors:g.errors}));
 });
