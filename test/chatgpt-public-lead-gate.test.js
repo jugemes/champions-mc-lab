@@ -60,6 +60,8 @@ test('public-six-only lead gate vs legacy: pinned full Battle, independent seed,
    const old=chooseThree(dex,own,publicSix).map(i=>own[i-1].species);
    const gate=chooseLeadGate(sim,own,publicSix,matchup);
    const fresh=gate.selection;
+   assert.deepEqual(chooseLeadGate(sim,own,[...publicSix].reverse(),matchup).selection,fresh,
+     'public six order cannot reveal the rival selected three: '+c.id);
    assert.deepEqual([...fresh].sort(),[...old].sort(),'only lead may change: '+c.id);
    assert.equal(new Set(fresh).size,3);
    const rec={id:c.id,publicSix,old,fresh,changedLead:gate.changedLead,
