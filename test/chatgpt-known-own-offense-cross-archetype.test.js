@@ -6,6 +6,7 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,Bot,hashSeed}=require('../lab');
 const {estimateDamage}=require('../damage');
+const {evaluateMoveV3}=require('../field-counterplay');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {caseList}=require('../legal-search-v2-compare');
 const {battle}=require('../encore-lead-audit');
@@ -44,6 +45,22 @@ test('known post-Mega Tough Claws applies to contact only; pre-Mega ability rema
   const bot=new Bot(null,dex,reportedLive(),'p1',{choices:[],selections:[],errors:[]},null,null,{knownOwnOffense:true});
   const identified=bot.ownOffenseInfo({ability:'Clear Body',item:'Metagrossite'},mega);
   assert.equal(identified.attackerAbility,'Tough Claws','Mega visible form overrides stale pre-Mega ability');
+});
+
+
+test('v3 evaluator uses the same known Life Orb on the actual move-scoring path',{skip},()=>{
+  const dex=load().Dex.mod('champions');
+  const hydr=reportedLive().find(x=>x.species==='Hydreigon');
+  const context={foeHP:0.8,ratio:1,available:hydr.moves,turn:1};
+  const plain=evaluateMoveV3(dex,hydr,'Gholdengo','Dark Pulse',context);
+  const corrected=evaluateMoveV3(dex,hydr,'Gholdengo','Dark Pulse',{
+    ...context,knownOwnOffense:true,attackerItem:'Life Orb',attackerAbility:'Levitate'
+  });
+  const knocked=evaluateMoveV3(dex,hydr,'Gholdengo','Dark Pulse',{
+    ...context,knownOwnOffense:true,attackerItem:'',attackerAbility:'Levitate'
+  });
+  assert.ok(corrected>plain,'v3 must receive the corrected scoring value');
+  assert.equal(knocked,plain,'removed item must not be used by v3');
 });
 
 const actions=(log,side)=>{
