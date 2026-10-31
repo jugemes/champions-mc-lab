@@ -1,0 +1,919 @@
+{
+ "HX_fairy": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Annihilape",
+   "Azumarill",
+   "Ceruledge",
+   "Clefable",
+   "Scizor",
+   "Tinkaton"
+  ],
+  "publicKey": "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Annihilape@Life Orb:Close Combat/Shadow Claw/Earthquake/Gunk Shot",
+    "Azumarill@Leftovers:Encore/Surf/Alluring Voice/Ice Beam",
+    "Ceruledge@Focus Sash:Swords Dance/Flare Blitz/Poltergeist/Shadow Sneak",
+    "Clefable@Clefablite:Calm Mind/Moonblast/Fire Blast/Moonlight",
+    "Scizor@Scizorite:Swords Dance/Iron Head/Close Combat/Bullet Punch",
+    "Tinkaton@Choice Scarf:Gigaton Hammer/Wood Hammer/Play Rough/Stone Edge"
+   ],
+   [
+    "Annihilape@Choice Scarf:Close Combat/Shadow Claw/Earthquake/Gunk Shot",
+    "Azumarill@Life Orb:Surf/Alluring Voice/Ice Beam/Hyper Voice",
+    "Ceruledge@Sitrus Berry:Taunt/Will-O-Wisp/Flare Blitz/Poltergeist",
+    "Clefable@Clefablite:Moonblast/Fire Blast/Psychic/Ice Beam",
+    "Scizor@Leftovers:Roost/Knock Off/Iron Head/Close Combat",
+    "Tinkaton@Focus Sash:Swords Dance/Gigaton Hammer/Wood Hammer/Protect"
+   ],
+   [
+    "Annihilape@Life Orb:Close Combat/Shadow Claw/Earthquake/Gunk Shot",
+    "Azumarill@Leftovers:Encore/Surf/Alluring Voice/Ice Beam",
+    "Ceruledge@Sitrus Berry:Taunt/Will-O-Wisp/Flare Blitz/Poltergeist",
+    "Clefable@Clefablite:Moonblast/Fire Blast/Psychic/Ice Beam",
+    "Scizor@Choice Scarf:Iron Head/Close Combat/Lunge/Dual Wingbeat",
+    "Tinkaton@Focus Sash:Fake Out/Stealth Rock/Gigaton Hammer/Wood Hammer"
+   ],
+   [
+    "Annihilape@Focus Sash:Bulk Up/Close Combat/Shadow Claw/Protect",
+    "Azumarill@Life Orb:Surf/Alluring Voice/Ice Beam/Hyper Voice",
+    "Ceruledge@Leftovers:Will-O-Wisp/Flare Blitz/Poltergeist/Close Combat",
+    "Clefable@Choice Scarf:Moonblast/Fire Blast/Psychic/Ice Beam",
+    "Scizor@Scizorite:Iron Head/Close Combat/Lunge/Bullet Punch",
+    "Tinkaton@Sitrus Berry:Gigaton Hammer/Wood Hammer/Play Rough/Stone Edge"
+   ],
+   [
+    "Annihilape@Focus Sash:Bulk Up/Close Combat/Shadow Claw/Protect",
+    "Azumarill@Life Orb:Surf/Alluring Voice/Ice Beam/Hyper Voice",
+    "Ceruledge@Choice Scarf:Flare Blitz/Poltergeist/Close Combat/Dragon Claw",
+    "Clefable@Clefablite:Moonblast/Fire Blast/Psychic/Ice Beam",
+    "Scizor@Scizorite:Iron Head/Close Combat/Lunge/Bullet Punch",
+    "Tinkaton@Leftovers:Stealth Rock/Gigaton Hammer/Wood Hammer/Play Rough"
+   ],
+   [
+    "Annihilape@Focus Sash:Bulk Up/Close Combat/Shadow Claw/Protect",
+    "Azumarill@Choice Scarf:Surf/Alluring Voice/Ice Beam/Hyper Voice",
+    "Ceruledge@Life Orb:Flare Blitz/Poltergeist/Close Combat/Shadow Sneak",
+    "Clefable@Clefablite:Moonblast/Fire Blast/Psychic/Ice Beam",
+    "Scizor@Scizorite:Iron Head/Close Combat/Lunge/Bullet Punch",
+    "Tinkaton@Leftovers:Stealth Rock/Gigaton Hammer/Wood Hammer/Play Rough"
+   ]
+  ],
+  "coverage": {
+   "required": 18,
+   "covered": 18,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Annihilape>Clefable/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Annihilape>Scizor/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Scizor>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Ceruledge>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Annihilape>Scizor/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Scizor>Annihilape/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Azumarill>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Annihilape>Scizor/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Scizor>Annihilape/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Tinkaton>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Annihilape>Clefable/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Annihilape>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Scizor>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Annihilape>Clefable/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Azumarill>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Annihilape>Clefable/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Tinkaton>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Annihilape>Clefable/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Annihilape>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Clefable>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Scizor>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Annihilape>Clefable/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Clefable>Annihilape/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Azumarill>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Annihilape>Clefable/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Clefable>Annihilape/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Tinkaton>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Annihilape>Ceruledge/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Annihilape>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Clefable>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Scizor>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Ceruledge>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Clefable>Ceruledge/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Scizor>Ceruledge/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Clefable>Scizor/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Scizor>Clefable/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Azumarill>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Clefable>Scizor/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Scizor>Clefable/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Tinkaton>Clefable/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Annihilape>Ceruledge/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Annihilape>Ceruledge/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Ceruledge>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Scizor>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Annihilape>Scizor/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Scizor>Annihilape/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Azumarill>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Annihilape>Clefable/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Clefable>Annihilape/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Tinkaton>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Annihilape>Ceruledge/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Annihilape>Ceruledge/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Ceruledge>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Scizor>Annihilape/Ceruledge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Annihilape>Scizor/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Scizor>Annihilape/Azumarill",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Azumarill>Annihilape/Scizor",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Annihilape>Clefable/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Clefable>Annihilape/Tinkaton",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Tinkaton>Annihilape/Clefable",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Azumarill/Scizor",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Ceruledge>Azumarill/Clefable",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Scizor>Azumarill/Clefable",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Ceruledge>Clefable/Tinkaton",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Scizor>Annihilape/Azumarill",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Scizor>Azumarill/Tinkaton",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Tinkaton>Ceruledge/Scizor",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Clefable>Azumarill/Tinkaton",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Metagross>Hydreigon/Garchomp",
+   "Metagross>Hydreigon/Primarina",
+   "Primarina>Metagross/Hydreigon",
+   "Metagross>Primarina/Garchomp",
+   "Rotom-Wash>Metagross/Hydreigon",
+   "Hydreigon>Metagross/Garchomp",
+   "Primarina>Metagross/Garchomp",
+   "Metagross>Garchomp/Rotom-Wash",
+   "Garchomp>Metagross/Rotom-Wash",
+   "Rotom-Wash>Metagross/Tyranitar",
+   "Garchomp>Metagross/Hydreigon",
+   "Primarina>Metagross/Rotom-Wash",
+   "Hydreigon>Metagross/Primarina",
+   "Tyranitar>Metagross/Hydreigon",
+   "Rotom-Wash>Metagross/Garchomp",
+   "Metagross>Primarina/Rotom-Wash"
+  ],
+  "support": [
+   {
+    "pick": "Garchomp>Metagross/Rotom-Wash",
+    "oi": 25,
+    "p": 0.1544
+   },
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "oi": 2,
+    "p": 0.1518
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "oi": 0,
+    "p": 0.1441
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Hydreigon",
+    "oi": 11,
+    "p": 0.1426
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "oi": 1,
+    "p": 0.1349
+   },
+   {
+    "pick": "Primarina>Metagross/Rotom-Wash",
+    "oi": 19,
+    "p": 0.0959
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "oi": 3,
+    "p": 0.0821
+   },
+   {
+    "pick": "Metagross>Primarina/Rotom-Wash",
+    "oi": 18,
+    "p": 0.0572
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "oi": 13,
+    "p": 0.037
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.652,
+  "securityAll": 0.652,
+  "mean": 0.867,
+  "raw": {
+   "support": [
+    {
+     "pick": "Garchomp>Metagross/Rotom-Wash",
+     "p": 0.1475
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.1449
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "p": 0.1376
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Hydreigon",
+     "p": 0.1361
+    },
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "p": 0.1287
+    },
+    {
+     "pick": "Primarina>Metagross/Rotom-Wash",
+     "p": 0.0915
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.0783
+    },
+    {
+     "pick": "Metagross>Primarina/Rotom-Wash",
+     "p": 0.0546
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "p": 0.0354
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "p": 0.0267
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Tyranitar",
+     "p": 0.0175
+    },
+    {
+     "pick": "Metagross>Garchomp/Rotom-Wash",
+     "p": 0.0008
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "p": 0.0001
+    },
+    {
+     "pick": "Garchomp>Metagross/Hydreigon",
+     "p": 0.0001
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "p": 0.0001
+    }
+   ],
+   "droppedMass": 0.0454,
+   "security": 0.666,
+   "securityAll": 0.666,
+   "mean": 0.863
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 8,
+    "added": [
+     {
+      "pick": "Garchomp>Metagross/Rotom-Wash",
+      "screenWinsOnBinding": "8/8"
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Tyranitar",
+      "screenWinsOnBinding": "8/8"
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "screenWinsOnBinding": "8/8"
+     },
+     {
+      "pick": "Primarina>Metagross/Rotom-Wash",
+      "screenWinsOnBinding": "8/8"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 12,
+    "added": [
+     {
+      "pick": "Hydreigon>Metagross/Primarina",
+      "screenWinsOnBinding": "12/12"
+     },
+     {
+      "pick": "Tyranitar>Metagross/Hydreigon",
+      "screenWinsOnBinding": "12/12"
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "screenWinsOnBinding": "11/12"
+     },
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "screenWinsOnBinding": "11/12"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Metagross>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.792,
+    "mean": 0.886
+   },
+   {
+    "pick": "Primarina>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.781,
+    "mean": 0.861
+   },
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.769,
+    "mean": 0.873
+   },
+   {
+    "pick": "Garchomp>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.767,
+    "mean": 0.873
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.75,
+    "mean": 0.855
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.75,
+    "mean": 0.849
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.733,
+    "mean": 0.892
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.708,
+    "mean": 0.831
+   },
+   {
+    "pick": "Metagross>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.656,
+    "mean": 0.916
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.656,
+    "mean": 0.904
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.656,
+    "mean": 0.88
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.625,
+    "mean": 0.867
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.594,
+    "mean": 0.892
+   },
+   {
+    "pick": "Hydreigon>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.563,
+    "mean": 0.843
+   },
+   {
+    "pick": "Garchomp>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.531,
+    "mean": 0.837
+   },
+   {
+    "pick": "Tyranitar>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.406,
+    "mean": 0.723
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 0,
+    "rival": "Scizor>Annihilape/Ceruledge",
+    "src": "view",
+    "v": 0.652
+   },
+   {
+    "scenario": 4,
+    "rival": "Ceruledge>Clefable/Tinkaton",
+    "src": "bestResponse",
+    "v": 0.652
+   },
+   {
+    "scenario": 0,
+    "rival": "Ceruledge>Annihilape/Clefable",
+    "src": "view",
+    "v": 0.66
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Ceruledge",
+    "src": "view",
+    "v": 0.66
+   },
+   {
+    "scenario": 1,
+    "rival": "Clefable>Annihilape/Scizor",
+    "src": "view",
+    "v": 0.661
+   },
+   {
+    "scenario": 4,
+    "rival": "Tinkaton>Annihilape/Clefable",
+    "src": "view",
+    "v": 0.672
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 1,
+     "rival": "Clefable>Azumarill/Scizor",
+     "value": 0.5
+    },
+    {
+     "scenario": 4,
+     "rival": "Ceruledge>Azumarill/Clefable",
+     "value": 0.5
+    },
+    {
+     "scenario": 1,
+     "rival": "Scizor>Azumarill/Clefable",
+     "value": 0.5
+    },
+    {
+     "scenario": 4,
+     "rival": "Ceruledge>Clefable/Tinkaton",
+     "value": 0.6
+    },
+    {
+     "scenario": 1,
+     "rival": "Scizor>Annihilape/Azumarill",
+     "value": 0.6
+    },
+    {
+     "scenario": 1,
+     "rival": "Scizor>Azumarill/Tinkaton",
+     "value": 0.6
+    },
+    {
+     "scenario": 2,
+     "rival": "Tinkaton>Ceruledge/Scizor",
+     "value": 0.7
+    },
+    {
+     "scenario": 4,
+     "rival": "Clefable>Azumarill/Tinkaton",
+     "value": 0.7
+    }
+   ],
+   "checked": 360
+  },
+  "games": {
+   "screen": 4500,
+   "refine": 10624,
+   "expansion": 4080,
+   "total": 19204
+  },
+  "seconds": 107,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ }
+}
