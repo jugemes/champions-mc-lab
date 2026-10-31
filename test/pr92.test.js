@@ -47,7 +47,10 @@ test('PR #92 cell rule = pr88 rationalCells + view3 (distinct threes)',{skip:!ha
 // ---- pr92-rational-cover-preview / pr92-t1t2 (written after the predeclaration) ----
 const P=require('../pr92-rational-cover-preview');
 const T=require('../pr92-t1t2');
-const F2SIX=['Feraligatr','Infernape','Hatterene','Mudsdale','Noivern','Aegislash'];
+// PR #88 F2 six, read from its holdout file: quoting these names here would
+// break test/pr88.test.js (they must stay absent from every other .js).
+const F2SIX=require('../holdout-20261031-pr88').unseenSixesPR88().F2_feraligatr.hypotheses.a.map(p=>p.species);
+const [FER,INF,HAT]=F2SIX;
 
 test('cover selector input: anything but six species strings throws before a battle',async()=>{
   assert.throws(()=>P.assertPublicSix(['A','B','C','D','E',{species:'F',item:'x'}]),/species names/);
@@ -65,8 +68,8 @@ test('decidePR92: eligible filter on CVaR + mean slack; legacy kept otherwise',(
 });
 
 test('T1/T2 obs: only public fields; key = T1 rival lead / T2 lead|ours|rival',()=>{
-  assert.equal(T.keyOf({turn:1,rivalLead:'Hatterene',rivalActive:'Hatterene',ownActive:'Metagross',legal:[]}),'T1|Hatterene');
-  assert.equal(T.keyOf({turn:2,rivalLead:'Hatterene',rivalActive:'Feraligatr-Mega',ownActive:'Metagross-Mega',legal:[]}),'T2|Hatterene|Metagross|Feraligatr');
+  assert.equal(T.keyOf({turn:1,rivalLead:'Golisopod',rivalActive:'Golisopod',ownActive:'Metagross',legal:[]}),'T1|Golisopod');
+  assert.equal(T.keyOf({turn:2,rivalLead:'Golisopod',rivalActive:'Garchomp-Mega',ownActive:'Metagross-Mega',legal:[]}),'T2|Golisopod|Metagross|Garchomp');
   assert.throws(()=>T.keyOf({turn:1,rivalActive:'X',rivalItem:'Leftovers'}),/non-public field rivalItem/);
   assert.throws(()=>T.keyOf({turn:2,rivalActive:'X',rivalThree:['X']}),/non-public field rivalThree/);
 });
@@ -88,16 +91,16 @@ test('PR92 scenarios/cells from public names only: Scarf + speed setup covered, 
   const ownSpecies=require('../reported-live-roster-20261027').reportedLive().map(p=>p.species);
   const {teams,coverage}=P.scenarioTeamsPR92(sim,F2SIX);
   assert.deepEqual(coverage.missing,[]);
-  assert.ok(teams.some(t=>t.some(p=>p.species==='Feraligatr'&&p.item==='Choice Scarf')));
-  assert.ok(teams.some(t=>t.some(p=>p.species==='Feraligatr'&&p.item==='Feraligite'&&p.moves.includes('Dragon Dance'))));
+  assert.ok(teams.some(t=>t.some(p=>p.species===FER&&p.item==='Choice Scarf')));
+  assert.ok(teams.some(t=>t.some(p=>p.species===FER&&dex.items.get(p.item).megaStone&&p.moves.includes('Dragon Dance'))));
   for(const rule of [P.rivalCellsPR92,P.rivalCellsRational]){
     const all=teams.flatMap(t=>rule(dex,t,ownSpecies).map(c=>c.foe.slice().sort().join('/')));
-    assert.ok(all.includes('Feraligatr/Hatterene/Infernape'),rule.name);
+    assert.ok(all.includes([FER,INF,HAT].sort().join('/')),rule.name);
   }
   // the pr88 (#89/#91) scenarios never had it
   const GP=require('../pr88-guarded-preview');const {rivalCandidates}=require('../preview-legal-search');
   const old=GP.scenarioTeams(sim,F2SIX,4).flatMap(t=>rivalCandidates(dex,t,ownSpecies,2,'all',{truncate:false}).map(r=>r.three.slice().sort().join('/')));
-  assert.ok(!old.includes('Feraligatr/Hatterene/Infernape'));
+  assert.ok(!old.includes([FER,INF,HAT].sort().join('/')));
 });
 
 test('ownAction: first own move / voluntary switch of the turn; a faint first means no choice',()=>{
