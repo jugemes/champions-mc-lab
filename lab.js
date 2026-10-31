@@ -139,6 +139,8 @@ class Bot{
     // Mega detailschange. Never add an unobserved move or inspect private sets.
     // Disabled by default to keep existing saved AI comparisons reproducible.
     this.publicMoveMemory=Boolean(options.publicMoveMemory);
+    // Independent opt-in for the player's own known item / current Mega ability.
+    this.knownOwnOffense=Boolean(options.knownOwnOffense);
     // PR #76 P0-A: opt-in, default off so saved results replay unchanged.
     // publicCondition: foe HP/status from every public condition string
     // (switch/drag/replace, -damage/-heal/-sethp, faint) with parseCondition;
@@ -336,6 +338,13 @@ class Bot{
   }
   // publicMegaAbility only: the foe's public attacking ability for incomingRisk.
   attackerInfo(){return this.publicMegaAbility&&this.foeAbility?{attackerAbility:this.foeAbility}:{};}
+  ownOffenseInfo(p,my){
+    if(!this.knownOwnOffense)return {};
+    const form=this.dex.species.get(my.species);
+    return {knownOwnOffense:true,
+      attackerItem:p.item===undefined?my.item:p.item,
+      attackerAbility:p.ability||(form.isMega?form.abilities['0']:my.ability)};
+  }
   getSet(p){
     const name=nameOf(p.details);
     const base=this.dex.species.get(name).baseSpecies||name;
@@ -364,7 +373,7 @@ class Bot{
     const side=req.side.pokemon;
     if(req.forceSwitch){
       const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
-      const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP})))
+      const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,...this.ownOffenseInfo(p,this.getSet(p))})))
         -75*incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       return bench.length?'switch '+(bench[0].i+1):'default';
@@ -372,6 +381,7 @@ class Bot{
     const active=req.active?.[0], current=side.find(p=>p.active);
     if(!active||!current)return 'default';
     const my={...this.getSet(current),species:nameOf(current.details)};
+    const ownOffense=this.ownOffenseInfo(current,my);
     const available=active.moves.map((m,i)=>({m,i})).filter(x=>!x.m.disabled&&x.m.pp>0);
     if(!available.length)return 'default';
     const [selfhp,selfmax]=String(current.condition).split('/').map(Number);
@@ -393,7 +403,7 @@ class Bot{
     let best={score:-Infinity,i:available[0].i};
     for(const {m,i} of available){
       const def=this.dex.moves.get(m.id||m.move);
-      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather:this.weather});
+      let score=moveUtility(this.dex,my,this.foeActive,m.id||m.move,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,boosts:this.boosts,foeBoosts:this.foeBoosts,terrain:this.terrain,weather:this.weather,...ownOffense});
       if(def.category!=='Status'){
         // Already applied exactly once by moveUtility's public-state range calculator.
         if(def.priority>0&&this.foeHP<=0.35)score+=25;
@@ -411,7 +421,7 @@ class Bot{
           ratio,foeHP:this.foeHP,foeItem:this.foeItem,foeAbility:this.foeAbility,
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
-          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,terrain:this.terrain,weather:this.weather,
+          seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,terrain:this.terrain,weather:this.weather,...ownOffense,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
@@ -423,7 +433,7 @@ class Bot{
           boosts:this.boosts,foeBoosts:this.foeBoosts,foeStatus:this.foeStatus,
           foeLastMove:this.lastMove,foeLastMoveTurn:this.foeLastMoveTurn,
           seenMoves:this.seenMoves[this.foeActive]||[],turn:this.turn,
-          terrain:this.terrain,weather:this.weather,
+          terrain:this.terrain,weather:this.weather,...ownOffense,
           available:available.map(x=>x.m.id||x.m.move),
           ownStatus:String(current.condition).includes(' brn')?'brn':'',
           lastStatuses:this.lastStatuses,hazards:this.hazards
@@ -435,7 +445,7 @@ class Bot{
     const bench=side.map((p,i)=>({p,i})).filter(x=>!x.p.active&&!String(x.p.condition).endsWith(' fnt'));
     if(canSwitchAgainst(this.dex,active,my,this.foeActive,this.foeAbility)&&bench.length&&this.switches<3){
       const riskOf=p=>incomingRisk(this.dex,this.getSet(p),this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
-      const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP}))) - 80*riskOf(p);
+      const score=p=>Math.max(...this.getSet(p).moves.map(m=>moveUtility(this.dex,this.getSet(p),this.foeActive,m,{foeItem:this.foeItem,foeAbility:this.foeAbility,foeHP:this.foeHP,...this.ownOffenseInfo(p,this.getSet(p))}))) - 80*riskOf(p);
       const currentRisk=incomingRisk(this.dex,my,this.foeActive,{foeBoosts:this.foeBoosts,seenMoves:this.seenMoves[this.foeActive],...this.attackerInfo()});
       bench.sort((a,b)=>score(b.p)-score(a.p));
       if(score(bench[0].p)>Math.max(25,best.score+18)
