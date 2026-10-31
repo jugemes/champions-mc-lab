@@ -362,6 +362,9 @@ class Bot{
       }):this.previewPolicy==='publicSix'
         // PR #76 P0-B: public-six entry point (registered robust mixture or logged legacy fallback).
         ?(this.previewLog=require('./public-six-preview').choosePublicSixPreview({dex:this.dex,own:this.team,publicSix:this.opp.slice(),seed:this.previewSeed,side:this.side})).selection
+        :this.previewPolicy==='publicCoverage'
+        // Research-only generic legal coverage / possible Scarf speed band.
+        ?(this.previewLog=require('./public-coverage-preview').choosePublicCoveragePreview(load(),this.team,this.opp.slice(),matchup)).selection
         :this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
