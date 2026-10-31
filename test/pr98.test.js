@@ -8,28 +8,32 @@ const skip=!haveSD&&'SHOWDOWN_DIR not set';
 const X=require('../pr96-paired');
 const Y=require('../pr98-timing');
 const T=require('../pr94-t1t2');
+// N6 names are read from the predeclared holdout file: test/pr96-holdout.test.js
+// forbids quoting N5/N6 species in other repo .js files.
+const N6=require('../holdout-20261031-pr96').unseenSixesPR96().N6_altaria;
+const ALT=N6.ace,ALTM=ALT+'-Mega',STONE=N6.hypotheses.a[0].item,N6B=N6.hypotheses.a.map(p=>p.species);
 
-const sameTurnMegaLog=['|switch|p1a: Altaria|Altaria, L50, M|100/100','|switch|p2a: Hydreigon|Hydreigon, L50, M|100/100','|turn|1',
-  '|detailschange|p1a: Altaria|Altaria-Mega, L50, M','|-mega|p1a: Altaria|Altaria|Altarianite',
-  '|move|p2a: Hydreigon|Dragon Pulse|p1a: Altaria','|-immune|p1a: Altaria','|move|p1a: Altaria|Dragon Dance|p1a: Altaria','|turn|2',
-  '|move|p2a: Hydreigon|Dragon Pulse|p1a: Altaria','|-immune|p1a: Altaria','|turn|3'].join('\n');
+const sameTurnMegaLog=[`|switch|p1a: ${ALT}|${ALT}, L50, M|100/100`,`|switch|p2a: Hydreigon|Hydreigon, L50, M|100/100`,`|turn|1`,
+  `|detailschange|p1a: ${ALT}|${ALTM}, L50, M`,`|-mega|p1a: ${ALT}|${ALT}|${STONE}`,
+  `|move|p2a: Hydreigon|Dragon Pulse|p1a: ${ALT}`,`|-immune|p1a: ${ALT}`,`|move|p1a: ${ALT}|Dragon Dance|p1a: ${ALT}`,`|turn|2`,
+  `|move|p2a: Hydreigon|Dragon Pulse|p1a: ${ALT}`,`|-immune|p1a: ${ALT}`,`|turn|3`].join('\n');
 
 test('P0 reproduced on the original pr96 function: same-turn Mega leaks into the decision-time forme',{skip},()=>{
   const {load}=require('../lab');const dex=load().Dex.mod('champions');
   const a=X.publicImmune96(sameTurnMegaLog,'p2',dex);
-  assert.deepEqual(a[0],{turn:1,move:'Dragon Pulse',target:'Altaria-Mega',why:'type'},'ChatGPT V8 counterexample');
+  assert.deepEqual(a[0],{turn:1,move:'Dragon Pulse',target:ALTM,why:'type'},'ChatGPT V8 counterexample');
   // base Altaria (Dragon/Flying) is hit super effectively by Dragon: no immunity at choice time
-  assert.ok(dex.getImmunity('Dragon',dex.species.get('Altaria').types));
+  assert.ok(dex.getImmunity('Dragon',dex.species.get(ALT).types));
   // the pr94 detector has the same leak
-  assert.equal(T.publicImmune(sameTurnMegaLog,'p2',dex)[0].target,'Altaria-Mega');
+  assert.equal(T.publicImmune(sameTurnMegaLog,'p2',dex)[0].target,ALTM);
 });
 
 test('P0 fixed: same-turn Mega -> possible; next turn (Mega public) -> known',{skip},()=>{
   const {load}=require('../lab');const dex=load().Dex.mod('champions');
   const r=Y.publicImmune98(sameTurnMegaLog,'p2',dex);
-  assert.deepEqual(r.known,[{turn:2,move:'Dragon Pulse',target:'Altaria-Mega',why:'type'}]);
+  assert.deepEqual(r.known,[{turn:2,move:'Dragon Pulse',target:ALTM,why:'type'}]);
   assert.equal(r.possible.length,1);
-  assert.deepEqual(r.possible[0],{turn:1,move:'Dragon Pulse',chosenAgainst:'Altaria',hit:'Altaria-Mega',why:'post-choice mega (type)'});
+  assert.deepEqual(r.possible[0],{turn:1,move:'Dragon Pulse',chosenAgainst:ALT,hit:ALTM,why:'post-choice mega (type)'});
   assert.equal(Y.irrationalGame98({branch:'ai'},{irrational:[],immune98:{known:[]}}),false);
   assert.equal(Y.irrationalGame98({branch:'ai'},{irrational:[],immune98:r}),true,'T2 known hit stays irrational');
   assert.equal(Y.irrationalGame98({branch:'ai'},{irrational:[],immune98:r,masked:[{turn:2,move:'Dragon Pulse',why:'type',replacement:'none (no alternative)'}]}),false,'forced (no alternative) is not irrational');
@@ -49,9 +53,9 @@ test('P0 fixed: same-turn Mega -> possible; next turn (Mega public) -> known',{s
 test('lockedmove continuation (found in the PR #97 FINAL replay) is not a choice: pr96 known, pr98 locked',{skip},()=>{
   const {load}=require('../lab');const dex=load().Dex.mod('champions');
   // shape of the real FINAL line: T4 Outrage KOs our Metagross, T5 we bring Primarina, the locked Outrage continues into it
-  const log=['|switch|p1a: Metagross|Metagross, L50|100/100','|switch|p2a: Kangaskhan|Kangaskhan, L50, F|100/100','|turn|4',
-    '|move|p2a: Kangaskhan|Outrage|p1a: Metagross','|-damage|p1a: Metagross|0 fnt','|faint|p1a: Metagross','|switch|p1a: Primarina|Primarina, L50, F|100/100','|turn|5',
-    '|move|p2a: Kangaskhan|Outrage|p1a: Primarina|[from]lockedmove','|-immune|p1a: Primarina','|turn|6'].join('\n');
+  const log=['|switch|p1a: Metagross|Metagross, L50|100/100','|switch|p2a: Dragonite|Dragonite, L50, F|100/100','|turn|4',
+    '|move|p2a: Dragonite|Outrage|p1a: Metagross','|-damage|p1a: Metagross|0 fnt','|faint|p1a: Metagross','|switch|p1a: Primarina|Primarina, L50, F|100/100','|turn|5',
+    '|move|p2a: Dragonite|Outrage|p1a: Primarina|[from]lockedmove','|-immune|p1a: Primarina','|turn|6'].join('\n');
   assert.deepEqual(X.publicImmune96(log,'p2',dex).map(x=>x.turn),[5],'pr96 tags a forced continuation');
   const r=Y.publicImmune98(log,'p2',dex);assert.deepEqual(r.known,[]);assert.equal(r.locked,1);
 });
@@ -89,16 +93,16 @@ test('P0 on pinned Showdown: N6/a Altaria Megas in T1 under a rival Draco Meteor
   for(const reverse of [false,true])for(const aware of [false,true]){
     const rec={},seed=hashSeed(9800000+(reverse?1:0));
     const rs=forceMove('Draco Meteor',[1,2]);
-    const g=await battle(sim,structuredClone(own),structuredClone(rival),seed,{ownThree:['Altaria','Chesnaught','Espathra'],foeThree:['Hydreigon','Garchomp','Tyranitar'],
+    const g=await battle(sim,structuredClone(own),structuredClone(rival),seed,{ownThree:[ALT,N6B[2],N6B[5]],foeThree:['Hydreigon','Garchomp','Tyranitar'],
       reverse,script:aware?Y.immuneAware98(rs,dex,rec):rs,ownOptions:{script:ownScriptMega}});
     assert.equal(g.errors,0);
     const me=g.ownSide,L=g.log.split('\n');
     const t1=L.indexOf('|turn|1'),t2=L.indexOf('|turn|2'),t3=L.indexOf('|turn|3');
-    const dc=L.findIndex(l=>l.startsWith('|detailschange|'+me+'a: Altaria|Altaria-Mega'));
+    const dc=L.findIndex(l=>l.startsWith('|detailschange|'+me+'a: '+ALT+'|'+ALTM));
     assert.ok(dc>t1&&dc<t2,'engine: Mega in T1 after both choices');
     const r=Y.publicImmune98(g.log,g.foeSide,dex,{maxTurn:2}),old=X.publicImmune96(g.log,g.foeSide,dex,{maxTurn:2});
     if(!aware){
-      assert.ok(L.slice(t1,t2).some(l=>l.startsWith('|-immune|'+me+'a: Altaria')),'T1 Draco Meteor immune on Altaria-Mega');
+      assert.ok(L.slice(t1,t2).some(l=>l.startsWith('|-immune|'+me+'a: '+ALT)),'T1 Draco Meteor immune on Altaria-Mega');
       assert.ok(old.some(x=>x.turn===1),'pr96 detector: T1 counted irrational (P0 on the real engine)');
       assert.deepEqual(r.possible.map(x=>x.turn),[1]);
       assert.deepEqual(r.known.map(x=>x.turn),[2],'T2: the Mega is public, the hit is a known immunity');

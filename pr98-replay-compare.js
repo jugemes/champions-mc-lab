@@ -45,6 +45,6 @@ for(const grp of ['aware','naive']){
   S[grp]=c;
 }
 const ex=G.filter(x=>x.aware&&x.known98.some(y=>y.turn<=2)).slice(0,3).map(x=>({seed:x.seed,reverse:x.reverse,own:x.own,foe:x.foe,known98:x.known98,dec:x.dec,lines:x.lines}));
-const out={saved,replay,determinism:{policyRowsCompared:compared,differences:diffs.length,first:diffs.slice(0,20)},shadow:S,awareResidualExamples:ex};
+const out={saved:require("node:path").basename(saved),replay:require("node:path").basename(replay),determinism:{policyRowsCompared:compared,differences:diffs.length,first:diffs.slice(0,20)},shadow:S,awareResidualExamples:ex};
 if(outFile)fs.writeFileSync(outFile,JSON.stringify(out,null,1));
 console.log(JSON.stringify(out,null,1).slice(0,6000));
