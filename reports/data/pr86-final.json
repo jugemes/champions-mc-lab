@@ -1,0 +1,2481 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "own": "reportedLive (reported-live-roster-20261027.js)",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "gates": [
+  "abstain",
+  "v3",
+  "t2only",
+  "loco",
+  "loco_t2"
+ ],
+ "note": "AI vs AI, constructed hypotheses, 2 seeds x 2 sides per cell x branch. NOT a ladder win rate.",
+ "frozenGate": "loco_t2",
+ "FINAL": {
+  "games": 5280,
+  "seeds": "hashSeed(8660000+ci*100+{0,1}), both sides",
+  "cells": {
+   "A_golisopod/H0": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Garchomp/Golisopod"
+   ],
+   "A_golisopod/H1": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Gholdengo/Golisopod"
+   ],
+   "A_golisopod/H2": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Garchomp/Golisopod"
+   ],
+   "B_lucarioZ/case": [
+    "aceBack2:Archaludon/Lucario/Mimikyu",
+    "swapIn:Primarina/Garchomp/Archaludon"
+   ],
+   "B_lucarioZ/B2": [
+    "aceBack2:Archaludon/Lucario/Mimikyu",
+    "swapIn:Primarina/Garchomp/Archaludon"
+   ],
+   "C_charizard/Y": [
+    "aceBack2:Gholdengo/Charizard/Garchomp",
+    "swapIn:Baxcalibur/Primarina/Charizard"
+   ],
+   "C_charizard/X": [
+    "aceBack2:Gholdengo/Charizard/Garchomp",
+    "swapIn:Baxcalibur/Primarina/Charizard"
+   ],
+   "Indeedee/scarf": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Gengar/Garchomp/Umbreon"
+   ],
+   "Indeedee/sash": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Garchomp/Gengar/Indeedee"
+   ],
+   "Indeedee/quickclaw": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Garchomp/Gengar/Indeedee"
+   ],
+   "E_sun/case": [
+    "aceBack2:Raichu/Meowscarada/Charizard",
+    "swapIn:Garchomp/Meowscarada/Charizard"
+   ],
+   "E_sun/E2": [
+    "aceBack2:Raichu/Meowscarada/Charizard",
+    "swapIn:Garchomp/Meowscarada/Charizard"
+   ],
+   "HX_rain/a": [
+    "aceBack2:Gholdengo/Swampert/Dragonite",
+    "swapIn:Rillaboom/Dragonite/Gholdengo"
+   ],
+   "HX_rain/b": [
+    "aceBack2:Gholdengo/Swampert/Dragonite",
+    "swapIn:Rillaboom/Dragonite/Gholdengo"
+   ],
+   "HX_gyarados/a": [
+    "aceBack2:Gholdengo/Garchomp/Corviknight",
+    "swapIn:Baxcalibur/Gholdengo/Garchomp"
+   ],
+   "HX_gyarados/b": [
+    "aceBack2:Gholdengo/Garchomp/Corviknight",
+    "swapIn:Gyarados/Mimikyu/Gholdengo"
+   ],
+   "HOLD_psychic_offense/case": [
+    "aceBack2:Sneasler/Alakazam/Armarouge",
+    "swapIn:Sneasler/Armarouge/Alakazam"
+   ],
+   "HOLD_sun_balance/case": [
+    "aceBack2:Toxapex/Charizard/Eelektross",
+    "swapIn:Skarmory/Dragonite/Toxapex"
+   ],
+   "HX_sand/a": [
+    "aceBack2:Rotom-Heat/Excadrill/Kingambit",
+    "swapIn:Hippowdon/Excadrill/Dragapult"
+   ],
+   "HX_sand/b": [
+    "aceBack2:Rotom-Heat/Excadrill/Kingambit",
+    "swapIn:Hippowdon/Excadrill/Dragapult"
+   ],
+   "HX_fairy/a": [
+    "aceBack2:Annihilape/Scizor/Clefable",
+    "swapIn:Annihilape/Clefable/Scizor"
+   ],
+   "HX_fairy/b": [
+    "aceBack2:Annihilape/Scizor/Clefable",
+    "swapIn:Ceruledge/Clefable/Scizor"
+   ]
+  },
+  "summary": {
+   "abstain": {
+    "hypMean": 0.667,
+    "hypMeanRat": 0.652,
+    "abstainHypMean": 0.667,
+    "abstainHypMeanRat": 0.652,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 920,
+     "T1:uncovered": 576,
+     "T2:abstain": 48,
+     "T2:base": 88,
+     "T1:base": 120
+    },
+    "rulesFired": 0,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.175,
+      "abstainRat": 0.175
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.167,
+      "abstain": 0.167,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.208,
+      "abstain": 0.208,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.292,
+      "abstain": 0.292,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.25
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.4
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 0.979,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 0.975
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 0.917,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 0.9
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.708,
+      "abstain": 0.708,
+      "nRat": 40,
+      "meanRat": 0.7,
+      "abstainRat": 0.7
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.833,
+      "abstain": 0.833,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   },
+   "v3": {
+    "hypMean": 0.671,
+    "hypMeanRat": 0.667,
+    "abstainHypMean": 0.667,
+    "abstainHypMeanRat": 0.652,
+    "worse": 1,
+    "better": 2,
+    "worseAll": 2,
+    "betterAll": 1,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 30,
+     "gateLost": 25
+    },
+    "decisions": {
+     "T1:rule": 360,
+     "T2:uncovered": 708,
+     "T2:base": 300,
+     "T1:uncovered": 576,
+     "T2:rule": 48,
+     "T1:base": 120
+    },
+    "rulesFired": 408,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.208,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.175
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.167,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.05
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.396,
+      "abstain": 0.208,
+      "nRat": 40,
+      "meanRat": 0.425,
+      "abstainRat": 0.2
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.292,
+      "abstain": 0.292,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.25
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.4
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 0.979,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 0.975
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.521,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.525,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 0.917,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 0.9
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.708,
+      "abstain": 0.708,
+      "nRat": 40,
+      "meanRat": 0.7,
+      "abstainRat": 0.7
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.833,
+      "abstain": 0.833,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": [
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "ai",
+      "seed": [
+       35098,
+       1062,
+       13090,
+       10881
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T1 |-damage|p1a: Primarina|103/187",
+       "T1 |move|p1a: Primarina|Encore|p2a: Primarina",
+       "T1 |-start|p2a: Primarina|Encore",
+       "T2 |switch|p2a: Golisopod|Golisopod, L50, M|182/182",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Golisopod",
+       "T2 |-damage|p2a: Golisopod|76/182",
+       "T2 |-unboost|p2a: Golisopod|spa|1",
+       "T2 |-activate|p2a: Golisopod|ability: Emergency Exit",
+       "T2 |switch|p2a: Primarina|Primarina, L50, M|187/187",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|111/187",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|24/187",
+       "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p1a: Primarina|70/187|[from] item: Sitrus Berry"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "attack",
+      "seed": [
+       35098,
+       1062,
+       13090,
+       10881
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T1 |-damage|p1a: Primarina|103/187",
+       "T1 |move|p1a: Primarina|Encore|p2a: Primarina",
+       "T1 |-start|p2a: Primarina|Encore",
+       "T2 |switch|p2a: Golisopod|Golisopod, L50, M|182/182",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Golisopod",
+       "T2 |-damage|p2a: Golisopod|76/182",
+       "T2 |-unboost|p2a: Golisopod|spa|1",
+       "T2 |-activate|p2a: Golisopod|ability: Emergency Exit",
+       "T2 |switch|p2a: Primarina|Primarina, L50, M|187/187",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|111/187",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|24/187",
+       "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p1a: Primarina|70/187|[from] item: Sitrus Berry"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "setup",
+      "seed": [
+       35098,
+       1062,
+       13090,
+       10881
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T1 |-damage|p1a: Primarina|103/187",
+       "T1 |move|p1a: Primarina|Encore|p2a: Primarina",
+       "T1 |-start|p2a: Primarina|Encore",
+       "T2 |switch|p2a: Golisopod|Golisopod, L50, M|182/182",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Golisopod",
+       "T2 |-damage|p2a: Golisopod|76/182",
+       "T2 |-unboost|p2a: Golisopod|spa|1",
+       "T2 |-activate|p2a: Golisopod|ability: Emergency Exit",
+       "T2 |switch|p2a: Primarina|Primarina, L50, M|187/187",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|111/187",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|24/187",
+       "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p1a: Primarina|70/187|[from] item: Sitrus Berry"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "switch",
+      "seed": [
+       35098,
+       1062,
+       13090,
+       10881
+      ],
+      "reverse": true,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |switch|p1a: Golisopod|Golisopod, L50, M|182/182",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |-mega|p1a: Golisopod|Golisopod|Golisopite",
+       "T2 |move|p2a: Primarina|Moonblast|p1a: Golisopod",
+       "T2 |-damage|p1a: Golisopod|142/182",
+       "T2 |move|p1a: Golisopod|Swords Dance|p1a: Golisopod",
+       "T2 |-boost|p1a: Golisopod|atk|2",
+       "T3 |move|p2a: Primarina|Encore|p1a: Golisopod",
+       "T3 |-start|p1a: Golisopod|Encore",
+       "T3 |move|p1a: Golisopod|Swords Dance|p1a: Golisopod",
+       "T3 |-boost|p1a: Golisopod|atk|2"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "utility",
+      "seed": [
+       35098,
+       1062,
+       13090,
+       10881
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|108/187",
+       "T2 |move|p2a: Primarina|Encore|p1a: Primarina",
+       "T2 |-start|p1a: Primarina|Encore",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|103/187",
+       "T3 |-unboost|p1a: Primarina|spa|1",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|50/187",
+       "T3 |-unboost|p2a: Primarina|spa|1",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|96/187|[from] item: Sitrus Berry"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "utility",
+      "seed": [
+       14777,
+       25159,
+       40438,
+       2229
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p2a: Primarina|Encore||[still]",
+       "T2 |-fail|p2a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|106/187",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|102/187",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|28/187",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|74/187|[from] item: Sitrus Berry"
+      ]
+     }
+    ]
+   },
+   "t2only": {
+    "hypMean": 0.669,
+    "hypMeanRat": 0.656,
+    "abstainHypMean": 0.667,
+    "abstainHypMeanRat": 0.652,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 5,
+     "gateLost": 2
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 920,
+     "T1:uncovered": 576,
+     "T2:rule": 48,
+     "T2:base": 88,
+     "T1:base": 120
+    },
+    "rulesFired": 48,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.175,
+      "abstainRat": 0.175
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.167,
+      "abstain": 0.167,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.208,
+      "abstain": 0.208,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.292,
+      "abstain": 0.292,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.25
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.4
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 0.979,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 0.975
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.521,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.525,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 0.917,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 0.9
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.708,
+      "abstain": 0.708,
+      "nRat": 40,
+      "meanRat": 0.7,
+      "abstainRat": 0.7
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.833,
+      "abstain": 0.833,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": [
+     {
+      "hyp": "E_sun/case",
+      "cell": "swapIn:Garchomp/Meowscarada/Charizard",
+      "branch": "switch",
+      "seed": [
+       6589,
+       44454,
+       802,
+       10583
+      ],
+      "reverse": false,
+      "fired": [
+       "T2 switch:Metagross"
+      ],
+      "gateLines": [
+       "T1 |switch|p2a: Meowscarada|Meowscarada, L50, M|153/153",
+       "T1 |move|p1a: Rotom|Will-O-Wisp|p2a: Meowscarada",
+       "T1 |-status|p2a: Meowscarada|brn",
+       "T1 |-damage|p2a: Meowscarada|144/153 brn|[from] brn",
+       "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+       "T2 |move|p2a: Meowscarada|Flower Trick|p1a: Metagross",
+       "T2 |-start|p2a: Meowscarada|typechange|Grass|[from] ability: Protean",
+       "T2 |-damage|p1a: Metagross|136/157",
+       "T2 |-damage|p2a: Meowscarada|129/153 brn|[from] item: Life Orb",
+       "T2 |-damage|p2a: Meowscarada|120/153 brn|[from] brn",
+       "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+       "T3 |move|p2a: Meowscarada|Sucker Punch|p1a: Metagross",
+       "T3 |-damage|p1a: Metagross|101/157",
+       "T3 |-damage|p2a: Meowscarada|105/153 brn|[from] item: Life Orb",
+       "T3 |move|p1a: Metagross|Meteor Mash|p2a: Meowscarada",
+       "T3 |-damage|p2a: Meowscarada|0 fnt",
+       "T3 |-boost|p1a: Metagross|atk|1",
+       "T3 |faint|p2a: Meowscarada",
+       "T3 |switch|p2a: Garchomp|Garchomp, L50, F|185/185"
+      ]
+     },
+     {
+      "hyp": "E_sun/E2",
+      "cell": "swapIn:Garchomp/Meowscarada/Charizard",
+      "branch": "switch",
+      "seed": [
+       8147,
+       49677,
+       13960,
+       17937
+      ],
+      "reverse": false,
+      "fired": [
+       "T2 switch:Metagross"
+      ],
+      "gateLines": [
+       "T1 |switch|p2a: Meowscarada|Meowscarada, L50, F|153/153",
+       "T1 |move|p1a: Rotom|Will-O-Wisp|p2a: Meowscarada",
+       "T1 |-status|p2a: Meowscarada|brn",
+       "T1 |-damage|p2a: Meowscarada|144/153 brn|[from] brn",
+       "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+       "T2 |move|p2a: Meowscarada|Flower Trick|p1a: Metagross",
+       "T2 |-start|p2a: Meowscarada|typechange|Grass|[from] ability: Protean",
+       "T2 |-damage|p1a: Metagross|136/157",
+       "T2 |-damage|p2a: Meowscarada|129/153 brn|[from] item: Life Orb",
+       "T2 |-damage|p2a: Meowscarada|120/153 brn|[from] brn",
+       "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+       "T3 |move|p2a: Meowscarada|Sucker Punch|p1a: Metagross",
+       "T3 |-damage|p1a: Metagross|97/157",
+       "T3 |-damage|p2a: Meowscarada|105/153 brn|[from] item: Life Orb",
+       "T3 |move|p1a: Metagross|Meteor Mash|p2a: Meowscarada|[miss]",
+       "T3 |-damage|p2a: Meowscarada|96/153 brn|[from] brn"
+      ]
+     }
+    ]
+   },
+   "loco": {
+    "hypMean": 0.667,
+    "hypMeanRat": 0.652,
+    "abstainHypMean": 0.667,
+    "abstainHypMeanRat": 0.652,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 336,
+     "T2:uncovered": 900,
+     "T1:uncovered": 576,
+     "T2:abstain": 48,
+     "T2:base": 108,
+     "T1:rule": 24,
+     "T1:base": 120
+    },
+    "rulesFired": 24,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.175,
+      "abstainRat": 0.175
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.167,
+      "abstain": 0.167,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.208,
+      "abstain": 0.208,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.292,
+      "abstain": 0.292,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.25
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.4
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 0.979,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 0.975
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 0.917,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 0.9
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.708,
+      "abstain": 0.708,
+      "nRat": 40,
+      "meanRat": 0.7,
+      "abstainRat": 0.7
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.833,
+      "abstain": 0.833,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   },
+   "loco_t2": {
+    "hypMean": 0.667,
+    "hypMeanRat": 0.652,
+    "abstainHypMean": 0.667,
+    "abstainHypMeanRat": 0.652,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 920,
+     "T1:uncovered": 576,
+     "T2:abstain": 48,
+     "T2:base": 88,
+     "T1:base": 120
+    },
+    "rulesFired": 0,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.175,
+      "abstainRat": 0.175
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.167,
+      "abstain": 0.167,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.208,
+      "abstain": 0.208,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.292,
+      "abstain": 0.292,
+      "nRat": 40,
+      "meanRat": 0.25,
+      "abstainRat": 0.25
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.4
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 0.979,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 0.975
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 0.917,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 0.9
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.708,
+      "abstain": 0.708,
+      "nRat": 40,
+      "meanRat": 0.7,
+      "abstainRat": 0.7
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.833,
+      "abstain": 0.833,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   }
+  }
+ },
+ "UNSEEN": {
+  "games": 2208,
+  "gates": [
+   "abstain",
+   "v3",
+   "loco_t2"
+  ],
+  "decisions": {
+   "abstain:T1:uncovered": 1104,
+   "abstain:T2:uncovered": 1104,
+   "v3:T1:uncovered": 552,
+   "v3:T2:uncovered": 552,
+   "loco_t2:T1:uncovered": 552,
+   "loco_t2:T2:uncovered": 552
+  },
+  "gateDiffersFromAbstain": 0,
+  "diffExamples": [],
+  "sixes": {
+   "U1_gardevoir": {
+    "publicSix": [
+     "Gardevoir",
+     "Incineroar",
+     "Gliscor",
+     "Milotic",
+     "Weavile",
+     "Kommo-o"
+    ],
+    "ace": "Gardevoir",
+    "preview": {
+     "legacy": {
+      "path": "legacy fallback (no valid search, budget 0s < 20s)",
+      "status": "fallback",
+      "cache": "miss",
+      "pick": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "seconds": 0.09,
+      "warning": "fallback is not the searched policy: legacy chooseThree had security 0 on 17/18 PR #79 hypotheses"
+     },
+     "quick": {
+      "path": "bounded quick search",
+      "pick": [
+       "Rotom-Wash",
+       "Metagross",
+       "Hydreigon"
+      ],
+      "seconds": 14.13,
+      "games": 1920,
+      "uncertainty": "2 role-template scenarios, 1 refine rep, ai branch only, no expansion; PR #82 test: not safer than legacy (0-win cell x branch 137/510 vs 119/510)"
+     }
+    },
+    "hyps": {
+     "a": {
+      "rivalLegacy": [
+       "Kommo-o",
+       "Gliscor",
+       "Incineroar"
+      ],
+      "cells": [
+       "legacy:Kommo-o/Gliscor/Incineroar",
+       "legacyLead2:Gliscor/Kommo-o/Incineroar",
+       "aceLead:Gardevoir/Kommo-o/Gliscor",
+       "aceBack:Kommo-o/Gardevoir/Weavile"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       },
+       "quick": {
+        "own": "Rotom-Wash>Metagross>Hydreigon",
+        "mean": 0.875,
+        "meanRat": 0.875,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 0.583,
+          "meanRat": 0.6
+         },
+         "legacyLead2": {
+          "mean": 0.917,
+          "meanRat": 0.9
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Kommo-o|Aura Sphere|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|152/187",
+         "T1 |-damage|p2a: Kommo-o|137/152|[from] item: Life Orb",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Kommo-o",
+         "T1 |-damage|p2a: Kommo-o|0 fnt",
+         "T1 |faint|p2a: Kommo-o",
+         "T1 |switch|p2a: Incineroar|Incineroar, L50, M|202/202",
+         "T1 |-unboost|p1a: Primarina|atk|1",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Incineroar",
+         "T2 |-damage|p2a: Incineroar|58/202",
+         "T2 |-enditem|p2a: Incineroar|Sitrus Berry|[eat]",
+         "T2 |-heal|p2a: Incineroar|108/202|[from] item: Sitrus Berry",
+         "T2 |move|p2a: Incineroar|Flare Blitz|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|65/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|111/187|[from] item: Sitrus Berry",
+         "T2 |-damage|p2a: Incineroar|79/202|[from] Recoil",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Incineroar",
+         "T3 |-damage|p2a: Incineroar|0 fnt",
+         "T3 |faint|p2a: Incineroar",
+         "T3 |switch|p2a: Gliscor|Gliscor, L50, F|182/182"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Gliscor|Toxic|p1a: Primarina",
+         "T1 |-status|p1a: Primarina|tox",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Gliscor",
+         "T1 |-damage|p2a: Gliscor|0 fnt",
+         "T1 |faint|p2a: Gliscor",
+         "T1 |-damage|p1a: Primarina|176/187 tox|[from] psn",
+         "T1 |switch|p2a: Incineroar|Incineroar, L50, M|202/202",
+         "T1 |-unboost|p1a: Primarina|atk|1",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Incineroar",
+         "T2 |-damage|p2a: Incineroar|58/202",
+         "T2 |-enditem|p2a: Incineroar|Sitrus Berry|[eat]",
+         "T2 |-heal|p2a: Incineroar|108/202|[from] item: Sitrus Berry",
+         "T2 |move|p2a: Incineroar|Flare Blitz|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|118/187 tox",
+         "T2 |-damage|p2a: Incineroar|89/202|[from] Recoil",
+         "T2 |-damage|p1a: Primarina|96/187 tox|[from] psn",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Incineroar",
+         "T3 |-damage|p2a: Incineroar|0 fnt",
+         "T3 |faint|p2a: Incineroar",
+         "T3 |-damage|p1a: Primarina|63/187 tox|[from] psn",
+         "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T3 |-heal|p1a: Primarina|109/187 tox|[from] item: Sitrus Berry",
+         "T3 |switch|p2a: Kommo-o|Kommo-o, L50, F|152/152"
+        ]
+       },
+       {
+        "cell": "aceLead",
+        "won": 1,
+        "lines": [
+         "T1 |-mega|p2a: Gardevoir|Gardevoir|Gardevoirite",
+         "T1 |move|p2a: Gardevoir|Psychic|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|90/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|136/187|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T1 |-damage|p2a: Gardevoir|69/145",
+         "T2 |move|p2a: Gardevoir|Psychic|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|39/187",
+         "T2 |-unboost|p1a: Primarina|spd|1",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T2 |-damage|p2a: Gardevoir|0 fnt",
+         "T2 |faint|p2a: Gardevoir",
+         "T2 |switch|p2a: Gliscor|Gliscor, L50, F|182/182",
+         "T3 |move|p2a: Gliscor|Toxic|p1a: Primarina",
+         "T3 |-status|p1a: Primarina|tox",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Gliscor",
+         "T3 |-damage|p2a: Gliscor|0 fnt",
+         "T3 |faint|p2a: Gliscor",
+         "T3 |-damage|p1a: Primarina|28/187 tox|[from] psn",
+         "T3 |switch|p2a: Kommo-o|Kommo-o, L50, F|152/152"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Kommo-o|Aura Sphere|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|152/187",
+         "T1 |-damage|p2a: Kommo-o|137/152|[from] item: Life Orb",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Kommo-o",
+         "T1 |-damage|p2a: Kommo-o|0 fnt",
+         "T1 |faint|p2a: Kommo-o",
+         "T1 |switch|p2a: Gardevoir|Gardevoir, L50, M|145/145",
+         "T2 |-mega|p2a: Gardevoir|Gardevoir|Gardevoirite",
+         "T2 |move|p2a: Gardevoir|Psychic|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|64/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|110/187|[from] item: Sitrus Berry",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T2 |-damage|p2a: Gardevoir|70/145",
+         "T3 |move|p2a: Gardevoir|Psychic|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|25/187",
+         "T3 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T3 |-damage|p2a: Gardevoir|0 fnt",
+         "T3 |faint|p2a: Gardevoir",
+         "T3 |switch|p2a: Weavile|Weavile, L50, M|147/147"
+        ]
+       }
+      ]
+     },
+     "b": {
+      "rivalLegacy": [
+       "Gardevoir",
+       "Kommo-o",
+       "Incineroar"
+      ],
+      "cells": [
+       "legacy:Gardevoir/Kommo-o/Incineroar",
+       "legacyLead2:Kommo-o/Gardevoir/Incineroar",
+       "aceBack:Kommo-o/Gardevoir/Weavile"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 0.972,
+        "meanRat": 0.967,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 0.917,
+          "meanRat": 0.9
+         }
+        }
+       },
+       "quick": {
+        "own": "Rotom-Wash>Metagross>Hydreigon",
+        "mean": 0.778,
+        "meanRat": 0.8,
+        "zeroCellBranch": [
+         "legacyLead2|ai",
+         "legacyLead2|utility",
+         "legacyLead2|utilityRational"
+        ],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 0.333,
+          "meanRat": 0.4
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Gardevoir|Trick|p1a: Primarina",
+         "T1 |-activate|p2a: Gardevoir|move: Trick|[of] p1a: Primarina",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T1 |-damage|p2a: Gardevoir|22/145",
+         "T1 |-enditem|p2a: Gardevoir|Sitrus Berry|[eat]",
+         "T1 |-heal|p2a: Gardevoir|58/145|[from] item: Sitrus Berry",
+         "T2 |move|p2a: Gardevoir|Moonblast|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|108/187",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Gardevoir",
+         "T2 |-damage|p2a: Gardevoir|0 fnt",
+         "T2 |faint|p2a: Gardevoir",
+         "T2 |switch|p2a: Incineroar|Incineroar, L50, M|202/202",
+         "T2 |-unboost|p1a: Primarina|atk|1",
+         "T3 |move|p1a: Primarina|Moonblast|p2a: Incineroar",
+         "T3 |-damage|p2a: Incineroar|105/202",
+         "T3 |move|p2a: Incineroar|Flare Blitz|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|30/187",
+         "T3 |-status|p1a: Primarina|brn",
+         "T3 |-damage|p2a: Incineroar|79/202|[from] Recoil",
+         "T3 |-damage|p1a: Primarina|19/187 brn|[from] brn"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Kommo-o|Swords Dance|p2a: Kommo-o",
+         "T1 |-boost|p2a: Kommo-o|atk|2",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Kommo-o",
+         "T1 |-enditem|p2a: Kommo-o|Focus Sash",
+         "T1 |-damage|p2a: Kommo-o|1/152",
+         "T1 |-unboost|p2a: Kommo-o|spa|1",
+         "T2 |move|p2a: Kommo-o|Poison Jab|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|0 fnt",
+         "T2 |faint|p1a: Primarina",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Psychic Fangs|p2a: Kommo-o",
+         "T3 |-damage|p2a: Kommo-o|0 fnt",
+         "T3 |faint|p2a: Kommo-o",
+         "T3 |switch|p2a: Incineroar|Incineroar, L50, M|202/202",
+         "T3 |-unboost|p1a: Metagross|atk|1"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Kommo-o|Swords Dance|p2a: Kommo-o",
+         "T1 |-boost|p2a: Kommo-o|atk|2",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Kommo-o",
+         "T1 |-enditem|p2a: Kommo-o|Focus Sash",
+         "T1 |-damage|p2a: Kommo-o|1/152",
+         "T1 |-unboost|p2a: Kommo-o|spa|1",
+         "T2 |move|p2a: Kommo-o|Poison Jab|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|0 fnt",
+         "T2 |faint|p1a: Primarina",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Psychic Fangs|p2a: Kommo-o",
+         "T3 |-damage|p2a: Kommo-o|0 fnt",
+         "T3 |faint|p2a: Kommo-o",
+         "T3 |switch|p2a: Weavile|Weavile, L50, M|147/147"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   "U2_aerodactyl": {
+    "publicSix": [
+     "Aerodactyl",
+     "Mamoswine",
+     "Greninja",
+     "Goodra",
+     "Talonflame",
+     "Klefki"
+    ],
+    "ace": "Aerodactyl",
+    "preview": {
+     "legacy": {
+      "path": "legacy fallback (no valid search, budget 0s < 20s)",
+      "status": "fallback",
+      "cache": "miss",
+      "pick": [
+       "Primarina",
+       "Tyranitar",
+       "Garchomp"
+      ],
+      "seconds": 0.01,
+      "warning": "fallback is not the searched policy: legacy chooseThree had security 0 on 17/18 PR #79 hypotheses"
+     },
+     "quick": {
+      "path": "bounded quick search",
+      "pick": [
+       "Rotom-Wash",
+       "Metagross",
+       "Primarina"
+      ],
+      "seconds": 10.64,
+      "games": 1536,
+      "uncertainty": "2 role-template scenarios, 1 refine rep, ai branch only, no expansion; PR #82 test: not safer than legacy (0-win cell x branch 137/510 vs 119/510)"
+     }
+    },
+    "hyps": {
+     "a": {
+      "rivalLegacy": [
+       "Mamoswine",
+       "Goodra",
+       "Greninja"
+      ],
+      "cells": [
+       "legacy:Mamoswine/Goodra/Greninja",
+       "legacyLead2:Goodra/Mamoswine/Greninja",
+       "aceLead:Aerodactyl/Mamoswine/Goodra",
+       "aceBack:Talonflame/Aerodactyl/Greninja"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Tyranitar>Garchomp",
+        "mean": 0.396,
+        "meanRat": 0.4,
+        "zeroCellBranch": [
+         "legacy|switch",
+         "legacyLead2|ai",
+         "legacyLead2|attack",
+         "legacyLead2|setup",
+         "legacyLead2|utility",
+         "legacyLead2|utilityRational",
+         "aceLead|ai",
+         "aceLead|attack",
+         "aceLead|setup",
+         "aceLead|switch",
+         "aceLead|utility",
+         "aceLead|utilityRational"
+        ],
+        "byCell": {
+         "legacy": {
+          "mean": 0.417,
+          "meanRat": 0.4
+         },
+         "legacyLead2": {
+          "mean": 0.167,
+          "meanRat": 0.2
+         },
+         "aceLead": {
+          "mean": 0,
+          "meanRat": 0
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       },
+       "quick": {
+        "own": "Rotom-Wash>Metagross>Primarina",
+        "mean": 0.979,
+        "meanRat": 0.975,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 0.917,
+          "meanRat": 0.9
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 0,
+        "lines": [
+         "T1 |move|p2a: Mamoswine|Earthquake|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|31/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|77/187|[from] item: Sitrus Berry",
+         "T1 |-damage|p2a: Mamoswine|169/187|[from] item: Life Orb",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Mamoswine",
+         "T1 |-damage|p2a: Mamoswine|0 fnt",
+         "T1 |faint|p2a: Mamoswine",
+         "T1 |switch|p2a: Goodra|Goodra, L50, M|197/197",
+         "T2 |move|p2a: Goodra|Sludge Bomb|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|0 fnt",
+         "T2 |faint|p1a: Primarina",
+         "T2 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T3 |move|p2a: Goodra|Draco Meteor|p1a: Tyranitar",
+         "T3 |-damage|p1a: Tyranitar|131/207",
+         "T3 |-unboost|p2a: Goodra|spa|2",
+         "T3 |move|p1a: Tyranitar|Ice Punch|p2a: Goodra",
+         "T3 |-damage|p2a: Goodra|67/197",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p2a: Goodra|55/197|[from] Sandstorm"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 0,
+        "lines": [
+         "T1 |move|p2a: Goodra|Sludge Bomb|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|79/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|125/187|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Goodra",
+         "T1 |-damage|p2a: Goodra|57/197",
+         "T2 |move|p2a: Goodra|Sludge Bomb|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|7/187",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Goodra",
+         "T2 |-damage|p2a: Goodra|0 fnt",
+         "T2 |faint|p2a: Goodra",
+         "T2 |switch|p2a: Mamoswine|Mamoswine, L50, F|187/187",
+         "T3 |move|p2a: Mamoswine|Earthquake|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|0 fnt",
+         "T3 |faint|p1a: Primarina",
+         "T3 |-damage|p2a: Mamoswine|169/187|[from] item: Life Orb",
+         "T3 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T3 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar"
+        ]
+       },
+       {
+        "cell": "aceLead",
+        "won": 0,
+        "lines": [
+         "T1 |-mega|p2a: Aerodactyl|Aerodactyl|Aerodactylite",
+         "T1 |move|p2a: Aerodactyl|Stealth Rock|p1a: Primarina",
+         "T1 |-sidestart|p1: p1|move: Stealth Rock",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Aerodactyl",
+         "T1 |-damage|p2a: Aerodactyl|0 fnt",
+         "T1 |faint|p2a: Aerodactyl",
+         "T1 |switch|p2a: Goodra|Goodra, L50, M|197/197",
+         "T2 |move|p2a: Goodra|Sludge Bomb|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|65/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|111/187|[from] item: Sitrus Berry",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Goodra",
+         "T2 |-damage|p2a: Goodra|63/197",
+         "T3 |move|p2a: Goodra|Sludge Bomb|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|1/187",
+         "T3 |move|p1a: Primarina|Moonblast|p2a: Goodra",
+         "T3 |-damage|p2a: Goodra|0 fnt",
+         "T3 |faint|p2a: Goodra",
+         "T3 |switch|p2a: Mamoswine|Mamoswine, L50, F|187/187"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T1 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T1 |move|p2a: Talonflame|Swords Dance|p2a: Talonflame",
+         "T1 |-boost|p2a: Talonflame|atk|2",
+         "T1 |-weather|Sandstorm|[upkeep]",
+         "T1 |-damage|p2a: Talonflame|146/155|[from] Sandstorm",
+         "T2 |move|p2a: Talonflame|U-turn|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|87/207",
+         "T2 |switch|p2a: Greninja|Greninja, L50, M|149/149|[from] U-turn",
+         "T2 |move|p1a: Tyranitar|Stone Edge|p2a: Greninja",
+         "T2 |-damage|p2a: Greninja|14/149",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p2a: Greninja|5/149|[from] Sandstorm",
+         "T3 |switch|p1a: Primarina|Primarina, L50, F|187/187",
+         "T3 |move|p2a: Greninja|Hydro Pump|p1a: Primarina",
+         "T3 |-start|p2a: Greninja|typechange|Water|[from] ability: Protean",
+         "T3 |-damage|p1a: Primarina|149/187",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p2a: Greninja|0 fnt|[from] Sandstorm",
+         "T3 |-damage|p1a: Primarina|138/187|[from] Sandstorm",
+         "T3 |faint|p2a: Greninja",
+         "T3 |switch|p2a: Talonflame|Talonflame, L50, M|146/155"
+        ]
+       }
+      ]
+     },
+     "b": {
+      "rivalLegacy": [
+       "Mamoswine",
+       "Klefki",
+       "Talonflame"
+      ],
+      "cells": [
+       "legacy:Mamoswine/Klefki/Talonflame",
+       "legacyLead2:Klefki/Mamoswine/Talonflame",
+       "aceLead:Aerodactyl/Mamoswine/Klefki",
+       "aceBack:Talonflame/Aerodactyl/Greninja"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Tyranitar>Garchomp",
+        "mean": 0.792,
+        "meanRat": 0.775,
+        "zeroCellBranch": [
+         "aceLead|ai",
+         "aceLead|setup",
+         "aceLead|utilityRational"
+        ],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 0.75,
+          "meanRat": 0.8
+         },
+         "aceLead": {
+          "mean": 0.417,
+          "meanRat": 0.3
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       },
+       "quick": {
+        "own": "Rotom-Wash>Metagross>Primarina",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Mamoswine|Earthquake|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|67/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|113/187|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Mamoswine",
+         "T1 |-damage|p2a: Mamoswine|0 fnt",
+         "T1 |faint|p2a: Mamoswine",
+         "T1 |switch|p2a: Klefki|Klefki, L50, F|164/164",
+         "T2 |move|p2a: Klefki|Spikes|p1a: Primarina",
+         "T2 |-sidestart|p1: p1|Spikes",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T2 |-damage|p2a: Klefki|95/164",
+         "T3 |move|p2a: Klefki|Spikes|p1a: Primarina",
+         "T3 |-sidestart|p1: p1|Spikes",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T3 |-damage|p2a: Klefki|26/164",
+         "T3 |-enditem|p2a: Klefki|Sitrus Berry|[eat]",
+         "T3 |-heal|p2a: Klefki|67/164|[from] item: Sitrus Berry"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Klefki|Spikes|p1a: Primarina",
+         "T1 |-sidestart|p1: p1|Spikes",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T1 |-damage|p2a: Klefki|98/164",
+         "T2 |move|p2a: Klefki|Spikes|p1a: Primarina",
+         "T2 |-sidestart|p1: p1|Spikes",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T2 |-damage|p2a: Klefki|23/164",
+         "T2 |-enditem|p2a: Klefki|Sitrus Berry|[eat]",
+         "T2 |-heal|p2a: Klefki|64/164|[from] item: Sitrus Berry",
+         "T3 |move|p2a: Klefki|Thunder Wave|p1a: Primarina",
+         "T3 |-status|p1a: Primarina|par",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T3 |-damage|p2a: Klefki|0 fnt",
+         "T3 |faint|p2a: Klefki",
+         "T3 |switch|p2a: Mamoswine|Mamoswine, L50, F|187/187"
+        ]
+       },
+       {
+        "cell": "aceLead",
+        "won": 0,
+        "lines": [
+         "T1 |move|p2a: Aerodactyl|Stealth Rock|p1a: Primarina",
+         "T1 |-sidestart|p1: p1|move: Stealth Rock",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Aerodactyl",
+         "T1 |-enditem|p2a: Aerodactyl|Focus Sash",
+         "T1 |-damage|p2a: Aerodactyl|1/157",
+         "T2 |move|p2a: Aerodactyl|Stone Edge|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|79/187",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Aerodactyl",
+         "T2 |-damage|p2a: Aerodactyl|0 fnt",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|125/187|[from] item: Sitrus Berry",
+         "T2 |faint|p2a: Aerodactyl",
+         "T2 |switch|p2a: Klefki|Klefki, L50, F|164/164",
+         "T3 |move|p2a: Klefki|Spikes|p1a: Primarina",
+         "T3 |-sidestart|p1: p1|Spikes",
+         "T3 |move|p1a: Primarina|Sparkling Aria|p2a: Klefki",
+         "T3 |-damage|p2a: Klefki|95/164"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T1 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T1 |move|p2a: Talonflame|Brave Bird|p1a: Tyranitar",
+         "T1 |-damage|p1a: Tyranitar|172/207",
+         "T1 |-damage|p2a: Talonflame|143/155|[from] Recoil",
+         "T1 |-weather|Sandstorm|[upkeep]",
+         "T1 |-damage|p2a: Talonflame|134/155|[from] Sandstorm",
+         "T2 |move|p2a: Talonflame|Brave Bird|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|136/207",
+         "T2 |-damage|p2a: Talonflame|122/155|[from] Recoil",
+         "T2 |move|p1a: Tyranitar|Stone Edge|p2a: Talonflame",
+         "T2 |-damage|p2a: Talonflame|0 fnt",
+         "T2 |faint|p2a: Talonflame",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |switch|p2a: Greninja|Greninja, L50, M|149/149",
+         "T3 |switch|p1a: Primarina|Primarina, L50, F|187/187",
+         "T3 |-mega|p2a: Greninja|Greninja|Greninjite",
+         "T3 |move|p2a: Greninja|Hydro Pump|p1a: Primarina",
+         "T3 |-start|p2a: Greninja|typechange|Water|[from] ability: Protean",
+         "T3 |-damage|p1a: Primarina|141/187",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p2a: Greninja|140/149|[from] Sandstorm",
+         "T3 |-damage|p1a: Primarina|130/187|[from] Sandstorm"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   "U3_lopunny": {
+    "publicSix": [
+     "Lopunny",
+     "Snorlax",
+     "Chandelure",
+     "Krookodile",
+     "Hawlucha",
+     "Florges"
+    ],
+    "ace": "Lopunny",
+    "preview": {
+     "legacy": {
+      "path": "legacy fallback (no valid search, budget 0s < 20s)",
+      "status": "fallback",
+      "cache": "miss",
+      "pick": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "seconds": 0,
+      "warning": "fallback is not the searched policy: legacy chooseThree had security 0 on 17/18 PR #79 hypotheses"
+     },
+     "quick": {
+      "path": "bounded quick search",
+      "pick": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "seconds": 10.22,
+      "games": 1536,
+      "uncertainty": "2 role-template scenarios, 1 refine rep, ai branch only, no expansion; PR #82 test: not safer than legacy (0-win cell x branch 137/510 vs 119/510)"
+     }
+    },
+    "hyps": {
+     "a": {
+      "rivalLegacy": [
+       "Krookodile",
+       "Florges",
+       "Chandelure"
+      ],
+      "cells": [
+       "legacy:Krookodile/Florges/Chandelure",
+       "legacyLead2:Florges/Krookodile/Chandelure",
+       "aceLead:Lopunny/Krookodile/Florges",
+       "aceBack:Krookodile/Lopunny/Hawlucha"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       },
+       "quick": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Krookodile|Earthquake|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|47/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|93/187|[from] item: Sitrus Berry",
+         "T1 |-damage|p2a: Krookodile|155/172|[from] item: Life Orb",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Krookodile",
+         "T1 |-damage|p2a: Krookodile|0 fnt",
+         "T1 |faint|p2a: Krookodile",
+         "T1 |switch|p2a: Florges|Florges, L50, F|185/185",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T2 |move|p2a: Florges|Moonblast|p1a: Metagross",
+         "T2 |-damage|p1a: Metagross|120/157",
+         "T3 |switch|p2a: Chandelure|Chandelure, L50, M|137/137",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Meteor Mash|p2a: Chandelure",
+         "T3 |-damage|p2a: Chandelure|71/137"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 1,
+        "lines": [
+         "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p2a: Florges|Moonblast|p1a: Metagross",
+         "T1 |-damage|p1a: Metagross|120/157",
+         "T2 |switch|p2a: Chandelure|Chandelure, L50, M|137/137",
+         "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p1a: Metagross|Meteor Mash|p2a: Chandelure",
+         "T2 |-damage|p2a: Chandelure|74/137",
+         "T3 |switch|p1a: Primarina|Primarina, L50, F|187/187",
+         "T3 |move|p2a: Chandelure|Flamethrower|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|146/187"
+        ]
+       },
+       {
+        "cell": "aceLead",
+        "won": 1,
+        "lines": [
+         "T1 |-mega|p2a: Lopunny|Lopunny|Lopunnite",
+         "T1 |move|p2a: Lopunny|Facade|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|103/187",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Lopunny",
+         "T1 |-damage|p2a: Lopunny|0 fnt",
+         "T1 |faint|p2a: Lopunny",
+         "T1 |switch|p2a: Florges|Florges, L50, F|185/185",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T2 |move|p2a: Florges|Moonblast|p1a: Metagross",
+         "T2 |-damage|p1a: Metagross|120/157",
+         "T3 |switch|p2a: Krookodile|Krookodile, L50, M|172/172",
+         "T3 |-fail|p1a: Metagross|unboost|[from] ability: Clear Body|[of] p1a: Metagross",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Meteor Mash|p2a: Krookodile",
+         "T3 |-damage|p2a: Krookodile|27/172"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Krookodile|Earthquake|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|47/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|93/187|[from] item: Sitrus Berry",
+         "T1 |-damage|p2a: Krookodile|155/172|[from] item: Life Orb",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Krookodile",
+         "T1 |-damage|p2a: Krookodile|0 fnt",
+         "T1 |faint|p2a: Krookodile",
+         "T1 |switch|p2a: Lopunny|Lopunny, L50, F|142/142",
+         "T2 |-mega|p2a: Lopunny|Lopunny|Lopunnite",
+         "T2 |move|p2a: Lopunny|Facade|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|9/187",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Lopunny",
+         "T2 |-damage|p2a: Lopunny|0 fnt",
+         "T2 |faint|p2a: Lopunny",
+         "T2 |switch|p2a: Hawlucha|Hawlucha, L50, M|155/155",
+         "T3 |move|p2a: Hawlucha|Close Combat|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|0 fnt",
+         "T3 |-unboost|p2a: Hawlucha|def|1",
+         "T3 |-unboost|p2a: Hawlucha|spd|1",
+         "T3 |faint|p1a: Primarina",
+         "T3 |switch|p1a: Metagross|Metagross, L50|157/157"
+        ]
+       }
+      ]
+     },
+     "b": {
+      "rivalLegacy": [
+       "Florges",
+       "Hawlucha",
+       "Chandelure"
+      ],
+      "cells": [
+       "legacy:Florges/Hawlucha/Chandelure",
+       "legacyLead2:Hawlucha/Florges/Chandelure",
+       "aceLead:Lopunny/Florges/Hawlucha",
+       "aceBack:Krookodile/Lopunny/Hawlucha"
+      ],
+      "byPick": {
+       "legacy": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       },
+       "quick": {
+        "own": "Primarina>Metagross>Garchomp",
+        "mean": 1,
+        "meanRat": 1,
+        "zeroCellBranch": [],
+        "byCell": {
+         "legacy": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "legacyLead2": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceLead": {
+          "mean": 1,
+          "meanRat": 1
+         },
+         "aceBack": {
+          "mean": 1,
+          "meanRat": 1
+         }
+        }
+       }
+      },
+      "aiLogs": [
+       {
+        "cell": "legacy",
+        "won": 1,
+        "lines": [
+         "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p2a: Florges|Energy Ball|p1a: Metagross",
+         "T1 |-damage|p1a: Metagross|128/157",
+         "T2 |switch|p2a: Chandelure|Chandelure, L50, M|167/167",
+         "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p1a: Metagross|Meteor Mash|p2a: Chandelure",
+         "T2 |-damage|p2a: Chandelure|104/167",
+         "T3 |switch|p1a: Primarina|Primarina, L50, F|187/187",
+         "T3 |-mega|p2a: Chandelure|Chandelure|Chandelurite",
+         "T3 |move|p2a: Chandelure|Flamethrower|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|136/187"
+        ]
+       },
+       {
+        "cell": "legacyLead2",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Hawlucha|Swords Dance|p2a: Hawlucha",
+         "T1 |-boost|p2a: Hawlucha|atk|2",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Hawlucha",
+         "T1 |-damage|p2a: Hawlucha|0 fnt",
+         "T1 |faint|p2a: Hawlucha",
+         "T1 |switch|p2a: Florges|Florges, L50, F|185/185",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T2 |move|p2a: Florges|Energy Ball|p1a: Metagross",
+         "T2 |-damage|p1a: Metagross|127/157",
+         "T3 |switch|p2a: Chandelure|Chandelure, L50, M|167/167",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Meteor Mash|p2a: Chandelure",
+         "T3 |-damage|p2a: Chandelure|101/167"
+        ]
+       },
+       {
+        "cell": "aceLead",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Lopunny|Facade|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|130/187",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Lopunny",
+         "T1 |-damage|p2a: Lopunny|34/142",
+         "T2 |move|p2a: Lopunny|Facade|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|73/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|119/187|[from] item: Sitrus Berry",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Lopunny",
+         "T2 |-damage|p2a: Lopunny|0 fnt",
+         "T2 |faint|p2a: Lopunny",
+         "T2 |switch|p2a: Florges|Florges, L50, F|185/185",
+         "T3 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T3 |move|p2a: Florges|Energy Ball|p1a: Metagross",
+         "T3 |-damage|p1a: Metagross|126/157"
+        ]
+       },
+       {
+        "cell": "aceBack",
+        "won": 1,
+        "lines": [
+         "T1 |move|p2a: Krookodile|Stealth Rock|p1a: Primarina",
+         "T1 |-sidestart|p1: p1|move: Stealth Rock",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Krookodile",
+         "T1 |-enditem|p2a: Krookodile|Focus Sash",
+         "T1 |-damage|p2a: Krookodile|1/172",
+         "T2 |move|p2a: Krookodile|Earthquake|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|78/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|124/187|[from] item: Sitrus Berry",
+         "T2 |move|p1a: Primarina|Moonblast|p2a: Krookodile",
+         "T2 |-damage|p2a: Krookodile|0 fnt",
+         "T2 |faint|p2a: Krookodile",
+         "T2 |switch|p2a: Lopunny|Lopunny, L50, F|142/142",
+         "T3 |move|p2a: Lopunny|Facade|p1a: Primarina",
+         "T3 |-damage|p1a: Primarina|64/187",
+         "T3 |move|p1a: Primarina|Moonblast|p2a: Lopunny",
+         "T3 |-damage|p2a: Lopunny|42/142"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "seconds": 82
+}

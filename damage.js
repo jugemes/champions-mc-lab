@@ -104,12 +104,16 @@ function incomingRisk(dex,defender,foeName,info={}){
     const atk=(foe.baseStats[stat]+32+20)*1.1*scaleStage(stage);
     const ourDef=knownStat(dex,defender,def);
     const stab=foe.types.includes(move.type)?1.5:1;
+    // Public attacking ability (only passed by lab.js publicMegaAbility):
+    // Tough Claws x1.3 on contact; a public physical STAB is treated as contact.
+    const claws=canon(info.attackerAbility)==='toughclaws'&&move.category==='Physical'
+      &&(move.id==='publicstab'||move.flags?.contact)?1.3:1;
     const weather=canon(info.weather);
     const multiplier=weather==='sunnyday'
       ?(move.type==='Fire'?1.5:move.type==='Water'?0.5:1)
       :weather==='raindance'
         ?(move.type==='Water'?1.5:move.type==='Fire'?0.5:1):1;
-    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)*multiplier/hp);
+    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)*multiplier*claws/hp);
   }
   return peak;
 }
