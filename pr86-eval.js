@@ -67,7 +67,7 @@ function workerMain(){
       const util=M.utilityAudit(g.log,g.foeSide,dex);
       const fired=rec.decisions.some(d=>d.status==='rule');
       const T=M.splitTurns(g.log);
-      out.push({id:j.id,won:g.won?1:0,turns:g.turns,decisions:rec.decisions,irrational:util.filter(u=>u.rational==='irrational').map(u=>u.turn+':'+u.move),
+      out.push({id:j.id,won:g.won?1:0,turns:g.turns,decisions:rec.decisions,...(j.keepLines?{requested:(()=>{const ex=M.checkRequestedV2(g.log,g.foeSide,requested);return requested.map((q,k)=>({turn:q.turn,choice:q.choice,move:q.move??null,result:ex[k]}));})(),side:g.ownSide}:{}),irrational:util.filter(u=>u.rational==='irrational').map(u=>u.turn+':'+u.move),
         lines:fired||j.keepLines?[1,2,3].flatMap(t=>(T[t]||[]).filter(x=>T13.test(x)).map(x=>'T'+t+' '+x)).slice(0,40):null});
     }
     process.send(out);
@@ -126,6 +126,42 @@ function choose(sum){
   return {gate:ok[0]||'abstain',eligible:ok,rule:'max rational 22-hyp mean among gates with mean >= abstain and worse<=better (|diff|>0.05); none -> abstain'};
 }
 
+// PR #88 P0-1 (ChatGPT review #5720659334 of PR #87): the eval and the tests
+// build cells through these two functions only. PR #86 passed m.used (train/
+// test + PR #85 holdout) to BOTH devCells and finalCells, so FINAL could pick a
+// DEV cell (HX_sand/a Rotom-Heat/Excadrill/Kingambit was DEV lead3 and FINAL
+// aceBack2). phaseCells now carries every earlier phase into `used` and asserts
+// per hypothesis that train/test, PR #85 holdout, DEV and FINAL are pairwise
+// disjoint (key: hypothesis | rival three in lead order). pr86Bug:true
+// reproduces the PR #86 cells (old saved result) and skips the FINAL assert.
+function buildMeta(dex,own,CS,saved,savedHold){
+  return CS.map((c,ci)=>{
+    const sc=saved.cases[ci];if(sc.six!==c.six||sc.hyp!==c.hyp)throw Error('case order differs at '+ci);
+    const legacy=chooseThree(dex,c.team,own.map(p=>p.species)).map(n=>c.team[n-1].species);
+    const hc=savedHold.cases[ci];if(hc.six!==c.six||hc.hyp!==c.hyp)throw Error('hold case order differs at '+ci);
+    const trainTest=sc.cells.map(x=>x.rival.split('/')),hold=hc.holdCells.map(x=>x.split(':')[1].split('/'));
+    return {ci,six:c.six,hyp:c.hyp,publicSix:c.team.map(p=>p.species),human1:sc.human1,legacy,ace:c.ace,used:[...trainTest,...hold],trainTest,hold,
+      cells:sc.cells.map(x=>({src:x.src,foe:x.rival.split('/')}))};
+  });
+}
+function assertDisjoint(m,groups){
+  const seen=new Map();
+  for(const [name,list] of Object.entries(groups))for(const f of list){const k=m.six+'/'+m.hyp+'|'+f.join('/');
+    if(seen.has(k)&&seen.get(k)!==name)throw Error('cell overlap '+k+': '+seen.get(k)+' and '+name);if(!seen.has(k))seen.set(k,name);}
+}
+function phaseCells(meta,teams,{pr86Bug=false}={}){
+  const {picks,label}=require('./a-preview-matrix-audit');
+  for(const m of meta){
+    const base={picks:picks(teams[m.ci]),label,legacy:m.legacy,ace:m.ace};
+    m.dev=H.devCells({...base,used:m.used});
+    m.final=H.finalCells({...base,used:pr86Bug?m.used:[...m.used,...m.dev.map(c=>c.foe)]});
+    const g={trainTest:m.trainTest,hold:m.hold,dev:m.dev.map(c=>c.foe)};
+    if(!pr86Bug)g.final=m.final.map(c=>c.foe);
+    assertDisjoint(m,g);
+  }
+  return meta;
+}
+
 async function main(){
   const sim=load(),dex=sim.Dex.mod('champions');
   const {reportedLive}=require('./reported-live-roster-20261027');
@@ -139,14 +175,7 @@ async function main(){
   for(const c of CS){const p=validator.validateTeam(normalize(c.team));if(p?.length)throw Error(c.six+'/'+c.hyp+': '+p.join('; '));}
   const O=picks(own),pickOf=l=>O.find(o=>label(o)===l);
   const T0=Date.now(),lap=s=>console.log(s,Math.round((Date.now()-T0)/1000)+'s');
-  const meta=CS.map((c,ci)=>{
-    const sc=saved.cases[ci];if(sc.six!==c.six||sc.hyp!==c.hyp)throw Error('case order differs at '+ci);
-    const legacy=chooseThree(dex,c.team,own.map(p=>p.species)).map(n=>c.team[n-1].species);
-    const hc=savedHold.cases[ci];if(hc.six!==c.six||hc.hyp!==c.hyp)throw Error('hold case order differs at '+ci);
-    const used=[...sc.cells.map(x=>x.rival.split('/')),...hc.holdCells.map(x=>x.split(':')[1].split('/'))];
-    return {ci,six:c.six,hyp:c.hyp,publicSix:c.team.map(p=>p.species),human1:sc.human1,legacy,ace:c.ace,used,
-      cells:sc.cells.map(x=>({src:x.src,foe:x.rival.split('/')}))};
-  });
+  const meta=buildMeta(dex,own,CS,saved,savedHold);
   const cellJobs=(m,cells,seedOf,extra)=>{const out=[];
     cells.forEach(c=>BRANCHES.forEach(branch=>SEEDS.forEach(s=>[false,true].forEach(reverse=>
       out.push({ci:m.ci,team:m.ci,foe:c.foe,cell:c.src,branch,s,seed:seedOf(m.ci,s),reverse,publicSix:m.publicSix,...extra})))));return out;};
@@ -181,17 +210,19 @@ async function main(){
   }
   if(!freeze)throw Error('no '+FREEZE+': run PHASE=R first');
   const table=savedV3,loco=freeze.locoPass;
-  const gateRun=async(name,cellsOf,seedBase,gates)=>{
+  // PR #88: cells come from phaseCells (asserted disjoint before any game).
+  // PR86_BUG=1 rebuilds the PR #86 cells to reproduce the old saved result.
+  phaseCells(meta,teams,{pr86Bug:process.env.PR86_BUG==='1'});
+  const gateRun=async(name,seedBase,gates)=>{
     const seedOf=(ci,s)=>hashSeed(seedBase+ci*100+s),J=[];
-    for(const m of meta){m[name]=cellsOf({picks:picks(teams[m.ci]),label,legacy:m.legacy,ace:m.ace,used:m.used});
-      for(const g of gates)J.push(...cellJobs(m,m[name],seedOf,{own:pickOf(m.human1),gate:g}));}
+    for(const m of meta)for(const g of gates)J.push(...cellJobs(m,m[name],seedOf,{own:pickOf(m.human1),gate:g}));
     const Rs=await runGames(own,teams,J,{workers:W,table,loco});lap(name+' '+J.length);
     const hk=j=>meta[j.ci].six+'/'+meta[j.ci].hyp;
     return {games:J.length,seeds:'hashSeed('+seedBase+'+ci*100+{0,1}), both sides',
       cells:Object.fromEntries(meta.map(m=>[m.six+'/'+m.hyp,m[name].map(c=>c.src+':'+c.foe.join('/'))])),summary:summarize(J,Rs,gates,hk)};
   };
   if(PH.has('DEV')){
-    result.DEV=await gateRun('dev',H.devCells,H.DEV_SEED_BASE,S.GATES);
+    result.DEV=await gateRun('dev',H.DEV_SEED_BASE,S.GATES);
     result.DEV.choice=choose(result.DEV.summary);
     freeze.gate=result.DEV.choice.gate;freeze.devChoice=result.DEV.choice;
     freeze.devTable=Object.fromEntries(S.GATES.map(g=>[g,{hypMeanRat:result.DEV.summary[g].hypMeanRat,worse:result.DEV.summary[g].worse,better:result.DEV.summary[g].better,rulesFired:result.DEV.summary[g].rulesFired}]));
@@ -200,7 +231,11 @@ async function main(){
   if(PH.has('FINAL')){
     if(!freeze.gate)throw Error('gate not frozen');
     result.frozenGate=freeze.gate;
-    result.FINAL=await gateRun('final',H.finalCells,H.FINAL_SEED_BASE,S.GATES);
+    // PR #88: the re-selected (DEV-disjoint) FINAL cells run ONCE on new seeds
+    // (holdout-20261031-pr88 FINAL2_SEED_BASE) with the PR #86 frozen gate.
+    const fb=process.env.PR86_BUG==='1'?H.FINAL_SEED_BASE:require('./holdout-20261031-pr88').FINAL2_SEED_BASE;
+    result.finalSeedBase=fb;result.finalCellsRule=process.env.PR86_BUG==='1'?'PR #86 (DEV not in used)':'PR #88 phaseCells (DEV in used, disjoint asserted)';
+    result.FINAL=await gateRun('final',fb,S.GATES);
   }
   if(PH.has('UNSEEN')){
     const U=H.unseenSixesPR86(),G=require('./public-six-general'),out={};
@@ -249,7 +284,8 @@ async function main(){
     result.UNSEEN={games:J.length,gates,decisions:dec,gateDiffersFromAbstain:diff.length,diffExamples:diff.slice(0,5),sixes:out};
   }
   result.seconds=Math.round((Date.now()-T0)/1000);
-  const file=process.env.OUT||(PH.has('FINAL')||PH.has('UNSEEN')?'reports/data/pr86-final.json':'reports/data/pr86-dev.json');
+  // PR #88: a fixed-cell FINAL never overwrites the PR #86 saved result.
+  const file=process.env.OUT||(PH.has('FINAL')&&process.env.PR86_BUG!=='1'?'reports/data/pr88-final2.json':PH.has('FINAL')||PH.has('UNSEEN')?'reports/data/pr86-final.json':'reports/data/pr86-dev.json');
   fs.writeFileSync(file,JSON.stringify(result,null,1));
   const brief=x=>x&&Object.fromEntries(Object.entries(x.summary).map(([g,s])=>[g,{hypMeanRat:s.hypMeanRat,abstainRat:s.abstainHypMeanRat,hypMean:s.hypMean,worse:s.worse,better:s.better,flips:s.pairedFlips,fired:s.rulesFired}]));
   console.log(JSON.stringify({R:result.R&&{...result.R,utilCauseSavedExamples:undefined},DEV:brief(result.DEV),choice:result.DEV?.choice,FINAL:brief(result.FINAL),
@@ -257,4 +293,4 @@ async function main(){
 }
 if(process.argv.includes('--pr86-worker'))workerMain();
 else if(require.main===module)main().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
-module.exports={gateScript,summarize,choose};
+module.exports={gateScript,summarize,choose,buildMeta,phaseCells,assertDisjoint,runGames,rational};
