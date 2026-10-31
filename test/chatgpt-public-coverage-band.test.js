@@ -98,5 +98,10 @@ test('pinned full Battle: opt-in public coverage preview versus legacy across di
     assert.equal(rec.errors,0,'all actual Showdown choices must be legal: '+id);
     rows.push(rec);
   }
+  const totals=rows.reduce((a,r)=>{
+    for(const k of ['oldWins','controlWins','newWins','oldToControlFlips','controlToNewFlips','winFlips','errors'])a[k]=(a[k]||0)+r[k];
+    return a;
+  },{});
+  t.diagnostic('PUBLIC COVERAGE THREE-ARM CAUSAL TOTALS '+JSON.stringify(totals));
   t.diagnostic('PUBLIC COVERAGE PAIRED FULL BATTLE '+JSON.stringify(rows));
 });
