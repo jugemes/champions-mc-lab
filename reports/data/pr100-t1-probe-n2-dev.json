@@ -1,0 +1,143 @@
+{
+ "six": "N2_heracross",
+ "pick": "Garchomp>Metagross>Hydreigon",
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "jobs": 760,
+ "rule": "T1: own active Garchomp and rival active = public ace -> switch Metagross",
+ "res": {
+  "a/rational/none": {
+   "n": 100,
+   "meanAce": 0.84,
+   "meanAll": 0.84,
+   "aceLeadGames": 80,
+   "meanAceLead": 0.8,
+   "byBranchAceLead": {
+    "ai": 0.688,
+    "attack": 0.875,
+    "setup": 0.75,
+    "switch": 1,
+    "utilityRational": 0.688
+   },
+   "worstCell": 0.6,
+   "fired": 0
+  },
+  "a/rational/rule": {
+   "n": 100,
+   "meanAce": 0.98,
+   "meanAll": 0.98,
+   "aceLeadGames": 80,
+   "meanAceLead": 0.975,
+   "byBranchAceLead": {
+    "ai": 1,
+    "attack": 0.875,
+    "setup": 1,
+    "switch": 1,
+    "utilityRational": 1
+   },
+   "worstCell": 0.95,
+   "fired": 80
+  },
+  "a/tm/none": {
+   "n": 100,
+   "meanAce": 0.87,
+   "meanAll": 0.87,
+   "aceLeadGames": 20,
+   "meanAceLead": 0.7,
+   "byBranchAceLead": {
+    "ai": 1,
+    "attack": 0.5,
+    "setup": 0,
+    "switch": 1,
+    "utilityRational": 1
+   },
+   "worstCell": 0.7,
+   "fired": 0
+  },
+  "a/tm/rule": {
+   "n": 100,
+   "meanAce": 0.92,
+   "meanAll": 0.92,
+   "aceLeadGames": 20,
+   "meanAceLead": 0.95,
+   "byBranchAceLead": {
+    "ai": 0.75,
+    "attack": 1,
+    "setup": 1,
+    "switch": 1,
+    "utilityRational": 1
+   },
+   "worstCell": 0.85,
+   "fired": 20
+  },
+  "b/rational/none": {
+   "n": 100,
+   "meanAce": 0.79,
+   "meanAll": 0.79,
+   "aceLeadGames": 80,
+   "meanAceLead": 0.912,
+   "byBranchAceLead": {
+    "ai": 0.875,
+    "attack": 0.938,
+    "setup": 0.938,
+    "switch": 0.938,
+    "utilityRational": 0.875
+   },
+   "worstCell": 0.3,
+   "fired": 0
+  },
+  "b/rational/rule": {
+   "n": 100,
+   "meanAce": 0.56,
+   "meanAll": 0.56,
+   "aceLeadGames": 80,
+   "meanAceLead": 0.625,
+   "byBranchAceLead": {
+    "ai": 0.625,
+    "attack": 0.625,
+    "setup": 0.563,
+    "switch": 0.938,
+    "utilityRational": 0.375
+   },
+   "worstCell": 0.3,
+   "fired": 80
+  },
+  "b/tm/none": {
+   "n": 80,
+   "meanAce": 0.825,
+   "meanAll": 0.825,
+   "aceLeadGames": 20,
+   "meanAceLead": 0.85,
+   "byBranchAceLead": {
+    "ai": 1,
+    "attack": 1,
+    "setup": 0.75,
+    "switch": 0.75,
+    "utilityRational": 0.75
+   },
+   "worstCell": 0.7,
+   "fired": 0
+  },
+  "b/tm/rule": {
+   "n": 80,
+   "meanAce": 0.65,
+   "meanAll": 0.65,
+   "aceLeadGames": 20,
+   "meanAceLead": 0.15,
+   "byBranchAceLead": {
+    "ai": 0,
+    "attack": 0,
+    "setup": 0,
+    "switch": 0.75,
+    "utilityRational": 0
+   },
+   "worstCell": 0.15,
+   "fired": 20
+  }
+ },
+ "flips": {
+  "win2loss": 44,
+  "loss2win": 26
+ },
+ "note": "DEV only (N2 was developed in PR #92-#97). Rule chosen after reading N2 loss logs: in-sample, NOT a generalisation result. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+}

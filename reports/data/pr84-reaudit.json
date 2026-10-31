@@ -1,0 +1,4279 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "own": "reportedLive (reported-live-roster-20261027.js)",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "seeds": {
+  "train": "hashSeed(8200000+ci*100+{0,1})",
+  "test": "hashSeed(8250000+ci*100+{0,1})",
+  "hold": "hashSeed(8450000+ci*100+{0,1})",
+  "sides": "both"
+ },
+ "games": {
+  "stage1": 14280,
+  "stage2": 14280,
+  "stage2v3": 14280,
+  "test": 23136,
+  "hold": 11160,
+  "total": 77136
+ },
+ "seconds": 394,
+ "reproduction": {
+  "tableSame": true,
+  "forcedFidelityBad": {
+   "saved": 28,
+   "now": 28
+  },
+  "requestedCompareSame": true,
+  "meansSame": true
+ },
+ "forcedFidelity": {
+  "v2": {
+   "ok": 23714,
+   "bad": 28
+  },
+  "v3": {
+   "ok": 23714,
+   "bad": 28
+  },
+  "byWhy": {
+   "rival Encore landed this turn before our move": 28
+  },
+  "bad": [
+   {
+    "turn": 2,
+    "label": "move:Sparkling Aria",
+    "executed": "move:Moonblast",
+    "executed3": "move:Moonblast",
+    "lines": [
+     "|move|p2a: Primarina|Encore|p1a: Primarina",
+     "|-start|p1a: Primarina|Encore",
+     "|move|p1a: Primarina|Moonblast|p2a: Primarina",
+     "|-damage|p2a: Primarina|97/187",
+     "|-damage|p1a: Primarina|69/187 psn|[from] psn"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Sparkling Aria",
+    "executed": "move:Moonblast",
+    "executed3": "move:Moonblast",
+    "lines": [
+     "|move|p2a: Primarina|Encore|p1a: Primarina",
+     "|-start|p1a: Primarina|Encore",
+     "|move|p1a: Primarina|Moonblast|p2a: Primarina",
+     "|-damage|p2a: Primarina|109/187",
+     "|-damage|p1a: Primarina|61/187 psn|[from] psn"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Encore",
+    "executed": "move:Moonblast",
+    "executed3": "move:Moonblast",
+    "lines": [
+     "|move|p2a: Primarina|Encore|p1a: Primarina",
+     "|-start|p1a: Primarina|Encore",
+     "|move|p1a: Primarina|Moonblast|p2a: Primarina",
+     "|-damage|p2a: Primarina|97/187",
+     "|-damage|p1a: Primarina|69/187 psn|[from] psn"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Encore",
+    "executed": "move:Moonblast",
+    "executed3": "move:Moonblast",
+    "lines": [
+     "|move|p2a: Primarina|Encore|p1a: Primarina",
+     "|-start|p1a: Primarina|Encore",
+     "|move|p1a: Primarina|Moonblast|p2a: Primarina",
+     "|-damage|p2a: Primarina|109/187",
+     "|-damage|p1a: Primarina|61/187 psn|[from] psn"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Volt Switch",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Thunderbolt",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|68/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p2a: Alakazam|Encore|p1a: Rotom",
+     "|-start|p1a: Rotom|Encore",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Alakazam",
+     "|-damage|p2a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   },
+   {
+    "turn": 2,
+    "label": "move:Will-O-Wisp",
+    "executed": "move:Hydro Pump",
+    "executed3": "move:Hydro Pump",
+    "lines": [
+     "|move|p1a: Alakazam|Encore|p2a: Rotom",
+     "|-start|p2a: Rotom|Encore",
+     "|move|p2a: Rotom|Hydro Pump|p1a: Alakazam",
+     "|-damage|p1a: Alakazam|2/132"
+    ],
+    "encoreBeforeOwnMove": true,
+    "ownEncoredAtStart": false,
+    "why": "rival Encore landed this turn before our move"
+   }
+  ]
+ },
+ "requested": {
+  "pr83Compare": {
+   "move v1=executed v2=executed/effective": 20572,
+   "switch v1=executed v2=executed": 8276,
+   "move v1=executed v2=executed/fail": 2779,
+   "move v1=forcedOut v2=forcedOut": 210,
+   "move v1=preempted v2=preempted": 2406,
+   "move v1=executed v2=executed/immune": 1931,
+   "move v1=executed v2=executed/miss": 126,
+   "move v1=mismatch v2=mismatch": 4,
+   "move v1=executed v2=executed/noTarget": 8
+  },
+  "v2v3": {
+   "move v2=executed v3=executed": 25416,
+   "switch v2=executed v3=executed": 8276,
+   "move v2=forcedOut v3=forcedOut": 210,
+   "move v2=preempted v3=preempted": 2406,
+   "move v2=mismatch v3=mismatch": 4
+  },
+  "v2v3AllGames": {
+   "move v2=executed v3=executed": 39264,
+   "switch v2=executed v3=executed": 12856,
+   "move v2=forcedOut v3=forcedOut": 290,
+   "move v2=preempted v3=preempted": 4178,
+   "move v2=mismatch v3=mismatch": 8
+  },
+  "examples": []
+ },
+ "switchCauses": {
+  "allTurnsBothSides": {
+   "replacement:faint": 261316,
+   "voluntary": 91090,
+   "forcedExit:Emergency Exit": 1244,
+   "pivot:Volt Switch": 2666,
+   "pivot:U-turn": 2634
+  },
+  "voluntaryDisagreeV2V3": {
+   "v2=switch v3=null": 1088
+  },
+  "disagreeExamples": [
+   {
+    "turn": 1,
+    "side": "p2",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p1a: Primarina|Moonblast|p2a: Golisopod",
+     "|-damage|p2a: Golisopod|85/182",
+     "|-activate|p2a: Golisopod|ability: Emergency Exit",
+     "|switch|p2a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p1",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p2a: Primarina|Moonblast|p1a: Golisopod",
+     "|-damage|p1a: Golisopod|85/182",
+     "|-activate|p1a: Golisopod|ability: Emergency Exit",
+     "|switch|p1a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p2",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p1a: Primarina|Moonblast|p2a: Golisopod",
+     "|-damage|p2a: Golisopod|74/182",
+     "|-activate|p2a: Golisopod|ability: Emergency Exit",
+     "|switch|p2a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p1",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p2a: Primarina|Moonblast|p1a: Golisopod",
+     "|-damage|p1a: Golisopod|74/182",
+     "|-activate|p1a: Golisopod|ability: Emergency Exit",
+     "|switch|p1a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p2",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p1a: Primarina|Moonblast|p2a: Golisopod",
+     "|-damage|p2a: Golisopod|85/182",
+     "|-activate|p2a: Golisopod|ability: Emergency Exit",
+     "|switch|p2a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p1",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p2a: Primarina|Moonblast|p1a: Golisopod",
+     "|-damage|p1a: Golisopod|85/182",
+     "|-activate|p1a: Golisopod|ability: Emergency Exit",
+     "|switch|p1a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p2",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p1a: Primarina|Moonblast|p2a: Golisopod",
+     "|-damage|p2a: Golisopod|74/182",
+     "|-activate|p2a: Golisopod|ability: Emergency Exit",
+     "|switch|p2a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   },
+   {
+    "turn": 1,
+    "side": "p1",
+    "v2": "Gholdengo",
+    "v3": null,
+    "lines": [
+     "|move|p2a: Primarina|Moonblast|p1a: Golisopod",
+     "|-damage|p1a: Golisopod|74/182",
+     "|-activate|p1a: Golisopod|ability: Emergency Exit",
+     "|switch|p1a: Gholdengo|Gholdengo, L50|164/164"
+    ]
+   }
+  ]
+ },
+ "utilityRationalIrrational": {
+  "n": 18,
+  "byCause": {
+   "target already brn | ex-post: status/hazard set earlier this turn": 2,
+   "Ground-type target is immune | decision-time irrational: base-AI fallback (branch had no rational utility move)": 16
+  },
+  "examples": [
+   {
+    "turn": 2,
+    "move": "Yawn",
+    "user": "Umbreon",
+    "target": "Rotom-Wash",
+    "rational": "irrational",
+    "why": "target already brn",
+    "effect": "fail",
+    "lines": [
+     "|move|p1a: Rotom|Will-O-Wisp|p2a: Umbreon",
+     "|-activate|p2a: Umbreon|ability: Synchronize",
+     "|move|p2a: Umbreon|Yawn||[still]",
+     "|-fail|p2a: Umbreon",
+     "|-damage|p1a: Rotom|148/157 brn|[from] brn",
+     "|-damage|p2a: Umbreon|190/202 brn|[from] brn"
+    ],
+    "cause": "ex-post: status/hazard set earlier this turn"
+   },
+   {
+    "turn": 2,
+    "move": "Yawn",
+    "user": "Umbreon",
+    "target": "Rotom-Wash",
+    "rational": "irrational",
+    "why": "target already brn",
+    "effect": "fail",
+    "lines": [
+     "|move|p2a: Rotom|Will-O-Wisp|p1a: Umbreon",
+     "|-activate|p1a: Umbreon|ability: Synchronize",
+     "|move|p1a: Umbreon|Yawn||[still]",
+     "|-fail|p1a: Umbreon",
+     "|-damage|p2a: Rotom|148/157 brn|[from] brn",
+     "|-damage|p1a: Umbreon|190/202 brn|[from] brn"
+    ],
+    "cause": "ex-post: status/hazard set earlier this turn"
+   },
+   {
+    "turn": 1,
+    "move": "Thunder Wave",
+    "user": "Dragapult",
+    "target": "Garchomp",
+    "rational": "irrational",
+    "why": "Ground-type target is immune",
+    "effect": "immune",
+    "lines": [
+     "|move|p1a: Garchomp|Dragon Claw|p2a: Dragapult",
+     "|-enditem|p2a: Dragapult|Focus Sash",
+     "|-damage|p2a: Dragapult|1/165",
+     "|move|p2a: Dragapult|Thunder Wave|p1a: Garchomp",
+     "|-immune|p1a: Garchomp"
+    ],
+    "cause": "decision-time irrational: base-AI fallback (branch had no rational utility move)"
+   },
+   {
+    "turn": 1,
+    "move": "Thunder Wave",
+    "user": "Dragapult",
+    "target": "Garchomp",
+    "rational": "irrational",
+    "why": "Ground-type target is immune",
+    "effect": "immune",
+    "lines": [
+     "|move|p2a: Garchomp|Dragon Claw|p1a: Dragapult",
+     "|-enditem|p1a: Dragapult|Focus Sash",
+     "|-damage|p1a: Dragapult|1/165",
+     "|move|p1a: Dragapult|Thunder Wave|p2a: Garchomp",
+     "|-immune|p2a: Garchomp"
+    ],
+    "cause": "decision-time irrational: base-AI fallback (branch had no rational utility move)"
+   },
+   {
+    "turn": 1,
+    "move": "Thunder Wave",
+    "user": "Dragapult",
+    "target": "Garchomp",
+    "rational": "irrational",
+    "why": "Ground-type target is immune",
+    "effect": "immune",
+    "lines": [
+     "|move|p1a: Garchomp|Dragon Claw|p2a: Dragapult",
+     "|-enditem|p2a: Dragapult|Focus Sash",
+     "|-damage|p2a: Dragapult|1/165",
+     "|move|p2a: Dragapult|Thunder Wave|p1a: Garchomp",
+     "|-immune|p1a: Garchomp"
+    ],
+    "cause": "decision-time irrational: base-AI fallback (branch had no rational utility move)"
+   },
+   {
+    "turn": 1,
+    "move": "Thunder Wave",
+    "user": "Dragapult",
+    "target": "Garchomp",
+    "rational": "irrational",
+    "why": "Ground-type target is immune",
+    "effect": "immune",
+    "lines": [
+     "|move|p2a: Garchomp|Dragon Claw|p1a: Dragapult",
+     "|-enditem|p1a: Dragapult|Focus Sash",
+     "|-damage|p1a: Dragapult|1/165",
+     "|move|p1a: Dragapult|Thunder Wave|p2a: Garchomp",
+     "|-immune|p2a: Garchomp"
+    ],
+    "cause": "decision-time irrational: base-AI fallback (branch had no rational utility move)"
+   }
+  ],
+  "byCauseRun": {
+   "target already brn | opponent acted first (state changed before the move)": 2,
+   "Ground-type target is immune | opponent acted first (state changed before the move)": 16
+  },
+  "reclassified": "Cause labels re-derived after reading the logged lines: the run-time label \"opponent acted first\" was wrong for the 16 Thunder Wave-on-Ground cases (utilityRational never picks a move its check calls irrational, so these came from the base-AI fallback); the 2 Yawn cases are Synchronize burning the target earlier in the turn. pr84-reaudit.js now applies this rule."
+ },
+ "v3Table": {
+  "rules": 200,
+  "rule": 38,
+  "base": 58,
+  "uncovered": 104,
+  "t1": 31,
+  "t2": 169
+ },
+ "pr83Table": {
+  "rules": 148,
+  "t1": 31,
+  "t2": 117
+ },
+ "aliasing": {
+  "pr83Keys": 148,
+  "multiCondition": 39,
+  "pr83RulesMultiCondition": 10,
+  "pr83Rules": 40,
+  "examples": [
+   {
+    "key": "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Golisopod#move:Iron Head#Primarina#Golisopod",
+    "action": "move:Moonblast",
+    "conds": [
+     "o:L//h:|f:H//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash",
+     "o:L//h:|f:H/spa-1/h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash"
+    ]
+   },
+   {
+    "key": "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Golisopod#changed:Gholdengo#Primarina#Gholdengo",
+    "action": "move:Aqua Jet",
+    "conds": [
+     "o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash",
+     "o:F//h:|f:H//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash"
+    ]
+   },
+   {
+    "key": "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Garchomp#changed:Mimikyu#Primarina#Mimikyu",
+    "action": "switch:Garchomp",
+    "conds": [
+     "o:H//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash",
+     "o:F//h:stealthrock+1|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash",
+     "o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash"
+    ]
+   },
+   {
+    "key": "Archaludon|Corviknight|Garchomp|Lucario|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T2#Lucario#move:Aura Sphere#Rotom-Wash#Lucario",
+    "action": "switch:Garchomp",
+    "conds": [
+     "o:L//h:|f:L//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+     "o:H//h:|f:Lpar//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+     "o:H//h:|f:L//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross"
+    ]
+   },
+   {
+    "key": "Archaludon|Corviknight|Garchomp|Lucario|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T2#Archaludon#move:Draco Meteor#Rotom-Wash#Archaludon",
+    "action": "move:Hydro Pump",
+    "conds": [
+     "o:C//h:|f:Hbrn/spa-2/h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+     "o:L//h:|f:Hbrn/spa-2/h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+     "o:C//h:|f:F/spa-2/h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross"
+    ]
+   },
+   {
+    "key": "Archaludon|Corviknight|Garchomp|Lucario|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T2#Archaludon#move:Stealth Rock#Rotom-Wash#Archaludon",
+    "action": "move:Hydro Pump",
+    "conds": [
+     "o:F//h:stealthrock+1|f:Hbrn//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+     "o:F//h:stealthrock+1|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross"
+    ]
+   }
+  ]
+ },
+ "aggregate": {
+  "test": {
+   "human1": {
+    "mean": 0.556,
+    "zeroCellBranch": "158/510"
+   },
+   "human1+entryPR83": {
+    "mean": 0.682,
+    "zeroCellBranch": "102/510"
+   },
+   "human1+entryV3": {
+    "mean": 0.681,
+    "zeroCellBranch": "98/510"
+   },
+   "general": {
+    "mean": 0.636,
+    "zeroCellBranch": "7/510"
+   },
+   "top2": {
+    "mean": 0.69,
+    "zeroCellBranch": "34/510"
+   },
+   "legacy": {
+    "mean": 0.685,
+    "zeroCellBranch": "119/510"
+   },
+   "quick": {
+    "mean": 0.605,
+    "zeroCellBranch": "137/510"
+   }
+  },
+  "hold": {
+   "human1": {
+    "mean": 0.793,
+    "zeroCellBranch": "31/252"
+   },
+   "human1+entryPR83": {
+    "mean": 0.753,
+    "zeroCellBranch": "44/252"
+   },
+   "human1+entryV3": {
+    "mean": 0.753,
+    "zeroCellBranch": "44/252"
+   },
+   "general": {
+    "mean": 0.674,
+    "zeroCellBranch": "0/252"
+   },
+   "legacy": {
+    "mean": 0.688,
+    "zeroCellBranch": "67/252"
+   }
+  }
+ },
+ "cases": [
+  {
+   "six": "A_golisopod",
+   "hyp": "H0",
+   "human1": "Primarina>Garchomp/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.25,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.208,
+      "aceLead": 0.542,
+      "alt1": 0,
+      "alt2": 0.25
+     }
+    },
+    "general": {
+     "mean": 0.247,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.58,
+      "aceLead": 0.182,
+      "alt1": 0.021,
+      "alt2": 0.203
+     }
+    },
+    "top2": {
+     "mean": 0.437,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.333,
+      "alt1": 0,
+      "alt2": 0.499
+     }
+    },
+    "legacy": {
+     "mean": 0.448,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.625,
+      "aceLead": 0.75,
+      "alt1": 0,
+      "alt2": 0.417
+     }
+    },
+    "quick": {
+     "mean": 0.25,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.208,
+      "aceLead": 0.542,
+      "alt1": 0,
+      "alt2": 0.25
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.375,
+     "zeroCellBranch": 7,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.5,
+      "aceLead": 0.75,
+      "alt1": 0,
+      "alt2": 0.25
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.333,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.5,
+      "aceLead": 0.583,
+      "alt1": 0,
+      "alt2": 0.25
+     }
+    },
+    "decisions": {
+     "v2:rule": 32,
+     "v2:base": 40,
+     "v2:uncovered": 120,
+     "v3:rule": 28,
+     "v3:uncovered": 132,
+     "v3:base": 32
+    }
+   },
+   "savedTest": {
+    "human1": 0.25,
+    "general": 0.247,
+    "top2": 0.437,
+    "legacy": 0.448,
+    "quick": 0.25,
+    "human1+entry": 0.375
+   },
+   "holdCells": [
+    "reLead:Garchomp/Primarina/Gholdengo",
+    "aceAlt:Primarina/Golisopod/Mimikyu"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.417,
+     "zeroCellBranch": 4,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.333,
+      "aceAlt": 0.5
+     }
+    },
+    "general": {
+     "mean": 0.36,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.412,
+      "aceAlt": 0.307
+     }
+    },
+    "legacy": {
+     "mean": 0,
+     "zeroCellBranch": 12,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0,
+      "aceAlt": 0
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.208,
+     "zeroCellBranch": 9,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.333,
+      "aceAlt": 0.083
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.208,
+     "zeroCellBranch": 9,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.333,
+      "aceAlt": 0.083
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 52,
+     "v2:rule": 24,
+     "v2:base": 20,
+     "v3:uncovered": 64,
+     "v3:rule": 24,
+     "v3:base": 8
+    }
+   }
+  },
+  {
+   "six": "A_golisopod",
+   "hyp": "H1",
+   "human1": "Primarina>Garchomp/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.354,
+     "zeroCellBranch": 14,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.25,
+      "aceLead": 0.833,
+      "alt1": 0.167,
+      "alt2": 0.167
+     }
+    },
+    "general": {
+     "mean": 0.568,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.394,
+      "aceLead": 0.656,
+      "alt1": 0.639,
+      "alt2": 0.584
+     }
+    },
+    "top2": {
+     "mean": 0.708,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.75,
+      "alt1": 0.542,
+      "alt2": 0.624
+     }
+    },
+    "legacy": {
+     "mean": 0.646,
+     "zeroCellBranch": 2,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.667,
+      "aceLead": 0.333,
+      "alt1": 0.833,
+      "alt2": 0.75
+     }
+    },
+    "quick": {
+     "mean": 0.354,
+     "zeroCellBranch": 14,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.25,
+      "aceLead": 0.833,
+      "alt1": 0.167,
+      "alt2": 0.167
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.594,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.542,
+      "aceLead": 0.833,
+      "alt1": 0.833,
+      "alt2": 0.167
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.771,
+     "zeroCellBranch": 2,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.542,
+      "aceLead": 0.875,
+      "alt1": 0.833,
+      "alt2": 0.833
+     }
+    },
+    "decisions": {
+     "v2:rule": 88,
+     "v2:base": 32,
+     "v2:uncovered": 72,
+     "v3:rule": 76,
+     "v3:base": 32,
+     "v3:uncovered": 84
+    }
+   },
+   "savedTest": {
+    "human1": 0.354,
+    "general": 0.568,
+    "top2": 0.708,
+    "legacy": 0.646,
+    "quick": 0.354,
+    "human1+entry": 0.594
+   },
+   "holdCells": [
+    "reLead:Gholdengo/Primarina/Hippowdon",
+    "aceAlt:Primarina/Golisopod/Mimikyu"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.583,
+     "zeroCellBranch": 2,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0.417
+     }
+    },
+    "general": {
+     "mean": 0.555,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.272,
+      "aceAlt": 0.839
+     }
+    },
+    "legacy": {
+     "mean": 0.938,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.875,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.417,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0.083
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.417,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0.083
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 52,
+     "v2:rule": 24,
+     "v2:base": 20,
+     "v3:uncovered": 64,
+     "v3:rule": 24,
+     "v3:base": 8
+    }
+   }
+  },
+  {
+   "six": "A_golisopod",
+   "hyp": "H2",
+   "human1": "Primarina>Garchomp/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.469,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.208,
+      "alt1": 0.5,
+      "alt2": 0.333
+     }
+    },
+    "general": {
+     "mean": 0.388,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.636,
+      "aceLead": 0.173,
+      "alt1": 0.201,
+      "alt2": 0.54
+     }
+    },
+    "top2": {
+     "mean": 0.406,
+     "zeroCellBranch": 7,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 0.333,
+      "alt1": 0.083,
+      "alt2": 0.624
+     }
+    },
+    "legacy": {
+     "mean": 0.458,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.583,
+      "alt1": 0.417,
+      "alt2": 0.833
+     }
+    },
+    "quick": {
+     "mean": 0.469,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.208,
+      "alt1": 0.5,
+      "alt2": 0.333
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.677,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.375,
+      "alt1": 0.5,
+      "alt2": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.635,
+     "zeroCellBranch": 2,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.208,
+      "alt1": 0.5,
+      "alt2": 1
+     }
+    },
+    "decisions": {
+     "v2:rule": 52,
+     "v2:base": 44,
+     "v2:uncovered": 96,
+     "v3:rule": 60,
+     "v3:base": 40,
+     "v3:uncovered": 92
+    }
+   },
+   "savedTest": {
+    "human1": 0.469,
+    "general": 0.388,
+    "top2": 0.406,
+    "legacy": 0.458,
+    "quick": 0.469,
+    "human1+entry": 0.677
+   },
+   "holdCells": [
+    "reLead:Garchomp/Primarina/Gholdengo",
+    "aceAlt:Primarina/Golisopod/Mimikyu"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.583,
+     "zeroCellBranch": 2,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.167
+     }
+    },
+    "general": {
+     "mean": 0.417,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.691,
+      "aceAlt": 0.144
+     }
+    },
+    "legacy": {
+     "mean": 0.083,
+     "zeroCellBranch": 10,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.167,
+      "aceAlt": 0
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.625,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.25
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.625,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.25
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 52,
+     "v2:rule": 24,
+     "v2:base": 20,
+     "v3:uncovered": 60,
+     "v3:rule": 24,
+     "v3:base": 12
+    }
+   }
+  },
+  {
+   "six": "B_lucarioZ",
+   "hyp": "case",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.542,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.875,
+      "alt1": 0.042,
+      "alt2": 0.417
+     }
+    },
+    "general": {
+     "mean": 0.613,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.548,
+      "aceLead": 0.78,
+      "alt1": 0.577,
+      "alt2": 0.545
+     }
+    },
+    "top2": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.958,
+      "alt1": 0.626,
+      "alt2": 0.584
+     }
+    },
+    "legacy": {
+     "mean": 0.458,
+     "zeroCellBranch": 10,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.917,
+      "alt1": 0.25,
+      "alt2": 0.667
+     }
+    },
+    "quick": {
+     "mean": 0.542,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.875,
+      "alt1": 0.042,
+      "alt2": 0.417
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.542,
+     "zeroCellBranch": 10,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 1,
+      "alt1": 0,
+      "alt2": 0.333
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.615,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.875,
+      "alt1": 0.333,
+      "alt2": 0.417
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 112,
+     "v2:base": 36,
+     "v2:rule": 44,
+     "v3:uncovered": 132,
+     "v3:base": 36,
+     "v3:rule": 24
+    }
+   },
+   "savedTest": {
+    "human1": 0.542,
+    "general": 0.613,
+    "top2": 0.75,
+    "legacy": 0.458,
+    "quick": 0.542,
+    "human1+entry": 0.542
+   },
+   "holdCells": [
+    "reLead:Garchomp/Primarina/Lucario",
+    "aceAlt:Garchomp/Lucario/Corviknight"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.662,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.534,
+      "aceAlt": 0.789
+     }
+    },
+    "legacy": {
+     "mean": 0,
+     "zeroCellBranch": 12,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0,
+      "aceAlt": 0
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "B_lucarioZ",
+   "hyp": "B2",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.875,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.833,
+      "alt2": 0.667
+     }
+    },
+    "general": {
+     "mean": 0.646,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.619,
+      "aceLead": 0.815,
+      "alt1": 0.619,
+      "alt2": 0.53
+     }
+    },
+    "top2": {
+     "mean": 0.776,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.812,
+      "aceLead": 0.938,
+      "alt1": 0.563,
+      "alt2": 0.791
+     }
+    },
+    "legacy": {
+     "mean": 0.354,
+     "zeroCellBranch": 13,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.583,
+      "alt1": 0,
+      "alt2": 0.833
+     }
+    },
+    "quick": {
+     "mean": 0.875,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.833,
+      "alt2": 0.667
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.813,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.583,
+      "alt2": 0.667
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.833,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.667,
+      "alt2": 0.667
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 128,
+     "v2:base": 36,
+     "v2:rule": 28,
+     "v3:uncovered": 150,
+     "v3:base": 36,
+     "v3:rule": 6
+    }
+   },
+   "savedTest": {
+    "human1": 0.875,
+    "general": 0.646,
+    "top2": 0.776,
+    "legacy": 0.354,
+    "quick": 0.875,
+    "human1+entry": 0.813
+   },
+   "holdCells": [
+    "reLead:Garchomp/Primarina/Lucario",
+    "aceAlt:Garchomp/Lucario/Corviknight"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.595,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.534,
+      "aceAlt": 0.655
+     }
+    },
+    "legacy": {
+     "mean": 0.083,
+     "zeroCellBranch": 10,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0,
+      "aceAlt": 0.167
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "C_charizard",
+   "hyp": "Y",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.417,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.667,
+      "alt1": 0,
+      "alt2": 0.083
+     }
+    },
+    "general": {
+     "mean": 0.579,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.488,
+      "aceLead": 0.714,
+      "alt1": 0.503,
+      "alt2": 0.61
+     }
+    },
+    "top2": {
+     "mean": 0.677,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.917,
+      "alt1": 0.917,
+      "alt2": 0.875
+     }
+    },
+    "legacy": {
+     "mean": 0.688,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.833,
+      "alt1": 1,
+      "alt2": 0.917
+     }
+    },
+    "quick": {
+     "mean": 0.948,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.792,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.438,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.667,
+      "alt1": 0,
+      "alt2": 0.083
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.438,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.667,
+      "alt1": 0,
+      "alt2": 0.083
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 140,
+     "v2:rule": 28,
+     "v2:base": 24,
+     "v3:uncovered": 140,
+     "v3:rule": 28,
+     "v3:base": 24
+    }
+   },
+   "savedTest": {
+    "human1": 0.417,
+    "general": 0.579,
+    "top2": 0.677,
+    "legacy": 0.688,
+    "quick": 0.948,
+    "human1+entry": 0.438
+   },
+   "holdCells": [
+    "reLead:Primarina/Baxcalibur/Garchomp",
+    "aceAlt:Gholdengo/Charizard/Baxcalibur"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.458,
+     "zeroCellBranch": 6,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 0
+     }
+    },
+    "general": {
+     "mean": 0.482,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.441,
+      "aceAlt": 0.522
+     }
+    },
+    "legacy": {
+     "mean": 0.5,
+     "zeroCellBranch": 4,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.333,
+      "aceAlt": 0.667
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.458,
+     "zeroCellBranch": 6,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 0
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.458,
+     "zeroCellBranch": 6,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 0
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "C_charizard",
+   "hyp": "X",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.479,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.833,
+      "alt1": 0.083,
+      "alt2": 0.167
+     }
+    },
+    "general": {
+     "mean": 0.51,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.407,
+      "aceLead": 0.78,
+      "alt1": 0.408,
+      "alt2": 0.444
+     }
+    },
+    "top2": {
+     "mean": 0.599,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.104,
+      "aceLead": 0.917,
+      "alt1": 0.875,
+      "alt2": 0.5
+     }
+    },
+    "legacy": {
+     "mean": 0.458,
+     "zeroCellBranch": 11,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.833,
+      "alt1": 0.75,
+      "alt2": 0.083
+     }
+    },
+    "quick": {
+     "mean": 0.615,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.125,
+      "aceLead": 1,
+      "alt1": 0.333,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.542,
+     "zeroCellBranch": 10,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 1,
+      "alt1": 0.083,
+      "alt2": 0.167
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.542,
+     "zeroCellBranch": 10,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 1,
+      "alt1": 0.083,
+      "alt2": 0.167
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 140,
+     "v2:rule": 28,
+     "v2:base": 24,
+     "v3:uncovered": 140,
+     "v3:rule": 28,
+     "v3:base": 24
+    }
+   },
+   "savedTest": {
+    "human1": 0.479,
+    "general": 0.51,
+    "top2": 0.599,
+    "legacy": 0.458,
+    "quick": 0.615,
+    "human1+entry": 0.542
+   },
+   "holdCells": [
+    "reLead:Primarina/Baxcalibur/Garchomp",
+    "aceAlt:Gholdengo/Charizard/Baxcalibur"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.375,
+     "zeroCellBranch": 7,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0
+     }
+    },
+    "general": {
+     "mean": 0.385,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.384,
+      "aceAlt": 0.387
+     }
+    },
+    "legacy": {
+     "mean": 0.25,
+     "zeroCellBranch": 8,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.25,
+      "aceAlt": 0.25
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.375,
+     "zeroCellBranch": 7,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.375,
+     "zeroCellBranch": 7,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.75,
+      "aceAlt": 0
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "Indeedee",
+   "hyp": "scarf",
+   "human1": "Rotom-Wash>Primarina/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.708,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.583,
+      "alt2": 0.25
+     }
+    },
+    "general": {
+     "mean": 0.855,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.944,
+      "alt1": 0.655,
+      "alt2": 0.822
+     }
+    },
+    "top2": {
+     "mean": 0.884,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.753,
+      "alt2": 0.782
+     }
+    },
+    "legacy": {
+     "mean": 0.958,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.833,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.979,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.917,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "decisions": {
+     "v2:base": 140,
+     "v2:uncovered": 4,
+     "v2:rule": 48,
+     "v3:base": 120,
+     "v3:uncovered": 24,
+     "v3:rule": 48
+    }
+   },
+   "savedTest": {
+    "human1": 0.708,
+    "general": 0.855,
+    "top2": 0.884,
+    "legacy": 0.958,
+    "quick": 0.979,
+    "human1+entry": 1
+   },
+   "holdCells": [
+    "reLead:Garchomp/Hippowdon/Indeedee",
+    "aceAlt:Gengar/Indeedee/Garchomp"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.84,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.8,
+      "aceAlt": 0.879
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.667,
+     "zeroCellBranch": 4,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.333
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.667,
+     "zeroCellBranch": 4,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.333
+     }
+    },
+    "decisions": {
+     "v2:rule": 48,
+     "v2:uncovered": 28,
+     "v2:base": 20,
+     "v3:rule": 48,
+     "v3:uncovered": 28,
+     "v3:base": 20
+    }
+   }
+  },
+  {
+   "six": "Indeedee",
+   "hyp": "sash",
+   "human1": "Rotom-Wash>Primarina/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.708,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.583,
+      "alt2": 0.25
+     }
+    },
+    "general": {
+     "mean": 0.834,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.763,
+      "aceLead": 0.778,
+      "alt1": 0.939,
+      "alt2": 0.855
+     }
+    },
+    "top2": {
+     "mean": 0.863,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.77,
+      "aceLead": 0.683,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "legacy": {
+     "mean": 0.875,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.667,
+      "alt2": 0.833
+     }
+    },
+    "quick": {
+     "mean": 0.594,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.083,
+      "aceLead": 0.708,
+      "alt1": 0.583,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "decisions": {
+     "v2:rule": 72,
+     "v2:base": 116,
+     "v2:uncovered": 4,
+     "v3:rule": 72,
+     "v3:uncovered": 26,
+     "v3:base": 94
+    }
+   },
+   "savedTest": {
+    "human1": 0.708,
+    "general": 0.834,
+    "top2": 0.863,
+    "legacy": 0.875,
+    "quick": 0.594,
+    "human1+entry": 1
+   },
+   "holdCells": [
+    "reLead:Gengar/Garchomp/Umbreon",
+    "aceAlt:Gengar/Indeedee/Garchomp"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.927,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.927,
+      "aceAlt": 0.928
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "decisions": {
+     "v2:rule": 48,
+     "v2:uncovered": 32,
+     "v2:base": 16,
+     "v3:rule": 48,
+     "v3:uncovered": 32,
+     "v3:base": 16
+    }
+   }
+  },
+  {
+   "six": "Indeedee",
+   "hyp": "quickclaw",
+   "human1": "Rotom-Wash>Primarina/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.583,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.25,
+      "alt2": 0.083
+     }
+    },
+    "general": {
+     "mean": 0.801,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.638,
+      "aceLead": 0.848,
+      "alt1": 0.81,
+      "alt2": 0.91
+     }
+    },
+    "top2": {
+     "mean": 0.888,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.698,
+      "aceLead": 0.856,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "legacy": {
+     "mean": 0.958,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.833,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.698,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0.792,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "decisions": {
+     "v2:rule": 72,
+     "v2:base": 120,
+     "v3:rule": 72,
+     "v3:base": 116,
+     "v3:uncovered": 4
+    }
+   },
+   "savedTest": {
+    "human1": 0.583,
+    "general": 0.801,
+    "top2": 0.888,
+    "legacy": 0.958,
+    "quick": 0.698,
+    "human1+entry": 1
+   },
+   "holdCells": [
+    "reLead:Gengar/Garchomp/Umbreon",
+    "aceAlt:Gengar/Indeedee/Garchomp"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.871,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.932,
+      "aceAlt": 0.81
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.896,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.792
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.896,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.792
+     }
+    },
+    "decisions": {
+     "v2:rule": 48,
+     "v2:uncovered": 32,
+     "v2:base": 16,
+     "v3:rule": 48,
+     "v3:uncovered": 32,
+     "v3:base": 16
+    }
+   }
+  },
+  {
+   "six": "E_sun",
+   "hyp": "case",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.49,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.958,
+      "aceLead": 0.167,
+      "alt1": 0.583,
+      "alt2": 0.25
+     }
+    },
+    "general": {
+     "mean": 0.532,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.474,
+      "aceLead": 0.607,
+      "alt1": 0.418,
+      "alt2": 0.631
+     }
+    },
+    "top2": {
+     "mean": 0.546,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.549,
+      "aceLead": 0.657,
+      "alt1": 0.353,
+      "alt2": 0.623
+     }
+    },
+    "legacy": {
+     "mean": 0.792,
+     "zeroCellBranch": 3,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.833,
+      "aceLead": 0.833,
+      "alt1": 0.833,
+      "alt2": 0.667
+     }
+    },
+    "quick": {
+     "mean": 0.49,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.958,
+      "aceLead": 0.167,
+      "alt1": 0.583,
+      "alt2": 0.25
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.688,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.292,
+      "alt1": 1,
+      "alt2": 0.458
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.688,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.292,
+      "alt1": 1,
+      "alt2": 0.458
+     }
+    },
+    "decisions": {
+     "v2:base": 48,
+     "v2:rule": 96,
+     "v2:uncovered": 48,
+     "v3:base": 48,
+     "v3:rule": 96,
+     "v3:uncovered": 48
+    }
+   },
+   "savedTest": {
+    "human1": 0.49,
+    "general": 0.532,
+    "top2": 0.546,
+    "legacy": 0.792,
+    "quick": 0.49,
+    "human1+entry": 0.688
+   },
+   "holdCells": [
+    "reLead:Meowscarada/Garchomp/Corviknight",
+    "aceAlt:Basculegion/Charizard/Garchomp"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.542,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.083,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.658,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.63,
+      "aceAlt": 0.685
+     }
+    },
+    "legacy": {
+     "mean": 0.688,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.583,
+      "aceAlt": 0.792
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.521,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.083,
+      "aceAlt": 0.958
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.521,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.083,
+      "aceAlt": 0.958
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 68,
+     "v2:rule": 24,
+     "v2:base": 4,
+     "v3:uncovered": 70,
+     "v3:rule": 24,
+     "v3:base": 2
+    }
+   }
+  },
+  {
+   "six": "E_sun",
+   "hyp": "E2",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.167,
+     "zeroCellBranch": 17,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.167,
+      "alt1": 0,
+      "alt2": 0.333
+     }
+    },
+    "general": {
+     "mean": 0.576,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.613,
+      "aceLead": 0.616,
+      "alt1": 0.489,
+      "alt2": 0.586
+     }
+    },
+    "top2": {
+     "mean": 0.638,
+     "zeroCellBranch": 2,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.672,
+      "aceLead": 0.559,
+      "alt1": 0.76,
+      "alt2": 0.559
+     }
+    },
+    "legacy": {
+     "mean": 0.458,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.333,
+      "aceLead": 0.583,
+      "alt1": 0.167,
+      "alt2": 0.75
+     }
+    },
+    "quick": {
+     "mean": 0.167,
+     "zeroCellBranch": 17,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.167,
+      "alt1": 0,
+      "alt2": 0.333
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.521,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.667,
+      "alt1": 0.583,
+      "alt2": 0.667
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.521,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.667,
+      "alt1": 0.583,
+      "alt2": 0.667
+     }
+    },
+    "decisions": {
+     "v2:base": 48,
+     "v2:rule": 96,
+     "v2:uncovered": 48,
+     "v3:base": 48,
+     "v3:rule": 92,
+     "v3:uncovered": 52
+    }
+   },
+   "savedTest": {
+    "human1": 0.167,
+    "general": 0.576,
+    "top2": 0.638,
+    "legacy": 0.458,
+    "quick": 0.167,
+    "human1+entry": 0.521
+   },
+   "holdCells": [
+    "reLead:Meowscarada/Garchomp/Corviknight",
+    "aceAlt:Basculegion/Charizard/Garchomp"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.688,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.375,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.453,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.458,
+      "aceAlt": 0.447
+     }
+    },
+    "legacy": {
+     "mean": 0.583,
+     "zeroCellBranch": 4,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.25,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.604,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.375,
+      "aceAlt": 0.833
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.604,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.375,
+      "aceAlt": 0.833
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 68,
+     "v2:rule": 24,
+     "v2:base": 4,
+     "v3:uncovered": 70,
+     "v3:rule": 24,
+     "v3:base": 2
+    }
+   }
+  },
+  {
+   "six": "HX_rain",
+   "hyp": "a",
+   "human1": "Garchomp>Metagross/Hydreigon",
+   "test": {
+    "human1": {
+     "mean": 0.25,
+     "zeroCellBranch": 15,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.167,
+      "alt1": 0.083,
+      "alt2": 0.583
+     }
+    },
+    "general": {
+     "mean": 0.387,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.268,
+      "aceLead": 0.277,
+      "alt1": 0.63,
+      "alt2": 0.372
+     }
+    },
+    "top2": {
+     "mean": 0.292,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.117,
+      "aceLead": 0.234,
+      "alt1": 0.544,
+      "alt2": 0.273
+     }
+    },
+    "legacy": {
+     "mean": 0.5,
+     "zeroCellBranch": 12,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0,
+      "aceLead": 0,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.25,
+     "zeroCellBranch": 15,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.167,
+      "alt1": 0.083,
+      "alt2": 0.583
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.208,
+     "zeroCellBranch": 16,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0,
+      "alt1": 0.083,
+      "alt2": 0.583
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.208,
+     "zeroCellBranch": 16,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0,
+      "alt1": 0.083,
+      "alt2": 0.583
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 132,
+     "v2:base": 36,
+     "v2:rule": 24,
+     "v3:uncovered": 136,
+     "v3:base": 32,
+     "v3:rule": 24
+    }
+   },
+   "savedTest": {
+    "human1": 0.25,
+    "general": 0.387,
+    "top2": 0.292,
+    "legacy": 0.5,
+    "quick": 0.25,
+    "human1+entry": 0.208
+   },
+   "holdCells": [
+    "reLead:Gholdengo/Archaludon/Swampert",
+    "aceAlt:Pelipper/Swampert/Archaludon"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.583,
+      "aceAlt": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.522,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.575,
+      "aceAlt": 0.468
+     }
+    },
+    "legacy": {
+     "mean": 0.875,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.833,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.583,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.583,
+      "aceAlt": 0.917
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "HX_rain",
+   "hyp": "b",
+   "human1": "Garchomp>Metagross/Hydreigon",
+   "test": {
+    "human1": {
+     "mean": 0.792,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.75,
+      "alt1": 0.917,
+      "alt2": 0.583
+     }
+    },
+    "general": {
+     "mean": 0.702,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.669,
+      "aceLead": 0.876,
+      "alt1": 0.698,
+      "alt2": 0.566
+     }
+    },
+    "top2": {
+     "mean": 0.679,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.734,
+      "aceLead": 0.778,
+      "alt1": 0.739,
+      "alt2": 0.467
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.792,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.75,
+      "alt1": 0.917,
+      "alt2": 0.583
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.813,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.833,
+      "alt1": 0.917,
+      "alt2": 0.583
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.813,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.833,
+      "alt1": 0.917,
+      "alt2": 0.583
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 140,
+     "v2:base": 28,
+     "v2:rule": 24,
+     "v3:uncovered": 148,
+     "v3:rule": 24,
+     "v3:base": 20
+    }
+   },
+   "savedTest": {
+    "human1": 0.792,
+    "general": 0.702,
+    "top2": 0.679,
+    "legacy": 1,
+    "quick": 0.792,
+    "human1+entry": 0.813
+   },
+   "holdCells": [
+    "reLead:Gholdengo/Archaludon/Swampert",
+    "aceAlt:Pelipper/Swampert/Archaludon"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.882,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.991,
+      "aceAlt": 0.773
+     }
+    },
+    "legacy": {
+     "mean": 0.917,
+     "zeroCellBranch": 1,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.833
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "HX_gyarados",
+   "hyp": "a",
+   "human1": "Primarina>Metagross/Hydreigon",
+   "test": {
+    "human1": {
+     "mean": 0.604,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 1,
+      "alt1": 0.417,
+      "alt2": 0.083
+     }
+    },
+    "general": {
+     "mean": 0.53,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.461,
+      "aceLead": 0.552,
+      "alt1": 0.57,
+      "alt2": 0.537
+     }
+    },
+    "top2": {
+     "mean": 0.518,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.194,
+      "aceLead": 0.427,
+      "alt1": 0.761,
+      "alt2": 0.69
+     }
+    },
+    "legacy": {
+     "mean": 0.708,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.5,
+      "aceLead": 0.333,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.604,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 1,
+      "alt1": 0.417,
+      "alt2": 0.083
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.917,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.917,
+      "alt1": 0.833,
+      "alt2": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.917,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.917,
+      "alt1": 0.833,
+      "alt2": 0.917
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 60,
+     "v2:rule": 92,
+     "v2:base": 40,
+     "v3:uncovered": 60,
+     "v3:rule": 92,
+     "v3:base": 40
+    }
+   },
+   "savedTest": {
+    "human1": 0.604,
+    "general": 0.53,
+    "top2": 0.518,
+    "legacy": 0.708,
+    "quick": 0.604,
+    "human1+entry": 0.917
+   },
+   "holdCells": [
+    "reLead:Gholdengo/Baxcalibur/Corviknight",
+    "aceAlt:Mimikyu/Garchomp/Corviknight"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.5,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.25,
+      "aceAlt": 0.75
+     }
+    },
+    "general": {
+     "mean": 0.435,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.263,
+      "aceAlt": 0.607
+     }
+    },
+    "legacy": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.5,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.25,
+      "aceAlt": 0.75
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.5,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.25,
+      "aceAlt": 0.75
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "HX_gyarados",
+   "hyp": "b",
+   "human1": "Primarina>Metagross/Hydreigon",
+   "test": {
+    "human1": {
+     "mean": 0.479,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 1,
+      "alt1": 0.083,
+      "alt2": 0.25
+     }
+    },
+    "general": {
+     "mean": 0.534,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.454,
+      "aceLead": 0.453,
+      "alt1": 0.539,
+      "alt2": 0.692
+     }
+    },
+    "top2": {
+     "mean": 0.511,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.371,
+      "aceLead": 0.233,
+      "alt1": 0.477,
+      "alt2": 0.961
+     }
+    },
+    "legacy": {
+     "mean": 0.75,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.479,
+     "zeroCellBranch": 8,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 1,
+      "alt1": 0.083,
+      "alt2": 0.25
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.875,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 1,
+      "alt1": 0.917,
+      "alt2": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.875,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 1,
+      "alt1": 0.917,
+      "alt2": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 32,
+     "v2:rule": 96,
+     "v2:base": 64,
+     "v3:uncovered": 32,
+     "v3:rule": 96,
+     "v3:base": 64
+    }
+   },
+   "savedTest": {
+    "human1": 0.479,
+    "general": 0.534,
+    "top2": 0.511,
+    "legacy": 0.75,
+    "quick": 0.479,
+    "human1+entry": 0.875
+   },
+   "holdCells": [
+    "aceAlt:Mimikyu/Garchomp/Corviknight"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.75
+     }
+    },
+    "general": {
+     "mean": 0.542,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.542
+     }
+    },
+    "legacy": {
+     "mean": 0.917,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.75
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.75,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.75
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 48,
+     "v3:uncovered": 48
+    }
+   }
+  },
+  {
+   "six": "HOLD_psychic_offense",
+   "hyp": "case",
+   "human1": "Rotom-Wash>Garchomp/Tyranitar",
+   "test": {
+    "human1": {
+     "mean": 0.667,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 0.75,
+      "alt1": 0.333,
+      "alt2": 1
+     }
+    },
+    "general": {
+     "mean": 0.738,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.598,
+      "aceLead": 0.846,
+      "alt1": 0.877,
+      "alt2": 0.633
+     }
+    },
+    "top2": {
+     "mean": 0.702,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.594,
+      "aceLead": 0.812,
+      "alt1": 0.906,
+      "alt2": 0.495
+     }
+    },
+    "legacy": {
+     "mean": 0.563,
+     "zeroCellBranch": 6,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.333,
+      "aceLead": 0.333,
+      "alt1": 1,
+      "alt2": 0.583
+     }
+    },
+    "quick": {
+     "mean": 0.667,
+     "zeroCellBranch": 4,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "aceLead": 0.75,
+      "alt1": 0.333,
+      "alt2": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.625,
+     "zeroCellBranch": 9,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.333,
+      "alt1": 1,
+      "alt2": 0.167
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.583,
+     "zeroCellBranch": 10,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.167,
+      "alt1": 1,
+      "alt2": 0.167
+     }
+    },
+    "decisions": {
+     "v2:rule": 104,
+     "v2:base": 72,
+     "v2:uncovered": 16,
+     "v3:rule": 96,
+     "v3:base": 52,
+     "v3:uncovered": 44
+    }
+   },
+   "savedTest": {
+    "human1": 0.667,
+    "general": 0.738,
+    "top2": 0.702,
+    "legacy": 0.563,
+    "quick": 0.667,
+    "human1+entry": 0.625
+   },
+   "holdCells": [
+    "aceAlt:Gyarados/Alakazam/Armarouge"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.861,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 0.861
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 6,
+     "byCell": {
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 48,
+     "v3:uncovered": 48
+    }
+   }
+  },
+  {
+   "six": "HOLD_sun_balance",
+   "hyp": "case",
+   "human1": "Rotom-Wash>Metagross/Garchomp",
+   "test": {
+    "human1": {
+     "mean": 0.556,
+     "zeroCellBranch": 6,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.667,
+      "alt1": 0.167,
+      "alt2": 0.833
+     }
+    },
+    "general": {
+     "mean": 0.549,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.722,
+      "alt1": 0.315,
+      "alt2": 0.611
+     }
+    },
+    "top2": {
+     "mean": 0.522,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.767,
+      "alt1": 0.434,
+      "alt2": 0.367
+     }
+    },
+    "legacy": {
+     "mean": 0.389,
+     "zeroCellBranch": 11,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0,
+      "alt2": 0.167
+     }
+    },
+    "quick": {
+     "mean": 0.639,
+     "zeroCellBranch": 6,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "alt1": 0.167,
+      "alt2": 0.833
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.694,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "alt1": 0.583,
+      "alt2": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.694,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.583,
+      "alt1": 0.583,
+      "alt2": 0.917
+     }
+    },
+    "decisions": {
+     "v2:rule": 68,
+     "v2:uncovered": 56,
+     "v2:base": 20,
+     "v3:rule": 68,
+     "v3:uncovered": 66,
+     "v3:base": 10
+    }
+   },
+   "savedTest": {
+    "human1": 0.556,
+    "general": 0.549,
+    "top2": 0.522,
+    "legacy": 0.389,
+    "quick": 0.639,
+    "human1+entry": 0.694
+   },
+   "holdCells": [
+    "reLead:Basculegion/Charizard/Skarmory",
+    "aceAlt:Eelektross/Charizard/Skarmory"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.819,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.944,
+      "aceAlt": 0.694
+     }
+    },
+    "legacy": {
+     "mean": 0.583,
+     "zeroCellBranch": 5,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.167,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.917,
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:rule": 44,
+     "v2:base": 20,
+     "v2:uncovered": 32,
+     "v3:rule": 44,
+     "v3:base": 20,
+     "v3:uncovered": 32
+    }
+   }
+  },
+  {
+   "six": "HX_sand",
+   "hyp": "a",
+   "human1": "Hydreigon>Garchomp/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.722,
+     "zeroCellBranch": 4,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.25,
+      "alt2": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.827,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.929,
+      "alt1": 0.722,
+      "alt2": 0.83
+     }
+    },
+    "top2": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "legacy": {
+     "mean": 0.972,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 1,
+      "alt2": 0.917
+     }
+    },
+    "quick": {
+     "mean": 0.722,
+     "zeroCellBranch": 4,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.25,
+      "alt2": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.778,
+     "zeroCellBranch": 3,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.5,
+      "alt2": 0.833
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.778,
+     "zeroCellBranch": 3,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.5,
+      "alt2": 0.833
+     }
+    },
+    "decisions": {
+     "v2:base": 48,
+     "v2:uncovered": 72,
+     "v2:rule": 24,
+     "v3:base": 44,
+     "v3:uncovered": 76,
+     "v3:rule": 24
+    }
+   },
+   "savedTest": {
+    "human1": 0.722,
+    "general": 0.827,
+    "top2": 1,
+    "legacy": 0.972,
+    "quick": 0.722,
+    "human1+entry": 0.778
+   },
+   "holdCells": [
+    "reLead:Kingambit/Excadrill/Rotom-Heat",
+    "aceAlt:Kingambit/Excadrill/Dragapult"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.902,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.91,
+      "aceAlt": 0.894
+     }
+    },
+    "legacy": {
+     "mean": 0.792,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.583
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "HX_sand",
+   "hyp": "b",
+   "human1": "Hydreigon>Garchomp/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.389,
+     "zeroCellBranch": 11,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.167,
+      "alt2": 0
+     }
+    },
+    "general": {
+     "mean": 0.761,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 0.906,
+      "alt1": 0.744,
+      "alt2": 0.634
+     }
+    },
+    "top2": {
+     "mean": 0.931,
+     "zeroCellBranch": 0,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.958,
+      "alt2": 0.836
+     }
+    },
+    "legacy": {
+     "mean": 0.778,
+     "zeroCellBranch": 4,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.333,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.389,
+     "zeroCellBranch": 11,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.167,
+      "alt2": 0
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.389,
+     "zeroCellBranch": 11,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.167,
+      "alt2": 0
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.389,
+     "zeroCellBranch": 11,
+     "cellBranches": 18,
+     "byCell": {
+      "rivalLegacy": 1,
+      "alt1": 0.167,
+      "alt2": 0
+     }
+    },
+    "decisions": {
+     "v2:base": 44,
+     "v2:uncovered": 96,
+     "v2:rule": 4,
+     "v3:base": 44,
+     "v3:uncovered": 96,
+     "v3:rule": 4
+    }
+   },
+   "savedTest": {
+    "human1": 0.389,
+    "general": 0.761,
+    "top2": 0.931,
+    "legacy": 0.778,
+    "quick": 0.389,
+    "human1+entry": 0.389
+   },
+   "holdCells": [
+    "reLead:Dragapult/Excadrill/Rotom-Heat",
+    "aceAlt:Kingambit/Excadrill/Dragapult"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.834,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.793,
+      "aceAlt": 0.875
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 96,
+     "v3:uncovered": 96
+    }
+   }
+  },
+  {
+   "six": "HX_fairy",
+   "hyp": "a",
+   "human1": "Metagross>Primarina/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.979,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.917,
+      "alt2": 1
+     }
+    },
+    "general": {
+     "mean": 0.914,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.989,
+      "aceLead": 0.859,
+      "alt1": 0.97,
+      "alt2": 0.837
+     }
+    },
+    "top2": {
+     "mean": 0.865,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.874,
+      "alt1": 0.917,
+      "alt2": 0.669
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 1
+     }
+    },
+    "quick": {
+     "mean": 0.896,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.917,
+      "alt2": 0.667
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.854,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.583,
+      "alt2": 0.833
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.688,
+     "zeroCellBranch": 3,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.75,
+      "alt1": 0.583,
+      "alt2": 0.417
+     }
+    },
+    "decisions": {
+     "v2:base": 48,
+     "v2:uncovered": 100,
+     "v2:rule": 44,
+     "v3:base": 46,
+     "v3:uncovered": 82,
+     "v3:rule": 64
+    }
+   },
+   "savedTest": {
+    "human1": 0.979,
+    "general": 0.914,
+    "top2": 0.865,
+    "legacy": 1,
+    "quick": 0.896,
+    "human1+entry": 0.854
+   },
+   "holdCells": [
+    "reLead:Clefable/Annihilape/Ceruledge",
+    "aceAlt:Ceruledge/Scizor/Azumarill"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "general": {
+     "mean": 0.992,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.988,
+      "aceAlt": 0.995
+     }
+    },
+    "legacy": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 72,
+     "v2:rule": 24,
+     "v3:uncovered": 72,
+     "v3:rule": 24
+    }
+   }
+  },
+  {
+   "six": "HX_fairy",
+   "hyp": "b",
+   "human1": "Metagross>Primarina/Rotom-Wash",
+   "test": {
+    "human1": {
+     "mean": 0.75,
+     "zeroCellBranch": 2,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.917,
+      "aceLead": 0.583,
+      "alt1": 0.667,
+      "alt2": 0.833
+     }
+    },
+    "general": {
+     "mean": 0.893,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.983,
+      "aceLead": 0.916,
+      "alt1": 0.893,
+      "alt2": 0.781
+     }
+    },
+    "top2": {
+     "mean": 0.989,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 1,
+      "alt2": 0.958
+     }
+    },
+    "legacy": {
+     "mean": 0.854,
+     "zeroCellBranch": 1,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 1,
+      "alt1": 0.75,
+      "alt2": 0.667
+     }
+    },
+    "quick": {
+     "mean": 0.896,
+     "zeroCellBranch": 0,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 1,
+      "aceLead": 0.75,
+      "alt1": 1,
+      "alt2": 0.833
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 0.667,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.833,
+      "alt1": 0.833,
+      "alt2": 0.833
+     }
+    },
+    "human1+entryV3": {
+     "mean": 0.667,
+     "zeroCellBranch": 5,
+     "cellBranches": 24,
+     "byCell": {
+      "rivalLegacy": 0.167,
+      "aceLead": 0.833,
+      "alt1": 0.833,
+      "alt2": 0.833
+     }
+    },
+    "decisions": {
+     "v2:rule": 52,
+     "v2:uncovered": 124,
+     "v2:base": 16,
+     "v3:rule": 44,
+     "v3:uncovered": 134,
+     "v3:base": 14
+    }
+   },
+   "savedTest": {
+    "human1": 0.75,
+    "general": 0.893,
+    "top2": 0.989,
+    "legacy": 0.854,
+    "quick": 0.896,
+    "human1+entry": 0.667
+   },
+   "holdCells": [
+    "reLead:Clefable/Ceruledge/Tinkaton",
+    "aceAlt:Ceruledge/Scizor/Azumarill"
+   ],
+   "hold": {
+    "human1": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "general": {
+     "mean": 0.841,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 0.988,
+      "aceAlt": 0.693
+     }
+    },
+    "legacy": {
+     "mean": 0.958,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 0.917
+     }
+    },
+    "human1+entryPR83": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "human1+entryV3": {
+     "mean": 1,
+     "zeroCellBranch": 0,
+     "cellBranches": 12,
+     "byCell": {
+      "reLead": 1,
+      "aceAlt": 1
+     }
+    },
+    "decisions": {
+     "v2:uncovered": 52,
+     "v2:rule": 24,
+     "v2:base": 20,
+     "v3:uncovered": 52,
+     "v3:rule": 24,
+     "v3:base": 20
+    }
+   }
+  }
+ ],
+ "note": "AI vs AI on constructed hypotheses; per cell x branch 2 seeds x 2 sides. NOT a ladder win rate."
+}

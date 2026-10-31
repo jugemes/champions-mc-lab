@@ -1,0 +1,351 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "seeds": [
+  "12637-47962-14230-61198",
+  "16353-56289-13167-25627",
+  "28065-51718-37667-47197",
+  "15485-62954-35696-25533",
+  "24628-16465-49635-33110",
+  "61034-460-30912-46850"
+ ],
+ "ownAI": {
+  "encoreGuard": "speed",
+  "publicMegaAbility": true
+ },
+ "results": {
+  "H0": {
+   "rivalMix": [
+    {
+     "pick": "Golisopod>Primarina/Mimikyu",
+     "w": 0.314
+    },
+    {
+     "pick": "Gholdengo>Golisopod/Primarina",
+     "w": 0.196
+    },
+    {
+     "pick": "Primarina>Golisopod/Gholdengo",
+     "w": 0.183
+    },
+    {
+     "pick": "Mimikyu>Golisopod/Gholdengo",
+     "w": 0.129
+    },
+    {
+     "pick": "Golisopod>Primarina/Gholdengo",
+     "w": 0.111
+    },
+    {
+     "pick": "Garchomp>Golisopod/Gholdengo",
+     "w": 0.068
+    }
+   ],
+   "own": [
+    {
+     "pick": "Hydreigon>Primarina/Rotom-Wash",
+     "inSample": 0.229,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "10/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "0/12",
+      "Mimikyu>Golisopod/Gholdengo": "0/12",
+      "Golisopod>Primarina/Gholdengo": "0/12",
+      "Garchomp>Golisopod/Gholdengo": "2/12"
+     },
+     "outOfSample": 0.273
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "inSample": 0.228,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "0/12",
+      "Gholdengo>Golisopod/Primarina": "6/12",
+      "Primarina>Golisopod/Gholdengo": "7/12",
+      "Mimikyu>Golisopod/Gholdengo": "10/12",
+      "Golisopod>Primarina/Gholdengo": "0/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.312
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "inSample": 0.227,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "0/12",
+      "Gholdengo>Golisopod/Primarina": "4/12",
+      "Primarina>Golisopod/Gholdengo": "2/12",
+      "Mimikyu>Golisopod/Gholdengo": "0/12",
+      "Golisopod>Primarina/Gholdengo": "0/12",
+      "Garchomp>Golisopod/Gholdengo": "4/12"
+     },
+     "outOfSample": 0.118
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "inSample": 0.226,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "2/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "0/12",
+      "Mimikyu>Golisopod/Gholdengo": "0/12",
+      "Golisopod>Primarina/Gholdengo": "12/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.163
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "inSample": 0.224,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "0/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "12/12",
+      "Mimikyu>Golisopod/Gholdengo": "6/12",
+      "Golisopod>Primarina/Gholdengo": "0/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.248
+    },
+    {
+     "pick": "Primarina>Hydreigon/Rotom-Wash",
+     "inSample": 0.227,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "2/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "0/12",
+      "Mimikyu>Golisopod/Gholdengo": "0/12",
+      "Golisopod>Primarina/Gholdengo": "12/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.163
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "inSample": 0.224,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "0/12",
+      "Gholdengo>Golisopod/Primarina": "12/12",
+      "Primarina>Golisopod/Gholdengo": "4/12",
+      "Mimikyu>Golisopod/Gholdengo": "0/12",
+      "Golisopod>Primarina/Gholdengo": "0/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.257
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "inSample": 0.05,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "1/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "0/12",
+      "Mimikyu>Golisopod/Gholdengo": "2/12",
+      "Golisopod>Primarina/Gholdengo": "1/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.057
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "inSample": 0.152,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "6/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "3/12",
+      "Mimikyu>Golisopod/Gholdengo": "2/12",
+      "Golisopod>Primarina/Gholdengo": "4/12",
+      "Garchomp>Golisopod/Gholdengo": "1/12"
+     },
+     "outOfSample": 0.267
+    },
+    {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "inSample": 0.09,
+     "cells": {
+      "Golisopod>Primarina/Mimikyu": "2/12",
+      "Gholdengo>Golisopod/Primarina": "0/12",
+      "Primarina>Golisopod/Gholdengo": "0/12",
+      "Mimikyu>Golisopod/Gholdengo": "2/12",
+      "Golisopod>Primarina/Gholdengo": "1/12",
+      "Garchomp>Golisopod/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.083
+    }
+   ]
+  },
+  "H1": {
+   "rivalMix": [
+    {
+     "pick": "Gholdengo>Primarina/Mimikyu",
+     "w": 0.215
+    },
+    {
+     "pick": "Mimikyu>Garchomp/Primarina",
+     "w": 0.192
+    },
+    {
+     "pick": "Hippowdon>Garchomp/Gholdengo",
+     "w": 0.17
+    },
+    {
+     "pick": "Gholdengo>Garchomp/Primarina",
+     "w": 0.114
+    },
+    {
+     "pick": "Primarina>Mimikyu/Gholdengo",
+     "w": 0.09
+    },
+    {
+     "pick": "Hippowdon>Primarina/Mimikyu",
+     "w": 0.085
+    },
+    {
+     "pick": "Hippowdon>Primarina/Gholdengo",
+     "w": 0.072
+    },
+    {
+     "pick": "Mimikyu>Primarina/Gholdengo",
+     "w": 0.062
+    }
+   ],
+   "own": [
+    {
+     "pick": "Hydreigon>Metagross/Rotom-Wash",
+     "inSample": 0.581,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "8/12",
+      "Mimikyu>Garchomp/Primarina": "6/12",
+      "Hippowdon>Garchomp/Gholdengo": "10/12",
+      "Gholdengo>Garchomp/Primarina": "12/12",
+      "Primarina>Mimikyu/Gholdengo": "6/12",
+      "Hippowdon>Primarina/Mimikyu": "12/12",
+      "Hippowdon>Primarina/Gholdengo": "12/12",
+      "Mimikyu>Primarina/Gholdengo": "8/12"
+     },
+     "outOfSample": 0.738
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "inSample": 0.584,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "4/12",
+      "Mimikyu>Garchomp/Primarina": "8/12",
+      "Hippowdon>Garchomp/Gholdengo": "2/12",
+      "Gholdengo>Garchomp/Primarina": "8/12",
+      "Primarina>Mimikyu/Gholdengo": "0/12",
+      "Hippowdon>Primarina/Mimikyu": "5/12",
+      "Hippowdon>Primarina/Gholdengo": "10/12",
+      "Mimikyu>Primarina/Gholdengo": "1/12"
+     },
+     "outOfSample": 0.405
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "inSample": 0.582,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "4/12",
+      "Mimikyu>Garchomp/Primarina": "5/12",
+      "Hippowdon>Garchomp/Gholdengo": "8/12",
+      "Gholdengo>Garchomp/Primarina": "0/12",
+      "Primarina>Mimikyu/Gholdengo": "10/12",
+      "Hippowdon>Primarina/Mimikyu": "11/12",
+      "Hippowdon>Primarina/Gholdengo": "12/12",
+      "Mimikyu>Primarina/Gholdengo": "6/12"
+     },
+     "outOfSample": 0.521
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "inSample": 0.579,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "10/12",
+      "Mimikyu>Garchomp/Primarina": "2/12",
+      "Hippowdon>Garchomp/Gholdengo": "12/12",
+      "Gholdengo>Garchomp/Primarina": "2/12",
+      "Primarina>Mimikyu/Gholdengo": "6/12",
+      "Hippowdon>Primarina/Mimikyu": "0/12",
+      "Hippowdon>Primarina/Gholdengo": "0/12",
+      "Mimikyu>Primarina/Gholdengo": "12/12"
+     },
+     "outOfSample": 0.507
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "inSample": 0.583,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "0/12",
+      "Mimikyu>Garchomp/Primarina": "12/12",
+      "Hippowdon>Garchomp/Gholdengo": "12/12",
+      "Gholdengo>Garchomp/Primarina": "5/12",
+      "Primarina>Mimikyu/Gholdengo": "8/12",
+      "Hippowdon>Primarina/Mimikyu": "0/12",
+      "Hippowdon>Primarina/Gholdengo": "11/12",
+      "Mimikyu>Primarina/Gholdengo": "7/12"
+     },
+     "outOfSample": 0.572
+    },
+    {
+     "pick": "Metagross>Hydreigon/Rotom-Wash",
+     "inSample": 0.583,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "8/12",
+      "Mimikyu>Garchomp/Primarina": "10/12",
+      "Hippowdon>Garchomp/Gholdengo": "0/12",
+      "Gholdengo>Garchomp/Primarina": "12/12",
+      "Primarina>Mimikyu/Gholdengo": "8/12",
+      "Hippowdon>Primarina/Mimikyu": "12/12",
+      "Hippowdon>Primarina/Gholdengo": "0/12",
+      "Mimikyu>Primarina/Gholdengo": "6/12"
+     },
+     "outOfSample": 0.593
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "inSample": 0.583,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "11/12",
+      "Mimikyu>Garchomp/Primarina": "12/12",
+      "Hippowdon>Garchomp/Gholdengo": "4/12",
+      "Gholdengo>Garchomp/Primarina": "1/12",
+      "Primarina>Mimikyu/Gholdengo": "6/12",
+      "Hippowdon>Primarina/Mimikyu": "5/12",
+      "Hippowdon>Primarina/Gholdengo": "0/12",
+      "Mimikyu>Primarina/Gholdengo": "9/12"
+     },
+     "outOfSample": 0.582
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "inSample": 0.572,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "10/12",
+      "Mimikyu>Garchomp/Primarina": "8/12",
+      "Hippowdon>Garchomp/Gholdengo": "10/12",
+      "Gholdengo>Garchomp/Primarina": "0/12",
+      "Primarina>Mimikyu/Gholdengo": "9/12",
+      "Hippowdon>Primarina/Mimikyu": "11/12",
+      "Hippowdon>Primarina/Gholdengo": "12/12",
+      "Mimikyu>Primarina/Gholdengo": "4/12"
+     },
+     "outOfSample": 0.687
+    },
+    {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "inSample": 0.528,
+     "cells": {
+      "Gholdengo>Primarina/Mimikyu": "4/12",
+      "Mimikyu>Garchomp/Primarina": "0/12",
+      "Hippowdon>Garchomp/Gholdengo": "12/12",
+      "Gholdengo>Garchomp/Primarina": "12/12",
+      "Primarina>Mimikyu/Gholdengo": "2/12",
+      "Hippowdon>Primarina/Mimikyu": "9/12",
+      "Hippowdon>Primarina/Gholdengo": "12/12",
+      "Mimikyu>Primarina/Gholdengo": "0/12"
+     },
+     "outOfSample": 0.506
+    }
+   ]
+  }
+ }
+}

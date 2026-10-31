@@ -1,0 +1,1437 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "own": "reportedLive (reported-live-roster-20261027.js)",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "gates": [
+  "abstain",
+  "v3",
+  "t2only",
+  "loco",
+  "loco_t2"
+ ],
+ "note": "AI vs AI, constructed hypotheses, 2 seeds x 2 sides per cell x branch. NOT a ladder win rate.",
+ "frozenGate": "loco_t2",
+ "finalSeedBase": 8680000,
+ "finalCellsRule": "PR #88 phaseCells (DEV in used, disjoint asserted)",
+ "FINAL": {
+  "games": 5280,
+  "seeds": "hashSeed(8680000+ci*100+{0,1}), both sides",
+  "cells": {
+   "A_golisopod/H0": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Garchomp/Golisopod"
+   ],
+   "A_golisopod/H1": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Gholdengo/Golisopod"
+   ],
+   "A_golisopod/H2": [
+    "aceBack2:Primarina/Golisopod/Gholdengo",
+    "swapIn:Primarina/Garchomp/Golisopod"
+   ],
+   "B_lucarioZ/case": [
+    "aceBack2:Archaludon/Lucario/Mimikyu",
+    "swapIn:Primarina/Garchomp/Archaludon"
+   ],
+   "B_lucarioZ/B2": [
+    "aceBack2:Archaludon/Lucario/Mimikyu",
+    "swapIn:Primarina/Garchomp/Archaludon"
+   ],
+   "C_charizard/Y": [
+    "aceBack2:Gholdengo/Charizard/Garchomp",
+    "swapIn:Baxcalibur/Primarina/Charizard"
+   ],
+   "C_charizard/X": [
+    "aceBack2:Gholdengo/Charizard/Garchomp",
+    "swapIn:Baxcalibur/Primarina/Charizard"
+   ],
+   "Indeedee/scarf": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Gengar/Garchomp/Umbreon"
+   ],
+   "Indeedee/sash": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Garchomp/Gengar/Indeedee"
+   ],
+   "Indeedee/quickclaw": [
+    "aceBack2:Garchomp/Indeedee/Gengar",
+    "swapIn:Garchomp/Gengar/Indeedee"
+   ],
+   "E_sun/case": [
+    "aceBack2:Raichu/Meowscarada/Charizard",
+    "swapIn:Garchomp/Meowscarada/Charizard"
+   ],
+   "E_sun/E2": [
+    "aceBack2:Raichu/Meowscarada/Charizard",
+    "swapIn:Garchomp/Meowscarada/Charizard"
+   ],
+   "HX_rain/a": [
+    "aceBack2:Gholdengo/Swampert/Dragonite",
+    "swapIn:Rillaboom/Dragonite/Gholdengo"
+   ],
+   "HX_rain/b": [
+    "aceBack2:Gholdengo/Swampert/Dragonite",
+    "swapIn:Rillaboom/Dragonite/Gholdengo"
+   ],
+   "HX_gyarados/a": [
+    "aceBack2:Gholdengo/Garchomp/Corviknight",
+    "swapIn:Baxcalibur/Gholdengo/Garchomp"
+   ],
+   "HX_gyarados/b": [
+    "aceBack2:Gholdengo/Garchomp/Corviknight",
+    "swapIn:Gyarados/Mimikyu/Gholdengo"
+   ],
+   "HOLD_psychic_offense/case": [
+    "aceBack2:Sneasler/Alakazam/Armarouge",
+    "swapIn:Sneasler/Armarouge/Alakazam"
+   ],
+   "HOLD_sun_balance/case": [
+    "aceBack2:Eelektross/Charizard/Toxapex",
+    "swapIn:Skarmory/Dragonite/Toxapex"
+   ],
+   "HX_sand/a": [
+    "aceBack2:Hippowdon/Excadrill/Sylveon",
+    "swapIn:Hippowdon/Excadrill/Dragapult"
+   ],
+   "HX_sand/b": [
+    "aceBack2:Rotom-Heat/Excadrill/Kingambit",
+    "swapIn:Hippowdon/Excadrill/Dragapult"
+   ],
+   "HX_fairy/a": [
+    "aceBack2:Annihilape/Scizor/Clefable",
+    "swapIn:Annihilape/Clefable/Scizor"
+   ],
+   "HX_fairy/b": [
+    "aceBack2:Annihilape/Scizor/Clefable",
+    "swapIn:Ceruledge/Clefable/Scizor"
+   ]
+  },
+  "summary": {
+   "abstain": {
+    "hypMean": 0.695,
+    "hypMeanRat": 0.69,
+    "abstainHypMean": 0.695,
+    "abstainHypMeanRat": 0.69,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 912,
+     "T1:uncovered": 576,
+     "T2:abstain": 58,
+     "T2:base": 86,
+     "T1:base": 120
+    },
+    "rulesFired": 0,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.146,
+      "abstain": 0.146,
+      "nRat": 40,
+      "meanRat": 0.075,
+      "abstainRat": 0.075
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.25,
+      "abstain": 0.25,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.15,
+      "abstainRat": 0.15
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.75,
+      "abstain": 0.75,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   },
+   "v3": {
+    "hypMean": 0.722,
+    "hypMeanRat": 0.732,
+    "abstainHypMean": 0.695,
+    "abstainHypMeanRat": 0.69,
+    "worse": 1,
+    "better": 5,
+    "worseAll": 1,
+    "betterAll": 4,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 49,
+     "gateLost": 21
+    },
+    "decisions": {
+     "T1:rule": 360,
+     "T2:uncovered": 708,
+     "T2:base": 290,
+     "T1:uncovered": 576,
+     "T2:rule": 58,
+     "T1:base": 120
+    },
+    "rulesFired": 418,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.396,
+      "abstain": 0.146,
+      "nRat": 40,
+      "meanRat": 0.425,
+      "abstainRat": 0.075
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.333,
+      "abstain": 0.25,
+      "nRat": 40,
+      "meanRat": 0.4,
+      "abstainRat": 0.2
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.375,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.15
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.45
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.75,
+      "abstain": 0.75,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 1
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.542,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.55,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.542,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.55,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 0.917,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 0.9,
+      "abstainRat": 1
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": [
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "switch",
+      "seed": [
+       11574,
+       38484,
+       41576,
+       22508
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |switch|p2a: Golisopod|Golisopod, L50, M|182/182",
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T2 |-mega|p2a: Golisopod|Golisopod|Golisopite",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Golisopod",
+       "T2 |-damage|p2a: Golisopod|140/182",
+       "T2 |move|p2a: Golisopod|Swords Dance|p2a: Golisopod",
+       "T2 |-boost|p2a: Golisopod|atk|2",
+       "T3 |move|p1a: Primarina|Encore|p2a: Golisopod",
+       "T3 |-start|p2a: Golisopod|Encore",
+       "T3 |move|p2a: Golisopod|Swords Dance|p2a: Golisopod",
+       "T3 |-boost|p2a: Golisopod|atk|2"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "utility",
+      "seed": [
+       11574,
+       38484,
+       41576,
+       22508
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p2a: Primarina|Encore||[still]",
+       "T2 |-fail|p2a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|97/187",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|102/187",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|6/187",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|52/187|[from] item: Sitrus Berry"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H0",
+      "cell": "swapIn:Primarina/Garchomp/Golisopod",
+      "branch": "utility",
+      "seed": [
+       11574,
+       38484,
+       41576,
+       22508
+      ],
+      "reverse": true,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T2 |-damage|p1a: Primarina|106/187",
+       "T2 |-unboost|p1a: Primarina|spa|1",
+       "T2 |move|p1a: Primarina|Encore|p2a: Primarina",
+       "T2 |-start|p2a: Primarina|Encore",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|19/187",
+       "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p1a: Primarina|65/187|[from] item: Sitrus Berry",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|127/187"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H1",
+      "cell": "aceBack2:Primarina/Golisopod/Gholdengo",
+      "branch": "utility",
+      "seed": [
+       53326,
+       64775,
+       63573,
+       10917
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|100/187",
+       "T2 |move|p2a: Primarina|Encore|p1a: Primarina",
+       "T2 |-start|p1a: Primarina|Encore",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|12/187",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|58/187|[from] item: Sitrus Berry",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|102/187"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H1",
+      "cell": "aceBack2:Primarina/Golisopod/Gholdengo",
+      "branch": "utility",
+      "seed": [
+       43372,
+       20525,
+       51275,
+       12158
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|105/187",
+       "T2 |move|p2a: Primarina|Encore|p1a: Primarina",
+       "T2 |-start|p1a: Primarina|Encore",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|15/187",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|61/187|[from] item: Sitrus Berry",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|105/187"
+      ]
+     },
+     {
+      "hyp": "A_golisopod/H1",
+      "cell": "swapIn:Primarina/Gholdengo/Golisopod",
+      "branch": "utility",
+      "seed": [
+       53326,
+       64775,
+       63573,
+       10917
+      ],
+      "reverse": false,
+      "fired": [
+       "T1 move:Encore"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Primarina|Encore||[still]",
+       "T1 |-fail|p1a: Primarina",
+       "T1 |move|p2a: Primarina|Encore||[still]",
+       "T1 |-fail|p2a: Primarina",
+       "T2 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T2 |-damage|p2a: Primarina|100/187",
+       "T2 |move|p2a: Primarina|Encore|p1a: Primarina",
+       "T2 |-start|p1a: Primarina|Encore",
+       "T3 |move|p1a: Primarina|Moonblast|p2a: Primarina",
+       "T3 |-damage|p2a: Primarina|12/187",
+       "T3 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+       "T3 |-heal|p2a: Primarina|58/187|[from] item: Sitrus Berry",
+       "T3 |move|p2a: Primarina|Moonblast|p1a: Primarina",
+       "T3 |-damage|p1a: Primarina|102/187"
+      ]
+     }
+    ]
+   },
+   "t2only": {
+    "hypMean": 0.702,
+    "hypMeanRat": 0.698,
+    "abstainHypMean": 0.695,
+    "abstainHypMeanRat": 0.69,
+    "worse": 0,
+    "better": 2,
+    "worseAll": 0,
+    "betterAll": 1,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 10,
+     "gateLost": 3
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 912,
+     "T1:uncovered": 576,
+     "T2:rule": 58,
+     "T2:base": 86,
+     "T1:base": 120
+    },
+    "rulesFired": 58,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.146,
+      "abstain": 0.146,
+      "nRat": 40,
+      "meanRat": 0.075,
+      "abstainRat": 0.075
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.25,
+      "abstain": 0.25,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.15,
+      "abstainRat": 0.15
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.45
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.75,
+      "abstain": 0.75,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 0.979,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 0.975,
+      "abstainRat": 1
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.542,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.55,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.542,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.55,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": [
+     {
+      "hyp": "B_lucarioZ/case",
+      "cell": "aceBack2:Archaludon/Lucario/Mimikyu",
+      "branch": "attack",
+      "seed": [
+       51939,
+       49954,
+       5711,
+       11853
+      ],
+      "reverse": false,
+      "fired": [
+       "T2 switch:Garchomp"
+      ],
+      "gateLines": [
+       "T1 |move|p1a: Rotom|Will-O-Wisp|p2a: Archaludon",
+       "T1 |-status|p2a: Archaludon|brn",
+       "T1 |move|p2a: Archaludon|Draco Meteor|p1a: Rotom",
+       "T1 |-damage|p1a: Rotom|37/157",
+       "T1 |-unboost|p2a: Archaludon|spa|2",
+       "T1 |-enditem|p2a: Archaludon|White Herb",
+       "T1 |-heal|p1a: Rotom|46/157|[from] item: Leftovers",
+       "T1 |-damage|p2a: Archaludon|185/197 brn|[from] brn",
+       "T2 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+       "T2 |move|p2a: Archaludon|Draco Meteor|p1a: Garchomp",
+       "T2 |-damage|p1a: Garchomp|0 fnt",
+       "T2 |-unboost|p2a: Archaludon|spa|2",
+       "T2 |faint|p1a: Garchomp",
+       "T2 |-damage|p2a: Archaludon|173/197 brn|[from] brn",
+       "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+       "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+       "T3 |move|p1a: Metagross|Psychic Fangs|p2a: Archaludon",
+       "T3 |-damage|p2a: Archaludon|130/197 brn",
+       "T3 |-boost|p2a: Archaludon|def|1",
+       "T3 |move|p2a: Archaludon|Stealth Rock|p1a: Metagross",
+       "T3 |-sidestart|p1: p1|move: Stealth Rock",
+       "T3 |-damage|p2a: Archaludon|118/197 brn|[from] brn"
+      ]
+     },
+     {
+      "hyp": "B_lucarioZ/case",
+      "cell": "aceBack2:Archaludon/Lucario/Mimikyu",
+      "branch": "attack",
+      "seed": [
+       51939,
+       49954,
+       5711,
+       11853
+      ],
+      "reverse": true,
+      "fired": [
+       "T2 switch:Garchomp"
+      ],
+      "gateLines": [
+       "T1 |move|p2a: Rotom|Will-O-Wisp|p1a: Archaludon",
+       "T1 |-status|p1a: Archaludon|brn",
+       "T1 |move|p1a: Archaludon|Draco Meteor|p2a: Rotom",
+       "T1 |-damage|p2a: Rotom|37/157",
+       "T1 |-unboost|p1a: Archaludon|spa|2",
+       "T1 |-enditem|p1a: Archaludon|White Herb",
+       "T1 |-heal|p2a: Rotom|46/157|[from] item: Leftovers",
+       "T1 |-damage|p1a: Archaludon|185/197 brn|[from] brn",
+       "T2 |switch|p2a: Garchomp|Garchomp, L50, F|185/185",
+       "T2 |move|p1a: Archaludon|Draco Meteor|p2a: Garchomp",
+       "T2 |-damage|p2a: Garchomp|0 fnt",
+       "T2 |-unboost|p1a: Archaludon|spa|2",
+       "T2 |faint|p2a: Garchomp",
+       "T2 |-damage|p1a: Archaludon|173/197 brn|[from] brn",
+       "T2 |switch|p2a: Metagross|Metagross, L50|157/157",
+       "T3 |-mega|p2a: Metagross|Metagross|Metagrossite",
+       "T3 |move|p2a: Metagross|Psychic Fangs|p1a: Archaludon",
+       "T3 |-damage|p1a: Archaludon|130/197 brn",
+       "T3 |-boost|p1a: Archaludon|def|1",
+       "T3 |move|p1a: Archaludon|Stealth Rock|p2a: Metagross",
+       "T3 |-sidestart|p2: p2|move: Stealth Rock",
+       "T3 |-damage|p1a: Archaludon|118/197 brn|[from] brn"
+      ]
+     },
+     {
+      "hyp": "E_sun/case",
+      "cell": "swapIn:Garchomp/Meowscarada/Charizard",
+      "branch": "switch",
+      "seed": [
+       12670,
+       14197,
+       7273,
+       10819
+      ],
+      "reverse": false,
+      "fired": [
+       "T2 switch:Metagross"
+      ],
+      "gateLines": [
+       "T1 |switch|p2a: Meowscarada|Meowscarada, L50, F|153/153",
+       "T1 |move|p1a: Rotom|Will-O-Wisp|p2a: Meowscarada",
+       "T1 |-status|p2a: Meowscarada|brn",
+       "T1 |-damage|p2a: Meowscarada|144/153 brn|[from] brn",
+       "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+       "T2 |move|p2a: Meowscarada|Flower Trick|p1a: Metagross",
+       "T2 |-start|p2a: Meowscarada|typechange|Grass|[from] ability: Protean",
+       "T2 |-damage|p1a: Metagross|132/157",
+       "T2 |-damage|p2a: Meowscarada|129/153 brn|[from] item: Life Orb",
+       "T2 |-damage|p2a: Meowscarada|120/153 brn|[from] brn",
+       "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+       "T3 |move|p2a: Meowscarada|Sucker Punch|p1a: Metagross",
+       "T3 |-damage|p1a: Metagross|81/157",
+       "T3 |-damage|p2a: Meowscarada|105/153 brn|[from] item: Life Orb",
+       "T3 |move|p1a: Metagross|Meteor Mash|p2a: Meowscarada",
+       "T3 |-damage|p2a: Meowscarada|0 fnt",
+       "T3 |faint|p2a: Meowscarada",
+       "T3 |switch|p2a: Garchomp|Garchomp, L50, M|185/185"
+      ]
+     }
+    ]
+   },
+   "loco": {
+    "hypMean": 0.695,
+    "hypMeanRat": 0.69,
+    "abstainHypMean": 0.695,
+    "abstainHypMeanRat": 0.69,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 336,
+     "T2:uncovered": 892,
+     "T1:uncovered": 576,
+     "T2:abstain": 58,
+     "T2:base": 106,
+     "T1:rule": 24,
+     "T1:base": 120
+    },
+    "rulesFired": 24,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.146,
+      "abstain": 0.146,
+      "nRat": 40,
+      "meanRat": 0.075,
+      "abstainRat": 0.075
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.25,
+      "abstain": 0.25,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.15,
+      "abstainRat": 0.15
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.75,
+      "abstain": 0.75,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   },
+   "loco_t2": {
+    "hypMean": 0.695,
+    "hypMeanRat": 0.69,
+    "abstainHypMean": 0.695,
+    "abstainHypMeanRat": 0.69,
+    "worse": 0,
+    "better": 0,
+    "worseAll": 0,
+    "betterAll": 0,
+    "games": 1056,
+    "pairedFlips": {
+     "gateWon": 0,
+     "gateLost": 0
+    },
+    "decisions": {
+     "T1:abstain": 360,
+     "T2:uncovered": 912,
+     "T1:uncovered": 576,
+     "T2:abstain": 58,
+     "T2:base": 86,
+     "T1:base": 120
+    },
+    "rulesFired": 0,
+    "perHyp": {
+     "A_golisopod/H0": {
+      "n": 48,
+      "mean": 0.146,
+      "abstain": 0.146,
+      "nRat": 40,
+      "meanRat": 0.075,
+      "abstainRat": 0.075
+     },
+     "A_golisopod/H1": {
+      "n": 48,
+      "mean": 0.25,
+      "abstain": 0.25,
+      "nRat": 40,
+      "meanRat": 0.2,
+      "abstainRat": 0.2
+     },
+     "A_golisopod/H2": {
+      "n": 48,
+      "mean": 0.188,
+      "abstain": 0.188,
+      "nRat": 40,
+      "meanRat": 0.15,
+      "abstainRat": 0.15
+     },
+     "B_lucarioZ/case": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "B_lucarioZ/B2": {
+      "n": 48,
+      "mean": 0.75,
+      "abstain": 0.75,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "C_charizard/Y": {
+      "n": 48,
+      "mean": 0.083,
+      "abstain": 0.083,
+      "nRat": 40,
+      "meanRat": 0.1,
+      "abstainRat": 0.1
+     },
+     "C_charizard/X": {
+      "n": 48,
+      "mean": 0.042,
+      "abstain": 0.042,
+      "nRat": 40,
+      "meanRat": 0.05,
+      "abstainRat": 0.05
+     },
+     "Indeedee/scarf": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/sash": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "Indeedee/quickclaw": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "E_sun/E2": {
+      "n": 48,
+      "mean": 0.5,
+      "abstain": 0.5,
+      "nRat": 40,
+      "meanRat": 0.5,
+      "abstainRat": 0.5
+     },
+     "HX_rain/a": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_rain/b": {
+      "n": 48,
+      "mean": 0.792,
+      "abstain": 0.792,
+      "nRat": 40,
+      "meanRat": 0.8,
+      "abstainRat": 0.8
+     },
+     "HX_gyarados/a": {
+      "n": 48,
+      "mean": 0.458,
+      "abstain": 0.458,
+      "nRat": 40,
+      "meanRat": 0.45,
+      "abstainRat": 0.45
+     },
+     "HX_gyarados/b": {
+      "n": 48,
+      "mean": 0.875,
+      "abstain": 0.875,
+      "nRat": 40,
+      "meanRat": 0.85,
+      "abstainRat": 0.85
+     },
+     "HOLD_psychic_offense/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HOLD_sun_balance/case": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_sand/b": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/a": {
+      "n": 48,
+      "mean": 1,
+      "abstain": 1,
+      "nRat": 40,
+      "meanRat": 1,
+      "abstainRat": 1
+     },
+     "HX_fairy/b": {
+      "n": 48,
+      "mean": 0.958,
+      "abstain": 0.958,
+      "nRat": 40,
+      "meanRat": 0.95,
+      "abstainRat": 0.95
+     }
+    },
+    "lossExamples": []
+   }
+  }
+ },
+ "seconds": 30
+}
