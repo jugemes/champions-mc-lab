@@ -135,6 +135,10 @@ class Bot{
     // a non-Mega forme change clears a stale ability. Only the public species
     // name on the protocol line is read.
     this.publicMegaAbility=Boolean(options.publicMegaAbility);
+    // Research opt-in: preserve a previously revealed move across a *public*
+    // Mega detailschange. Never add an unobserved move or inspect private sets.
+    // Disabled by default to keep existing saved AI comparisons reproducible.
+    this.publicMoveMemory=Boolean(options.publicMoveMemory);
     // PR #76 P0-A: opt-in, default off so saved results replay unchanged.
     // publicCondition: foe HP/status from every public condition string
     // (switch/drag/replace, -damage/-heal/-sethp, faint) with parseCondition;
@@ -153,7 +157,20 @@ class Bot{
         const a=line.split('|');
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
+          const previousForm=this.foeActive;
           this.foeActive=nameOf(a[3]);
+          if(this.publicMoveMemory&&a[1]==='detailschange'){
+            const oldSp=this.dex.species.get(previousForm);
+            const newSp=this.dex.species.get(this.foeActive);
+            // Illusion and unrelated form/species changes must NOT transfer moves.
+            if(oldSp.exists&&newSp.exists&&oldSp.baseSpecies===newSp.baseSpecies
+                &&(oldSp.isMega||newSp.isMega)){
+              const known=[...new Set([...(this.seenMoves[previousForm]||[]),
+                ...(this.seenMoves[this.foeActive]||[])])];
+              for(const key of [previousForm,this.foeActive,newSp.baseSpecies])
+                this.seenMoves[key]=known.slice();
+            }
+          }
           const megaAbility=this.publicMegaAbility?fixedMegaAbility(this.dex,this.foeActive):'';
           if(this.publicMegaAbility&&a[1]==='detailschange')this.foeAbility=megaAbility;
           if(a[1]!=='detailschange'){
@@ -221,7 +238,16 @@ class Bot{
         }
         if(a[1]==='-damage'&&line.includes('item: Rocky Helmet')&&line.includes('[of] '+this.foe+'a:'))this.foeItem='Rocky Helmet';
         if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:')){this.lastMove=a[3];this.foeLastMoveTurn=this.turn;
-          const old=this.seenMoves[this.foeActive]||[];if(!old.includes(a[3]))old.push(a[3]);this.seenMoves[this.foeActive]=old;}
+          const old=this.seenMoves[this.foeActive]||[];if(!old.includes(a[3]))old.push(a[3]);this.seenMoves[this.foeActive]=old;
+          if(this.publicMoveMemory){
+            const sp=this.dex.species.get(this.foeActive);
+            if(sp.exists&&sp.isMega){
+              const base=this.seenMoves[sp.baseSpecies]||[];
+              if(!base.includes(a[3]))base.push(a[3]);
+              this.seenMoves[sp.baseSpecies]=base;
+            }
+          }
+        }
         if(a[1]==='move'&&a[2]?.startsWith(this.side+'a:')){
           const move=canonical(a[3]);
           if(move==='trick')this.lastStatuses.trickDone=true;
