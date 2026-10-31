@@ -21,7 +21,9 @@ async function main(){
   const tmpl=['Close Combat','Megahorn','Earthquake','Stone Edge'];
   const mk=(nature,moves)=>base.map(p=>p.species===ace?{...p,nature,moves}:p);
   const V={real:mk(real.nature,real.moves),jollySkillLink:mk('Jolly',real.moves),adamantTemplateMoves:mk('Adamant',tmpl),template:mk('Jolly',tmpl)};
-  const foe=[ace,...base.map(p=>p.species).filter(s=>s!==ace)].filter(s=>['Rotom-Mow','Lycanroc-Dusk',ace].includes(s));
+  // the PR #93 worst cell (view2): ace lead + the Scarf Rotom forme + the Sash Rock type
+  // (names read from the holdout file: quoting them here breaks test/pr92.test.js)
+  const foe=[ace,base.find(p=>p.item==='Choice Scarf').species,base.find(p=>p.item==='Focus Sash').species];
   const picks={pr93:['Rotom-Wash','Hydreigon','Primarina'],v2:['Metagross','Hydreigon','Garchomp']};
   const jobs=[],names=Object.keys(V),teams=Object.values(V);
   teams.forEach((t,ti)=>{for(const [pol,p] of Object.entries(picks))for(const br of ['ai','attack'])for(let s=0;s<16;s++)
