@@ -128,7 +128,7 @@ test('A six: paired full Battle matrix of 3+lead, rational alternatives and opt-
     SEEDS.length*2*2);
   // t.diagnostic is retained in the real Actions logs; never invent results.
   t.diagnostic('A_TRIO_MATRIX_SUMMARY '+JSON.stringify({total,pairs:total/2,
-    errors,diffOutcome,cleanWinnerDiff,seedCount:SEEDS.length,
+    errors,diffOutcome,clearWinnerDiff,seedCount:SEEDS.length,
     publicSix:caseA.team.map(p=>p.species),candidates:CANDIDATES,
     opponentScenarios:OPPONENTS}));
   for(const [cell,stats] of Object.entries(by))
