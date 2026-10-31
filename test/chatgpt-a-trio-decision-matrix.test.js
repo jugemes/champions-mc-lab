@@ -20,6 +20,7 @@ const CANDIDATES={
 const OPPONENTS={
   A_seenThenMega:{group:'forcedA',script:'seenThenMega'},
   A_megaSetup:{group:'forcedA',script:'megaSetup'},
+  A_setupEscape:{group:'forcedA',script:'megaSetupEscape'},
   A_megaAttack:{group:'forcedA',script:'megaAttack'},
   A_switch:{group:'forcedA',script:'switch'},
   B_balance:{group:'forcedB',script:'ai'}
@@ -40,12 +41,16 @@ function rivalScript(kind){
     // Garchomp threatens Metagross; Mimikyu can absorb one attack via Disguise.
     if(kind==='switch'&&info.turn===1)
       return switchTo(req,bot.foeActive.startsWith('Metagross')?'Garchomp':'Mimikyu');
+    // Counterfactual response to the PUBLIC Encore lock. Staying and using
+    // SD for 3 more turns is not automatically rational if a bench exists.
+    if(kind==='megaSetupEscape'&&info.turn>=2&&bot.ownEncored)
+      return switchTo(req,bot.foeActive.startsWith('Metagross')?'Garchomp':'Mimikyu');
     if(!species.startsWith('Golisopod'))return null;
     let desired='',mega=false;
     if(kind==='seenThenMega'){
       if(info.turn===1)desired='Sucker Punch'; // before Mega: public move
       if(info.turn===2){desired='Swords Dance';mega=true;}
-    }else if(kind==='megaSetup'){
+    }else if(kind==='megaSetup'||kind==='megaSetupEscape'){
       if(info.turn===1){desired='Swords Dance';mega=true;}
       if(info.turn===2)desired='Leech Life';
     }else if(kind==='megaAttack'){
