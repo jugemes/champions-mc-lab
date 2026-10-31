@@ -15,9 +15,9 @@
 |---|---|
 | `b622b2c` | P1：`condSig` のネスト検証（下記）。`pr84-reaudit.js` の utility 原因分類を `utilCause()` に**無変更で**切り出し |
 | `6e38df3` | **戦闘前の事前宣言**：DEV/FINALセル、未見公開6（3構築×2仮説）、seed、ゲート5種と選択規則（`holdout-20261031-pr86.js`, `pr86-safe-entry.js`, `pr86-eval.js`） |
-| （次） | Pain Split の実HP判定（opt-in V2）＋テスト |
-| （次） | DEV結果と **ゲート凍結ファイル** `reports/data/pr86-gate-freeze.json`（FINAL前） |
-| （最後） | FINAL＋UNSEEN結果、本レポート |
+| `94af6c5` | Pain Split の実HP判定（opt-in V2）＋テスト |
+| `a0e51e2` | DEV結果と **ゲート凍結ファイル** `reports/data/pr86-gate-freeze.json`（FINAL前） |
+| `27d90f7`＋本修正 | FINAL＋UNSEEN結果、本レポート |
 
 ## 1. 再現（R）
 - PR #85 の stage1（14,280戦）＋stage2-v3（14,280戦）を**同じtrain seed・セル・分岐・左右**で、PR #85自身のworker（`pr84-reaudit.js --pr84-worker`）経由で再実行。**V3テーブル200キー（rule 38/base 58/uncovered 104）の status/action が保存版と完全一致**（不一致なら停止する実装）。
