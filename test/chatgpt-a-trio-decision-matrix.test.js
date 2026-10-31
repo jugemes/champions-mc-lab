@@ -81,7 +81,7 @@ test('A six: paired full Battle matrix of 3+lead, rational alternatives and opt-
       const foeThree=caseA[scenario.group];
       assert.equal(foeThree.length,3);
       const stats={n:0,w0:0,w1:0,ownTag0:0,ownTag1:0,foeTag0:0,foeTag1:0,
-        turns0:0,turns1:0,outcomeChanges:0,example:null};
+        turns0:0,turns1:0,outcomeChanges:0,example:null,sample:null};
       for(const seed of SEEDS)for(const reverse of [false,true]){
         let previous=null;
         for(const memory of [false,true]){
@@ -105,8 +105,10 @@ test('A six: paired full Battle matrix of 3+lead, rational alternatives and opt-
           stats['foeTag'+suf]+=Number(anyTag(rival));
           stats['turns'+suf]+=game.turns;
           total++;
-          const current={won:game.won,early:firstTwo(game.log,game.ownSide),
+          const current={won:game.won,early:earlyLines(game.log,game.ownSide,4).slice(0,24),
             ownTags:mine,foeTags:rival,turns:game.turns};
+          if(!stats.sample&&!memory&&!reverse&&seed===SEEDS[0])
+            stats.sample={seed:seed.join('-'),won:game.won,early:current.early,ownTags:mine,foeTags:rival};
           if(previous){
             const changed=previous.won!==current.won;
             const earlyDiff=JSON.stringify(previous.early)!==JSON.stringify(current.early);
@@ -135,4 +137,62 @@ test('A six: paired full Battle matrix of 3+lead, rational alternatives and opt-
     t.diagnostic('A_TRIO_MATRIX_CELL '+JSON.stringify({cell,...stats}));
   // This test validates execution, not a chosen winner or causal advantage:
   // no statistical threshold is baked in after observing outcomes.
+});
+
+test('A Garchomp lead: a public-only T1 switch-to-Metagross counterfactual against all five rival branches',{
+  skip:!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR not set',
+  timeout:120000
+},async t=>{
+  const sim=load(),c=caseList().find(x=>x.id==='A_golisopod');
+  const own=reportedLive(),three=CANDIDATES.garchomp_lead,rows=[];
+  const publicOnlySwitch=(req,bot,info)=>{
+    if(info.turn!==1||req.teamPreview||req.forceSwitch)return null;
+    const active=req.side.pokemon.find(p=>p.active);
+    if(!String(active?.details||'').startsWith('Garchomp'))return null;
+    // This reads only the foe's currently disclosed active form. No hidden set,
+    // no post-choice Mega or enemy selected trio.
+    if(!bot.foeActive.startsWith('Golisopod'))return null;
+    return switchTo(req,'Metagross');
+  };
+  for(const [opponent,scenario] of Object.entries(OPPONENTS)){
+    const results={opponent,n:0,baselineWins:0,switchWins:0,
+      oldOwnMisplays:0,newOwnMisplays:0,oldFoeMisplays:0,newFoeMisplays:0,
+      improve:0,regress:0,example:null};
+    for(const seed of SEEDS)for(const reverse of [false,true]){
+      let old=null;
+      for(const useSwitch of [false,true]){
+        const game=await battle(sim,structuredClone(own),structuredClone(c.team),
+          seed,{ownThree:three,foeThree:c[scenario.group],reverse,
+            script:rivalScript(scenario.script),
+            ownOptions:{publicMoveMemory:true,publicMegaAbility:true,
+              publicCondition:true,ownCondition:true,encoreGuard:'speedSafe',
+              script:useSwitch?publicOnlySwitch:null}
+          });
+        assert.equal(game.errors,0,opponent);
+        const tags=misplaysV3(game.log,{requests:game.reqLog});
+        const current={won:game.won,early:earlyLines(game.log,game.ownSide,4).slice(0,24),
+          ownTags:tags[game.ownSide],foeTags:tags[game.foeSide]};
+        if(!useSwitch){
+          results.baselineWins+=Number(game.won);
+          results.oldOwnMisplays+=Number(anyTag(current.ownTags));
+          results.oldFoeMisplays+=Number(anyTag(current.foeTags));
+          old=current;
+        }else{
+          results.switchWins+=Number(game.won);
+          results.newOwnMisplays+=Number(anyTag(current.ownTags));
+          results.newFoeMisplays+=Number(anyTag(current.foeTags));
+          if(!old.won&&current.won)results.improve++;
+          if(old.won&&!current.won)results.regress++;
+          if(!results.example&&(
+            old.won!==current.won||JSON.stringify(old.early)!==JSON.stringify(current.early)))
+            results.example={seed:seed.join('-'),reverse,old,current};
+        }
+      }
+      results.n++;
+    }
+    rows.push(results);
+    t.diagnostic('A_T1_SWITCH_CELL '+JSON.stringify(results));
+  }
+  t.diagnostic('A_T1_SWITCH_SUMMARY '+JSON.stringify({rows,
+    note:'Public-only T1 switch rule, not conditioned on foe hidden set/selection/move or outcome. Small scripted heuristic rival sample, NOT human win rate.'}));
 });
