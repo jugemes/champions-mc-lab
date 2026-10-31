@@ -1,0 +1,3285 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "phase": "FINAL",
+ "decision": "floor",
+ "evalSeedBase": 9500000,
+ "selectorSeedBase": 9510000,
+ "seeds": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "sides": "one side per seed (reverse = s%2); same-seed opposite side only as pairedOnly on s=0",
+ "distinctEvalSeeds": 1032,
+ "own": "reportedLive",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "models": [
+  "rational",
+  "tm"
+ ],
+ "games": 7710,
+ "seconds": {
+  "selectionAndTables": 291,
+  "evalGames": 30
+ },
+ "msPerGame": 14.83,
+ "summary": {
+  "rational:legacy": {
+   "hyps": 4,
+   "meanRat94": 0.932,
+   "worstCellMean": 0.837,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.82,
+     0.65
+    ],
+    "N3_mawile/b": [
+     0.958,
+     0.9
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "rational:quick": {
+   "hyps": 4,
+   "meanRat94": 0.943,
+   "worstCellMean": 0.775,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.88,
+     0.6
+    ],
+    "N3_mawile/b": [
+     0.933,
+     0.6
+    ],
+    "N4_houndoom/a": [
+     0.99,
+     0.95
+    ],
+    "N4_houndoom/b": [
+     0.97,
+     0.95
+    ]
+   }
+  },
+  "rational:v2": {
+   "hyps": 4,
+   "meanRat94": 0.905,
+   "worstCellMean": 0.762,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.71,
+     0.45
+    ],
+    "N3_mawile/b": [
+     0.958,
+     0.8
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "rational:pr93": {
+   "hyps": 4,
+   "meanRat94": 0.959,
+   "worstCellMean": 0.837,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.886,
+     0.55
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "rational:pr94floor": {
+   "hyps": 4,
+   "meanRat94": 0.968,
+   "worstCellMean": 0.875,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.94,
+     0.75
+    ],
+    "N3_mawile/b": [
+     0.983,
+     0.95
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "rational:pr93T1T2": {
+   "hyps": 4,
+   "meanRat94": 0.959,
+   "worstCellMean": 0.837,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.886,
+     0.55
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "rational:pr94floorT1T2": {
+   "hyps": 4,
+   "meanRat94": 0.968,
+   "worstCellMean": 0.875,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.94,
+     0.75
+    ],
+    "N3_mawile/b": [
+     0.983,
+     0.95
+    ],
+    "N4_houndoom/a": [
+     0.96,
+     0.85
+    ],
+    "N4_houndoom/b": [
+     0.99,
+     0.95
+    ]
+   }
+  },
+  "tm:legacy": {
+   "hyps": 4,
+   "meanRat94": 0.95,
+   "worstCellMean": 0.887,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.84,
+     0.75
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  },
+  "tm:quick": {
+   "hyps": 4,
+   "meanRat94": 0.988,
+   "worstCellMean": 0.95,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.97,
+     0.9
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.992,
+     0.95
+    ],
+    "N4_houndoom/b": [
+     0.992,
+     0.95
+    ]
+   }
+  },
+  "tm:v2": {
+   "hyps": 4,
+   "meanRat94": 0.887,
+   "worstCellMean": 0.762,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.64,
+     0.45
+    ],
+    "N3_mawile/b": [
+     0.95,
+     0.8
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  },
+  "tm:pr93": {
+   "hyps": 4,
+   "meanRat94": 0.981,
+   "worstCellMean": 0.919,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.964,
+     0.875
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  },
+  "tm:pr94floor": {
+   "hyps": 4,
+   "meanRat94": 0.967,
+   "worstCellMean": 0.887,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.91,
+     0.75
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  },
+  "tm:pr93T1T2": {
+   "hyps": 4,
+   "meanRat94": 0.981,
+   "worstCellMean": 0.919,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.964,
+     0.875
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  },
+  "tm:pr94floorT1T2": {
+   "hyps": 4,
+   "meanRat94": 0.97,
+   "worstCellMean": 0.887,
+   "zeroWorst": 0,
+   "perHyp": {
+    "N3_mawile/a": [
+     0.92,
+     0.75
+    ],
+    "N3_mawile/b": [
+     1,
+     1
+    ],
+    "N4_houndoom/a": [
+     0.975,
+     0.9
+    ],
+    "N4_houndoom/b": [
+     0.983,
+     0.9
+    ]
+   }
+  }
+ },
+ "freeze": null,
+ "verdict": {
+  "rule": "holdout-20261031-pr94 item 7",
+  "fails": [],
+  "pass": true,
+  "t2Forced": 6,
+  "t1Forced": 0
+ },
+ "sixes": {
+  "N3_mawile": {
+   "publicSix": [
+    "Mawile",
+    "Arcanine",
+    "Slowking",
+    "Toxicroak",
+    "Staraptor",
+    "Polteageist"
+   ],
+   "ace": "Mawile",
+   "selection": {
+    "legacy": "Garchomp>Metagross>Tyranitar",
+    "quick": "Hydreigon>Garchomp>Rotom-Wash",
+    "v2": "Hydreigon>Primarina>Garchomp",
+    "pr93": "Primarina>Metagross>Garchomp",
+    "pr94floor": "Garchomp>Metagross>Hydreigon"
+   },
+   "selectorSeconds": {
+    "legacy": 0.021,
+    "quick": 11.48,
+    "v2": 43.3,
+    "pr93": 27.5,
+    "pr93T1T2": 12.9,
+    "pr94": 26.8,
+    "pr94T1T2:Garchomp>Metagross>Hydreigon": 35.8
+   },
+   "pr94": {
+    "status": "cover94",
+    "pick": [
+     "Rotom-Wash",
+     "Metagross",
+     "Garchomp"
+    ],
+    "label": "Rotom-Wash>Metagross/Garchomp",
+    "reason": "eligible 6; best CVaR 0.84 mean 0.96 vs legacy 0.26/0.766",
+    "eligible": [
+     "Rotom-Wash>Metagross/Garchomp",
+     "Primarina>Metagross/Garchomp",
+     "Garchomp>Metagross/Hydreigon",
+     "Primarina>Hydreigon/Garchomp",
+     "Garchomp>Hydreigon/Primarina",
+     "Garchomp>Hydreigon/Rotom-Wash"
+    ],
+    "legacy": "Garchomp>Metagross/Tyranitar",
+    "seconds": 26.8,
+    "budgetSeconds": 300,
+    "opts": {
+     "decision": "cvar",
+     "megaAbility": true,
+     "rationalOnly": true
+    },
+    "games": {
+     "screen": 2880,
+     "guard": 2688,
+     "guardRational94": 2454,
+     "guardPublicImmune": 221
+    },
+    "scenarios": 7,
+    "coverage": {
+     "required": 22,
+     "covered": 22,
+     "missing": []
+    },
+    "cells": 48,
+    "screenTop": [
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "cvar": 0.917,
+      "mean": 0.979
+     },
+     {
+      "pick": "Garchomp>Hydreigon/Rotom-Wash",
+      "cvar": 0.667,
+      "mean": 0.917
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "cvar": 0.667,
+      "mean": 0.917
+     },
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "cvar": 0.583,
+      "mean": 0.896
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "cvar": 0.583,
+      "mean": 0.896
+     },
+     {
+      "pick": "Primarina>Hydreigon/Garchomp",
+      "cvar": 0.583,
+      "mean": 0.896
+     },
+     {
+      "pick": "Primarina>Metagross/Hydreigon",
+      "cvar": 0.583,
+      "mean": 0.896
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Hydreigon",
+      "cvar": 0.583,
+      "mean": 0.896
+     }
+    ],
+    "scores": [
+     {
+      "pick": "Garchomp>Metagross/Tyranitar",
+      "legacy": true,
+      "cvar": 0.26,
+      "mean": 0.766,
+      "worst": 0,
+      "zeroCells": 3,
+      "worstCells": [
+       {
+        "v": 0,
+        "scenario": 0,
+        "rival": "Arcanine/Mawile/Slowking",
+        "src": "view1"
+       },
+       {
+        "v": 0,
+        "scenario": 1,
+        "rival": "Arcanine/Slowking/Mawile",
+        "src": "view1"
+       },
+       {
+        "v": 0,
+        "scenario": 1,
+        "rival": "Mawile/Toxicroak/Slowking",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": false,
+      "cvar": 0.838,
+      "mean": 0.959,
+      "worst": 0,
+      "zeroCells": 1,
+      "worstCells": [
+       {
+        "v": 0,
+        "scenario": 0,
+        "rival": "Toxicroak/Arcanine/Polteageist",
+        "src": "legacy"
+       },
+       {
+        "v": 0.75,
+        "scenario": 4,
+        "rival": "Staraptor/Slowking/Mawile",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.8,
+        "scenario": 0,
+        "rival": "Mawile/Toxicroak/Arcanine",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Hydreigon/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.531,
+      "mean": 0.854,
+      "worst": 0.25,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.25,
+        "scenario": 2,
+        "rival": "Staraptor/Toxicroak/Slowking",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.25,
+        "scenario": 2,
+        "rival": "Staraptor/Slowking/Polteageist",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.25,
+        "scenario": 5,
+        "rival": "Staraptor/Toxicroak/Mawile",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "legacy": false,
+      "cvar": 0.84,
+      "mean": 0.96,
+      "worst": 0,
+      "zeroCells": 1,
+      "worstCells": [
+       {
+        "v": 0,
+        "scenario": 6,
+        "rival": "Toxicroak/Mawile/Staraptor",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Arcanine/Staraptor/Mawile",
+        "src": "view2"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Arcanine/Mawile/Polteageist",
+        "src": "aceBack"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "legacy": false,
+      "cvar": 0.563,
+      "mean": 0.867,
+      "worst": 0,
+      "zeroCells": 1,
+      "worstCells": [
+       {
+        "v": 0,
+        "scenario": 5,
+        "rival": "Staraptor/Toxicroak/Mawile",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.25,
+        "scenario": 5,
+        "rival": "Staraptor/Mawile/Polteageist",
+        "src": "view2"
+       },
+       {
+        "v": 0.375,
+        "scenario": 3,
+        "rival": "Mawile/Toxicroak/Arcanine",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "legacy": false,
+      "cvar": 0.698,
+      "mean": 0.901,
+      "worst": 0.375,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.375,
+        "scenario": 0,
+        "rival": "Staraptor/Toxicroak/Arcanine",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.625,
+        "scenario": 0,
+        "rival": "Toxicroak/Arcanine/Staraptor",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.625,
+        "scenario": 2,
+        "rival": "Toxicroak/Slowking/Staraptor",
+        "src": "aceBack"
+       }
+      ]
+     },
+     {
+      "pick": "Primarina>Hydreigon/Garchomp",
+      "legacy": false,
+      "cvar": 0.667,
+      "mean": 0.874,
+      "worst": 0.375,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.375,
+        "scenario": 1,
+        "rival": "Mawile/Toxicroak/Slowking",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.5,
+        "scenario": 0,
+        "rival": "Arcanine/Staraptor/Mawile",
+        "src": "view2"
+       },
+       {
+        "v": 0.5,
+        "scenario": 0,
+        "rival": "Arcanine/Staraptor/Slowking",
+        "src": "megaAce"
+       }
+      ]
+     }
+    ],
+    "decisions": {
+     "cvar": {
+      "pick": "Rotom-Wash>Metagross>Garchomp",
+      "reason": "eligible 6; best CVaR 0.84 mean 0.96 vs legacy 0.26/0.766"
+     },
+     "floor": {
+      "pick": "Garchomp>Metagross>Hydreigon",
+      "reason": "floor: worst 0.375 CVaR 0.698 vs legacy 0/0.26"
+     }
+    }
+   },
+   "t1t2": {
+    "Garchomp>Metagross>Hydreigon": {
+     "rules": [
+      "T1|Arcanine|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 64 [info only, not a recommendation]",
+      "T1|Mawile|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 48 [info only, not a recommendation]",
+      "T1|Staraptor|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 144 [info only, not a recommendation]",
+      "T1|Toxicroak|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 128 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Arcanine|-|-|-|HH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Arcanine|-|-|-|HM|-/-|atk-1/def-1,spd-1|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Arcanine|-|-|-|LM|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Arcanine|-|-|-|ML|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Polteageist|-|-|-|HH|-/-|atk-1/def-1,spe+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Polteageist|-|-|-|HM|-/-|atk-1/def-1,spe+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Polteageist|-|-|-|LH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 6 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Polteageist|-|-|-|MH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 3 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Slowking|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 55% of 20 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Slowking|-|-|-|HM|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 1 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Slowking|-|-|-|LH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 3 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Slowking|-|-|-|MH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Staraptor|-|-|-|HH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 5 [info only, not a recommendation]",
+      "T2|Arcanine|Garchomp|Staraptor|-|-|-|LH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 10 [info only, not a recommendation]",
+      "T2|Arcanine|Hydreigon|Polteageist|-|-|-|HH|-/-|-/-|--|-|move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Dark Pulse 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Hydreigon|Slowking|-|-|-|HH|-/-|-/-|--|-|move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Dark Pulse 100% of 2 [info only, not a recommendation]",
+      "T2|Arcanine|Hydreigon|Staraptor|-|-|-|HH|-/-|atk-1/-|--|-|move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1)",
+      "T2|Mawile|Garchomp|Arcanine|-|-|-|HH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Arcanine|-|-|-|HL|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Arcanine|-|-|-|HM|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Mawile-Mega|-|-|-|HL|-/-|atk-1/atk+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 7 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Polteageist|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 1 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Polteageist|-|-|-|HM|-/-|atk-1/def-1,spe+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Slowking|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 83% of 18 [info only, not a recommendation]",
+      "T2|Mawile|Garchomp|Toxicroak|-|-|-|HH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Mawile|Metagross|Mawile-Mega|-|-|-|HL|-/-|-/-|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Hydreigon -> DO switch:Hydreigon (gain 0.250 n 16 cells 6)",
+      "T2|Staraptor|Garchomp|Arcanine|-|-|-|HH|-/-|atk-2/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 7 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Mawile|-|-|-|HH|-/-|atk-2/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 6 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Polteageist|-|-|-|HH|-/-|atk-1/def-1,spe+2|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 3 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Polteageist|-|-|-|HM|-/-|atk-1/def-1,spe+2|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 1 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Slowking|-|-|-|HH|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 100% of 52 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor-Mega|-|-|-|HH|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 17 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor-Mega|-|-|-|HH|-/-|atk-1/atk-1,def-1|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 5 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor-Mega|-|-|-|MH|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 5 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor-Mega|-|-|-|MM|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 30 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor|-|-|-|HH|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 80% of 5 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor|-|-|-|HM|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 4 [info only, not a recommendation]",
+      "T2|Staraptor|Garchomp|Staraptor|-|-|-|ML|-/-|atk-1/-|--|-|move:Rock Slide,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Rock Slide 100% of 8 [info only, not a recommendation]",
+      "T2|Staraptor|Metagross|Staraptor-Mega|-|-|-|HM|-/-|-/-|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Hydreigon -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Psychic Fangs 100% of 1 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Arcanine|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 13 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Arcanine|-|-|-|HH|-/-|atk-2/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Arcanine|-|-|-|HM|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Mawile|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Polteageist|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 15 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Polteageist|-|-|-|HL|-/-|-/def-1,spe+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 4 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Polteageist|-|-|-|MH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Slowking|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 4 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Slowking|-|-|-|HM|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Hydreigon 56% of 25 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Slowking|-|-|-|LH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Slowking|-|-|-|MH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 7 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Staraptor|-|-|-|HH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 18 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Staraptor|-|-|-|MH|-/-|atk-1/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Toxicroak|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 1 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Toxicroak|-|-|-|HL|-/-|-/atk+2|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 24 [info only, not a recommendation]",
+      "T2|Toxicroak|Garchomp|Toxicroak|-|-|-|HL|-/-|-/def-1,spd-1|--|-|move:Earthquake,switch:Hydreigon,switch:Metagross -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 4 [info only, not a recommendation]"
+     ],
+     "nRules": 1,
+     "keys": 59,
+     "games": 8832,
+     "seconds": 35.8
+    }
+   },
+   "hyps": {
+    "a": {
+     "cells": {
+      "rational": [
+       "legacy:Staraptor/Polteageist/Mawile",
+       "view1:Staraptor/Mawile/Arcanine",
+       "view2:Staraptor/Mawile/Slowking",
+       "aceLead:Mawile/Staraptor/Polteageist",
+       "aceBack:Toxicroak/Mawile/Arcanine"
+      ],
+      "tm": [
+       "tmLead:Mawile/Toxicroak/Staraptor",
+       "speedLead:Staraptor/Toxicroak/Mawile",
+       "aceBack:Toxicroak/Mawile/Staraptor",
+       "random1:Toxicroak/Mawile/Polteageist",
+       "random2:Staraptor/Mawile/Slowking"
+      ]
+     },
+     "byModel": {
+      "rational": {
+       "legacy": {
+        "pick": "Garchomp>Metagross>Tyranitar",
+        "plan": "ai",
+        "meanRat94": 0.82,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.056,
+        "worstCellRat94": 0.65,
+        "worstCell": "view1",
+        "byCellRat94": {
+         "legacy": 0.85,
+         "view1": 0.65,
+         "view2": 0.8,
+         "aceLead": 0.8,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.82,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.82,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Staraptor>Mawile>Arcanine",
+          "seed": [
+           34940,
+           23694,
+           27505,
+           6981
+          ],
+          "reverse": false,
+          "turns": 8,
+          "keys": {
+           "1": "T1|Staraptor|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Tyranitar",
+           "2": "T2|Staraptor|Tyranitar|Staraptor|sandstorm|-|-|HH|-/-|-/-|--|-|move:Ice Punch,move:Knock Off,move:Stealth Rock,move:Stone Edge,switch:Garchomp,switch:Metagross"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+           "T1 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+           "T1 |move|p2a: Staraptor|Brave Bird|p1a: Tyranitar",
+           "T1 |-damage|p1a: Tyranitar|150/207",
+           "T1 |-damage|p2a: Staraptor|143/162|[from] Recoil",
+           "T1 |-weather|Sandstorm|[upkeep]",
+           "T1 |-damage|p2a: Staraptor|133/162|[from] Sandstorm",
+           "T2 |switch|p2a: Mawile|Mawile, L50, M|157/157",
+           "T2 |-unboost|p1a: Tyranitar|atk|1",
+           "T2 |move|p1a: Tyranitar|Stone Edge|p2a: Mawile|[miss]",
+           "T2 |-weather|Sandstorm|[upkeep]",
+           "T3 |-mega|p2a: Mawile|Mawile|Mawilite",
+           "T3 |move|p1a: Tyranitar|Stealth Rock|p2a: Mawile",
+           "T3 |move|p2a: Mawile|Swords Dance|p2a: Mawile",
+           "T3 |-boost|p2a: Mawile|atk|2",
+           "T3 |-weather|Sandstorm|[upkeep]"
+          ]
+         }
+        ]
+       },
+       "quick": {
+        "pick": "Hydreigon>Garchomp>Rotom-Wash",
+        "plan": "ai",
+        "meanRat94": 0.88,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.08,
+        "worstCellRat94": 0.6,
+        "worstCell": "aceLead",
+        "byCellRat94": {
+         "legacy": 0.8,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 0.6,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.88,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.88,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Mawile>Staraptor>Polteageist",
+          "seed": [
+           27660,
+           60364,
+           25423,
+           13554
+          ],
+          "reverse": false,
+          "turns": 8,
+          "keys": {
+           "1": "T1|Mawile|-|-|move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Garchomp,switch:Rotom-Wash",
+           "2": "T2|Mawile|Garchomp|Mawile-Mega|-|-|-|HL|-/-|-/-|--|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Rotom-Wash"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |-mega|p2a: Mawile|Mawile|Mawilite",
+           "T1 |move|p1a: Hydreigon|Flamethrower|p2a: Mawile",
+           "T1 |-supereffective|p2a: Mawile|1",
+           "T1 |-damage|p2a: Mawile|14/157",
+           "T1 |-damage|p1a: Hydreigon|153/169|[from] item: Life Orb",
+           "T1 |move|p2a: Mawile|Play Rough|p1a: Hydreigon",
+           "T1 |-supereffective|p1a: Hydreigon|2",
+           "T1 |-damage|p1a: Hydreigon|0 fnt",
+           "T1 |faint|p1a: Hydreigon",
+           "T1 |switch|p1a: Garchomp|Garchomp, L50, F|185/185",
+           "T2 |move|p1a: Garchomp|Earthquake|p2a: Mawile",
+           "T2 |-supereffective|p2a: Mawile|1",
+           "T2 |-crit|p2a: Mawile",
+           "T2 |-damage|p2a: Mawile|0 fnt",
+           "T2 |faint|p2a: Mawile",
+           "T2 |switch|p2a: Staraptor|Staraptor, L50, F|162/162",
+           "T3 |move|p1a: Garchomp|Earthquake|p2a: Staraptor",
+           "T3 |move|p2a: Staraptor|Brave Bird|p1a: Garchomp",
+           "T3 |-damage|p1a: Garchomp|47/185",
+           "T3 |-damage|p2a: Staraptor|142/162|[from] ability: Rough Skin|[of] p1a: Garchomp",
+           "T3 |-damage|p2a: Staraptor|96/162|[from] Recoil"
+          ]
+         }
+        ]
+       },
+       "v2": {
+        "pick": "Hydreigon>Primarina>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.71,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.12,
+        "worstCellRat94": 0.45,
+        "worstCell": "aceLead",
+        "byCellRat94": {
+         "legacy": 0.55,
+         "view1": 1,
+         "view2": 0.55,
+         "aceLead": 0.45,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.71,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.71,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Mawile>Staraptor>Polteageist",
+          "seed": [
+           27660,
+           60364,
+           25423,
+           13554
+          ],
+          "reverse": false,
+          "turns": 7,
+          "keys": {
+           "1": "T1|Mawile|-|-|move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Garchomp,switch:Primarina",
+           "2": "T2|Mawile|Garchomp|Mawile-Mega|-|-|-|HL|-/-|-/-|--|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Primarina"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |-mega|p2a: Mawile|Mawile|Mawilite",
+           "T1 |move|p1a: Hydreigon|Flamethrower|p2a: Mawile",
+           "T1 |-supereffective|p2a: Mawile|1",
+           "T1 |-damage|p2a: Mawile|14/157",
+           "T1 |-damage|p1a: Hydreigon|153/169|[from] item: Life Orb",
+           "T1 |move|p2a: Mawile|Play Rough|p1a: Hydreigon",
+           "T1 |-supereffective|p1a: Hydreigon|2",
+           "T1 |-damage|p1a: Hydreigon|0 fnt",
+           "T1 |faint|p1a: Hydreigon",
+           "T1 |switch|p1a: Garchomp|Garchomp, L50, F|185/185",
+           "T2 |move|p1a: Garchomp|Earthquake|p2a: Mawile",
+           "T2 |-supereffective|p2a: Mawile|1",
+           "T2 |-crit|p2a: Mawile",
+           "T2 |-damage|p2a: Mawile|0 fnt",
+           "T2 |faint|p2a: Mawile",
+           "T2 |switch|p2a: Staraptor|Staraptor, L50, F|162/162",
+           "T3 |move|p1a: Garchomp|Earthquake|p2a: Staraptor",
+           "T3 |move|p2a: Staraptor|Brave Bird|p1a: Garchomp",
+           "T3 |-damage|p1a: Garchomp|47/185",
+           "T3 |-damage|p2a: Staraptor|142/162|[from] ability: Rough Skin|[of] p1a: Garchomp",
+           "T3 |-damage|p2a: Staraptor|96/162|[from] Recoil"
+          ]
+         }
+        ]
+       },
+       "pr93": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.886,
+        "nRat94": 88,
+        "n": 120,
+        "seCell": 0.088,
+        "worstCellRat94": 0.55,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 0.55,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.9,
+        "nRatOld": 100,
+        "publicImmuneGames": 16,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.886,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Staraptor>Polteageist>Mawile",
+          "seed": [
+           40917,
+           152,
+           20925,
+           11736
+          ],
+          "reverse": false,
+          "turns": 7,
+          "keys": {
+           "1": "T1|Staraptor|-|-|move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Metagross",
+           "2": "T2|Staraptor|Primarina|Polteageist|-|-|-|MH|-/-|-/-|--|-|move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Metagross"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p2a: Staraptor|Brave Bird|p1a: Primarina",
+           "T1 |-damage|p1a: Primarina|21/187",
+           "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+           "T1 |-heal|p1a: Primarina|67/187|[from] item: Sitrus Berry",
+           "T1 |-damage|p2a: Staraptor|107/162|[from] Recoil",
+           "T1 |move|p1a: Primarina|Moonblast|p2a: Staraptor",
+           "T1 |-damage|p2a: Staraptor|0 fnt",
+           "T1 |faint|p2a: Staraptor",
+           "T1 |switch|p2a: Polteageist|Polteageist, L50|137/137",
+           "T2 |move|p2a: Polteageist|Giga Drain|p1a: Primarina",
+           "T2 |-supereffective|p1a: Primarina|1",
+           "T2 |-damage|p1a: Primarina|0 fnt",
+           "T2 |faint|p1a: Primarina",
+           "T2 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+           "T3 |move|p1a: Garchomp|Earthquake|p2a: Polteageist",
+           "T3 |-damage|p2a: Polteageist|2/137",
+           "T3 |move|p2a: Polteageist|Shadow Ball|p1a: Garchomp",
+           "T3 |-damage|p1a: Garchomp|98/185"
+          ]
+         }
+        ]
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "ai",
+        "meanRat94": 0.94,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.048,
+        "worstCellRat94": 0.75,
+        "worstCell": "view1",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 0.75,
+         "view2": 1,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.94,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.94,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.886,
+        "nRat94": 88,
+        "n": 120,
+        "seCell": 0.088,
+        "worstCellRat94": 0.55,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 0.55,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.9,
+        "nRatOld": 100,
+        "publicImmuneGames": 16,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.886,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 120
+        },
+        "lossLines": [
+         {
+          "foe": "Staraptor>Polteageist>Mawile",
+          "seed": [
+           40917,
+           152,
+           20925,
+           11736
+          ],
+          "reverse": false,
+          "turns": 7,
+          "keys": {
+           "1": "T1|Staraptor",
+           "2": "T2|Staraptor|Primarina|Polteageist"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p2a: Staraptor|Brave Bird|p1a: Primarina",
+           "T1 |-damage|p1a: Primarina|21/187",
+           "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+           "T1 |-heal|p1a: Primarina|67/187|[from] item: Sitrus Berry",
+           "T1 |-damage|p2a: Staraptor|107/162|[from] Recoil",
+           "T1 |move|p1a: Primarina|Moonblast|p2a: Staraptor",
+           "T1 |-damage|p2a: Staraptor|0 fnt",
+           "T1 |faint|p2a: Staraptor",
+           "T1 |switch|p2a: Polteageist|Polteageist, L50|137/137",
+           "T2 |move|p2a: Polteageist|Giga Drain|p1a: Primarina",
+           "T2 |-supereffective|p1a: Primarina|1",
+           "T2 |-damage|p1a: Primarina|0 fnt",
+           "T2 |faint|p1a: Primarina",
+           "T2 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+           "T3 |move|p1a: Garchomp|Earthquake|p2a: Polteageist",
+           "T3 |-damage|p2a: Polteageist|2/137",
+           "T3 |move|p2a: Polteageist|Shadow Ball|p1a: Garchomp",
+           "T3 |-damage|p1a: Garchomp|98/185"
+          ]
+         }
+        ]
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.94,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.048,
+        "worstCellRat94": 0.75,
+        "worstCell": "view1",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 0.75,
+         "view2": 1,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.94,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.94,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "n": 120,
+         "T1": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 120,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 120,
+          "forcedRule": 3,
+          "ruleWin": 1,
+          "abstain": 16,
+          "unseen": 101,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      },
+      "tm": {
+       "legacy": {
+        "pick": "Garchomp>Metagross>Tyranitar",
+        "plan": "ai",
+        "meanRat94": 0.84,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.043,
+        "worstCellRat94": 0.75,
+        "worstCell": "speedLead",
+        "byCellRat94": {
+         "tmLead": 0.85,
+         "speedLead": 0.75,
+         "aceBack": 0.8,
+         "random1": 1,
+         "random2": 0.8
+        },
+        "meanRatOld": 0.84,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.84,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Hydreigon>Garchomp>Rotom-Wash",
+        "plan": "ai",
+        "meanRat94": 0.97,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.02,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 0.95,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 0.97,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.97,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Hydreigon>Primarina>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.64,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.099,
+        "worstCellRat94": 0.45,
+        "worstCell": "aceBack",
+        "byCellRat94": {
+         "tmLead": 0.7,
+         "speedLead": 0.5,
+         "aceBack": 0.45,
+         "random1": 1,
+         "random2": 0.55
+        },
+        "meanRatOld": 0.64,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.64,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.964,
+        "nRat94": 56,
+        "n": 120,
+        "seCell": 0.031,
+        "worstCellRat94": 0.875,
+        "worstCell": "aceBack",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 0.875,
+         "random1": 0.875,
+         "random2": 1
+        },
+        "meanRatOld": 0.98,
+        "nRatOld": 100,
+        "publicImmuneGames": 56,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.964,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "ai",
+        "meanRat94": 0.91,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.056,
+        "worstCellRat94": 0.75,
+        "worstCell": "speedLead",
+        "byCellRat94": {
+         "tmLead": 0.8,
+         "speedLead": 0.75,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 0.91,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.91,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.964,
+        "nRat94": 56,
+        "n": 120,
+        "seCell": 0.031,
+        "worstCellRat94": 0.875,
+        "worstCell": "aceBack",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 0.875,
+         "random1": 0.875,
+         "random2": 1
+        },
+        "meanRatOld": 0.98,
+        "nRatOld": 100,
+        "publicImmuneGames": 56,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.964,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 120
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.92,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.051,
+        "worstCellRat94": 0.75,
+        "worstCell": "speedLead",
+        "byCellRat94": {
+         "tmLead": 0.85,
+         "speedLead": 0.75,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 0.92,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.92,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "n": 120,
+         "T1": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 120,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 120,
+          "forcedRule": 3,
+          "ruleWin": 0.3333333333333333,
+          "abstain": 34,
+          "unseen": 83,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      }
+     }
+    },
+    "b": {
+     "cells": {
+      "rational": [
+       "legacy:Toxicroak/Polteageist/Mawile",
+       "view1:Staraptor/Arcanine/Mawile",
+       "view2:Staraptor/Polteageist/Mawile",
+       "aceLead:Mawile/Toxicroak/Polteageist",
+       "aceBack:Arcanine/Mawile/Slowking",
+       "view3:Arcanine/Toxicroak/Mawile"
+      ],
+      "tm": [
+       "tmLead:Mawile/Toxicroak/Staraptor",
+       "speedLead:Staraptor/Toxicroak/Mawile",
+       "aceBack:Toxicroak/Mawile/Staraptor",
+       "random1:Toxicroak/Mawile/Polteageist",
+       "random2:Staraptor/Mawile/Slowking"
+      ]
+     },
+     "byModel": {
+      "rational": {
+       "legacy": {
+        "pick": "Garchomp>Metagross>Tyranitar",
+        "plan": "ai",
+        "meanRat94": 0.958,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.02,
+        "worstCellRat94": 0.9,
+        "worstCell": "aceLead",
+        "byCellRat94": {
+         "legacy": 0.95,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 0.9,
+         "aceBack": 0.9,
+         "view3": 1
+        },
+        "meanRatOld": 0.958,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.958,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Hydreigon>Garchomp>Rotom-Wash",
+        "plan": "ai",
+        "meanRat94": 0.933,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.067,
+        "worstCellRat94": 0.6,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.6,
+         "aceLead": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 0.933,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.933,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Hydreigon>Primarina>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.958,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.033,
+        "worstCellRat94": 0.8,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 0.95,
+         "view2": 0.8,
+         "aceLead": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 0.958,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.958,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "ai",
+        "meanRat94": 1,
+        "nRat94": 67,
+        "n": 144,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 120,
+        "publicImmuneGames": 53,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "ai",
+        "meanRat94": 0.983,
+        "nRat94": 116,
+        "n": 144,
+        "seCell": 0.011,
+        "worstCellRat94": 0.95,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 0.95,
+         "view1": 0.95,
+         "view2": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 4,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.983,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "pr93T1T2",
+        "meanRat94": 1,
+        "nRat94": 67,
+        "n": 144,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 120,
+        "publicImmuneGames": 53,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 144
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.983,
+        "nRat94": 116,
+        "n": 144,
+        "seCell": 0.011,
+        "worstCellRat94": 0.95,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 0.95,
+         "view1": 0.95,
+         "view2": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "view3": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 4,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.983,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "n": 144,
+         "T1": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 144,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 56,
+          "unseen": 88,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      },
+      "tm": {
+       "legacy": {
+        "pick": "Garchomp>Metagross>Tyranitar",
+        "plan": "ai",
+        "meanRat94": 1,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Hydreigon>Garchomp>Rotom-Wash",
+        "plan": "ai",
+        "meanRat94": 1,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Hydreigon>Primarina>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.95,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.039,
+        "worstCellRat94": 0.8,
+        "worstCell": "aceBack",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 0.8,
+         "random1": 1,
+         "random2": 0.95
+        },
+        "meanRatOld": 0.95,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 1,
+        "aceBroughtRat94": 0.95,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "ai",
+        "meanRat94": 1,
+        "nRat94": 29,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "speedLead",
+        "byCellRat94": {
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 71,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "ai",
+        "meanRat94": 1,
+        "nRat94": 86,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 17,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Primarina>Metagross>Garchomp",
+        "plan": "pr93T1T2",
+        "meanRat94": 1,
+        "nRat94": 29,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "speedLead",
+        "byCellRat94": {
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 71,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 120
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Hydreigon",
+        "plan": "pr94T1T2",
+        "meanRat94": 1,
+        "nRat94": 86,
+        "n": 120,
+        "seCell": 0,
+        "worstCellRat94": 1,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 1,
+        "nRatOld": 100,
+        "publicImmuneGames": 17,
+        "aceBrought": 1,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "n": 120,
+         "T1": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 120,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 20,
+          "unseen": 100,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      }
+     }
+    }
+   }
+  },
+  "N4_houndoom": {
+   "publicSix": [
+    "Houndoom",
+    "Torkoal",
+    "Venusaur",
+    "Goodra-Hisui",
+    "Kleavor",
+    "Toxtricity"
+   ],
+   "ace": "Houndoom",
+   "selection": {
+    "legacy": "Garchomp>Primarina>Metagross",
+    "quick": "Metagross>Hydreigon>Garchomp",
+    "v2": "Garchomp>Metagross>Primarina",
+    "pr93": "Garchomp>Metagross>Primarina",
+    "pr94floor": "Garchomp>Metagross>Primarina"
+   },
+   "selectorSeconds": {
+    "legacy": 0.005,
+    "quick": 9.75,
+    "v2": 36.8,
+    "pr93": 22.2,
+    "pr93T1T2": 11,
+    "pr94": 23.4,
+    "pr94T1T2:Garchomp>Metagross>Primarina": 30
+   },
+   "pr94": {
+    "status": "legacy",
+    "pick": [
+     "Garchomp",
+     "Metagross",
+     "Primarina"
+    ],
+    "label": "Garchomp>Metagross/Primarina",
+    "reason": "legacy kept: no candidate with CVaR >= 1+0.05 and mean >= 1-0.02",
+    "eligible": [],
+    "legacy": "Garchomp>Metagross/Primarina",
+    "seconds": 23.4,
+    "budgetSeconds": 300,
+    "opts": {
+     "decision": "cvar",
+     "megaAbility": true,
+     "rationalOnly": true
+    },
+    "games": {
+     "screen": 2340,
+     "guard": 2184,
+     "guardRational94": 2183,
+     "guardPublicImmune": 1
+    },
+    "scenarios": 8,
+    "coverage": {
+     "required": 12,
+     "covered": 12,
+     "missing": []
+    },
+    "cells": 39,
+    "screenTop": [
+     {
+      "pick": "Garchomp>Metagross/Primarina",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Hydreigon>Garchomp/Rotom-Wash",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Hydreigon>Garchomp/Tyranitar",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Hydreigon>Primarina/Garchomp",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Metagross>Garchomp/Rotom-Wash",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Metagross>Garchomp/Tyranitar",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Metagross>Hydreigon/Garchomp",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Metagross>Primarina/Garchomp",
+      "cvar": 1,
+      "mean": 1
+     }
+    ],
+    "scores": [
+     {
+      "pick": "Garchomp>Metagross/Primarina",
+      "legacy": true,
+      "cvar": 1,
+      "mean": 1,
+      "worst": 1,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view1"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Venusaur/Houndoom",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Hydreigon>Garchomp/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.963,
+      "mean": 0.99,
+      "worst": 0.875,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.875,
+        "scenario": 1,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view1"
+       }
+      ]
+     },
+     {
+      "pick": "Hydreigon>Garchomp/Tyranitar",
+      "legacy": false,
+      "cvar": 0.938,
+      "mean": 0.984,
+      "worst": 0.75,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.75,
+        "scenario": 2,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Venusaur/Houndoom",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Hydreigon>Primarina/Garchomp",
+      "legacy": false,
+      "cvar": 0.975,
+      "mean": 0.994,
+      "worst": 0.875,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view1"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Garchomp/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.95,
+      "mean": 0.987,
+      "worst": 0.875,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.875,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view1"
+       },
+       {
+        "v": 0.875,
+        "scenario": 1,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 3,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Garchomp/Tyranitar",
+      "legacy": false,
+      "cvar": 0.975,
+      "mean": 0.994,
+      "worst": 0.875,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 6,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Hydreigon/Garchomp",
+      "legacy": false,
+      "cvar": 0.988,
+      "mean": 0.997,
+      "worst": 0.875,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.875,
+        "scenario": 4,
+        "rival": "Houndoom/Goodra-Hisui/Kleavor",
+        "src": "aceLead"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Kleavor/Venusaur",
+        "src": "legacy"
+       },
+       {
+        "v": 1,
+        "scenario": 0,
+        "rival": "Goodra-Hisui/Venusaur/Torkoal",
+        "src": "view1"
+       }
+      ]
+     }
+    ],
+    "decisions": {
+     "cvar": {
+      "pick": "Garchomp>Metagross>Primarina",
+      "reason": "legacy kept: no candidate with CVaR >= 1+0.05 and mean >= 1-0.02"
+     },
+     "floor": {
+      "pick": "Garchomp>Metagross>Primarina",
+      "reason": "legacy kept (floor)"
+     }
+    }
+   },
+   "t1t2": {
+    "Garchomp>Metagross>Primarina": {
+     "rules": [
+      "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 232 [info only, not a recommendation]",
+      "T1|Houndoom|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 56 [info only, not a recommendation]",
+      "T1|Kleavor|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 16 [info only, not a recommendation]",
+      "T1|Venusaur|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 8 [info only, not a recommendation]",
+      "T2|Goodra-Hisui|Garchomp|Kleavor|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 30 [info only, not a recommendation]",
+      "T2|Goodra-Hisui|Garchomp|Kleavor|-|-|-|HM|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 12 [info only, not a recommendation]",
+      "T2|Goodra-Hisui|Garchomp|Venusaur|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 154 [info only, not a recommendation]",
+      "T2|Goodra-Hisui|Garchomp|Venusaur|-|-|-|HM|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 12 [info only, not a recommendation]",
+      "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HL|-/-|-/-|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Bullet Punch 100% of 24 [info only, not a recommendation]",
+      "T2|Houndoom|Garchomp|Goodra-Hisui|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 42 [info only, not a recommendation]",
+      "T2|Houndoom|Garchomp|Goodra-Hisui|-|-|-|HL|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Houndoom|Garchomp|Kleavor|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 10 [info only, not a recommendation]",
+      "T2|Houndoom|Garchomp|Venusaur|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 2 [info only, not a recommendation]",
+      "T2|Kleavor|Garchomp|Kleavor|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Kleavor|Garchomp|Kleavor|-|-|-|HL|-/-|-/atk+2|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 2 [info only, not a recommendation]",
+      "T2|Kleavor|Garchomp|Kleavor|-|-|-|HL|-/-|-/def-1,spd-1|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 4 [info only, not a recommendation]",
+      "T2|Kleavor|Garchomp|Kleavor|-|-|-|HM|-/-|-/atk+2|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Earthquake 100% of 6 [info only, not a recommendation]",
+      "T2|Kleavor|Garchomp|Venusaur|-|-|-|HH|-/-|-/-|--|-|move:Earthquake,switch:Metagross,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did switch:Metagross 100% of 2 [info only, not a recommendation]",
+      "T2|Venusaur|Metagross|Goodra-Hisui|-|-|-|HH|-/-|-/-|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Garchomp,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Psychic Fangs 100% of 2 [info only, not a recommendation]",
+      "T2|Venusaur|Metagross|Venusaur|-|-|-|HH|-/-|-/-|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Garchomp,switch:Primarina -> ABSTAIN (no label with n>=8, cells>=2, gain>=0.1); base AI did move:Psychic Fangs 100% of 6 [info only, not a recommendation]"
+     ],
+     "nRules": 0,
+     "keys": 20,
+     "games": 7176,
+     "seconds": 30
+    }
+   },
+   "hyps": {
+    "a": {
+     "cells": {
+      "rational": [
+       "legacy:Goodra-Hisui/Kleavor/Toxtricity",
+       "view1:Goodra-Hisui/Kleavor/Venusaur",
+       "view2:Goodra-Hisui/Kleavor/Torkoal",
+       "aceLead:Houndoom/Goodra-Hisui/Kleavor",
+       "aceBack:Goodra-Hisui/Kleavor/Houndoom"
+      ],
+      "tm": [
+       "tmLead:Goodra-Hisui/Venusaur/Kleavor",
+       "speedLead:Kleavor/Venusaur/Goodra-Hisui",
+       "aceLead:Houndoom/Goodra-Hisui/Venusaur",
+       "aceBack:Goodra-Hisui/Houndoom/Venusaur",
+       "random1:Goodra-Hisui/Houndoom/Toxtricity",
+       "random2:Houndoom/Kleavor/Torkoal"
+      ]
+     },
+     "byModel": {
+      "rational": {
+       "legacy": {
+        "pick": "Garchomp>Primarina>Metagross",
+        "plan": "ai",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HM|-/-|-/spa-2|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       },
+       "quick": {
+        "pick": "Metagross>Hydreigon>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "aceLead",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HM|-/-|-/spa-2|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       },
+       "pr93": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HM|-/-|-/spa-2|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HM|-/-|-/spa-2|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       },
+       "pr93T1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 120
+        },
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui"
+          },
+          "used": {},
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.96,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.029,
+        "worstCellRat94": 0.85,
+        "worstCell": "view2",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 0.85,
+         "aceLead": 0.95,
+         "aceBack": 1
+        },
+        "meanRatOld": 0.96,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "n": 120,
+         "T1": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 120,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 72,
+          "unseen": 48,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": [
+         {
+          "foe": "Goodra-Hisui>Kleavor>Torkoal",
+          "seed": [
+           33054,
+           16496,
+           9791,
+           5453
+          ],
+          "reverse": false,
+          "turns": 9,
+          "keys": {
+           "1": "T1|Goodra-Hisui|-|-|move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Primarina",
+           "2": "T2|Goodra-Hisui|Metagross|Goodra-Hisui|-|-|-|HM|-/-|-/spa-2|--|-|move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina"
+          },
+          "used": {
+           "1": "abstain",
+           "2": "abstain:unseen"
+          },
+          "immune": [],
+          "lines": [
+           "T1 |move|p1a: Garchomp|Earthquake|p2a: Goodra",
+           "T1 |-supereffective|p2a: Goodra|1",
+           "T1 |-damage|p2a: Goodra|13/187",
+           "T1 |-enditem|p2a: Goodra|Sitrus Berry|[eat]",
+           "T1 |-heal|p2a: Goodra|59/187|[from] item: Sitrus Berry",
+           "T1 |move|p2a: Goodra|Draco Meteor|p1a: Garchomp",
+           "T1 |-supereffective|p1a: Garchomp|1",
+           "T1 |-damage|p1a: Garchomp|0 fnt",
+           "T1 |-unboost|p2a: Goodra|spa|2",
+           "T1 |faint|p1a: Garchomp",
+           "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+           "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+           "T2 |move|p1a: Metagross|Psychic Fangs|p2a: Goodra",
+           "T2 |-damage|p2a: Goodra|2/187",
+           "T2 |move|p2a: Goodra|Fire Blast|p1a: Metagross",
+           "T2 |-supereffective|p1a: Metagross|1",
+           "T2 |-damage|p1a: Metagross|109/157",
+           "T3 |move|p1a: Metagross|Bullet Punch|p2a: Goodra",
+           "T3 |-damage|p2a: Goodra|0 fnt",
+           "T3 |faint|p2a: Goodra",
+           "T3 |switch|p2a: Torkoal|Torkoal, L50, F|177/177",
+           "T3 |-weather|SunnyDay|[from] ability: Drought|[of] p2a: Torkoal"
+          ]
+         }
+        ]
+       }
+      },
+      "tm": {
+       "legacy": {
+        "pick": "Garchomp>Primarina>Metagross",
+        "plan": "ai",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Metagross>Hydreigon>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.992,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.008,
+        "worstCellRat94": 0.95,
+        "worstCell": "aceLead",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 0.95,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 1
+        },
+        "meanRatOld": 0.992,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 144
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.975,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "tmLead",
+        "byCellRat94": {
+         "tmLead": 0.9,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.95,
+         "random2": 1
+        },
+        "meanRatOld": 0.975,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "n": 144,
+         "T1": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 144,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 94,
+          "unseen": 50,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      }
+     }
+    },
+    "b": {
+     "cells": {
+      "rational": [
+       "legacy:Goodra-Hisui/Kleavor/Houndoom",
+       "view1:Goodra-Hisui/Kleavor/Venusaur",
+       "view2:Goodra-Hisui/Kleavor/Torkoal",
+       "aceLead:Houndoom/Goodra-Hisui/Kleavor",
+       "view3:Goodra-Hisui/Kleavor/Toxtricity"
+      ],
+      "tm": [
+       "tmLead:Goodra-Hisui/Venusaur/Torkoal",
+       "speedLead:Venusaur/Goodra-Hisui/Torkoal",
+       "aceLead:Houndoom/Goodra-Hisui/Venusaur",
+       "aceBack:Goodra-Hisui/Houndoom/Venusaur",
+       "random1:Goodra-Hisui/Houndoom/Toxtricity",
+       "random2:Houndoom/Kleavor/Torkoal"
+      ]
+     },
+     "byModel": {
+      "rational": {
+       "legacy": {
+        "pick": "Garchomp>Primarina>Metagross",
+        "plan": "ai",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Metagross>Hydreigon>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.97,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.012,
+        "worstCellRat94": 0.95,
+        "worstCell": "legacy",
+        "byCellRat94": {
+         "legacy": 0.95,
+         "view1": 1,
+         "view2": 0.95,
+         "aceLead": 0.95,
+         "view3": 1
+        },
+        "meanRatOld": 0.97,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 0.95,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 120
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.99,
+        "nRat94": 100,
+        "n": 120,
+        "seCell": 0.01,
+        "worstCellRat94": 0.95,
+        "worstCell": "view3",
+        "byCellRat94": {
+         "legacy": 1,
+         "view1": 1,
+         "view2": 1,
+         "aceLead": 1,
+         "view3": 0.95
+        },
+        "meanRatOld": 0.99,
+        "nRatOld": 100,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.4,
+        "aceBroughtRat94": 1,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 30,
+        "use": {
+         "n": 120,
+         "T1": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 120,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 120,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 60,
+          "unseen": 60,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      },
+      "tm": {
+       "legacy": {
+        "pick": "Garchomp>Primarina>Metagross",
+        "plan": "ai",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "quick": {
+        "pick": "Metagross>Hydreigon>Garchomp",
+        "plan": "ai",
+        "meanRat94": 0.992,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.008,
+        "worstCellRat94": 0.95,
+        "worstCell": "random2",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 1,
+         "random2": 0.95
+        },
+        "meanRatOld": 0.992,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.988,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "v2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr94floor": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "ai",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "lossLines": []
+       },
+       "pr93T1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr93T1T2",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "T1": 0,
+         "T2": 0,
+         "n": 144
+        },
+        "lossLines": []
+       },
+       "pr94floorT1T2": {
+        "pick": "Garchomp>Metagross>Primarina",
+        "plan": "pr94T1T2",
+        "meanRat94": 0.983,
+        "nRat94": 120,
+        "n": 144,
+        "seCell": 0.017,
+        "worstCellRat94": 0.9,
+        "worstCell": "random1",
+        "byCellRat94": {
+         "tmLead": 1,
+         "speedLead": 1,
+         "aceLead": 1,
+         "aceBack": 1,
+         "random1": 0.9,
+         "random2": 1
+        },
+        "meanRatOld": 0.983,
+        "nRatOld": 120,
+        "publicImmuneGames": 0,
+        "aceBrought": 0.667,
+        "aceBroughtRat94": 0.975,
+        "sameSeedSidesAgree": 1,
+        "sameSeedPairs": 36,
+        "use": {
+         "n": 144,
+         "T1": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 144,
+          "unseen": 0,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         },
+         "T2": {
+          "reached": 144,
+          "forcedRule": 0,
+          "ruleWin": null,
+          "abstain": 55,
+          "unseen": 89,
+          "unavailable": 0,
+          "forcedReplacementBefore": 0
+         }
+        },
+        "lossLines": []
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "note": "Selectors see only the six public species strings; T1/T2 tables are built from selector public-derived scenarios and executed against the real sets. AI vs AI, NOT a ladder win rate."
+}
