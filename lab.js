@@ -343,7 +343,7 @@ class Bot{
     const form=this.dex.species.get(my.species);
     return {knownOwnOffense:true,
       attackerItem:p.item===undefined?my.item:p.item,
-      attackerAbility:p.ability||(form.isMega?form.abilities['0']:my.ability)};
+      attackerAbility:form.isMega?form.abilities['0']:(p.ability||my.ability)};
   }
   getSet(p){
     const name=nameOf(p.details);
