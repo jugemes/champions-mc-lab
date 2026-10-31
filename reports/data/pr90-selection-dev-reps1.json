@@ -1,0 +1,463 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "phase": "DEV",
+ "workers": 4,
+ "budgetSeconds": 90,
+ "searchSeedBase": 8700000,
+ "guard": {
+  "altRatio": 0.85,
+  "k": 3,
+  "branches": [
+   "ai",
+   "attack",
+   "setup",
+   "switch"
+  ],
+  "reps": 1,
+  "margin": 0.1,
+  "meanSlack": 0.02,
+  "pairedSides": true
+ },
+ "sixes": {
+  "A_golisopod": {
+   "publicSix": [
+    "Golisopod",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Hippowdon",
+    "Gholdengo"
+   ],
+   "pr88": {
+    "pick": "Metagross>Garchomp>Rotom-Wash",
+    "seconds": 29.5,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Primarina>Garchomp>Rotom-Wash",
+    "label": "Primarina>Garchomp/Rotom-Wash",
+    "status": "guarded",
+    "seconds": 36.8,
+    "reason": "eligible 3; best worst 0.771 mean 0.828 vs legacy 0.104/0.323",
+    "eligible": [
+     "Primarina>Garchomp/Rotom-Wash",
+     "Metagross>Garchomp/Rotom-Wash",
+     "Rotom-Wash>Metagross/Garchomp"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 1536
+    },
+    "scores": [
+     {
+      "pick": "Hydreigon>Metagross/Primarina",
+      "legacy": true,
+      "worst": 0.104,
+      "mean": 0.323,
+      "left": 0.323,
+      "right": 0.323,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Primarina>Garchomp/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.771,
+      "mean": 0.828,
+      "left": 0.828,
+      "right": 0.828,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Metagross>Garchomp/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.688,
+      "mean": 0.75,
+      "left": 0.75,
+      "right": 0.75,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.646,
+      "mean": 0.786,
+      "left": 0.786,
+      "right": 0.786,
+      "sideSplit": 0,
+      "pairs": 192
+     }
+    ]
+   },
+   "changed": true
+  },
+  "B_lucarioZ": {
+   "publicSix": [
+    "Lucario",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Archaludon",
+    "Corviknight"
+   ],
+   "pr88": {
+    "pick": "Rotom-Wash>Metagross>Garchomp",
+    "seconds": 31.4,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Rotom-Wash>Metagross>Garchomp",
+    "label": "Rotom-Wash>Metagross/Garchomp",
+    "status": "guarded",
+    "seconds": 42.6,
+    "reason": "eligible 3; best worst 0.813 mean 0.904 vs legacy 0.354/0.583",
+    "eligible": [
+     "Rotom-Wash>Metagross/Garchomp",
+     "Rotom-Wash>Metagross/Primarina",
+     "Primarina>Metagross/Rotom-Wash"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 1920
+    },
+    "scores": [
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "legacy": true,
+      "worst": 0.354,
+      "mean": 0.583,
+      "left": 0.583,
+      "right": 0.583,
+      "sideSplit": 0,
+      "pairs": 240
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.813,
+      "mean": 0.904,
+      "left": 0.904,
+      "right": 0.904,
+      "sideSplit": 0,
+      "pairs": 240
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Primarina",
+      "legacy": false,
+      "worst": 0.625,
+      "mean": 0.871,
+      "left": 0.871,
+      "right": 0.871,
+      "sideSplit": 0,
+      "pairs": 240
+     },
+     {
+      "pick": "Primarina>Metagross/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.542,
+      "mean": 0.846,
+      "left": 0.846,
+      "right": 0.846,
+      "sideSplit": 0,
+      "pairs": 240
+     }
+    ]
+   },
+   "changed": false
+  },
+  "C_charizard": {
+   "publicSix": [
+    "Charizard",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Gholdengo",
+    "Baxcalibur"
+   ],
+   "pr88": {
+    "pick": "Primarina>Metagross>Garchomp",
+    "seconds": 26.1,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Primarina>Metagross>Garchomp",
+    "label": "Primarina>Metagross/Garchomp",
+    "status": "guarded",
+    "seconds": 33.4,
+    "reason": "eligible 3; best worst 0.833 mean 0.891 vs legacy 0.5/0.651",
+    "eligible": [
+     "Primarina>Metagross/Garchomp",
+     "Tyranitar>Metagross/Garchomp",
+     "Metagross>Hydreigon/Garchomp"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 1536
+    },
+    "scores": [
+     {
+      "pick": "Tyranitar>Metagross/Hydreigon",
+      "legacy": true,
+      "worst": 0.5,
+      "mean": 0.651,
+      "left": 0.651,
+      "right": 0.651,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.833,
+      "mean": 0.891,
+      "left": 0.891,
+      "right": 0.891,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Tyranitar>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.708,
+      "mean": 0.807,
+      "left": 0.807,
+      "right": 0.807,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Metagross>Hydreigon/Garchomp",
+      "legacy": false,
+      "worst": 0.708,
+      "mean": 0.75,
+      "left": 0.75,
+      "right": 0.75,
+      "sideSplit": 0,
+      "pairs": 192
+     }
+    ]
+   },
+   "changed": false
+  },
+  "U1_gardevoir": {
+   "publicSix": [
+    "Gardevoir",
+    "Incineroar",
+    "Gliscor",
+    "Milotic",
+    "Weavile",
+    "Kommo-o"
+   ],
+   "pr88": {
+    "pick": "Primarina>Metagross>Garchomp",
+    "seconds": 36.7,
+    "status": "legacy"
+   },
+   "v2": {
+    "pick": "Rotom-Wash>Metagross>Garchomp",
+    "label": "Rotom-Wash>Metagross/Garchomp",
+    "status": "guarded",
+    "seconds": 45.4,
+    "reason": "eligible 1; best worst 0.917 mean 0.976 vs legacy 0.813/0.899",
+    "eligible": [
+     "Rotom-Wash>Metagross/Garchomp"
+    ],
+    "games": {
+     "search": 4320,
+     "guard": 2304
+    },
+    "scores": [
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": true,
+      "worst": 0.813,
+      "mean": 0.899,
+      "left": 0.899,
+      "right": 0.899,
+      "sideSplit": 0,
+      "pairs": 288
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.917,
+      "mean": 0.976,
+      "left": 0.976,
+      "right": 0.976,
+      "sideSplit": 0,
+      "pairs": 288
+     },
+     {
+      "pick": "Primarina>Metagross/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.813,
+      "mean": 0.938,
+      "left": 0.938,
+      "right": 0.938,
+      "sideSplit": 0,
+      "pairs": 288
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Tyranitar",
+      "legacy": false,
+      "worst": 0.867,
+      "mean": 0.934,
+      "left": 0.934,
+      "right": 0.934,
+      "sideSplit": 0,
+      "pairs": 288
+     }
+    ]
+   },
+   "changed": true
+  },
+  "U2_aerodactyl": {
+   "publicSix": [
+    "Aerodactyl",
+    "Mamoswine",
+    "Greninja",
+    "Goodra",
+    "Talonflame",
+    "Klefki"
+   ],
+   "pr88": {
+    "pick": "Rotom-Wash>Metagross>Primarina",
+    "seconds": 30.1,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Rotom-Wash>Metagross>Primarina",
+    "label": "Rotom-Wash>Metagross/Primarina",
+    "status": "guarded",
+    "seconds": 38.4,
+    "reason": "eligible 3; best worst 0.979 mean 0.997 vs legacy 0.583/0.735",
+    "eligible": [
+     "Rotom-Wash>Metagross/Primarina",
+     "Rotom-Wash>Primarina/Garchomp",
+     "Rotom-Wash>Primarina/Tyranitar"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 2688
+    },
+    "scores": [
+     {
+      "pick": "Primarina>Garchomp/Tyranitar",
+      "legacy": true,
+      "worst": 0.583,
+      "mean": 0.735,
+      "left": 0.735,
+      "right": 0.735,
+      "sideSplit": 0,
+      "pairs": 336
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Primarina",
+      "legacy": false,
+      "worst": 0.979,
+      "mean": 0.997,
+      "left": 0.997,
+      "right": 0.997,
+      "sideSplit": 0,
+      "pairs": 336
+     },
+     {
+      "pick": "Rotom-Wash>Primarina/Garchomp",
+      "legacy": false,
+      "worst": 0.938,
+      "mean": 0.991,
+      "left": 0.991,
+      "right": 0.991,
+      "sideSplit": 0,
+      "pairs": 336
+     },
+     {
+      "pick": "Rotom-Wash>Primarina/Tyranitar",
+      "legacy": false,
+      "worst": 0.917,
+      "mean": 0.97,
+      "left": 0.97,
+      "right": 0.97,
+      "sideSplit": 0,
+      "pairs": 336
+     }
+    ]
+   },
+   "changed": false
+  },
+  "U3_lopunny": {
+   "publicSix": [
+    "Lopunny",
+    "Snorlax",
+    "Chandelure",
+    "Krookodile",
+    "Hawlucha",
+    "Florges"
+   ],
+   "pr88": {
+    "pick": "Primarina>Metagross>Garchomp",
+    "seconds": 24.7,
+    "status": "legacy"
+   },
+   "v2": {
+    "pick": "Primarina>Metagross>Garchomp",
+    "label": "Primarina>Metagross/Garchomp",
+    "status": "legacy",
+    "seconds": 33.6,
+    "reason": "legacy kept: no candidate with worst >= 0.938+0.1 and mean >= 0.969-0.02",
+    "eligible": [],
+    "games": {
+     "search": 3456,
+     "guard": 1536
+    },
+    "scores": [
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": true,
+      "worst": 0.938,
+      "mean": 0.969,
+      "left": 0.969,
+      "right": 0.969,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Primarina>Metagross/Hydreigon",
+      "legacy": false,
+      "worst": 0.854,
+      "mean": 0.922,
+      "left": 0.922,
+      "right": 0.922,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Primarina",
+      "legacy": false,
+      "worst": 0.854,
+      "mean": 0.906,
+      "left": 0.906,
+      "right": 0.906,
+      "sideSplit": 0,
+      "pairs": 192
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.875,
+      "mean": 0.953,
+      "left": 0.953,
+      "right": 0.953,
+      "sideSplit": 0,
+      "pairs": 192
+     }
+    ]
+   },
+   "changed": false
+  }
+ },
+ "note": "Selection only. Guard games: each seed on both sides. AI vs AI on constructed sets, NOT a ladder win rate."
+}
