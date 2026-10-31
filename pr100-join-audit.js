@@ -9,7 +9,9 @@
 // selector re-run; they do not change the rival masker). No selector runs, no
 // new FINAL evaluation: the PR #97 FINAL sixes are already spent.
 //   PHASE=FINAL|DEV  WORKERS=4  ONLY=<regexp on six id>
-// Usage: node pr100-join-audit.js > reports/data/pr100-join-<phase>.json
+// Usage: node pr100-join-audit.js > reports/data/pr100-join-aiplan-<phase>.json
+// (the full pipeline replay incl. selector / T1-T2 games: node -r
+//  ./pr100-join-hook.js pr96-eval.js, then pr100-join-summary.js)
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os');
 const {load}=require('./lab');
 const H=require('./holdout-20261031-pr96');
