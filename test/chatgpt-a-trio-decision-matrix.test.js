@@ -36,7 +36,10 @@ function rivalScript(kind){
     if(req.teamPreview||req.forceSwitch||!req.active?.[0])return null;
     const active=req.side.pokemon.find(p=>p.active);
     const species=String(active?.details||'').split(',')[0];
-    if(kind==='switch'&&info.turn===1)return switchTo(req,'Garchomp');
+    // A rational counter-switch hypothesis based on the PUBLIC opposing lead:
+    // Garchomp threatens Metagross; Mimikyu can absorb one attack via Disguise.
+    if(kind==='switch'&&info.turn===1)
+      return switchTo(req,bot.foeActive.startsWith('Metagross')?'Garchomp':'Mimikyu');
     if(!species.startsWith('Golisopod'))return null;
     let desired='',mega=false;
     if(kind==='seenThenMega'){
@@ -46,8 +49,13 @@ function rivalScript(kind){
       if(info.turn===1){desired='Swords Dance';mega=true;}
       if(info.turn===2)desired='Leech Life';
     }else if(kind==='megaAttack'){
-      if(info.turn===1){desired='Leech Life';mega=true;}
-      if(info.turn===2)desired='Sucker Punch';
+      // Predicted lead-sensitive attacking line, not an omniscient future move.
+      if(info.turn===1){
+        desired=bot.foeActive.startsWith('Primarina')?'Iron Head':
+          bot.foeActive.startsWith('Metagross')?'Sucker Punch':'Leech Life';
+        mega=true;
+      }
+      if(info.turn===2)desired='Leech Life';
     }
     const i=slot(req,desired);
     return i?'move '+i+(mega&&req.active[0].canMegaEvo?' mega':''):null;
