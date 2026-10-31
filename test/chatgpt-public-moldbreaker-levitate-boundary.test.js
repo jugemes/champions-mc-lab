@@ -20,7 +20,7 @@ test('pinned Showdown: Mold Breaker Mega Earthquake hits Levitate Rotom, unlike 
   assert.equal(dex.species.get('Gyarados-Mega').abilities['0'],'Mold Breaker');
   const b=A.engineBattle(sim,A.padTo6(rotom,A.FILLER()),A.padTo6(gyara,A.FILLER()),
     [104,11,1,9],[['move 4','move 1 mega']]);
-  const log=b.log.join('\n');
+  assert.ok(b.log.length>0,'the pinned engine must emit a battle protocol');
   assert.ok(b.log.some(l=>l.includes('Gyarados-Mega')),'Mega must actually occur');
   assert.ok(b.log.some(l=>l.startsWith('|move|p2a: Gyarados|Earthquake')),'Earthquake must execute');
   assert.ok(b.log.some(l=>l.startsWith('|-damage|p1a: Rotom')),'engine must show a hit');
