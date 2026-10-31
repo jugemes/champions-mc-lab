@@ -98,3 +98,32 @@ test('pinned real Battle: opt-in Mega move memory preserves publicly revealed mo
     incomingRiskOptIn:fixedRisk,
     battleTurns:g.turns,engineChoiceErrors:g.errors}));
 });
+
+
+test('opt-in public Mega memory keeps subsequent observed moves, but never crosses species',{
+  skip:!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR not set'
+},async()=>{
+  const dex=load().Dex.mod('champions'),own=reportedLive();
+  // Synthetic PUBLIC protocol boundary test; this is not a separate Battle.
+  const sequence=[
+    '|switch|p2a: Golisopod|Golisopod, L50|100/100',
+    '|move|p2a: Golisopod|Sucker Punch|p1a: Tyranitar',
+    '|detailschange|p2a: Golisopod|Golisopod-Mega, L50',
+    '|move|p2a: Golisopod|Leech Life|p1a: Tyranitar',
+    '|switch|p2a: Garchomp|Garchomp, L50|100/100',
+    '|switch|p2a: Golisopod|Golisopod-Mega, L50|100/100',
+  ];
+  const b=await observe(sequence,dex,own,{publicMoveMemory:true});
+  assert.equal(b.foeActive,'Golisopod-Mega');
+  assert.deepEqual(b.seenMoves.Golisopod,['Sucker Punch','Leech Life']);
+  assert.deepEqual(b.seenMoves['Golisopod-Mega'],['Sucker Punch','Leech Life']);
+  assert.equal(b.seenMoves.Garchomp,undefined);
+  // Impossible cross-species detailschange must not transfer even if received.
+  const invalidChange=await observe([
+    '|switch|p2a: Golisopod|Golisopod, L50|100/100',
+    '|move|p2a: Golisopod|Sucker Punch|p1a: Tyranitar',
+    '|detailschange|p2a: Golisopod|Garchomp, L50',
+  ],dex,own,{publicMoveMemory:true});
+  assert.deepEqual(invalidChange.seenMoves.Garchomp||[],[]);
+  assert.deepEqual(invalidChange.seenMoves.Golisopod,['Sucker Punch']);
+});
