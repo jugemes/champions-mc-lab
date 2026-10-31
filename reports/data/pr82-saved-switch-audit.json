@@ -1,0 +1,13 @@
+{
+ "source": [
+  "reports/data/pr80-eval-dev-v2.json",
+  "reports/data/pr80-eval-holdout-v2.json",
+  "reports/data/pr80-eval-hxsand-v2.json"
+ ],
+ "note": "re-read of saved PR #81 logs, NOT a battle rerun",
+ "requests": 2298,
+ "byPair": {
+  "v1=executed v2=executed": 2298
+ },
+ "wrongTarget": []
+}

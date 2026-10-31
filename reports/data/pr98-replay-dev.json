@@ -1,0 +1,101 @@
+{
+ "saved": "pr96-eval-dev.json",
+ "replay": "pr96-eval-dev.replay.json",
+ "determinism": {
+  "policyRowsCompared": 560,
+  "differences": 0,
+  "first": []
+ },
+ "shadow": {
+  "battlesLogged": 9733,
+  "workerBattleCountFinal": 248370,
+  "aware": {
+   "battles": 2192,
+   "pr96Hit": 2192,
+   "pr98Known": 746,
+   "pr96HitT12": 310,
+   "pr98KnownT12": 0,
+   "pr96OnlySameTurnMega": 0,
+   "pr96OnlyLocked": 1455,
+   "pr96OnlyOther": 0,
+   "pr98OnlyBalloon": 0,
+   "possibleMega": 0,
+   "lockedLines": 1455,
+   "maskerDisagree": 0,
+   "knownWhy": {
+    "only ability levitate | Earthquake -> Rotom-Wash": 475,
+    "only ability levitate | Earthquake -> Hydreigon": 243,
+    "type | Outrage -> Primarina": 12,
+    "type | Gunk Shot -> Metagross-Mega": 164,
+    "only ability levitate | Scorching Sands -> Rotom-Wash": 10,
+    "type | Glaive Rush -> Primarina": 18,
+    "type | Gunk Shot -> Metagross": 36,
+    "type | Psychic -> Tyranitar": 28,
+    "type | Psychic -> Hydreigon": 6,
+    "type | Sludge Wave -> Metagross": 9,
+    "type | Supercell Slam -> Garchomp": 50,
+    "type | Dragon Claw -> Primarina": 23,
+    "type | Sludge Bomb -> Metagross-Mega": 12
+   },
+   "knownT12Why": {},
+   "knownT12Choice": {}
+  },
+  "naive": {
+   "battles": 7541,
+   "pr96Hit": 7541,
+   "pr98Known": 7283,
+   "pr96HitT12": 1135,
+   "pr98KnownT12": 1135,
+   "pr96OnlySameTurnMega": 0,
+   "pr96OnlyLocked": 264,
+   "pr96OnlyOther": 0,
+   "pr98OnlyBalloon": 0,
+   "possibleMega": 0,
+   "lockedLines": 264,
+   "maskerDisagree": 0,
+   "knownWhy": {
+    "only ability levitate | Earthquake -> Rotom-Wash": 16225,
+    "only ability levitate | Earth Power -> Rotom-Wash": 2342,
+    "type | Outrage -> Primarina": 23,
+    "type | Glaive Rush -> Primarina": 46,
+    "type | Psychic -> Hydreigon": 24,
+    "only ability levitate | Earthquake -> Hydreigon": 540,
+    "type | Gunk Shot -> Metagross": 177,
+    "type | Gunk Shot -> Metagross-Mega": 26,
+    "type | Supercell Slam -> Garchomp": 128,
+    "type | Sludge Wave -> Metagross": 1,
+    "type | Dragon Claw -> Primarina": 43,
+    "only ability levitate | High Horsepower -> Rotom-Wash": 924,
+    "only ability levitate | High Horsepower -> Hydreigon": 134,
+    "type | Draco Meteor -> Primarina": 32,
+    "type | Double Shock -> Garchomp": 11,
+    "type | Sludge Bomb -> Metagross-Mega": 12
+   },
+   "knownT12Why": {
+    "only ability levitate | Earthquake -> Rotom-Wash": 1056,
+    "only ability levitate | Earthquake -> Hydreigon": 30,
+    "type | Gunk Shot -> Metagross": 14,
+    "type | Dragon Claw -> Primarina": 1,
+    "only ability levitate | Earth Power -> Rotom-Wash": 72,
+    "only ability levitate | High Horsepower -> Rotom-Wash": 113,
+    "only ability levitate | High Horsepower -> Hydreigon": 42
+   },
+   "knownT12Choice": {
+    "base AI [masker saw Earthquake]": 850,
+    "move 2 [masker saw Earthquake]": 52,
+    "move 1 [masker saw Earthquake]": 124,
+    "base AI [masker saw Gunk Shot]": 14,
+    "move 3 [masker saw Earthquake]": 24,
+    "base AI [masker saw Dragon Claw]": 1,
+    "base AI [masker saw Earth Power]": 56,
+    "move 1 mega [masker saw Earth Power]": 8,
+    "move 1 [masker saw Earth Power]": 8,
+    "move 4 mega [masker saw Earthquake]": 24,
+    "move 4 [masker saw Earthquake]": 12,
+    "move 1 [masker saw High Horsepower]": 37,
+    "base AI [masker saw High Horsepower]": 118
+   }
+  }
+ },
+ "awareResidualExamples": []
+}

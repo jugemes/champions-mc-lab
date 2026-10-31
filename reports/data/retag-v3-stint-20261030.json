@@ -1,0 +1,2977 @@
+{
+ "source": "legal-search-v2-compare-20261030.json",
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "cases": {
+  "A_golisopod": {
+   "public": [
+    "Golisopod",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Hippowdon",
+    "Gholdengo"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Hydreigon/Primarina/Metagross",
+     "total": [
+      15,
+      36
+     ],
+     "cleanV2": [
+      5,
+      24
+     ],
+     "cleanV3": [
+      5,
+      24
+     ],
+     "cleanV3pr69": [
+      5,
+      24
+     ],
+     "foeV3Games": {
+      "setupSpam": 12,
+      "setupForcedEncore": 12,
+      "encoreStay": 12
+     },
+     "ownV3Games": {
+      "encoreRepeat": 12
+     },
+     "encoreGames": 12,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 5,
+       "n": 12,
+       "cleanV2": [
+        5,
+        12
+       ],
+       "cleanV3": [
+        5,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      30,
+      36
+     ],
+     "cleanV2": [
+      14,
+      20
+     ],
+     "cleanV3": [
+      18,
+      24
+     ],
+     "cleanV3pr69": [
+      18,
+      24
+     ],
+     "foeV3Games": {
+      "setupSpam": 12,
+      "setupForcedEncore": 12,
+      "encoreStay": 12,
+      "lockedRepeat": 4
+     },
+     "ownV3Games": {
+      "encoreRepeat": 12,
+      "lockedRepeat": 6,
+      "lockedStay": 6
+     },
+     "encoreGames": 12,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        2,
+        8
+       ],
+       "cleanV3": [
+        6,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      0,
+      36
+     ],
+     "cleanV2": [
+      0,
+      20
+     ],
+     "cleanV3": [
+      0,
+      34
+     ],
+     "cleanV3pr69": [
+      0,
+      20
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 14,
+      "lockedStay": 14,
+      "immuneRepeat": 2
+     },
+     "ownV3Games": {
+      "immuneRepeat": 6
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        10
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        10
+       ],
+       "cleanV3": [
+        0,
+        10
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 12
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Garchomp/Metagross/Primarina",
+     "total": [
+      10,
+      36
+     ],
+     "cleanV2": [
+      10,
+      36
+     ],
+     "cleanV3": [
+      10,
+      36
+     ],
+     "cleanV3pr69": [
+      10,
+      36
+     ],
+     "foeV3Games": {
+      "encoreStayOther": 6
+     },
+     "ownV3Games": {
+      "encoreRepeat": 6,
+      "lockedRepeat": 2,
+      "lockedStay": 2
+     },
+     "encoreGames": 6,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "B_lucarioZ": {
+   "public": [
+    "Lucario",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Archaludon",
+    "Corviknight"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Hydreigon/Metagross",
+     "total": [
+      13,
+      36
+     ],
+     "cleanV2": [
+      11,
+      34
+     ],
+     "cleanV3": [
+      13,
+      36
+     ],
+     "cleanV3pr69": [
+      13,
+      36
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 2
+     },
+     "ownV3Games": {
+      "helmetFaint": 12,
+      "lockedRepeat": 2
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "cleanV2": [
+        9,
+        10
+       ],
+       "cleanV3": [
+        11,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Garchomp/Metagross/Hydreigon",
+     "total": [
+      13,
+      36
+     ],
+     "cleanV2": [
+      11,
+      34
+     ],
+     "cleanV3": [
+      13,
+      36
+     ],
+     "cleanV3pr69": [
+      13,
+      36
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 2
+     },
+     "ownV3Games": {
+      "helmetFaint": 12,
+      "lockedRepeat": 2
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "cleanV2": [
+        9,
+        10
+       ],
+       "cleanV3": [
+        11,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "total": [
+      15,
+      36
+     ],
+     "cleanV2": [
+      8,
+      28
+     ],
+     "cleanV3": [
+      14,
+      34
+     ],
+     "cleanV3pr69": [
+      8,
+      28
+     ],
+     "foeV3Games": {
+      "encoreStayOther": 22,
+      "helmetFaint": 2,
+      "lockedRepeat": 7,
+      "lockedStay": 7
+     },
+     "ownV3Games": {
+      "encoreRepeat": 12,
+      "lockedRepeat": 8,
+      "resistRepeat": 4,
+      "lockedStay": 6
+     },
+     "encoreGames": 22,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        5,
+        11
+       ],
+       "cleanV3": [
+        5,
+        11
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 7,
+       "n": 12,
+       "cleanV2": [
+        1,
+        5
+       ],
+       "cleanV3": [
+        7,
+        11
+       ],
+       "stayedLocked": 7
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "total": [
+      15,
+      36
+     ],
+     "cleanV2": [
+      8,
+      28
+     ],
+     "cleanV3": [
+      14,
+      34
+     ],
+     "cleanV3pr69": [
+      8,
+      28
+     ],
+     "foeV3Games": {
+      "encoreStayOther": 22,
+      "helmetFaint": 2,
+      "lockedRepeat": 7,
+      "lockedStay": 7
+     },
+     "ownV3Games": {
+      "encoreRepeat": 12,
+      "lockedRepeat": 8,
+      "resistRepeat": 4,
+      "lockedStay": 6
+     },
+     "encoreGames": 22,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        5,
+        11
+       ],
+       "cleanV3": [
+        5,
+        11
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 7,
+       "n": 12,
+       "cleanV2": [
+        1,
+        5
+       ],
+       "cleanV3": [
+        7,
+        11
+       ],
+       "stayedLocked": 7
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "C_charizardY": {
+   "public": [
+    "Charizard",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Gholdengo",
+    "Baxcalibur"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "total": [
+      22,
+      36
+     ],
+     "cleanV2": [
+      22,
+      36
+     ],
+     "cleanV3": [
+      22,
+      36
+     ],
+     "cleanV3pr69": [
+      22,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {
+      "helmetFaint": 6
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Tyranitar/Metagross/Hydreigon",
+     "total": [
+      22,
+      36
+     ],
+     "cleanV2": [
+      22,
+      36
+     ],
+     "cleanV3": [
+      22,
+      36
+     ],
+     "cleanV3pr69": [
+      22,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {
+      "helmetFaint": 6
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Hydreigon/Primarina/Tyranitar",
+     "total": [
+      9,
+      36
+     ],
+     "cleanV2": [
+      9,
+      36
+     ],
+     "cleanV3": [
+      9,
+      36
+     ],
+     "cleanV3pr69": [
+      9,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {},
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 4,
+       "n": 12,
+       "cleanV2": [
+        4,
+        12
+       ],
+       "cleanV3": [
+        4,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 3,
+       "n": 12,
+       "cleanV2": [
+        3,
+        12
+       ],
+       "cleanV3": [
+        3,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Garchomp/Metagross/Primarina",
+     "total": [
+      23,
+      36
+     ],
+     "cleanV2": [
+      11,
+      24
+     ],
+     "cleanV3": [
+      23,
+      36
+     ],
+     "cleanV3pr69": [
+      11,
+      24
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 12,
+      "lockedStay": 12
+     },
+     "ownV3Games": {
+      "helmetFaint": 5
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 1,
+       "n": 12,
+       "cleanV2": [
+        1,
+        12
+       ],
+       "cleanV3": [
+        1,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "C_charizardX": {
+   "public": [
+    "Charizard",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Gholdengo",
+    "Baxcalibur"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      24,
+      36
+     ],
+     "cleanV3": [
+      24,
+      36
+     ],
+     "cleanV3pr69": [
+      24,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {
+      "helmetFaint": 8
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Tyranitar/Hydreigon/Garchomp",
+     "total": [
+      16,
+      36
+     ],
+     "cleanV2": [
+      16,
+      36
+     ],
+     "cleanV3": [
+      16,
+      36
+     ],
+     "cleanV3pr69": [
+      16,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {
+      "helmetFaint": 4,
+      "lockedRepeat": 3
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 4,
+       "n": 12,
+       "cleanV2": [
+        4,
+        12
+       ],
+       "cleanV3": [
+        4,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "total": [
+      26,
+      36
+     ],
+     "cleanV2": [
+      16,
+      18
+     ],
+     "cleanV3": [
+      26,
+      30
+     ],
+     "cleanV3pr69": [
+      16,
+      18
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 6,
+      "lockedRepeat": 12,
+      "lockedStay": 12
+     },
+     "ownV3Games": {
+      "immuneRepeat": 6
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        6,
+        6
+       ],
+       "cleanV3": [
+        6,
+        6
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 12
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Metagross/Garchomp/Rotom-Wash",
+     "total": [
+      25,
+      36
+     ],
+     "cleanV2": [
+      21,
+      22
+     ],
+     "cleanV3": [
+      25,
+      36
+     ],
+     "cleanV3pr69": [
+      21,
+      22
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 14,
+      "lockedStay": 14
+     },
+     "ownV3Games": {
+      "lockedRepeat": 10,
+      "lockedStay": 10
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "cleanV2": [
+        9,
+        10
+       ],
+       "cleanV3": [
+        11,
+        12
+       ],
+       "stayedLocked": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 12
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "Real_indeedee_scarf": {
+   "public": [
+    "Indeedee",
+    "Hippowdon",
+    "Garchomp",
+    "Umbreon",
+    "Gengar",
+    "Gyarados"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      36,
+      36
+     ],
+     "cleanV2": [
+      22,
+      22
+     ],
+     "cleanV3": [
+      22,
+      22
+     ],
+     "cleanV3pr69": [
+      22,
+      22
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 4,
+      "resistRepeat": 12,
+      "lockedRepeat": 2
+     },
+     "ownV3Games": {
+      "encoreRepeat": 2
+     },
+     "encoreGames": 2,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        10,
+        10
+       ],
+       "cleanV3": [
+        10,
+        10
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      36,
+      36
+     ],
+     "cleanV2": [
+      22,
+      22
+     ],
+     "cleanV3": [
+      22,
+      22
+     ],
+     "cleanV3pr69": [
+      22,
+      22
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 4,
+      "resistRepeat": 12,
+      "lockedRepeat": 2
+     },
+     "ownV3Games": {
+      "encoreRepeat": 2
+     },
+     "encoreGames": 2,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        10,
+        10
+       ],
+       "cleanV3": [
+        10,
+        10
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      24,
+      36
+     ],
+     "cleanV3": [
+      24,
+      36
+     ],
+     "cleanV3pr69": [
+      24,
+      36
+     ],
+     "foeV3Games": {
+      "encoreStayOther": 12
+     },
+     "ownV3Games": {
+      "lockedRepeat": 2,
+      "lockedStay": 2
+     },
+     "encoreGames": 12,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Rotom-Wash/Hydreigon/Tyranitar",
+     "total": [
+      34,
+      36
+     ],
+     "cleanV2": [
+      10,
+      10
+     ],
+     "cleanV3": [
+      10,
+      10
+     ],
+     "cleanV3pr69": [
+      10,
+      10
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 26
+     },
+     "ownV3Games": {
+      "resistRepeat": 24
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        10,
+        10
+       ],
+       "cleanV3": [
+        10,
+        10
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "Real_indeedee_sash": {
+   "public": [
+    "Indeedee",
+    "Hippowdon",
+    "Garchomp",
+    "Umbreon",
+    "Gengar",
+    "Gyarados"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      34,
+      36
+     ],
+     "cleanV2": [
+      5,
+      5
+     ],
+     "cleanV3": [
+      17,
+      18
+     ],
+     "cleanV3pr69": [
+      5,
+      5
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 16,
+      "lockedStay": 14,
+      "resistRepeat": 16,
+      "immuneRepeat": 8,
+      "helmetFaint": 4,
+      "encoreStayOther": 2
+     },
+     "ownV3Games": {
+      "encoreRepeat": 4,
+      "helmetFaint": 4
+     },
+     "encoreGames": 4,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        5,
+        5
+       ],
+       "cleanV3": [
+        5,
+        6
+       ],
+       "stayedLocked": 2
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Tyranitar/Metagross/Primarina",
+     "total": [
+      16,
+      36
+     ],
+     "cleanV2": [
+      12,
+      24
+     ],
+     "cleanV3": [
+      14,
+      26
+     ],
+     "cleanV3pr69": [
+      14,
+      26
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 2,
+      "resistRepeat": 10
+     },
+     "ownV3Games": {
+      "helmetFaint": 12,
+      "encoreRepeat": 4
+     },
+     "encoreGames": 4,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        8,
+        8
+       ],
+       "cleanV3": [
+        10,
+        10
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        4,
+        4
+       ],
+       "cleanV3": [
+        4,
+        4
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      4,
+      16
+     ],
+     "cleanV3": [
+      12,
+      24
+     ],
+     "cleanV3pr69": [
+      12,
+      24
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 12,
+      "encoreStayOther": 12,
+      "resistRepeat": 12
+     },
+     "ownV3Games": {
+      "encoreRepeat": 4
+     },
+     "encoreGames": 16,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      4,
+      16
+     ],
+     "cleanV3": [
+      12,
+      24
+     ],
+     "cleanV3pr69": [
+      12,
+      24
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 12,
+      "encoreStayOther": 12,
+      "resistRepeat": 12
+     },
+     "ownV3Games": {
+      "encoreRepeat": 4
+     },
+     "encoreGames": 16,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        12
+       ],
+       "cleanV3": [
+        2,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "NEW_realE_sun": {
+   "public": [
+    "Raichu",
+    "Meowscarada",
+    "Charizard",
+    "Garchomp",
+    "Basculegion",
+    "Corviknight"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Garchomp/Primarina",
+     "total": [
+      16,
+      36
+     ],
+     "cleanV2": [
+      14,
+      28
+     ],
+     "cleanV3": [
+      16,
+      30
+     ],
+     "cleanV3pr69": [
+      14,
+      28
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 2,
+      "lockedStay": 2,
+      "helmetFaint": 6,
+      "encoreStayOther": 24
+     },
+     "ownV3Games": {
+      "encoreRepeat": 24,
+      "helmetFaint": 2
+     },
+     "encoreGames": 24,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        10,
+        10
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        8
+       ],
+       "cleanV3": [
+        2,
+        8
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        10
+       ],
+       "cleanV3": [
+        2,
+        10
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Tyranitar/Primarina/Garchomp",
+     "total": [
+      16,
+      36
+     ],
+     "cleanV2": [
+      10,
+      24
+     ],
+     "cleanV3": [
+      16,
+      30
+     ],
+     "cleanV3pr69": [
+      10,
+      24
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 6,
+      "lockedStay": 6,
+      "helmetFaint": 6,
+      "encoreStayOther": 24
+     },
+     "ownV3Games": {
+      "encoreRepeat": 24,
+      "helmetFaint": 2
+     },
+     "encoreGames": 24,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        6,
+        6
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 6
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        8
+       ],
+       "cleanV3": [
+        2,
+        8
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 2,
+       "n": 12,
+       "cleanV2": [
+        2,
+        10
+       ],
+       "cleanV3": [
+        2,
+        10
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Rotom-Wash/Garchomp/Tyranitar",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      18,
+      18
+     ],
+     "cleanV3": [
+      18,
+      30
+     ],
+     "cleanV3pr69": [
+      18,
+      18
+     ],
+     "foeV3Games": {
+      "chargeNoSun": 6,
+      "lockedRepeat": 12,
+      "lockedStay": 12
+     },
+     "ownV3Games": {
+      "helmetFaint": 4,
+      "lockedRepeat": 10,
+      "lockedStay": 10,
+      "resistRepeat": 4
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        6,
+        6
+       ],
+       "cleanV3": [
+        6,
+        6
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 12
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Rotom-Wash/Metagross/Garchomp",
+     "total": [
+      18,
+      36
+     ],
+     "cleanV2": [
+      12,
+      17
+     ],
+     "cleanV3": [
+      16,
+      30
+     ],
+     "cleanV3pr69": [
+      12,
+      17
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 16,
+      "lockedStay": 16,
+      "resistRepeat": 4,
+      "helmetFaint": 2
+     },
+     "ownV3Games": {
+      "lockedRepeat": 1,
+      "lockedStay": 1,
+      "helmetFaint": 9
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        5
+       ],
+       "cleanV3": [
+        0,
+        8
+       ],
+       "stayedLocked": 4
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 6,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        4,
+        10
+       ],
+       "stayedLocked": 12
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "HOLD_sun_balance": {
+   "public": [
+    "Charizard",
+    "Eelektross",
+    "Dragonite",
+    "Toxapex",
+    "Basculegion",
+    "Skarmory"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Garchomp/Rotom-Wash",
+     "total": [
+      32,
+      36
+     ],
+     "cleanV2": [
+      16,
+      20
+     ],
+     "cleanV3": [
+      24,
+      28
+     ],
+     "cleanV3pr69": [
+      20,
+      24
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 8,
+      "lockedRepeat": 14,
+      "lockedStay": 4
+     },
+     "ownV3Games": {
+      "lockedRepeat": 10,
+      "lockedStay": 10
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Dragonite/Basculegion"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        2,
+        4
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Toxapex/Skarmory/Eelektross"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Charizard/Basculegion/Skarmory"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 4
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Tyranitar/Garchomp/Rotom-Wash",
+     "total": [
+      32,
+      36
+     ],
+     "cleanV2": [
+      16,
+      20
+     ],
+     "cleanV3": [
+      24,
+      28
+     ],
+     "cleanV3pr69": [
+      20,
+      24
+     ],
+     "foeV3Games": {
+      "immuneRepeat": 8,
+      "lockedRepeat": 14,
+      "lockedStay": 4
+     },
+     "ownV3Games": {
+      "lockedRepeat": 10,
+      "lockedStay": 10
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Dragonite/Basculegion"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        2,
+        4
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Toxapex/Skarmory/Eelektross"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Charizard/Basculegion/Skarmory"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        2,
+        4
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 4
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Rotom-Wash/Garchomp/Tyranitar",
+     "total": [
+      12,
+      36
+     ],
+     "cleanV2": [
+      0,
+      8
+     ],
+     "cleanV3": [
+      0,
+      8
+     ],
+     "cleanV3pr69": [
+      0,
+      8
+     ],
+     "foeV3Games": {
+      "chargeNoSun": 16,
+      "helmetFaint": 4,
+      "resistRepeat": 12
+     },
+     "ownV3Games": {
+      "lockedRepeat": 32,
+      "lockedStay": 12
+     },
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Dragonite/Basculegion"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        4
+       ],
+       "cleanV3": [
+        0,
+        4
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Toxapex/Skarmory/Eelektross"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        0,
+        0
+       ],
+       "cleanV3": [
+        0,
+        0
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Charizard/Basculegion/Skarmory"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        4
+       ],
+       "cleanV3": [
+        0,
+        4
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Metagross/Primarina/Tyranitar",
+     "total": [
+      20,
+      36
+     ],
+     "cleanV2": [
+      16,
+      28
+     ],
+     "cleanV3": [
+      18,
+      34
+     ],
+     "cleanV3pr69": [
+      18,
+      34
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 6,
+      "resistRepeat": 2
+     },
+     "ownV3Games": {
+      "encoreRepeat": 8,
+      "resistRepeat": 4
+     },
+     "encoreGames": 10,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Dragonite/Basculegion"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Toxapex/Skarmory/Eelektross"
+       ],
+       "w": 8,
+       "n": 12,
+       "cleanV2": [
+        4,
+        4
+       ],
+       "cleanV3": [
+        6,
+        10
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Charizard/Basculegion/Skarmory"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  },
+  "HOLD_psychic_offense": {
+   "public": [
+    "Alakazam",
+    "Sneasler",
+    "Starmie",
+    "Armarouge",
+    "Swampert",
+    "Gyarados"
+   ],
+   "summary": {
+    "legacy": {
+     "three": "Metagross/Tyranitar/Hydreigon",
+     "total": [
+      16,
+      36
+     ],
+     "cleanV2": [
+      16,
+      36
+     ],
+     "cleanV3": [
+      16,
+      36
+     ],
+     "cleanV3pr69": [
+      16,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {},
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Alakazam/Sneasler/Starmie"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Swampert/Armarouge/Gyarados"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Sneasler/Armarouge/Starmie"
+       ],
+       "w": 4,
+       "n": 12,
+       "cleanV2": [
+        4,
+        12
+       ],
+       "cleanV3": [
+        4,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "strategic": {
+     "three": "Metagross/Garchomp/Tyranitar",
+     "total": [
+      26,
+      36
+     ],
+     "cleanV2": [
+      26,
+      36
+     ],
+     "cleanV3": [
+      26,
+      36
+     ],
+     "cleanV3pr69": [
+      26,
+      36
+     ],
+     "foeV3Games": {},
+     "ownV3Games": {},
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Alakazam/Sneasler/Starmie"
+       ],
+       "w": 10,
+       "n": 12,
+       "cleanV2": [
+        10,
+        12
+       ],
+       "cleanV3": [
+        10,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Swampert/Armarouge/Gyarados"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Sneasler/Armarouge/Starmie"
+       ],
+       "w": 4,
+       "n": 12,
+       "cleanV2": [
+        4,
+        12
+       ],
+       "cleanV3": [
+        4,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search": {
+     "three": "Garchomp/Metagross/Primarina",
+     "total": [
+      24,
+      36
+     ],
+     "cleanV2": [
+      14,
+      26
+     ],
+     "cleanV3": [
+      24,
+      36
+     ],
+     "cleanV3pr69": [
+      14,
+      26
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 10,
+      "lockedStay": 10
+     },
+     "ownV3Games": {},
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Alakazam/Sneasler/Starmie"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Swampert/Armarouge/Gyarados"
+       ],
+       "w": 0,
+       "n": 12,
+       "cleanV2": [
+        0,
+        12
+       ],
+       "cleanV3": [
+        0,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Sneasler/Armarouge/Starmie"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        2,
+        2
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 10
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    },
+    "legal-search-v2": {
+     "three": "Metagross/Garchomp/Rotom-Wash",
+     "total": [
+      28,
+      36
+     ],
+     "cleanV2": [
+      24,
+      32
+     ],
+     "cleanV3": [
+      28,
+      36
+     ],
+     "cleanV3pr69": [
+      28,
+      36
+     ],
+     "foeV3Games": {
+      "lockedRepeat": 4
+     },
+     "ownV3Games": {},
+     "encoreGames": 0,
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Alakazam/Sneasler/Starmie"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        8,
+        8
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Swampert/Armarouge/Gyarados"
+       ],
+       "w": 12,
+       "n": 12,
+       "cleanV2": [
+        12,
+        12
+       ],
+       "cleanV3": [
+        12,
+        12
+       ],
+       "stayedLocked": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Sneasler/Armarouge/Starmie"
+       ],
+       "w": 4,
+       "n": 12,
+       "cleanV2": [
+        4,
+        12
+       ],
+       "cleanV3": [
+        4,
+        12
+       ],
+       "stayedLocked": 0
+      }
+     },
+     "reproducesPR69V3": true,
+     "reproducesSavedV2": true
+    }
+   }
+  }
+ },
+ "reproductionMismatches": 0
+}
