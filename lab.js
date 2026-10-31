@@ -150,6 +150,11 @@ class Bot{
     this.boosts={};this.foeBoosts={};this.foeHP=1;this.foeItem='';
     this.foeStatus='';this.foeAbility='';this.foeLastMoveTurn=-999;this.lastStatuses={};this.hazards={};this.seenMoves={};this.terrain='';this.weather='';
   }
+  noteStintMove(key,move){
+    this.stintMoves=this.stintMoves||{};
+    const list=this.stintMoves[key]||(this.stintMoves[key]=[]);
+    if(!list.includes(move))list.push(move);
+  }
   async run(){
     for await(const chunk of this.stream){
       for(const line of chunk.split('\n')){
@@ -158,6 +163,20 @@ class Bot{
         if(a[1]==='poke'&&a[2]===this.foe)this.opp.push(nameOf(a[3]));
         if(['switch','drag','replace','detailschange'].includes(a[1])&&a[2]?.startsWith(this.foe+'a:')){
           const previousForm=this.foeActive;
+          // publicMoveMemory: moves first recorded during the current on-field
+          // stint, per key. A public Illusion break (|replace|) proves those
+          // moves were the Illusion user's, not the disguise species'.
+          if(this.publicMoveMemory&&a[1]==='replace'){
+            const moved=new Set();
+            for(const [key,list] of Object.entries(this.stintMoves||{})){
+              this.seenMoves[key]=(this.seenMoves[key]||[]).filter(m=>!list.includes(m));
+              for(const m of list)moved.add(m);
+            }
+            const real=nameOf(a[3]);
+            this.seenMoves[real]=[...new Set([...(this.seenMoves[real]||[]),...moved])];
+            this.stintMoves={[real]:[...moved]};
+          }
+          if(a[1]==='switch'||a[1]==='drag')this.stintMoves={};
           this.foeActive=nameOf(a[3]);
           if(this.publicMoveMemory&&a[1]==='detailschange'){
             const oldSp=this.dex.species.get(previousForm);
@@ -167,8 +186,10 @@ class Bot{
                 &&(oldSp.isMega||newSp.isMega)){
               const known=[...new Set([...(this.seenMoves[previousForm]||[]),
                 ...(this.seenMoves[this.foeActive]||[])])];
-              for(const key of [previousForm,this.foeActive,newSp.baseSpecies])
+              for(const key of [previousForm,this.foeActive,newSp.baseSpecies]){
+                for(const m of known)if(!(this.seenMoves[key]||[]).includes(m))this.noteStintMove(key,m);
                 this.seenMoves[key]=known.slice();
+              }
             }
           }
           const megaAbility=this.publicMegaAbility?fixedMegaAbility(this.dex,this.foeActive):'';
@@ -238,12 +259,14 @@ class Bot{
         }
         if(a[1]==='-damage'&&line.includes('item: Rocky Helmet')&&line.includes('[of] '+this.foe+'a:'))this.foeItem='Rocky Helmet';
         if(a[1]==='move'&&a[2]?.startsWith(this.foe+'a:')){this.lastMove=a[3];this.foeLastMoveTurn=this.turn;
-          const old=this.seenMoves[this.foeActive]||[];if(!old.includes(a[3]))old.push(a[3]);this.seenMoves[this.foeActive]=old;
+          const old=this.seenMoves[this.foeActive]||[];
+          if(!old.includes(a[3])){old.push(a[3]);if(this.publicMoveMemory)this.noteStintMove(this.foeActive,a[3]);}
+          this.seenMoves[this.foeActive]=old;
           if(this.publicMoveMemory){
             const sp=this.dex.species.get(this.foeActive);
             if(sp.exists&&sp.isMega){
               const base=this.seenMoves[sp.baseSpecies]||[];
-              if(!base.includes(a[3]))base.push(a[3]);
+              if(!base.includes(a[3])){base.push(a[3]);this.noteStintMove(sp.baseSpecies,a[3]);}
               this.seenMoves[sp.baseSpecies]=base;
             }
           }
