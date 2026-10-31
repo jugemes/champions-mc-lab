@@ -44,6 +44,7 @@ test('public six: distinct weather/physical archetype can be evaluated without r
 
 test('pinned full Battle: opt-in public coverage preview versus legacy across distinct public sixes',{skip},async t=>{
   const {chooseThree,matchup,hashSeed}=require('../lab');
+  const {rankPreview}=require('../preview-policy');
   const {choosePublicCoveragePreview}=require('../public-coverage-preview');
   const {caseList}=require('../legal-search-v2-compare');
   const {battle}=require('../legal-search-compare');
@@ -59,22 +60,39 @@ test('pinned full Battle: opt-in public coverage preview versus legacy across di
     const old=chooseThree(dex,own,six).map(i=>own[i-1].species);
     const result=choosePublicCoveragePreview(sim,own,six,matchup);
     const fresh=result.selection.map(i=>own[i-1].species);
-    const rec={id,publicSix:six,legacy:old,proposed:fresh,
-      oldWins:0,newWins:0,oldFoeTagged:0,newFoeTagged:0,
-      oldOwnTagged:0,newOwnTagged:0,winFlips:0,errors:0};
+    // Three-arm causal control: the proposed policy starts from rankPreview(),
+    // whereas legacy chooseThree() uses a DIFFERENT formula and lead ranking.
+    // Isolate the effect of the public-coverage penalty before attributing
+    // a win/loss change to coverage. Same rival three/seed/side in all arms.
+    const unpenalized=rankPreview(dex,own,six,matchup)[0];
+    const controlLead=unpenalized.leads[0].i;
+    const controlRest=unpenalized.three.filter(i=>i!==controlLead).sort((a,b)=>{
+      const sa=unpenalized.leads.find(x=>x.i===a).score;
+      const sb=unpenalized.leads.find(x=>x.i===b).score;
+      return sb-sa||a-b;
+    });
+    const control=[controlLead,...controlRest].map(i=>own[i].species);
+    const rec={id,publicSix:six,legacy:old,unpenalized:control,proposed:fresh,
+      oldWins:0,controlWins:0,newWins:0,oldFoeTagged:0,controlFoeTagged:0,newFoeTagged:0,
+      oldOwnTagged:0,controlOwnTagged:0,newOwnTagged:0,
+      oldToControlFlips:0,controlToNewFlips:0,winFlips:0,errors:0};
     for(const foeThree of [c.forcedA,c.forcedB]){
       for(const n of [0,1])for(const reverse of [false,true]){
         const seed=hashSeed(10402000+c.gi*100+n);
         const run=three=>battle(sim,structuredClone(own),structuredClone(c.team),seed,
           {ownForced:three,foeForced:foeThree,reverse});
-        const a=await run(old),b=await run(fresh);
-        rec.oldWins+=+a.won;rec.newWins+=+b.won;
+        const a=await run(old),controlGame=await run(control),b=await run(fresh);
+        rec.oldWins+=+a.won;rec.controlWins+=+controlGame.won;rec.newWins+=+b.won;
+        rec.oldToControlFlips+=+(a.won!==controlGame.won);
+        rec.controlToNewFlips+=+(controlGame.won!==b.won);
         rec.winFlips+=+(a.won!==b.won);
         rec.oldFoeTagged+=+Object.values(a.foeMisplay).some(Boolean);
+        rec.controlFoeTagged+=+Object.values(controlGame.foeMisplay).some(Boolean);
         rec.newFoeTagged+=+Object.values(b.foeMisplay).some(Boolean);
         rec.oldOwnTagged+=+Object.values(a.ownMisplay).some(Boolean);
+        rec.controlOwnTagged+=+Object.values(controlGame.ownMisplay).some(Boolean);
         rec.newOwnTagged+=+Object.values(b.ownMisplay).some(Boolean);
-        rec.errors+=a.errors+b.errors;
+        rec.errors+=a.errors+controlGame.errors+b.errors;
       }
     }
     assert.equal(rec.errors,0,'all actual Showdown choices must be legal: '+id);
