@@ -123,19 +123,19 @@ test('pinned Showdown: Gravity grounds Levitate; pr98 masks the Earthquake, pr10
   const {load,hashSeed}=require('../lab');const {battle}=require('../encore-lead-audit');
   const sim=load(),dex=sim.Dex.mod('champions');
   const live=require('../reported-live-roster-20261027').reportedLive();
-  // TEST-ONLY rival Garganacl (legal Gravity + Earthquake user), our live six unchanged
-  const gar={species:'Garganacl',item:'Leftovers',ability:'Purifying Salt',nature:'Careful',moves:['Gravity','Earthquake','Salt Cure','Recover'],evs:{hp:32,spd:32,atk:2}};
+  // TEST-ONLY rival Forretress (legal Gravity + Earthquake user), our live six unchanged
+  const gar={species:'Forretress',item:'Leftovers',ability:'Sturdy',nature:'Relaxed',moves:['Gravity','Earthquake','Gyro Ball','Rapid Spin'],evs:{hp:32,spd:32,atk:2}};
   const rival=live.map(p=>p.species==='Tyranitar'?gar:p.species==='Rotom-Wash'?{...p,item:'Sitrus Berry'}:p.species==='Primarina'?{...p,item:'Mystic Water'}:p);
   assert.deepEqual(validate(sim,live),[]);assert.deepEqual(validate(sim,rival),[]);
   const out={};
   for(const v of ['naive','pr98','pr100']){
     const rec={},rs=(req,bot,info)=>forceMove('Gravity',[1])(req,bot,info)||forceMove('Earthquake',[2])(req,bot,info);
     const script=v==='naive'?rs:v==='pr98'?Y.immuneAware98(rs,dex,rec):Z.immuneAware100(rs,dex,rec);
-    const g=await battle(sim,structuredClone(live),structuredClone(rival),hashSeed(10000200),{ownThree:['Rotom-Wash','Hydreigon','Metagross'],foeThree:['Garganacl','Hydreigon','Garchomp'],
+    const g=await battle(sim,structuredClone(live),structuredClone(rival),hashSeed(10000200),{ownThree:['Rotom-Wash','Hydreigon','Metagross'],foeThree:['Forretress','Hydreigon','Garchomp'],
       script,ownOptions:{script:forceMove('Will-O-Wisp',[1,2])}});
     const L=g.log.split('\n'),t2=L.indexOf('|turn|2'),t3=L.indexOf('|turn|3'),T2=L.slice(t2,t3>0?t3:undefined),me=g.ownSide;
     assert.ok(L.slice(0,t2).some(l=>/^\|-fieldstart\|move: Gravity/.test(l)),v+': Gravity public before the T2 choice');
-    out[v]={errors:g.errors,eq:T2.some(l=>/\|move\|[^|]*Garganacl\|Earthquake\|p.a: Rotom/.test(l)),imm:T2.some(l=>l.startsWith('|-immune|'+me+'a: Rotom')),
+    out[v]={errors:g.errors,eq:T2.some(l=>/\|move\|[^|]*Forretress\|Earthquake\|p.a: Rotom/.test(l)),imm:T2.some(l=>l.startsWith('|-immune|'+me+'a: Rotom')),
       dmg:T2.some(l=>l.startsWith('|-damage|'+me+'a: Rotom')),masked:(rec.masked||[]).filter(m=>m.turn===2)};
   }
   assert.ok(out.naive.eq&&!out.naive.imm&&out.naive.dmg,'engine: Earthquake hits Levitate Rotom-Wash under Gravity');
