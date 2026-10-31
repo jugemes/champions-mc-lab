@@ -53,7 +53,7 @@ test('P0-2 reproduced: pr94 cellValues per-candidate filter vs pr96 paired value
 
 test('publicImmuneMoves: only immunities the rival can know',{skip:!haveSD&&'SHOWDOWN_DIR not set'},()=>{
   const {load}=require('../lab');const dex=load().Dex.mod('champions');
-  const req=(moves,ability='guts',species='Heracross')=>({active:[{moves:moves.map(m=>({move:m,id:m.toLowerCase().replace(/[^a-z]/g,''),pp:8}))}],
+  const req=(moves,ability='guts',species='Machamp')=>({active:[{moves:moves.map(m=>({move:m,id:m.toLowerCase().replace(/[^a-z]/g,''),pp:8}))}],
     side:{pokemon:[{active:true,ability,condition:'100/100',details:species}]}});
   const im=(r,b)=>X.publicImmuneMoves(dex,r,{foeAbility:'',foeItem:'',...b}).map(x=>x.move);
   assert.deepEqual(im(req(['Earthquake','Close Combat']),{foeActive:'Rotom-Wash'}),['Earthquake'],'Levitate is Rotom-Wash only ability');
