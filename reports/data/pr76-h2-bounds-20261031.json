@@ -1,0 +1,94 @@
+{
+ "source": "reports/data/robust-preview-20261031.json (PR #75 H2 holdout rows, 12240 games)",
+ "note": "security over the 60 rival picks of the H2 holdout; NOT a ladder win rate.",
+ "policies": {
+  "robust": {
+   "coveredMass": 0.9834,
+   "uncovered": 0.0166,
+   "renormalised": 0.151,
+   "lower": 0.148,
+   "upper": 0.165,
+   "uncoveredPicks": [
+    [
+     "Primarina>Hydreigon/Tyranitar",
+     0.0126
+    ],
+    [
+     "Primarina>Hydreigon/Garchomp",
+     0.0031
+    ],
+    [
+     "Rotom-Wash>Metagross/Primarina",
+     0.0007
+    ]
+   ]
+  },
+  "weighted_H0=0.25": {
+   "coveredMass": 0.9711,
+   "uncovered": 0.0289,
+   "renormalised": 0.049,
+   "lower": 0.048,
+   "upper": 0.077,
+   "uncoveredPicks": [
+    [
+     "Garchomp>Hydreigon/Rotom-Wash",
+     0.0135
+    ],
+    [
+     "Tyranitar>Metagross/Garchomp",
+     0.0113
+    ],
+    [
+     "Metagross>Primarina/Rotom-Wash",
+     0.004
+    ]
+   ]
+  },
+  "weighted_H0=0.5": {
+   "coveredMass": 0.9873,
+   "uncovered": 0.0127,
+   "renormalised": 0.087,
+   "lower": 0.086,
+   "upper": 0.099,
+   "uncoveredPicks": [
+    [
+     "Garchomp>Metagross/Hydreigon",
+     0.0097
+    ],
+    [
+     "Metagross>Garchomp/Tyranitar",
+     0.0012
+    ],
+    [
+     "Tyranitar>Metagross/Garchomp",
+     0.0008
+    ],
+    [
+     "Metagross>Primarina/Rotom-Wash",
+     0.0006
+    ]
+   ]
+  },
+  "weighted_H0=0.75": {
+   "coveredMass": 0.9969,
+   "uncovered": 0.0031,
+   "renormalised": 0.14,
+   "lower": 0.139,
+   "upper": 0.142,
+   "uncoveredPicks": [
+    [
+     "Rotom-Wash>Metagross/Hydreigon",
+     0.0028
+    ]
+   ]
+  },
+  "pureRobust": {
+   "coveredMass": 1,
+   "uncovered": 0,
+   "renormalised": 0,
+   "lower": 0,
+   "upper": 0,
+   "uncoveredPicks": []
+  }
+ }
+}
