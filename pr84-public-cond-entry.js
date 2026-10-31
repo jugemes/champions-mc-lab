@@ -15,9 +15,40 @@ const COND_KEYS=new Set(['ownHP','ownStatus','ownBoosts','ownEncored','ownHazard
 // HP to public buckets (percent HP is public for both sides).
 const hpB=h=>h==null?'?':h>=0.995?'F':h>=0.5?'H':h>=0.25?'L':'C';
 const sig=o=>Object.entries(o||{}).filter(([,v])=>v).map(([k,v])=>k+(v>0&&typeof v==='number'?'+'+v:v)).sort().join(',');
+// PR #86 (ChatGPT review #5720466858 of PR #85, P1): COND_KEYS checked only
+// the top level; sig() keyed ANY nested field, so ownBoosts:{hiddenHeldItem:..}
+// entered the key. Every nested key and every value is now allow-listed and
+// typed; anything else throws. Keys for valid input are byte-identical to PR #85.
+const BOOST_KEYS=new Set(['atk','def','spa','spd','spe','accuracy','evasion']);
+// Side conditions that Showdown announces with a public |-sidestart| (lab.js
+// Bot stores every -sidestart id, screens and Tailwind included).
+const SIDE_KEYS=new Set(['stealthrock','spikes','toxicspikes','stickyweb','gmaxsteelsurge','reflect','lightscreen','auroraveil','tailwind',
+  'safeguard','mist','luckychant','quickguard','wideguard','craftyshield','matblock']);
+const STATUS=new Set(['','brn','par','slp','frz','psn','tox']);
+const WEATHER=new Set(['','sunnyday','raindance','sandstorm','hail','snowscape','snow','desolateland','primordialsea','deltastream']);
+// lab.js stores every |-fieldstart|move: X| id in terrain (rooms included).
+const FIELD=new Set(['','electricterrain','grassyterrain','mistyterrain','psychicterrain','trickroom','gravity','magicroom','wonderroom','mudsport','watersport']);
+const bad=(f,v)=>{throw Error('decideEarlyV3: non-public cond value '+f+'='+JSON.stringify(v));};
+function checkNested(f,o,keys,ok){
+  if(o==null)return;
+  if(typeof o!=='object'||Array.isArray(o))bad(f,o);
+  for(const [k,v] of Object.entries(o)){if(!keys.has(k))throw Error('decideEarlyV3: non-public cond field "'+f+'.'+k+'"');if(!ok(v))bad(f+'.'+k,v);}
+}
+function checkCond(c){
+  if(typeof c!=='object'||Array.isArray(c))bad('cond',c);
+  for(const k of Object.keys(c))if(!COND_KEYS.has(k))throw Error('decideEarlyV3: non-public cond field "'+k+'"');
+  for(const f of ['ownHP','foeHP'])if(c[f]!=null&&!(typeof c[f]==='number'&&c[f]>=0&&c[f]<=1))bad(f,c[f]);
+  for(const f of ['ownStatus','foeStatus'])if(c[f]!=null&&!STATUS.has(c[f]))bad(f,c[f]);
+  for(const f of ['ownEncored','foeEncored'])if(c[f]!=null&&typeof c[f]!=='boolean')bad(f,c[f]);
+  if(c.weather!=null&&!WEATHER.has(c.weather))bad('weather',c.weather);
+  if(c.terrain!=null&&!FIELD.has(c.terrain))bad('terrain',c.terrain);
+  const boost=v=>Number.isInteger(v)&&v>=-6&&v<=6,layers=v=>Number.isInteger(v)&&v>=0&&v<=3;
+  checkNested('ownBoosts',c.ownBoosts,BOOST_KEYS,boost);checkNested('foeBoosts',c.foeBoosts,BOOST_KEYS,boost);
+  checkNested('ownHazards',c.ownHazards,SIDE_KEYS,layers);checkNested('foeHazards',c.foeHazards,SIDE_KEYS,layers);
+}
 function condSig(c){
   if(!c)return 'nocond';
-  for(const k of Object.keys(c))if(!COND_KEYS.has(k))throw Error('decideEarlyV3: non-public cond field "'+k+'"');
+  checkCond(c);
   return ['o:'+hpB(c.ownHP)+(c.ownStatus||'')+'/'+sig(c.ownBoosts)+(c.ownEncored?'/E':'')+'/h:'+sig(c.ownHazards),
     'f:'+hpB(c.foeHP)+(c.foeStatus||'')+'/'+sig(c.foeBoosts)+(c.foeEncored?'/E':'')+'/h:'+sig(c.foeHazards),
     'w:'+(c.weather||'')+'/t:'+(c.terrain||'')].join('|');
@@ -50,4 +81,4 @@ function condFromBot(req,bot){
     foeHP:bot.foeHP,foeStatus:bot.foePublicStatus||'',foeBoosts:{...bot.foeBoosts},foeEncored:!!bot.foeEncored,foeHazards:{...bot.hazards},
     weather:bot.weather||'',terrain:bot.terrain||''};
 }
-module.exports={OBS_KEYS_V3,COND_KEYS,condSig,obsKeyV3,decideEarlyV3,condFromBot,hpB};
+module.exports={OBS_KEYS_V3,COND_KEYS,BOOST_KEYS,SIDE_KEYS,checkCond,condSig,obsKeyV3,decideEarlyV3,condFromBot,hpB};

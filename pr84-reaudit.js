@@ -122,6 +122,17 @@ async function runGames(own,teams,jobs,{workers=4,tables={}}={}){
 const mean=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:0;
 const inc=(o,k,n=1)=>{o[k]=(o[k]||0)+n;};
 
+// utilityRational only picks moves its own public check calls rational at
+// the choice point; an irrational move in that branch is either the base-AI
+// fallback (branch returned null) or a state change earlier in the turn.
+// (PR #86: moved out of main() unchanged so the saved labels can be re-checked.)
+function utilCause(u){
+  const L=u.lines,mv=L.findIndex(l=>l.startsWith('|move|')&&l.split('|')[3]===u.move&&l.split('|')[2].endsWith(u.user));
+  const before=L.slice(0,mv<0?L.length:mv);
+  return before.some(l=>/^\|(switch|drag)\|/.test(l)&&!l.includes(u.user))?'ex-post: target replaced before the move':
+    before.some(l=>/^\|(-status|-sidestart)\|/.test(l)||/\[from\] (brn|psn|tox|par)$/.test(l)||/Synchronize/.test(l))?'ex-post: status/hazard set earlier this turn':
+    'decision-time irrational: base-AI fallback (branch had no rational utility move)';
+}
 async function main(){
   const sim=load(),dex=sim.Dex.mod('champions');
   const {reportedLive}=require('./reported-live-roster-20261027');
@@ -219,16 +230,7 @@ async function main(){
   const disBy={};for(const d of dis)inc(disBy,'v2='+(d.v2?'switch':'null')+' v3='+(d.v3?'switch':'null'));
   // utilityRational irrational (test stage, same as PR #83 count 18)
   const ui=rt.filter((r,k)=>!jt[k].v3).flatMap((r,k)=>r.utilIrr);
-  const uiBy={};for(const u of ui){
-    const L=u.lines,mv=L.findIndex(l=>l.startsWith('|move|')&&l.split('|')[3]===u.move&&l.split('|')[2].endsWith(u.user));
-    const before=L.slice(0,mv<0?L.length:mv);
-    // utilityRational only picks moves its own public check calls rational at
-    // the choice point; an irrational move in that branch is either the base-AI
-    // fallback (branch returned null) or a state change earlier in the turn.
-    const why=before.some(l=>/^\|(switch|drag)\|/.test(l)&&!l.includes(u.user))?'ex-post: target replaced before the move':
-      before.some(l=>/^\|(-status|-sidestart)\|/.test(l)||/\[from\] (brn|psn|tox|par)$/.test(l)||/Synchronize/.test(l))?'ex-post: status/hazard set earlier this turn':
-      'decision-time irrational: base-AI fallback (branch had no rational utility move)';
-    u.cause=why;inc(uiBy,u.why+' | '+why);}
+  const uiBy={};for(const u of ui){const why=utilCause(u);u.cause=why;inc(uiBy,u.why+' | '+why);}
   // policy values
   const summarize=(J,R,m,cells,extraKeys)=>{
     const G=J.map((j,k)=>({j,r:R[k]})).filter(x=>x.j.ci===m.ci);
@@ -276,4 +278,4 @@ async function main(){
 }
 if(process.argv.includes('--pr84-worker'))workerMain();
 else if(require.main===module)main().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
-module.exports={script,causesAllTurns};
+module.exports={script,causesAllTurns,utilCause,runGames};
