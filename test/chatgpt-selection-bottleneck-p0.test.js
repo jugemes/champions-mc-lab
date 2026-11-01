@@ -54,15 +54,20 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
     const i=req.side.pokemon.findIndex(p=>!p.active&&
       String(p.details||'').split(',')[0]===rivalT2.to&&
       !String(p.condition||'').endsWith(' fnt'));
-    assert.ok(i>=0,'predeclared rival T2 switch must be legal');
-    this.trace.rivalT2Forced??=[];
-    this.trace.rivalT2Forced.push({side:this.side,turn:this.turn,to:rivalT2.to});
-    return 'switch '+(i+1);
+    // A prior KO/forced switch may have brought the intended pivot in
+    // already, or made it unavailable. Do not manufacture an illegal switch
+    // and do not count such a turn as a tested T2 pivot.
+    if(i>=0){
+     this.trace.rivalT2Forced??=[];
+     this.trace.rivalT2Forced.push({side:this.side,turn:this.turn,to:rivalT2.to});
+     return 'switch '+(i+1);
+    }
+   }else{
+    const i=(req.active?.[0]?.moves||[]).findIndex(m=>
+      canon(m.id||m.move)===canon(rivalT2.move)&&!m.disabled&&m.pp>0);
+    assert.ok(i>=0,'predeclared rival T2 move must be legal');
+    return 'move '+(i+1)+(req.active[0].canMegaEvo?' mega':'');
    }
-   const i=(req.active?.[0]?.moves||[]).findIndex(m=>
-     canon(m.id||m.move)===canon(rivalT2.move)&&!m.disabled&&m.pp>0);
-   assert.ok(i>=0,'predeclared rival T2 move must be legal');
-   return 'move '+(i+1)+(req.active[0].canMegaEvo?' mega':'');
   }
   // Research-only opponent attack-pressure stress. Never presented as an
   // optimal human rival: this isolates wins from unpunished setup/passivity.
