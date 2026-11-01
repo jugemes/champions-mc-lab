@@ -88,6 +88,10 @@ test('DEV T1 tempo counterfactual: same seed/side/three, rational switch and set
   assert.ok(!validator.validateTeam(normalize(c.team))?.length,c.id);
   const publicSix=c.team.map(p=>p.species);
   assert.equal(publicSix.length,6);
+  // Trigger is a publicly visible active matchup, not the hidden chosen three.
+  assert.equal(c.A[0],c.publicTrigger.foe,'A tests the declared visible matchup');
+  assert.notEqual(c.B[0],c.publicTrigger.foe,'B is an unmodified control');
+  assert.ok(c.ours.includes(c.publicTrigger.own),'candidate action belongs to our fixed trio');
   for(const chosen of [c.ours,c.A,c.B])for(const species of chosen)
    assert.ok((chosen===c.ours?own:c.team).some(p=>p.species===species),c.id+': '+species);
   const result={id:c.id,publicSix,own:c.ours,alternative:c.publicTrigger,
