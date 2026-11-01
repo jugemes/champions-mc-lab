@@ -350,7 +350,7 @@ const PUBLIC_ROBUST_NEW_HOLDOUT=[
    {rival:['Salamence','Volcarona','Starmie'],script:{kind:'move',move:'Double-Edge'}}
   ]}
 ];
-test('publicRobust predeclared new holdout: legal teams, species-order invariant, no hidden trio input',{skip},()=>{
+test('publicRobust predeclared new holdout: legal teams, species-order invariant, no hidden trio input',{skip},t=>{
  const sim=load(),validator=sim.TeamValidator.get('gen9championsbssregmc');
  const {choosePublicRobustPreview}=require('../public-robust-preview');
  const {matchup}=require('../lab'),own=reportedLive();
@@ -359,8 +359,10 @@ test('publicRobust predeclared new holdout: legal teams, species-order invariant
   assert.ok(!validator.validateTeam(normalize(c.team))?.length,c.id);
   assert.equal(new Set(c.team.map(x=>x.item)).size,6,c.id+' unique items');
   const six=c.team.map(x=>x.species);
-  const forward=choosePublicRobustPreview(sim,own,six,matchup).selection;
+  const preview=choosePublicRobustPreview(sim,own,six,matchup);
+  const forward=preview.selection;
   const backward=choosePublicRobustPreview(sim,own,six.slice().reverse(),matchup).selection;
+  t.diagnostic('PUBLIC ROBUST PREVIEW SCORE '+JSON.stringify({id:c.id,selection:forward.map(i=>own[i-1].species),top:preview.top}));
   assert.deepEqual(forward,backward,c.id+' order-invariant public-six selection');
   assert.equal(new Set(forward).size,3);
   for(const b of c.branches){
