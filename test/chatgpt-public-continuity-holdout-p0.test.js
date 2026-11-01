@@ -263,7 +263,11 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
  t.diagnostic('P0 FACTORIAL RATIONALITY SCREEN '+JSON.stringify({
    scope:'diagnostic only; other gains are also not rationality-certified',
    forcedStatusDefinition:'scripted legal T1 Status without opponent counterfactual',
-   previewLegacy:effects.previewLegacy,previewContinuity:effects.previewContinuity
+   previewLegacy:{...effects.previewLegacy,
+     netExcludingUnverifiedForcedStatus:effects.previewLegacy.otherGains-effects.previewLegacy.otherLosses},
+   previewContinuity:{...effects.previewContinuity,
+     netExcludingUnverifiedForcedStatus:effects.previewContinuity.otherGains-effects.previewContinuity.otherLosses},
+   caution:'remaining scripted-attack gains are not independently rationality-certified either'
  }));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC TOTAL '+JSON.stringify({totals,effects}));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC BRANCHES '+JSON.stringify(branches));
