@@ -31,7 +31,7 @@ const cases=[
   }}
 ];
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
-async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy',ownDecisionPolicy='baseline'}={}){
+async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy',ownDecisionPolicy='baseline',rivalT2=null}={}){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
@@ -45,6 +45,21 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
  const immuneDecision=immuneAwareRival?immuneAware100(null,dex,maskLog):null;
  let scriptIssued=false;
  opponent.decide=function(req){
+  // Research-only explicitly fixed rational T2 attack/pivot branch. It is
+  // injected on the rival side only; never passed to our preview or turn AI.
+  if(rivalT2&&this.turn===2&&!req.teamPreview&&!req.forceSwitch){
+   if(rivalT2.kind==='switch'){
+    const i=req.side.pokemon.findIndex(p=>!p.active&&
+      String(p.details||'').split(',')[0]===rivalT2.to&&
+      !String(p.condition||'').endsWith(' fnt'));
+    assert.ok(i>=0,'predeclared rival T2 switch must be legal');
+    return 'switch '+(i+1);
+   }
+   const i=(req.active?.[0]?.moves||[]).findIndex(m=>
+     canon(m.id||m.move)===canon(rivalT2.move)&&!m.disabled&&m.pp>0);
+   assert.ok(i>=0,'predeclared rival T2 move must be legal');
+   return 'move '+(i+1)+(req.active[0].canMegaEvo?' mega':'');
+  }
   if(req.teamPreview||req.forceSwitch||this.turn!==1){
    if(immuneDecision&&!req.teamPreview&&!req.forceSwitch){
     const corrected=immuneDecision(req,this,{turn:this.turn});
@@ -536,4 +551,34 @@ test('public action mechanism on already-used H-C Gholdengo branch: pinned paire
     ...(n===0&&!reverse?{oldBattleEarly:old.battleEarly,guardedBattleEarly:guarded.battleEarly}:{})});
  }
  t.diagnostic('PUBLIC ACTION H-C DEVELOPMENT MECHANISM '+JSON.stringify(rows));
+});
+
+
+// Development-only rational opponent T2 counterplay, predeclared in
+// PR #104 comment #6556109658. H-C is ALREADY USED, not unseen holdout.
+test('H-C known public immunity gate vs rational T2 attack and pivot branches',{skip},async t=>{
+ const sim=load(),own=reportedLive(),c=PUBLIC_ROBUST_NEW_HOLDOUT[0],b=c.branches[2],rows=[];
+ const t2s=[{kind:'move',move:'Make It Rain'},{kind:'switch',to:'Swampert'}];
+ for(const [ti,rivalT2] of t2s.entries()){
+  const rec={rivalT2,oldWins:0,guardedWins:0,results:[]};
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10419200+ti*20+n);
+   const old=await battle(sim,structuredClone(own),structuredClone(c.team),
+     seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,
+       ownPreviewPolicy:'publicRobust',ownDecisionPolicy:'baseline',rivalT2});
+   const guarded=await battle(sim,structuredClone(own),structuredClone(c.team),
+     seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,
+       ownPreviewPolicy:'publicRobust',ownDecisionPolicy:'publicAction',rivalT2});
+   assert.deepEqual(old.three,guarded.three);
+   assert.equal(old.lead,guarded.lead);
+   assert.equal(old.errors+guarded.errors,0);
+   rec.oldWins+=+old.won;rec.guardedWins+=+guarded.won;
+   rec.results.push({seed,reverse,old:{won:old.won,early:old.early},
+     guarded:{won:guarded.won,early:guarded.early},
+     ...(n===0&&!reverse?{oldBattleEarly:old.battleEarly,
+       guardedBattleEarly:guarded.battleEarly}:{})});
+  }
+  rows.push(rec);
+ }
+ t.diagnostic('PUBLIC ACTION RATIONAL T2 H-C '+JSON.stringify(rows));
 });
