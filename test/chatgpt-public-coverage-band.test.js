@@ -22,6 +22,29 @@ test('public six: legal Fairy coverage and possible Scarf speed expose Hydreigon
   assert.ok(band.speed.scarfMax>band.ownSpeed);
   t.diagnostic('PUBLIC COVERAGE B: '+JSON.stringify({fairy,old:incomingRisk(dex,own,'Indeedee',{}),speed:band.speed}));
 });
+test('P0 public speed risk includes legal Mega form, never Mega+Scarf hybrid',{skip},t=>{
+  const sim=load(),dex=sim.Dex.mod('champions');
+  // Synthetic unscarfed Garchomp isolates the speed threshold. The reported
+  // live Garchomp remains Choice Scarf and is not modified by this test.
+  const own={...reportedLive().find(p=>p.species==='Garchomp'),item:'Life Orb'};
+  const band=publicCoverageBand(sim,own,'Salamence');
+  const base=dex.species.get('Salamence');
+  const mega=dex.species.get('Salamence-Mega');
+  assert.ok(candidates(sim,'Salamence').forms.includes(mega.name),
+    'the public legal-form hypotheses must include Mega Salamence');
+  const baseMax=Math.floor((base.baseStats.spe+32+20)*1.1);
+  const megaMax=Math.floor((mega.baseStats.spe+32+20)*1.1);
+  assert.ok(baseMax<band.ownSpeed&&band.ownSpeed<megaMax,
+    'test must straddle base/Mega speed threshold');
+  assert.equal(band.speed.unboostedMax,megaMax);
+  assert.equal(band.speed.fastestUnboostedForm,mega.name);
+  assert.equal(band.speed.canOutspeedUnboosted,true);
+  // Choice Scarf is only possible on the non-Mega form; never multiply the
+  // faster Mega speed by Scarf's 1.5x modifier.
+  if(band.speed.scarfPossible)
+    assert.equal(band.speed.scarfMax,Math.floor(baseMax*1.5));
+  t.diagnostic('P0 MEGA SPEED PUBLIC BAND '+JSON.stringify({baseMax,megaMax,ownSpeed:band.ownSpeed,speed:band.speed}));
+});
 test('public six: known Levitate prevents Ground coverage false positive',{skip},()=>{
   const sim=load(),dex=sim.Dex.mod('champions');
   const own=reportedLive().find(p=>p.species==='Rotom-Wash');
