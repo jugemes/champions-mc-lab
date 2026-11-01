@@ -328,3 +328,86 @@ test('predeclared unseen public-six holdout: 3 frozen generic preview policies v
  }
  t.diagnostic('PREDECLARED UNSEEN PUBLIC SIX HOLDOUT '+JSON.stringify(rows));
 });
+
+
+// Predeclared BEFORE candidate implementation and outcome inspection:
+// PR #104 comment #6555342021. These are unseen PUBLIC SIX combinations,
+// not new species, ladder usage estimates or human-optimal opponent plays.
+const PUBLIC_ROBUST_NEW_HOLDOUT=[
+ {id:'H-C-weather-priority-pivot',
+  team:[rain[0],rain[1],rain[3],stall[2],rain[4],stall[1]],
+  branches:[
+   {rival:['Pelipper','Swampert','Corviknight'],script:{kind:'move',move:'Hurricane'}},
+   {rival:['Dragonite','Gholdengo','Umbreon'],script:{kind:'move',move:'Extreme Speed'}},
+   {rival:['Gholdengo','Umbreon','Swampert'],script:{kind:'move',move:'Make It Rain'}}
+  ]},
+ {id:'H-D-mega-scarf-setup-stall',
+  team:[setup[1],setup[0],require('../fixtures').variants.A_rillaboom[0],
+    stall[0],rain[2],rain[5]],
+  branches:[
+   {rival:['Starmie','Salamence','Archaludon'],script:{kind:'move',move:'Ice Beam'}},
+   {rival:['Rillaboom','Volcarona','Toxapex'],script:{kind:'move',move:'Grassy Glide'}},
+   {rival:['Salamence','Volcarona','Starmie'],script:{kind:'move',move:'Double-Edge'}}
+  ]}
+];
+test('publicRobust predeclared new holdout: legal teams, species-order invariant, no hidden trio input',{skip},()=>{
+ const sim=load(),validator=sim.TeamValidator.get('gen9championsbssregmc');
+ const {choosePublicRobustPreview}=require('../public-robust-preview');
+ const {matchup}=require('../lab'),own=reportedLive();
+ for(const c of PUBLIC_ROBUST_NEW_HOLDOUT){
+  prelim(c.team,c.id);
+  assert.ok(!validator.validateTeam(normalize(c.team))?.length,c.id);
+  assert.equal(new Set(c.team.map(x=>x.item)).size,6,c.id+' unique items');
+  const six=c.team.map(x=>x.species);
+  const forward=choosePublicRobustPreview(sim,own,six,matchup).selection;
+  const backward=choosePublicRobustPreview(sim,own,six.slice().reverse(),matchup).selection;
+  assert.deepEqual(forward,backward,c.id+' order-invariant public-six selection');
+  assert.equal(new Set(forward).size,3);
+  for(const b of c.branches){
+   assert.equal(b.rival.length,3);
+   for(const name of b.rival)assert.ok(c.team.some(p=>p.species===name),name);
+   assert.ok(c.team.find(p=>p.species===b.rival[0]).moves.some(m=>
+     canon(m)===canon(b.script.move)),b.script.move+' must be legal T1');
+  }
+ }
+});
+test('PUBLIC ROBUST NEW HOLDOUT: paired legacy vs robust with immunity-aware rival and T1/T2 logs',{skip},async t=>{
+ const sim=load(),own=reportedLive(),policies=['legacy','publicRobust'],rows=[];
+ for(const [ci,c] of PUBLIC_ROBUST_NEW_HOLDOUT.entries()){
+  const rec={id:c.id,publicSix:c.team.map(p=>p.species),branches:[]};
+  for(const [bi,b] of c.branches.entries()){
+   const br={rival:b.rival,script:b.script,policies:{}};
+   for(const policy of policies)br.policies[policy]={wins:0,errors:0,knownImmuneHits:0,
+     immuneAvoided:0,results:[]};
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10418000+ci*100+bi*20+n);
+    for(const policy of policies){
+     const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,null,b.rival,b.script,
+       {immuneAwareRival:true,ownPreviewPolicy:policy});
+     const a=br.policies[policy];
+     a.wins+=Number(g.won);a.errors+=g.errors;
+     a.knownImmuneHits+=g.knownImmuneHits;a.immuneAvoided+=g.immuneAvoided;
+     a.results.push({seed,reverse,won:g.won,three:g.three,lead:g.lead,
+       ownT1T2:g.early,rivalT1T2:g.rivalEarly,
+       rivalT1Executed:g.rivalT1Executed,rivalT1Prevented:g.rivalT1Prevented,
+       knownImmuneHits:g.knownImmuneHits,
+       ...(n===0&&!reverse?{battleEarly:g.battleEarly}:{}),
+     });
+     assert.equal(g.errors,0,c.id+' '+policy+' choice errors');
+    }
+   }
+   rec.branches.push(br);
+  }
+  for(const policy of policies){
+   const first=rec.branches[0].policies[policy].results[0];
+   for(const br of rec.branches.slice(1)){
+    const other=br.policies[policy].results[0];
+    assert.deepEqual(first.three,other.three,c.id+' '+policy+' cannot see rival hidden three');
+    assert.equal(first.lead,other.lead,c.id+' '+policy+' cannot see rival lead');
+   }
+  }
+  rows.push(rec);
+ }
+ t.diagnostic('PUBLIC ROBUST NEW HOLDOUT '+JSON.stringify(rows));
+});
