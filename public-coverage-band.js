@@ -110,7 +110,11 @@ function publicCoverageBand(sim,own,foeName){
     scarfPossible:c.scarfPossible,scarfMax,
     canOutspeedUnboosted:fastest.max>ownSpeed,
     canOutspeedWithScarf:scarfMax!==null&&scarfMax>ownSpeed
-  },coverage:rows.slice(0,8),worstPossible:rows[0]?.upperRatio||0,
-  warning:'possibility upper screen only; not usage probability, true engine damage, or a guaranteed four-move combination'};
+  },coverage:rows.slice(0,8),
+  // Keep priority visible even when it misses the top-eight damage screen.
+  // Conditional priority (e.g. Grassy Glide) is NOT assumed active.
+  priorityThreats:rows.filter(r=>r.priority>0||r.conditionalPriority).slice(0,8),
+  worstPossible:rows[0]?.upperRatio||0,
+  warning:'possibility upper screen only; priority may be terrain-conditional or blocked; not usage probability, true engine damage, or a guaranteed four-move combination'};
 }
 module.exports={candidates,publicCoverageBand,upperHit};
