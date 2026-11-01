@@ -599,6 +599,7 @@ test('P0 selection feasibility frontier: six fixed 3+lead arms across both rival
  };
  for(const [ci,c] of PUBLIC_ROBUST_NEW_HOLDOUT.entries()){
   const rec={id:c.id,publicSix:c.team.map(x=>x.species),branches:[]};
+  const publicSixSelections={};
   for(const [bi,b] of c.branches.entries()){
    const row={rival:b.rival,script:b.script,arms:{}};
    for(const key of Object.keys(arms))row.arms[key]={
@@ -627,6 +628,11 @@ test('P0 selection feasibility frontier: six fixed 3+lead arms across both rival
       rivalT1Prevented:g.rivalT1Prevented,battleEarly:g.battleEarly
      });
     }
+   }
+   for(const [key,x] of Object.entries(row.arms)){
+    if(publicSixSelections[key])assert.deepEqual(x.selection,publicSixSelections[key],
+     'hidden opponent trio must not change selection for same public six');
+    else publicSixSelections[key]=x.selection;
    }
    rec.branches.push(row);
   }
