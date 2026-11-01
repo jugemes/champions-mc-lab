@@ -35,19 +35,22 @@ test('public continuity rejects hidden opposing set objects at team preview',{sk
 test('public continuity: active Mega is not a hypothetical bench switch',{skip},()=>{
  const sim=load(),dex=sim.Dex.mod('champions');
  const own=reportedLive().find(x=>x.species==='Garchomp');
- const mega='Salamence-Mega';
- assert.equal(dex.species.get(mega).baseSpecies,'Salamence');
- const six=['Salamence','Toxapex','Rotom-Wash','Gholdengo','Skarmory','Dragonite'];
  const options=own.moves.map((move,i)=>({move,i}));
- const rows=moveRows(dex,own,mega,six,options);
- // Internal test oracle only: replacing the base label by the already-active
- // form must not change the five eligible bench species or their move scores.
- // This is NOT a second legal public-six fixture.
- const oracle=moveRows(dex,own,mega,[mega,...six.slice(1)],options);
- assert.deepEqual(rows.map(x=>({move:x.move,meanSwitch:x.meanSwitch,
-   worstSwitch:x.worstSwitch,score:x.score})),
-   oracle.map(x=>({move:x.move,meanSwitch:x.meanSwitch,
-     worstSwitch:x.worstSwitch,score:x.score})));
- assert.ok(rows.every(x=>!x.immuneSwitches.includes('Salamence')),
-   'active Mega base species cannot be an additional opposing bench Pokemon');
+ // Two unrelated legal Mega species: the exclusion must be generic.
+ for(const base of ['Salamence','Swampert']){
+   const mega=base+'-Mega';
+   assert.equal(dex.species.get(mega).baseSpecies,base);
+   const six=[base,'Toxapex','Rotom-Wash','Gholdengo','Skarmory','Dragonite'];
+   const rows=moveRows(dex,own,mega,six,options);
+   // Internal test oracle only: replacing the base label by the already-active
+   // form must not change the five eligible bench species or move scores.
+   // This is NOT a second legal public-six fixture.
+   const oracle=moveRows(dex,own,mega,[mega,...six.slice(1)],options);
+   assert.deepEqual(rows.map(x=>({move:x.move,meanSwitch:x.meanSwitch,
+     worstSwitch:x.worstSwitch,score:x.score})),
+     oracle.map(x=>({move:x.move,meanSwitch:x.meanSwitch,
+       worstSwitch:x.worstSwitch,score:x.score})),base);
+   assert.ok(rows.every(x=>!x.immuneSwitches.includes(base)),
+     'active '+mega+' cannot be an additional opposing bench Pokemon');
+ }
 });
