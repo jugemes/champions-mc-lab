@@ -6,6 +6,7 @@ const assert=require('node:assert/strict');
 const {Bot,load,normalize,prelim,hashSeed}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes}=require('../fixtures');
+const {immuneAware100}=require('../pr100-legal');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const {rain,stall,setup}=archetypes;
 const cases=[
@@ -29,7 +30,7 @@ const cases=[
   }}
 ];
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
-async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
+async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false}={}){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
@@ -37,9 +38,19 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed});
  const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed});
  const opponent=foeSide==='p1'?b1:b2,original=opponent.decide.bind(opponent);
+ // Research-only opponent model: refuse attacks into immunities publicly
+ // knowable at decision time. Never inspect hidden sets/selected three.
+ const maskLog={};
+ const immuneDecision=immuneAwareRival?immuneAware100(null,dex,maskLog):null;
  let scriptIssued=false;
  opponent.decide=function(req){
-  if(req.teamPreview||req.forceSwitch||this.turn!==1)return original(req);
+  if(req.teamPreview||req.forceSwitch||this.turn!==1){
+   if(immuneDecision&&!req.teamPreview&&!req.forceSwitch){
+    const corrected=immuneDecision(req,this,{turn:this.turn});
+    if(corrected)return corrected;
+   }
+   return original(req);
+  }
   scriptIssued=true;
   if(script.kind==='switch'){
    const i=req.side.pokemon.findIndex(p=>!p.active&&
@@ -97,7 +108,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
   early,rivalEarly,battleEarly,rivalT1Executed:didScript,
   rivalT1Prevented:!didScript?(preventedKO?'KO':'cant'):null,
-  errors:trace.errors.length};
+  errors:trace.errors.length,immuneAvoided:maskLog.masked?.length||0,
+  immuneMaskEvidence:(maskLog.masked||[]).slice(0,6)};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
@@ -184,4 +196,57 @@ test('cross-branch regression on different rival three (not an unseen holdout)',
   rows.push(rec);
  }
  t.diagnostic('SELECTION CROSS BRANCH REGRESSION '+JSON.stringify(rows));
+});
+
+test('known-public-immunity-aware rival: same fixed trios/leads across two archetypes and opposite rival selections',{skip},async t=>{
+ const sim=load(),own=reportedLive(),report=[],rollup={naive:0,immuneAware:0,avoided:0,errors:0};
+ // Predeclared rival trios and legal first-turn stress actions from the
+ // earlier selection-bottleneck tests; no post-hoc choice of the winning trio.
+ const branches=[
+  {entry:cases[0],rival:cases[0].rival,scripts:cases[0].scripts},
+  {entry:cases[0],rival:['Umbreon','Skarmory','Gholdengo'],
+   scripts:[{kind:'move',move:'Yawn'},{kind:'move',move:'Foul Play'}]},
+  {entry:cases[1],rival:cases[1].rival,scripts:cases[1].scripts},
+  {entry:cases[1],rival:['Volcarona','Swampert','Skarmory'],
+   scripts:[{kind:'move',move:'Quiver Dance'},{kind:'move',move:'Bug Buzz'}]}
+ ];
+ for(const [bi,b] of branches.entries())for(const [si,script] of b.scripts.entries()){
+  const row={id:b.entry.id,rival:b.rival,script,
+   arms:Object.fromEntries(Object.keys(b.entry.arms).map(k=>[k,{
+    naiveWins:0,awareWins:0,gains:0,losses:0,avoided:0,errors:0,
+    examples:[]
+   }]))};
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10416000+bi*100+si*20+n);
+   for(const [key,pick] of Object.entries(b.entry.arms)){
+    const naive=await battle(sim,structuredClone(own),structuredClone(b.entry.team),
+      seed,reverse,pick,b.rival,script);
+    const aware=await battle(sim,structuredClone(own),structuredClone(b.entry.team),
+      seed,reverse,pick,b.rival,script,{immuneAwareRival:true});
+    assert.deepEqual(naive.three,aware.three,'same own three and lead');
+    assert.equal(naive.lead,aware.lead);
+    assert.deepEqual(naive.rivalEarly[0],aware.rivalEarly[0],
+      'same T1 script selected: opponent rationality changes only subsequent decisions');
+    const x=row.arms[key];
+    x.naiveWins+=+naive.won;x.awareWins+=+aware.won;
+    x.gains+=+(!naive.won&&aware.won);x.losses+=+(naive.won&&!aware.won);
+    x.avoided+=aware.immuneAvoided;
+    x.errors+=naive.errors+aware.errors;
+    if(x.examples.length<2)x.examples.push({seed,reverse,
+      naive:{won:naive.won,early:naive.early,rivalEarly:naive.rivalEarly},
+      aware:{won:aware.won,early:aware.early,rivalEarly:aware.rivalEarly},
+      masked:aware.immuneMaskEvidence});
+   }
+  }
+  report.push(row);
+ }
+ for(const row of report)for(const x of Object.values(row.arms)){
+  assert.equal(x.errors,0,'both rival policies issue legal actions');
+  rollup.naive+=x.naiveWins;rollup.immuneAware+=x.awareWins;
+  rollup.avoided+=x.avoided;rollup.errors+=x.errors;
+ }
+ // The mask actually triggers in these predeclared cases. A zero would mean
+ // this experiment is not testing the known-invulnerability problem.
+ assert.ok(rollup.avoided>0,'the rational rival must avoid some known immune attacks');
+ t.diagnostic('IMMUNITY-AWARE RIVAL SELECTION AUDIT '+JSON.stringify({rollup,report}));
 });
