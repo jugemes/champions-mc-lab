@@ -315,6 +315,15 @@ test('predeclared unseen public-six holdout: 3 frozen generic preview policies v
      }
      rec.branches.push(br);
    }
+   // Public-six preview must NOT depend on the secretly fixed rival three.
+   // All three frozen policies are deterministic, so their selections must
+   // match across the two different rival branches of the SAME public six.
+   for(const policy of policies){
+     const a=rec.branches[0].policies[policy].results[0];
+     const b=rec.branches[1].policies[policy].results[0];
+     assert.deepEqual(a.three,b.three,c.id+' '+policy+' leaked opposing chosen three');
+     assert.equal(a.lead,b.lead,c.id+' '+policy+' leaked opposing lead');
+   }
    rows.push(rec);
  }
  t.diagnostic('PREDECLARED UNSEEN PUBLIC SIX HOLDOUT '+JSON.stringify(rows));
