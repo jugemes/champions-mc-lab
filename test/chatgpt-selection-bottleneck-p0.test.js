@@ -445,6 +445,9 @@ test('public action gate: only public-certain ability and opposing targeted stat
  assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Will-O-Wisp',{ownAbility:'Mold Breaker'}),false);
  assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Will-O-Wisp',{revealedAbility:'Levitate'}),false);
  assert.equal(blockedPublicTargetStatus(dex,'Salamence','Will-O-Wisp'),false);
+ // Non-targeted status moves must remain available, even against Good as Gold.
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Swords Dance'),false);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Rain Dance'),false);
 });
 test('predeclared H-E/H-F public action feasibility: legal teams and hidden-three invariance',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
