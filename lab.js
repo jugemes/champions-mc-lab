@@ -365,6 +365,8 @@ class Bot{
         :this.previewPolicy==='publicCoverage'
         // Research-only generic legal coverage / possible Scarf speed band.
         ?(this.previewLog=require('./public-coverage-preview').choosePublicCoveragePreview(load(),this.team,this.opp.slice(),matchup)).selection
+        :this.previewPolicy==='publicTempo'
+        ?(this.previewLog=require('./public-tempo').chooseTempoPreview(this.dex,this.team,this.opp.slice())).selection
         :this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
@@ -455,6 +457,24 @@ class Bot{
         && (riskOf(bench[0].p)<currentRisk*0.70||ratio<0.25)
         && riskOf(bench[0].p)<0.85){
         this.switches++;return 'switch '+(bench[0].i+1);
+      }
+    }
+    // Research opt-in only. Preserve legacy switching decision and its score;
+    // rerank only currently legal attacking moves against public switch species.
+    // This cannot inspect the opponent's actual selected three or private sets.
+    if(this.decisionPolicy==='publicTempo'&&this.opp.length===6){
+      const tempo=require('./public-tempo').chooseTempoMove(this.dex,my,
+        this.foeActive,this.opp.slice(),available.map(x=>({
+          i:x.i,move:x.m.id||x.m.move
+        })),{foeHP:this.foeHP,weather:this.weather,terrain:this.terrain,
+          boosts:this.boosts,foeBoosts:this.foeBoosts,...ownOffense});
+      if(tempo&&this.dex.moves.get(available.find(x=>x.i===best.i)?.m.id||
+        available.find(x=>x.i===best.i)?.m.move).category!=='Status'){
+        this.trace.tempo??=[];
+        this.trace.tempo.push({side:this.side,turn:this.turn,foe:this.foeActive,
+          publicSix:this.opp.slice(),baseline:best.i+1,candidate:tempo.i+1,
+          rows:tempo.rows});
+        return 'move '+(tempo.i+1)+(active.canMegaEvo?' mega':'');
       }
     }
     return 'move '+(best.i+1)+(active.canMegaEvo?' mega':'');
