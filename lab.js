@@ -367,6 +367,8 @@ class Bot{
         ?(this.previewLog=require('./public-coverage-preview').choosePublicCoveragePreview(load(),this.team,this.opp.slice(),matchup)).selection
         :this.previewPolicy==='publicTempo'
         ?(this.previewLog=require('./public-tempo').chooseTempoPreview(this.dex,this.team,this.opp.slice())).selection
+        :this.previewPolicy==='publicRobust'
+        ?(this.previewLog=require('./public-robust-preview').choosePublicRobustPreview(load(),this.team,this.opp.slice(),matchup)).selection
         :this.previewPolicy==='stochastic'
         ?choosePreview(this.dex,this.team,this.opp,this.random,matchup)
         :this.previewPolicy==='strategic'
