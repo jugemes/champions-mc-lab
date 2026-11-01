@@ -143,3 +143,35 @@ test('predeclared selection-vs-lead ablation: two rival T1 branches, pinned full
  }
  t.diagnostic('SELECTION BOTTLENECK P0 '+JSON.stringify(summary));
 });
+
+test('cross-branch regression on different rival three (not an unseen holdout)',{skip},async t=>{
+ const sim=load(),own=reportedLive(),rows=[];
+ const stress=[
+  {c:cases[0],rival:['Umbreon','Skarmory','Gholdengo'],
+   scripts:[{kind:'move',move:'Yawn'},{kind:'move',move:'Foul Play'}]},
+  {c:cases[1],rival:['Volcarona','Swampert','Skarmory'],
+   scripts:[{kind:'move',move:'Quiver Dance'},{kind:'move',move:'Bug Buzz'}]}
+ ];
+ for(const [ci,entry] of stress.entries()){
+  const {c,rival,scripts}=entry;
+  const rec={id:c.id,rival,branches:[]};
+  for(const [si,script] of scripts.entries()){
+   const branch={script,arms:{}};
+   for(const key of Object.keys(c.arms))branch.arms[key]={wins:0,errors:0,samples:[]};
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10415000+ci*100+si*20+n);
+    for(const [key,pick] of Object.entries(c.arms)){
+     const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,pick,rival,script);
+     const a=branch.arms[key];a.wins+=Number(g.won);a.errors+=g.errors;
+     if(a.samples.length<1)a.samples.push({seed,reverse,...g});
+    }
+   }
+   for(const [key,a] of Object.entries(branch.arms))
+    assert.equal(a.errors,0,c.id+' regression '+key+' valid choices');
+   rec.branches.push(branch);
+  }
+  rows.push(rec);
+ }
+ t.diagnostic('SELECTION CROSS BRANCH REGRESSION '+JSON.stringify(rows));
+});
