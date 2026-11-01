@@ -34,3 +34,11 @@ test('public execution parser treats forced replacement and chosen switch as obs
   assert.ok(r.own.every(x=>x.kind==='switch'));
   assert.notEqual(eventSignature(r.own,1),eventSignature(r.own,2));
 });
+
+test('cant event is an observed inability to act, not a Bot choice',()=>{
+  const log='|turn|1\n|cant|p1a: Garchomp|slp\n|move|p2a: Primarina|Moonblast|p1a: Garchomp';
+  const r=executedEvents(log,'p1','p2');
+  assert.equal(eventSignature(r.own,1),'cant:Garchomp:slp');
+  assert.equal(eventSignature(r.own,1,{onlyMoves:true}),'');
+  assert.equal(eventSignature(r.rival,1,{onlyMoves:true}),'move:Primarina:Moonblast');
+});
