@@ -37,8 +37,10 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed});
  const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed});
  const opponent=foeSide==='p1'?b1:b2,original=opponent.decide.bind(opponent);
+ let scriptIssued=false;
  opponent.decide=function(req){
   if(req.teamPreview||req.forceSwitch||this.turn!==1)return original(req);
+  scriptIssued=true;
   if(script.kind==='switch'){
    const i=req.side.pokemon.findIndex(p=>!p.active&&
      String(p.details||'').split(',')[0]===script.to&&
@@ -70,7 +72,13 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
   return parts[1]==='move'&&parts[2]?.startsWith(foeSide+'a:')&&
     canon(parts[3])===canon(script.move);
  });
- assert.ok(didScript,'rival T1 must actually execute '+JSON.stringify(script));
+ // A faster opposing KO or a visible flinch can prevent the chosen rival
+ // action from executing. This is legitimate counterplay, not a bad fixture.
+ const preventedKO=t1.split('\\n').some(x=>x.startsWith('|faint|'+foeSide+'a:'));
+ const preventedCant=t1.split('\\n').some(x=>x.startsWith('|cant|'+foeSide+'a:'));
+ assert.ok(scriptIssued,'rival T1 scripted choice must be issued');
+ assert.ok(didScript||preventedKO||preventedCant,
+   'rival T1 must execute or be visibly prevented '+JSON.stringify(script));
  const selection=trace.selections.find(x=>x.side===ownSide);
  assert.ok(selection&&selection.chosen.length===3,'own selected three recorded');
  const early=trace.choices.filter(x=>x.side===ownSide&&x.turn>=1&&x.turn<=2)
@@ -87,7 +95,9 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
    battleEarly.push('T'+turn+':'+line.slice(0,170));
  }
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
-  early,rivalEarly,battleEarly,errors:trace.errors.length};
+  early,rivalEarly,battleEarly,rivalT1Executed:didScript,
+  rivalT1Prevented:!didScript?(preventedKO?'KO':'cant'):null,
+  errors:trace.errors.length};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
