@@ -7,6 +7,7 @@ const {Bot,load,normalize,prelim,hashSeed}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes}=require('../fixtures');
 const {immuneAware100}=require('../pr100-legal');
+const {publicImmune98}=require('../pr98-timing');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const {rain,stall,setup}=archetypes;
 const cases=[
@@ -108,7 +109,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
   early,rivalEarly,battleEarly,rivalT1Executed:didScript,
   rivalT1Prevented:!didScript?(preventedKO?'KO':'cant'):null,
-  errors:trace.errors.length,immuneAvoided:maskLog.masked?.length||0,
+  errors:trace.errors.length,knownImmuneHits:publicImmune98(log,foeSide,dex).known.length,
+  immuneAvoided:maskLog.masked?.length||0,
   immuneMaskEvidence:(maskLog.masked||[]).slice(0,6)};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
@@ -213,7 +215,8 @@ test('known-public-immunity-aware rival: same fixed trios/leads across two arche
  for(const [bi,b] of branches.entries())for(const [si,script] of b.scripts.entries()){
   const row={id:b.entry.id,rival:b.rival,script,
    arms:Object.fromEntries(Object.keys(b.entry.arms).map(k=>[k,{
-    naiveWins:0,awareWins:0,gains:0,losses:0,avoided:0,errors:0,
+    naiveWins:0,awareWins:0,gains:0,losses:0,avoided:0,
+    naiveKnownImmune:0,awareKnownImmune:0,errors:0,
     examples:[]
    }]))};
   for(let n=0;n<2;n++)for(const reverse of [false,true]){
@@ -231,6 +234,8 @@ test('known-public-immunity-aware rival: same fixed trios/leads across two arche
     x.naiveWins+=+naive.won;x.awareWins+=+aware.won;
     x.gains+=+(!naive.won&&aware.won);x.losses+=+(naive.won&&!aware.won);
     x.avoided+=aware.immuneAvoided;
+    x.naiveKnownImmune+=naive.knownImmuneHits;
+    x.awareKnownImmune+=aware.knownImmuneHits;
     x.errors+=naive.errors+aware.errors;
     if(x.examples.length<2)x.examples.push({seed,reverse,
       naive:{won:naive.won,early:naive.early,rivalEarly:naive.rivalEarly},
