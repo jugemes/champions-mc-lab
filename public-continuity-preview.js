@@ -23,7 +23,12 @@ const mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
 const low=(a,n)=>mean([...a].sort((x,y)=>x-y).slice(0,n));
 const max=(a)=>Math.max(0,...a);
 function moveRows(dex,own,active,publicSix,available){
-  const possibleSwitches=[...new Set(publicSix)].filter(s=>s!==active);
+  // The public six lists the base species, while the active can already be
+  // Mega-evolved. They are the same individual, not a possible bench switch.
+  // Compare baseSpecies instead of form labels (no species-specific rules).
+  const base=s=>dex.species.get(s).baseSpecies||dex.species.get(s).name;
+  const activeBase=base(active);
+  const possibleSwitches=[...new Set(publicSix)].filter(s=>base(s)!==activeBase);
   const scarf=canonical(own.item)==='choicescarf';
   return available.filter(x=>dex.moves.get(x.move).category!=='Status').map(x=>{
     const current=scoreHit(dex,own,active,x.move);
