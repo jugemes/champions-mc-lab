@@ -34,7 +34,7 @@ const policies={
  continuity:{previewPolicy:'publicContinuity',decisionPolicy:'publicContinuity'}
 };
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
-async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode){
+async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode,rivalT1Mode='scripted'){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ourSide=reverse?'p2':'p1',rivalSide=reverse?'p1':'p2';
@@ -52,7 +52,7 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode){
  let pivotIssued=0;
  enemy.decide=function(req){
   if(req.teamPreview)return original(req);
-  if(!req.forceSwitch&&this.turn===1){
+  if(rivalT1Mode==='scripted'&&!req.forceSwitch&&this.turn===1){
    const moves=req.active?.[0]?.moves||[];
    const i=moves.findIndex(m=>canon(m.id||m.move)===canon(branch.t1)&&
      !m.disabled&&m.pp>0);
@@ -102,11 +102,13 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode){
  }
  assert.equal(pivotExecuted,pivotIssued,'issued T2 pivot must be seen in public Showdown log');
  const executed=executedEvents(log,ourSide,rivalSide);
+ const rivalT1Moves=executed.rival.filter(e=>e.turn===1&&e.kind==='move').map(e=>e.detail);
+ const rivalT1Categories=rivalT1Moves.map(m=>dex.moves.get(m).category);
  const ownChoices=trace.choices.filter(x=>x.side===ourSide&&x.turn>=1&&x.turn<=2)
    .map(x=>({turn:x.turn,choice:x.choice}));
  return {won:winner===ourSide,three:selected.chosen,lead:selected.lead,
    ownChoices,ownExecuted:executed.own,rivalExecuted:executed.rival,
-   t1Executed,pivotIssued,pivotExecuted,
+   t1Executed,pivotIssued,pivotExecuted,rivalT1Moves,rivalT1Categories,
    errors:trace.errors.length,knownImmuneHits:publicImmune98(log,rivalSide,dex).known.length,
    publicEarly:publicEarly.slice(0,12)};
 }
@@ -271,4 +273,67 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
  }));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC TOTAL '+JSON.stringify({totals,effects}));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC BRANCHES '+JSON.stringify(branches));
+});
+
+
+// P0 adversarial counterfactual: remove the scripted rival T1, keeping the
+// same PUBLIC six, fixed opposing trio/lead, seed, side and optional T2 pivot.
+// This is an already-used diagnostic set, NOT a preregistered new holdout.
+// An autonomous baseline Bot with public-known immunity avoidance is NOT a
+// certified rational human opponent. Its actual executed T1 is audited.
+test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip},async t=>{
+ const sim=load(),own=reportedLive(),summary=[];
+ const arms={
+  legacy:{previewPolicy:'legacy',decisionPolicy:'baseline'},
+  continuityPreview:{previewPolicy:'publicContinuity',decisionPolicy:'baseline'}
+ };
+ const total={conditions:0,scripted:{legacyWins:0,newWins:0,gains:0,losses:0,
+   rivalStatusExecuted:0,rivalT1Absent:0},
+  autonomous:{legacyWins:0,newWins:0,gains:0,losses:0,
+   rivalStatusExecuted:0,rivalT1Absent:0},
+  changedAutonomousRivalT1FromScript:0,errors:0,knownImmuneHits:0};
+ for(const [ci,c] of cases.entries())for(const [bi,b] of c.branches.entries())
+ for(const pivotMode of [false,true]){
+  const row={case:c.id,rival:b.rival,t1Script:b.t1,pivotMode,
+   scripted:{legacyWins:0,newWins:0,gains:0,losses:0},
+   autonomous:{legacyWins:0,newWins:0,gains:0,losses:0,
+     actualRivalT1Moves:[],statusExecutions:0,missingT1Moves:0}};
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10422000+ci*1000+bi*100+n),res={};
+   for(const mode of ['scripted','autonomous'])for(const [name,policy] of Object.entries(arms)){
+    const x=await play(sim,structuredClone(own),structuredClone(c.team),
+      seed,reverse,b,policy,pivotMode,mode);
+    res[mode+'_'+name]=x;
+    total.errors+=x.errors;total.knownImmuneHits+=x.knownImmuneHits;
+   }
+   for(const mode of ['scripted','autonomous']){
+    const a=res[mode+'_legacy'],z=res[mode+'_continuityPreview'];
+    assert.deepEqual(a.three.length,3);
+    assert.deepEqual(z.three.length,3);
+    const gain=+(!a.won&&z.won),loss=+(a.won&&!z.won);
+    row[mode].legacyWins+=+a.won;row[mode].newWins+=+z.won;
+    row[mode].gains+=gain;row[mode].losses+=loss;
+    const s=total[mode];s.legacyWins+=+a.won;s.newWins+=+z.won;
+    s.gains+=gain;s.losses+=loss;
+    s.rivalStatusExecuted+=+(a.rivalT1Categories.includes('Status'));
+    s.rivalT1Absent+=+(a.rivalT1Moves.length===0);
+    if(mode==='autonomous'){
+     row.autonomous.actualRivalT1Moves.push(a.rivalT1Moves.join('+')||'(no move)');
+     row.autonomous.statusExecutions+=+(a.rivalT1Categories.includes('Status'));
+     row.autonomous.missingT1Moves+=+(a.rivalT1Moves.length===0);
+    }
+   }
+   total.changedAutonomousRivalT1FromScript+=+
+     (eventSignature(res.scripted_legacy.rivalExecuted,1)!==
+      eventSignature(res.autonomous_legacy.rivalExecuted,1));
+   total.conditions++;
+  }
+  summary.push(row);
+ }
+ assert.equal(total.conditions,48,'same 48 paired conditions, 4 variants each');
+ assert.equal(total.errors,0,'all Battle requests legal');
+ assert.equal(total.knownImmuneHits,0,'no publicly known immune rival attacks');
+ t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL TOTAL '+JSON.stringify(total));
+ t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL BRANCHES '+JSON.stringify(summary));
+ t.diagnostic('P0 ADVERSARIAL T1 CAUTION: baseline rival Bot is not rationality-certified; scripted T2 pivot is still a fixture; this diagnostic is not new holdout or adoption evidence');
 });
