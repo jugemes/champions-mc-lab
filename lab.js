@@ -365,6 +365,8 @@ class Bot{
         :this.previewPolicy==='publicCoverage'
         // Research-only generic legal coverage / possible Scarf speed band.
         ?(this.previewLog=require('./public-coverage-preview').choosePublicCoveragePreview(load(),this.team,this.opp.slice(),matchup)).selection
+        :this.previewPolicy==='publicContinuity'
+        ?(this.previewLog=require('./public-continuity-preview').chooseContinuityPreview(this.dex,this.team,this.opp.slice())).selection
         :this.previewPolicy==='publicTempo'
         ?(this.previewLog=require('./public-tempo').chooseTempoPreview(this.dex,this.team,this.opp.slice())).selection
         :this.previewPolicy==='publicRobust'
@@ -490,6 +492,23 @@ class Bot{
           publicSix:this.opp.slice(),baseline:best.i+1,candidate:tempo.i+1,
           rows:tempo.rows});
         return 'move '+(tempo.i+1)+(active.canMegaEvo?' mega':'');
+      }
+    }
+    // Research-only: preserve all baseline status and voluntary switch choices.
+    // Rerank only currently legal attacks using possible PUBLIC switch targets;
+    // no access to opposing actual three, items or hidden moves.
+    if(this.decisionPolicy==='publicContinuity'&&this.opp.length===6){
+      const chosen=available.find(x=>x.i===best.i);
+      if(chosen&&this.dex.moves.get(chosen.m.id||chosen.m.move).category!=='Status'){
+        const continuity=require('./public-continuity-preview').chooseContinuityMove(
+          this.dex,my,this.foeActive,this.opp.slice(),
+          available.map(x=>({i:x.i,move:x.m.id||x.m.move})));
+        if(continuity){
+          this.trace.continuity??=[];
+          this.trace.continuity.push({side:this.side,turn:this.turn,foe:this.foeActive,
+            baseline:best.i+1,candidate:continuity.i+1,rows:continuity.rows});
+          return 'move '+(continuity.i+1)+(active.canMegaEvo?' mega':'');
+        }
       }
     }
     return 'move '+(best.i+1)+(active.canMegaEvo?' mega':'');
