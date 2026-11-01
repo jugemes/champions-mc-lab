@@ -101,6 +101,16 @@ test('predeclared U1/U2 and DEV synthetic sixes are legal M-C with distinct item
    assert.ok(c.team.some(p=>p.species===species),c.id+' '+species);
  }
 });
+test('publicTempo preview depends on public species, not six ordering or rival selected three',{skip},()=>{
+ const sim=load(),dex=sim.Dex.mod('champions'),own=reportedLive();
+ const {chooseTempoPreview}=require('../public-tempo');
+ for(const c of cases){
+  const six=c.team.map(p=>p.species);
+  const a=chooseTempoPreview(dex,own,six).selection;
+  const b=chooseTempoPreview(dex,own,[...six].reverse()).selection;
+  assert.deepEqual(a,b,c.id+' preview cannot use rival hidden trio');
+ }
+});
 test('publicTempo preview/turn/joint opt-ins: pinned full Battle, two seeds, side reversal, scripted rival branch',{skip},async t=>{
  const sim=load(),own=reportedLive(),rows=[];
  for(const [ci,c] of cases.entries()){
