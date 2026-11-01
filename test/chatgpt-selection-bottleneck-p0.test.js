@@ -31,13 +31,13 @@ const cases=[
   }}
 ];
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
-async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy'}={}){
+async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy',ownDecisionPolicy='baseline'}={}){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
  const [p1,p2]=reverse?[foe,own]:[own,foe];
- const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed,previewPolicy:reverse?'legacy':ownPreviewPolicy});
- const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed,previewPolicy:reverse?ownPreviewPolicy:'legacy'});
+ const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed,previewPolicy:reverse?'legacy':ownPreviewPolicy,decisionPolicy:reverse?'baseline':ownDecisionPolicy});
+ const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed,previewPolicy:reverse?ownPreviewPolicy:'legacy',decisionPolicy:reverse?ownDecisionPolicy:'baseline'});
  const opponent=foeSide==='p1'?b1:b2,original=opponent.decide.bind(opponent);
  // Research-only opponent model: refuse attacks into immunities publicly
  // knowable at decision time. Never inspect hidden sets/selected three.
@@ -412,4 +412,102 @@ test('PUBLIC ROBUST NEW HOLDOUT: paired legacy vs robust with immunity-aware riv
   rows.push(rec);
  }
  t.diagnostic('PUBLIC ROBUST NEW HOLDOUT '+JSON.stringify(rows));
+});
+
+
+// PREDECLARED prior to implementation/outcomes: PR #104 comment #6556025434.
+// New PUBLIC SIX combinations H-E/H-F, never used to tune either preview policy.
+// Four-arm ablation isolates selection changes from T1/T2 public-action gating.
+const PUBLIC_ACTION_NEW_HOLDOUT=[
+ {id:'H-E-weather-mega-status-pivot',
+  team:[rain[0],setup[0],stall[0],rain[4],stall[3],rain[5]],
+  branches:[
+   {rival:['Pelipper','Gholdengo','Slowbro'],script:{kind:'move',move:'Hurricane'}},
+   {rival:['Gholdengo','Toxapex','Salamence'],script:{kind:'move',move:'Make It Rain'}},
+   {rival:['Salamence','Rillaboom','Toxapex'],script:{kind:'move',move:'Double-Edge'}}
+  ]},
+ {id:'H-F-mega-rain-setup-priority',
+  team:[rain[1],setup[1],rain[3],stall[4],rain[2],rain[5]],
+  branches:[
+   {rival:['Swampert','Volcarona','Skarmory'],script:{kind:'move',move:'Liquidation'}},
+   {rival:['Dragonite','Archaludon','Rillaboom'],script:{kind:'move',move:'Extreme Speed'}},
+   {rival:['Volcarona','Swampert','Skarmory'],script:{kind:'move',move:'Fiery Dance'}}
+  ]}
+];
+test('public action gate: only public-certain ability and opposing targeted status',{skip},()=>{
+ const sim=load(),dex=sim.Dex.mod('champions');
+ const {publicCertainAbility,blockedPublicTargetStatus}=require('../public-action-gate');
+ assert.equal(publicCertainAbility(dex,'Gholdengo'),'goodasgold');
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Will-O-Wisp'),true);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Encore'),true);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Stealth Rock'),false);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Dark Pulse'),false);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Will-O-Wisp',{ownAbility:'Mold Breaker'}),false);
+ assert.equal(blockedPublicTargetStatus(dex,'Gholdengo','Will-O-Wisp',{revealedAbility:'Levitate'}),false);
+ assert.equal(blockedPublicTargetStatus(dex,'Salamence','Will-O-Wisp'),false);
+});
+test('predeclared H-E/H-F public action feasibility: legal teams and hidden-three invariance',{skip},()=>{
+ const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
+ const {choosePublicRobustPreview}=require('../public-robust-preview');
+ const {matchup}=require('../lab'),own=reportedLive();
+ for(const c of PUBLIC_ACTION_NEW_HOLDOUT){
+  prelim(c.team,c.id);assert.ok(!v.validateTeam(normalize(c.team))?.length,c.id);
+  assert.equal(new Set(c.team.map(x=>x.item)).size,6);
+  assert.equal(new Set(c.team.map(x=>x.species)).size,6);
+  const six=c.team.map(x=>x.species);
+  const forward=choosePublicRobustPreview(sim,own,six,matchup).selection;
+  const reverse=choosePublicRobustPreview(sim,own,six.slice().reverse(),matchup).selection;
+  assert.deepEqual(forward,reverse,c.id+' public-six order');
+  for(const b of c.branches){
+   assert.equal(b.rival.length,3);
+   for(const name of b.rival)assert.ok(c.team.some(x=>x.species===name),name);
+   assert.ok(c.team.find(x=>x.species===b.rival[0]).moves.some(x=>
+     canon(x)===canon(b.script.move)),b.script.move+' legal T1');
+  }
+ }
+});
+test('H-E/H-F predeclared: 2x2 selection/action ablation vs immune-aware rival',{skip},async t=>{
+ const sim=load(),own=reportedLive(),rows=[];
+ const arms=[
+  {id:'legacy',preview:'legacy',decision:'baseline'},
+  {id:'legacyAction',preview:'legacy',decision:'publicAction'},
+  {id:'robust',preview:'publicRobust',decision:'baseline'},
+  {id:'robustAction',preview:'publicRobust',decision:'publicAction'}
+ ];
+ for(const [ci,c] of PUBLIC_ACTION_NEW_HOLDOUT.entries()){
+  const rec={id:c.id,publicSix:c.team.map(p=>p.species),branches:[]};
+  for(const [bi,b] of c.branches.entries()){
+   const br={rival:b.rival,script:b.script,arms:{}};
+   for(const arm of arms)br.arms[arm.id]={wins:0,errors:0,knownImmuneHits:0,results:[]};
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10419000+ci*100+bi*20+n);
+    for(const arm of arms){
+     const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,
+         ownPreviewPolicy:arm.preview,ownDecisionPolicy:arm.decision});
+     const a=br.arms[arm.id];
+     a.wins+=+g.won;a.errors+=g.errors;a.knownImmuneHits+=g.knownImmuneHits;
+     a.results.push({seed,reverse,won:g.won,three:g.three,lead:g.lead,
+       ownT1T2:g.early,rivalT1T2:g.rivalEarly,
+       rivalT1Executed:g.rivalT1Executed,rivalT1Prevented:g.rivalT1Prevented,
+       knownImmuneHits:g.knownImmuneHits,
+       ...(n===0&&!reverse?{battleEarly:g.battleEarly}:{}),
+     });
+     assert.equal(g.errors,0,c.id+' '+arm.id+' legal choices');
+     assert.equal(g.knownImmuneHits,0,c.id+' '+arm.id+' enemy publicly known immune attack');
+    }
+   }
+   rec.branches.push(br);
+  }
+  for(const arm of arms){
+   const first=rec.branches[0].arms[arm.id].results[0];
+   for(const b of rec.branches.slice(1)){
+    const other=b.arms[arm.id].results[0];
+    assert.deepEqual(first.three,other.three,c.id+' hidden enemy trio leaked');
+    assert.equal(first.lead,other.lead,c.id+' hidden enemy lead leaked');
+   }
+  }
+  rows.push(rec);
+ }
+ t.diagnostic('PUBLIC ACTION PREDECLARED H-E/H-F '+JSON.stringify(rows));
 });
