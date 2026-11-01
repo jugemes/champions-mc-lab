@@ -31,13 +31,13 @@ const cases=[
   }}
 ];
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
-async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false}={}){
+async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy'}={}){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
  const [p1,p2]=reverse?[foe,own]:[own,foe];
- const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed});
- const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed});
+ const b1=new Bot(streams.p1,dex,p1,'p1',trace,reverse?forcedFoe:forcedOwn,null,{seed,previewPolicy:reverse?'legacy':ownPreviewPolicy});
+ const b2=new Bot(streams.p2,dex,p2,'p2',trace,reverse?forcedOwn:forcedFoe,null,{seed,previewPolicy:reverse?ownPreviewPolicy:'legacy'});
  const opponent=foeSide==='p1'?b1:b2,original=opponent.decide.bind(opponent);
  // Research-only opponent model: refuse attacks into immunities publicly
  // knowable at decision time. Never inspect hidden sets/selected three.
@@ -254,4 +254,68 @@ test('known-public-immunity-aware rival: same fixed trios/leads across two arche
  // this experiment is not testing the known-invulnerability problem.
  assert.ok(rollup.avoided>0,'the rational rival must avoid some known immune attacks');
  t.diagnostic('IMMUNITY-AWARE RIVAL SELECTION AUDIT '+JSON.stringify({rollup,report}));
+});
+
+ 
+// Pre-registered BEFORE any result inspection: PR #104 comment #6554645200.
+// True unseen PUBLIC SIX combinations (not unseen species); old policies are
+// frozen and evaluated without any holdout-specific rule or parameter tuning.
+const HOLDOUT_PREDECLARED_20261101=[
+  {id:'H-A-weather-setup-priority-stall',
+   team:[rain[0],setup[1],rain[3],rain[4],stall[0],rain[5]],
+   branches:[
+     {rival:['Pelipper','Dragonite','Gholdengo'],script:{kind:'move',move:'Hurricane'}},
+     {rival:['Volcarona','Toxapex','Rillaboom'],script:{kind:'move',move:'Quiver Dance'}}
+   ]},
+  {id:'H-B-mega-scarf-pivot-stall',
+   team:[setup[0],rain[2],stall[4],stall[3],require('../fixtures').variants.A_rillaboom[0],rain[5]],
+   branches:[
+     {rival:['Salamence','Archaludon','Skarmory'],script:{kind:'move',move:'Dragon Dance'}},
+     {rival:['Starmie','Slowbro','Rillaboom'],script:{kind:'move',move:'Ice Beam'}}
+   ]}
+];
+test('predeclared unseen public-six holdout: legal 66P, unique items, coherent rival trios',{skip},()=>{
+ const sim=load(),validator=sim.TeamValidator.get('gen9championsbssregmc');
+ for(const c of HOLDOUT_PREDECLARED_20261101){
+   prelim(c.team,c.id);
+   assert.ok(!validator.validateTeam(normalize(c.team))?.length,c.id);
+   assert.equal(new Set(c.team.map(x=>x.species)).size,6);
+   assert.equal(new Set(c.team.map(x=>x.item)).size,6);
+   for(const b of c.branches){
+     assert.equal(b.rival.length,3);
+     for(const name of b.rival)assert.ok(c.team.some(x=>x.species===name),name);
+     const lead=c.team.find(x=>x.species===b.rival[0]);
+     assert.ok(lead.moves.some(x=>canon(x)===canon(b.script.move)),b.script.move);
+   }
+ }
+});
+test('predeclared unseen public-six holdout: 3 frozen generic preview policies vs immunity-aware rival',{skip},async t=>{
+ const sim=load(),own=reportedLive(),policies=['legacy','publicCoverage','publicTempo'],rows=[];
+ for(const [ci,c] of HOLDOUT_PREDECLARED_20261101.entries()){
+   const rec={id:c.id,publicSix:c.team.map(x=>x.species),branches:[]};
+   for(const [bi,b] of c.branches.entries()){
+     const br={rival:b.rival,script:b.script,policies:{}};
+     for(const policy of policies)br.policies[policy]={wins:0,errors:0,knownImmuneHits:0,immuneAvoided:0,results:[]};
+     for(let n=0;n<2;n++)for(const reverse of [false,true]){
+       const seed=hashSeed(10417000+ci*100+bi*20+n);
+       for(const policy of policies){
+         const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+           seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,ownPreviewPolicy:policy});
+         const a=br.policies[policy];
+         a.wins+=Number(g.won);a.errors+=g.errors;
+         a.knownImmuneHits+=g.knownImmuneHits;a.immuneAvoided+=g.immuneAvoided;
+         a.results.push({seed,reverse,won:g.won,three:g.three,lead:g.lead,
+           ownT1T2:g.early,rivalT1T2:g.rivalEarly,
+           rivalT1Executed:g.rivalT1Executed,rivalT1Prevented:g.rivalT1Prevented,
+           // One trace per branch/policy is enough to audit actual execution.
+           ...(n===0&&!reverse?{battleEarly:g.battleEarly}:{}),
+           knownImmuneHits:g.knownImmuneHits});
+         assert.equal(g.errors,0,c.id+' '+policy+' legal actions');
+       }
+     }
+     rec.branches.push(br);
+   }
+   rows.push(rec);
+ }
+ t.diagnostic('PREDECLARED UNSEEN PUBLIC SIX HOLDOUT '+JSON.stringify(rows));
 });
