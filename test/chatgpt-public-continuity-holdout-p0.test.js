@@ -206,7 +206,7 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
   CL:{previewPolicy:'publicContinuity',decisionPolicy:'baseline'},
   CC:{previewPolicy:'publicContinuity',decisionPolicy:'publicContinuity'}
  };
- const totals=Object.fromEntries(Object.keys(arms).map(k=>[k,{wins:0,errors:0,knownImmuneHits:0}]));
+ const totals=Object.fromEntries(Object.keys(arms).map(k=>[k,{wins:0,errors:0,knownImmuneHits:0,t1Executed:0,conditions:0}]));
  const names={turnLegacy:['LL','LC'],turnContinuity:['CL','CC'],
    previewLegacy:['LL','CL'],previewContinuity:['LC','CC']};
  const effects=Object.fromEntries(Object.keys(names).map(k=>[k,{gains:0,losses:0,
@@ -220,7 +220,7 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
    for(const [k,policy] of Object.entries(arms)){
     const r=await play(sim,structuredClone(own),structuredClone(c.team),seed,reverse,b,policy,pivotMode);
     res[k]=r;totals[k].wins+=+r.won;totals[k].errors+=r.errors;
-    totals[k].knownImmuneHits+=r.knownImmuneHits;row.wins[k]+=+r.won;
+    totals[k].knownImmuneHits+=r.knownImmuneHits;totals[k].t1Executed+=+r.t1Executed;totals[k].conditions++;row.wins[k]+=+r.won;
    }
    for(const [a,z] of [['LL','LC'],['CL','CC']]){
     assert.deepEqual(res[a].three,res[z].three,'turn-only comparison: fixed three');
@@ -238,6 +238,7 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
   branches.push(row);
  }
  for(const [key,v] of Object.entries(totals)){
+  assert.equal(v.conditions,48,key+' fixed factorial conditions');
   assert.equal(v.errors,0,key+' valid Battle requests');
   assert.equal(v.knownImmuneHits,0,key+' public-known immune rival attacks');
  }
