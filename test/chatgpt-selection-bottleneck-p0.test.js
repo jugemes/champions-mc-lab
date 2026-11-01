@@ -8,6 +8,8 @@ const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes}=require('../fixtures');
 const {immuneAware100}=require('../pr100-legal');
 const {publicImmune98}=require('../pr98-timing');
+const {moveUtility}=require('../damage');
+const {publicImmuneMoves100}=require('../pr100-legal');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const {rain,stall,setup}=archetypes;
 const cases=[
@@ -31,7 +33,7 @@ const cases=[
   }}
 ];
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z]/g,'');
-async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy',ownDecisionPolicy='baseline',rivalT2=null}={}){
+async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immuneAwareRival=false,ownPreviewPolicy='legacy',ownDecisionPolicy='baseline',rivalT2=null,rivalAttackPressure=false}={}){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
@@ -59,6 +61,34 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
      canon(m.id||m.move)===canon(rivalT2.move)&&!m.disabled&&m.pp>0);
    assert.ok(i>=0,'predeclared rival T2 move must be legal');
    return 'move '+(i+1)+(req.active[0].canMegaEvo?' mega':'');
+  }
+  // Research-only opponent attack-pressure stress. Never presented as an
+  // optimal human rival: this isolates wins from unpunished setup/passivity.
+  // Uses rival's OWN legal request, and only the PUBLIC opposing active species.
+  // It cannot see the opposing selected bench, items or unrevealed moves.
+  if(rivalAttackPressure&&this.turn>=2&&!req.teamPreview&&!req.forceSwitch){
+   const current=req.side.pokemon.find(p=>p.active);
+   const mask=new Set(publicImmuneMoves100(dex,req,this).map(x=>x.i));
+   if(current&&this.foeActive){
+    const mine=this.getSet(current);
+    const moves=req.active?.[0]?.moves||[];
+    const legal=moves.map((m,i)=>({m,i})).filter(({m,i})=>
+      !mask.has(i)&&!m.disabled&&m.pp>0&&
+      dex.moves.get(m.id||m.move).category!=='Status');
+    const ranked=legal.map(({m,i})=>({i,move:m.move,
+      score:moveUtility(dex,mine,this.foeActive,m.id||m.move,
+        {foeHP:this.foeHP,foeAbility:this.foeAbility,foeItem:this.foeItem,
+         weather:this.weather,terrain:this.terrain})}))
+      .filter(x=>Number.isFinite(x.score)&&x.score>0)
+      .sort((a,b)=>b.score-a.score||a.i-b.i);
+    if(ranked.length){
+     const choice='move '+(ranked[0].i+1)+(req.active[0].canMegaEvo?' mega':'');
+     this.trace.rivalPressure??=[];
+     this.trace.rivalPressure.push({side:this.side,turn:this.turn,
+       observedFoe:this.foeActive,move:ranked[0].move,choice});
+     return choice;
+    }
+   }
   }
   if(req.teamPreview||req.forceSwitch||this.turn!==1){
    if(immuneDecision&&!req.teamPreview&&!req.forceSwitch){
@@ -126,7 +156,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
   rivalT1Prevented:!didScript?(preventedKO?'KO':'cant'):null,
   errors:trace.errors.length,knownImmuneHits:publicImmune98(log,foeSide,dex).known.length,
   immuneAvoided:maskLog.masked?.length||0,
-  immuneMaskEvidence:(maskLog.masked||[]).slice(0,6)};
+  immuneMaskEvidence:(maskLog.masked||[]).slice(0,6),
+  rivalPressure:(trace.rivalPressure||[]).filter(x=>x.side===foeSide)};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
@@ -648,4 +679,70 @@ test('P0 selection feasibility frontier: six fixed 3+lead arms across both rival
   return [key,{wins:perSix.reduce((s,x)=>s+x.wins,0),perSix}];
  }));
  t.diagnostic('P0 SELECTION FEASIBILITY FRONTIER '+JSON.stringify({summary,rows}));
+});
+
+
+// Predeclared in PR #104 comments #6557109139 / #6557111787 before code.
+// Existing H-C/H-D are diagnostic, NOT a new public-six holdout. 72 paired
+// conditions (144 full Battles), two independent seeds with side reversal.
+test('P0 rival attack-pressure control: same own 3+lead and fixed T1, six opposing branches',{skip},async t=>{
+ const sim=load(),own=reportedLive(),rows=[],arms={
+  legacy:{forced:null,preview:'legacy'},
+  fixedB:{forced:['Hydreigon','Garchomp','Rotom-Wash'],preview:'legacy'},
+  fixedD:{forced:['Metagross','Primarina','Rotom-Wash'],preview:'legacy'}
+ };
+ let totalPairs=0,pressureActions=0,changedWins=0,changedT2=0;
+ for(const [ci,c] of PUBLIC_ROBUST_NEW_HOLDOUT.entries()){
+  const rec={id:c.id,branches:[]};
+  for(const [bi,b] of c.branches.entries()){
+   const br={rival:b.rival,script:b.script,arms:{}};
+   for(const key of Object.keys(arms))
+    br.arms[key]={baselineWins:0,pressureWins:0,changedWinners:0,
+      pressureActions:0,changedT2:0,example:null};
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10419400+ci*100+bi*20+n);
+    for(const [key,arm] of Object.entries(arms)){
+     const args=[sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,arm.forced,b.rival,b.script];
+     const options={immuneAwareRival:true,ownPreviewPolicy:arm.preview};
+     const old=await battle(...args,options);
+     const pressure=await battle(sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,arm.forced,b.rival,b.script,
+       {...options,rivalAttackPressure:true});
+     assert.equal(old.errors+pressure.errors,0,'both rival policies legal');
+     assert.equal(old.knownImmuneHits+pressure.knownImmuneHits,0,
+       'no publicly known immunity attack from rival');
+     assert.deepEqual(old.three,pressure.three,'same own public-six three');
+     assert.equal(old.lead,pressure.lead,'same own lead');
+     assert.deepEqual(old.rivalEarly[0],pressure.rivalEarly[0],
+       'same predeclared rival T1 choice');
+     const a=br.arms[key];
+     a.baselineWins+=+old.won;a.pressureWins+=+pressure.won;
+     a.changedWinners+=+(old.won!==pressure.won);
+     a.pressureActions+=pressure.rivalPressure.length;
+     a.changedT2+=+(JSON.stringify(old.rivalEarly.find(x=>x[0]===2))!==
+       JSON.stringify(pressure.rivalEarly.find(x=>x[0]===2)));
+     if(n===0&&!reverse)a.example={
+       ownThree:old.three,lead:old.lead,
+       baseline:{won:old.won,ownT1T2:old.early,rivalT1T2:old.rivalEarly},
+       pressure:{won:pressure.won,ownT1T2:pressure.early,
+         rivalT1T2:pressure.rivalEarly,
+         pressureActions:pressure.rivalPressure.slice(0,3)}
+     };
+     totalPairs++;pressureActions+=pressure.rivalPressure.length;
+     changedWins+=+(old.won!==pressure.won);
+     changedT2+=+(JSON.stringify(old.rivalEarly.find(x=>x[0]===2))!==
+       JSON.stringify(pressure.rivalEarly.find(x=>x[0]===2)));
+    }
+   }
+   rec.branches.push(br);
+  }
+  rows.push(rec);
+ }
+ assert.equal(totalPairs,72);
+ assert.ok(pressureActions>0,'pressure option must execute on real turns');
+ t.diagnostic('P0 RIVAL ATTACK PRESSURE '+JSON.stringify({
+   totalPairs,fullBattles:totalPairs*2,pressureActions,changedWins,changedT2,
+   rows
+ }));
 });
