@@ -40,6 +40,8 @@ test('pinned Showdown: forced Encore setup and voluntary setup are conflated by 
  assert.equal(voluntary.encoreStart,false);
  assert.ok(forced.tag.setupSpam>0,'legacy tag marks repeated setup even when Encore is active');
  assert.ok(voluntary.tag.setupSpam>0,'legacy tag also marks voluntary repetition');
+ assert.equal(forced.tag.setupSpam,voluntary.tag.setupSpam,
+   'same legacy setupSpam count despite materially different public Encore state');
  t.diagnostic('ENCORE MISPLAY LABEL CONFOUND '+JSON.stringify({
   encore:{setup:forced.setup,encoreActive:true,tag:forced.tag},
   noEncore:{setup:voluntary.setup,encoreActive:false,tag:voluntary.tag},
