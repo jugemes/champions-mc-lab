@@ -158,8 +158,22 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
   if(/^\|(move|switch|faint|cant|-damage|-boost|-unboost|-immune|-supereffective)\|/.test(line))
    battleEarly.push('T'+turn+':'+line.slice(0,170));
  }
+ // Count actual T2 switches in the Showdown public log, not issued commands.
+ // Switches after an attack are not voluntary T2 pivots.
+ const rivalT2Observed=[];let observedTurn=0,moveStarted=false;
+ for(const line of log.split('\n')){
+  if(line.startsWith('|turn|')){
+   observedTurn=Number(line.split('|')[2])||0;moveStarted=false;continue;
+  }
+  if(observedTurn!==2)continue;
+  if(line.startsWith('|move|'))moveStarted=true;
+  if(line.startsWith('|switch|'+foeSide+'a:')){
+   const details=String(line.split('|')[3]||'').split(',')[0];
+   rivalT2Observed.push({species:details,beforeFirstMove:!moveStarted});
+  }
+ }
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
-  early,rivalEarly,battleEarly,rivalT1Executed:didScript,
+  early,rivalEarly,battleEarly,rivalT2Observed,rivalT1Executed:didScript,
   rivalT1Prevented:!didScript?(preventedKO?'KO':'cant'):null,
   errors:trace.errors.length,knownImmuneHits:publicImmune98(log,foeSide,dex).known.length,
   immuneAvoided:maskLog.masked?.length||0,
@@ -805,7 +819,7 @@ test('P0 new H-G/H-H holdout: public six, items, 66P and scripted moves legal',{
 });
 test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pinned full Battles',{skip},async t=>{
  const sim=load(),own=reportedLive(),rows=[];
- let total=0,errors=0,immuneHits=0,pivots=0;
+ let total=0,errors=0,immuneHits=0,pivots=0,pivotCommands=0;
  for(const [ci,c] of P0_PIVOT_HOLDOUT_20261101.entries()){
   const rec={id:c.id,publicSix:c.team.map(x=>x.species),branches:[]};
   for(const [bi,b] of c.branches.entries()){
@@ -828,10 +842,13 @@ test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pin
       const a=br.arms[key];a[mode]+=Number(g.won);
       a.errors+=g.errors;a.knownImmune+=g.knownImmuneHits;
       if(mode==='pivot'){
-       const didPivot=g.rivalT2Forced.some(x=>x.turn===2&&x.to===b.pivot)&&
+       const issued=g.rivalT2Forced.some(x=>x.turn===2&&x.to===b.pivot)&&
         g.rivalEarly.some(x=>x[0]===2&&String(x[1]).startsWith('switch '));
-       a.pivotExecuted+=Number(didPivot);
-       pivots+=Number(didPivot);
+       const observed=issued&&g.rivalT2Observed.some(x=>
+        canon(x.species)===canon(b.pivot)&&x.beforeFirstMove);
+       pivotCommands+=Number(issued);
+       a.pivotExecuted+=Number(observed);
+       pivots+=Number(observed);
       }
      }
      for(const mode of ['attack','pivot']){
@@ -870,8 +887,9 @@ test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pin
  assert.equal(errors,0,'all full Battles have legal choices');
  assert.equal(immuneHits,0,'rival never attacks a publicly certain immunity');
  // A zero-pivot test cannot be presented as a test of rational T2 switching.
- assert.ok(pivots>0,'T2 switch stress must actually execute at least once');
+ assert.ok(pivots>0,'T2 pivot must appear in actual Showdown switch log');
+ assert.ok(pivots<=pivotCommands,'executed T2 pivots cannot exceed issued commands');
  t.diagnostic('P0 NEW H-G/H-H PIVOT HOLDOUT '+JSON.stringify({
   fullBattles:total,independentSeedsPerBranch:2,sideReversals:2,
-  errors,knownImmuneHits:immuneHits,pivotExecuted:pivots,rows}));
+  errors,knownImmuneHits:immuneHits,pivotCommands,pivotExecuted:pivots,rows}));
 });
