@@ -5,7 +5,19 @@
 // These are heuristic matchup units, not probabilities or engine damage.
 const {matchup}=require('./lab');
 const {canonical}=require('./tactics');
-const scoreHit=(dex,p,s,m)=>Math.max(0,matchup(dex,p,s,m));
+const {effectiveness}=require('./damage');
+const {publicCertainAbility}=require('./public-action-gate');
+const scoreHit=(dex,p,s,m)=>{
+  const move=dex.moves.get(m),target=dex.species.get(s);
+  if(!move.exists||move.category==='Status'||!target.exists)return 0;
+  // Publicly unique abilities (e.g. Levitate) can make a type attack
+  // completely ineffective. Unknown ability/item remains UNKNOWN.
+  const ability=publicCertainAbility(dex,s);
+  const ownAbility=canonical(p.ability);
+  const bypass=['moldbreaker','teravolt','turboblaze'].includes(ownAbility);
+  if(!effectiveness(dex,move,target,{foeAbility:bypass?'':ability}))return 0;
+  return Math.max(0,matchup(dex,p,s,m));
+};
 const attacks=(dex,p)=>p.moves.filter(m=>dex.moves.get(m).category!=='Status');
 const mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
 const low=(a,n)=>mean([...a].sort((x,y)=>x-y).slice(0,n));
