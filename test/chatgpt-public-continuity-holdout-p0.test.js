@@ -331,6 +331,11 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
   summary.push(row);
  }
  assert.equal(total.conditions,48,'same 48 paired conditions, 4 variants each');
+ // Verify this counterfactual did not silently alter the earlier 2x2 baseline.
+ assert.equal(total.scripted.legacyWins,36,'scripted LL baseline unchanged');
+ assert.equal(total.scripted.newWins,38,'scripted CL baseline unchanged');
+ assert.equal(total.scripted.gains,6,'scripted preview gains unchanged');
+ assert.equal(total.scripted.losses,4,'scripted preview losses unchanged');
  assert.equal(total.errors,0,'all Battle requests legal');
  assert.equal(total.knownImmuneHits,0,'no publicly known immune rival attacks');
  t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL TOTAL '+JSON.stringify(total));
