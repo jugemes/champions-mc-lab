@@ -514,3 +514,26 @@ test('H-E/H-F predeclared: 2x2 selection/action ablation vs immune-aware rival',
  }
  t.diagnostic('PUBLIC ACTION PREDECLARED H-E/H-F '+JSON.stringify(rows));
 });
+
+
+// Development-only mechanism check, NOT a new holdout or candidate-adoption test.
+// H-C was previously evaluated and exposed a Rotom-Wash Will-O-Wisp failure.
+test('public action mechanism on already-used H-C Gholdengo branch: pinned paired full Battle',{skip},async t=>{
+ const sim=load(),own=reportedLive(),c=PUBLIC_ROBUST_NEW_HOLDOUT[0],b=c.branches[2],rows=[];
+ for(let n=0;n<2;n++)for(const reverse of [false,true]){
+  const seed=hashSeed(10419100+n);
+  const old=await battle(sim,structuredClone(own),structuredClone(c.team),
+    seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,
+      ownPreviewPolicy:'publicRobust',ownDecisionPolicy:'baseline'});
+  const guarded=await battle(sim,structuredClone(own),structuredClone(c.team),
+    seed,reverse,null,b.rival,b.script,{immuneAwareRival:true,
+      ownPreviewPolicy:'publicRobust',ownDecisionPolicy:'publicAction'});
+  assert.deepEqual(old.three,guarded.three);
+  assert.equal(old.lead,guarded.lead);
+  assert.equal(old.errors+guarded.errors,0);
+  rows.push({seed,reverse,old:{won:old.won,early:old.early},
+    guarded:{won:guarded.won,early:guarded.early},
+    ...(n===0&&!reverse?{oldBattleEarly:old.battleEarly,guardedBattleEarly:guarded.battleEarly}:{})});
+ }
+ t.diagnostic('PUBLIC ACTION H-C DEVELOPMENT MECHANISM '+JSON.stringify(rows));
+});
