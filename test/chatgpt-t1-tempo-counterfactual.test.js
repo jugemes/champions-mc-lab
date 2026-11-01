@@ -160,7 +160,7 @@ test('DEV explicit rival T1 switch/setup branches: paired full Battle, not a hol
      intervene,plan.foeT1);
    const a=await run(false),b=await run(true);
    for(const game of [a,b]){
-    const lines=game.log.split('\\n');
+    const lines=game.log.split('\n');
     const t1=lines.slice(0,lines.findIndex(x=>x.startsWith('|turn|2'))<0
       ?undefined:lines.findIndex(x=>x.startsWith('|turn|2')));
     assert.ok(t1.some(line=>{
