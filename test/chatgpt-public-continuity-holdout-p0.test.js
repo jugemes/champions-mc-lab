@@ -10,6 +10,7 @@ const {archetypes}=require('../fixtures');
 const {immuneAware100}=require('../pr100-legal');
 const {publicImmune98}=require('../pr98-timing');
 const {chooseContinuityPreview}=require('../public-continuity-preview');
+const {executedEvents,eventSignature}=require('../public-execution-audit');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const {rain,setup,stall}=archetypes;
 const cases=[
@@ -100,10 +101,12 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode){
      publicEarly.push('T'+turn+':'+line.slice(0,140));
  }
  assert.equal(pivotExecuted,pivotIssued,'issued T2 pivot must be seen in public Showdown log');
+ const executed=executedEvents(log,ourSide,rivalSide);
  const ownChoices=trace.choices.filter(x=>x.side===ourSide&&x.turn>=1&&x.turn<=2)
    .map(x=>({turn:x.turn,choice:x.choice}));
  return {won:winner===ourSide,three:selected.chosen,lead:selected.lead,
-   ownChoices,t1Executed,pivotIssued,pivotExecuted,
+   ownChoices,ownExecuted:executed.own,rivalExecuted:executed.rival,
+   t1Executed,pivotIssued,pivotExecuted,
    errors:trace.errors.length,knownImmuneHits:publicImmune98(log,rivalSide,dex).known.length,
    publicEarly:publicEarly.slice(0,12)};
 }
@@ -143,7 +146,10 @@ test('preregistered H-I/H-J paired full Battle: public continuity vs legacy, imm
    const rec={rival:b.rival,t1:b.t1,pivot:b.pivot,pivotMode,
      oldWins:0,newWins:0,oldPivots:0,newPivots:0,
      oldT1Executed:0,newT1Executed:0,oldKnownImmune:0,newKnownImmune:0,
-     changedThree:0,changedLead:0,changedT12:0,gains:0,losses:0,errors:0,samples:[]};
+     changedThree:0,changedLead:0,changedT12:0,
+     changedExecutedT1:0,changedExecutedT2:0,changedExecutedMoveT1:0,
+     changedExecutedMoveT2:0,changedRivalExecutedT12:0,
+     gains:0,losses:0,errors:0,samples:[]};
    for(let n=0;n<2;n++)for(const reverse of [false,true]){
      const seed=hashSeed(10422000+ci*1000+bi*100+n);
      const args=[sim,structuredClone(own),structuredClone(c.team),seed,reverse,b];
@@ -156,6 +162,14 @@ test('preregistered H-I/H-J paired full Battle: public continuity vs legacy, imm
      rec.changedThree+=+([...a.three].sort().join()!==[...z.three].sort().join());
      rec.changedLead+=+(a.lead!==z.lead);
      rec.changedT12+=+(JSON.stringify(a.ownChoices)!==JSON.stringify(z.ownChoices));
+     // Actual Showdown |move|/|switch|/|drag| events, NOT Bot commands.
+     // A switch can be a faint replacement; count it as an observed event,
+     // not automatically a voluntary tactical decision.
+     for(const turn of [1,2]){
+       rec['changedExecutedT'+turn]+=+(eventSignature(a.ownExecuted,turn)!==eventSignature(z.ownExecuted,turn));
+       rec['changedExecutedMoveT'+turn]+=+(eventSignature(a.ownExecuted,turn,{onlyMoves:true})!==eventSignature(z.ownExecuted,turn,{onlyMoves:true}));
+     }
+     rec.changedRivalExecutedT12+=+([1,2].some(turn=>eventSignature(a.rivalExecuted,turn)!==eventSignature(z.rivalExecuted,turn)));
      rec.gains+=+(!a.won&&z.won);rec.losses+=+(a.won&&!z.won);
      rec.errors+=a.errors+z.errors;
      if(rec.samples.length<1)rec.samples.push({seed,reverse,old:a,new:z});
@@ -169,7 +183,9 @@ test('preregistered H-I/H-J paired full Battle: public continuity vs legacy, imm
  }
  const total=summary.flatMap(x=>x.branches).reduce((r,x)=>{
    for(const k of ['oldWins','newWins','oldPivots','newPivots','oldT1Executed',
-     'newT1Executed','changedThree','changedLead','changedT12','gains','losses'])
+     'newT1Executed','changedThree','changedLead','changedT12',
+     'changedExecutedT1','changedExecutedT2','changedExecutedMoveT1',
+     'changedExecutedMoveT2','changedRivalExecutedT12','gains','losses'])
      r[k]=(r[k]||0)+x[k];
    return r;
  },{});
