@@ -100,7 +100,7 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode){
      publicEarly.push('T'+turn+':'+line.slice(0,140));
  }
  assert.equal(pivotExecuted,pivotIssued,'issued T2 pivot must be seen in public Showdown log');
- const ownChoices=trace.choices.filter(x=>x.side===ourSide&&x.turn<=2)
+ const ownChoices=trace.choices.filter(x=>x.side===ourSide&&x.turn>=1&&x.turn<=2)
    .map(x=>({turn:x.turn,choice:x.choice}));
  return {won:winner===ourSide,three:selected.chosen,lead:selected.lead,
    ownChoices,t1Executed,pivotIssued,pivotExecuted,
