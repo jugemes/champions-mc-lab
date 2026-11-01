@@ -55,6 +55,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
       String(p.details||'').split(',')[0]===rivalT2.to&&
       !String(p.condition||'').endsWith(' fnt'));
     assert.ok(i>=0,'predeclared rival T2 switch must be legal');
+    this.trace.rivalT2Forced??=[];
+    this.trace.rivalT2Forced.push({side:this.side,turn:this.turn,to:rivalT2.to});
     return 'switch '+(i+1);
    }
    const i=(req.active?.[0]?.moves||[]).findIndex(m=>
@@ -157,7 +159,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script,{immun
   errors:trace.errors.length,knownImmuneHits:publicImmune98(log,foeSide,dex).known.length,
   immuneAvoided:maskLog.masked?.length||0,
   immuneMaskEvidence:(maskLog.masked||[]).slice(0,6),
-  rivalPressure:(trace.rivalPressure||[]).filter(x=>x.side===foeSide)};
+  rivalPressure:(trace.rivalPressure||[]).filter(x=>x.side===foeSide),
+  rivalT2Forced:(trace.rivalT2Forced||[]).filter(x=>x.side===foeSide)};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
@@ -820,8 +823,8 @@ test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pin
       const a=br.arms[key];a[mode]+=Number(g.won);
       a.errors+=g.errors;a.knownImmune+=g.knownImmuneHits;
       if(mode==='pivot'){
-       const didPivot=g.rivalEarly.some(x=>x[0]===2&&
-        String(x[1]).startsWith('switch '));
+       const didPivot=g.rivalT2Forced.some(x=>x.turn===2&&x.to===b.pivot)&&
+        g.rivalEarly.some(x=>x[0]===2&&String(x[1]).startsWith('switch '));
        a.pivotExecuted+=Number(didPivot);
        pivots+=Number(didPivot);
       }
