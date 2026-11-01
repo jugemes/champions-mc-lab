@@ -85,11 +85,20 @@ function publicCoverageBand(sim,own,foeName){
   const rows=c.legal.map(m=>({...m,upperRatio:upperHit(dex,own,m.form,m)}))
     .sort((a,b)=>b.upperRatio-a.upperRatio||a.move.localeCompare(b.move));
   const base=dex.species.get(foeName);
+  // Legal public forms can include Mega evolutions. A Mega can outspeed an
+  // unboosted base form, but cannot hold Choice Scarf at the same time.
+  // Keep the two possibility bands separate: no Mega+Scarf hybrid set.
+  const formSpeeds=c.forms.map(form=>{
+    const species=dex.species.get(form);
+    return {form,max:Math.floor((species.baseStats.spe+32+20)*1.1)};
+  });
+  const fastest=formSpeeds.reduce((a,b)=>b.max>a.max?b:a);
   const speedBaseMax=Math.floor((base.baseStats.spe+32+20)*1.1);
   const scarfMax=c.scarfPossible?Math.floor(speedBaseMax*1.5):null;
   return {foe:foeName,own:own.species,ownSpeed,speed:{
-    unboostedMax:speedBaseMax,scarfPossible:c.scarfPossible,scarfMax,
-    canOutspeedUnboosted:speedBaseMax>ownSpeed,
+    unboostedMax:fastest.max,fastestUnboostedForm:fastest.form,
+    scarfPossible:c.scarfPossible,scarfMax,
+    canOutspeedUnboosted:fastest.max>ownSpeed,
     canOutspeedWithScarf:scarfMax!==null&&scarfMax>ownSpeed
   },coverage:rows.slice(0,8),worstPossible:rows[0]?.upperRatio||0,
   warning:'possibility upper screen only; not usage probability, true engine damage, or a guaranteed four-move combination'};
