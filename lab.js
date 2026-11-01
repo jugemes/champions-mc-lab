@@ -446,6 +446,19 @@ class Bot{
           lastStatuses:this.lastStatuses,hazards:this.hazards
         });
       }
+      if(this.decisionPolicy==='publicAction'){
+        // Public-only targeted status move feasibility, research opt-in.
+        const ability=this.dex.species.get(my.species).isMega
+          ?this.dex.species.get(my.species).abilities['0']:my.ability;
+        if(require('./public-action-gate').blockedPublicTargetStatus(
+          this.dex,this.foeActive,m.id||m.move,
+          {revealedAbility:this.foeAbility,ownAbility:ability})){
+          score=-Infinity;
+          this.trace.publicAction??=[];
+          this.trace.publicAction.push({side:this.side,turn:this.turn,
+            foe:this.foeActive,blockedMove:m.id||m.move,reason:'public certain target-status immunity'});
+        }
+      }
       if(this.encoreGuard&&canonical(m.id||m.move)==='encore'&&this.encoreWouldFail(my,side))score=-Infinity;
       if(score>best.score)best={score,i};
     }
