@@ -582,3 +582,64 @@ test('H-C known public immunity gate vs rational T2 attack and pivot branches',{
  }
  t.diagnostic('PUBLIC ACTION RATIONAL T2 H-C '+JSON.stringify(rows));
 });
+
+
+// PR #104 comment #6556713872: PREDECLARED six-arm selection feasibility
+// diagnostic on ALREADY USED H-C/H-D. Not a new holdout, new policy, or
+// estimate of human ladder performance. Baseline T1/T2 is identical for arms.
+test('P0 selection feasibility frontier: six fixed 3+lead arms across both rival trios',{skip},async t=>{
+ const sim=load(),own=reportedLive(),rows=[];
+ const arms={
+  legacy:{forced:null,preview:'legacy'},
+  publicRobust:{forced:null,preview:'publicRobust'},
+  fixedA:{forced:['Hydreigon','Tyranitar','Primarina'],preview:'legacy'},
+  fixedB:{forced:['Hydreigon','Garchomp','Rotom-Wash'],preview:'legacy'},
+  fixedC:{forced:['Tyranitar','Garchomp','Rotom-Wash'],preview:'legacy'},
+  fixedD:{forced:['Metagross','Primarina','Rotom-Wash'],preview:'legacy'}
+ };
+ for(const [ci,c] of PUBLIC_ROBUST_NEW_HOLDOUT.entries()){
+  const rec={id:c.id,publicSix:c.team.map(x=>x.species),branches:[]};
+  for(const [bi,b] of c.branches.entries()){
+   const row={rival:b.rival,script:b.script,arms:{}};
+   for(const key of Object.keys(arms))row.arms[key]={
+    wins:0,errors:0,knownImmuneHits:0,immuneAvoided:0,selection:null,samples:[]
+   };
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10419300+ci*100+bi*20+n);
+    for(const [key,arm] of Object.entries(arms)){
+     const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+      seed,reverse,arm.forced,b.rival,b.script,{
+       immuneAwareRival:true,ownPreviewPolicy:arm.preview,
+       ownDecisionPolicy:'baseline'
+      });
+     assert.equal(g.errors,0,c.id+' '+key+' legal choices');
+     assert.equal(g.knownImmuneHits,0,c.id+' '+key+' rival known immunity');
+     const x=row.arms[key];
+     x.wins+=Number(g.won);x.errors+=g.errors;
+     x.knownImmuneHits+=g.knownImmuneHits;
+     x.immuneAvoided+=g.immuneAvoided;
+     if(x.selection===null)x.selection={three:g.three,lead:g.lead};
+     else assert.deepEqual({three:g.three,lead:g.lead},x.selection,
+      'own 3+lead must depend on public six, not hidden rival trio or seed');
+     if(n===0&&!reverse)x.samples.push({
+      seed,reverse,won:g.won,ownT1T2:g.early,rivalT1T2:g.rivalEarly,
+      rivalT1Executed:g.rivalT1Executed,
+      rivalT1Prevented:g.rivalT1Prevented,battleEarly:g.battleEarly
+     });
+    }
+   }
+   rec.branches.push(row);
+  }
+  rows.push(rec);
+ }
+ const summary=Object.fromEntries(Object.keys(arms).map(key=>{
+  const perSix=rows.map(c=>({
+   id:c.id,wins:c.branches.reduce((s,b)=>s+b.arms[key].wins,0),
+   branchWins:c.branches.map(b=>b.arms[key].wins),
+   minBranchWins:Math.min(...c.branches.map(b=>b.arms[key].wins)),
+   selection:c.branches[0].arms[key].selection
+  }));
+  return [key,{wins:perSix.reduce((s,x)=>s+x.wins,0),perSix}];
+ }));
+ t.diagnostic('P0 SELECTION FEASIBILITY FRONTIER '+JSON.stringify({summary,rows}));
+});
