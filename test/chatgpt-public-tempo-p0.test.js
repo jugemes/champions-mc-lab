@@ -20,7 +20,7 @@ const cases=[
   t1:{kind:'move',move:'Dragon Dance'}},
  {id:'U1_priority_weather_stall',team:[rain[5],setup[2],stall[0],stall[1],rain[4],rain[0]],
   A:['Rillaboom','Dragonite','Toxapex'],B:['Pelipper','Gholdengo','Umbreon'],
-  t1:{kind:'move',move:'U-turn'}},
+  t1:{kind:'move',move:'Grassy Glide'}},
  {id:'U2_setup_mega_stall',team:[setup[1],rain[1],stall[4],rain[4],setup[2],setup[4]],
   A:['Volcarona','Swampert','Skarmory'],B:['Dragonite','Gholdengo','Skeledirge'],
   t1:{kind:'move',move:'Quiver Dance'}}
