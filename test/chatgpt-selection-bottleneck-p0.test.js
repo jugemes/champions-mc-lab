@@ -771,7 +771,7 @@ const P0_PIVOT_HOLDOUT_20261101=[
   branches:[
    {rival:['Salamence','Archaludon','Umbreon'],script:{kind:'move',move:'Double-Edge'},pivot:'Umbreon'},
    {rival:['Rillaboom','Slowbro','Skarmory'],script:{kind:'move',move:'Grassy Glide'},pivot:'Slowbro'},
-   {rival:['Archaludon','Skarmory','Umbreon'],script:{kind:'move',move:'Electro Shot'},pivot:'Skarmory'}
+   {rival:['Archaludon','Skarmory','Umbreon'],script:{kind:'move',move:'Flash Cannon'},pivot:'Skarmory'}
   ]}
 ];
 const P0_HOLDOUT_ARMS={
