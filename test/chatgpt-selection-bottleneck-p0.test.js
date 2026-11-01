@@ -73,10 +73,21 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  assert.ok(didScript,'rival T1 must actually execute '+JSON.stringify(script));
  const selection=trace.selections.find(x=>x.side===ownSide);
  assert.ok(selection&&selection.chosen.length===3,'own selected three recorded');
- const early=trace.choices.filter(x=>x.side===ownSide&&x.turn<=2)
+ const early=trace.choices.filter(x=>x.side===ownSide&&x.turn>=1&&x.turn<=2)
    .map(x=>[x.turn,x.choice]);
+ const rivalEarly=trace.choices.filter(x=>x.side===foeSide&&x.turn>=1&&x.turn<=2)
+   .map(x=>[x.turn,x.choice]);
+ // Same seed/sets/policies as the already completed run; instrument the
+ // public battle log to audit whether the opponent actually punished T1/T2.
+ const battleEarly=[];let turn=0;
+ for(const line of log.split('\\n')){
+  if(line.startsWith('|turn|'))turn=Number(line.split('|')[2])||turn;
+  if(turn>3)break;
+  if(/^\\|(move|switch|faint|cant|-damage|-boost|-unboost|-immune|-supereffective)\\|/.test(line))
+   battleEarly.push('T'+turn+':'+line.slice(0,170));
+ }
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
-  early,errors:trace.errors.length};
+  early,rivalEarly,battleEarly,errors:trace.errors.length};
 }
 test('predeclared selection diagnostic: both rival sixes and reported M-7 legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
