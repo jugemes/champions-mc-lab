@@ -889,6 +889,10 @@ test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pin
  // A zero-pivot test cannot be presented as a test of rational T2 switching.
  assert.ok(pivots>0,'T2 pivot must appear in actual Showdown switch log');
  assert.ok(pivots<=pivotCommands,'executed T2 pivots cannot exceed issued commands');
+ // A successful command is not proof of an executed switch. Require a
+ // corresponding pre-move Showdown |switch| for every issued T2 pivot in
+ // this fixture; a mismatch invalidates the claimed switch-stress result.
+ assert.equal(pivots,pivotCommands,'every issued T2 pivot must appear as a Showdown switch event');
  t.diagnostic('P0 NEW H-G/H-H PIVOT HOLDOUT '+JSON.stringify({
   fullBattles:total,independentSeedsPerBranch:2,sideReversals:2,
   errors,knownImmuneHits:immuneHits,pivotCommands,pivotExecuted:pivots,rows}));
