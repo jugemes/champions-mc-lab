@@ -74,8 +74,8 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  });
  // A faster opposing KO or a visible flinch can prevent the chosen rival
  // action from executing. This is legitimate counterplay, not a bad fixture.
- const preventedKO=t1.split('\\n').some(x=>x.startsWith('|faint|'+foeSide+'a:'));
- const preventedCant=t1.split('\\n').some(x=>x.startsWith('|cant|'+foeSide+'a:'));
+ const preventedKO=t1.split('\n').some(x=>x.startsWith('|faint|'+foeSide+'a:'));
+ const preventedCant=t1.split('\n').some(x=>x.startsWith('|cant|'+foeSide+'a:'));
  assert.ok(scriptIssued,'rival T1 scripted choice must be issued');
  assert.ok(didScript||preventedKO||preventedCant,
    'rival T1 must execute or be visibly prevented '+JSON.stringify(script));
