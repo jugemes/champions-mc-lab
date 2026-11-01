@@ -1,5 +1,6 @@
 'use strict';
 // Audit executed public Showdown events, not Bot-issued choice requests.
+// A |cant| event records a turn when a Pokemon could not execute a move.
 // A switch event can be a replacement after fainting; it is NOT necessarily
 // a freely chosen tactical pivot. Drag is forced, and is reported separately.
 function executedEvents(log, ownSide, rivalSide, maxTurn=2) {
@@ -10,7 +11,7 @@ function executedEvents(log, ownSide, rivalSide, maxTurn=2) {
   for(const line of String(log).split('\n')){
     const a=line.split('|');
     if(a[1]==='turn'){turn=Number(a[2])||0;continue;}
-    if(turn<1||turn>maxTurn||!['move','switch','drag'].includes(a[1]))continue;
+    if(turn<1||turn>maxTurn||!['move','switch','drag','cant'].includes(a[1]))continue;
     const match=String(a[2]||'').match(/^(p[12])[a-f]:\s*(.*)$/);
     if(!match)continue;
     const side=match[1]===ownSide?'own':match[1]===rivalSide?'rival':null;
