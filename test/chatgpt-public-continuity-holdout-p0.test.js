@@ -192,3 +192,56 @@ test('preregistered H-I/H-J paired full Battle: public continuity vs legacy, imm
  t.diagnostic('P0 NEW CONTINUITY HOLDOUT TOTAL '+JSON.stringify(total));
  t.diagnostic('P0 NEW CONTINUITY HOLDOUT CASES '+JSON.stringify(summary));
 });
+
+
+// P0 2x2 causal diagnostic on already-examined H-I/H-J: NOT a new holdout.
+// LL=legacy preview+turn, LC=legacy preview+continuity turn,
+// CL=continuity preview+legacy turn, CC=continuity preview+turn.
+// Isolates preview/turn effects under fixed rival branch, seed and side.
+test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip},async t=>{
+ const sim=load(),own=reportedLive();
+ const arms={
+  LL:{previewPolicy:'legacy',decisionPolicy:'baseline'},
+  LC:{previewPolicy:'legacy',decisionPolicy:'publicContinuity'},
+  CL:{previewPolicy:'publicContinuity',decisionPolicy:'baseline'},
+  CC:{previewPolicy:'publicContinuity',decisionPolicy:'publicContinuity'}
+ };
+ const totals=Object.fromEntries(Object.keys(arms).map(k=>[k,{wins:0,errors:0,knownImmuneHits:0}]));
+ const names={turnLegacy:['LL','LC'],turnContinuity:['CL','CC'],
+   previewLegacy:['LL','CL'],previewContinuity:['LC','CC']};
+ const effects=Object.fromEntries(Object.keys(names).map(k=>[k,{gains:0,losses:0,
+   changedT1:0,changedT2:0,changedThree:0,changedLead:0}]));
+ const branches=[];
+ for(const [ci,c] of cases.entries())for(const [bi,b] of c.branches.entries())
+ for(const pivotMode of [false,true]){
+  const row={case:c.id,rival:b.rival,t1:b.t1,pivotMode,wins:{LL:0,LC:0,CL:0,CC:0}};
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10422000+ci*1000+bi*100+n),res={};
+   for(const [k,policy] of Object.entries(arms)){
+    const r=await play(sim,structuredClone(own),structuredClone(c.team),seed,reverse,b,policy,pivotMode);
+    res[k]=r;totals[k].wins+=+r.won;totals[k].errors+=r.errors;
+    totals[k].knownImmuneHits+=r.knownImmuneHits;row.wins[k]+=+r.won;
+   }
+   for(const [a,z] of [['LL','LC'],['CL','CC']]){
+    assert.deepEqual(res[a].three,res[z].three,'turn-only comparison: fixed three');
+    assert.equal(res[a].lead,res[z].lead,'turn-only comparison: fixed lead');
+   }
+   for(const [name,[a,z]] of Object.entries(names)){
+    const e=effects[name];
+    e.gains+=+(!res[a].won&&res[z].won);e.losses+=+(res[a].won&&!res[z].won);
+    e.changedThree+=+([...res[a].three].sort().join()!==[...res[z].three].sort().join());
+    e.changedLead+=+(res[a].lead!==res[z].lead);
+    for(const turn of [1,2])e['changedT'+turn]+=
+      +(eventSignature(res[a].ownExecuted,turn)!==eventSignature(res[z].ownExecuted,turn));
+   }
+  }
+  branches.push(row);
+ }
+ for(const [key,v] of Object.entries(totals)){
+  assert.equal(v.errors,0,key+' valid Battle requests');
+  assert.equal(v.knownImmuneHits,0,key+' public-known immune rival attacks');
+ }
+ assert.equal(branches.length,12);
+ t.diagnostic('P0 FACTORIAL DIAGNOSTIC TOTAL '+JSON.stringify({totals,effects}));
+ t.diagnostic('P0 FACTORIAL DIAGNOSTIC BRANCHES '+JSON.stringify(branches));
+});
