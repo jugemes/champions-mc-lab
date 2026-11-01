@@ -209,12 +209,20 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
  const totals=Object.fromEntries(Object.keys(arms).map(k=>[k,{wins:0,errors:0,knownImmuneHits:0,t1Executed:0,conditions:0}]));
  const names={turnLegacy:['LL','LC'],turnContinuity:['CL','CC'],
    previewLegacy:['LL','CL'],previewContinuity:['LC','CC']};
+ // Forced Status T1 is legal, but without an independently checked opponent
+ // counterfactual it is NOT evidence of a rational adversary. Keep gains and
+ // losses from those branches separate rather than crediting them as proof.
  const effects=Object.fromEntries(Object.keys(names).map(k=>[k,{gains:0,losses:0,
+   forcedStatusGains:0,forcedStatusLosses:0,
+   otherGains:0,otherLosses:0,
    changedT1:0,changedT2:0,changedThree:0,changedLead:0}]));
  const branches=[];
  for(const [ci,c] of cases.entries())for(const [bi,b] of c.branches.entries())
  for(const pivotMode of [false,true]){
-  const row={case:c.id,rival:b.rival,t1:b.t1,pivotMode,wins:{LL:0,LC:0,CL:0,CC:0}};
+  const forcedStatusT1=sim.Dex.mod('champions').moves.get(b.t1).category==='Status';
+  const row={case:c.id,rival:b.rival,t1:b.t1,pivotMode,
+    forcedStatusT1,opponentRationalityCertified:false,
+    wins:{LL:0,LC:0,CL:0,CC:0}};
   for(let n=0;n<2;n++)for(const reverse of [false,true]){
    const seed=hashSeed(10422000+ci*1000+bi*100+n),res={};
    for(const [k,policy] of Object.entries(arms)){
@@ -228,7 +236,10 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
    }
    for(const [name,[a,z]] of Object.entries(names)){
     const e=effects[name];
-    e.gains+=+(!res[a].won&&res[z].won);e.losses+=+(res[a].won&&!res[z].won);
+    const gain=+(!res[a].won&&res[z].won),loss=+(res[a].won&&!res[z].won);
+    e.gains+=gain;e.losses+=loss;
+    if(forcedStatusT1){e.forcedStatusGains+=gain;e.forcedStatusLosses+=loss;}
+    else{e.otherGains+=gain;e.otherLosses+=loss;}
     e.changedThree+=+([...res[a].three].sort().join()!==[...res[z].three].sort().join());
     e.changedLead+=+(res[a].lead!==res[z].lead);
     for(const turn of [1,2])e['changedT'+turn]+=
@@ -243,6 +254,17 @@ test('P0 factorial full-Battle diagnostic: preview vs turn contributions',{skip}
   assert.equal(v.knownImmuneHits,0,key+' public-known immune rival attacks');
  }
  assert.equal(branches.length,12);
+ for(const e of Object.values(effects)){
+   assert.equal(e.gains,e.forcedStatusGains+e.otherGains,
+     'unverified forced-Status gains must never silently become certified wins');
+   assert.equal(e.losses,e.forcedStatusLosses+e.otherLosses,
+     'losses must remain visible even after excluding unverified setup gains');
+ }
+ t.diagnostic('P0 FACTORIAL RATIONALITY SCREEN '+JSON.stringify({
+   scope:'diagnostic only; other gains are also not rationality-certified',
+   forcedStatusDefinition:'scripted legal T1 Status without opponent counterfactual',
+   previewLegacy:effects.previewLegacy,previewContinuity:effects.previewContinuity
+ }));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC TOTAL '+JSON.stringify({totals,effects}));
  t.diagnostic('P0 FACTORIAL DIAGNOSTIC BRANCHES '+JSON.stringify(branches));
 });
