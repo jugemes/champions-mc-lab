@@ -28,6 +28,8 @@ test('P0 public six retains legal low-BP and terrain-conditional priority moves'
     const band=publicCoverageBand(sim,own,foe);
     assert.ok(band.priorityThreats.some(x=>x.move===move),
       'priority risk must be visible even outside top-eight damage coverage');
+    assert.ok(band.priorityThreats.every(x=>Number.isFinite(x.upperRatio)),
+      'priority possibilities must not create NaN risk values');
     rows.push({foe,move,basePower:m.basePower,priority:m.priority,
       conditional,upperRatio:band.priorityThreats.find(x=>x.move===move).upperRatio});
   }
