@@ -113,7 +113,10 @@ function publicCoverageBand(sim,own,foeName){
   },coverage:rows.slice(0,8),
   // Keep priority visible even when it misses the top-eight damage screen.
   // Conditional priority (e.g. Grassy Glide) is NOT assumed active.
-  priorityThreats:rows.filter(r=>r.priority>0||r.conditionalPriority).slice(0,8),
+  // Rows may contain the same move across many legal role/form hypotheses.
+  // Deduplicate before the display cap, preserving the strongest legal case.
+  priorityThreats:rows.filter(r=>r.priority>0||r.conditionalPriority)
+    .filter((r,i,a)=>a.findIndex(x=>x.move===r.move)===i).slice(0,8),
   worstPossible:rows[0]?.upperRatio||0,
   warning:'possibility upper screen only; priority may be terrain-conditional or blocked; not usage probability, true engine damage, or a guaranteed four-move combination'};
 }
