@@ -80,10 +80,10 @@ async function battle(sim,own,foe,seed,reverse,forcedOwn,forcedFoe,script){
  // Same seed/sets/policies as the already completed run; instrument the
  // public battle log to audit whether the opponent actually punished T1/T2.
  const battleEarly=[];let turn=0;
- for(const line of log.split('\\n')){
+ for(const line of log.split('\n')){
   if(line.startsWith('|turn|'))turn=Number(line.split('|')[2])||turn;
   if(turn>3)break;
-  if(/^\\|(move|switch|faint|cant|-damage|-boost|-unboost|-immune|-supereffective)\\|/.test(line))
+  if(/^\|(move|switch|faint|cant|-damage|-boost|-unboost|-immune|-supereffective)\|/.test(line))
    battleEarly.push('T'+turn+':'+line.slice(0,170));
  }
  return {won:winner===ownSide,three:selection.chosen,lead:selection.lead,
