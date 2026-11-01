@@ -34,7 +34,7 @@ function ownActive(req){
  const p=req.side?.pokemon?.find(x=>x.active);
  return String(p?.details||'').split(',')[0];
 }
-async function play(sim,own,foe,seed,reverse,scenario,foeForced,intervene){
+async function play(sim,own,foe,seed,reverse,scenario,foeForced,intervene,foeT1=null){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
@@ -43,6 +43,27 @@ async function play(sim,own,foe,seed,reverse,scenario,foeForced,intervene){
    side===ownSide?scenario.ours:foeForced,null,{previewPolicy:'legacy',seed});
  const b1=mk(streams.p1,p1,'p1'),b2=mk(streams.p2,p2,'p2');
  const ownBot=ownSide==='p1'?b1:b2;
+ // Explicit opponent-side T1 counterbranch: only the opponent's own legal
+ // request and its own three are read. No private opponent set leaks to us.
+ if(foeT1){
+  const rival=foeSide==='p1'?b1:b2,base=rival.decide.bind(rival);
+  rival.decide=function(req){
+   if(req.teamPreview||req.forceSwitch||this.turn!==1)return base(req);
+   if(foeT1.kind==='switch'){
+    const i=req.side.pokemon.findIndex(p=>!p.active&&
+      String(p.details||'').split(',')[0]===foeT1.to&&
+      !String(p.condition||'').endsWith(' fnt'));
+    if(i<0)throw Error('Declared opponent switch unavailable: '+foeT1.to);
+    return 'switch '+(i+1);
+   }
+   const idx=(req.active?.[0]?.moves||[]).findIndex(m=>
+     String(m.id||m.move).toLowerCase().replace(/[^a-z]/g,'')===
+       foeT1.move.toLowerCase().replace(/[^a-z]/g,'')&&
+     !m.disabled&&m.pp>0);
+   if(idx<0)throw Error('Declared opponent move unavailable: '+foeT1.move);
+   return 'move '+(idx+1)+(req.active[0].canMegaEvo?' mega':'');
+  };
+ }
  if(intervene){
   const base=ownBot.decide.bind(ownBot);
   ownBot.decide=function(req){
@@ -79,7 +100,7 @@ async function play(sim,own,foe,seed,reverse,scenario,foeForced,intervene){
  const t1=trace.choices.find(x=>x.side===ownSide&&x.turn===1)?.choice||'';
  return {won:winner===ownSide,turns,errors:trace.errors.length,
    t1,foeMisplay:flagged(mis[foeSide]),ownMisplay:flagged(mis[ownSide]),
-   log};
+   log,foeSide};
 }
 test('DEV T1 tempo counterfactual: same seed/side/three, rational switch and setup branches',{skip},async t=>{
  const sim=load(),own=reportedLive(),validator=sim.TeamValidator.get('gen9championsbssregmc');
@@ -117,5 +138,47 @@ test('DEV T1 tempo counterfactual: same seed/side/three, rational switch and set
   assert.ok(result.A.changedT1>0,'must actually test a changed T1 in A: '+c.id);
   assert.equal(result.B.changedT1,0,'nontrigger B branch must not be altered: '+c.id);
   t.diagnostic('T1 TEMPO COUNTERFACTUAL '+JSON.stringify(result));
+ }
+});
+
+test('DEV explicit rival T1 switch/setup branches: paired full Battle, not a holdout',{skip},async t=>{
+ const sim=load(),own=reportedLive();
+ // Predeclared before results: PR #104 comment #6551736734.
+ // These are legal action stress branches, not a proof of rational play.
+ const plans=[
+  {ci:0,foeT1:{kind:'switch',to:'Swampert'},event:'switch',value:'Swampert'},
+  {ci:1,foeT1:{kind:'move',move:'Dragon Dance'},event:'move',value:'Dragon Dance'}
+ ];
+ for(const plan of plans){
+  const c=cases()[plan.ci];
+  const r={id:c.id,foeT1:plan.foeT1,oldWins:0,newWins:0,improved:0,
+    worsened:0,changedT1:0,oldFoeMisplayWins:0,newFoeMisplayWins:0,
+    errors:0,samples:[]};
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10410000+plan.ci*100+n);
+   const run=intervene=>play(sim,copy(own),copy(c.team),seed,reverse,c,c.A,
+     intervene,plan.foeT1);
+   const a=await run(false),b=await run(true);
+   for(const game of [a,b]){
+    const lines=game.log.split('\\n');
+    const t1=lines.slice(0,lines.findIndex(x=>x.startsWith('|turn|2'))<0
+      ?undefined:lines.findIndex(x=>x.startsWith('|turn|2')));
+    assert.ok(t1.some(line=>{
+      const fields=line.split('|');
+      return fields[1]===plan.event&&fields[2]?.startsWith(game.foeSide+'a:')&&
+        fields[3]?.includes(plan.value);
+    }),c.id+' scripted rival T1 must actually execute: '+plan.value);
+   }
+   r.oldWins+=Number(a.won);r.newWins+=Number(b.won);
+   r.improved+=Number(!a.won&&b.won);r.worsened+=Number(a.won&&!b.won);
+   r.changedT1+=Number(a.t1!==b.t1);r.errors+=a.errors+b.errors;
+   r.oldFoeMisplayWins+=Number(a.won&&a.foeMisplay);
+   r.newFoeMisplayWins+=Number(b.won&&b.foeMisplay);
+   if(r.samples.length<2)r.samples.push({seed,reverse,oldT1:a.t1,
+     newT1:b.t1,oldWon:a.won,newWon:b.won,oldTurns:a.turns,newTurns:b.turns});
+  }
+  assert.equal(r.errors,0,c.id+' legal choices');
+  assert.equal(r.changedT1,4,c.id+' must compare distinct T1 actions');
+  t.diagnostic('T1 EXPLICIT RIVAL BRANCH '+JSON.stringify(r));
  }
 });
