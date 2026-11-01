@@ -716,6 +716,10 @@ test('P0 rival attack-pressure control: same own 3+lead and fixed T1, six opposi
      assert.equal(old.lead,pressure.lead,'same own lead');
      assert.deepEqual(old.rivalEarly[0],pressure.rivalEarly[0],
        'same predeclared rival T1 choice');
+     assert.equal(old.rivalT1Executed,pressure.rivalT1Executed,
+       'same executed or prevented rival T1');
+     assert.equal(old.rivalT1Prevented,pressure.rivalT1Prevented,
+       'same reason for any prevented rival T1');
      const a=br.arms[key];
      a.baselineWins+=+old.won;a.pressureWins+=+pressure.won;
      a.changedWinners+=+(old.won!==pressure.won);
