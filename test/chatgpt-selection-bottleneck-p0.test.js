@@ -750,3 +750,120 @@ test('P0 rival attack-pressure control: same own 3+lead and fixed T1, six opposi
    rows
  }));
 });
+
+
+// Pre-registered on PR #104 comment #6557385628 BEFORE any implementation,
+// run or result inspection. These are new public-six combinations, not new
+// species or estimates of real-world usage. Do not tune the old B/D arms here.
+const P0_PIVOT_HOLDOUT_20261101=[
+ {id:'H-G-rain-setup-pivot',
+  team:[rain[0],rain[1],setup[1],stall[0],rain[4],rain[3]],
+  branches:[
+   {rival:['Pelipper','Swampert','Gholdengo'],script:{kind:'move',move:'Hurricane'},pivot:'Swampert'},
+   {rival:['Volcarona','Toxapex','Dragonite'],script:{kind:'move',move:'Quiver Dance'},pivot:'Toxapex'},
+   {rival:['Gholdengo','Swampert','Dragonite'],script:{kind:'move',move:'Make It Rain'},pivot:'Swampert'}
+  ]},
+ {id:'H-H-mega-special-cycle',
+  team:[setup[0],rain[2],stall[1],stall[3],rain[5],stall[4]],
+  branches:[
+   {rival:['Salamence','Archaludon','Umbreon'],script:{kind:'move',move:'Double-Edge'},pivot:'Umbreon'},
+   {rival:['Rillaboom','Slowbro','Skarmory'],script:{kind:'move',move:'Grassy Glide'},pivot:'Slowbro'},
+   {rival:['Archaludon','Skarmory','Umbreon'],script:{kind:'move',move:'Electro Shot'},pivot:'Skarmory'}
+  ]}
+];
+const P0_HOLDOUT_ARMS={
+ legacy:null,
+ fixedB:['Hydreigon','Garchomp','Rotom-Wash'],
+ fixedD:['Metagross','Primarina','Rotom-Wash']
+};
+test('P0 new H-G/H-H holdout: public six, items, 66P and scripted moves legal',{skip},()=>{
+ const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
+ for(const c of P0_PIVOT_HOLDOUT_20261101){
+  prelim(c.team,c.id);
+  assert.ok(!v.validateTeam(normalize(c.team))?.length,c.id);
+  assert.equal(new Set(c.team.map(x=>x.species)).size,6,c.id+' unique species');
+  assert.equal(new Set(c.team.map(x=>x.item)).size,6,c.id+' unique items');
+  for(const b of c.branches){
+   assert.equal(b.rival.length,3);
+   assert.equal(new Set(b.rival).size,3);
+   for(const name of b.rival)assert.ok(c.team.some(x=>x.species===name),name);
+   assert.ok(b.rival.includes(b.pivot),'T2 pivot must be one of the selected three');
+   assert.notEqual(b.pivot,b.rival[0],'T2 pivot cannot be the initial lead');
+   const lead=c.team.find(x=>x.species===b.rival[0]);
+   assert.ok(lead.moves.some(m=>canon(m)===canon(b.script.move)),
+     c.id+' T1 must be legal: '+b.script.move);
+  }
+ }
+});
+test('P0 H-G/H-H unseen six: same-seed 3-arm immunity/attack/pivot stress in pinned full Battles',{skip},async t=>{
+ const sim=load(),own=reportedLive(),rows=[];
+ let total=0,errors=0,immuneHits=0,pivots=0;
+ for(const [ci,c] of P0_PIVOT_HOLDOUT_20261101.entries()){
+  const rec={id:c.id,publicSix:c.team.map(x=>x.species),branches:[]};
+  for(const [bi,b] of c.branches.entries()){
+   const br={rival:b.rival,t1:b.script,t2Pivot:b.pivot,arms:{}};
+   for(const key of Object.keys(P0_HOLDOUT_ARMS))
+    br.arms[key]={baseline:0,attack:0,pivot:0,pivotExecuted:0,
+      errors:0,knownImmune:0,samples:[]};
+   for(let n=0;n<2;n++)for(const reverse of [false,true]){
+    const seed=hashSeed(10423000+ci*100+bi*20+n);
+    for(const [key,pick] of Object.entries(P0_HOLDOUT_ARMS)){
+     const results={};
+     for(const mode of ['baseline','attack','pivot']){
+      const opts={immuneAwareRival:true};
+      if(mode==='attack')opts.rivalAttackPressure=true;
+      if(mode==='pivot')opts.rivalT2={kind:'switch',to:b.pivot};
+      const g=await battle(sim,structuredClone(own),structuredClone(c.team),
+       seed,reverse,pick,b.rival,b.script,opts);
+      total++;errors+=g.errors;immuneHits+=g.knownImmuneHits;
+      results[mode]=g;
+      const a=br.arms[key];a[mode]+=Number(g.won);
+      a.errors+=g.errors;a.knownImmune+=g.knownImmuneHits;
+      if(mode==='pivot'){
+       const didPivot=g.rivalEarly.some(x=>x[0]===2&&
+        String(x[1]).startsWith('switch '));
+       a.pivotExecuted+=Number(didPivot);
+       pivots+=Number(didPivot);
+      }
+     }
+     for(const mode of ['attack','pivot']){
+      assert.deepEqual(results.baseline.three,results[mode].three,
+       'same own three in each rival-policy paired comparison');
+      assert.equal(results.baseline.lead,results[mode].lead,
+       'same own lead in each rival-policy paired comparison');
+      assert.deepEqual(results.baseline.rivalEarly[0],results[mode].rivalEarly[0],
+       'same opponent scripted T1');
+     }
+     const a=br.arms[key];
+     if(n===0&&!reverse)a.samples.push({
+      seed,three:results.baseline.three,lead:results.baseline.lead,
+      baseline:{won:results.baseline.won,own:results.baseline.early,rival:results.baseline.rivalEarly},
+      attack:{won:results.attack.won,own:results.attack.early,rival:results.attack.rivalEarly},
+      pivot:{won:results.pivot.won,own:results.pivot.early,rival:results.pivot.rivalEarly,
+       earlyLog:results.pivot.battleEarly}
+     });
+    }
+   }
+   rec.branches.push(br);
+  }
+  // No candidate sees which hidden three the opponent actually selected.
+  for(const key of Object.keys(P0_HOLDOUT_ARMS)){
+   const a=rec.branches[0].arms[key].samples[0].baseline;
+   const selection=rec.branches[0].arms[key].samples[0];
+   for(const b of rec.branches.slice(1)){
+    const other=b.arms[key].samples[0];
+    assert.deepEqual(other.three,selection.three,c.id+' '+key+' public-six invariance');
+    assert.equal(other.lead,selection.lead,c.id+' '+key+' lead invariance');
+   }
+  }
+  rows.push(rec);
+ }
+ assert.equal(total,216,'3 arms x 6 branches x 2 independent seeds x 2 sides x 3 rival policies');
+ assert.equal(errors,0,'all full Battles have legal choices');
+ assert.equal(immuneHits,0,'rival never attacks a publicly certain immunity');
+ // A zero-pivot test cannot be presented as a test of rational T2 switching.
+ assert.ok(pivots>0,'T2 switch stress must actually execute at least once');
+ t.diagnostic('P0 NEW H-G/H-H PIVOT HOLDOUT '+JSON.stringify({
+  fullBattles:total,independentSeedsPerBranch:2,sideReversals:2,
+  errors,knownImmuneHits:immuneHits,pivotExecuted:pivots,rows}));
+});
