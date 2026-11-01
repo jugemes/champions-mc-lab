@@ -15,8 +15,13 @@ function candidates(sim,name){
   if(cache.has(key))return cache.get(key);
   const validator=sim.TeamValidator.get(FORMAT);
   const roles=legalRoleHypotheses(sim,name,{version:'v2'}).sets;
+  // Priority attacks can matter at low HP even when their base power is
+  // below the generic BP50 screen. Grassy Glide is conditionally priority
+  // only on Grassy Terrain; include as a POSSIBILITY, never guaranteed.
+  const priorityCandidate=m=>m.priority>0||m.id==='grassyglide';
   const moves=movePool(dex,name).map(id=>dex.moves.get(id))
-    .filter(m=>m.exists&&m.category!=='Status'&&m.basePower>=50&&!m.ohko
+    .filter(m=>m.exists&&m.category!=='Status'&&
+      (m.basePower>=50||priorityCandidate(m))&&!m.ohko
       &&!m.flags?.recharge&&!m.isNonstandard&&!m.isZ&&!m.isMax);
   // Keep the strongest two options of each type/category before legality
   // checking. This is a bounded screen, not an exhaustive legal-move proof.
@@ -26,9 +31,13 @@ function candidates(sim,name){
     if(!byKind.has(key))byKind.set(key,[]);
     byKind.get(key).push(m);
   }
-  const screened=[...byKind.values()].flatMap(a=>a.sort((x,y)=>
+  const top=[...byKind.values()].flatMap(a=>a.sort((x,y)=>
     (y.basePower*(typeof y.accuracy==='number'?y.accuracy/100:1))-
     (x.basePower*(typeof x.accuracy==='number'?x.accuracy/100:1))).slice(0,2));
+  // Do not discard priority just because two stronger same-type attacks
+  // occupied the generic slots. Keep this screen bounded and deduplicated.
+  const screened=[...new Map([...top,...moves.filter(priorityCandidate)]
+    .map(m=>[m.id,m])).values()];
   const legal=[],seen=new Set();
   for(const role of roles){
     const form=dex.species.get(role.form);
@@ -46,6 +55,7 @@ function candidates(sim,name){
       seen.add(k);
       legal.push({form:role.form,item:role.item,move:m.name,type:m.type,
         category:m.category,basePower:m.basePower,accuracy:m.accuracy,
+        priority:m.priority,conditionalPriority:m.id==='grassyglide'?'grassyterrain':null,
         weather:Object.values(form.abilities).includes('Drought')?'sun':
           Object.values(form.abilities).includes('Drizzle')?'rain':'none'});
     }
@@ -62,7 +72,7 @@ function candidates(sim,name){
     }
   }
   const out={name,legal,forms:[...new Set(roles.map(r=>r.form))],scarfPossible,
-    source:'pinned Showdown move pool + M-C validateSet on coherent 4-move candidate; screened top two per type/category'};
+    source:'pinned Showdown move pool + M-C validateSet on coherent 4-move candidate; top two per type/category plus legal priority possibilities'};
   cache.set(key,out);return out;
 }
 function upperHit(dex,own,formName,entry){
