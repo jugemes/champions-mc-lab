@@ -117,6 +117,10 @@ test('predeclared selection-vs-lead ablation: two rival T1 branches, pinned full
       c.id+' lead-only must actually change lead');
     assert.equal(games.threeOnly.lead,base.lead,
       c.id+' three-only keeps baseline lead');
+    assert.notDeepEqual([...games.threeOnly.three].sort(),[...base.three].sort(),
+      c.id+' three-only must actually change selected members');
+    assert.notEqual(games.threeAndLead.lead,games.threeOnly.lead,
+      c.id+' threeAndLead must actually change lead');
     assert.deepEqual([...games.threeOnly.three].sort(),[...games.threeAndLead.three].sort(),
       c.id+' threeAndLead must use the same three as threeOnly');
    }
