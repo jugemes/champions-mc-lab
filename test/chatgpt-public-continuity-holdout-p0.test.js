@@ -503,7 +503,11 @@ test('P0 rival branch generator rejects private opposing sets and is public-six 
    const publicSix=own.map(p=>p.species);
    const a=enumeratePublicRivalBranches(dex,c.team,publicSix,{limit:3});
    const b=enumeratePublicRivalBranches(dex,c.team,[...publicSix].reverse(),{limit:3});
-   assert.deepEqual(a.map(x=>({mode:x.mode,selection:x.selection})),\n     b.map(x=>({mode:x.mode,selection:x.selection})),\n     'opposing public-six order is not a private clue');\n   for(let i=0;i<a.length;i++)assert.ok(Math.abs(a[i].score-b[i].score)<1e-9,\n     'score must be permutation invariant within floating tolerance');
+   assert.deepEqual(a.map(x=>({mode:x.mode,selection:x.selection})),
+     b.map(x=>({mode:x.mode,selection:x.selection})),
+     'opposing public-six order is not a private clue');
+   for(let i=0;i<a.length;i++)assert.ok(Math.abs(a[i].score-b[i].score)<1e-9,
+     'score must be permutation invariant within floating tolerance');
    assert.throws(()=>enumeratePublicRivalBranches(dex,c.team,own,{limit:3}),
      /public species/,'full opposing sets must not cross public information boundary');
    assert.throws(()=>enumeratePublicRivalBranches(dex,c.team,
