@@ -35,14 +35,19 @@ function classifyExecutedImmunities(log,attackerSide,defenderSide,requests=[]){
   }
   if(kind!=='-immune'||!actor.startsWith(defenderSide+'a:')||!lastMove)continue;
   const req=requests.find(q=>q.side===attackerSide&&q.turn===turn);
-  const forced=!!(req&&(req.locked||req.lockReason));
+  // A Choice/Encore lock constrains the MOVE, not the decision to stay.
+  // If switching was legal, a repeated immune attack may reflect a voluntary
+  // stay, but it is not automatically a misplay without a counterfactual.
+  const locked=!!req?.locked;
   const immuneKey=lastMove.move+'|'+actor;
   const prior=seenImmune.get(immuneKey);
   // A duplicate event in the same turn is not a prior-turn observation.
   const priorSameStintCount=prior&&prior.lastTurn<turn?prior.count:0;
   const classification=lastMove.defenderChanged?
-   'defender-changed-this-turn':forced?'forced-request':
-    req?'unchanged-target-unforced-request':'unchanged-target-request-unknown';
+   'defender-changed-this-turn':!req?'unchanged-target-request-unknown':
+    locked?(req.canSwitch===true?'locked-move-switch-available':
+      req.canSwitch===false?'forced-request':'locked-move-switch-unknown'):
+      'unchanged-target-unforced-request';
   events.push({turn,move:lastMove.move,attacker:lastMove.actor,
    target:actor,reason:a.slice(3).join('|')||null,
    classification,defenderChangeKind:lastMove.changeKind,
@@ -52,7 +57,9 @@ function classifyExecutedImmunities(log,attackerSide,defenderSide,requests=[]){
    // attack was avoidable (the target's mechanics may have changed).
    observedOnly:true,
    locked:req?.locked??null,lockReason:req?.lockReason??null,
-   canSwitch:req?.canSwitch??null});
+   canSwitch:req?.canSwitch??null,
+   stayDecision:req?.canSwitch===true?'switch-available':
+    req?.canSwitch===false?'switch-unavailable':'switch-unknown'});
   seenImmune.set(immuneKey,{count:(prior?.count||0)+1,lastTurn:turn});
   lastMove=null;
  }
