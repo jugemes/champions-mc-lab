@@ -58,7 +58,7 @@ test('public switch causality separates faint replacement, drag and unknown-caus
     '|drag|p1a: Metagross|Metagross, L50|100/100',
     '|turn|3',
     '|move|p1a: Metagross|Meteor Mash|p2a: Corviknight'
-  ].join('\\n');
+  ].join('\n');
   const r=classifyPublicSwitches(log,'p1','p2',2);
   assert.deepEqual(r.own.map(x=>[x.turn,x.actor,x.classification]),[
     [1,'Primarina','faint-replacement'],[2,'Metagross','forced-drag']
@@ -80,7 +80,7 @@ test('public switch causality keeps faint pending across turn markers and does n
     '|switch|p2a: Rillaboom|Rillaboom, L50|100/100',
     '|move|p1a: Rotom|Volt Switch|p2a: Rillaboom',
     '|switch|p1a: Hydreigon|Hydreigon, L50|100/100'
-  ].join('\\n');
+  ].join('\n');
   const r=classifyPublicSwitches(log,'p1','p2');
   assert.equal(r.rival[0].classification,'faint-replacement');
   assert.equal(r.own[0].classification,'nonfaint-switch-cause-unknown',
