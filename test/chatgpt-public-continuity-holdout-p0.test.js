@@ -369,5 +369,10 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
    total.autonomousByT2Mode.forcedPivot.newWins,total.autonomous.newWins);
  t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL TOTAL '+JSON.stringify(total));
  t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL BRANCHES '+JSON.stringify(summary));
+ t.diagnostic('P0 AUTONOMOUS T2 MODE AUDIT '+JSON.stringify({
+   autonomousByT2Mode:total.autonomousByT2Mode,
+   rivalT1NoMove:total.autonomousT1NoMove,
+   caution:'Only noForcedPivot allows both T1 and T2 autonomous choices; forcedPivot scripts T2.'
+ }));
  t.diagnostic('P0 ADVERSARIAL T1 CAUTION: only noForcedPivot is autonomous at both T1/T2; forcedPivot contains a scripted T2 switch, so its wins cannot certify opponent rationality. A missing T1 move can be a switch/cant and must not be called inactivity. No new holdout or adoption evidence.');
 });
