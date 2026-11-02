@@ -91,6 +91,11 @@ test('H-M13/H-M14 public-pivot only uses visible leads and selected legal bench'
   assert.equal(publicPivot(q,{foeActive:foe},{turn:2}),null);
   const trapped=req(self,[target]);trapped.active=[{trapped:true}];
   assert.equal(publicPivot(trapped,{foeActive:foe},{turn:1}),null);
+  const maybeTrapped=req(self,[target]);maybeTrapped.active=[{maybeTrapped:true}];
+  assert.equal(publicPivot(maybeTrapped,{foeActive:foe},{turn:1}),null);
+  const fainted=req(self,[target]);fainted.side.pokemon[1].condition='0 fnt';
+  assert.equal(publicPivot(fainted,{foeActive:foe},{turn:1}),null);
+  assert.equal(publicPivot(q,{foeActive:foe},{turn:1,forceSwitch:true}),null);
  }
 });
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
@@ -116,7 +121,7 @@ test('H-M13/H-M14 predeclared public six, rival trios, own candidates validate',
 test('H-M13/H-M14 frozen cross-preview full battles with actual T1 branch coverage',{skip},async t=>{
  const sim=load(),paired=new Map(),rows=[];
  let games=0,errors=0,pivotPairs=0,attackPairs=0,noScriptPairs=0;
- const switchEvidence={own:{},rival:{}},lossSamples=[];
+ const switchEvidence={own:{},rival:{}};
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.foe.entries())
  for(const policy of ['autonomous','public-pivot-T1','public-attack-T1']){
