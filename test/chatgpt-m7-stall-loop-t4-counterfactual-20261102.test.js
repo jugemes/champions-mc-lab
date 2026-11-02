@@ -268,7 +268,7 @@ test('T4 Hydro Pump across new RNG seeds: separate misses from branch rationalit
    const ownAfter=events.own.filter(e=>e.turn>=5).slice(0,4)
      .map(e=>e.kind+':'+e.actor+':'+e.detail);
    rows.push({s,reverse,rival:plan.id,won:r.won,missT4:miss,turns:r.turns,
-    executedT4:executed,ownAfter});
+    executedT4:executed,ownAfter,traceT4toT10:lastLines(r.log,4,10)});
    batch.push({prefix,ownT4:ownT4[0],foeT4:foeT4[0]});
   }
  }
@@ -281,7 +281,8 @@ test('T4 Hydro Pump across new RNG seeds: separate misses from branch rationalit
    winWhenMiss:cases.filter(y=>y.missT4&&y.won).length,
    lossWhenHit:cases.filter(y=>!y.missT4&&!y.won).length,
    firstMissExample:cases.find(y=>y.missT4)||null,
-   firstLossExample:cases.find(y=>!y.won)||null};
+   firstLossExample:cases.find(y=>!y.won)||null,
+   firstLossDespiteT4Hit:cases.find(y=>!y.won&&!y.missT4)||null};
  });
  t.diagnostic('M7_STALL_LOOP_T4_HYDRO_SEED_AUDIT '+JSON.stringify({
   predeclared:'PR104 issuecomment #6572079567',
