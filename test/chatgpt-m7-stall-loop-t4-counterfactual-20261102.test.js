@@ -152,3 +152,59 @@ test('T4 public Gholdengo pivot challenges the T3 Rotom rescue on identical hist
   summary
  }));
 });
+
+test('T4 choice cannot assume unseen rival action: 4 legal Rotom moves vs 3 public rival plans',{skip},async t=>{
+ // Predeclared before outcome at PR104 #6572001981. Existing U-L diagnosis.
+ const ourMoves=['willowisp','thunderbolt','hydropump','voltswitch'];
+ const opponentPlans=[{id:'direct-DoubleEdge',foeMove:'doubleedge'},
+  {id:'pivot-Gholdengo',foeSwitch:'Gholdengo'},
+  {id:'pivot-Volcarona',foeSwitch:'Volcarona'}];
+ const sim=load(),result=[],cells={};
+ for(let s=0;s<2;s++)for(const reverse of [false,true]){
+  const seed=hashSeed(11027000+s),batch=[];
+  for(const plan of opponentPlans)for(const move of ourMoves){
+   const arm={id:plan.id+'-'+move,...plan,ownMove:move},t4Own=[],t4Foe=[];
+   const r=await battle(sim,copy(own),copy(foe),seed,{
+    ownThree,foeThree,reverse,rivalImmuneAware:true,
+    ownOptions:{script:ownScript(arm,t4Own)},script:foeScript(arm,t4Foe)
+   });
+   assert.equal(r.errors,0,'legal Showdown decisions at T4');
+   assert.ok(t4Own.length>=1&&t4Foe.length>=1,'both actual T4 request snapshots');
+   const prefix=beforeTurn(r.log,4),action=eventsFor(r.log,r.ownSide,4);
+   if(batch.length){
+    assert.equal(prefix,batch[0].prefix,'all strategies share exact T1/T2/T3 events');
+    assert.deepEqual(t4Own[0],batch[0].ourT4,'our T4 moves, HP, PP fixed across branches');
+    assert.deepEqual(t4Foe[0],batch[0].theirT4,'foe T4 moves, HP, PP fixed across branches');
+   }
+   if(plan.foeSwitch)assert.ok(action.enemy.includes('switch:'+plan.foeSwitch),
+    'actual T4 opposing pivot '+plan.foeSwitch);
+   else assert.match(action.enemy,/move:Salamence:Double-Edge/);
+   assert.match(action.our,/move:Rotom:/);
+   batch.push({prefix,ourT4:t4Own[0],theirT4:t4Foe[0]});
+   const key=move+'|'+plan.id;
+   const item=cells[key]||(cells[key]={ownMove:move,rivalPlan:plan.id,wins:0,games:0,
+    firstT4:null,examples:[]});
+   item.games++;item.wins+=Number(r.won);
+   if(!item.firstT4)item.firstT4=action;
+   if(!r.won&&item.examples.length<1)item.examples.push(lastLines(r.log,4,8));
+  }
+ }
+ assert.equal(Object.keys(cells).length,12);
+ const rows=Object.values(cells);
+ assert.ok(rows.every(x=>x.games===4),'2 independent seeds x both sides per branch');
+ const robust=ourMoves.map(move=>{
+  const picks=rows.filter(x=>x.ownMove===move);
+  assert.equal(picks.length,3);
+  return {move,branchWins:picks.map(x=>({rival:x.rivalPlan,wins:x.wins})),
+   worstWins:Math.min(...picks.map(x=>x.wins)),
+   bestWins:Math.max(...picks.map(x=>x.wins)),
+   noModelOfOpponentActionProbabilities:true};
+ });
+ t.diagnostic('M7_STALL_LOOP_T4_PUBLIC_MATRIX '+JSON.stringify({
+  scope:'same legal U-L and T4 state; preregistered PR104 #6572001981; not holdout',
+  games:48,seedValues:2,seatReversals:2,opponentHumanRationalityCertified:false,
+  noFutureT4KnowledgeForOurBot:true,
+  note:'Scripted T4 moves are counterfactuals, not a trained opponent or measured human probabilities. Post-T4 Bot decisions can remain irrational.',
+  robust,rows
+ }));
+});
