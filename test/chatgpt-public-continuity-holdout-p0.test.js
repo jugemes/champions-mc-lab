@@ -291,13 +291,18 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
    rivalStatusExecuted:0,rivalT1Absent:0},
   autonomous:{legacyWins:0,newWins:0,gains:0,losses:0,
    rivalStatusExecuted:0,rivalT1Absent:0},
-  changedAutonomousRivalT1FromScript:0,errors:0,knownImmuneHits:0};
+  changedAutonomousRivalT1FromScript:0,errors:0,knownImmuneHits:0,
+  autonomousByT2Mode:{
+   noForcedPivot:{conditions:0,legacyWins:0,newWins:0,gains:0,losses:0},
+   forcedPivot:{conditions:0,legacyWins:0,newWins:0,gains:0,losses:0}
+  },
+  autonomousT1NoMove:{switch:0,cant:0,unresolved:0}};
  for(const [ci,c] of cases.entries())for(const [bi,b] of c.branches.entries())
  for(const pivotMode of [false,true]){
   const row={case:c.id,rival:b.rival,t1Script:b.t1,pivotMode,
    scripted:{legacyWins:0,newWins:0,gains:0,losses:0},
    autonomous:{legacyWins:0,newWins:0,gains:0,losses:0,
-     actualRivalT1Moves:[],statusExecutions:0,missingT1Moves:0}};
+     actualRivalT1Moves:[],actualRivalT1NonMoveEvents:[],statusExecutions:0,missingT1Moves:0}};
   for(let n=0;n<2;n++)for(const reverse of [false,true]){
    const seed=hashSeed(10422000+ci*1000+bi*100+n),res={};
    for(const mode of ['scripted','autonomous'])for(const [name,policy] of Object.entries(arms)){
@@ -318,6 +323,20 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
     s.rivalStatusExecuted+=+(a.rivalT1Categories.includes('Status'));
     s.rivalT1Absent+=+(a.rivalT1Moves.length===0);
     if(mode==='autonomous'){
+     // A missing |move| is NOT a skipped turn: the rival may have pivoted.
+     // Only count the actual public Showdown event, never a Bot request.
+     const t1Events=a.rivalExecuted.filter(e=>e.turn===1);
+     const nonMove=t1Events.filter(e=>e.kind!=='move');
+     const bucket=total.autonomousByT2Mode[pivotMode?'forcedPivot':'noForcedPivot'];
+     bucket.conditions++;bucket.legacyWins+=+a.won;bucket.newWins+=+z.won;
+     bucket.gains+=gain;bucket.losses+=loss;
+     if(a.rivalT1Moves.length===0){
+       const kind=nonMove.some(e=>e.kind==='switch')?'switch':
+         nonMove.some(e=>e.kind==='cant')?'cant':'unresolved';
+       total.autonomousT1NoMove[kind]++;
+       row.autonomous.actualRivalT1NonMoveEvents.push({seed,reverse,
+         kind,events:nonMove,publicEarly:a.publicEarly});
+     }
      row.autonomous.actualRivalT1Moves.push(a.rivalT1Moves.join('+')||'(no move)');
      row.autonomous.statusExecutions+=+(a.rivalT1Categories.includes('Status'));
      row.autonomous.missingT1Moves+=+(a.rivalT1Moves.length===0);
@@ -338,7 +357,17 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
  assert.equal(total.scripted.losses,4,'scripted preview losses unchanged');
  assert.equal(total.errors,0,'all Battle requests legal');
  assert.equal(total.knownImmuneHits,0,'no publicly known immune rival attacks');
+ for(const [label,v] of Object.entries(total.autonomousByT2Mode)){
+   assert.equal(v.conditions,24,label+' must retain 24 matched conditions');
+   assert.equal(v.newWins-v.legacyWins,v.gains-v.losses,label+' paired accounting');
+ }
+ assert.equal(Object.values(total.autonomousT1NoMove).reduce((a,b)=>a+b,0),
+   total.autonomous.rivalT1Absent,'missing T1 move must have explicit event classification');
+ assert.equal(total.autonomousByT2Mode.noForcedPivot.legacyWins+
+   total.autonomousByT2Mode.forcedPivot.legacyWins,total.autonomous.legacyWins);
+ assert.equal(total.autonomousByT2Mode.noForcedPivot.newWins+
+   total.autonomousByT2Mode.forcedPivot.newWins,total.autonomous.newWins);
  t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL TOTAL '+JSON.stringify(total));
  t.diagnostic('P0 ADVERSARIAL T1 COUNTERFACTUAL BRANCHES '+JSON.stringify(summary));
- t.diagnostic('P0 ADVERSARIAL T1 CAUTION: baseline rival Bot is not rationality-certified; scripted T2 pivot is still a fixture; this diagnostic is not new holdout or adoption evidence');
+ t.diagnostic('P0 ADVERSARIAL T1 CAUTION: only noForcedPivot is autonomous at both T1/T2; forcedPivot contains a scripted T2 switch, so its wins cannot certify opponent rationality. A missing T1 move can be a switch/cant and must not be called inactivity. No new holdout or adoption evidence.');
 });
