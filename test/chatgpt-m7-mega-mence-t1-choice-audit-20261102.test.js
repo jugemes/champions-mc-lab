@@ -5,6 +5,8 @@
 // supplied to any preview/decision policy as observed opponent information.
 // Goal: separate a bad T1 move from an inherently losing three-mon selection.
 // T1 only: no claim about surviving the opponent's T2 or backline continuity.
+// The opponent's mega/setup vs immediate attack are explicit counterfactuals;
+// no Bot-selected win or loss is used as a recommendation here.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,normalize,hashSeed}=require('../lab');
