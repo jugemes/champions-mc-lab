@@ -97,6 +97,10 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
  const sim=load(),rows=[],paired=new Map();
  let games=0,errors=0,ownImmuneEvents=0,foeImmuneEvents=0;
  let pivotPairs=0,noPivotPairs=0;const immuneSamples=[];
+ // Observational only: a prior immune event on the same uninterrupted active
+ // stint is stronger evidence than a first-time immune or a same-turn pivot.
+ let priorObservedImmuneEvents=0;const priorObservedByCase={};
+ const priorObservedExamples=[];
  const ownImmuneByCause={};
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
@@ -136,6 +140,16 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
     const classified=classifyExecutedImmunities(r.log,r.ownSide,r.foeSide,r.reqLog);
     assert.equal(classified.length,ownImm,'every own-side immunity has an executed cause');
     for(const e of classified){
+      if(e.previouslyObservedSameStintImmunity){
+       priorObservedImmuneEvents++;
+       priorObservedByCase[c.id]=(priorObservedByCase[c.id]||0)+1;
+       if(priorObservedExamples.length<8)priorObservedExamples.push({
+        case:c.id,foeThree,candidate:x.id,policy,seed,reverse,
+        turn:e.turn,move:e.move,target:e.target,
+        classification:e.classification,priorSameStintCount:e.priorSameStintCount,
+        locked:e.locked,canSwitch:e.canSwitch
+       });
+      }
       ownImmuneByCause[e.classification]=(ownImmuneByCause[e.classification]||0)+1;
       out.ownImmuneByCause[e.classification]=(out.ownImmuneByCause[e.classification]||0)+1;
     }
@@ -176,6 +190,7 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
  assert.equal(noPivotPairs+pivotPairs,games/2);
  assert.ok(noPivotPairs>0,'unchanged policy controls exist');
  assert.ok(pivotPairs>0,'actual T1 pivot comparison exists');
+ assert.ok(priorObservedImmuneEvents<=ownImmuneEvents,'repeated immunity is a subset');
  t.diagnostic('M7_MIXED_STALL_SETUP_PREDECLARED '+JSON.stringify({
   predeclaredAt:'PR104 issuecomment-6581230099',
   syntheticPublicSix:true,humanOpponentOptimalityNotCertified:true,
@@ -183,6 +198,7 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
   noHumanWinRateClaim:true,independentSeedsPerCell:2,
   sideReversals:2,pairedPolicySeed:true,rosterAdopted:false,
   games,errors,pivotPairs,noPivotPairs,ownImmuneEvents,foeImmuneEvents,
-  ownImmuneByCause,immuneSamples,rows
+  ownImmuneByCause,priorObservedImmuneEvents,priorObservedByCase,
+  priorObservedExamples,immuneSamples,rows
  }));
 });
