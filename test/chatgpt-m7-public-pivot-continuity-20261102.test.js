@@ -49,6 +49,19 @@ function publicPivotToGholdengo(req,bot,info){
  if(!found)return null;
  return switchTo(req,'Gholdengo');
 }
+// Diagnostic only: repeated attacking can be correct under Choice or a KO race.
+ // We count it but do NOT automatically label it a misplay.
+function longestSameMoveStreak(events){
+ let prev=null,streak=0,best=0;
+ for(const e of events){
+  if(e.kind!=='move'){prev=null;streak=0;continue;}
+  if(prev&&e.actor===prev.actor&&e.detail===prev.detail&&e.turn===prev.turn+1)
+   streak++;
+  else streak=1;
+  best=Math.max(best,streak);prev=e;
+ }
+ return best;
+}
 function first(log,ownSide){
  const enemy=ownSide==='p1'?'p2':'p1';
  const ex=executedEvents(log,ownSide,enemy);
@@ -84,7 +97,7 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  for(const [ci,c] of scenarios.entries())for(const mode of ['autonomous','public-primarina-pivot']){
   const row={case:c.id,opponentThree:c.trio,opponentT1:mode,alternatives:{}};
   for(const [name,three] of Object.entries(candidates)){
-   const out={three,wins:0,losses:0,t1:[],t2:[],fullActionHashes:[],decisionSamples:[],lossExample:null};
+   const out={three,wins:0,losses:0,t1:[],t2:[],fullActionHashes:[],decisionSamples:[],ownMoveStreaks:[],rivalMoveStreaks:[],lossExample:null};
    for(let s=0;s<2;s++)for(const reverse of [false,true]){
     const seed=hashSeed(11027000+ci*100+s);
     const r=await battle(sim,clone(own),clone(c.team),seed,{
@@ -103,6 +116,8 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
     const events=executedEvents(r.log,r.ownSide,r.foeSide,Infinity);
     const fullHash=createHash('sha256').update(JSON.stringify(events)).digest('hex').slice(0,16);
     out.fullActionHashes.push(fullHash);
+    out.ownMoveStreaks.push(longestSameMoveStreak(events.own));
+    out.rivalMoveStreaks.push(longestSameMoveStreak(events.rival));
     out.decisionSamples.push({seed,reverse,won:r.won,fullHash});
     if(!r.won&&!out.lossExample)
       out.lossExample={seed,reverse,firstTurns:earlyLines(r.log,r.ownSide,3)};
@@ -147,8 +162,12 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
   repeatedFullActionTraceCells:allOutcomes.filter(x=>x.distinctFullActionTraces===1).length,
   distinctEarlyPerCell:allOutcomes.map(x=>x.distinctT1T2),
   distinctFullPerCell:allOutcomes.map(x=>x.distinctFullActionTraces),
+  withinBattleRepeatedOwnMoveRuns:allOutcomes.flatMap(x=>x.ownMoveStreaks).filter(n=>n>=2).length,
+  withinBattleRepeatedRivalMoveRuns:allOutcomes.flatMap(x=>x.rivalMoveStreaks).filter(n=>n>=2).length,
+  maxSameOwnMoveStreak:Math.max(...allOutcomes.flatMap(x=>x.ownMoveStreaks)),
+  maxSameRivalMoveStreak:Math.max(...allOutcomes.flatMap(x=>x.rivalMoveStreaks)),
   seedValuesPerCell:2,seatReversalsPerSeed:2,
-  warning:'4/4 is four reproducible outcomes, NOT four independent strategic decisions; identical T1/T2 traces are near-duplicates; even distinct full-action traces may be RNG rather than rationality'};
+  warning:'repeated moves can be rational and are NOT misplays without checking payoff/alternatives. 4/4 is four reproducible outcomes, NOT four independent strategic decisions; identical T1/T2 traces are near-duplicates; even distinct full-action traces may be RNG rather than rationality'};
  assert.equal(diversity.cells,20,'20 scenario x opponent policy x selection cells');
  assert.ok(diversity.repeatedT1T2Cells>=0&&diversity.repeatedT1T2Cells<=20);
  t.diagnostic('M7_DECISION_DIVERSITY '+JSON.stringify(diversity));
