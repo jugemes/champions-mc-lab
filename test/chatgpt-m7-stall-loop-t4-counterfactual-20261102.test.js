@@ -210,3 +210,62 @@ test('T4 choice cannot assume unseen rival action: 4 legal Rotom moves vs 3 publ
   robust,rows
  }));
 });
+
+
+test('T4 Hydro Pump across new RNG seeds: separate misses from branch rationality',{skip},async t=>{
+ // Frozen BEFORE results: PR104 issuecomment #6572079567.
+ // Eight NEW seeds, two seat reversals; still only three T4 strategic branches.
+ const rivalPlans=[{id:'direct-DoubleEdge',foeMove:'doubleedge'},
+  {id:'pivot-Gholdengo',foeSwitch:'Gholdengo'},
+  {id:'pivot-Volcarona',foeSwitch:'Volcarona'}];
+ const sim=load(),rows=[],nSeeds=8;
+ for(let s=0;s<nSeeds;s++)for(const reverse of [false,true]){
+  const seed=hashSeed(11028200+s),batch=[];
+  for(const plan of rivalPlans){
+   const arm={id:'hydro-accuracy-'+plan.id,...plan,ownMove:'hydropump'};
+   const ownT4=[],foeT4=[];
+   const r=await battle(sim,copy(own),copy(foe),seed,{
+    ownThree,foeThree,reverse,rivalImmuneAware:true,
+    ownOptions:{script:ownScript(arm,ownT4)},script:foeScript(arm,foeT4)
+   });
+   assert.equal(r.errors,0,'legal pinned Showdown choices');
+   assert.ok(ownT4.length&&foeT4.length,'T4 must be reached');
+   const prefix=beforeTurn(r.log,4);
+   if(batch.length){
+    assert.equal(prefix,batch[0].prefix,'all foe T4 branches share the same T1/T2/T3');
+    assert.deepEqual(ownT4[0],batch[0].ownT4,'same own HP and move PP');
+    assert.deepEqual(foeT4[0],batch[0].foeT4,'same foe HP and move PP');
+   }
+   const executed=eventsFor(r.log,r.ownSide,4);
+   assert.match(executed.our,/move:Rotom:Hydro Pump/,'Hydro Pump must be executed');
+   if(plan.foeMove)assert.match(executed.enemy,/move:Salamence:Double-Edge/);
+   if(plan.foeSwitch)assert.ok(executed.enemy.includes('switch:'+plan.foeSwitch));
+   const miss=r.log.split('\n').some(line=>line.startsWith('|-miss|'+r.ownSide+'a:'));
+   const events=executedEvents(r.log,r.ownSide,r.foeSide,Infinity);
+   const ownAfter=events.own.filter(e=>e.turn>=5).slice(0,4)
+     .map(e=>e.kind+':'+e.actor+':'+e.detail);
+   rows.push({s,reverse,rival:plan.id,won:r.won,missT4:miss,turns:r.turns,
+    executedT4:executed,ownAfter});
+   batch.push({prefix,ownT4:ownT4[0],foeT4:foeT4[0]});
+  }
+ }
+ assert.equal(rows.length,nSeeds*2*rivalPlans.length);
+ const result=rivalPlans.map(x=>{
+  const cases=rows.filter(y=>y.rival===x.id);
+  assert.equal(cases.length,nSeeds*2);
+  return {rival:x.id,games:cases.length,wins:cases.filter(y=>y.won).length,
+   hydroMissT4:cases.filter(y=>y.missT4).length,
+   winWhenMiss:cases.filter(y=>y.missT4&&y.won).length,
+   lossWhenHit:cases.filter(y=>!y.missT4&&!y.won).length,
+   firstMissExample:cases.find(y=>y.missT4)||null,
+   firstLossExample:cases.find(y=>!y.won)||null};
+ });
+ t.diagnostic('M7_STALL_LOOP_T4_HYDRO_SEED_AUDIT '+JSON.stringify({
+  predeclared:'PR104 issuecomment #6572079567',
+  additionalIndependentSeedValues:8,seatReversals:2,
+  fullBattles:rows.length,distinctOpponentT4Policies:3,
+  noHumanWinRateInference:true,opponentRationalityUnverified:true,
+  conclusionGate:'A win under the chosen legal opponent policy is NOT proof of an optimal T4 choice; missing accuracy must be reported separately.',
+  result
+ }));
+});
