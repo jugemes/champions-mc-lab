@@ -147,3 +147,19 @@ test('a heal attributed to a different move is not counted as the used recovery 
  assert.equal(f.recoveryMoveTurns,0);
  assert.equal(f.otherHealingOnlyTurns,3);
 });
+
+test('used recovery move plus ability-only healing does not imply recovery succeeded',()=>{
+ const log=['|switch|p1a: Metagross|Metagross, L50|157/157',
+   '|switch|p2a: Toxapex|Toxapex, L50|172/172',
+   ...[1,2,3].flatMap(t=>['|turn|'+t,
+     '|move|p2a: Toxapex|Recover|p2a: Toxapex',
+     '|-fail|p2a: Toxapex',
+     '|move|p1a: Metagross|Psychic Fangs|p2a: Toxapex',
+     '|-damage|p2a: Toxapex|90/172',
+     '|-heal|p2a: Toxapex|100/172|[from] ability: Rain Dish'])].join('\n');
+ const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
+ assert.ok(f);
+ assert.equal(f.healingTurns,3);
+ assert.equal(f.recoveryMoveTurns,0);
+ assert.equal(f.otherHealingOnlyTurns,3);
+});
