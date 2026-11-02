@@ -90,6 +90,29 @@ function lastLines(log,from=3,to=7){
  }
  return lines.slice(0,55);
 }
+// Only a T4 miss by our active Pokemon counts as a Hydro Pump T4 miss.
+// A miss in any other turn must not contaminate the accuracy audit.
+function missedBySideOnTurn(log,side,turn){
+ let currentTurn=0;
+ for(const line of String(log).split('\n')){
+  if(line.startsWith('|turn|'))currentTurn=Number(line.split('|')[2]);
+  if(currentTurn===turn&&line.startsWith('|-miss|'+side+'a:'))return true;
+ }
+ return false;
+}
+test('T4 accuracy audit excludes misses on other turns and rival misses',()=>{
+ const log=['|turn|2','|-miss|p1a: Rotom|p2a: Salamence','|turn|3',
+  '|-miss|p2a: Salamence|p1a: Rotom','|turn|4','|move|p1a: Rotom|Hydro Pump|p2a: Salamence',
+  '|turn|5','|-miss|p1a: Rotom|p2a: Salamence'].join('\n');
+ assert.equal(missedBySideOnTurn(log,'p1',4),false);
+ assert.equal(missedBySideOnTurn(log,'p1',2),true);
+ assert.equal(missedBySideOnTurn(log,'p2',3),true);
+ assert.equal(missedBySideOnTurn(log+'\n|turn|6\n|-miss|p1a: Rotom|p2a: Salamence','p1',4),false);
+ const t4Miss='|turn|4\n|move|p1a: Rotom|Hydro Pump|p2a: Salamence\n|-miss|p1a: Rotom|p2a: Salamence';
+ assert.equal(missedBySideOnTurn(t4Miss,'p1',4),true);
+ assert.equal(missedBySideOnTurn(t4Miss,'p2',4),false);
+});
+
 test('T3 same-state M-7 T4 counterfactual has legal opponent and player teams',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
  assert.equal(v.validateTeam(normalize(own)),null);
@@ -240,7 +263,7 @@ test('T4 Hydro Pump across new RNG seeds: separate misses from branch rationalit
    assert.match(executed.our,/move:Rotom:Hydro Pump/,'Hydro Pump must be executed');
    if(plan.foeMove)assert.match(executed.enemy,/move:Salamence:Double-Edge/);
    if(plan.foeSwitch)assert.ok(executed.enemy.includes('switch:'+plan.foeSwitch));
-   const miss=r.log.split('\n').some(line=>line.startsWith('|-miss|'+r.ownSide+'a:'));
+   const miss=missedBySideOnTurn(r.log,r.ownSide,4);
    const events=executedEvents(r.log,r.ownSide,r.foeSide,Infinity);
    const ownAfter=events.own.filter(e=>e.turn>=5).slice(0,4)
      .map(e=>e.kind+':'+e.actor+':'+e.detail);
