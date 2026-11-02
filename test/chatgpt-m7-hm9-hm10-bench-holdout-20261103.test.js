@@ -43,6 +43,8 @@ const pivots=[
 ];
 function publicPivot(req,bot,info){
  if(info.turn!==1||req.teamPreview||req.forceSwitch)return null;
+ // A switch is not legal under a trapping request, even when the bench exists.
+ if(req.active?.[0]?.trapped||req.active?.[0]?.maybeTrapped)return null;
  const active=req.side?.pokemon?.find(p=>p.active);
  if(!active)return null;
  const self=nameOf(active.details),foe=nameOf(bot.foeActive||'');
@@ -56,6 +58,20 @@ const first=(log,ownSide,foeSide)=>{
    foeT1:eventSignature(e.rival,1),foeT2:eventSignature(e.rival,2)};
 };
 const faintCount=(log,side)=>log.split('\n').filter(x=>x.startsWith('|faint|'+side+'a:')).length;
+// Observable bench participation is NOT a damage or human-win-rate estimate.
+function benchContinuation(log,ownSide,foeSide,three){
+ const moves=executedEvents(log,ownSide,foeSide,1000).own
+  .filter(e=>e.turn>=3&&e.kind==='move');
+ const counts=Object.fromEntries(three.slice(1).map(s=>[s,0]));
+ for(const e of moves){
+  const actor=e.actor.toLowerCase();
+  const s=three.slice(1).find(x=>actor===x.toLowerCase()||actor.startsWith(x.toLowerCase()+'-'));
+  if(s)counts[s]++;
+ }
+ return {postT2OwnExecutedMoves:moves.length,
+  benchExecutedMoveCounts:counts,
+  benchWithExecutedMove:Object.keys(counts).filter(s=>counts[s]>0)};
+}
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 test('H-M9/H-M10 public pivot uses only active species and selected bench',()=>{
  const req=(s,b)=>({side:{pokemon:[{details:s+', L50',active:true,condition:'100/100'},
@@ -64,6 +80,10 @@ test('H-M9/H-M10 public pivot uses only active species and selected bench',()=>{
   assert.equal(publicPivot(req(self,[target,'Primarina']),{foeActive:foe},{turn:1}),'switch 2');
   assert.equal(publicPivot(req(self,['Primarina']),{foeActive:foe},{turn:1}),null);
   assert.equal(publicPivot(req(self,[target]),{foeActive:foe},{turn:2}),null);
+  const trapped=req(self,[target]);trapped.active=[{trapped:true}];
+  assert.equal(publicPivot(trapped,{foeActive:foe},{turn:1}),null);
+  const maybeTrapped=req(self,[target]);maybeTrapped.active=[{maybeTrapped:true}];
+  assert.equal(publicPivot(maybeTrapped,{foeActive:foe},{turn:1}),null);
  }
 });
 test('H-M9/H-M10 fixture and own three are legal in pinned M-C',{skip},()=>{
@@ -95,7 +115,7 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
   for(const x of candidates){
    const out={three:x.three,wins:0,losses:0,requestedPivots:0,
      ownImmune:0,previouslyObserved:0,lossWithAllFoeAlive:0,
-     ownT1T2:0,foeT1T2:0,firstLoss:null};
+     ownT1T2:0,foeT1T2:0,benchMoveUsersInLosses:0,firstLoss:null};
    const ownActions=[],foeActions=[];
    for(let si=0;si<2;si++)for(const reverse of [false,true]){
     // Policy intentionally excluded from seed; paired controls must be causal.
@@ -141,9 +161,11 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
     out.wins+=Number(r.won);out.losses+=Number(!r.won);
     out.requestedPivots+=Number(requested);
     if(!r.won){
+     const continuation=benchContinuation(r.log,r.ownSide,r.foeSide,x.three);
+     if(continuation.benchWithExecutedMove.length)out.benchMoveUsersInLosses++;
      if(faintCount(r.log,r.foeSide)===0)out.lossWithAllFoeAlive++;
      if(!out.firstLoss)out.firstLoss={seed,reverse,turns:r.turns,
-       foeFaints:faintCount(r.log,r.foeSide),actions,
+       foeFaints:faintCount(r.log,r.foeSide),actions,continuation,
        early:earlyLines(r.log,r.ownSide,4)};
     }
     ownActions.push(actions.ownT1+' / '+actions.ownT2);
