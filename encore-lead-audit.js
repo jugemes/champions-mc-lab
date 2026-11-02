@@ -77,7 +77,7 @@ function rivalScript(t1,enc,dex){
     return best&&val(best)>0?'move '+(best.i+1)+mega:null;
   };
 }
-async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOptions={}}){
+async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOptions={},rivalImmuneAware=false}){
   const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
   const dex=sim.Dex.mod('champions');
   const trace={choices:[],selections:[],errors:[]};const reqLog=[];
@@ -87,6 +87,20 @@ async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOpti
   const mk=(stream,team,side)=>bots[side]=new AuditBot(stream,dex,team,side,trace,side===ownSide?ownThree:foeThree,null,
     {previewPolicy:'legacy',seed,reqLog,script:side===foeSide?script:null,...(side===ownSide?ownOptions:{})});
   mk(streams.p1,p1,'p1');mk(streams.p2,p2,'p2');
+  // Opt-in opponent-only immunity avoidance for research comparisons.
+  // The default runner, own-side Bot and saved old test conditions are untouched.
+  const rivalImmuneAudit={masked:[],rejected:[]};
+  if(rivalImmuneAware){
+    const {immuneAware100}=require('./pr100-legal');
+    const rival=bots[foeSide],original=rival.decide.bind(rival);
+    const corrected=immuneAware100(rival.script,dex,rivalImmuneAudit);
+    rival.decide=function(req){
+      if(req.teamPreview||req.forceSwitch)return original(req);
+      const info=requestInfo(req,this.side,this.turn,{encored:this.ownEncored});
+      const choice=corrected(req,this,info||{turn:this.turn});
+      return choice||original(req);
+    };
+  }
   let winner='',turns=0;const log=[];
   const watch=(async()=>{for await(const msg of streams.omniscient){log.push(msg);
     for(const line of msg.split('\n')){if(line.startsWith('|win|'))winner=line.slice(5);if(line.startsWith('|turn|'))turns=Number(line.slice(6));}}})();
@@ -96,7 +110,7 @@ async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOpti
   await Promise.all([watch,r1,r2]);
   if(!winner)throw Error('no winner '+JSON.stringify(trace.errors));
   const sel=s=>trace.selections.find(x=>x.side===s);
-  return {won:winner===ownSide,turns,errors:trace.errors.length,log:log.join('\n'),ownSide,foeSide,reqLog,foe:sel(foeSide).chosen};
+  return {won:winner===ownSide,turns,errors:trace.errors.length,log:log.join('\n'),ownSide,foeSide,reqLog,foe:sel(foeSide).chosen,rivalImmuneAudit};
 }
 // Encore facts observed in the log, for the rival side.
 function encoreFacts(log,foeSide,reqLog){
