@@ -211,6 +211,8 @@ test('H-M11/H-M12 preregistered paired full battles and bench survival',{skip},a
  }
  assert.equal(games,240);assert.equal(errors,0);
  assert.equal(pivotPairs+noPivotPairs,120);
+ assert.ok(switchEvidence.own['faint-replacement']>0,
+  'the frozen battle corpus must exercise KO-forced replacement');
  assert.ok(noPivotPairs>0);
  assert.equal(observed.ownImmunity,
   observed.changedThisTurn+observed.forced+observed.lockedSwitchAvailable+
