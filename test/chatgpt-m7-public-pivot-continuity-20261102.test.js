@@ -119,3 +119,23 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
   counts,rows
  }));
 });
+
+test('public pivot counterfactual cannot read our private set/item or actual opposing selection',{skip},()=>{
+ const publicRequest={
+  teamPreview:false,forceSwitch:false,active:[{trapped:false}],
+  side:{pokemon:[
+   {active:true,details:'Salamence, L50',condition:'180/180'},
+   {active:false,details:'Gholdengo, L50',condition:'150/150'},
+   {active:false,details:'Volcarona, L50',condition:'160/160'}]}
+ };
+ const before=publicPivotToGholdengo(clone(publicRequest),
+  {foeActive:'Primarina',privateUnknownMoves:['Moonblast'],privateUnknownItem:'Choice Scarf'},{turn:1});
+ const after=publicPivotToGholdengo(clone(publicRequest),
+  {foeActive:'Primarina',privateUnknownMoves:['Hydro Pump'],privateUnknownItem:'Leftovers'},{turn:1});
+ assert.equal(before,'switch 2');
+ assert.equal(after,before,'same public opponent species means same opponent switch');
+ const locked=clone(publicRequest);
+ locked.active[0].trapped=true;
+ assert.equal(publicPivotToGholdengo(locked,{foeActive:'Primarina'},{turn:1}),null,
+  'a trapped lead must not issue an illegal switch');
+});
