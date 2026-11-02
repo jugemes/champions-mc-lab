@@ -32,7 +32,7 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
   const turns=[];
   let row=null;
   const makeTurn=n=>({
-    turn:n,moves:{p1:[],p2:[]},heals:{p1:0,p2:0},
+    turn:n,moves:{p1:[],p2:[]},heals:{p1:0,p2:0},healEvents:{p1:[],p2:[]},
     switches:{p1:0,p2:0},boosts:{p1:0,p2:0},
     cant:{p1:0,p2:0},hpBefore:{...lastHP},hpAfter:null
   });
@@ -58,7 +58,7 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
       row.moves[s].push({actor:a[2],move:a[3],encored:encore[s],choiceRevealed:knownChoice[s]});
     }
     if(type==='cant'&&s)row.cant[s]++;
-    if(type==='-heal'&&s)row.heals[s]++;
+    if(type==='-heal'&&s){row.heals[s]++;row.healEvents[s].push({source:String(a.slice(4).join('|')||'')});}
     if(['-boost','-unboost','-setboost','-clearboost'].includes(type)&&s)row.boosts[s]++;
     if(type==='-clearallboost')for(const p of sides)row.boosts[p]++;
     if(['-damage','-heal','-sethp'].includes(type)&&s){
@@ -74,8 +74,19 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
     const commit=()=>{
       if(run.length>=minAttacks){
         const healingTurns=run.filter(r=>r.heals[defendingSide]>0).length;
-        const recoveryMoveTurns=run.filter(r=>r.heals[defendingSide]>0&&
-          r.moves[defendingSide].some(m=>SELF_RECOVERY_MOVES.has(m.move))).length;
+        // A used recovery move and an unrelated residual heal in the same turn
+        // are NOT evidence that the recovery move restored HP. A heal with a
+        // public [from] item/ability/status is explicitly unrelated; an
+        // untagged heal is retained for older protocol fixtures.
+        const recoveryMoveTurns=run.filter(r=>{
+          const used=r.moves[defendingSide].filter(m=>SELF_RECOVERY_MOVES.has(m.move));
+          return used.length>0&&r.healEvents[defendingSide].some(h=>{
+            const source=h.source;
+            const fromMove=source.match(/\\[from\\] move: ([^|]+)/);
+            if(fromMove)return used.some(m=>m.move===fromMove[1]);
+            return !source.includes('[from]');
+          });
+        }).length;
         const otherHealingOnlyTurns=healingTurns-recoveryMoveTurns;
         if(healingTurns>=minHealingTurns){
           const first=run[0],last=run[run.length-1];
@@ -111,6 +122,7 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
     commit();
   }
   return {ownSide,foeSide:foe,turnsObserved:turns.length,
+    // Only a recovery move's own heal is counted; passive heals stay separate.
     // No PP assertions: the public battle log does not expose both sides' PP.
     ppKnown:false,findings:findings.sort((a,b)=>a.fromTurn-b.fromTurn)};
 }
