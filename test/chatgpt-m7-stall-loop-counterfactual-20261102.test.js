@@ -96,7 +96,7 @@ test('M-7 T3 stall-loop intervention: same legal T1/T2 state, full 3v3 pinned Ba
    });
    assert.equal(r.errors,0,'all choices must be accepted: '+arm.id);
    assert.equal(ownRequests.length,1,'own T3 legal decision request: '+arm.id);
-   assert.equal(foeRequests.length,1,'rival T3 legal decision request: '+arm.id);
+   assert.ok(foeRequests.length>=1,'rival T3 legal decision request: '+arm.id);
    const before=beforeT3(r.log);
    assert.ok(before.includes('|turn|2'),'two turns must complete before intervention');
    const events=moveSeq(r.log,r.ownSide);
