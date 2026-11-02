@@ -62,8 +62,20 @@ function publicGrounded100(bot){
 const GROUND_WHY=/^(type|ability levitate|airballoon)$/;
 function publicImmuneMoves100(dex,req,bot){
   const out=Y.publicImmuneMoves98(dex,req,bot);
-  if(!publicGrounded100(bot).length)return out;
-  return out.filter(x=>!(x.type==='Ground'&&GROUND_WHY.test(x.why)));
+  // Electric types cannot be paralyzed by Thunder Wave in the pinned engine.
+  // This is a STATUS-specific immunity, not a generic damaging-type check:
+  // Thunder Wave's ignoreImmunity setting makes the older type mask miss it.
+  // The target's current species/form is public; no hidden moves/items used.
+  const target=dex.species.get(bot.foeActive||'');
+  if(target.exists&&target.types.includes('Electric')){
+    req.active?.[0]?.moves.forEach((m,i)=>{
+      if(m.disabled||out.some(x=>x.i===i))return;
+      const mv=dex.moves.get(m.id||m.move);
+      if(mv.id==='thunderwave')out.push({i,move:mv.name,type:'Electric',why:'status electric-type paralysis immunity'});
+    });
+  }
+  const grounded=publicGrounded100(bot).length;
+  return (grounded?out.filter(x=>!(x.type==='Ground'&&GROUND_WHY.test(x.why))):out).sort((a,b)=>a.i-b.i);
 }
 
 function immuneAware100(script,dex,rec,{immFn=publicImmuneMoves100}={}){
