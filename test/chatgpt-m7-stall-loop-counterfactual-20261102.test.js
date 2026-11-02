@@ -62,7 +62,7 @@ function script(which,arm,record){
  };
 }
 const beforeT3=log=>String(log).split('\n').slice(0,
- String(log).split('\n').findIndex(l=>l==='|turn|3')).join('\n');
+ String(log).split('\n').findIndex(l=>l==='|turn|3')).filter(l=>!l.startsWith('|t:|')).join('\n');
 const moveSeq=(log,side)=>executedEvents(log,side,side==='p1'?'p2':'p1',Infinity);
 function turn3Events(log,side){
  const events=moveSeq(log,side);
