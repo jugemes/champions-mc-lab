@@ -57,6 +57,21 @@ const first=(log,ownSide,foeSide)=>{
 };
 const faintCount=(log,side)=>log.split('\n').filter(x=>x.startsWith('|faint|'+side+'a:')).length;
 const immuneCount=(log,side)=>log.split('\n').filter(x=>x.startsWith('|-immune|'+side+'a:')).length;
+test('T1 opponent pivots require public active species and an available selected bench',()=>{
+ const req=(lead,benchSpecies)=>({side:{pokemon:[
+  {details:lead+', L50',active:true,condition:'100/100'},
+  ...benchSpecies.map(s=>({details:s+', L50',active:false,condition:'100/100'}))
+ ]}});
+ const t1={turn:1};
+ assert.equal(publicPivot(req('Toxapex',['Umbreon','Corviknight']),{foeActive:'Metagross'},t1),'switch 2');
+ assert.equal(publicPivot(req('Toxapex',['Corviknight']),{foeActive:'Metagross'},t1),null);
+ assert.equal(publicPivot(req('Gholdengo',['Lucario','Dragonite']),{foeActive:'Hydreigon'},t1),'switch 2');
+ assert.equal(publicPivot(req('Salamence',['Gholdengo','Volcarona']),{foeActive:'Tyranitar'},t1),'switch 2');
+ assert.equal(publicPivot(req('Starmie',['Rillaboom','Dragonite']),{foeActive:'Rotom-Wash'},t1),'switch 2');
+ assert.equal(publicPivot(req('Volcarona',['Gholdengo','Salamence']),{foeActive:'Garchomp'},t1),'switch 2');
+ assert.equal(publicPivot(req('Starmie',['Rillaboom']),{foeActive:'Rotom-Wash'},{turn:2}),null);
+ assert.equal(publicPivot(req('Starmie',['Rillaboom']),{foeActive:'Metagross'},t1),null);
+});
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 test('H-M7/H-M8 preregistered sixes, trios and item clause legal',{skip},()=>{
  const v=load().TeamValidator.get('gen9championsbssregmc');
