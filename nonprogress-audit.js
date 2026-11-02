@@ -41,7 +41,7 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
       if(row)row.switches[s]++;
       const hp=health(a[4]);if(hp!==null)lastHP[s]=hp;
     }
-    if(type==='-start'&&s&&a[3]==='Encore')encore[s]=true;
+    if(type==='-start'&&s&&/(?:^|: )Encore$/.test(String(a[3]||'')))encore[s]=true;
     if(type==='-end'&&s&&a[3]==='Encore')encore[s]=false;
     if(type==='-item'&&s&&/^Choice (?:Band|Specs|Scarf)$/.test(a[3]||''))knownChoice[s]=true;
     if(['-enditem','-takeitem'].includes(type)&&s)knownChoice[s]=false;
