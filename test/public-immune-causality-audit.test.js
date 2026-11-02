@@ -61,7 +61,7 @@ test('prior-turn immunity is observable on the same active stint, not inferred o
   '|turn|3',
   '|move|p1a: Rotom|Will-O-Wisp|p2a: Gholdengo',
   '|-immune|p2a: Gholdengo|[from] ability: Good as Gold'
- ].join('\\n');
+ ].join('\n');
  const a=classifyExecutedImmunities(log,'p1','p2',[
   {side:'p1',turn:1,locked:false,canSwitch:true},
   {side:'p1',turn:2,locked:false,canSwitch:true},
@@ -84,7 +84,7 @@ test('switch out and back, Illusion replace, form and ability changes invalidate
   '|move|p1a: Rotom|Will-O-Wisp|p2a: Gholdengo','|-immune|p2a: Gholdengo',
   '|turn|6','|-ability|p2a: Gholdengo|Levitate',
   '|move|p1a: Rotom|Will-O-Wisp|p2a: Gholdengo','|-immune|p2a: Gholdengo'
- ].join('\\n');
+ ].join('\n');
  const a=classifyExecutedImmunities(log,'p1','p2',[]);
  assert.equal(a.length,5);
  assert.ok(a.every(x=>x.previouslyObservedSameStintImmunity===false));
@@ -94,7 +94,7 @@ test('same-turn defender switch is still a switch surprise even after a prior im
   '|turn|1','|move|p1a: Metagross|Psychic Fangs|p2a: Umbreon','|-immune|p2a: Umbreon',
   '|turn|2','|switch|p2a: Umbreon|Umbreon, L50|100/100',
   '|move|p1a: Metagross|Psychic Fangs|p2a: Umbreon','|-immune|p2a: Umbreon'
- ].join('\\n');
+ ].join('\n');
  const a=classifyExecutedImmunities(log,'p1','p2',[]);
  assert.equal(a[1].classification,'defender-changed-this-turn');
  assert.equal(a[1].previouslyObservedSameStintImmunity,false);
