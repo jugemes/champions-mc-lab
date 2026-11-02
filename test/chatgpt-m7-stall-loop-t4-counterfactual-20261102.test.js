@@ -129,6 +129,7 @@ test('T4 public Gholdengo pivot challenges the T3 Rotom rescue on identical hist
   all.push(...pair);
  }
  assert.equal(all.length,32);
+ assert.equal(new Set(all.map(x=>x.arm)).size,8,'all eight preregistered alternatives exercised');
  const summary=ARMS.map(arm=>{
   const cells=all.filter(x=>x.arm===arm.id);
   return {arm:arm.id,wins:cells.filter(x=>x.won).length,games:4,
