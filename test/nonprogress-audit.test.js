@@ -117,3 +117,33 @@ test('invalid sides and impossible thresholds fail safely',()=>{
  assert.throws(()=>auditRepeatedHealing('',{ownSide:'p3'}));
  assert.throws(()=>auditRepeatedHealing('',{minAttacks:0}));
 });
+
+test('failed Roost plus residual Leftovers is not misattributed as Roost healing',()=>{
+ const log=['|switch|p1a: Metagross|Metagross, L50|157/157',
+   '|switch|p2a: Salamence|Salamence, L50|172/172',
+   ...[1,2,3].flatMap(t=>['|turn|'+t,
+     '|move|p2a: Salamence|Roost|p2a: Salamence',
+     '|-fail|p2a: Salamence',
+     '|move|p1a: Metagross|Psychic Fangs|p2a: Salamence',
+     '|-damage|p2a: Salamence|100/172',
+     '|-heal|p2a: Salamence|110/172|[from] item: Leftovers'])].join('\n');
+ const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
+ assert.ok(f);
+ assert.equal(f.healingTurns,3);
+ assert.equal(f.recoveryMoveTurns,0,'Roost failed; Leftovers healing must not count as Roost');
+ assert.equal(f.otherHealingOnlyTurns,3);
+ assert.equal(f.recoveryMoveLoopCandidate,false);
+});
+test('a heal attributed to a different move is not counted as the used recovery move',()=>{
+ const log=['|switch|p1a: Metagross|Metagross, L50|157/157',
+   '|switch|p2a: Salamence|Salamence, L50|172/172',
+   ...[1,2,3].flatMap(t=>['|turn|'+t,
+     '|move|p1a: Metagross|Psychic Fangs|p2a: Salamence',
+     '|-damage|p2a: Salamence|80/172',
+     '|move|p2a: Salamence|Roost|p2a: Salamence',
+     '|-heal|p2a: Salamence|130/172|[from] move: Strength Sap'])].join('\n');
+ const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
+ assert.ok(f);
+ assert.equal(f.recoveryMoveTurns,0);
+ assert.equal(f.otherHealingOnlyTurns,3);
+});
