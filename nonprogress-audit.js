@@ -82,7 +82,7 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
           const used=r.moves[defendingSide].filter(m=>SELF_RECOVERY_MOVES.has(m.move));
           return used.length>0&&r.healEvents[defendingSide].some(h=>{
             const source=h.source;
-            const fromMove=source.match(/\\[from\\] move: ([^|]+)/);
+            const fromMove=source.match(/\[from\] move: ([^|]+)/);
             if(fromMove)return used.some(m=>m.move===fromMove[1]);
             return !source.includes('[from]');
           });
