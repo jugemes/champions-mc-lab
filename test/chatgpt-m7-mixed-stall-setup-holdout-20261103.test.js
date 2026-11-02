@@ -9,6 +9,7 @@ const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes,variants}=require('../fixtures');
 const {battle,bench,nameOf,switchTo,earlyLines}=require('../encore-lead-audit');
 const {executedEvents,eventSignature}=require('../public-execution-audit');
+const {classifyExecutedImmunities}=require('../public-immune-causality-audit');
 const clone=x=>structuredClone(x);
 const get=(team,s)=>{const p=team.find(x=>x.species===s);if(!p)throw Error('missing '+s);return clone(p);};
 const baseline=reportedLive();
@@ -96,13 +97,14 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
  const sim=load(),rows=[],paired=new Map();
  let games=0,errors=0,ownImmuneEvents=0,foeImmuneEvents=0;
  let pivotPairs=0,noPivotPairs=0;const immuneSamples=[];
+ const ownImmuneByCause={};
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
  for(const policy of ['autonomous','public-pivot-T1']){
   const row={case:c.id,foeThree,policy,candidates:{}};
   for(const x of candidates){
    const out={three:x.three,wins:0,losses:0,requestedPivots:0,
-     ownImmune:0,foeImmune:0,lossWithAllFoeAlive:0,firstLoss:null,
+     ownImmune:0,foeImmune:0,ownImmuneByCause:{},lossWithAllFoeAlive:0,firstLoss:null,
      distinctOwnT1T2:0,distinctFoeT1T2:0};
    const ownActions=[],foeActions=[];
    for(let si=0;si<2;si++)for(const reverse of [false,true]){
@@ -131,6 +133,12 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
     }
     const ownImm=immuneCount(r.log,r.foeSide);
     const foeImm=immuneCount(r.log,r.ownSide);
+    const classified=classifyExecutedImmunities(r.log,r.ownSide,r.foeSide,r.reqLog);
+    assert.equal(classified.length,ownImm,'every own-side immunity has an executed cause');
+    for(const e of classified){
+      ownImmuneByCause[e.classification]=(ownImmuneByCause[e.classification]||0)+1;
+      out.ownImmuneByCause[e.classification]=(out.ownImmuneByCause[e.classification]||0)+1;
+    }
     if((ownImm||foeImm)&&immuneSamples.length<16){
       const log=r.log.split('\n');let turn=0,previousMove='';
       for(const line of log){
@@ -175,6 +183,6 @@ test('H-M7/H-M8 full Showdown paired opponent T1 controls and bench continuity',
   noHumanWinRateClaim:true,independentSeedsPerCell:2,
   sideReversals:2,pairedPolicySeed:true,rosterAdopted:false,
   games,errors,pivotPairs,noPivotPairs,ownImmuneEvents,foeImmuneEvents,
-  immuneSamples,rows
+  ownImmuneByCause,immuneSamples,rows
  }));
 });
