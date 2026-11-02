@@ -30,4 +30,7 @@ test('branch audit rejects one-policy, mismatched-candidate and duplicate-policy
  const bad=structuredClone(rows);
  delete bad[1].alternatives.y;
  assert.throws(()=>assessPublicBranchRobustness(bad),/candidate set changed/);
+ const unequal=structuredClone(rows);
+ unequal[1].alternatives.x={wins:0,losses:2};
+ assert.throws(()=>assessPublicBranchRobustness(unequal),/equal trial counts/);
 });
