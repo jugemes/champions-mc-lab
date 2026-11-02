@@ -430,3 +430,67 @@ test('P0 autonomous opposing 6-to-3 and T1/T2 full Battle diagnostic',{skip},asy
   cases:summary
  }));
 });
+
+
+// P0: independent opposing 6->3+lead HYPOTHESES, not just one autonomous Bot
+// optimum. Existing H-I/H-J are DIAGNOSTIC, never unused holdout.
+// The enumerator sees rival's OWN known six and our PUBLIC six species only.
+// It cannot inspect M-7 private moves/items or the result of a battle.
+test('P0 diverse public-only rival 3+lead branches vs M-7 full Battle diagnostic',{skip},async t=>{
+ const {enumeratePublicRivalBranches}=require('../public-rival-multibranch');
+ const sim=load(),dex=sim.Dex.mod('champions'),own=reportedLive();
+ const ownPublic=own.map(p=>p.species),rows=[];
+ for(const [ci,c] of cases.entries()){
+   const generated=enumeratePublicRivalBranches(dex,c.team,ownPublic,{limit:3});
+   assert.equal(generated.length,3,'three distinct rival hypotheses');
+   assert.equal(new Set(generated.map(x=>[...x.selection].sort().join())).size,3,
+     'three different opposing trios, not lead-only permutations');
+   const row={case:c.id,publicSix:c.team.map(p=>p.species),
+     opponentRationalityCertified:false,branches:[],legacyWins:0,newWins:0,
+     errors:0,knownImmuneHits:0};
+   for(const [bi,proposal] of generated.entries()){
+     const rival=proposal.selection;
+     assert.equal(new Set(rival).size,3);
+     for(const species of rival)assert.ok(c.team.some(p=>p.species===species));
+     const branch={rival,t1:c.branches[0].t1,pivot:c.branches[0].pivot};
+     const b={mode:proposal.mode,three:rival,lead:rival[0],
+       rationale:proposal.rationale,oldWins:0,newWins:0,gains:0,losses:0,
+       actualRivalT1:[],samples:[]};
+     for(let n=0;n<2;n++)for(const reverse of [false,true]){
+       const seed=hashSeed(10431000+ci*1000+bi*100+n);
+       const a=await play(sim,structuredClone(own),structuredClone(c.team),
+         seed,reverse,branch,{previewPolicy:'legacy',decisionPolicy:'baseline'},
+         false,'autonomous','fixed');
+       const z=await play(sim,structuredClone(own),structuredClone(c.team),
+         seed,reverse,branch,{previewPolicy:'publicContinuity',decisionPolicy:'baseline'},
+         false,'autonomous','fixed');
+       assert.deepEqual(a.rivalThree,rival,'opposing legal 3+lead fixed as declared');
+       assert.deepEqual(z.rivalThree,rival,'opposing legal 3+lead fixed across policies');
+       assert.equal(a.rivalLead,rival[0]);
+       assert.equal(z.rivalLead,rival[0]);
+       row.errors+=a.errors+z.errors;
+       row.knownImmuneHits+=a.knownImmuneHits+z.knownImmuneHits;
+       row.legacyWins+=+a.won;row.newWins+=+z.won;
+       b.oldWins+=+a.won;b.newWins+=+z.won;
+       b.gains+=+(!a.won&&z.won);b.losses+=+(a.won&&!z.won);
+       b.actualRivalT1.push(a.rivalExecuted.filter(e=>e.turn===1));
+       if(b.samples.length===0)b.samples.push({seed,reverse,
+         oldOwn:{three:a.three,lead:a.lead},newOwn:{three:z.three,lead:z.lead},
+         rivalT1:a.rivalExecuted.filter(e=>e.turn===1),
+         rivalT2:a.rivalExecuted.filter(e=>e.turn===2)});
+     }
+     assert.equal(b.newWins-b.oldWins,b.gains-b.losses,'paired accounting');
+     row.branches.push(b);
+   }
+   assert.equal(row.errors,0,'no illegal choice');
+   assert.equal(row.knownImmuneHits,0,'no public-known immune rival attacks');
+   rows.push(row);
+ }
+ t.diagnostic('P0 MULTI-RIVAL 3+LEAD PUBLIC HYPOTHESES '+JSON.stringify({
+   scope:'H-I/H-J reused diagnostic, NOT new holdout',
+   opponentSelection:'three distinct trios generated from public six, forced for stress; not certified rational',
+   opponentTurn:'autonomous baseline Bot plus public-known immunity avoidance, no T1/T2 scripts',
+   totalPairs:24,totalBattles:48,cases:rows,
+   caution:'No candidate adoption from these results. Future unknown public-six holdout only AFTER own policy frozen.'
+ }));
+});
