@@ -120,8 +120,14 @@ test('T4 public Gholdengo pivot challenges the T3 Rotom rescue on identical hist
     assert.deepEqual(rivalT4[0],pair[0].theirT4,'same rival HP/PP at T4');
    }
    if(arm.foeSwitch)assert.match(fourth.enemy,/switch:Gholdengo/,'rival must execute T4 public switch');
-   if(arm.foeMove)assert.match(fourth.enemy,/move:Salamence:Double-Edge/,'rival must execute intended T4 attack');
-   if(arm.ownMove)assert.ok(fourth.our.includes('move:Rotom:'),'Rotom must use legal T4 move');
+   if(arm.foeMove)assert.ok(fourth.enemy.split('|').some(x=>x.startsWith('move:')&&x.endsWith(':Double-Edge')),
+    'rival must execute the specified T4 Double-Edge, not merely issue a request');
+   if(arm.ownMove){
+    const display={willowisp:'Will-O-Wisp',thunderbolt:'Thunderbolt',hydropump:'Hydro Pump',voltswitch:'Volt Switch'}[arm.ownMove];
+    assert.ok(display,'every forced T4 move must have an exact execution check');
+    assert.ok(fourth.our.split('|').some(x=>x.startsWith('move:')&&x.endsWith(':'+display)),
+     'Rotom must actually execute the specified T4 '+display+', not merely any move');
+   }
    pair.push({arm:arm.id,seed,reverse,won:r.won,turns:r.turns,
     prefix,ourT4:ownT4[0],theirT4:rivalT4[0],third,fourth,
     trace:lastLines(r.log)});
