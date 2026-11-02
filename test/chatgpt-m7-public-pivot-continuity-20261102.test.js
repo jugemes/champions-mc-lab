@@ -13,6 +13,7 @@ const {archetypes,variants}=require('../fixtures');
 const {teams}=require('../holdout-20261030');
 const {battle,switchTo,earlyLines}=require('../encore-lead-audit');
 const {executedEvents,eventSignature}=require('../public-execution-audit');
+const {assessPublicBranchRobustness}=require('../public-branch-robustness');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const clone=x=>structuredClone(x);
 const from=(team,s)=>clone(team.find(x=>x.species===s));
@@ -112,6 +113,18 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  assert.equal(counts.games,80);
  assert.equal(counts.requiredPivot,2*3*2*2);
  assert.equal(counts.actualPivots,counts.requiredPivot);
+ // Cross-policy audit: a win against the stay-in Bot is NOT transferable
+ // if a public-species-only pivot reverses it. No frequencies are invented.
+ const robustness=assessPublicBranchRobustness(rows);
+ assert.equal(robustness.byCandidate.P1_primarina_hydreigon_metagross.cases['U-L-mega-setup'].bestWins,4);
+ assert.equal(robustness.byCandidate.P1_primarina_hydreigon_metagross.cases['U-L-mega-setup'].worstWins,0);
+ assert.equal(robustness.byCandidate.P1_primarina_hydreigon_metagross.cases['U-K-sun-ground'].bestWins,4);
+ assert.equal(robustness.byCandidate.P1_primarina_hydreigon_metagross.cases['U-K-sun-ground'].worstWins,0);
+ assert.equal(robustness.byCandidate.P2_primarina_rotom_metagross.cases['U-L-mega-setup'].worstWins,2);
+ assert.equal(robustness.byCandidate.P2_primarina_rotom_metagross.cases['U-K-sun-ground'].worstWins,0);
+ assert.ok(Object.values(robustness.byCandidate).every(x=>!x.supportedAcrossAllTestedBranches),
+   'none of these five preregistered candidates survives every tested counter-branch');
+ t.diagnostic('M7_PUBLIC_BRANCH_ROBUSTNESS '+JSON.stringify(robustness));
  t.diagnostic('M7_PUBLIC_PIVOT_CONTINUITY '+JSON.stringify({
   declaration:'PR104 issuecomment-6569056635',usedPublicSixes:true,newHoldout:false,
   opponentRationalityCertified:false,actualBattleWinRate:false,
