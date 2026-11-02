@@ -86,7 +86,8 @@ test('M-7 T3 stall-loop intervention: same legal T1/T2 state, full 3v3 pinned Ba
  assert.equal(validator.validateTeam(normalize(foe)),null);
  const rows=[];
  for(let s=0;s<2;s++)for(const reverse of [false,true]){
-  // Replay the exact U-L seeds that produced the reported 10x Psychic Fangs loop.\n  const seed=hashSeed(11027000+s),pair=[];
+  // Replay the exact U-L seeds that produced the reported 10x Psychic Fangs loop.
+  const seed=hashSeed(11027000+s),pair=[];
   for(const arm of arms){
    const ownRequests=[],foeRequests=[];
    const r=await battle(sim,clone(own),clone(foe),seed,{
