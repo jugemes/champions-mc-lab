@@ -8,7 +8,7 @@ const {load,normalize,hashSeed}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes,variants}=require('../fixtures');
 const {battle,bench,nameOf,switchTo,earlyLines}=require('../encore-lead-audit');
-const {executedEvents,eventSignature}=require('../public-execution-audit');
+const {executedEvents,eventSignature,classifyPublicSwitches}=require('../public-execution-audit');
 const {classifyExecutedImmunities}=require('../public-immune-causality-audit');
 const clone=x=>structuredClone(x);
 const get=(a,s)=>{const p=a.find(x=>x.species===s);assert.ok(p,'fixture '+s);return clone(p);};
@@ -116,6 +116,8 @@ test('H-M11/H-M12 fixture and own three are legal in pinned M-C',{skip},()=>{
 test('H-M11/H-M12 preregistered paired full battles and bench survival',{skip},async t=>{
  const sim=load(),paired=new Map(),rows=[];
  let games=0,errors=0,pivotPairs=0,noPivotPairs=0;
+ const switchEvidence={own:{'faint-replacement':0,'forced-drag':0,'nonfaint-switch-cause-unknown':0},
+  rival:{'faint-replacement':0,'forced-drag':0,'nonfaint-switch-cause-unknown':0}};
  const observed={ownImmunity:0,previouslyObserved:0,changedThisTurn:0,
    forced:0,lockedSwitchAvailable:0,lockedSwitchUnknown:0,unchangedUnforced:0};
  const examples=[],unforcedExamples=[],lockedSwitchExamples=[];
@@ -140,6 +142,11 @@ test('H-M11/H-M12 preregistered paired full battles and bench survival',{skip},a
     });
     assert.equal(r.errors,0,'legal Showdown choices');
     const actions=first(r.log,r.ownSide,r.foeSide);
+    const switchAudit=classifyPublicSwitches(r.log,r.ownSide,r.foeSide,2);
+    for(const side of ['own','rival'])for(const ev of switchAudit[side]){
+     assert.equal(ev.provenTacticalChoice,false,'public switch is not proof of chosen pivot');
+     switchEvidence[side][ev.classification]++;
+    }
     const key=[ci,ri,x.id,si,reverse].join(':');
     if(policy==='autonomous')paired.set(key,{won:r.won,actions});
     else{
@@ -189,6 +196,7 @@ test('H-M11/H-M12 preregistered paired full battles and bench survival',{skip},a
      if(faintCount(r.log,r.foeSide)===0)out.lossWithAllFoeAlive++;
      if(!out.firstLoss)out.firstLoss={seed,reverse,turns:r.turns,
        foeFaints:faintCount(r.log,r.foeSide),actions,continuation,
+       switchAudit,
        early:earlyLines(r.log,r.ownSide,4)};
     }
     ownActions.push(actions.ownT1+' / '+actions.ownT2);
@@ -212,6 +220,8 @@ test('H-M11/H-M12 preregistered paired full battles and bench survival',{skip},a
    preregistered:'PR104 comment 6588145004',synthetic:true,
    humanWinRate:false,foeTrioPreselectedForStress:true,
    rosterAdopted:false,independentSeedsPerCell:2,sideReversals:2,
-   games,errors,pivotPairs,noPivotPairs,observed,examples,unforcedExamples,lockedSwitchExamples,rows
+   games,errors,pivotPairs,noPivotPairs,switchEvidence,
+   switchCaveat:'switch counts are correlated public events, not voluntary decision counts',
+   observed,examples,unforcedExamples,lockedSwitchExamples,rows
  }));
 });
