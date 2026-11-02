@@ -7,6 +7,7 @@
 // actual opponent three/sets are not used in selection or pivot decisions.
 const test=require('node:test');
 const assert=require('node:assert/strict');
+const {createHash}=require('node:crypto');
 const {load,hashSeed,normalize}=require('../lab');
 const {reportedLive}=require('../reported-live-roster-20261027');
 const {archetypes,variants}=require('../fixtures');
@@ -83,7 +84,7 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  for(const [ci,c] of scenarios.entries())for(const mode of ['autonomous','public-primarina-pivot']){
   const row={case:c.id,opponentThree:c.trio,opponentT1:mode,alternatives:{}};
   for(const [name,three] of Object.entries(candidates)){
-   const out={three,wins:0,losses:0,t1:[],t2:[],lossExample:null};
+   const out={three,wins:0,losses:0,t1:[],t2:[],fullActionHashes:[],decisionSamples:[],lossExample:null};
    for(let s=0;s<2;s++)for(const reverse of [false,true]){
     const seed=hashSeed(11027000+ci*100+s);
     const r=await battle(sim,clone(own),clone(c.team),seed,{
@@ -97,6 +98,12 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
     const a=first(r.log,r.ownSide);
     out.t1.push(a.oursT1+' | '+a.enemyT1);
     out.t2.push(a.oursT2+' | '+a.enemyT2);
+    // Full executed actions may vary due to RNG/forced replacements. Counting
+    // different action traces does NOT imply distinct rational strategies.
+    const events=executedEvents(r.log,r.ownSide,r.foeSide,Infinity);
+    const fullHash=createHash('sha256').update(JSON.stringify(events)).digest('hex').slice(0,16);
+    out.fullActionHashes.push(fullHash);
+    out.decisionSamples.push({seed,reverse,won:r.won,fullHash});
     if(!r.won&&!out.lossExample)
       out.lossExample={seed,reverse,firstTurns:earlyLines(r.log,r.ownSide,3)};
     if(mode==='public-primarina-pivot'&&three[0]==='Primarina'){
@@ -106,6 +113,16 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
     }
    }
    assert.equal(out.wins+out.losses,4);
+   const early=out.t1.map((x,i)=>x+' / '+out.t2[i]);
+   out.distinctT1=new Set(out.t1).size;
+   out.distinctT2=new Set(out.t2).size;
+   out.distinctT1T2=new Set(early).size;
+   out.distinctFullActionTraces=new Set(out.fullActionHashes).size;
+   // Two independent RNG seeds x two seat reversals do not equal four
+   // independently chosen policies. These are reproducible observations.
+   out.independentSeedValues=2;
+   out.seatReversalsPerSeed=2;
+   out.allFourRepeatT1T2=out.distinctT1T2===1;
    row.alternatives[name]=out;
   }
   rows.push(row);
@@ -124,6 +141,17 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  assert.equal(robustness.byCandidate.P2_primarina_rotom_metagross.cases['U-K-sun-ground'].worstWins,0);
  assert.ok(Object.values(robustness.byCandidate).every(x=>!x.supportedAcrossAllTestedBranches),
    'none of these five preregistered candidates survives every tested counter-branch');
+ const allOutcomes=rows.flatMap(r=>Object.values(r.alternatives));
+ const diversity={cells:allOutcomes.length,games:counts.games,
+  repeatedT1T2Cells:allOutcomes.filter(x=>x.allFourRepeatT1T2).length,
+  repeatedFullActionTraceCells:allOutcomes.filter(x=>x.distinctFullActionTraces===1).length,
+  distinctEarlyPerCell:allOutcomes.map(x=>x.distinctT1T2),
+  distinctFullPerCell:allOutcomes.map(x=>x.distinctFullActionTraces),
+  seedValuesPerCell:2,seatReversalsPerSeed:2,
+  warning:'4/4 is four reproducible outcomes, NOT four independent strategic decisions; identical T1/T2 traces are near-duplicates; even distinct full-action traces may be RNG rather than rationality'};
+ assert.equal(diversity.cells,20,'20 scenario x opponent policy x selection cells');
+ assert.ok(diversity.repeatedT1T2Cells>=0&&diversity.repeatedT1T2Cells<=20);
+ t.diagnostic('M7_DECISION_DIVERSITY '+JSON.stringify(diversity));
  t.diagnostic('M7_PUBLIC_BRANCH_ROBUSTNESS '+JSON.stringify(robustness));
  t.diagnostic('M7_PUBLIC_PIVOT_CONTINUITY '+JSON.stringify({
   declaration:'PR104 issuecomment-6569056635',usedPublicSixes:true,newHoldout:false,
