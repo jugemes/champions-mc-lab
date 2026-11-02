@@ -241,3 +241,12 @@
 
 
 **追検：T4命中後の敗因を一手に還元しない**：[Actions #41410784080](https://github.com/jugemes/champions-mc-lab/actions/runs/41410784080) job `125163107153` も **success、342 tests / 335 pass / 0 fail / 7 TODO、12チーム合法**。追加ログ取得だけの変更を含むhead `44bb643b5b8ed6bf3c53c1baa34275a411446117` を再検収した。T4ハイドロポンプ**命中後に敗北した代表例**は、相手すてみ分岐ではT5のこちらのおにび外れ、サーフゴー交代分岐ではT5の追加ハイドロポンプ外れ、ウルガモス交代分岐ではT5の追加ハイドロポンプ外れを含む。従って「T4命中しても敗北」は事実だが、**T4ハイドロポンプの一手そのものが不合理だった証明ではない**。後続の技選択、命中運、相手の選出・行動を分離して評価する必要がある。先行の4/4は過信できず、実戦採用は引き続き保留。
+
+
+## 2026-11-02 18時台｜新しい混合公開6 holdout の事前登録と試験実装（検収前）
+
+PR #104 [事前登録 #6573635319](https://github.com/jugemes/champions-mc-lab/pull/104#issuecomment-6573635319) を**試験結果より先**に記録した。新しい組合せH-M1（Pelipper/Swampert/Archaludon/Toxapex/Umbreon/Dragonite）とH-M2（Garchomp/Golisopod/Gengar/Corviknight/Slowbro/Rillaboom）は既存の合法fixtureを再構成した合成公開6であり、実ランク遭遇や使用率の証拠ではない。個別ポケモンは既知だが、**この6種の組合せで候補を事後調整していない**ことをholdout条件とする。
+
+実装ファイル `test/chatgpt-m7-mixed-public6-holdout-20261102.test.js`（commit `7bf36ca5a84fafcac9316315451401dc9bc6250d`）。両公開6で異なる相手3＋先発3、相手T1自律／公開対面を用いた攻撃優先2、こちら固定3＋先発4、seed2、左右2＝192フルBattle。相手のみ `immuneAware100`。相手の実3/未公開技をこちらの選出器へ渡すことはないが、**こちらの4候補は事前固定の比較仮説であり、汎用の公開6→3選出AIを実証したわけではない**。相手の自律・攻撃優先を人間合理性と認証しない。異なるT1/T2実行行動の数、敗北分岐、控えの継続打点を別評価し、合計勝数で採用しない。
+
+**実施状態**：GitHubへコードと事前登録を書き込み済み。CIログの成功とClaude本人の直近変更への独立レビュー、ChatGPT再反証を確認するまでは**NOT READY**。結果を見て候補・敵3・seedを変更しない。main、実戦6体・育成、Showdown pin、課金、自動mergeは不変更。
