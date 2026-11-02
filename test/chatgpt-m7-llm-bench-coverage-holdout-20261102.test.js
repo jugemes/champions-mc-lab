@@ -140,6 +140,8 @@ test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot cont
   }
   assert.equal(games,2*3*2*5*2*2);
   assert.equal(noPivotPairs+pivotPairs,games/2);
+  assert.ok(noPivotPairs>0,'must include unchanged policy controls');
+  assert.ok(pivotPairs>0,'must actually execute at least one T1 pivot');
   t.diagnostic('M7_LLM_BENCH_COVERAGE_PREDECLARED '+JSON.stringify({
     predeclaredAt:'PR104 issuecomment-6579814402',
     syntheticPublicSix:true,humanOpponentOptimalityNotCertified:true,
