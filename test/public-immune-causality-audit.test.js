@@ -22,10 +22,11 @@ test('separates surprise defender switch from stationary target and forced move'
  ];
  const a=classifyExecutedImmunities(log,'p1','p2',req);
  assert.deepEqual(a.map(x=>x.classification),[
-  'defender-changed-this-turn','unchanged-target-unforced-request','forced-request']);
+  'defender-changed-this-turn','unchanged-target-unforced-request','locked-move-switch-available']);
  assert.equal(a[0].defenderChangeKind,'switch');
  assert.equal(a[1].reason,'[from] ability: Good as Gold');
  assert.equal(a[2].lockReason,'choice');
+ assert.equal(a[2].stayDecision,'switch-available');
 });
 test('does not treat preview switch or enemy attack as own immunity',()=>{
  const log='|switch|p2a: Gholdengo|Gholdengo, L50|100/100\n'+
@@ -115,4 +116,16 @@ test('prior-turn immunity tracking is symmetric for the opponent side',()=>{
  ]);
  assert.deepEqual(a.map(x=>x.priorSameStintCount),[0,1]);
  assert.equal(a[1].classification,'unchanged-target-unforced-request');
+});
+
+test('a locked move is forced only if switching is impossible; missing availability stays unknown',()=>{
+ const log='|turn|4\\n|move|p1a: Garchomp|Earthquake|p2a: Skarmory\\n|-immune|p2a: Skarmory';
+ const classify=(r)=>classifyExecutedImmunities(log,'p1','p2',[r])[0];
+ const base={side:'p1',turn:4,locked:true,lockReason:'choice'};
+ assert.equal(classify({...base,canSwitch:true}).classification,'locked-move-switch-available');
+ assert.equal(classify({...base,canSwitch:false}).classification,'forced-request');
+ assert.equal(classify(base).classification,'locked-move-switch-unknown');
+ assert.equal(classify({...base,canSwitch:true}).stayDecision,'switch-available');
+ assert.equal(classify({...base,canSwitch:false}).stayDecision,'switch-unavailable');
+ assert.equal(classify({...base,canSwitch:true}).observedOnly,true);
 });
