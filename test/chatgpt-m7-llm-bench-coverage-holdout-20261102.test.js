@@ -85,6 +85,7 @@ test('H-M5/H-M6 frozen public six, item clause and all trios legal',{skip},()=>{
 test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot controls in FULL Showdown battles',{skip},async t=>{
   const sim=load(),rows=[],paired=new Map();
   let games=0,errors=0,immuneEvents=0,requestedPivots=0,noPivotPairs=0,pivotPairs=0;
+  const immuneSamples=[];
   for(const [ci,c] of cases.entries())
   for(const [ri,foeThree] of c.rival.entries())
   for(const policy of ['autonomous','public-pivot-T1']){
@@ -123,7 +124,20 @@ test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot cont
         games++;errors+=r.errors;out.wins+=Number(r.won);out.losses+=Number(!r.won);
         ownActions.push(actions.ownT1+' / '+actions.ownT2);
         foeActions.push(actions.foeT1+' / '+actions.foeT2);
-        immuneEvents+=immuneCount(r.log,r.ownSide);
+        const immune=immuneCount(r.log,r.ownSide);
+        immuneEvents+=immune;
+        if(immune&&immuneSamples.length<16){
+          const lines=r.log.split('\\n');
+          let turn=0,previousMove='';
+          for(const line of lines){
+            if(line.startsWith('|turn|'))turn=Number(line.slice(6));
+            if(line.startsWith('|move|'))previousMove=line;
+            if(line.startsWith('|-immune|'+r.ownSide+'a:')&&immuneSamples.length<16)
+              immuneSamples.push({case:c.id,foeThree,candidate:x.id,policy,
+                seed,reverse,turn,previousMove,immuneLine:line,
+                maskedCount:r.rivalImmuneAudit?.masked?.length||0});
+          }
+        }
         if(!r.won){
           if(faintCount(r.log,r.foeSide)===0)out.lossWithAllFoeAlive++;
           if(!out.firstLoss)out.firstLoss={seed,reverse,turns:r.turns,
@@ -148,6 +162,6 @@ test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot cont
     enemyThreeFixedForControlledSensitivity:true,
     selectionNeverReadsHiddenOpponentSet:true,independentSeedsPerCell:2,
     sideReversals:2,pairedPolicySeed:true,rosterAdopted:false,
-    games,errors,immuneEvents,requestedPivots,noPivotPairs,pivotPairs,rows
+    games,errors,immuneEvents,immuneSamples,requestedPivots,noPivotPairs,pivotPairs,rows
   }));
 });
