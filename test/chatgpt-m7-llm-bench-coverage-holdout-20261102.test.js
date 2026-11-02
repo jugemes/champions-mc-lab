@@ -127,7 +127,7 @@ test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot cont
         const immune=immuneCount(r.log,r.ownSide);
         immuneEvents+=immune;
         if(immune&&immuneSamples.length<16){
-          const lines=r.log.split('\\n');
+          const lines=r.log.split('\n');
           let turn=0,previousMove='';
           for(const line of lines){
             if(line.startsWith('|turn|'))turn=Number(line.slice(6));
