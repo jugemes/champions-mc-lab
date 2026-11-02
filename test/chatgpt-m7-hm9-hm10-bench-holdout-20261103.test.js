@@ -65,7 +65,12 @@ function benchContinuation(log,ownSide,foeSide,three){
  const counts=Object.fromEntries(three.slice(1).map(s=>[s,0]));
  for(const e of moves){
   const actor=e.actor.toLowerCase();
-  const s=three.slice(1).find(x=>actor===x.toLowerCase()||actor.startsWith(x.toLowerCase()+'-'));
+  // Showdown's active name for Rotom-Wash is commonly just "Rotom".
+  const s=three.slice(1).find(x=>{
+   const species=x.toLowerCase();
+   return actor===species||actor.startsWith(species+'-')||
+    (species==='rotom-wash'&&actor==='rotom');
+  });
   if(s)counts[s]++;
  }
  return {postT2OwnExecutedMoves:moves.length,
@@ -107,7 +112,7 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
  let games=0,errors=0,pivotPairs=0,noPivotPairs=0;
  const observed={ownImmunity:0,previouslyObserved:0,changedThisTurn:0,
    forced:0,unchangedUnforced:0};
- const examples=[];
+ const examples=[],unforcedExamples=[];
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
  for(const policy of ['autonomous','public-pivot-T1']){
@@ -155,7 +160,12 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
      }
      if(e.classification==='defender-changed-this-turn')observed.changedThisTurn++;
      if(e.classification==='forced-request')observed.forced++;
-     if(e.classification==='unchanged-target-unforced-request')observed.unchangedUnforced++;
+     if(e.classification==='unchanged-target-unforced-request'){
+      observed.unchangedUnforced++;
+      if(unforcedExamples.length<12)unforcedExamples.push({case:c.id,foeThree,
+       own:x.id,policy,turn:e.turn,move:e.move,target:e.target,
+       prior:e.priorSameStintCount,seed,reverse});
+     }
     }
     games++;errors+=r.errors;
     out.wins+=Number(r.won);out.losses+=Number(!r.won);
@@ -185,6 +195,6 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
    preregistered:'PR104 comment 6583952393',synthetic:true,
    humanWinRate:false,foeTrioPreselectedForStress:true,
    rosterAdopted:false,independentSeedsPerCell:2,sideReversals:2,
-   games,errors,pivotPairs,noPivotPairs,observed,examples,rows
+   games,errors,pivotPairs,noPivotPairs,observed,examples,unforcedExamples,rows
  }));
 });
