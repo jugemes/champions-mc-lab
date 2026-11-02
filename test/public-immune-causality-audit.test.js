@@ -99,3 +99,20 @@ test('same-turn defender switch is still a switch surprise even after a prior im
  assert.equal(a[1].classification,'defender-changed-this-turn');
  assert.equal(a[1].previouslyObservedSameStintImmunity,false);
 });
+
+test('prior-turn immunity tracking is symmetric for the opponent side',()=>{
+ const log=[
+  '|turn|1',
+  '|move|p2a: Garchomp|Earthquake|p1a: Rotom',
+  '|-immune|p1a: Rotom|[from] ability: Levitate',
+  '|turn|2',
+  '|move|p2a: Garchomp|Earthquake|p1a: Rotom',
+  '|-immune|p1a: Rotom|[from] ability: Levitate'
+ ].join('\n');
+ const a=classifyExecutedImmunities(log,'p2','p1',[
+  {side:'p2',turn:1,locked:false,canSwitch:true},
+  {side:'p2',turn:2,locked:false,canSwitch:true}
+ ]);
+ assert.deepEqual(a.map(x=>x.priorSameStintCount),[0,1]);
+ assert.equal(a[1].classification,'unchanged-target-unforced-request');
+});
