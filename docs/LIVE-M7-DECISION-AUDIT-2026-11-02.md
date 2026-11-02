@@ -323,3 +323,20 @@ PR #104 [事前登録 #6573635319](https://github.com/jugemes/champions-mc-lab/p
 観測専用 `public-immune-causality-audit.js` に `previouslyObservedSameStintImmunity` / `priorSameStintCount` を追加。相手の同じ連続出場中に同じ技が実際に無効だったという**過去の公開イベントのみ**を根拠にする。交代、強制交代、Illusion解除、フォルム・特性変更では証拠を破棄する。これは後知恵の対戦結果や非公開特性を事前に見たという主張ではない。過去の無効後に場の効果・特性が変化する可能性もあるため、**「前に無効だった」ことは「今も無効確定」や「必ずプレミ」の証明ではない**。Choice/Encore等の強制も別に確認する。
 
 この観測器はBotの技選択を変更せず、現行6体・Showdown pin・対戦fixture・seedを変更しない。CI成功・Claude独立レビューを確認するまでは**実戦選出/育成の採用なし**。Claudeが本差分を独立監査し、ChatGPTが反証・固定CI再検収するまで共同1サイクルNOT READY。
+
+
+## 2026-11-03 04時台｜Choice固定と「交代不可」を混同した無効技監査の修正（同じ192実Battle）
+
+**事前修正宣言**：PR #104 [comment #6586531096](https://github.com/jugemes/champions-mc-lab/pull/104#issuecomment-6586531096)。前回のH-M9/H-M10を**同じ公開6・相手3/先発・T1分岐・自軍4候補・seed2・左右2の192フルBattle**で再実行。新規対面・seed・実戦6体変更はなし。固定Showdown `3a766f2cfb5e51c1e428cfe87d0dba91a8f01640`。
+
+**コードの汎用的な2欠陥**：
+- `misplay-tags-v3.js/requestInfo` が実際の持ち物名 `Choice Scarf` を小文字限定の `/^choice/` で調べていたため、`lockReason='other'` に誤分類。大文字小文字を区別しない判定に修正し、実表記・Encore優先・交代可を回帰テスト化。
+- `public-immune-causality-audit.js` が `locked=true` の全イベントを `forced-request` と分類。**Choiceで技は固定されても、交代可能なら居座りは選択**である。 `locked-move-switch-available`、`forced-request`（交代不可）、`locked-move-switch-unknown` に分離。ログだけでプレミ判定はしない。
+
+**実CI検収**：[Actions #41511806102](https://github.com/jugemes/champions-mc-lab/actions/runs/41511806102)、job `125505247785`、**completed success、377 tests / 370 pass / 0 fail / 7既存TODO、12チーム合法**。前回のテスト追加時 [CI #41511070427](https://github.com/jugemes/champions-mc-lab/actions/runs/41511070427) は合成ログの改行を二重エスケープしたテスト記述ミスで **1 fail**。その失敗を修正し、上記固定CIで全件再検収した。新しい検証に合わせて実戦判断の結果を選び直していない。
+
+**ログから再集計した無効イベント**：計 **56件**は前回と同一。内訳は、同ターンの相手交代 **8**、Choice等で**技は固定だが交代可能28**、交代不能で技固定 **0**、固定技で交代可否不明 **0**、対象変化なし・技非固定 **20**。従来の「強制28」は誤表現だった。28件の代表はH-M9でガブリアスが地震に固定され、相手エアームドへの交代後も地震を続けた例。request情報上は**合法な交代が可能**。ただし交代先への被弾・まきびし・控えの継続打点を比較していないので、28件を28プレミとも、交代すれば勝てたとも断定しない。過去に公開したH-M9/H-M10の勝数は変わらず、**構築・選出採用の根拠にはならない**。
+
+**実戦判断への示唆（未採用の監査方針）**：こだわり固定後に公開された無効先を前にした場合、「技が選べない」と「交代できない」を別判定し、交換先の生存・交代時被弾・次の打点・相手控えを複数対面で比較する。相手の公開特性に無効な状態技を非固定で選ぶ問題も別に残る。特定のエアームド対面専用ifや人工勝率による構築採用はしない。
+
+**共同ゲート**：今回のコードとCIはChatGPT自身の作業。**Claude本人の直近差分への独立レビュー／修正書戻しは未受領**であり、共同1サイクルNOT READY。Claude受領後に指摘反証・必要修正・固定CI再検収する。main/本人実戦6体/育成/Showdown pin/追加課金/自動mergeは不変更。
