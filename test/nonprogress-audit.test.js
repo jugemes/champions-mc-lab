@@ -22,6 +22,8 @@ test('10 repeated attacks vs 8 heal turns are candidate only, not proof of AI mi
   assert.ok(f,'must detect repeated attacking into repeated healing');
   assert.equal(f.attackTurns,10);
   assert.equal(f.healingTurns,8);
+  assert.equal(f.recoveryMoveTurns,8);
+  assert.equal(f.recoveryMoveLoopCandidate,true);
   assert.equal(f.repeatedMove,'Psychic Fangs');
   assert.equal(f.ppKnown,false);
   assert.equal(f.attackerEncoreObserved,false);
@@ -80,6 +82,37 @@ test('a publicly lost Choice item is not treated as a current lock',()=>{
  assert.equal(f.attackerChoiceRevealed,false);
 });
 
+test('residual item healing is not misreported as a used recovery move',()=>{
+ const log=['|switch|p1a: Metagross|Metagross, L50|157/157',
+   '|switch|p2a: Umbreon|Umbreon, L50|172/172',
+   ...[1,2,3,4].flatMap(t=>['|turn|'+t,
+     '|move|p1a: Metagross|Psychic Fangs|p2a: Umbreon',
+     '|-damage|p2a: Umbreon|120/172',
+     '|move|p2a: Umbreon|Foul Play|p1a: Metagross',
+     '|-heal|p2a: Umbreon|130/172|[from] item: Leftovers'])].join('\\n');
+ const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
+ assert.ok(f,'residual healing can still warrant an HP-progress audit');
+ assert.equal(f.healingTurns,4);
+ assert.equal(f.recoveryMoveTurns,0);
+ assert.equal(f.otherHealingOnlyTurns,4);
+ assert.equal(f.recoveryMoveLoopCandidate,false);
+});
+test('public Roost plus residual recovery is one recovery-move turn, not two',()=>{
+ const log=['|switch|p1a: Metagross|Metagross, L50|157/157',
+   '|switch|p2a: Salamence|Salamence, L50|172/172',
+   ...[1,2,3].flatMap(t=>['|turn|'+t,
+     '|move|p1a: Metagross|Psychic Fangs|p2a: Salamence',
+     '|-damage|p2a: Salamence|70/172',
+     '|move|p2a: Salamence|Roost|p2a: Salamence',
+     '|-heal|p2a: Salamence|150/172|[from] move: Roost',
+     '|-heal|p2a: Salamence|160/172|[from] item: Leftovers'])].join('\\n');
+ const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
+ assert.ok(f);
+ assert.equal(f.healingTurns,3);
+ assert.equal(f.recoveryMoveTurns,3);
+ assert.equal(f.otherHealingOnlyTurns,0);
+ assert.equal(f.recoveryMoveLoopCandidate,true);
+});
 test('invalid sides and impossible thresholds fail safely',()=>{
  assert.throws(()=>auditRepeatedHealing('',{ownSide:'p3'}));
  assert.throws(()=>auditRepeatedHealing('',{minAttacks:0}));
