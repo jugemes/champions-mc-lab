@@ -111,8 +111,8 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
  const sim=load(),paired=new Map(),rows=[];
  let games=0,errors=0,pivotPairs=0,noPivotPairs=0;
  const observed={ownImmunity:0,previouslyObserved:0,changedThisTurn:0,
-   forced:0,unchangedUnforced:0};
- const examples=[],unforcedExamples=[];
+   forced:0,lockedSwitchAvailable:0,lockedSwitchUnknown:0,unchangedUnforced:0};
+ const examples=[],unforcedExamples=[],lockedSwitchExamples=[];
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
  for(const policy of ['autonomous','public-pivot-T1']){
@@ -160,6 +160,13 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
      }
      if(e.classification==='defender-changed-this-turn')observed.changedThisTurn++;
      if(e.classification==='forced-request')observed.forced++;
+     if(e.classification==='locked-move-switch-unknown')observed.lockedSwitchUnknown++;
+     if(e.classification==='locked-move-switch-available'){
+      observed.lockedSwitchAvailable++;
+      if(lockedSwitchExamples.length<12)lockedSwitchExamples.push({case:c.id,foeThree,
+       own:x.id,policy,turn:e.turn,move:e.move,target:e.target,
+       lockReason:e.lockReason,prior:e.priorSameStintCount,seed,reverse});
+     }
      if(e.classification==='unchanged-target-unforced-request'){
       observed.unchangedUnforced++;
       if(unforcedExamples.length<12)unforcedExamples.push({case:c.id,foeThree,
@@ -195,6 +202,6 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
    preregistered:'PR104 comment 6583952393',synthetic:true,
    humanWinRate:false,foeTrioPreselectedForStress:true,
    rosterAdopted:false,independentSeedsPerCell:2,sideReversals:2,
-   games,errors,pivotPairs,noPivotPairs,observed,examples,unforcedExamples,rows
+   games,errors,pivotPairs,noPivotPairs,observed,examples,unforcedExamples,lockedSwitchExamples,rows
  }));
 });
