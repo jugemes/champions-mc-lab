@@ -95,7 +95,8 @@ test('H-M13/H-M14 public-pivot only uses visible leads and selected legal bench'
   assert.equal(publicPivot(maybeTrapped,{foeActive:foe},{turn:1}),null);
   const fainted=req(self,[target]);fainted.side.pokemon[1].condition='0 fnt';
   assert.equal(publicPivot(fainted,{foeActive:foe},{turn:1}),null);
-  assert.equal(publicPivot(q,{foeActive:foe},{turn:1,forceSwitch:true}),null);
+  const forced=req(self,[target]);forced.forceSwitch=true;
+  assert.equal(publicPivot(forced,{foeActive:foe},{turn:1}),null);
  }
 });
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
