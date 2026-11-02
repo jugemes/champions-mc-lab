@@ -1,0 +1,41 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {classifyExecutedImmunities}=require('../public-immune-causality-audit');
+test('separates surprise defender switch from stationary target and forced move',()=>{
+ const log=[
+  '|turn|1',
+  '|switch|p2a: Umbreon|Umbreon, L50|100/100',
+  '|move|p1a: Metagross|Psychic Fangs|p2a: Umbreon',
+  '|-immune|p2a: Umbreon',
+  '|turn|2',
+  '|move|p1a: Rotom|Will-O-Wisp|p2a: Gholdengo',
+  '|-immune|p2a: Gholdengo|[from] ability: Good as Gold',
+  '|turn|3',
+  '|move|p1a: Garchomp|Earthquake|p2a: Rotom',
+  '|-immune|p2a: Rotom|[from] ability: Levitate'
+ ].join('\n');
+ const req=[
+  {side:'p1',turn:1,locked:false,canSwitch:true},
+  {side:'p1',turn:2,locked:false,canSwitch:true},
+  {side:'p1',turn:3,locked:true,lockReason:'choice',canSwitch:true}
+ ];
+ const a=classifyExecutedImmunities(log,'p1','p2',req);
+ assert.deepEqual(a.map(x=>x.classification),[
+  'defender-changed-this-turn','unchanged-target-unforced-request','forced-request']);
+ assert.equal(a[0].defenderChangeKind,'switch');
+ assert.equal(a[1].reason,'[from] ability: Good as Gold');
+ assert.equal(a[2].lockReason,'choice');
+});
+test('does not treat preview switch or enemy attack as own immunity',()=>{
+ const log='|switch|p2a: Gholdengo|Gholdengo, L50|100/100\n'+
+  '|turn|1\n|move|p2a: Gholdengo|Shadow Ball|p1a: Metagross\n'+
+  '|move|p1a: Metagross|Psychic Fangs|p2a: Gholdengo\n'+
+  '|-immune|p1a: Metagross';
+ assert.deepEqual(classifyExecutedImmunities(log,'p1','p2',[]),[]);
+});
+test('missing request remains unclassified rather than an avoidable mistake',()=>{
+ const log='|turn|1\n|move|p1a: Rotom|Will-O-Wisp|p2a: Gholdengo\n|-immune|p2a: Gholdengo';
+ const a=classifyExecutedImmunities(log,'p1','p2',[]);
+ assert.equal(a[0].classification,'unchanged-target-request-unknown');
+});
