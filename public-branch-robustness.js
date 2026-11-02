@@ -35,6 +35,8 @@ function assessPublicBranchRobustness(rows) {
         branches[mode] = {wins: result.wins, games: result.wins + result.losses};
       }
       const values = Object.values(branches);
+      if (new Set(values.map(x=>x.games)).size!==1)
+        throw Error('counterfactual policies must have equal trial counts within public six');
       cases[id] = {
         branches,
         worstWins: Math.min(...values.map(x=>x.wins)),
