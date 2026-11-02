@@ -191,6 +191,8 @@ test('T4 choice cannot assume unseen rival action: 4 legal Rotom moves vs 3 publ
  }
  assert.equal(Object.keys(cells).length,12);
  const rows=Object.values(cells);
+ assert.equal(new Set(rows.map(x=>x.ownMove)).size,4,'all legal Rotom moves compared');
+ assert.equal(new Set(rows.map(x=>x.rivalPlan)).size,3,'all opposing strategies compared');
  assert.ok(rows.every(x=>x.games===4),'2 independent seeds x both sides per branch');
  const robust=ourMoves.map(move=>{
   const picks=rows.filter(x=>x.ownMove===move);
