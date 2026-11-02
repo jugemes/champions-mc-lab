@@ -273,6 +273,7 @@ test('T4 Hydro Pump across new RNG seeds: separate misses from branch rationalit
   }
  }
  assert.equal(rows.length,nSeeds*2*rivalPlans.length);
+ assert.equal(new Set(rows.map(x=>x.rival)).size,3,'all predeclared opponent T4 options executed');
  const result=rivalPlans.map(x=>{
   const cases=rows.filter(y=>y.rival===x.id);
   assert.equal(cases.length,nSeeds*2);
