@@ -401,6 +401,13 @@ test('P0 autonomous opposing 6-to-3 and T1/T2 full Battle diagnostic',{skip},asy
    const a=await play(...args,policies.legacy,false,'autonomous','autonomous');
    const z=await play(sim,structuredClone(own),structuredClone(c.team),
      seed,reverse,branch,policies.continuity,false,'autonomous','autonomous');
+   // Rival selection must be a legal public-six subset, not a private set leak.
+   for(const result of [a,z]){
+    assert.equal(new Set(result.rivalThree).size,3,'three distinct opposing selections');
+    for(const species of result.rivalThree)
+     assert.ok(c.team.some(p=>p.species===species),'rival picks from its six');
+    assert.ok(result.rivalThree.includes(result.rivalLead),'lead belongs to chosen trio');
+   }
    row.conditions++;row.oldWins+=+a.won;row.newWins+=+z.won;
    row.gains+=+(!a.won&&z.won);row.losses+=+(a.won&&!z.won);
    row.errors+=a.errors+z.errors;
