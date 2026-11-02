@@ -105,7 +105,8 @@ test('U-L Mega Salamence: compare actually executed T1 alternatives vs setup AND
  t.diagnostic('M7_SALAMENCE_T1_HUMAN_ACTION_COUNTERFACTUAL '+JSON.stringify({
   usedPublicSix:'U-L predeclared PR104 #6568257097',
   newHoldout:false,opponentHumanRationalityCertified:false,
-  noOpponentHiddenInfoUsedByPreview:true,
+  noPreviewPolicyInvoked:true,
+  opponentHiddenSetIsEngineFixtureOnly:true,
   testOnlyLegalSetHypothesis:true,
   note:'T1 engine outcomes only. T2/backline and alternative opponent three remain unresolved.',
   fullOneTurnEngineTrials:104,rows
