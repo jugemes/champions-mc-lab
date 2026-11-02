@@ -198,6 +198,10 @@ test('H-M9/H-M10 preregistered paired full battles and bench survival',{skip},as
  assert.equal(games,192);assert.equal(errors,0);
  assert.equal(pivotPairs+noPivotPairs,96);
  assert.ok(noPivotPairs>0);
+ assert.equal(observed.ownImmunity,
+  observed.changedThisTurn+observed.forced+observed.lockedSwitchAvailable+
+  observed.lockedSwitchUnknown+observed.unchangedUnforced,
+  'every observed immunity must have a documented decision/switch classification');
  t.diagnostic('M7_HM9_HM10_PREDECLARED '+JSON.stringify({
    preregistered:'PR104 comment 6583952393',synthetic:true,
    humanWinRate:false,foeTrioPreselectedForStress:true,
