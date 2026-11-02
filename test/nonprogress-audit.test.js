@@ -89,7 +89,7 @@ test('residual item healing is not misreported as a used recovery move',()=>{
      '|move|p1a: Metagross|Psychic Fangs|p2a: Umbreon',
      '|-damage|p2a: Umbreon|120/172',
      '|move|p2a: Umbreon|Foul Play|p1a: Metagross',
-     '|-heal|p2a: Umbreon|130/172|[from] item: Leftovers'])].join('\\n');
+     '|-heal|p2a: Umbreon|130/172|[from] item: Leftovers'])].join('\n');
  const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
  assert.ok(f,'residual healing can still warrant an HP-progress audit');
  assert.equal(f.healingTurns,4);
@@ -105,7 +105,7 @@ test('public Roost plus residual recovery is one recovery-move turn, not two',()
      '|-damage|p2a: Salamence|70/172',
      '|move|p2a: Salamence|Roost|p2a: Salamence',
      '|-heal|p2a: Salamence|150/172|[from] move: Roost',
-     '|-heal|p2a: Salamence|160/172|[from] item: Leftovers'])].join('\\n');
+     '|-heal|p2a: Salamence|160/172|[from] item: Leftovers'])].join('\n');
  const f=auditRepeatedHealing(log).findings.find(x=>x.attackSide==='p1');
  assert.ok(f);
  assert.equal(f.healingTurns,3);
