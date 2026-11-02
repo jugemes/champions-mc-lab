@@ -29,6 +29,22 @@ const cases=[
     ['Gengar','Corviknight','Slowbro'],
     ['Rillaboom','Golisopod','Slowbro']]}
 ];
+// Public-log diagnostic only: do not infer the rival's hidden set or the
+// choice made before our side's switch from the eventual immunity message.
+function immuneTraces(log,ownSide,foeSide){
+ let turn=0;const context=[],events=[];
+ for(const line of String(log).split('\n')){
+  if(line.startsWith('|turn|'))turn=Number(line.slice(6));
+  if(line.startsWith('|-immune|'+ownSide+'a:')){
+   const move=[...context].reverse().find(x=>x.startsWith('|move|'+foeSide+'a:'))||null;
+   const priorSwitch=context.slice(-14).filter(x=>x.startsWith('|switch|')||x.startsWith('|drag|'));
+   events.push({turn,immune:line,foeMove:move,priorSwitches:priorSwitch.slice(-3),
+     priorPublicEvents:context.slice(-6)});
+  }
+  if(line.startsWith('|')){context.push(line);if(context.length>16)context.shift();}
+ }
+ return events;
+}
 const candidates={
  A_reported:['Hydreigon','Metagross','Rotom-Wash'],
  B_rotom_primarina_metagross:['Rotom-Wash','Primarina','Metagross'],
@@ -62,7 +78,7 @@ test('H-M1/H-M2 previously uncombined sixes and fixed trios are legal',{skip},()
 });
 test('predeclared mixed public-six holdout: full 3v3 decisions across rival trios and T1 policies',{skip},async t=>{
  const sim=load(),dex=sim.Dex.mod('champions'),own=reportedLive();
- const rows=[];let games=0,errors=0,publicImmuneEvents=0;
+ const rows=[];let games=0,errors=0,publicImmuneEvents=0;const immuneSamples=[];
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
  for(const [pi,policy] of ['autonomous','public-attack-T1'].entries()){
@@ -83,6 +99,12 @@ test('predeclared mixed public-six holdout: full 3v3 decisions across rival trio
     out.foeT1.push(a.foeT1);out.foeT2.push(a.foeT2);
     const hits=r.log.split('\n').filter(l=>l.startsWith('|-immune|'+r.ownSide+'a:')).length;
     out.publicImmuneEvents+=hits;publicImmuneEvents+=hits;
+    if(hits){const traces=immuneTraces(r.log,r.ownSide,r.foeSide);
+      assert.equal(traces.length,hits,'every immunity event must be traceable');
+      immuneSamples.push({case:c.id,foeThree,policy,ownThree,seed,reverse,
+        rivalMasked:r.rivalImmuneAudit.masked.length,
+        traces:traces.slice(0,3)});
+    }
     if(!r.won&&!out.firstLoss)out.firstLoss={seed,reverse,turns:r.turns,
       early:earlyLines(r.log,r.ownSide,3)};
    }
@@ -105,6 +127,6 @@ test('predeclared mixed public-six holdout: full 3v3 decisions across rival trio
   opponentImmuneAwareOptIn:true,
   independentRivalTrioPolicies:6,
   rngAndSideRepetitionsPerCell:4,
-  games,errors,publicImmuneEvents,rows
+  games,errors,publicImmuneEvents,immuneSamples,rows
  }));
 });
