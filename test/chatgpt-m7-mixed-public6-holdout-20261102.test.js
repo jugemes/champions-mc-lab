@@ -103,7 +103,10 @@ test('predeclared mixed public-six holdout: full 3v3 decisions across rival trio
       assert.equal(traces.length,hits,'every immunity event must be traceable');
       immuneSamples.push({case:c.id,foeThree,policy,ownThree,seed,reverse,
         rivalMasked:r.rivalImmuneAudit.masked.length,
-        traces:traces.slice(0,3)});
+        traces:traces.slice(0,3).map(ev=>({...ev,
+          rivalRequest:r.reqLog.filter(q=>q.side===r.foeSide&&q.turn===ev.turn)
+            .map(q=>({lockReason:q.lockReason,locked:q.locked,canSwitch:q.canSwitch}))
+        }))});
     }
     if(!r.won&&!out.firstLoss)out.firstLoss={seed,reverse,turns:r.turns,
       early:earlyLines(r.log,r.ownSide,3)};
