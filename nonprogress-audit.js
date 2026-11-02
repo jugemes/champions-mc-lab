@@ -3,6 +3,14 @@
 // CANDIDATE for tactical non-progress, never an automatic misplay.
 // Only public Showdown protocol events are read. Unknown Choice, PP, and
 // private sets must NOT be inferred. This does not modify battle decisions.
+// Count a *used* self-recovery move only when the public log also shows
+// actual healing that turn. Residual Leftovers / terrain / abilities must not
+// be confused with an intentional recovery action. This is an observational
+// classification, not a judgment that the move was voluntary or optimal.
+const SELF_RECOVERY_MOVES=new Set([
+  'Roost','Recover','Slack Off','Moonlight','Synthesis','Morning Sun',
+  'Soft-Boiled','Shore Up','Milk Drink','Heal Order','Strength Sap','Rest'
+]);
 function sideOf(actor) {
   const m=String(actor||'').match(/^(p[12])[a-f]:/);
   return m?m[1]:null;
@@ -66,20 +74,26 @@ function auditRepeatedHealing(log,{ownSide='p1',minAttacks=3,minHealingTurns=2}=
     const commit=()=>{
       if(run.length>=minAttacks){
         const healingTurns=run.filter(r=>r.heals[defendingSide]>0).length;
+        const recoveryMoveTurns=run.filter(r=>r.heals[defendingSide]>0&&
+          r.moves[defendingSide].some(m=>SELF_RECOVERY_MOVES.has(m.move))).length;
+        const otherHealingOnlyTurns=healingTurns-recoveryMoveTurns;
         if(healingTurns>=minHealingTurns){
           const first=run[0],last=run[run.length-1];
           const start=first.hpBefore[defendingSide],end=last.hpAfter[defendingSide];
           findings.push({
             attackSide,defendingSide,attackActor:first.moves[attackSide][0].actor,
             repeatedMove:first.moves[attackSide][0].move,
-            fromTurn:first.turn,toTurn:last.turn,attackTurns:run.length,healingTurns,
+            fromTurn:first.turn,toTurn:last.turn,attackTurns:run.length,healingTurns,recoveryMoveTurns,otherHealingOnlyTurns,
+            recoveryMoveLoopCandidate:recoveryMoveTurns>=minHealingTurns,
+            defenderEncoreObserved:run.some(r=>r.moves[defendingSide].some(m=>m.encored)),
+            defenderChoiceRevealed:run.some(r=>r.moves[defendingSide].some(m=>m.choiceRevealed)),
             hpStart:start,hpEnd:end,hpNet:start===null||end===null?null:Number((end-start).toFixed(4)),
             attackerEncoreObserved:run.some(r=>r.moves[attackSide][0].encored),
             attackerChoiceRevealed:run.some(r=>r.moves[attackSide][0].choiceRevealed),
             boostTurns:run.filter(r=>r.boosts.p1||r.boosts.p2).length,
             forcedCantTurns:run.filter(r=>r.cant[attackSide]).length,
             ppKnown:false,
-            classification:'candidate-only; assess legality, PP, HP, KO line, voluntary choice and alternatives separately'
+            classification:'candidate-only; separate used recovery moves from passive/other healing; assess legality, PP, HP, KO line, forced moves and alternatives separately'
           });
         }
       }
