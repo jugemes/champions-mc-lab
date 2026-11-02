@@ -114,7 +114,8 @@ test('H-M3/H-M4 predeclared public sixes, opponent trios and own swap are M-C le
   [...baseline.filter(x=>x.species!=='Tyranitar').map(x=>x.species),'Rillaboom'].sort());
 });
 test('frozen mixed public sixes: rational-pivot counterfactual and roster-swap control in FULL battles',{skip},async t=>{
- const sim=load(),rows=[];let games=0,errors=0,immuneEvents=0,requestedPivots=0;
+ const sim=load(),rows=[],paired=new Map();
+ let games=0,errors=0,immuneEvents=0,requestedPivots=0,noPivotPairs=0,pivotPairs=0;
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.rival.entries())
  for(const [pi,policy] of ['autonomous','public-pivot-T1'].entries()){
@@ -126,7 +127,8 @@ test('frozen mixed public sixes: rational-pivot counterfactual and roster-swap c
      firstLoss:null};
    const ownActions=[],foeActions=[];
    for(let si=0;si<2;si++)for(const reverse of [false,true]){
-    const seed=hashSeed(11021100+ci*1000+ri*100+pi*10+si);
+    // Corrected paired A/B: same RNG seed for BOTH opponent T1 policies.
+    const seed=hashSeed(11021100+ci*1000+ri*100+si);
     let requested=false;
     const script=policy==='public-pivot-T1'?
       (req,bot,info)=>{const choice=publicPivot(req,bot,info);
@@ -137,6 +139,17 @@ test('frozen mixed public sixes: rational-pivot counterfactual and roster-swap c
     });
     assert.equal(r.errors,0,'all Showdown requests must be legal');
     const a=first(r.log,r.ownSide,r.foeSide);
+    const pairKey=[ci,ri,candidate.id,si,reverse].join(':');
+    if(policy==='autonomous'){paired.set(pairKey,{won:r.won,actions:a});}
+    else {
+      const old=paired.get(pairKey);
+      assert.ok(old,'autonomous control must precede policy arm');
+      if(!requested){
+        assert.equal(r.won,old.won,'no T1 pivot: win must be invariant on same seed');
+        assert.deepEqual(a,old.actions,'no T1 pivot: T1/T2 must be invariant');
+        noPivotPairs++;
+      }else pivotPairs++;
+    }
     if(requested){
       assert.match(a.foeT1,/switch:/,'public pivot must execute on T1');
       out.requestedPivots++;requestedPivots++;
@@ -167,6 +180,7 @@ test('frozen mixed public sixes: rational-pivot counterfactual and roster-swap c
   selectedOpponentThreeFixedAcrossDifferentOwnPublicSix:true,
   ownSelectionDoesNotReadOpponentHiddenSet:true,
   rosterSwapAdopted:false,independentSeedsPerCell:2,sideReversals:2,
-  games,errors,immuneEvents,requestedPivots,rows
+  games,errors,immuneEvents,requestedPivots,noPivotPairs,pivotPairs,
+  pairedPolicySeed:true,priorPolicyComparisonInvalid:'PR104 issuecomment-6578158667',rows
  }));
 });
