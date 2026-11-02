@@ -39,3 +39,12 @@ test('missing request remains unclassified rather than an avoidable mistake',()=
  const a=classifyExecutedImmunities(log,'p1','p2',[]);
  assert.equal(a[0].classification,'unchanged-target-request-unknown');
 });
+
+test('side reversal and forced drag are observed as defender change, not known target',()=>{
+ const log='|turn|4\n|drag|p1a: Umbreon|Umbreon, L50|90/100\n'+
+  '|move|p2a: Metagross|Psychic Fangs|p1a: Umbreon\n|-immune|p1a: Umbreon';
+ const a=classifyExecutedImmunities(log,'p2','p1',[{side:'p2',turn:4,locked:false,canSwitch:true}]);
+ assert.equal(a.length,1);
+ assert.equal(a[0].classification,'defender-changed-this-turn');
+ assert.equal(a[0].defenderChangeKind,'drag');
+});
