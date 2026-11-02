@@ -66,6 +66,20 @@ test('opposing tactical switch interrupts one continuous repetition window',()=>
  assert.equal(f[0].fromTurn,1);
  assert.equal(f[0].toTurn,3);
 });
+test('a publicly lost Choice item is not treated as a current lock',()=>{
+ const log=['|switch|p1a: Garchomp|Garchomp, L50|180/180',
+ '|switch|p2a: Salamence|Salamence, L50|172/172',
+ '|-item|p1a: Garchomp|Choice Scarf',
+ '|-enditem|p1a: Garchomp|Choice Scarf',
+ ...[1,2,3].flatMap(t=>['|turn|'+t,
+ '|move|p1a: Garchomp|Dragon Claw|p2a: Salamence',
+ '|move|p2a: Salamence|Roost|p2a: Salamence',
+ '|-heal|p2a: Salamence|170/172'])].join('\\n');
+ const f=auditRepeatedHealing(log).findings[0];
+ assert.ok(f);
+ assert.equal(f.attackerChoiceRevealed,false);
+});
+
 test('invalid sides and impossible thresholds fail safely',()=>{
  assert.throws(()=>auditRepeatedHealing('',{ownSide:'p3'}));
  assert.throws(()=>auditRepeatedHealing('',{minAttacks:0}));
