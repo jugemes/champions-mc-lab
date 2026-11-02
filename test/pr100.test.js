@@ -84,6 +84,21 @@ test('public grounding: Gravity / public Iron Ball remove Ground immunities from
   assert.deepEqual(Z.publicImmuneMoves100(dex,g,{foeActive:'Snorlax',foeAbility:'',foeItem:'',terrain:'gravity'}).map(x=>x.move),['Shadow Ball']);
 });
 
+test('public Electric-type Thunder Wave immunity: research-only mask and legal alternative',{skip},()=>{
+ const {load}=require('../lab');const dex=load().Dex.mod('champions');
+ const req=mkReq(mvs(['Thunder Wave','Surf','Psychic','Slack Off']),{item:'Eject Button',ability:'regenerator'});
+ const bot={foeActive:'Rotom-Wash',foeItem:'',foeAbility:'',terrain:'',switches:0};
+ assert.deepEqual(Y.publicImmuneMoves98(dex,req,bot).map(x=>x.move),[],
+   'old damage/type mask misses this status immunity');
+ assert.deepEqual(Z.publicImmuneMoves100(dex,req,bot).map(x=>x.move),['Thunder Wave']);
+ const script=r=>'move '+(r.active[0].moves.findIndex(m=>!m.disabled&&m.pp>0)+1);
+ const rec={};assert.equal(Z.immuneAware100(script,dex,rec)(req,bot,{turn:4}),'move 2');
+ assert.equal(rec.masked[0].move,'Thunder Wave');
+ assert.equal(rec.masked[0].replacement,'move:Surf');
+ // The same move remains legal when the public target is not Electric.
+ assert.deepEqual(Z.publicImmuneMoves100(dex,req,{...bot,foeActive:'Metagross'}).map(x=>x.move),[]);
+});
+
 // ---------- pinned Showdown battles ----------
 const validate=(sim,team)=>{const {normalize}=require('../lab');return sim.TeamValidator.get('gen9championsbssregmc').validateTeam(normalize(team))||[];};
 const forceMove=(name,turns)=>(req,bot,info)=>{if(!turns.includes(info.turn))return null;
