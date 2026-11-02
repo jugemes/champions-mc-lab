@@ -96,6 +96,10 @@ test('H-M11/H-M12 public pivot uses only active species and selected bench',()=>
 test('H-M11/H-M12 fixture and own three are legal in pinned M-C',{skip},()=>{
  const v=load().TeamValidator.get('gen9championsbssregmc');
  assert.equal(cases.length,2);assert.equal(candidates.length,5);
+ assert.deepEqual([...candidates[0].three].sort(),[...candidates[1].three].sort(),
+   'A/A2 must compare only the lead for the same selected three');
+ assert.notEqual(candidates[0].three[0],candidates[1].three[0],
+   'A/A2 must have different leads');
  for(const c of cases){
   assert.equal(c.team.length,6,c.id);
   assert.equal(new Set(c.team.map(x=>x.species)).size,6,c.id);
