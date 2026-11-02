@@ -119,7 +119,7 @@ test('M-7 T3 stall-loop intervention: same legal T1/T2 state, full 3v3 pinned Ba
   }
   rows.push(...pair);
  }
- assert.equal(rows.length,32);
+ assert.equal(rows.length,arms.length*2*2);
  const summary=arms.map(a=>{
   const subset=rows.filter(r=>r.arm===a.id);
   return {arm:a.id,games:subset.length,wins:subset.filter(r=>r.won).length,
