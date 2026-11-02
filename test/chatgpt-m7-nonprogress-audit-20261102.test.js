@@ -35,6 +35,9 @@ test('M-7 U-L stall-loop audit observes actual repeated attack/heal without decl
  assert.ok(hit,'expected the reused U-L repeated attack + enemy recovery counterexample');
  assert.ok(hit.attackTurns>=8);
  assert.ok(hit.healingTurns>=6);
+ assert.ok(hit.recoveryMoveTurns>=6,'actual Showdown Roost decisions, not just residual healing');
+ assert.equal(hit.recoveryMoveLoopCandidate,true);
+ assert.equal(hit.defenderEncoreObserved,false,'public Encore did not force the recovery moves');
  assert.equal(hit.ppKnown,false,'never infer private PP from public logs');
  assert.match(hit.classification,/candidate-only/);
 });
