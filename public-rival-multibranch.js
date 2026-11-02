@@ -11,12 +11,12 @@ function enumeratePublicRivalBranches(dex,ownKnownSix,opposingPublicSix,{limit=3
      new Set(opposingPublicSix.map(s=>dex.species.get(s).baseSpecies||s)).size!==6)
     throw Error('rival hypotheses require six public species and six known own sets');
   if(!Number.isInteger(limit)||limit<1||limit>12)throw Error('invalid branch limit');
-  const hit=(i,s)=>Math.max(0,...ownKnownSix[i].moves.map(m=>matchup(dex,ownKnownSix[i],s,m)));
-  const leadHit=(i)=>mean(opposingPublicSix.map(s=>hit(i,s)));
+  // Public preview ordering is not strategic evidence; stabilize floating sums.\n  const publicSpecies=[...opposingPublicSix].sort();\n  const hit=(i,s)=>Math.max(0,...ownKnownSix[i].moves.map(m=>matchup(dex,ownKnownSix[i],s,m)));
+  const leadHit=(i)=>mean(publicSpecies.map(s=>hit(i,s)));
   const rows=[];
   for(let a=0;a<6;a++)for(let b=a+1;b<6;b++)for(let c=b+1;c<6;c++){
     const trio=[a,b,c];
-    const coverage=opposingPublicSix.map(s=>trio.map(i=>hit(i,s)).sort((x,y)=>y-x));
+    const coverage=publicSpecies.map(s=>trio.map(i=>hit(i,s)).sort((x,y)=>y-x));
     const broad=mean(coverage.map(x=>x[0]));
     const backup=mean(coverage.map(x=>x[1]));
     const floor=Math.min(...coverage.map(x=>x[0]));
