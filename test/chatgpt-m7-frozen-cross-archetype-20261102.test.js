@@ -60,7 +60,7 @@ function firstActions(log,ownSide){
  return {ourT1:eventSignature(x.own,1),theirT1:eventSignature(x.rival,1),
    ourT2:eventSignature(x.own,2),theirT2:eventSignature(x.rival,2)};
 }
-function knownImmuneHits(log,ownSide){
+function observedImmuneHits(log,ownSide){
  return log.split('\n').filter(l=>l.startsWith('|-immune|'+ownSide+'a:')).length;
 }
 test('frozen U-K/U-L public sixes, three alternatives and M-7 candidates validate',{skip},()=>{
@@ -82,13 +82,13 @@ test('frozen U-K/U-L public sixes, three alternatives and M-7 candidates validat
  }
 });
 test('predeclared holdout: executed T1/T2 across opponent trio, action and immunity-policy branches',{skip},async t=>{
- const sim=load(),rows=[],totals={games:0,errors:0,publicImmunityHits:0,maskCorrections:0};
+ const sim=load(),rows=[],totals={games:0,errors:0,observedImmunityEvents:0,maskCorrections:0};
  for(const [ci,c] of cases.entries())for(const [ri,rival] of c.rival.entries())
  for(const [mi,mode] of ['autonomous','public-attack-T1'].entries())
  for(const immuneAware of [false,true]){
    const row={case:c.id,rival,mode,rivalImmuneAware:immuneAware,candidates:{}};
    for(const [label,three] of Object.entries(candidates)){
-     const outcome={three,wins:0,losses:0,masked:0,publicImmunityHits:0,
+     const outcome={three,wins:0,losses:0,masked:0,observedImmunityEvents:0,
        executedT1:[],executedT2:[],sampleLoss:null};
      for(let s=0;s<2;s++)for(const reverse of [false,true]){
        const seed=hashSeed(11024000+ci*1000+ri*100+mi*10+s);
@@ -104,8 +104,8 @@ test('predeclared holdout: executed T1/T2 across opponent trio, action and immun
        outcome.executedT2.push(actions.theirT2);
        const masks=result.rivalImmuneAudit?.masked?.length||0;
        outcome.masked+=masks;totals.maskCorrections+=masks;
-       const hits=knownImmuneHits(result.log,result.ownSide);
-       outcome.publicImmunityHits+=hits;totals.publicImmunityHits+=hits;
+       const hits=observedImmuneHits(result.log,result.ownSide);
+       outcome.observedImmunityEvents+=hits;totals.observedImmunityEvents+=hits;
        if(!result.won&&!outcome.sampleLoss)
          outcome.sampleLoss={seed,reverse,turns:result.turns,
            actions,firstTurns:earlyLines(result.log,result.ownSide,2)};
