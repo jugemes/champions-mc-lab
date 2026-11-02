@@ -119,7 +119,7 @@ test('prior-turn immunity tracking is symmetric for the opponent side',()=>{
 });
 
 test('a locked move is forced only if switching is impossible; missing availability stays unknown',()=>{
- const log='|turn|4\\n|move|p1a: Garchomp|Earthquake|p2a: Skarmory\\n|-immune|p2a: Skarmory';
+ const log='|turn|4\n|move|p1a: Garchomp|Earthquake|p2a: Skarmory\n|-immune|p2a: Skarmory';
  const classify=(r)=>classifyExecutedImmunities(log,'p1','p2',[r])[0];
  const base={side:'p1',turn:4,locked:true,lockReason:'choice'};
  assert.equal(classify({...base,canSwitch:true}).classification,'locked-move-switch-available');
