@@ -15,6 +15,7 @@ const {teams}=require('../holdout-20261030');
 const {battle,switchTo,earlyLines}=require('../encore-lead-audit');
 const {executedEvents,eventSignature}=require('../public-execution-audit');
 const {assessPublicBranchRobustness}=require('../public-branch-robustness');
+const {misplaysV3}=require('../misplay-tags-v3');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const clone=x=>structuredClone(x);
 const from=(team,s)=>clone(team.find(x=>x.species===s));
@@ -62,6 +63,17 @@ function longestSameMoveStreak(events){
  }
  return best;
 }
+function longestMoveDetail(events){
+ let prev=null,run=0,best={count:0,actor:null,move:null,fromTurn:null,toTurn:null};
+ for(const e of events){
+  if(e.kind!=='move'){prev=null;run=0;continue;}
+  run=prev&&prev.actor===e.actor&&prev.detail===e.detail&&e.turn===prev.turn+1?run+1:1;
+  if(run>best.count)best={count:run,actor:e.actor,move:e.detail,
+    fromTurn:e.turn-run+1,toTurn:e.turn};
+  prev=e;
+ }
+ return best;
+}
 function first(log,ownSide){
  const enemy=ownSide==='p1'?'p2':'p1';
  const ex=executedEvents(log,ownSide,enemy);
@@ -97,7 +109,7 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  for(const [ci,c] of scenarios.entries())for(const mode of ['autonomous','public-primarina-pivot']){
   const row={case:c.id,opponentThree:c.trio,opponentT1:mode,alternatives:{}};
   for(const [name,three] of Object.entries(candidates)){
-   const out={three,wins:0,losses:0,t1:[],t2:[],fullActionHashes:[],decisionSamples:[],ownMoveStreaks:[],rivalMoveStreaks:[],lossExample:null};
+   const out={three,wins:0,losses:0,t1:[],t2:[],fullActionHashes:[],decisionSamples:[],ownMoveStreaks:[],rivalMoveStreaks:[],repeatDetails:[],v3OwnTags:[],v3RivalTags:[],lossExample:null};
    for(let s=0;s<2;s++)for(const reverse of [false,true]){
     const seed=hashSeed(11027000+ci*100+s);
     const r=await battle(sim,clone(own),clone(c.team),seed,{
@@ -118,6 +130,10 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
     out.fullActionHashes.push(fullHash);
     out.ownMoveStreaks.push(longestSameMoveStreak(events.own));
     out.rivalMoveStreaks.push(longestSameMoveStreak(events.rival));
+    const ownRepeat=longestMoveDetail(events.own),rivalRepeat=longestMoveDetail(events.rival);
+    const tags=misplaysV3(r.log,{requests:r.reqLog});
+    out.repeatDetails.push({seed,reverse,won:r.won,own:ownRepeat,rival:rivalRepeat});
+    out.v3OwnTags.push(tags[r.ownSide]);out.v3RivalTags.push(tags[r.foeSide]);
     out.decisionSamples.push({seed,reverse,won:r.won,fullHash});
     if(!r.won&&!out.lossExample)
       out.lossExample={seed,reverse,firstTurns:earlyLines(r.log,r.ownSide,3)};
@@ -157,6 +173,13 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
  assert.ok(Object.values(robustness.byCandidate).every(x=>!x.supportedAcrossAllTestedBranches),
    'none of these five preregistered candidates survives every tested counter-branch');
  const allOutcomes=rows.flatMap(r=>Object.values(r.alternatives));
+ const tagTotals=side=>{const out={};for(const cell of allOutcomes)
+  for(const entry of side==='own'?cell.v3OwnTags:cell.v3RivalTags)
+  for(const [k,v] of Object.entries(entry))out[k]=(out[k]||0)+v;return out;};
+ const longestExamples=rows.flatMap(r=>Object.entries(r.alternatives).flatMap(([candidate,v])=>
+  v.repeatDetails.map(d=>({case:r.case,mode:r.opponentT1,candidate,seed:d.seed,reverse:d.reverse,won:d.won,
+    own:d.own,rival:d.rival,high:Math.max(d.own.count,d.rival.count)}))))
+  .sort((a,b)=>b.high-a.high).slice(0,6);
  const diversity={cells:allOutcomes.length,games:counts.games,
   repeatedT1T2Cells:allOutcomes.filter(x=>x.allFourRepeatT1T2).length,
   repeatedFullActionTraceCells:allOutcomes.filter(x=>x.distinctFullActionTraces===1).length,
@@ -166,6 +189,8 @@ test('public Primarina lead vs rational Gholdengo pivot: full M-C 3v3 diagnostic
   withinBattleRepeatedRivalMoveRuns:allOutcomes.flatMap(x=>x.rivalMoveStreaks).filter(n=>n>=2).length,
   maxSameOwnMoveStreak:Math.max(...allOutcomes.flatMap(x=>x.ownMoveStreaks)),
   maxSameRivalMoveStreak:Math.max(...allOutcomes.flatMap(x=>x.rivalMoveStreaks)),
+  tagDiagnostics:{own:tagTotals('own'),rival:tagTotals('rival')},
+  longestRepeatedMoveExamples:longestExamples,
   seedValuesPerCell:2,seatReversalsPerSeed:2,
   warning:'repeated moves can be rational and are NOT misplays without checking payoff/alternatives. 4/4 is four reproducible outcomes, NOT four independent strategic decisions; identical T1/T2 traces are near-duplicates; even distinct full-action traces may be RNG rather than rationality'};
  assert.equal(diversity.cells,20,'20 scenario x opponent policy x selection cells');
