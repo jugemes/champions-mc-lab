@@ -74,7 +74,7 @@ test('a publicly lost Choice item is not treated as a current lock',()=>{
  ...[1,2,3].flatMap(t=>['|turn|'+t,
  '|move|p1a: Garchomp|Dragon Claw|p2a: Salamence',
  '|move|p2a: Salamence|Roost|p2a: Salamence',
- '|-heal|p2a: Salamence|170/172'])].join('\\n');
+ '|-heal|p2a: Salamence|170/172'])].join('\n');
  const f=auditRepeatedHealing(log).findings[0];
  assert.ok(f);
  assert.equal(f.attackerChoiceRevealed,false);
