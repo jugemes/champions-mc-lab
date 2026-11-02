@@ -494,3 +494,20 @@ test('P0 diverse public-only rival 3+lead branches vs M-7 full Battle diagnostic
    caution:'No candidate adoption from these results. Future unknown public-six holdout only AFTER own policy frozen.'
  }));
 });
+
+
+test('P0 rival branch generator rejects private opposing sets and is public-six permutation invariant',{skip},()=>{
+ const {enumeratePublicRivalBranches}=require('../public-rival-multibranch');
+ const sim=load(),dex=sim.Dex.mod('champions'),own=reportedLive();
+ for(const c of cases){
+   const publicSix=own.map(p=>p.species);
+   const a=enumeratePublicRivalBranches(dex,c.team,publicSix,{limit:3});
+   const b=enumeratePublicRivalBranches(dex,c.team,[...publicSix].reverse(),{limit:3});
+   assert.deepEqual(a,b,'opposing public-six order is not a private clue');
+   assert.throws(()=>enumeratePublicRivalBranches(dex,c.team,own,{limit:3}),
+     /public species/,'full opposing sets must not cross public information boundary');
+   assert.throws(()=>enumeratePublicRivalBranches(dex,c.team,
+     [publicSix[0],publicSix[0],...publicSix.slice(2)],{limit:3}),
+     /public species/,'duplicate public species rejected');
+ }
+});
