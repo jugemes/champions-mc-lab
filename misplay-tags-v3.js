@@ -120,7 +120,7 @@ function requestInfo(req,side,turn,{encored=false}={}){
   const canSwitch=!act.trapped&&!act.maybeTrapped&&req.side.pokemon.some(p=>!p.active&&!/ fnt$/.test(p.condition));
   const locked=enabled.length===1&&act.moves.length>1;
   const item=String((req.side.pokemon.find(p=>p.active)||{}).item||'');
-  const lockReason=!locked?null:encored?'encore':/^choice/.test(item)?'choice':'other';
+  const lockReason=!locked?null:encored?'encore':/^choice/i.test(item)?'choice':'other';
   return {side,turn,locked,lockedMove:enabled.length===1?enabled[0].move:null,canSwitch,lockReason};
 }
 module.exports={misplaysV3,anyTag,requestInfo,TAGS,INFO_TAGS,FACT_TAGS,REVIEW_TAGS,VOLUNTARY,VOLUNTARY_PR69,V1_TAGS};
