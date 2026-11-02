@@ -135,7 +135,8 @@ test('H-M5/H-M6 predeclared LLM bench-coverage trios with rational T1 pivot cont
             if(line.startsWith('|-immune|'+r.ownSide+'a:')&&immuneSamples.length<16)
               immuneSamples.push({case:c.id,foeThree,candidate:x.id,policy,
                 seed,reverse,turn,previousMove,immuneLine:line,
-                maskedCount:r.rivalImmuneAudit?.masked?.length||0});
+                maskedCount:r.rivalImmuneAudit?.masked?.length||0,
+                rivalRequest:r.reqLog.filter(q=>q.side===r.foeSide&&q.turn===turn)});
           }
         }
         if(!r.won){
