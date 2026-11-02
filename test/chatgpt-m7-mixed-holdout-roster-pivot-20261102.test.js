@@ -70,6 +70,25 @@ function faintCount(log,side){
 function publicImmuneCount(log,ownSide){
  return log.split('\n').filter(x=>x.startsWith('|-immune|'+ownSide+'a:')).length;
 }
+test('T1 opponent pivot reads only public active and selected own bench',()=>{
+ const req=(lead,benchSpecies)=>({side:{pokemon:[
+  {details:lead+', L50',active:true,condition:'100/100'},
+  ...benchSpecies.map(s=>({details:s+', L50',active:false,condition:'100/100'}))
+ ]}});
+ const info={turn:1};
+ assert.equal(publicPivot(req('Pelipper',['Swampert','Gholdengo']),
+  {foeActive:'Rotom-Wash'},info),'switch 2');
+ assert.equal(publicPivot(req('Pelipper',['Swampert','Gholdengo']),
+  {foeActive:'Hydreigon'},info),null);
+ assert.equal(publicPivot(req('Pelipper',['Gholdengo']),
+  {foeActive:'Rotom-Wash'},info),null);
+ assert.equal(publicPivot(req('Starmie',['Umbreon','Charizard']),
+  {foeActive:'Hydreigon'},info),'switch 2');
+ assert.equal(publicPivot(req('Gholdengo',['Primarina','Corviknight']),
+  {foeActive:'Hydreigon'},info),'switch 2');
+ assert.equal(publicPivot(req('Starmie',['Umbreon','Charizard']),
+  {foeActive:'Hydreigon'},{turn:2}),null);
+});
 test('H-M3/H-M4 predeclared public sixes, opponent trios and own swap are M-C legal',{skip},()=>{
  const sim=load(),v=sim.TeamValidator.get('gen9championsbssregmc');
  assert.equal(cases.length,2);assert.equal(candidates.length,5);
