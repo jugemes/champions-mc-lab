@@ -34,13 +34,13 @@ const policies={
  continuity:{previewPolicy:'publicContinuity',decisionPolicy:'publicContinuity'}
 };
 const canon=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
-async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode,rivalT1Mode='scripted'){
+async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode,rivalT1Mode='scripted',rivalSelectionMode='fixed'){
  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
  const dex=sim.Dex.mod('champions'),trace={choices:[],selections:[],errors:[]};
  const ourSide=reverse?'p2':'p1',rivalSide=reverse?'p1':'p2';
  const [p1,p2]=reverse?[foe,own]:[own,foe];
  const make=(stream,team,side)=>new Bot(stream,dex,team,side,trace,
-   side===rivalSide?branch.rival:null,null,{
+   side===rivalSide&&rivalSelectionMode==='fixed'?branch.rival:null,null,{
      seed,
      previewPolicy:side===ourSide?policy.previewPolicy:'legacy',
      decisionPolicy:side===ourSide?policy.decisionPolicy:'baseline'
@@ -86,7 +86,9 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode,rivalT1Mode
  await Promise.all([observer,r1,r2]);
  assert.ok(winner,'completed pinned full Battle');
  const selected=trace.selections.find(x=>x.side===ourSide);
+ const rivalSelected=trace.selections.find(x=>x.side===rivalSide);
  assert.ok(selected&&selected.chosen.length===3,'selection observed');
+ assert.ok(rivalSelected&&rivalSelected.chosen.length===3,'rival selection observed');
  let turn=0,moveStarted=false,pivotExecuted=0,t1Executed=false;
  const publicEarly=[];
  for(const line of log.split('\n')){
@@ -107,6 +109,7 @@ async function play(sim,own,foe,seed,reverse,branch,policy,pivotMode,rivalT1Mode
  const ownChoices=trace.choices.filter(x=>x.side===ourSide&&x.turn>=1&&x.turn<=2)
    .map(x=>({turn:x.turn,choice:x.choice}));
  return {won:winner===ourSide,three:selected.chosen,lead:selected.lead,
+   rivalThree:rivalSelected.chosen,rivalLead:rivalSelected.lead,
    ownChoices,ownExecuted:executed.own,rivalExecuted:executed.rival,
    t1Executed,pivotIssued,pivotExecuted,rivalT1Moves,rivalT1Categories,
    errors:trace.errors.length,knownImmuneHits:publicImmune98(log,rivalSide,dex).known.length,
@@ -375,4 +378,48 @@ test('P0 adversarial T1 counterfactual: scripted vs autonomous rival Bot',{skip}
    caution:'Only noForcedPivot allows both T1 and T2 autonomous choices; forcedPivot scripts T2.'
  }));
  t.diagnostic('P0 ADVERSARIAL T1 CAUTION: only noForcedPivot is autonomous at both T1/T2; forcedPivot contains a scripted T2 switch, so its wins cannot certify opponent rationality. A missing T1 move can be a switch/cant and must not be called inactivity. No new holdout or adoption evidence.');
+});
+
+
+// P0 opponent preview counterfactual, DIAGNOSTIC on already-used H-I/H-J.
+// Unlike previous trials, the opposing Bot chooses its own 3+lead from its
+// PUBLIC view of our six. Both sides then act autonomously at T1/T2.
+// The rival Bot is not certified as a rational human; this does not qualify
+// as a previously unused holdout or establish adoption of any policy.
+test('P0 autonomous opposing 6-to-3 and T1/T2 full Battle diagnostic',{skip},async t=>{
+ const sim=load(),own=reportedLive(),summary=[];
+ for(const [ci,c] of cases.entries()){
+  const row={id:c.id,publicSix:c.team.map(p=>p.species),
+   rivalSelections:[],ownSelections:[],oldWins:0,newWins:0,
+   gains:0,losses:0,errors:0,knownImmuneHits:0,conditions:0};
+  // No fixed rival three, no scripted T1, no forced T2 pivot.
+  // A branch object is retained only for the existing play() signature.
+  const branch=c.branches[0];
+  for(let n=0;n<2;n++)for(const reverse of [false,true]){
+   const seed=hashSeed(10427000+ci*100+n);
+   const args=[sim,structuredClone(own),structuredClone(c.team),seed,reverse,branch];
+   const a=await play(...args,policies.legacy,false,'autonomous','autonomous');
+   const z=await play(sim,structuredClone(own),structuredClone(c.team),
+     seed,reverse,branch,policies.continuity,false,'autonomous','autonomous');
+   row.conditions++;row.oldWins+=+a.won;row.newWins+=+z.won;
+   row.gains+=+(!a.won&&z.won);row.losses+=+(a.won&&!z.won);
+   row.errors+=a.errors+z.errors;
+   row.knownImmuneHits+=a.knownImmuneHits+z.knownImmuneHits;
+   row.rivalSelections.push({seed,reverse,legacy:{three:a.rivalThree,lead:a.rivalLead},
+     continuity:{three:z.rivalThree,lead:z.rivalLead}});
+   row.ownSelections.push({seed,reverse,legacy:{three:a.three,lead:a.lead},
+     continuity:{three:z.three,lead:z.lead}});
+  }
+  assert.equal(row.conditions,4,'two independent seeds and two sides');
+  assert.equal(row.errors,0,'no illegal Battle choices');
+  assert.equal(row.knownImmuneHits,0,'no publicly certain immune rival attack');
+  assert.equal(row.newWins-row.oldWins,row.gains-row.losses,'paired accounting');
+  summary.push(row);
+ }
+ t.diagnostic('P0 AUTONOMOUS RIVAL PREVIEW AND T1T2 '+JSON.stringify({
+  scope:'previously used H-I/J; diagnostic, NOT unused holdout',
+  opponentModel:'Bot chooses 3+lead from public six, autonomous T1/T2 plus immuneAware100',
+  opponentRationalityCertified:false,selectionAndLeadReviewedByHuman:false,
+  cases:summary
+ }));
 });
