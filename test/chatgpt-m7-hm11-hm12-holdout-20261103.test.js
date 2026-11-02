@@ -84,8 +84,8 @@ test('H-M11/H-M12 public pivot uses only active species and selected bench',()=>
  const req=(s,b)=>({side:{pokemon:[{details:s+', L50',active:true,condition:'100/100'},
    ...b.map(x=>({details:x+', L50',active:false,condition:'100/100'}))]}});
  for(const [self,foe,target] of pivots){
-  assert.equal(publicPivot(req(self,[target,'Primarina']),{foeActive:foe},{turn:1}),'switch 2');
-  assert.equal(publicPivot(req(self,['Primarina']),{foeActive:foe},{turn:1}),null);
+  assert.equal(publicPivot(req(self,[target,target==='Primarina'?'Hydreigon':'Primarina']),{foeActive:foe},{turn:1}),'switch 2');
+  assert.equal(publicPivot(req(self,[target==='Primarina'?'Hydreigon':'Primarina']),{foeActive:foe},{turn:1}),null);
   assert.equal(publicPivot(req(self,[target]),{foeActive:foe},{turn:2}),null);
   const trapped=req(self,[target]);trapped.active=[{trapped:true}];
   assert.equal(publicPivot(trapped,{foeActive:foe},{turn:1}),null);
