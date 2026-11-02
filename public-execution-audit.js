@@ -24,4 +24,41 @@ function eventSignature(events,turn,{onlyMoves=false,includeActor=true}={}){
   return events.filter(e=>e.turn===turn&&(!onlyMoves||e.kind==='move'))
     .map(e=>[e.kind,...(includeActor?[e.actor]:[]),e.detail].join(':')).join('|');
 }
-module.exports={executedEvents,eventSignature};
+
+// Classify only what the PUBLIC battle protocol proves. In particular,
+// |switch| alone is not evidence that the Bot chose a tactical pivot:
+// replacements after fainting, pivoting moves, items and other effects exist.
+// We deliberately do not label a non-faint switch "voluntary" without a
+// corroborating request/choice trace. This is an observation audit, not a
+// policy scorer.
+function classifyPublicSwitches(log, ownSide, rivalSide, maxTurn=Infinity) {
+  if(!/^p[12]$/.test(ownSide)||!/^p[12]$/.test(rivalSide)||ownSide===rivalSide)
+    throw Error('distinct own/rival Showdown sides required');
+  const out={own:[],rival:[]};
+  const fainted=new Set();
+  let turn=0;
+  for(const line of String(log).split('\n')){
+    const a=line.split('|'),kind=a[1];
+    if(kind==='turn'){turn=Number(a[2])||0;continue;}
+    if(!['faint','switch','drag'].includes(kind))continue;
+    const match=String(a[2]||'').match(/^(p[12])([a-f]):\s*(.*)$/);
+    if(!match)continue;
+    const [_,side,slot,actor]=match;
+    if(side!==ownSide&&side!==rivalSide)continue;
+    const key=side+slot;
+    if(kind==='faint'){fainted.add(key);continue;}
+    const replacement=fainted.has(key);
+    fainted.delete(key);
+    // Initial preview leads are not a turn-1 switch decision.
+    if(turn<1||turn>maxTurn)continue;
+    const classification=kind==='drag'?'forced-drag':
+      replacement?'faint-replacement':'nonfaint-switch-cause-unknown';
+    out[side===ownSide?'own':'rival'].push({
+      turn,actor,kind,classification,
+      // This only establishes the absence of a prior faint, NOT a free choice.
+      provenTacticalChoice:false
+    });
+  }
+  return out;
+}
+module.exports={executedEvents,eventSignature,classifyPublicSwitches};
