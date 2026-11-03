@@ -108,7 +108,7 @@ async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOpti
     const bot=bots[side],original=bot.decide.bind(bot);
     bot.decide=function(req){
       const choice=original(req);
-      const m=String(choice).match(/^switch ([1-6])(?:$|\\s)/);
+      const m=String(choice).match(/^switch ([1-6])(?:$|\s)/);
       const selected=m?req.side?.pokemon?.[Number(m[1])-1]:null;
       choiceTrace.push({side,turn:this.turn,choice,
         requestKind:req.teamPreview?'preview':req.forceSwitch?'forced':'normal',
