@@ -10,6 +10,7 @@ const {archetypes,variants}=require('../fixtures');
 const {teams}=require('../holdout-20261030');
 const {battle,bench,nameOf,switchTo,earlyLines}=require('../encore-lead-audit');
 const {executedEvents,eventSignature,classifyPublicSwitches}=require('../public-execution-audit');
+const {classifyChoiceCorroboratedSwitches}=require('../public-choice-causality');
 const clone=x=>structuredClone(x);
 const get=(team,s)=>{const p=team.find(x=>x.species===s);assert.ok(p,'fixture '+s);return clone(p);};
 const own=reportedLive();
@@ -123,6 +124,7 @@ test('H-M13/H-M14 frozen cross-preview full battles with actual T1 branch covera
  const sim=load(),paired=new Map(),rows=[];
  let games=0,errors=0,pivotPairs=0,attackPairs=0,noScriptPairs=0;
  const switchEvidence={own:{},rival:{}};
+ const choiceEvidence={own:{},rival:{}};
  for(const [ci,c] of cases.entries())
  for(const [ri,foeThree] of c.foe.entries())
  for(const policy of ['autonomous','public-pivot-T1','public-attack-T1']){
@@ -143,7 +145,7 @@ test('H-M13/H-M14 frozen cross-preview full battles with actual T1 branch covera
      return choice;
     }:null;
     const r=await battle(sim,clone(own),clone(c.team),seed,{
-     ownThree:x.three,foeThree,reverse,script,rivalImmuneAware:true
+     ownThree:x.three,foeThree,reverse,script,rivalImmuneAware:true,choiceAudit:true
     });
     assert.equal(r.errors,0,'legal Showdown choices');
     const a=actions(r.log,r.ownSide,r.foeSide);
@@ -161,6 +163,14 @@ test('H-M13/H-M14 frozen cross-preview full battles with actual T1 branch covera
      }else attackPairs++;
     }
     const sw=classifyPublicSwitches(r.log,r.ownSide,r.foeSide,2);
+    const corroborated=classifyChoiceCorroboratedSwitches(r.log,r.ownSide,r.foeSide,r.choiceTrace,2);
+    if(policy==='public-pivot-T1'&&requested){
+     assert.ok(corroborated.rival.some(e=>e.turn===1&&e.botChoiceCorroborated),
+      'requested T1 opponent pivot must be a normal-request submitted switch');
+    }
+    for(const side of ['own','rival'])for(const e of corroborated[side]){
+     choiceEvidence[side][e.evidence]=(choiceEvidence[side][e.evidence]||0)+1;
+    }
     for(const side of ['own','rival'])for(const e of sw[side]){
      switchEvidence[side][e.classification]=(switchEvidence[side][e.classification]||0)+1;
      assert.equal(e.provenTacticalChoice,false,'public switch not proven voluntary');
@@ -194,6 +204,6 @@ test('H-M13/H-M14 frozen cross-preview full battles with actual T1 branch covera
   humanRationalityNotCertified:true,notLadderWinRate:true,
   independentSeedsPerCell:2,sideReversals:2,
   games,errors,pivotPairs,attackPairs,noScriptPairs,
-  switchEvidence,rows
+  switchEvidence,choiceEvidence,rows
  }));
 });
