@@ -40,3 +40,12 @@ test('does not invent choice cause from public switch or ambiguous duplicate tra
   assert.equal(classify(log,'p1','p2',[{...choice,chosenSpecies:'Gholdengo'}],1).rival[0].evidence,'unresolved');
   assert.equal(classify(log,'p1','p2',[{...choice,requestKind:'preview'}],1).rival[0].evidence,'unresolved');
 });
+
+test('KO replacement cannot be upgraded to a voluntary switch by a matching trace',()=>{
+  const log='|turn|1\n|faint|p1a: Rotom\n|turn|2\n|switch|p1a: Primarina|Primarina, L50|100/100';
+  const r=classify(log,'p1','p2',[
+    {side:'p1',turn:2,choice:'switch 3',chosenSpecies:'Primarina',requestKind:'normal'}
+  ],2);
+  assert.equal(r.own[0].evidence,'faint-replacement');
+  assert.equal(r.own[0].botChoiceCorroborated,false);
+});
