@@ -50,7 +50,7 @@ test('M8 first-pass type screen honors actual Levitate and temporary Air Balloon
  assert.ok(form.isMega,'Mega Garchomp Z must be recognised as Mega form');
  if(form.abilities['0']==='Levitate'){
   assert.equal(score(megaGarch,'Ground'),0,'post-Mega public Levitate');
-  assert.equal(score(megaGarch,'Ground',{abilityActive:false}),2,'post-Mega ability can be negated');
+  assert.equal(score(megaGarch,'Ground',{abilityActive:false}),1,'Garchomp Ground/Dragon is neutral when Levitate is negated');
  }
 });
 test('M8 OPEN1 broad M-C legal template universe: ALL species/forms, no TOP30 cut',{skip},t=>{
