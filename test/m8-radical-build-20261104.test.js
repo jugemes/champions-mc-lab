@@ -8,6 +8,7 @@ const {candidates,publicPreviewPlans}=require('../m8-rebuild-candidates');
 const {groups}=require('../environment-m7-teams');
 const {archetypes}=require('../fixtures');
 const {battle,earlyLines}=require('../encore-lead-audit');
+// Both candidate sixes remain research-only until opponent counterplay audit.
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const copy=x=>structuredClone(x);
 const foes=[
