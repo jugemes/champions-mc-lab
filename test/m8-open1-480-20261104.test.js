@@ -40,6 +40,7 @@ test('M8 OPEN1 four new complete sixes, opponent sixes, 60 own-three plans legal
   assert.doesNotThrow(()=>prelim(t,n),n);
   const errs=v.validateTeam(normalize(t));assert.ok(!errs?.length,n+': '+JSON.stringify(errs));
   assert.equal(t.length,6);assert.equal(new Set(t.map(p=>p.species)).size,6);
+  assert.equal(t.filter(p=>load().Dex.mod('champions').items.get(p.item).megaStone).length,1,n+' one Mega stone');
  }
  for(const c of cases){
   const opponent=c.six();
