@@ -1,6 +1,7 @@
 'use strict';
 // M-8 construction gate: compare actually legal complete sixes before making
 // any claim of improved ranked strength. No scripted rival or simulated wins.
+// This is a construction gate; strategic superiority needs separate battle evidence.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,prelim,normalize}=require('../lab');
