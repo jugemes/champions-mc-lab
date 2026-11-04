@@ -76,7 +76,7 @@ test('M8 O2 dual public6 three leads vs 12 rival 3 x rational/public Bot policy:
     ownChoices:r.choiceTrace.filter(x=>x.side===r.ownSide&&x.requestKind==='normal'&&x.turn<=2)
      .map(x=>({turn:x.turn,choice:x.choice}))});
   }
-  rows.push({case:c.id,plan:pi,lead:ourThree[0],ownThree,foeThree,enemy3:ei,policy,
+  rows.push({case:c.id,plan:pi,lead:ourThree[0],ownThree:ourThree,foeThree,enemy3:ei,policy,
    wins:obs.filter(o=>o.won).length,losses:obs.filter(o=>!o.won).length,
    firstLoss:obs.find(o=>!o.won)?.opening,
    firstWin:obs.find(o=>o.won)?.opening,
