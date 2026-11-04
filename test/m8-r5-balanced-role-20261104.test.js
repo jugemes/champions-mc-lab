@@ -1,5 +1,5 @@
 'use strict';
-// Predeclared R5 balance: PR #104 comment #6620917760 (before outcomes).
+// Predeclared R5 balance: PR #104 comment #6620917760 (before outcomes).\n// This full-team test is not a substitute for rational-opponent validation.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,normalize,prelim,hashSeed}=require('../lab');
