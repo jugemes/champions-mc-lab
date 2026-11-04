@@ -8,7 +8,7 @@ const {archetypes,variants}=require('./fixtures');
 const {groups}=require('./environment-m7-teams');
 const copy=x=>structuredClone(x);
 function get(team,species,item){
- const p=team.find(x=>x.species===species&&(!item||p.item===item));
+ const p=team.find(x=>x.species===species&&(!item||x.item===item));
  if(!p)throw Error('O6 source missing '+species);
  return copy(p);
 }
