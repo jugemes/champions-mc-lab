@@ -7,7 +7,8 @@ const {build}=require('../m8-r5-balanced-threat-rebuild');
 const {groups}=require('../environment-m7-teams');
 const {battle,earlyLines}=require('../encore-lead-audit');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
-// Research-only; no rank adoption or policy change.\nconst clone=x=>structuredClone(x);
+// Research-only; no rank adoption or policy change.
+const clone=x=>structuredClone(x);
 const cases=[
  {id:'lucarioZ',team:()=>groups[1].team,
   rival:[['Lucario','Garchomp','Mimikyu'],['Corviknight','Primarina','Archaludon']],
