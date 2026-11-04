@@ -1,6 +1,7 @@
 'use strict';
 // M-8 R5 public-six selection-only counterfactual.
 // Predeclared before any result: PR #104 comment #6621059231.
+// This test is a fixed selector audit, not a team ranking.
 // Actual rival trio is test-only; same self-selected own trio is used against
 // both rival trios arising from exactly the same publicly visible six.
 const test=require('node:test');
