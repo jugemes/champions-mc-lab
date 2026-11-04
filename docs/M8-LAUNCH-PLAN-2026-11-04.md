@@ -9,6 +9,12 @@
 研究方法上の制約（M-C合法性、公開情報の境界、合理的相手の独立反証、Claude成果受領後ChatGPT反証、main無断変更・追加課金禁止）は引き続き守る。過去の具体的候補群は採用済みと誤認しない。
 
 
+## 2026-11-04 22時台検収｜OPEN6 A/Bはともに未採用（結果の正本）
+
+[PR #104検収コメント #6632231078](https://github.com/jugemes/champions-mc-lab/pull/104#issuecomment-6632231078)／[CI #41809799969](https://github.com/jugemes/champions-mc-lab/actions/runs/41809799969) job #126505908483 は completed/success。事前登録済み240 full Battle（errors 0）はA=40/120・30敵3セル中17セル0/4、B=42/120・18セル0/4。合理敵24 Battle（errors 0）はAがリザY後発（ガブ先発・ミミッキュ先発）各0/4、ギャラ→ガブ交代2/4、Bが同Y後発2/4・0/4、ギャラ交代2/4。**A/Bとも不採用**。Bot合成勝数を対人勝率と呼ばない。
+
+探索器の弱点：公開6から共通3選出したときの最悪分岐がproxy目的関数にない。HP依存のしおふき、つるぎのまい＋イカサマ、こだわり固定、相手の合理交代の価値を誤評価する。Aのフラエッテ（えいえんのはな）は公式参加資格未確認。全Dex1288中311生成・977未分類は変わらない。旧A/Bを盲目的に再実行せず、合理敵行動の因果監査→代理評価器修正→新構造の結果前登録→固定Showdown Battle→Claude独立成果受領とChatGPT再反証を進める。PR #107は本節の確認時点でレビュー0件・Claude本人OPEN6成果未受領。main・実戦6体・追加課金・自動merge変更なし。
+
 ## 2026-11-04｜OPEN6：全種族を起点とする自動6体探索（実戦未採用・検証中）
 
 以前の手作業O1～O7は構築間で役割が重複し、重要な0/4敵3仮説を解決できていない。そこでPR #104コメント [#6627434262](https://github.com/jugemes/champions-mc-lab/pull/104#issuecomment-6627434262) に条件を結果前登録し、m8-open6-universe-minimax-20261104.js（commit 48fc931）へ**種族指定なしの探索器**を実装した。テストは [CI #41808596768](https://github.com/jugemes/champions-mc-lab/actions/runs/41808596768) job 126501762608 **成功、449/442pass/0fail/TODO7**。
