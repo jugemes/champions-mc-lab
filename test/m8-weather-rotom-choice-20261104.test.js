@@ -1,5 +1,5 @@
 'use strict';
-// M8 radical followup: PR104 issuecomment-6620657980 fixed before outcomes.
+// M8 radical followup: PR104 issuecomment-6620657980 fixed before outcomes.\n// Candidate superiority must not be inferred from synthetic Bot win counts.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,normalize,prelim,hashSeed}=require('../lab');
