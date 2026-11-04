@@ -72,9 +72,10 @@ function roleCandidates(all){
     by.find(s=>s.role==='scarf'),
     by.find(s=>s.role==='setup'),
     by.find(s=>s.role==='bulky'),
-    by.find(s=>s.role==='attacker')
+    by.find(s=>s.role==='attacker'),
+    by.find(s=>s.role==='lead')
   ].filter(Boolean);
-  for(const x of prefs){if(chosen.length>=3)break;
+  for(const x of prefs){if(chosen.length>=6)break;
    if(!chosen.some(y=>y.item===x.item&&y.species===x.species&&y.moves.join()===x.moves.join()))chosen.push(x);
   }
   if(!chosen.length)chosen.push(by[0]);
@@ -143,7 +144,6 @@ function findTeam(screen,{seed=1126,rounds=6,samples=110,avoid=new Set()}={}){
   while(ids.length<6&&tries++<20000){
    const k=Math.floor(random()*total);
    if(avoid.has(screen.sources[k].species))continue;
-   if(valid([...ids,k,...Array(5-ids.length).fill(k)],screen)){} // no-op
    // Partial uniqueness/item/Mega checks, separate from full-team check.
    const s=screen.sources[k];
    if(ids.some(i=>screen.sources[i].item===s.item||screen.sources[i].species===s.species))continue;
