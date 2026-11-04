@@ -1,5 +1,17 @@
 # M-8 シングル開幕の実戦構築案｜2026-11-04（提案・未採用）
 
+## 進行中サイクル｜M-8 シングル（2026-11-04更新・引継ぎ時はGitHub現状と照合）
+
+| サイクル | Claude依頼・成果 | 検収・独立反証 | 判定・次の作業 |
+|---|---|---|---|
+| **M8-R8R9-20261104** | Claude起動用 [PR #106](https://github.com/jugemes/champions-mc-lab/pull/106) → Claude成果 [commit 8a94d7e](https://github.com/jugemes/champions-mc-lab/commit/8a94d7eef)、`reports/m8-r9-claude-audit-2026-11-04.md` | ChatGPT [CI #41781212689](https://github.com/jugemes/champions-mc-lab/actions/runs/41781212689) job 126412939627（423/416/0/TODO7、160 Battle）。Claude [CI #41781684377](https://github.com/jugemes/champions-mc-lab/actions/runs/41781684377) job 126414438236（428/421/0/TODO7、別seed160＋POST-HOC 24 Battle）。ChatGPTが原文と実CIログを再読し、ギャラの偽改善と晴れY後発全敗を独立検収済み | **R8・R9とも不採用（研究サイクルの否定的結論は確定）**。R9のギャラ4/4は敵の竜舞居座りが原因、合理的T1ガブ交代で両者0/4。晴れY後発でも両者0/4。M8-R10へ |
+| **M8-R10-20261104** | ClaudeがR10a（R8ゴリラ→バンギ）/R10b（メガグロス回帰）を**未検証提案**。同Claude成果PR #104を使い、追加依頼時も既存協業経路を利用 | ChatGPTが候補の構造的欠陥、対雨と天候発動順、積みの喪失を反証し、初めての採用候補を決める前に独立holdout用の合理敵別3/先発/交代を登録する | **設計中・未検証**。晴れY後発の2枚目、ギャラ→メガガブZ交代への非スカーフ氷/妖、サーフゴー/虫/草への炎、雨ラグへの草の役割を同時評価してからR10実Battleへ |
+
+- 協業ルール：Claude必須サイクルを定める[PR #105](https://github.com/jugemes/champions-mc-lab/pull/105)をClaudeが独立レビューし6点指摘（2026-11-04）。ChatGPTが同PR `CLAUDE.md` に既存計画書への状態固定・並行編集衝突・事後選択・合理敵反証・規則照合・例外条件を差分修正済み。**main未反映・マージはユーザー判断**。
+- ルール照合：2026-11-04時点のM-8はM-Cで継続（M-8シーズン11/04～12/02： [Serebii](https://www.serebii.net/pokemonchampions/rankedbattle/seasonm-8.shtml)、M-C継続期間～12/02 10:59： [公式スタンダードセレクトM-C](https://champions-news.pokemon-home.com/ja/page/821.html)）。対戦メカニクスの固定は `gen9championsbssregmc` + Showdown `3a766f2cfb5e51c1e428cfe87d0dba91a8f01640`。公式M-8個別の参加可能ポケモン全件照合は別途確認し、これを全ロスターの公式適合保証と混同しない。
+- **引継ぎ方法**：この節を最初に確認し、PR #104/#105/#106の最新commit、CIの成功、Claudeの本物の応答、残る反例を再照合。古いチャットや自動タスクの旧文章を正本にしない。次の判断までClaude依頼だけで完了としない。
+
+
 ## 2026-11-04｜R9（ミトム化）160フルBattle検収：R8/R9とも実戦未採用
 
 **この節がR9の「結果前登録」より新しい実測の正本。** 事前宣言は[PR #104 comment #6623251885](https://github.com/jugemes/champions-mc-lab/pull/104#issuecomment-6623251885)、実コード `m8-r9-wash-rotom.js` および `test/chatgpt-m8-r9-ten-public-six-20261104.test.js`、固定Showdown [CI #41781212689](https://github.com/jugemes/champions-mc-lab/actions/runs/41781212689) / job `126412939627` **completed success、423 tests / 416 pass / 0 fail / TODO7、160 full Battle、choice errors 0、R8/R9合法**。Showdown `3a766f2cfb5e51c1e428cfe87d0dba91a8f01640`、M-C `gen9championsbssregmc`。同10公開6・同敵別3×2・同seed2・左右2、R8とR9の違いはヒートロトム→実戦型ウォッシュロトムのみ。自軍3/先発は敵3の未公開情報を見る前に公開6ごとに固定し、晴れY=ガブ/ロトム/メガルカリオZ、リザX=ミミッキュ/ガブ/メガルカリオZ。相手の3体は試験仮説であり、対戦Botの合理性は未合格。
