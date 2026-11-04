@@ -34,7 +34,7 @@ test('M8 radical teams and ten public-preview selection plans are Champions M-C 
   assert.equal(team.length,6,id);
   assert.doesNotThrow(()=>prelim(team,id),id);
   assert.ok(!v.validateTeam(normalize(team))?.length,id+': '+JSON.stringify(v.validateTeam(normalize(team))));
-  const noMega=team.filter(p=>p.item.endsWith('ite')||p.item.endsWith('ite Z'));
+  const noMega=team.filter(p=>/ite(?: [XYZ])?$/.test(p.item));
   assert.equal(noMega.length,1,id+' single Mega route, no double mega conflicts');
   assert.ok(team.some(p=>p.ability==='Sand Stream'),id+' should control weather');
   assert.ok(team.filter(p=>p.moves.some(m=>['Swords Dance','Nasty Plot','Dragon Dance'].includes(m))).length>=2,id+' two setup routes');
