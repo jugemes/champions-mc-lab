@@ -3,6 +3,7 @@
 // R7T versus R5 on five additional, previously R7-untested opponent sixes.
 // Same own three per public-six across both hidden rival trio hypotheses.
 // This is a synthetic counterexample audit, not a ranked win rate.
+// R7T inclusion at same pinned engine is a separate holdout gate.
 const test=require('node:test'),assert=require('node:assert/strict');
 const {load,normalize,hashSeed,prelim,matchup}=require('../lab');
 const {build:r5}=require('../m8-r5-balanced-threat-rebuild');
