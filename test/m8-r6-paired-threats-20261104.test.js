@@ -1,5 +1,5 @@
 'use strict';
-// Preregistered before results at PR104 comment #6621479933.
+// Preregistered before results at PR104 comment #6621479933.\n// R6 is not adopted based on synthetic opponents alone.
 // Same five public sixes, each paired under two rival hidden trios fixed by
 // the test; own three never changes based on hidden enemy selection.
 const test=require('node:test'),assert=require('node:assert/strict');
