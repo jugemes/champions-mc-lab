@@ -9,7 +9,6 @@ const {load,normalize,prelim,hashSeed,matchup}=require('../lab');
 const {build}=require('../m8-r5-balanced-threat-rebuild');
 const {groups}=require('../environment-m7-teams');
 const {battle,earlyLines}=require('../encore-lead-audit');
-const {nameOf}=require('../encore-lead-audit');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const clone=x=>structuredClone(x);
 const cases=[
