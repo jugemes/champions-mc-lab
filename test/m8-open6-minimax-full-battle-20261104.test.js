@@ -30,9 +30,13 @@ const cases=[
  ['rainPivot',()=>opponents.rain_pivot,['Pelipper','Swampert','Archaludon'],['Toxapex','Volcarona','Starmie']],
  ['mixedElectric',()=>opponents.mixed_electric,['Eelektross','Garchomp','Volcarona'],['Primarina','Rillaboom','Gholdengo']]
 ];
+let cachedTeams=null;
 function seedTeams(sim){
- const r=discover(sim,{seed:1543,rounds:5,samples:90});
- return r.candidates.map(c=>c.team);
+ if(!cachedTeams){
+  const r=discover(sim,{seed:1543,rounds:5,samples:90});
+  cachedTeams=r.candidates.map(c=>c.team);
+ }
+ return cachedTeams.map(clone);
 }
 function publicThree(sim,team,foe){
  const indexes=chooseThree(sim.Dex.mod('champions'),team,foe.map(p=>p.species));
