@@ -1,5 +1,5 @@
 'use strict';
-// M-8 R4-Bax fixed BEFORE outcomes in PR #104 issuecomment-6620782432.
+// M-8 R4-Bax fixed BEFORE outcomes in PR #104 issuecomment-6620782432.\n// Trigger CI; this candidate remains unadopted until rational counterplay review.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,prelim,normalize,hashSeed}=require('../lab');
