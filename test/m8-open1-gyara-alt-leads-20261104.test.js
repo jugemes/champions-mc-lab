@@ -51,11 +51,11 @@ test('M8 OPEN1 gyarados 2 full six x 5 fixed 3+lead x 2 enemy 3 x 2 T1 policies 
   for(let si=0;si<2;si++)for(const reverse of [false,true]){
    const seed=hashSeed(12310000+ei*1000+si);
    const r=await battle(sim,clone(builders[name]()),clone(six()),seed,{
-    ownThree,foeThree,reverse,script,rivalImmuneAware:true,choiceAudit:true});
+    ownThree:ourThree,foeThree,reverse,script,rivalImmuneAware:true,choiceAudit:true});
    games++;errors+=r.errors;assert.equal(r.errors,0,name+' p'+pi+' enemy'+ei+policy);
    obs.push({won:r.won,firstLoss:!r.won?earlyLines(r.log,r.ownSide,6).slice(0,29):undefined});
   }
-  rows.push({build:name,plan:pi,ownThree,enemy3:ei,policy,wins:obs.filter(o=>o.won).length,
+  rows.push({build:name,plan:pi,ownThree:ourThree,enemy3:ei,policy,wins:obs.filter(o=>o.won).length,
    firstLoss:obs.find(o=>!o.won)?.firstLoss});
  }
  assert.equal(games,160);assert.equal(errors,0);assert.equal(rows.length,40);
