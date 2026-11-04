@@ -12,6 +12,7 @@ const {groups}=require('../environment-m7-teams');
 const {archetypes}=require('../fixtures');
 const {battle,earlyLines}=require('../encore-lead-audit');
 const clone=x=>structuredClone(x);
+// CI runner covers R7 ground/terrain and paired threats; no adoption signal.
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const foes=[
  {id:'sun',six:()=>groups[2].team,threes:[['Charizard','Garchomp','Mimikyu'],['Garchomp','Primarina','Gholdengo']]},
