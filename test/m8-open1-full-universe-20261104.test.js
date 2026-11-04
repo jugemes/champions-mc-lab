@@ -12,14 +12,47 @@ const {builders}=require('../m8-open1-20261104');
 const skip=!process.env.SHOWDOWN_DIR&&'SHOWDOWN_DIR unavailable';
 const TYPES=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground',
  'Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
-function multiplier(dex,attack,form){
+// Conditional, set-specific immunities are a first-pass STRUCTURAL proxy.
+// Not actual turn damage: Gravity, Mold Breaker and broken Air Balloon are
+// separate game states, so the caller may suppress the relevant protection.
+const IMMUNE_ABILITY={
+ Ground:['Levitate','Earth Eater'],
+ Water:['Water Absorb','Storm Drain','Dry Skin'],
+ Electric:['Volt Absorb','Lightning Rod','Motor Drive'],
+ Fire:['Flash Fire','Well-Baked Body'],
+ Grass:['Sap Sipper']
+};
+function multiplier(dex,attack,form,set,{balloonIntact=true,abilityActive=true}={}){
  if(!dex.getImmunity(attack,form.types))return 0;
- return 2**dex.getEffectiveness(attack,form.types);
+ const raw=2**dex.getEffectiveness(attack,form.types);
+ if(attack==='Ground'&&balloonIntact&&set?.item==='Air Balloon')return 0;
+ const ability=form.isMega?form.abilities['0']:set?.ability;
+ if(abilityActive&&IMMUNE_ABILITY[attack]?.includes(ability))return 0;
+ return raw;
 }
 function effectiveForm(dex,p){
  const item=dex.items.get(p.item),name=item.megaStone?.[p.species]||p.species;
  return dex.species.get(name);
 }
+test('M8 first-pass type screen honors actual Levitate and temporary Air Balloon',{skip},()=>{
+ const sim=load(),dex=sim.Dex.mod('champions'),team=builders.O2_megaMetagross_unaware();
+ const get=s=>team.find(p=>p.species===s);
+ const score=(p,attack,opts)=>multiplier(dex,attack,effectiveForm(dex,p),p,opts);
+ const wash=get('Rotom-Wash'),gold=get('Gholdengo'),meta=get('Metagross');
+ assert.ok(wash&&gold&&meta,'O2 fixture roles');
+ assert.equal(score(wash,'Ground'),0,'Rotom Levitate blocks Ground while active');
+ assert.equal(score(wash,'Ground',{abilityActive:false}),2,'Gravity/Mold Breaker needs separate branch');
+ assert.equal(score(gold,'Ground'),0,'intact Air Balloon');
+ assert.equal(score(gold,'Ground',{balloonIntact:false}),2,'popped balloon restores Ground weakness');
+ assert.equal(score(meta,'Ground'),2,'Mega Metagross is Ground weak');
+ const megaGarch=builders.O4_megaGarchZ_antiSetup().find(p=>p.species==='Garchomp');
+ const form=effectiveForm(dex,megaGarch);
+ assert.ok(form.isMega,'Mega Garchomp Z must be recognised as Mega form');
+ if(form.abilities['0']==='Levitate'){
+  assert.equal(score(megaGarch,'Ground'),0,'post-Mega public Levitate');
+  assert.equal(score(megaGarch,'Ground',{abilityActive:false}),2,'post-Mega ability can be negated');
+ }
+});
 test('M8 OPEN1 broad M-C legal template universe: ALL species/forms, no TOP30 cut',{skip},t=>{
  const sim=load(),dex=sim.Dex.mod('champions'),candidates=dex.species.all()
   .filter(s=>s.exists&&s.num>0&&!s.isMega&&!s.battleOnly);
@@ -44,10 +77,12 @@ test('M8 OPEN1 broad M-C legal template universe: ALL species/forms, no TOP30 cu
   const own=build();prelim(own,name);
   const validator=sim.TeamValidator.get('gen9championsbssregmc');
   assert.ok(!validator.validateTeam(normalize(own))?.length,name+' still legal');
-  const ownForms=own.map(p=>effectiveForm(dex,p));
+  const ownForms=own.map(p=>({form:effectiveForm(dex,p),set:p}));
   const profile=TYPES.map(type=>{
-   const ms=ownForms.map(form=>multiplier(dex,type,form));
+   const ms=ownForms.map(({form,set})=>multiplier(dex,type,form,set));
+   const popped=ownForms.map(({form,set})=>multiplier(dex,type,form,set,{balloonIntact:false}));
    return {type,weak:ms.filter(n=>n>=2).length,resist:ms.filter(n=>n<=0.5).length,
+    weakIfBalloonPops:popped.filter(n=>n>=2).length,
     risk:ms.filter(n=>n>=2).length-ms.filter(n=>n<=0.5).length};
   }).sort((a,b)=>b.risk-a.risk||b.weak-a.weak);
   typeProfiles[name]=profile.slice(0,7);
@@ -57,7 +92,7 @@ test('M8 OPEN1 broad M-C legal template universe: ALL species/forms, no TOP30 cu
     .filter(type=>type&&TYPES.includes(type))));
    let maxWeak=0,attackType='';
    for(const type of attackTypes){
-    const weak=ownForms.filter(form=>multiplier(dex,type,form)>=2).length;
+    const weak=ownForms.filter(({form,set})=>multiplier(dex,type,form,set)>=2).length;
     if(weak>maxWeak){maxWeak=weak;attackType=type;}
    }
    if(maxWeak>=3){
@@ -75,6 +110,8 @@ test('M8 OPEN1 broad M-C legal template universe: ALL species/forms, no TOP30 cu
   unclassifiedOrUnavailable:candidates.length-legal.length,
   note:'A non-generated legal species remains unresolved, NOT confirmed illegal; official full list not independently reconciled',
   threats,types:TYPES.length,typeProfiles,broadFlags,
-  firstUnresolved:unresolved.slice(0,8),notABattleWinRate:true,
+  firstUnresolved:unresolved.slice(0,8),
+  proxyLimit:'Pre-hit type immunities from each set ability/item; Air Balloon can pop, Mold Breaker/Gravity can negate protection, move power/turns not modelled',
+  notABattleWinRate:true,
   noRankingThreshold:true,includesLowFrequencyIfLegalTemplate:true}));
 });
