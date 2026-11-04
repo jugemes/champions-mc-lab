@@ -1,6 +1,6 @@
 'use strict';
 // M8: preregistered PR104 comment #6620591402; exact engine T1 counterfactuals,
-// not a new opponent distribution, optimal policy, or ranked win-rate metric.
+// not a new opponent distribution, optimal policy, or ranked win-rate metric.\n// CI trigger: compare engine observations only, never infer global strength.
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {load,normalize,hashSeed}=require('../lab');
