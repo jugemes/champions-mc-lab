@@ -48,6 +48,7 @@ test('M8 R8/R9 Wash-vs-Heat comparison: both complete M-C teams and public 3 leg
   }
   for(const [name,team] of Object.entries({R8:r8team,R9:r9team})){
    const selection=plans[name][c.id];assert.ok(selection,c.id+'/'+name+' plan');
+   if(name==='R9')assert.deepEqual(selection.map(s=>s==='Rotom-Wash'?'Rotom-Heat':s),plans.R8[c.id],c.id+' exact paired public selection');
    assert.equal(new Set(selection).size,3,c.id+'/'+name);
    assert.ok(selection.every(s=>team.some(p=>p.species===s)),c.id+'/'+name+' trio');
   }
