@@ -1,6 +1,7 @@
 'use strict';
 // Preregistered at PR104 #6622588510. Same opponent public-six at preview,
 // choose own three and lead before seeing the opponent's actual hidden three.
+// This run is an experiment, not a finalized battle policy.
 // Test whether heat-Rotom initial Will-O-Wisp can cover Gyarados setup and
 // a Garchomp switch; no claims of human viability from heuristic Bot.
 const test=require('node:test'),assert=require('node:assert/strict');
