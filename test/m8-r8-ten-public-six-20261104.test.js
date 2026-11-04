@@ -2,6 +2,7 @@
 // PR #104 comment #6622358063 preregistration BEFORE any results.
 // R5 vs R7T vs R8 against SAME ten public sixes, two enemy trios each.
 // Own team preview is fixed per public six and cannot observe enemy trio.
+// CI execution checks the initial preregistered hypothesis.
 // 240 Battle attempts = 3 builds * 10 public six * 2 rival trios * 2 seeds * 2 sides.
 const test=require('node:test'),assert=require('node:assert/strict');
 const {load,normalize,prelim,hashSeed}=require('../lab');
