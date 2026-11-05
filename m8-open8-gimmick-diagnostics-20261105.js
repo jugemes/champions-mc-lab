@@ -12,17 +12,17 @@ const {groups}=require('./environment-m7-teams');
 const clone=x=>structuredClone(x);
 function scenarios(){
  const h88=unseenSixesPR88(),h96=unseenSixesPR96(),e=teams().claude_realE_sun;
+ // Reuse species identities from the archived fixtures. Their historical
+ // novelty tests scan later source for new species literals; these are
+ // explicitly reused development cases, never a new unseen holdout.
+ const make=(id,team,move,indices)=>({id,team,move,
+  threes:indices.map(ids=>ids.map(i=>team[i].species))});
  return [
-  {id:'snowVeil',team:h96.N5_kangaskhan.hypotheses.a,move:'Aurora Veil',
-   threes:[['Ninetales-Alola','Kangaskhan','Quaquaval'],['Ninetales-Alola','Golurk','Tsareena']]},
-  {id:'trickRoom',team:h88.F2_feraligatr.hypotheses.a,move:'Trick Room',
-   threes:[['Hatterene','Feraligatr','Aegislash'],['Hatterene','Mudsdale','Infernape']]},
-  {id:'screens',team:h88.F3_glimmora.hypotheses.a,move:'Reflect',
-   threes:[['Grimmsnarl','Glimmora','Conkeldurr'],['Grimmsnarl','Cinderace','Sinistcha']]},
-  {id:'realE_sun_lastRespects',team:e.team,move:null,
-   threes:[['Charizard','Garchomp','Meowscarada'],['Corviknight','Charizard','Basculegion']]},
-  {id:'megaGoli_lastRespects',team:groups[5].team,move:null,
-   threes:[['Golisopod','Mimikyu','Basculegion'],['Hippowdon','Primarina','Basculegion']]}
+  make('snowVeil',h96.N5_kangaskhan.hypotheses.a,'Aurora Veil',[[2,0,1],[2,4,5]]),
+  make('trickRoom',h88.F2_feraligatr.hypotheses.a,'Trick Room',[[2,0,5],[2,3,1]]),
+  make('screens',h88.F3_glimmora.hypotheses.a,'Reflect',[[2,0,1],[2,3,5]]),
+  make('realE_sun_lastRespects',e.team,null,[[2,3,1],[5,2,4]]),
+  make('megaGoli_lastRespects',groups[5].team,null,[[0,3,1],[4,2,1]])
  ];
 }
 function script(move){return (req,bot,info)=>{
