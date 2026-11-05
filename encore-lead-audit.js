@@ -78,13 +78,21 @@ function rivalScript(t1,enc,dex){
   };
 }
 async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOptions={},rivalImmuneAware=false,choiceAudit=false}){
-  const streams=sim.getPlayerStreams(new sim.BattleStream({noCatch:true}));
+  const battleStream=new sim.BattleStream({noCatch:true});
+  const streams=sim.getPlayerStreams(battleStream);
   const dex=sim.Dex.mod('champions');
   const trace={choices:[],selections:[],errors:[]};const reqLog=[];
   const [p1,p2]=reverse?[foe,own]:[own,foe];
   const ownSide=reverse?'p2':'p1',foeSide=reverse?'p1':'p2';
   const bots={};
-  const mk=(stream,team,side)=>bots[side]=new AuditBot(stream,dex,team,side,trace,side===ownSide?ownThree:foeThree,null,
+  // Opt-in (ownOptions.engineSearch): own side answers move/switch requests with
+  // the engine-search turn AI; it reads the battle only through determinize().
+  const {EngineSearchBot,rolePool}=ownOptions.engineSearch?require('./engine-search-bot'):{};
+  const mk=(stream,team,side)=>bots[side]=side===ownSide&&ownOptions.engineSearch
+    ?new EngineSearchBot(stream,dex,team,side,trace,ownThree,null,{previewPolicy:'legacy',seed,...ownOptions,
+      sim,battleSource:()=>battleStream.battle,pool:ownOptions.engineSearch.pool||rolePool(sim),
+      search:ownOptions.engineSearch.config})
+    :new AuditBot(stream,dex,team,side,trace,side===ownSide?ownThree:foeThree,null,
     {previewPolicy:'legacy',seed,reqLog,script:side===foeSide?script:null,...(side===ownSide?ownOptions:{})});
   mk(streams.p1,p1,'p1');mk(streams.p2,p2,'p2');
   // Opt-in opponent-only immunity avoidance for research comparisons.
@@ -125,7 +133,8 @@ async function battle(sim,own,foe,seed,{ownThree,foeThree,reverse,script,ownOpti
   await Promise.all([watch,r1,r2]);
   if(!winner)throw Error('no winner '+JSON.stringify(trace.errors));
   const sel=s=>trace.selections.find(x=>x.side===s);
-  return {won:winner===ownSide,turns,errors:trace.errors.length,log:log.join('\n'),ownSide,foeSide,reqLog,choiceTrace,foe:sel(foeSide).chosen,rivalImmuneAudit};
+  return {won:winner===ownSide,turns,errors:trace.errors.length,log:log.join('\n'),ownSide,foeSide,reqLog,choiceTrace,foe:sel(foeSide).chosen,rivalImmuneAudit,
+    ownSearchLog:bots[ownSide].searchLog||null};
 }
 // Encore facts observed in the log, for the rival side.
 function encoreFacts(log,foeSide,reqLog){
