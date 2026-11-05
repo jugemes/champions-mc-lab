@@ -1,0 +1,7762 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "own": "reportedLive (reported-live-roster-20261027.js)",
+ "modes": {
+  "legacy": {},
+  "fixed": {
+   "publicCondition": true,
+   "ownCondition": true
+  }
+ },
+ "note": "Per-request engine truth vs Bot internals, both bots. Heuristic AI vs heuristic AI, NOT a ladder win rate.",
+ "totals": {
+  "legacy": {
+   "decisions": 1495,
+   "foeStatused": 40,
+   "hpMismatch": 54,
+   "hpMismatchStatused": 38,
+   "statusMismatch": 0,
+   "publicStatusMismatch": 0,
+   "ownStatused": 278,
+   "ownRatioMismatch": 278
+  },
+  "fixed": {
+   "decisions": 1495,
+   "foeStatused": 40,
+   "hpMismatch": 0,
+   "hpMismatchStatused": 0,
+   "statusMismatch": 0,
+   "publicStatusMismatch": 0,
+   "ownStatused": 278,
+   "ownRatioMismatch": 0
+  }
+ },
+ "decisionEffect": {
+  "games": 72,
+  "sameChoices": 72,
+  "winChanged": 0,
+  "ownWins": {
+   "legacy": 24,
+   "fixed": 24
+  }
+ },
+ "games": [
+  {
+   "case": "A_golisopod",
+   "seed": "27950-19789-8405-3234",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "27950-19789-8405-3234",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "16644-62863-47488-24841",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "16644-62863-47488-24841",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "21249-11911-24430-6514",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 20,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 20,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "21249-11911-24430-6514",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 20,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 20,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "53897-57399-13198-64080",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 2,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 1,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 6,
+     "ownRatioMismatch": 6
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Gholdengo",
+      "botHP": 0.55,
+      "trueHP": 0.09,
+      "botStatus": "par",
+      "botPublicStatus": "par",
+      "trueStatus": "par",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 6,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "53897-57399-13198-64080",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 2,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 1,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 6,
+     "ownRatioMismatch": 6
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 4,
+      "force": false,
+      "foe": "Gholdengo",
+      "botHP": 0.55,
+      "trueHP": 0.09,
+      "botStatus": "par",
+      "botPublicStatus": "par",
+      "trueStatus": "par",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 6,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "63029-12543-15967-60639",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 3,
+      "force": true,
+      "foe": "Gholdengo",
+      "botHP": 0.61,
+      "trueHP": 0.2,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Gholdengo",
+      "botHP": 0.61,
+      "trueHP": 0.2,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "63029-12543-15967-60639",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 3,
+      "force": true,
+      "foe": "Gholdengo",
+      "botHP": 0.61,
+      "trueHP": 0.2,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p2",
+      "turn": 4,
+      "force": false,
+      "foe": "Gholdengo",
+      "botHP": 0.61,
+      "trueHP": 0.2,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "12326-34687-43227-36562",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "A_golisopod",
+   "seed": "12326-34687-43227-36562",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hydreigon",
+       "Primarina",
+       "Metagross"
+      ],
+      "lead": "Hydreigon"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "46701-32170-54179-53750",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "46701-32170-54179-53750",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "57790-11088-64616-43366",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "57790-11088-64616-43366",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "21979-49282-46698-27900",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "21979-49282-46698-27900",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "22324-52064-32142-28000",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 1,
+      "force": true,
+      "foe": "Primarina",
+      "botHP": 0.3,
+      "trueHP": 0.42,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p1",
+      "turn": 2,
+      "force": false,
+      "foe": "Primarina",
+      "botHP": 0.3,
+      "trueHP": 0.42,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "22324-52064-32142-28000",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 1,
+      "force": true,
+      "foe": "Primarina",
+      "botHP": 0.3,
+      "trueHP": 0.42,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p2",
+      "turn": 2,
+      "force": false,
+      "foe": "Primarina",
+      "botHP": 0.3,
+      "trueHP": 0.42,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "4298-36812-37205-35503",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "4298-36812-37205-35503",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "25321-9249-11833-25692",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 14,
+     "foeStatused": 3,
+     "hpMismatch": 3,
+     "hpMismatchStatused": 3,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 3,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.72,
+      "trueHP": 0.6,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 0.065,
+      "trueRatio": 0.065
+     },
+     {
+      "side": "p1",
+      "turn": 3,
+      "force": true,
+      "foe": "Garchomp",
+      "botHP": 0.72,
+      "trueHP": 0.34,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.72,
+      "trueHP": 0.34,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     }
+    ],
+    "tally": {
+     "decisions": 14,
+     "foeStatused": 3,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "B_lucarioZ",
+   "seed": "25321-9249-11833-25692",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 5,
+     "hpMismatch": 5,
+     "hpMismatchStatused": 5,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 7,
+     "ownRatioMismatch": 7
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 2,
+      "force": true,
+      "foe": "Garchomp",
+      "botHP": 0.86,
+      "trueHP": 0.61,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p2",
+      "turn": 3,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.86,
+      "trueHP": 0.61,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 4,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.86,
+      "trueHP": 0.49,
+      "botStatus": "psn",
+      "botPublicStatus": "psn",
+      "trueStatus": "psn",
+      "ownStatus": "",
+      "botRatio": 0.041,
+      "trueRatio": 0.041
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ],
+      "lead": "Primarina"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 5,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 7,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "6288-63153-43209-62915",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "6288-63153-43209-62915",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 15,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "41890-2929-63287-21632",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "41890-2929-63287-21632",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 6,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 16,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "54647-5484-33117-33116",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "54647-5484-33117-33116",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "47339-49453-52455-32437",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "47339-49453-52455-32437",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "9902-8059-10144-47126",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "9902-8059-10144-47126",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 18,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "40380-64770-22521-1820",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "C_charizardY",
+   "seed": "40380-64770-22521-1820",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 7,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Baxcalibur",
+       "Primarina",
+       "Garchomp"
+      ],
+      "lead": "Baxcalibur"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Hydreigon",
+       "Metagross"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 17,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "54589-40008-7494-17119",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.94,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 7,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.599,
+      "trueRatio": 0.599
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "54589-40008-7494-17119",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.94,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 7,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.599,
+      "trueRatio": 0.599
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "18142-17739-64696-33671",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.604,
+      "trueRatio": 0.604
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "18142-17739-64696-33671",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.604,
+      "trueRatio": 0.604
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "10496-33503-12318-64716",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.599,
+      "trueRatio": 0.599
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "10496-33503-12318-64716",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.599,
+      "trueRatio": 0.599
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "7781-37071-40207-6429",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 7,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.94,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 8,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.604,
+      "trueRatio": 0.604
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "7781-37071-40207-6429",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 7,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.94,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 8,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.604,
+      "trueRatio": 0.604
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 23,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "11473-15662-15096-585",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.578,
+      "trueRatio": 0.578
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "11473-15662-15096-585",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.578,
+      "trueRatio": 0.578
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "52962-41936-7632-40943",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.572,
+      "trueRatio": 0.572
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "Real_indeedee_scarf",
+   "seed": "52962-41936-7632-40943",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 2,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 5
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.88,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     },
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp-Mega-Z",
+      "botHP": 1,
+      "trueHP": 0.82,
+      "botStatus": "brn",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.572,
+      "trueRatio": 0.572
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 8,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ],
+      "lead": "Hippowdon"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 19,
+     "foeStatused": 2,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 5,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "7495-60658-49465-13969",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 20,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 44,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.701,
+      "trueRatio": 0.701
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 20,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 44,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "7495-60658-49465-13969",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 20,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 44,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 4,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.701,
+      "trueRatio": 0.701
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 20,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 44,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "10540-60970-12394-59599",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 28,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 2
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 28,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "10540-60970-12394-59599",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 28,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 2
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 28,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "32766-34318-10117-29029",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 12,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 26,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 2
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 3,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.631,
+      "trueRatio": 0.631
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 12,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 26,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "32766-34318-10117-29029",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 12,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 26,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 2
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 3,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.631,
+      "trueRatio": 0.631
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 12,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 26,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 2,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "65324-61992-39877-62520",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 16,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 35,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 16,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 35,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "65324-61992-39877-62520",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 16,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 35,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 16,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 35,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "65469-63914-5010-8316",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 30,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 30,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "65469-63914-5010-8316",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 30,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 13,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 30,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "1753-56680-4339-51707",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 14,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 32,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 0.97,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.578,
+      "trueRatio": 0.578
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 14,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     }
+    ],
+    "tally": {
+     "decisions": 32,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "NEW_realE_sun",
+   "seed": "1753-56680-4339-51707",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 14,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 32,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 5,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 0.97,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.578,
+      "trueRatio": 0.578
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 14,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ],
+      "lead": "Garchomp"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Tyranitar",
+       "Garchomp",
+       "Primarina"
+      ],
+      "lead": "Tyranitar"
+     }
+    ],
+    "tally": {
+     "decisions": 32,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "12944-7822-22295-14400",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "12944-7822-22295-14400",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "41891-40175-10409-5996",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 24,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 24,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "41891-40175-10409-5996",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 24,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 4
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 10,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 24,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 4,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "43887-34024-12355-38201",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "43887-34024-12355-38201",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "42309-15743-16460-1735",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "42309-15743-16460-1735",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": []
+   },
+   "fixed": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "27681-29740-5240-39402",
+   "reverse": false,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 6,
+      "force": true,
+      "foe": "Hydreigon",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p2",
+      "turn": 7,
+      "force": false,
+      "foe": "Hydreigon",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.885,
+      "trueRatio": 0.885
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "27681-29740-5240-39402",
+   "reverse": true,
+   "legacy": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 2,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 6,
+      "force": true,
+      "foe": "Hydreigon",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "fnt",
+      "botRatio": 1,
+      "trueRatio": 0
+     },
+     {
+      "side": "p1",
+      "turn": 7,
+      "force": false,
+      "foe": "Hydreigon",
+      "botHP": 1,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.885,
+      "trueRatio": 0.885
+     }
+    ]
+   },
+   "fixed": {
+    "won": true,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "38418-12583-43751-38653",
+   "reverse": false,
+   "legacy": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p1",
+      "turn": 3,
+      "force": false,
+      "foe": "Armarouge",
+      "botHP": 0.56,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.734,
+      "trueRatio": 0.734
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  },
+  {
+   "case": "HOLD_psychic_offense",
+   "seed": "38418-12583-43751-38653",
+   "reverse": true,
+   "legacy": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 1,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 3
+    },
+    "examples": [
+     {
+      "side": "p2",
+      "turn": 3,
+      "force": false,
+      "foe": "Armarouge",
+      "botHP": 0.56,
+      "trueHP": 0.5,
+      "botStatus": "",
+      "botPublicStatus": "",
+      "trueStatus": "",
+      "ownStatus": "",
+      "botRatio": 0.734,
+      "trueRatio": 0.734
+     }
+    ]
+   },
+   "fixed": {
+    "won": false,
+    "turns": 9,
+    "selections": [
+     {
+      "side": "p1",
+      "chosen": [
+       "Sneasler",
+       "Armarouge",
+       "Starmie"
+      ],
+      "lead": "Sneasler"
+     },
+     {
+      "side": "p2",
+      "chosen": [
+       "Metagross",
+       "Tyranitar",
+       "Hydreigon"
+      ],
+      "lead": "Metagross"
+     }
+    ],
+    "tally": {
+     "decisions": 21,
+     "foeStatused": 0,
+     "hpMismatch": 0,
+     "hpMismatchStatused": 0,
+     "statusMismatch": 0,
+     "publicStatusMismatch": 0,
+     "ownStatused": 3,
+     "ownRatioMismatch": 0
+    },
+    "examples": []
+   },
+   "sameChoices": true,
+   "firstDivergence": null,
+   "winChanged": false
+  }
+ ],
+ "reentry": {
+  "setup": "own reportedLive, forced Rotom-Wash/Metagross/Tyranitar; rival B_lucarioZ forced lead+2, scripted T2 out / T3 back in only; option on our side only, probe = our bot",
+  "totals": {
+   "legacy": {
+    "games": 24,
+    "ownWins": 6,
+    "willOWisp": 148,
+    "willOWispFailed": 82,
+    "gamesWithFailedWoW": 11,
+    "decisions": 404,
+    "foeStatused": 225,
+    "statusMismatch": 138,
+    "hpMismatch": 214,
+    "ownRatioMismatch": 50
+   },
+   "fixed": {
+    "games": 24,
+    "ownWins": 5,
+    "willOWisp": 48,
+    "willOWispFailed": 0,
+    "gamesWithFailedWoW": 0,
+    "decisions": 328,
+    "foeStatused": 136,
+    "statusMismatch": 0,
+    "hpMismatch": 0,
+    "ownRatioMismatch": 0
+   }
+  },
+  "winChanged": [
+   [
+    "Corviknight",
+    "41909-23318-8776-27956",
+    "legacy true",
+    "fixed false"
+   ]
+  ],
+  "rows": [
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "16067-59245-6948-64521",
+    "legacy": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 2,
+     "willOWispFailed": 1,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Archaludon",
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 8,
+      "hpMismatch": 8,
+      "hpMismatchStatused": 8,
+      "statusMismatch": 7,
+      "publicStatusMismatch": 0,
+      "ownStatused": 5,
+      "ownRatioMismatch": 5
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Archaludon",
+      "botHP": 0.93,
+      "trueHP": 0.67,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.408,
+      "trueRatio": 0.408
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 11,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 13,
+      "foeStatused": 7,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "9371-35042-62222-26525",
+    "legacy": {
+     "won": false,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 16,
+      "foeStatused": 3,
+      "hpMismatch": 4,
+      "hpMismatchStatused": 3,
+      "statusMismatch": 2,
+      "publicStatusMismatch": 0,
+      "ownStatused": 4,
+      "ownRatioMismatch": 4
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 13,
+      "force": false,
+      "foe": "Lucario",
+      "botHP": 0.93,
+      "trueHP": 0.56,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.758,
+      "trueRatio": 0.758
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 16,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 4,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "63834-27912-5671-49863",
+    "legacy": {
+     "won": false,
+     "turns": 8,
+     "willOWisp": 2,
+     "willOWispFailed": 1,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Archaludon",
+     "tally": {
+      "decisions": 10,
+      "foeStatused": 5,
+      "hpMismatch": 5,
+      "hpMismatchStatused": 5,
+      "statusMismatch": 4,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Archaludon",
+      "botHP": 0.93,
+      "trueHP": 0.67,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.42,
+      "trueRatio": 0.42
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 9,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 11,
+      "foeStatused": 6,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 4,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "29288-46049-34408-36695",
+    "legacy": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 6,
+      "hpMismatch": 6,
+      "hpMismatchStatused": 6,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 4,
+      "ownRatioMismatch": 4
+     },
+     "statusExample": null
+    },
+    "fixed": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 6,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 4,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "18006-49765-29062-51811",
+    "legacy": {
+     "won": false,
+     "turns": 10,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 11,
+      "foeStatused": 7,
+      "hpMismatch": 7,
+      "hpMismatchStatused": 7,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 3,
+      "ownRatioMismatch": 3
+     },
+     "statusExample": null
+    },
+    "fixed": {
+     "won": false,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 9,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 6,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Archaludon",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "41909-23318-8776-27956",
+    "legacy": {
+     "won": false,
+     "turns": 11,
+     "willOWisp": 3,
+     "willOWispFailed": 2,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Archaludon",
+     "tally": {
+      "decisions": 13,
+      "foeStatused": 7,
+      "hpMismatch": 7,
+      "hpMismatchStatused": 7,
+      "statusMismatch": 6,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Archaludon",
+      "botHP": 0.93,
+      "trueHP": 0.66,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.427,
+      "trueRatio": 0.427
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 8,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 10,
+      "foeStatused": 4,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "16067-59245-6948-64521",
+    "legacy": {
+     "won": false,
+     "turns": 20,
+     "willOWisp": 13,
+     "willOWispFailed": 10,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 22,
+      "foeStatused": 13,
+      "hpMismatch": 17,
+      "hpMismatchStatused": 12,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 10,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 12,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "9371-35042-62222-26525",
+    "legacy": {
+     "won": true,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 9,
+      "hpMismatch": 8,
+      "hpMismatchStatused": 8,
+      "statusMismatch": 2,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 12,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": true,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 9,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "63834-27912-5671-49863",
+    "legacy": {
+     "won": false,
+     "turns": 21,
+     "willOWisp": 13,
+     "willOWispFailed": 10,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 23,
+      "foeStatused": 13,
+      "hpMismatch": 13,
+      "hpMismatchStatused": 12,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 11,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 13,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "29288-46049-34408-36695",
+    "legacy": {
+     "won": true,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 9,
+      "hpMismatch": 8,
+      "hpMismatchStatused": 8,
+      "statusMismatch": 3,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 13,
+      "force": false,
+      "foe": "Corviknight",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.083,
+      "trueRatio": 0.083
+     }
+    },
+    "fixed": {
+     "won": true,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 9,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "18006-49765-29062-51811",
+    "legacy": {
+     "won": true,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 6,
+      "hpMismatch": 2,
+      "hpMismatchStatused": 2,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": null
+    },
+    "fixed": {
+     "won": true,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 6,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Corviknight",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "41909-23318-8776-27956",
+    "legacy": {
+     "won": true,
+     "turns": 19,
+     "willOWisp": 13,
+     "willOWispFailed": 9,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 20,
+      "foeStatused": 16,
+      "hpMismatch": 12,
+      "hpMismatchStatused": 12,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 5,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 10,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 12,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "16067-59245-6948-64521",
+    "legacy": {
+     "won": true,
+     "turns": 19,
+     "willOWisp": 13,
+     "willOWispFailed": 10,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 20,
+      "foeStatused": 13,
+      "hpMismatch": 13,
+      "hpMismatchStatused": 13,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.88,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": true,
+     "turns": 10,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 11,
+      "foeStatused": 4,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "9371-35042-62222-26525",
+    "legacy": {
+     "won": false,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 11,
+      "hpMismatch": 10,
+      "hpMismatchStatused": 10,
+      "statusMismatch": 4,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 11,
+      "force": false,
+      "foe": "Lucario",
+      "botHP": 0.93,
+      "trueHP": 0.93,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 11,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "63834-27912-5671-49863",
+    "legacy": {
+     "won": false,
+     "turns": 22,
+     "willOWisp": 13,
+     "willOWispFailed": 10,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 24,
+      "foeStatused": 16,
+      "hpMismatch": 17,
+      "hpMismatchStatused": 16,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.88,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "29288-46049-34408-36695",
+    "legacy": {
+     "won": false,
+     "turns": 15,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 17,
+      "foeStatused": 10,
+      "hpMismatch": 9,
+      "hpMismatchStatused": 9,
+      "statusMismatch": 4,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 13,
+      "force": false,
+      "foe": "Lucario",
+      "botHP": 0.93,
+      "trueHP": 0.93,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 15,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 17,
+      "foeStatused": 10,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "18006-49765-29062-51811",
+    "legacy": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 5,
+      "hpMismatch": 5,
+      "hpMismatchStatused": 5,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": null
+    },
+    "fixed": {
+     "won": false,
+     "turns": 12,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 14,
+      "foeStatused": 5,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Garchomp",
+    "back": [
+     "Lucario",
+     "Primarina"
+    ],
+    "seed": "41909-23318-8776-27956",
+    "legacy": {
+     "won": true,
+     "turns": 19,
+     "willOWisp": 13,
+     "willOWispFailed": 9,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 20,
+      "foeStatused": 16,
+      "hpMismatch": 16,
+      "hpMismatchStatused": 16,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 1
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 4,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.88,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": true,
+     "turns": 9,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 10,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 1,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "16067-59245-6948-64521",
+    "legacy": {
+     "won": false,
+     "turns": 21,
+     "willOWisp": 13,
+     "willOWispFailed": 11,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 23,
+      "foeStatused": 13,
+      "hpMismatch": 12,
+      "hpMismatchStatused": 12,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.522,
+      "trueRatio": 0.522
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 11,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 13,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "9371-35042-62222-26525",
+    "legacy": {
+     "won": false,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 16,
+      "foeStatused": 8,
+      "hpMismatch": 7,
+      "hpMismatchStatused": 7,
+      "statusMismatch": 4,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 9,
+      "force": false,
+      "foe": "Primarina",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 14,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 16,
+      "foeStatused": 8,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "63834-27912-5671-49863",
+    "legacy": {
+     "won": false,
+     "turns": 21,
+     "willOWisp": 13,
+     "willOWispFailed": 9,
+     "firstFail": "|move|p1a: Rotom|Will-O-Wisp|p2a: Garchomp",
+     "tally": {
+      "decisions": 23,
+      "foeStatused": 13,
+      "hpMismatch": 12,
+      "hpMismatchStatused": 12,
+      "statusMismatch": 12,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 6,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 0.497,
+      "trueRatio": 0.497
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 11,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 13,
+      "foeStatused": 3,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "29288-46049-34408-36695",
+    "legacy": {
+     "won": false,
+     "turns": 16,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 18,
+      "foeStatused": 8,
+      "hpMismatch": 7,
+      "hpMismatchStatused": 7,
+      "statusMismatch": 2,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 11,
+      "force": false,
+      "foe": "Primarina",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 16,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 18,
+      "foeStatused": 8,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "18006-49765-29062-51811",
+    "legacy": {
+     "won": false,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 5,
+      "hpMismatch": 5,
+      "hpMismatchStatused": 5,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": null
+    },
+    "fixed": {
+     "won": false,
+     "turns": 13,
+     "willOWisp": 3,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 15,
+      "foeStatused": 5,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   },
+   {
+    "lead": "Primarina",
+    "back": [
+     "Lucario",
+     "Garchomp"
+    ],
+    "seed": "41909-23318-8776-27956",
+    "legacy": {
+     "won": false,
+     "turns": 10,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 12,
+      "foeStatused": 5,
+      "hpMismatch": 4,
+      "hpMismatchStatused": 4,
+      "statusMismatch": 4,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 2
+     },
+     "statusExample": {
+      "side": "p1",
+      "turn": 7,
+      "force": false,
+      "foe": "Garchomp",
+      "botHP": 0.94,
+      "trueHP": 0.94,
+      "botStatus": "",
+      "botPublicStatus": "brn",
+      "trueStatus": "brn",
+      "ownStatus": "",
+      "botRatio": 1,
+      "trueRatio": 1
+     }
+    },
+    "fixed": {
+     "won": false,
+     "turns": 10,
+     "willOWisp": 1,
+     "willOWispFailed": 0,
+     "firstFail": null,
+     "tally": {
+      "decisions": 12,
+      "foeStatused": 5,
+      "hpMismatch": 0,
+      "hpMismatchStatused": 0,
+      "statusMismatch": 0,
+      "publicStatusMismatch": 0,
+      "ownStatused": 2,
+      "ownRatioMismatch": 0
+     },
+     "statusExample": null
+    }
+   }
+  ]
+ }
+}

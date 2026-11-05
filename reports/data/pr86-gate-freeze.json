@@ -1,0 +1,99 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "table": "reports/data/pr84-reaudit-v3table.json (rebuilt identical: true)",
+ "train": {
+  "stage1": 14280,
+  "stage2v3": 14280
+ },
+ "rules": 38,
+ "t1Rules": 14,
+ "locoPass": [
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T1#Basculegion#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#move:Solar Beam#Garchomp#Charizard#o:F//h:|f:F//h:|w:sunnyday/t:#L:move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross",
+  "Baxcalibur|Charizard|Garchomp|Gholdengo|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T1#Charizard#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross",
+  "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu#Primarina>Hydreigon/Metagross#T1#Corviknight#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Hydreigon,switch:Metagross",
+  "Garchomp|Gengar|Gyarados|Hippowdon|Indeedee|Umbreon#Rotom-Wash>Garchomp/Primarina#T1#Gengar#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Primarina"
+ ],
+ "locoDetail": {
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T1#Primarina#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "held-out H2|rivalLegacy:Primarina/Garchomp/Gholdengo: rule 0.92 < base 1.00",
+  "Baxcalibur|Charizard|Garchomp|Gholdengo|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T1#Charizard#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "pass (2 cells)",
+  "Garchomp|Gengar|Gyarados|Hippowdon|Indeedee|Umbreon#Rotom-Wash>Garchomp/Primarina#T1#Gengar#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Primarina": "pass (5 cells)",
+  "Garchomp|Gengar|Gyarados|Hippowdon|Indeedee|Umbreon#Rotom-Wash>Garchomp/Primarina#T1#Garchomp#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Primarina": "without sash|alt1:Garchomp/Indeedee/Gyarados: base",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T1#Basculegion#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "pass (2 cells)",
+  "Archaludon|Dragonite|Gholdengo|Pelipper|Rillaboom|Swampert#Garchomp>Hydreigon/Metagross#T1#Swampert#o:F//h:|f:F//h:|w:/t:#L:move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Hydreigon,switch:Metagross": "without a|aceLead:Swampert/Archaludon/Gholdengo: rule switch:Hydreigon",
+  "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu#Primarina>Hydreigon/Metagross#T1#Garchomp#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Hydreigon,switch:Metagross": "without a|aceLead:Garchomp/Baxcalibur/Gholdengo: base",
+  "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu#Primarina>Hydreigon/Metagross#T1#Corviknight#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Hydreigon,switch:Metagross": "pass (3 cells)",
+  "Alakazam|Armarouge|Gyarados|Sneasler|Starmie|Swampert#Rotom-Wash>Garchomp/Tyranitar#T1#Sneasler#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Tyranitar": "trained on 1 cell",
+  "Alakazam|Armarouge|Gyarados|Sneasler|Starmie|Swampert#Rotom-Wash>Garchomp/Tyranitar#T1#Alakazam#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Tyranitar": "held-out case|aceLead:Alakazam/Sneasler/Armarouge: rule 0.58 < base 0.75",
+  "Alakazam|Armarouge|Gyarados|Sneasler|Starmie|Swampert#Rotom-Wash>Garchomp/Tyranitar#T1#Armarouge#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Tyranitar": "trained on 1 cell",
+  "Basculegion|Charizard|Dragonite|Eelektross|Skarmory|Toxapex#Rotom-Wash>Garchomp/Metagross#T1#Charizard#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "trained on 1 cell",
+  "Basculegion|Charizard|Dragonite|Eelektross|Skarmory|Toxapex#Rotom-Wash>Garchomp/Metagross#T1#Basculegion#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "trained on 1 cell",
+  "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton#Metagross>Primarina/Rotom-Wash#T1#Ceruledge#o:F//h:|f:F//h:|w:/t:#L:move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina,switch:Rotom-Wash": "without a|alt1:Ceruledge/Scizor/Annihilape: base",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Golisopod#changed:Primarina#Primarina#Primarina#o:F//h:|f:H//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "without H0|aceLead:Golisopod/Primarina/Garchomp: uncovered",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Golisopod#changed:Gholdengo#Primarina#Gholdengo#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "trained on 1 cell",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Garchomp#changed:Golisopod#Primarina#Golisopod#o:F//h:stealthrock+1|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "trained on 1 cell",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Garchomp#changed:Mimikyu#Primarina#Mimikyu#o:F//h:stealthrock+1|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "trained on 1 cell",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Garchomp#changed:Gholdengo#Primarina#Gholdengo#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "trained on 1 cell",
+  "Garchomp|Gholdengo|Golisopod|Hippowdon|Mimikyu|Primarina#Primarina>Garchomp/Rotom-Wash#T2#Garchomp#changed:Mimikyu#Primarina#Mimikyu#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Garchomp,switch:Rotom-Wash": "trained on 1 cell",
+  "Archaludon|Corviknight|Garchomp|Lucario|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T2#Archaludon#move:Draco Meteor#Rotom-Wash#Archaludon#o:L//h:|f:Hbrn/spa-2/h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without case|alt1:Archaludon/Garchomp/Corviknight: uncovered",
+  "Baxcalibur|Charizard|Garchomp|Gholdengo|Mimikyu|Primarina#Rotom-Wash>Garchomp/Metagross#T2#Baxcalibur#changed:Garchomp#Metagross#Garchomp#o:F//h:|f:F//h:|w:/t:#L:move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Garchomp,switch:Rotom-Wash": "without Y|rivalLegacy:Baxcalibur/Primarina/Garchomp: uncovered",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Garchomp#changed:Meowscarada#Rotom-Wash#Meowscarada#o:F//h:|f:Hbrn//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without case|rivalLegacy:Garchomp/Meowscarada/Corviknight: uncovered",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#move:Solar Beam#Garchomp#Charizard#o:F//h:|f:F//h:|w:sunnyday/t:#L:move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross": "pass (2 cells)",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#changed:Garchomp#Rotom-Wash#Garchomp#o:F//h:|f:F//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without E2|alt2:Charizard/Meowscarada/Garchomp: base",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#move:Roost#Rotom-Wash#Charizard#o:F//h:|f:L//h:|w:sunnyday/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without case|aceLead:Charizard/Garchomp/Meowscarada: uncovered",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Basculegion#changed:Meowscarada#Garchomp#Meowscarada#o:F//h:|f:H//h:|w:/t:#L:move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Rotom-Wash": "without E2|alt1:Basculegion/Meowscarada/Charizard: base",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#move:Earthquake#Rotom-Wash#Charizard#o:F//h:|f:H//h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without E2|aceLead:Charizard/Garchomp/Meowscarada: uncovered",
+  "Basculegion|Charizard|Corviknight|Garchomp|Meowscarada|Raichu#Rotom-Wash>Garchomp/Metagross#T2#Charizard#move:Dragon Dance#Rotom-Wash#Charizard#o:F//h:|f:H/atk+1,spe+1/h:|w:/t:#L:move:Hydro Pump,move:Thunderbolt,move:Volt Switch,move:Will-O-Wisp,switch:Garchomp,switch:Metagross": "without E2|aceLead:Charizard/Garchomp/Meowscarada: uncovered",
+  "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu#Primarina>Hydreigon/Metagross#T2#Baxcalibur#move:Earthquake#Primarina#Baxcalibur#o:H//h:|f:C//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Hydreigon,switch:Metagross": "without a|alt1:Baxcalibur/Garchomp/Corviknight: base",
+  "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu#Primarina>Hydreigon/Metagross#T2#Baxcalibur#changed:Gholdengo#Primarina#Gholdengo#o:F//h:|f:H//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Hydreigon,switch:Metagross": "without a|rivalLegacy:Baxcalibur/Gholdengo/Corviknight: uncovered",
+  "Basculegion|Charizard|Dragonite|Eelektross|Skarmory|Toxapex#Rotom-Wash>Garchomp/Metagross#T2#Eelektross#move:Thunderbolt#Garchomp#Eelektross#o:F//h:|f:F//h:|w:/t:#L:move:Dragon Claw,move:Earthquake,move:Poison Jab,move:Rock Slide,switch:Metagross,switch:Rotom-Wash": "trained on 1 cell",
+  "Dragapult|Excadrill|Hippowdon|Kingambit|Rotom-Heat|Sylveon#Hydreigon>Garchomp/Rotom-Wash#T2#Dragapult#changed:Sylveon#Hydreigon#Sylveon#o:F//h:|f:F//h:|w:/t:#L:move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Garchomp,switch:Rotom-Wash": "held-out a|alt2:Dragapult/Hippowdon/Sylveon: rule 0.50 < base 1.00",
+  "Dragapult|Excadrill|Hippowdon|Kingambit|Rotom-Heat|Sylveon#Hydreigon>Garchomp/Rotom-Wash#T2#Dragapult#move:Thunder Wave#Hydreigon#Dragapult#o:Hpar/spa-2/h:|f:C//h:|w:/t:#L:move:Dark Pulse,move:Draco Meteor,move:Flamethrower,move:Flash Cannon,switch:Garchomp,switch:Rotom-Wash": "without a|alt1:Dragapult/Excadrill/Sylveon: uncovered",
+  "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton#Metagross>Primarina/Rotom-Wash#T2#Scizor#move:Swords Dance#Metagross#Scizor#o:F//h:|f:H/atk+2/h:|w:/t:#L:move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina,switch:Rotom-Wash": "without a|alt2:Scizor/Annihilape/Ceruledge: base",
+  "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton#Metagross>Primarina/Rotom-Wash#T2#Ceruledge#changed:Scizor#Primarina#Scizor#o:F//h:|f:F//h:|w:/t:#L:move:Aqua Jet,move:Encore,move:Moonblast,move:Sparkling Aria,switch:Rotom-Wash": "trained on 1 cell",
+  "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton#Metagross>Primarina/Rotom-Wash#T2#Scizor#changed:Ceruledge#Metagross#Ceruledge#o:H//h:|f:F//h:|w:/t:#L:move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina,switch:Rotom-Wash": "without b|aceLead:Scizor/Ceruledge/Clefable: uncovered",
+  "Annihilape|Azumarill|Ceruledge|Clefable|Scizor|Tinkaton#Metagross>Primarina/Rotom-Wash#T2#Scizor#move:Roost#Metagross#Scizor#o:H//h:|f:F//h:|w:/t:#L:move:Bullet Punch,move:Meteor Mash,move:Psychic Fangs,move:Thunder Punch,switch:Primarina,switch:Rotom-Wash": "without b|aceLead:Scizor/Ceruledge/Clefable: rule move:Bullet Punch"
+ },
+ "gate": "loco_t2",
+ "devChoice": {
+  "gate": "loco_t2",
+  "eligible": [
+   "loco_t2",
+   "t2only",
+   "loco"
+  ],
+  "rule": "max rational 22-hyp mean among gates with mean >= abstain and worse<=better (|diff|>0.05); none -> abstain"
+ },
+ "devTable": {
+  "abstain": {
+   "hypMeanRat": 0.808,
+   "worse": 0,
+   "better": 0,
+   "rulesFired": 0
+  },
+  "v3": {
+   "hypMeanRat": 0.795,
+   "worse": 3,
+   "better": 5,
+   "rulesFired": 322
+  },
+  "t2only": {
+   "hypMeanRat": 0.813,
+   "worse": 1,
+   "better": 2,
+   "rulesFired": 82
+  },
+  "loco": {
+   "hypMeanRat": 0.811,
+   "worse": 1,
+   "better": 2,
+   "rulesFired": 88
+  },
+  "loco_t2": {
+   "hypMeanRat": 0.813,
+   "worse": 0,
+   "better": 1,
+   "rulesFired": 16
+  }
+ }
+}

@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {test}=require('node:test');
+const {evaluateEvidence}=require('../m8-open8-evidence-gate-20261105');
+const ownSix=['a','b','c','d','e','f'],publicSix=['u','v','w','x','y','z'],branches=[{id:'A',three:['u','v','w']},{id:'B',three:['x','y','z']}];
+const manifest=[{id:'a1',three:['a','b','c'],lead:'a',branch:'A',seed:11,side:0},{id:'a2',three:['a','b','c'],lead:'a',branch:'A',seed:12,side:1},{id:'b1',three:['a','b','c'],lead:'a',branch:'B',seed:11,side:0}];
+const record=m=>({...m,battleId:'battle-'+m.id,engineCommit:'a'.repeat(40),logDigest:'b'.repeat(64),result:'win'});
+const run=(ms,rs)=>evaluateEvidence({ownSix,publicSix,branches,manifest:ms,records:rs});
+test('incomplete evidence never ranks a choice',()=>{const x=run(manifest,manifest.slice(0,2).map(record));assert.equal(x.selected,null);assert.deepEqual(x.evidence.missing,['b1']);});
+test('complete seeds and branches rank a choice',()=>{const x=run(manifest,manifest.map(record));assert.equal(x.selected.lead,'a');assert.equal(x.evidence.completeGroups,2);});
+test('reject duplicate results',()=>assert.throws(()=>run(manifest,[record(manifest[0]),record(manifest[0])]),/Invalid battle evidence/));
+test('reject unregistered and mismatched seed',()=>assert.throws(()=>run(manifest,[{...record(manifest[0]),seed:42}]),/mismatch/));
+test('reject missing provenance digest',()=>assert.throws(()=>run(manifest,[{...record(manifest[0]),logDigest:''}]),/Invalid battle evidence/));
+test('reject duplicate registered conditions',()=>assert.throws(()=>run([...manifest,{...manifest[0],id:'duplicate'}],[]),/Duplicate registered condition/));
