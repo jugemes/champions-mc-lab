@@ -62,7 +62,11 @@ function order({three,lead}){return [lead,...three.filter(s=>s!==lead)];}
 async function runOne(sim,team,c,selection,b,seed,reverse){
  const r=await battle(sim,clone(team),clone(c.team),seed,{
   ownThree:order(selection),foeThree:b.three,reverse,
-  script:b.policy==='switch'?rivalScript('switch','stay',sim.Dex.mod('champions')):null,
+  script:b.openingMove?((req,bot,info)=>{
+   if(info.turn!==1)return null;
+   const i=req.active?.[0]?.moves.findIndex(m=>!m.disabled&&m.move===b.openingMove);
+   return i>=0?'move '+(i+1):null;
+  }):b.policy==='switch'?rivalScript('switch','stay',sim.Dex.mod('champions')):null,
   rivalImmuneAware:true,choiceAudit:true});
  if(r.errors)throw Error('choice errors '+c.id+'/'+b.id);
  const actual=r.foe.map(x=>typeof x==='string'?x:x.species);
@@ -75,10 +79,11 @@ async function runOne(sim,team,c,selection,b,seed,reverse){
   observedSun:r.log.includes('|-weather|SunnyDay'),
   observedRain:r.log.includes('|-weather|RainDance')};
 }
-async function study({sim=load(),teams=candidates(),scenarios=cases(),out='output/m8-open8-battle-study-20261105.json',enforcePin=true}={}){
+async function study({sim=load(),teams=candidates(),scenarios=cases(),out='output/m8-open8-battle-study-20261105.json',enforcePin=true,seedOffset=0}={}){
+ if(!Number.isSafeInteger(seedOffset)||seedOffset<0||seedOffset>5000000)throw Error('Invalid seed offset');
  const sha=execFileSync('git',['-C',process.env.SHOWDOWN_DIR,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
  if(enforcePin&&sha!==PIN)throw Error('Wrong Showdown SHA '+sha);
- const result={protocol:'M8-OPEN8-20261105-v1',showdown:sha,format:FORMAT,
+ const result={protocol:'M8-OPEN8-20261105-v1',seedOffset,showdown:sha,format:FORMAT,
   limitations:['Offline fitted selections, not a hidden-information live policy','Known constructed opponent sets; new seeds are not unseen sets','Heuristic actions and script branches do not certify rational play','Bot outcomes are not human win rates','Official in-game legality still requires rule/roster cross-check','Claude OPEN8 independent audit not received'],teams,scenarios,rows:[],games:0,complete:false};
  const save=()=>{fs.mkdirSync(require('node:path').dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(result,null,2));};
  for(const [name,team] of Object.entries(teams))validate(sim,team,name);
@@ -89,7 +94,7 @@ async function study({sim=load(),teams=candidates(),scenarios=cases(),out='outpu
   for(const choice of choices(team))for(const [bi,b] of c.branches.entries()){
    let wins=0;
    for(const reverse of [false,true]){
-    const r=await runOne(sim,team,c,choice,b,hashSeed(18081100+ci*100+bi),reverse);
+    const r=await runOne(sim,team,c,choice,b,hashSeed(18081100+seedOffset+ci*100+bi),reverse);
     result.games++;wins+=Number(r.won);
    }
    outcomes.push({...choice,branch:b.id,score:wins/2});
@@ -101,7 +106,7 @@ async function study({sim=load(),teams=candidates(),scenarios=cases(),out='outpu
   for(const [bi,b] of c.branches.entries()){
    const observations=[];
    for(let si=0;si<2;si++)for(const reverse of [false,true]){
-    const seed=hashSeed(28082200+ci*1000+bi*100+si);
+    const seed=hashSeed(28082200+seedOffset+ci*1000+bi*100+si);
     const r=await runOne(sim,team,c,selected,b,seed,reverse);
     result.games++;observations.push({seed,reverse,...r});
    }
