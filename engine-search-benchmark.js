@@ -18,14 +18,16 @@ const {builders}=require('./m8-open1-20261104');
 const {cases}=require('./m8-open8-battle-study-20261105');
 const {opponents:threat}=require('./threat-scenarios-20261014');
 function args(argv){
-  let games=10,out='output/engine-search-benchmark.json';
+  let games=10,out='output/engine-search-benchmark.json',only=null;
   for(let i=0;i<argv.length;i++){
     if(argv[i]==='--games')games=Number(argv[++i]);
     else if(argv[i]==='--out')out=argv[++i];
+    // --only mirror:<team id> | branch:<case>/<branch>  (one CI matrix cell)
+    else if(argv[i]==='--only')only=argv[++i];
     else throw Error('Unknown option '+argv[i]);
   }
   if(!Number.isInteger(games)||games<2||games%2)throw Error('--games must be an even integer >= 2');
-  return {games,out};
+  return {games,out,only};
 }
 const MIRRORS=()=>[
   {id:'live_A',team:reportedLive(),three:['Metagross','Garchomp','Rotom-Wash']},
@@ -66,6 +68,7 @@ async function main(){
   const result={engine:'3a766f2cfb5e51c1e428cfe87d0dba91a8f01640',format:'gen9championsbssregmc',
     note:'Heuristic/engine-search AI vs AI. Not ladder win rates.',mirror:[],branches:[]};
   for(const m of MIRRORS()){
+    if(cfg.only&&cfg.only!=='mirror:'+m.id)continue;
     for(const foePolicy of ['heuristic','v3']){
       const s=await series(sim,pool,{ownTeam:m.team,ownThree:m.three,foeTeam:m.team,foeThree:m.three,
         ownPolicy:'search',foePolicy,seeds:seedSet(8800000,cfg.games)});
@@ -75,6 +78,7 @@ async function main(){
   }
   const all=cases(),O2=builders.O2_megaMetagross_unaware();
   for(const b of BRANCHES){
+    if(cfg.only&&cfg.only!=='branch:'+b.case+'/'+b.branch)continue;
     const c=all.find(x=>x.id===b.case),br=c.branches.find(x=>x.id===b.branch);
     for(const [ownPolicy,foePolicy] of [['heuristic','heuristic'],['search','heuristic'],['search','search']]){
       for(const [label,base] of [['seedsA',8900000],['seedsB',8950000]]){
