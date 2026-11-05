@@ -86,10 +86,11 @@ test('regret matching solves small zero-sum games',()=>{
   const dominated=S.solve([[2,2],[0,1]],500);
   assert.ok(dominated.x[0]>0.95);
 });
-test('legal choices: Mega variants, switches, forced switch only',()=>{
+test('legal choices: attacks always with Mega when available, switches, forced switch only',()=>{
   const b=battle(OPP(),'123','123');
   const c=S.legalChoices(b.sides[0].activeRequest);
   assert.ok(c.includes('move 1 mega')&&c.includes('switch 2')&&c.includes('switch 3'));
+  assert.ok(!c.includes('move 1'));
   const forced={side:{pokemon:[{active:true,condition:'0 fnt'},{active:false,condition:'50/100'},{active:false,condition:'0 fnt'}]},forceSwitch:[true]};
   assert.deepEqual(S.legalChoices(forced),['switch 2']);
 });

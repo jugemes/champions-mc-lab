@@ -15,7 +15,7 @@
 const {Bot}=require('./lab');
 const {seededRandom}=require('./preview-policy');
 const {determinize,restore}=require('./engine-public-state');
-const DEFAULTS={determinizations:3,seeds:2,iterations:400,maxMidTurn:6,rollout:3};
+const DEFAULTS={determinizations:3,seeds:3,iterations:400,maxMidTurn:6,rollout:3};
 const STATUS_COST={brn:0.12,par:0.1,slp:0.2,frz:0.25,psn:0.05,tox:0.08};
 const BOOST_VALUE={atk:0.06,spa:0.06,spe:0.05,def:0.03,spd:0.03};
 
@@ -29,10 +29,12 @@ function legalChoices(req){
   const active=req.active?.[0];
   if(!active)return [];
   const out=[];
+  // When Mega Evolution is available every attack is offered WITH it: the
+  // rollout would Mega next turn anyway, so the non-Mega twin differs only by
+  // sampling noise and was picked by noise in testing (turn-1 Charizard).
   active.moves.forEach((m,i)=>{
     if(m.disabled||m.pp===0)return;
-    out.push('move '+(i+1));
-    if(active.canMegaEvo)out.push('move '+(i+1)+' mega');
+    out.push('move '+(i+1)+(active.canMegaEvo?' mega':''));
   });
   if(!active.trapped&&!active.maybeTrapped)out.push(...bench);
   return out.length?out:['default'];

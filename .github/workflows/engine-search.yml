@@ -1,7 +1,5 @@
 name: Engine-search turn AI (opt-in research)
 on:
-  push:
-    branches: ['claude/engine-search-bot']
   pull_request:
     paths:
       - 'engine-*.js'
