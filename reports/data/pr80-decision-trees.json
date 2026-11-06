@@ -1,0 +1,8443 @@
+[
+ {
+  "six": "A_golisopod",
+  "ace": "Golisopod",
+  "human1": "Primarina>Garchomp/Rotom-Wash",
+  "hypotheses": [
+   {
+    "hyp": "H0",
+    "human1": {
+     "support": [
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.442,
+     "aceCoverage": 0.333,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Mimikyu>Golisopod/Garchomp",
+       0
+      ],
+      [
+       "Garchomp>Golisopod/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Golisopod/Garchomp",
+       0
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 22,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.667,
+        "utility": 0.5
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.5,
+       "worstBranch": 0.167,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.5,
+        "attack": 0.667,
+        "setup": 0.5,
+        "switch": 0.333,
+        "utility": 0.5
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.144
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.144
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.144
+      ],
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       0.1
+      ],
+      [
+       "Hydreigon>Metagross/Rotom-Wash",
+       0.094
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.093
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.082
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.08
+      ],
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       0.075
+      ],
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.044
+      ]
+     ],
+     "security": 0,
+     "mean": 0.325,
+     "aceCoverage": 0.172,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Golisopod>Mimikyu/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Golisopod/Primarina",
+       0.007
+      ],
+      [
+       "Golisopod>Garchomp/Gholdengo",
+       0.025
+      ],
+      [
+       "Golisopod>Hippowdon/Gholdengo",
+       0.025
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.414,
+       "worstBranch": 0.277,
+       "cleanAi": 0.414,
+       "byBranch": {
+        "ai": 0.414,
+        "attack": 0.463,
+        "setup": 0.414,
+        "switch": 0.574,
+        "utility": 0.762
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.233,
+       "worstBranch": 0.013,
+       "cleanAi": 0.241,
+       "byBranch": {
+        "ai": 0.233,
+        "attack": 0.115,
+        "setup": 0.349,
+        "switch": 0.266,
+        "utility": 0.266
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.501
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.499
+      ]
+     ],
+     "security": 0,
+     "mean": 0.412,
+     "aceCoverage": 0.258,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Golisopod>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Garchomp>Golisopod/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Golisopod/Garchomp",
+       0
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 17,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.667,
+       "worstBranch": 0.501,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.501,
+        "setup": 0.667,
+        "switch": 0.667,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.499,
+       "worstBranch": 0,
+       "cleanAi": 0.499,
+       "byBranch": {
+        "ai": 0.499,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.499,
+        "utility": 0.499
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Metagross/Primarina",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.561,
+     "aceCoverage": 0.567,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Golisopod>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Golisopod/Mimikyu",
+       0
+      ],
+      [
+       "Gholdengo>Golisopod/Primarina",
+       0
+      ]
+     ],
+     "rivalsAtZero": 15,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0.333,
+        "setup": 0,
+        "switch": 0.333,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.333,
+       "worstBranch": 0,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0,
+        "setup": 0.333,
+        "switch": 0.333,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "registeredA": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Rotom-Wash",
+       0.247
+      ],
+      [
+       "Tyranitar>Metagross/Primarina",
+       0.166
+      ],
+      [
+       "Tyranitar>Hydreigon/Primarina",
+       0.146
+      ],
+      [
+       "Primarina>Metagross/Hydreigon",
+       0.131
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.123
+      ],
+      [
+       "Primarina>Hydreigon/Rotom-Wash",
+       0.081
+      ],
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.056
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.049
+      ]
+     ],
+     "security": 0.165,
+     "mean": 0.475,
+     "aceCoverage": 0.394,
+     "aceSecurity": 0.165,
+     "worstRival": [
+      [
+       "Mimikyu>Golisopod/Primarina",
+       0.165
+      ],
+      [
+       "Mimikyu>Golisopod/Gholdengo",
+       0.182
+      ],
+      [
+       "Golisopod>Primarina/Gholdengo",
+       0.213
+      ],
+      [
+       "Golisopod>Garchomp/Mimikyu",
+       0.234
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.414,
+       "worstBranch": 0.328,
+       "cleanAi": 0.414,
+       "byBranch": {
+        "ai": 0.414,
+        "attack": 0.43,
+        "setup": 0.397,
+        "switch": 0.657,
+        "utility": 0.563
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.238,
+       "worstBranch": 0.027,
+       "cleanAi": 0.238,
+       "byBranch": {
+        "ai": 0.238,
+        "attack": 0.082,
+        "setup": 0.403,
+        "switch": 0.385,
+        "utility": 0.238
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.442,
+     "worstBy": [
+      "Mimikyu>Golisopod/Garchomp",
+      "Garchomp>Golisopod/Gholdengo",
+      "Gholdengo>Golisopod/Garchomp"
+     ]
+    },
+    "sets": [
+     "Golisopod@Golisopite:Sucker Punch/Leech Life/Swords Dance/Iron Head",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt"
+    ]
+   },
+   {
+    "hyp": "H1",
+    "human1": {
+     "support": [
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.628,
+     "aceCoverage": 0.678,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Golisopod/Mimikyu",
+       0
+      ],
+      [
+       "Mimikyu>Golisopod/Garchomp",
+       0
+      ],
+      [
+       "Mimikyu>Golisopod/Primarina",
+       0
+      ],
+      [
+       "Golisopod>Mimikyu/Hippowdon",
+       0
+      ]
+     ],
+     "rivalsAtZero": 15,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Gholdengo/Hippowdon",
+       "aiBranch": 0.167,
+       "worstBranch": 0.167,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0.167,
+        "attack": 0.167,
+        "setup": 0.167,
+        "switch": 0.667,
+        "utility": 0.5
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 0.5,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.5,
+        "setup": 1,
+        "switch": 0.833,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.144
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.144
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.144
+      ],
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       0.1
+      ],
+      [
+       "Hydreigon>Metagross/Rotom-Wash",
+       0.094
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.093
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.082
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.08
+      ],
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       0.075
+      ],
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.044
+      ]
+     ],
+     "security": 0.208,
+     "mean": 0.591,
+     "aceCoverage": 0.656,
+     "aceSecurity": 0.345,
+     "worstRival": [
+      [
+       "Gholdengo>Primarina/Hippowdon",
+       0.208
+      ],
+      [
+       "Gholdengo>Garchomp/Primarina",
+       0.305
+      ],
+      [
+       "Gholdengo>Garchomp/Hippowdon",
+       0.313
+      ],
+      [
+       "Gholdengo>Garchomp/Mimikyu",
+       0.327
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Gholdengo/Hippowdon",
+       "aiBranch": 0.446,
+       "worstBranch": 0.299,
+       "cleanAi": 0.265,
+       "byBranch": {
+        "ai": 0.446,
+        "attack": 0.446,
+        "setup": 0.446,
+        "switch": 0.405,
+        "utility": 0.54
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Gholdengo",
+       "aiBranch": 0.659,
+       "worstBranch": 0.31,
+       "cleanAi": 0.659,
+       "byBranch": {
+        "ai": 0.659,
+        "attack": 0.463,
+        "setup": 0.597,
+        "switch": 0.792,
+        "utility": 0.55
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.501
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.499
+      ]
+     ],
+     "security": 0,
+     "mean": 0.647,
+     "aceCoverage": 0.705,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gholdengo>Golisopod/Hippowdon",
+       0
+      ],
+      [
+       "Gholdengo>Garchomp/Hippowdon",
+       0
+      ],
+      [
+       "Hippowdon>Primarina/Gholdengo",
+       0.166
+      ],
+      [
+       "Gholdengo>Garchomp/Primarina",
+       0.167
+      ]
+     ],
+     "rivalsAtZero": 2,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Gholdengo/Hippowdon",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.667,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Gholdengo",
+       "aiBranch": 0.501,
+       "worstBranch": 0.334,
+       "cleanAi": 0.501,
+       "byBranch": {
+        "ai": 0.501,
+        "attack": 0.334,
+        "setup": 0.501,
+        "switch": 1,
+        "utility": 0.501
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Metagross/Primarina",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.783,
+     "aceCoverage": 0.878,
+     "aceSecurity": 0.333,
+     "worstRival": [
+      [
+       "Garchomp>Hippowdon/Gholdengo",
+       0
+      ],
+      [
+       "Primarina>Mimikyu/Hippowdon",
+       0
+      ],
+      [
+       "Hippowdon>Primarina/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Mimikyu/Gholdengo",
+       0
+      ]
+     ],
+     "rivalsAtZero": 6,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Gholdengo/Hippowdon",
+       "aiBranch": 0.5,
+       "worstBranch": 0.5,
+       "cleanAi": 0.5,
+       "byBranch": {
+        "ai": 0.5,
+        "attack": 1,
+        "setup": 0.5,
+        "switch": 0.5,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Gholdengo",
+       "aiBranch": 0.5,
+       "worstBranch": 0,
+       "cleanAi": 0.5,
+       "byBranch": {
+        "ai": 0.5,
+        "attack": 0.167,
+        "setup": 0.167,
+        "switch": 0.5,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "registeredA": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Rotom-Wash",
+       0.247
+      ],
+      [
+       "Tyranitar>Metagross/Primarina",
+       0.166
+      ],
+      [
+       "Tyranitar>Hydreigon/Primarina",
+       0.146
+      ],
+      [
+       "Primarina>Metagross/Hydreigon",
+       0.131
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.123
+      ],
+      [
+       "Primarina>Hydreigon/Rotom-Wash",
+       0.081
+      ],
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.056
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.049
+      ]
+     ],
+     "security": 0.278,
+     "mean": 0.668,
+     "aceCoverage": 0.766,
+     "aceSecurity": 0.539,
+     "worstRival": [
+      [
+       "Mimikyu>Primarina/Gholdengo",
+       0.278
+      ],
+      [
+       "Garchomp>Hippowdon/Gholdengo",
+       0.327
+      ],
+      [
+       "Hippowdon>Primarina/Gholdengo",
+       0.343
+      ],
+      [
+       "Primarina>Garchomp/Mimikyu",
+       0.355
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Gholdengo/Hippowdon",
+       "aiBranch": 0.734,
+       "worstBranch": 0.375,
+       "cleanAi": 0.768,
+       "byBranch": {
+        "ai": 0.734,
+        "attack": 0.734,
+        "setup": 0.734,
+        "switch": 0.47,
+        "utility": 0.702
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Gholdengo",
+       "aiBranch": 0.698,
+       "worstBranch": 0.627,
+       "cleanAi": 0.698,
+       "byBranch": {
+        "ai": 0.698,
+        "attack": 0.69,
+        "setup": 0.69,
+        "switch": 0.717,
+        "utility": 0.698
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.628,
+     "worstBy": [
+      "Garchomp>Golisopod/Mimikyu",
+      "Mimikyu>Golisopod/Garchomp",
+      "Mimikyu>Golisopod/Primarina"
+     ]
+    },
+    "sets": [
+     "Golisopod@Lum Berry:Sucker Punch/Leech Life/Swords Dance/Iron Head",
+     "Garchomp@Garchompite Z:Earth Power/Draco Meteor/Flamethrower/Stealth Rock",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt"
+    ]
+   },
+   {
+    "hyp": "H2",
+    "human1": {
+     "support": [
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.633,
+     "aceCoverage": 0.528,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gholdengo>Golisopod/Primarina",
+       0
+      ],
+      [
+       "Mimikyu>Garchomp/Primarina",
+       0
+      ],
+      [
+       "Garchomp>Mimikyu/Hippowdon",
+       0
+      ],
+      [
+       "Primarina>Golisopod/Garchomp",
+       0.167
+      ]
+     ],
+     "rivalsAtZero": 3,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.5,
+       "worstBranch": 0.5,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.5,
+        "attack": 0.5,
+        "setup": 0.5,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.5,
+       "worstBranch": 0,
+       "cleanAi": 0.25,
+       "byBranch": {
+        "ai": 0.5,
+        "attack": 0.667,
+        "setup": 0.5,
+        "switch": 0.333,
+        "utility": 0.5
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.144
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.144
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.144
+      ],
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       0.1
+      ],
+      [
+       "Hydreigon>Metagross/Rotom-Wash",
+       0.094
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.093
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.082
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.08
+      ],
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       0.075
+      ],
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.044
+      ]
+     ],
+     "security": 0.036,
+     "mean": 0.434,
+     "aceCoverage": 0.25,
+     "aceSecurity": 0.036,
+     "worstRival": [
+      [
+       "Golisopod>Primarina/Gholdengo",
+       0.036
+      ],
+      [
+       "Golisopod>Primarina/Hippowdon",
+       0.063
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0.076
+      ],
+      [
+       "Gholdengo>Golisopod/Primarina",
+       0.111
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.621,
+       "worstBranch": 0.416,
+       "cleanAi": 0.362,
+       "byBranch": {
+        "ai": 0.621,
+        "attack": 0.66,
+        "setup": 0.621,
+        "switch": 0.737,
+        "utility": 0.938
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.205,
+       "worstBranch": 0,
+       "cleanAi": 0.058,
+       "byBranch": {
+        "ai": 0.205,
+        "attack": 0.125,
+        "setup": 0.349,
+        "switch": 0.224,
+        "utility": 0.205
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.501
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.499
+      ]
+     ],
+     "security": 0,
+     "mean": 0.491,
+     "aceCoverage": 0.339,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Golisopod>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Garchomp>Golisopod/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Golisopod/Garchomp",
+       0
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 10,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.666,
+       "worstBranch": 0.166,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.666,
+        "attack": 0.667,
+        "setup": 0.666,
+        "switch": 0.499,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.499,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0.499,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.499,
+        "utility": 0.499
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Metagross/Primarina",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.469,
+     "aceCoverage": 0.506,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Golisopod>Garchomp/Mimikyu",
+       0
+      ],
+      [
+       "Golisopod>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Golisopod>Primarina/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Golisopod/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 16,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0.333,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.333,
+       "worstBranch": 0,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0,
+        "setup": 1,
+        "switch": 0.333,
+        "utility": 0.667
+       }
+      }
+     }
+    },
+    "registeredA": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Rotom-Wash",
+       0.247
+      ],
+      [
+       "Tyranitar>Metagross/Primarina",
+       0.166
+      ],
+      [
+       "Tyranitar>Hydreigon/Primarina",
+       0.146
+      ],
+      [
+       "Primarina>Metagross/Hydreigon",
+       0.131
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.123
+      ],
+      [
+       "Primarina>Hydreigon/Rotom-Wash",
+       0.081
+      ],
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.056
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.049
+      ]
+     ],
+     "security": 0.145,
+     "mean": 0.517,
+     "aceCoverage": 0.441,
+     "aceSecurity": 0.145,
+     "worstRival": [
+      [
+       "Golisopod>Garchomp/Primarina",
+       0.145
+      ],
+      [
+       "Mimikyu>Primarina/Gholdengo",
+       0.186
+      ],
+      [
+       "Garchomp>Golisopod/Primarina",
+       0.213
+      ],
+      [
+       "Primarina>Garchomp/Gholdengo",
+       0.218
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Gholdengo",
+       "aiBranch": 0.218,
+       "worstBranch": 0.152,
+       "cleanAi": 0.203,
+       "byBranch": {
+        "ai": 0.218,
+        "attack": 0.547,
+        "setup": 0.218,
+        "switch": 0.345,
+        "utility": 0.606
+       }
+      },
+      "aceLead": {
+       "rival": "Golisopod/Primarina/Garchomp",
+       "aiBranch": 0.172,
+       "worstBranch": 0.027,
+       "cleanAi": 0.07,
+       "byBranch": {
+        "ai": 0.172,
+        "attack": 0.144,
+        "setup": 0.337,
+        "switch": 0.181,
+        "utility": 0.09
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.633,
+     "worstBy": [
+      "Gholdengo>Golisopod/Primarina",
+      "Mimikyu>Garchomp/Primarina",
+      "Garchomp>Mimikyu/Hippowdon"
+     ]
+    },
+    "sets": [
+     "Golisopod@Golisopite:Sucker Punch/Leech Life/Swords Dance/Iron Head",
+     "Garchomp@Yache Berry:Earthquake/Dragon Claw/Rock Slide/Swords Dance",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Gholdengo@Choice Scarf:Make It Rain/Shadow Ball/Thunderbolt/Trick"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Garchomp",
+    "rivalLead": "Golisopod",
+    "branch": "ai",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "3/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Mega Golisopod, Golisopod:Swords Dance",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Golisopod Encored, Golisopod:Swords Dance",
+    "ourT2": "Primarina:Encore",
+    "failureLine": "T1 Mega Golisopod, Golisopod:Swords Dance / Primarina:Moonblast ; T2 Golisopod Encored, Golisopod:Swords Dance / Primarina:Encore",
+    "requested": null,
+    "rivalTagged": 5,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Gholdengo",
+    "rivalLead": "Golisopod",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Garchomp",
+    "rivalLead": "Golisopod",
+    "branch": "attack",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "4/6",
+     "H2": "4/6"
+    },
+    "rivalT1": "Mega Golisopod, Golisopod:Iron Head",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Golisopod:Iron Head",
+    "ourT2": "Primarina:Sparkling Aria, Primarina fainted, replace→Rotom",
+    "failureLine": "T1 Mega Golisopod, Golisopod:Iron Head / Primarina:Moonblast ; T2 Golisopod:Iron Head / Primarina:Sparkling Aria, Primarina fainted, replace→Rotom",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Gholdengo",
+    "rivalLead": "Golisopod",
+    "branch": "attack",
+    "won": 3,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "3/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria",
+    "requested": {
+     "executed": 6,
+     "forcedOut": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Garchomp",
+    "rivalLead": "Golisopod",
+    "branch": "setup",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "3/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Mega Golisopod, Golisopod:Swords Dance",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Golisopod Encored, Golisopod:Swords Dance",
+    "ourT2": "Primarina:Encore",
+    "failureLine": "T1 Mega Golisopod, Golisopod:Swords Dance / Primarina:Moonblast ; T2 Golisopod Encored, Golisopod:Swords Dance / Primarina:Encore",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 5,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Gholdengo",
+    "rivalLead": "Golisopod",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": null,
+    "requested": {
+     "executed": 6,
+     "forcedOut": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Garchomp",
+    "rivalLead": "Golisopod",
+    "branch": "switch",
+    "won": 4,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "2/6",
+     "H2": "2/6"
+    },
+    "rivalT1": "switch→Primarina",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast (10/12)",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 switch→Primarina / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast (7/8)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 5,
+    "ownTagged": 1
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Gholdengo",
+    "rivalLead": "Golisopod",
+    "branch": "switch",
+    "won": 5,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "5/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt (2/6)",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria",
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Garchomp",
+    "rivalLead": "Golisopod",
+    "branch": "utility",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "3/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Mega Golisopod, Golisopod:Swords Dance",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Golisopod Encored, Golisopod:Swords Dance",
+    "ourT2": "Primarina:Encore",
+    "failureLine": "T1 Mega Golisopod, Golisopod:Swords Dance / Primarina:Moonblast ; T2 Golisopod Encored, Golisopod:Swords Dance / Primarina:Encore",
+    "requested": null,
+    "rivalTagged": 5,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Golisopod/Primarina/Gholdengo",
+    "rivalLead": "Golisopod",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Gholdengo",
+    "rivalLead": "Primarina",
+    "branch": "ai",
+    "won": 3,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "0/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": null,
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Gholdengo/Hippowdon",
+    "rivalLead": "Primarina",
+    "branch": "ai",
+    "won": 1,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "1/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": null,
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Gholdengo",
+    "rivalLead": "Primarina",
+    "branch": "attack",
+    "won": 3,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "0/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Gholdengo/Hippowdon",
+    "rivalLead": "Primarina",
+    "branch": "attack",
+    "won": 1,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "1/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Gholdengo",
+    "rivalLead": "Primarina",
+    "branch": "setup",
+    "won": 3,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "0/6",
+     "H2": "3/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": null,
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Gholdengo/Hippowdon",
+    "rivalLead": "Primarina",
+    "branch": "setup",
+    "won": 1,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "1/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": "T1 Primarina:Moonblast / Primarina:Moonblast ; T2 Primarina:Moonblast / Primarina:Moonblast",
+    "requested": null,
+    "rivalTagged": 3,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Gholdengo",
+    "rivalLead": "Primarina",
+    "branch": "switch",
+    "won": 10,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "4/6",
+     "H2": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Trick (6/12)",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Gholdengo/Hippowdon",
+    "rivalLead": "Primarina",
+    "branch": "switch",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "4/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria",
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 1,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Gholdengo",
+    "rivalLead": "Primarina",
+    "branch": "utility",
+    "won": 9,
+    "n": 12,
+    "byHypothesis": {
+     "H0": "3/6",
+     "H2": "6/6"
+    },
+    "rivalT1": "Primarina:Encore",
+    "ourT1": "Primarina:Moonblast, Primarina Encored (6/12)",
+    "rivalT2": "Primarina:Encore",
+    "ourT2": "Primarina:Moonblast (6/12)",
+    "failureLine": "T1 Primarina:Encore / Primarina:Moonblast ; T2 Primarina:Encore / Primarina:Moonblast, Primarina Encored (2/3)",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 12,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Gholdengo/Hippowdon",
+    "rivalLead": "Primarina",
+    "branch": "utility",
+    "won": 3,
+    "n": 6,
+    "byHypothesis": {
+     "H1": "3/6"
+    },
+    "rivalT1": "Primarina:Encore",
+    "ourT1": "Primarina:Moonblast (3/6)",
+    "rivalT2": "Primarina:Encore",
+    "ourT2": "Primarina:Moonblast (3/6)",
+    "failureLine": "T1 Primarina:Encore / Primarina:Moonblast, Primarina Encored ; T2 Primarina:Encore / Primarina:Moonblast (2/3)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 2
+   }
+  ]
+ },
+ {
+  "six": "B_lucarioZ",
+  "ace": "Lucario",
+  "human1": "Rotom-Wash>Metagross/Garchomp",
+  "hypotheses": [
+   {
+    "hyp": "case",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.483,
+     "aceCoverage": 0.506,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Lucario>Primarina/Archaludon",
+       0
+      ],
+      [
+       "Primarina>Lucario/Archaludon",
+       0
+      ],
+      [
+       "Archaludon>Lucario/Primarina",
+       0
+      ],
+      [
+       "Lucario>Primarina/Corviknight",
+       0
+      ]
+     ],
+     "rivalsAtZero": 18,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0.833,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.833,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.208
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.207
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.197
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.145
+      ],
+      [
+       "Primarina>Metagross/Rotom-Wash",
+       0.109
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Garchomp",
+       0.068
+      ],
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       0.067
+      ]
+     ],
+     "security": 0.069,
+     "mean": 0.524,
+     "aceCoverage": 0.543,
+     "aceSecurity": 0.069,
+     "worstRival": [
+      [
+       "Lucario>Primarina/Archaludon",
+       0.069
+      ],
+      [
+       "Corviknight>Mimikyu/Archaludon",
+       0.081
+      ],
+      [
+       "Primarina>Lucario/Archaludon",
+       0.138
+      ],
+      [
+       "Mimikyu>Archaludon/Corviknight",
+       0.176
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 0.578,
+       "worstBranch": 0.276,
+       "cleanAi": 0.618,
+       "byBranch": {
+        "ai": 0.578,
+        "attack": 0.329,
+        "setup": 0.578,
+        "switch": 0.776,
+        "utility": 0.814
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 0.865,
+       "worstBranch": 0.537,
+       "cleanAi": 0.861,
+       "byBranch": {
+        "ai": 0.865,
+        "attack": 0.754,
+        "setup": 1,
+        "switch": 0.596,
+        "utility": 0.865
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.501
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.499
+      ]
+     ],
+     "security": 0,
+     "mean": 0.656,
+     "aceCoverage": 0.686,
+     "aceSecurity": 0.167,
+     "worstRival": [
+      [
+       "Corviknight>Mimikyu/Archaludon",
+       0
+      ],
+      [
+       "Primarina>Mimikyu/Archaludon",
+       0.166
+      ],
+      [
+       "Lucario>Primarina/Archaludon",
+       0.167
+      ],
+      [
+       "Lucario>Mimikyu/Archaludon",
+       0.167
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.75,
+        "setup": 1,
+        "switch": 0.917,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0.917,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.917,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.381,
+     "aceCoverage": 0.383,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Lucario/Primarina",
+       0
+      ],
+      [
+       "Primarina>Lucario/Garchomp",
+       0
+      ],
+      [
+       "Garchomp>Lucario/Archaludon",
+       0
+      ],
+      [
+       "Garchomp>Lucario/Corviknight",
+       0
+      ]
+     ],
+     "rivalsAtZero": 23,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0.167,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.167,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.483,
+     "worstBy": [
+      "Lucario>Primarina/Archaludon",
+      "Primarina>Lucario/Archaludon",
+      "Archaludon>Lucario/Primarina"
+     ]
+    },
+    "sets": [
+     "Lucario@Lucarionite Z:Aura Sphere/Dark Pulse/Flash Cannon/Nasty Plot",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Archaludon@White Herb:Draco Meteor/Flash Cannon/Thunderbolt/Stealth Rock",
+     "Corviknight@Rocky Helmet:Roost/U-turn/Body Press/Iron Head"
+    ]
+   },
+   {
+    "hyp": "B2",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.761,
+     "aceCoverage": 0.711,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Lucario>Primarina/Archaludon",
+       0
+      ],
+      [
+       "Primarina>Lucario/Archaludon",
+       0
+      ],
+      [
+       "Lucario>Mimikyu/Archaludon",
+       0
+      ],
+      [
+       "Lucario>Archaludon/Corviknight",
+       0
+      ]
+     ],
+     "rivalsAtZero": 4,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 1,
+       "worstBranch": 0.333,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.333,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.208
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.207
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.197
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.145
+      ],
+      [
+       "Primarina>Metagross/Rotom-Wash",
+       0.109
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Garchomp",
+       0.068
+      ],
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       0.067
+      ]
+     ],
+     "security": 0.102,
+     "mean": 0.603,
+     "aceCoverage": 0.603,
+     "aceSecurity": 0.102,
+     "worstRival": [
+      [
+       "Lucario>Mimikyu/Archaludon",
+       0.102
+      ],
+      [
+       "Lucario>Primarina/Archaludon",
+       0.104
+      ],
+      [
+       "Mimikyu>Primarina/Archaludon",
+       0.152
+      ],
+      [
+       "Mimikyu>Archaludon/Corviknight",
+       0.19
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 0.676,
+       "worstBranch": 0.376,
+       "cleanAi": 0.53,
+       "byBranch": {
+        "ai": 0.676,
+        "attack": 0.476,
+        "setup": 0.676,
+        "switch": 0.831,
+        "utility": 0.883
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 0.833,
+       "worstBranch": 0.469,
+       "cleanAi": 0.878,
+       "byBranch": {
+        "ai": 0.833,
+        "attack": 0.771,
+        "setup": 0.967,
+        "switch": 0.709,
+        "utility": 0.833
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.501
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.499
+      ]
+     ],
+     "security": 0,
+     "mean": 0.615,
+     "aceCoverage": 0.625,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Lucario>Mimikyu/Archaludon",
+       0
+      ],
+      [
+       "Mimikyu>Primarina/Corviknight",
+       0
+      ],
+      [
+       "Archaludon>Primarina/Mimikyu",
+       0.083
+      ],
+      [
+       "Primarina>Archaludon/Corviknight",
+       0.083
+      ]
+     ],
+     "rivalsAtZero": 2,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.75,
+        "setup": 1,
+        "switch": 0.917,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0.501,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.501,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.433,
+     "aceCoverage": 0.389,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Lucario/Primarina",
+       0
+      ],
+      [
+       "Primarina>Lucario/Garchomp",
+       0
+      ],
+      [
+       "Mimikyu>Lucario/Garchomp",
+       0
+      ],
+      [
+       "Garchomp>Lucario/Archaludon",
+       0
+      ]
+     ],
+     "rivalsAtZero": 26,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Primarina/Garchomp/Lucario",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Lucario/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.667,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.761,
+     "worstBy": [
+      "Lucario>Primarina/Archaludon",
+      "Primarina>Lucario/Archaludon",
+      "Lucario>Mimikyu/Archaludon"
+     ]
+    },
+    "sets": [
+     "Lucario@Lucarionite Z:Aura Sphere/Dark Pulse/Flash Cannon/Nasty Plot",
+     "Garchomp@Yache Berry:Earthquake/Dragon Claw/Rock Slide/Swords Dance",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Archaludon@White Herb:Draco Meteor/Flash Cannon/Thunderbolt/Stealth Rock",
+     "Corviknight@Leftovers:Roost/U-turn/Body Press/Brave Bird"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Lucario/Primarina/Garchomp",
+    "rivalLead": "Lucario",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Lucario/Primarina/Garchomp",
+    "rivalLead": "Lucario",
+    "branch": "attack",
+    "won": 11,
+    "n": 12,
+    "byHypothesis": {
+     "case": "5/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "Mega Lucario, Lucario:Aura Sphere",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Lucario:Aura Sphere (8/12)",
+    "ourT2": "Rotom fainted, replace→Garchomp (8/12)",
+    "failureLine": "T1 Mega Lucario, Lucario:Aura Sphere / Rotom:Thunderbolt ; T2 Lucario:Aura Sphere / Rotom fainted, replace→Garchomp",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 2,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Lucario/Primarina/Garchomp",
+    "rivalLead": "Lucario",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "Mega Lucario, Lucario:Nasty Plot",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Lucario:Nasty Plot, Lucario fainted, replace→Garchomp",
+    "ourT2": "Rotom:Thunderbolt",
+    "failureLine": null,
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Lucario/Primarina/Garchomp",
+    "rivalLead": "Lucario",
+    "branch": "switch",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Lucario/Primarina/Garchomp",
+    "rivalLead": "Lucario",
+    "branch": "utility",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Lucario",
+    "rivalLead": "Primarina",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Lucario",
+    "rivalLead": "Primarina",
+    "branch": "attack",
+    "won": 2,
+    "n": 12,
+    "byHypothesis": {
+     "case": "0/6",
+     "B2": "2/6"
+    },
+    "rivalT1": "Primarina:Moonblast",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Primarina:Moonblast",
+    "ourT2": "Rotom:Thunderbolt, Rotom fainted, replace→Metagross (10/12)",
+    "failureLine": "T1 Primarina:Moonblast / Rotom:Thunderbolt ; T2 Primarina:Moonblast / Rotom:Thunderbolt, Rotom fainted, replace→Metagross",
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 0,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Lucario",
+    "rivalLead": "Primarina",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake (6/12)",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Lucario",
+    "rivalLead": "Primarina",
+    "branch": "switch",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Primarina/Garchomp/Lucario",
+    "rivalLead": "Primarina",
+    "branch": "utility",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "B2": "6/6"
+    },
+    "rivalT1": "Primarina:Encore",
+    "ourT1": "Rotom:Thunderbolt, Rotom Encored",
+    "rivalT2": "Primarina:Encore",
+    "ourT2": "Rotom:Thunderbolt",
+    "failureLine": null,
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 12,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "C_charizard",
+  "ace": "Charizard",
+  "human1": "Rotom-Wash>Metagross/Garchomp",
+  "hypotheses": [
+   {
+    "hyp": "Y",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.458,
+     "aceCoverage": 0.55,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Charizard>Garchomp/Primarina",
+       0
+      ],
+      [
+       "Charizard>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Charizard/Garchomp",
+       0
+      ],
+      [
+       "Gholdengo>Charizard/Primarina",
+       0
+      ]
+     ],
+     "rivalsAtZero": 21,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.667,
+       "worstBranch": 0.333,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.667,
+        "setup": 0.667,
+        "switch": 0.667,
+        "utility": 0.667
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.159
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.159
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.149
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.148
+      ],
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       0.148
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.085
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.079
+      ],
+      [
+       "Garchomp>Metagross/Primarina",
+       0.074
+      ]
+     ],
+     "security": 0.197,
+     "mean": 0.524,
+     "aceCoverage": 0.604,
+     "aceSecurity": 0.306,
+     "worstRival": [
+      [
+       "Primarina>Garchomp/Baxcalibur",
+       0.197
+      ],
+      [
+       "Primarina>Garchomp/Gholdengo",
+       0.227
+      ],
+      [
+       "Mimikyu>Garchomp/Primarina",
+       0.262
+      ],
+      [
+       "Garchomp>Gholdengo/Baxcalibur",
+       0.286
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0.44,
+       "worstBranch": 0.241,
+       "cleanAi": 0.466,
+       "byBranch": {
+        "ai": 0.44,
+        "attack": 0.414,
+        "setup": 0.44,
+        "switch": 0.525,
+        "utility": 0.414
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.763,
+       "worstBranch": 0.562,
+       "cleanAi": 0.803,
+       "byBranch": {
+        "ai": 0.763,
+        "attack": 0.71,
+        "setup": 0.763,
+        "switch": 0.785,
+        "utility": 0.746
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.5
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.5
+      ]
+     ],
+     "security": 0,
+     "mean": 0.65,
+     "aceCoverage": 0.75,
+     "aceSecurity": 0.25,
+     "worstRival": [
+      [
+       "Primarina>Garchomp/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Baxcalibur>Garchomp/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Baxcalibur",
+       0.083
+      ]
+     ],
+     "rivalsAtZero": 3,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0.083,
+       "worstBranch": 0,
+       "cleanAi": 0.083,
+       "byBranch": {
+        "ai": 0.083,
+        "attack": 0,
+        "setup": 0.083,
+        "switch": 0.417,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.833,
+       "worstBranch": 0.667,
+       "cleanAi": 0.833,
+       "byBranch": {
+        "ai": 0.833,
+        "attack": 0.667,
+        "setup": 0.833,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.656,
+     "aceCoverage": 0.722,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Charizard>Garchomp/Primarina",
+       0
+      ],
+      [
+       "Primarina>Charizard/Garchomp",
+       0
+      ],
+      [
+       "Mimikyu>Charizard/Garchomp",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 11,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.667,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.667,
+       "worstBranch": 0.667,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.667,
+        "setup": 0.667,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.458,
+     "worstBy": [
+      "Charizard>Garchomp/Primarina",
+      "Charizard>Garchomp/Gholdengo",
+      "Gholdengo>Charizard/Garchomp"
+     ]
+    },
+    "sets": [
+     "Charizard@Charizardite Y:Flamethrower/Solar Beam/Air Slash/Roost",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt",
+     "Baxcalibur@Focus Sash:Ice Shard/Earthquake/Glaive Rush/Icicle Crash"
+    ]
+   },
+   {
+    "hyp": "X",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.478,
+     "aceCoverage": 0.622,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Charizard>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Garchomp>Charizard/Gholdengo",
+       0
+      ],
+      [
+       "Gholdengo>Charizard/Garchomp",
+       0
+      ],
+      [
+       "Gholdengo>Charizard/Primarina",
+       0
+      ]
+     ],
+     "rivalsAtZero": 26,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 1,
+       "worstBranch": 0.333,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.333,
+        "setup": 0.333,
+        "switch": 0.667,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.159
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.159
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.149
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.148
+      ],
+      [
+       "Primarina>Garchomp/Rotom-Wash",
+       0.148
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.085
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.079
+      ],
+      [
+       "Garchomp>Metagross/Primarina",
+       0.074
+      ]
+     ],
+     "security": 0.202,
+     "mean": 0.53,
+     "aceCoverage": 0.599,
+     "aceSecurity": 0.208,
+     "worstRival": [
+      [
+       "Primarina>Garchomp/Gholdengo",
+       0.202
+      ],
+      [
+       "Garchomp>Charizard/Gholdengo",
+       0.208
+      ],
+      [
+       "Primarina>Garchomp/Baxcalibur",
+       0.215
+      ],
+      [
+       "Mimikyu>Garchomp/Primarina",
+       0.226
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0.398,
+       "worstBranch": 0.151,
+       "cleanAi": 0.435,
+       "byBranch": {
+        "ai": 0.398,
+        "attack": 0.398,
+        "setup": 0.398,
+        "switch": 0.402,
+        "utility": 0.425
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.792,
+       "worstBranch": 0.419,
+       "cleanAi": 0.914,
+       "byBranch": {
+        "ai": 0.792,
+        "attack": 0.686,
+        "setup": 0.82,
+        "switch": 0.575,
+        "utility": 0.845
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       0.5
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.5
+      ]
+     ],
+     "security": 0,
+     "mean": 0.594,
+     "aceCoverage": 0.631,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Charizard/Baxcalibur",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Mimikyu",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Primarina>Garchomp/Baxcalibur",
+       0
+      ]
+     ],
+     "rivalsAtZero": 6,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.333,
+        "utility": 0.083
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 0.833,
+       "worstBranch": 0.333,
+       "cleanAi": 0.833,
+       "byBranch": {
+        "ai": 0.833,
+        "attack": 0.833,
+        "setup": 1,
+        "switch": 0.5,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.583,
+     "aceCoverage": 0.544,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Charizard/Primarina",
+       0
+      ],
+      [
+       "Garchomp>Charizard/Mimikyu",
+       0
+      ],
+      [
+       "Garchomp>Charizard/Baxcalibur",
+       0
+      ],
+      [
+       "Primarina>Charizard/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 18,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Primarina/Garchomp",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.667,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Baxcalibur/Primarina",
+       "aiBranch": 1,
+       "worstBranch": 0.333,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.333,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.478,
+     "worstBy": [
+      "Charizard>Garchomp/Gholdengo",
+      "Garchomp>Charizard/Gholdengo",
+      "Gholdengo>Charizard/Garchomp"
+     ]
+    },
+    "sets": [
+     "Charizard@Charizardite X:Dragon Dance/Flare Blitz/Dragon Claw/Earthquake",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Primarina@Sitrus Berry:Moonblast/Sparkling Aria/Aqua Jet/Encore",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt",
+     "Baxcalibur@Focus Sash:Ice Shard/Earthquake/Glaive Rush/Icicle Crash"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Baxcalibur/Primarina",
+    "rivalLead": "Charizard",
+    "branch": "ai",
+    "won": 10,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "4/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Baxcalibur (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Baxcalibur / Garchomp:Rock Slide",
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Baxcalibur/Primarina",
+    "rivalLead": "Charizard",
+    "branch": "attack",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "4/6",
+     "X": "2/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Baxcalibur (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Earthquake / Rotom:Thunderbolt ; T2 Charizard:Earthquake / Rotom:Will-O-Wisp (4/6)",
+    "requested": {
+     "executed": 18,
+     "preempted": 6
+    },
+    "rivalTagged": 6,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Baxcalibur/Primarina",
+    "rivalLead": "Charizard",
+    "branch": "setup",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "4/6",
+     "X": "2/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Baxcalibur (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Dragon Dance / Rotom:Thunderbolt ; T2 Charizard:Dragon Dance / Rotom:Will-O-Wisp (4/6)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 4,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Baxcalibur/Primarina",
+    "rivalLead": "Charizard",
+    "branch": "switch",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "4/6",
+     "X": "4/6"
+    },
+    "rivalT1": "switch→Baxcalibur",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Baxcalibur:Earthquake",
+    "ourT2": "switch→Metagross (10/12)",
+    "failureLine": "T1 switch→Baxcalibur / Rotom:Thunderbolt ; T2 Baxcalibur:Earthquake / switch→Metagross, Metagross fainted, replace→Rotom (2/4)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 4,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Baxcalibur/Primarina",
+    "rivalLead": "Charizard",
+    "branch": "utility",
+    "won": 10,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "4/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Roost (6/12)",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Charizard:Roost (6/12)",
+    "ourT2": "Rotom:Thunderbolt (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Roost / Rotom:Thunderbolt ; T2 Charizard:Roost / Rotom:Thunderbolt",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Primarina/Garchomp",
+    "rivalLead": "Baxcalibur",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "6/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "switch→Metagross",
+    "rivalT2": "Baxcalibur:Earthquake",
+    "ourT2": "Mega Metagross, Metagross:Meteor Mash, Metagross fainted, replace→Rotom",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Primarina/Garchomp",
+    "rivalLead": "Baxcalibur",
+    "branch": "attack",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "6/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "switch→Metagross",
+    "rivalT2": "Baxcalibur:Earthquake",
+    "ourT2": "Mega Metagross, Metagross:Meteor Mash, Metagross fainted, replace→Rotom",
+    "failureLine": null,
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Primarina/Garchomp",
+    "rivalLead": "Baxcalibur",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "6/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "switch→Metagross",
+    "rivalT2": "Baxcalibur:Earthquake",
+    "ourT2": "Mega Metagross, Metagross:Meteor Mash, Metagross fainted, replace→Rotom",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Primarina/Garchomp",
+    "rivalLead": "Baxcalibur",
+    "branch": "switch",
+    "won": 0,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "0/6",
+     "X": "0/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "switch→Metagross",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Mega Metagross, Metagross:Psychic Fangs (8/12)",
+    "failureLine": "T1 switch→Garchomp / switch→Metagross ; T2 Garchomp:Earthquake / Mega Metagross, Metagross:Psychic Fangs (8/12)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 10,
+    "ownTagged": 11
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Primarina/Garchomp",
+    "rivalLead": "Baxcalibur",
+    "branch": "utility",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "Y": "6/6",
+     "X": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "switch→Metagross",
+    "rivalT2": "Baxcalibur:Earthquake",
+    "ourT2": "Mega Metagross, Metagross:Meteor Mash, Metagross fainted, replace→Rotom",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "Indeedee",
+  "ace": "Indeedee",
+  "human1": "Rotom-Wash>Primarina/Garchomp",
+  "hypotheses": [
+   {
+    "hyp": "scarf",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       1
+      ]
+     ],
+     "security": 0.333,
+     "mean": 0.928,
+     "aceCoverage": 0.9,
+     "aceSecurity": 0.333,
+     "worstRival": [
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0.333
+      ],
+      [
+       "Indeedee>Gengar/Gyarados",
+       0.333
+      ],
+      [
+       "Gengar>Indeedee/Gyarados",
+       0.333
+      ],
+      [
+       "Gengar>Hippowdon/Gyarados",
+       0.333
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Hippowdon/Garchomp/Indeedee",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Hippowdon/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.264
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.139
+      ],
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       0.135
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.134
+      ],
+      [
+       "Metagross>Garchomp/Rotom-Wash",
+       0.134
+      ],
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       0.127
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Tyranitar",
+       0.067
+      ]
+     ],
+     "security": 0.598,
+     "mean": 0.864,
+     "aceCoverage": 0.849,
+     "aceSecurity": 0.598,
+     "worstRival": [
+      [
+       "Indeedee>Umbreon/Gengar",
+       0.598
+      ],
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0.602
+      ],
+      [
+       "Gengar>Indeedee/Gyarados",
+       0.646
+      ],
+      [
+       "Garchomp>Indeedee/Hippowdon",
+       0.647
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Hippowdon/Garchomp/Indeedee",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Hippowdon/Garchomp",
+       "aiBranch": 0.91,
+       "worstBranch": 0.91,
+       "cleanAi": 0.775,
+       "byBranch": {
+        "ai": 0.91,
+        "attack": 1,
+        "setup": 0.91,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.655
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.345
+      ]
+     ],
+     "security": 0.345,
+     "mean": 0.875,
+     "aceCoverage": 0.863,
+     "aceSecurity": 0.345,
+     "worstRival": [
+      [
+       "Garchomp>Indeedee/Hippowdon",
+       0.345
+      ],
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0.345
+      ],
+      [
+       "Indeedee>Gengar/Gyarados",
+       0.345
+      ],
+      [
+       "Gengar>Indeedee/Gyarados",
+       0.345
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Hippowdon/Garchomp/Indeedee",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Hippowdon/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.967,
+     "aceCoverage": 0.967,
+     "aceSecurity": 0.667,
+     "worstRival": [
+      [
+       "Hippowdon>Gengar/Gyarados",
+       0
+      ],
+      [
+       "Hippowdon>Indeedee/Gengar",
+       0.667
+      ],
+      [
+       "Garchomp>Indeedee/Gengar",
+       0.667
+      ],
+      [
+       "Garchomp>Indeedee/Gyarados",
+       0.667
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Hippowdon/Garchomp/Indeedee",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Hippowdon/Garchomp",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Primarina/Garchomp",
+     "worst": 0.333,
+     "mean": 0.928,
+     "worstBy": [
+      "Indeedee>Hippowdon/Gyarados",
+      "Indeedee>Gengar/Gyarados",
+      "Gengar>Indeedee/Gyarados"
+     ]
+    },
+    "sets": [
+     "Indeedee@Choice Scarf:Dazzling Gleam/Expanding Force/Mystical Fire/Trick",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Garchomp@Garchompite Z:Earth Power/Draco Meteor/Flamethrower/Stealth Rock",
+     "Umbreon@Rocky Helmet:Foul Play/Moonlight/Yawn/Protect",
+     "Gengar@Gengarite:Shadow Ball/Thunderbolt/Taunt/Perish Song",
+     "Gyarados@Sitrus Berry:Dragon Dance/Waterfall/Earthquake/Taunt"
+    ]
+   },
+   {
+    "hyp": "sash",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.889,
+     "aceCoverage": 0.867,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0
+      ],
+      [
+       "Indeedee>Gengar/Gyarados",
+       0
+      ],
+      [
+       "Gengar>Indeedee/Gyarados",
+       0.333
+      ],
+      [
+       "Garchomp>Gengar/Gyarados",
+       0.333
+      ]
+     ],
+     "rivalsAtZero": 2,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.264
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.139
+      ],
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       0.135
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.134
+      ],
+      [
+       "Metagross>Garchomp/Rotom-Wash",
+       0.134
+      ],
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       0.127
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Tyranitar",
+       0.067
+      ]
+     ],
+     "security": 0.45,
+     "mean": 0.846,
+     "aceCoverage": 0.817,
+     "aceSecurity": 0.45,
+     "worstRival": [
+      [
+       "Umbreon>Indeedee/Garchomp",
+       0.45
+      ],
+      [
+       "Indeedee>Umbreon/Gengar",
+       0.552
+      ],
+      [
+       "Umbreon>Indeedee/Gengar",
+       0.555
+      ],
+      [
+       "Umbreon>Indeedee/Gyarados",
+       0.562
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 0.682,
+       "worstBranch": 0.555,
+       "cleanAi": 0.67,
+       "byBranch": {
+        "ai": 0.682,
+        "attack": 0.682,
+        "setup": 0.682,
+        "switch": 0.693,
+        "utility": 0.64
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 0.794,
+       "worstBranch": 0.552,
+       "cleanAi": 0.812,
+       "byBranch": {
+        "ai": 0.794,
+        "attack": 0.619,
+        "setup": 0.794,
+        "switch": 0.909,
+        "utility": 0.794
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.655
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.345
+      ]
+     ],
+     "security": 0.276,
+     "mean": 0.855,
+     "aceCoverage": 0.833,
+     "aceSecurity": 0.345,
+     "worstRival": [
+      [
+       "Garchomp>Gengar/Gyarados",
+       0.276
+      ],
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0.345
+      ],
+      [
+       "Indeedee>Gengar/Gyarados",
+       0.345
+      ],
+      [
+       "Umbreon>Hippowdon/Garchomp",
+       0.345
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 0.655,
+       "worstBranch": 0.655,
+       "cleanAi": 0.655,
+       "byBranch": {
+        "ai": 0.655,
+        "attack": 0.655,
+        "setup": 0.655,
+        "switch": 0.885,
+        "utility": 0.655
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 0.655,
+       "worstBranch": 0.655,
+       "cleanAi": 0.655,
+       "byBranch": {
+        "ai": 0.655,
+        "attack": 0.655,
+        "setup": 0.655,
+        "switch": 0.885,
+        "utility": 0.655
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.95,
+     "aceCoverage": 0.933,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Hippowdon>Indeedee/Gyarados",
+       0
+      ],
+      [
+       "Garchomp>Indeedee/Gengar",
+       0
+      ],
+      [
+       "Hippowdon>Gengar/Gyarados",
+       0
+      ],
+      [
+       "Indeedee>Hippowdon/Garchomp",
+       1
+      ]
+     ],
+     "rivalsAtZero": 3,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Primarina/Garchomp",
+     "worst": 0,
+     "mean": 0.889,
+     "worstBy": [
+      "Indeedee>Hippowdon/Gyarados",
+      "Indeedee>Gengar/Gyarados"
+     ]
+    },
+    "sets": [
+     "Indeedee@Focus Sash:Dazzling Gleam/Expanding Force/Mystical Fire/Trick Room",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Umbreon@Rocky Helmet:Foul Play/Moonlight/Yawn/Protect",
+     "Gengar@Gengarite:Shadow Ball/Thunderbolt/Taunt/Perish Song",
+     "Gyarados@Sitrus Berry:Dragon Dance/Waterfall/Earthquake/Taunt"
+    ]
+   },
+   {
+    "hyp": "quickclaw",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.897,
+     "aceCoverage": 0.872,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Indeedee>Gengar/Gyarados",
+       0
+      ],
+      [
+       "Gengar>Indeedee/Gyarados",
+       0
+      ],
+      [
+       "Gengar>Hippowdon/Gyarados",
+       0
+      ],
+      [
+       "Indeedee>Hippowdon/Gyarados",
+       0.333
+      ]
+     ],
+     "rivalsAtZero": 3,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 0.667
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.264
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.139
+      ],
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       0.135
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.134
+      ],
+      [
+       "Metagross>Garchomp/Rotom-Wash",
+       0.134
+      ],
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       0.127
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Tyranitar",
+       0.067
+      ]
+     ],
+     "security": 0.375,
+     "mean": 0.844,
+     "aceCoverage": 0.832,
+     "aceSecurity": 0.375,
+     "worstRival": [
+      [
+       "Indeedee>Umbreon/Gengar",
+       0.375
+      ],
+      [
+       "Garchomp>Gengar/Gyarados",
+       0.507
+      ],
+      [
+       "Umbreon>Indeedee/Garchomp",
+       0.578
+      ],
+      [
+       "Umbreon>Garchomp/Gengar",
+       0.646
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 0.686,
+       "worstBranch": 0.555,
+       "cleanAi": 0.628,
+       "byBranch": {
+        "ai": 0.686,
+        "attack": 0.686,
+        "setup": 0.686,
+        "switch": 0.6,
+        "utility": 0.686
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 0.755,
+       "worstBranch": 0.6,
+       "cleanAi": 0.755,
+       "byBranch": {
+        "ai": 0.755,
+        "attack": 0.733,
+        "setup": 0.755,
+        "switch": 0.823,
+        "utility": 0.954
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Hydreigon>Primarina/Garchomp",
+       0.655
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.345
+      ]
+     ],
+     "security": 0.218,
+     "mean": 0.894,
+     "aceCoverage": 0.914,
+     "aceSecurity": 0.558,
+     "worstRival": [
+      [
+       "Garchomp>Gengar/Gyarados",
+       0.218
+      ],
+      [
+       "Umbreon>Indeedee/Garchomp",
+       0.558
+      ],
+      [
+       "Umbreon>Hippowdon/Garchomp",
+       0.564
+      ],
+      [
+       "Garchomp>Hippowdon/Gyarados",
+       0.564
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 0.77,
+       "worstBranch": 0.655,
+       "cleanAi": 0.706,
+       "byBranch": {
+        "ai": 0.77,
+        "attack": 0.77,
+        "setup": 0.77,
+        "switch": 0.655,
+        "utility": 0.77
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 0.885,
+       "worstBranch": 0.885,
+       "cleanAi": 0.885,
+       "byBranch": {
+        "ai": 0.885,
+        "attack": 0.885,
+        "setup": 0.885,
+        "switch": 1,
+        "utility": 0.885
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.95,
+     "aceCoverage": 0.944,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Indeedee/Gengar",
+       0
+      ],
+      [
+       "Hippowdon>Gengar/Gyarados",
+       0
+      ],
+      [
+       "Hippowdon>Indeedee/Gyarados",
+       0.333
+      ],
+      [
+       "Garchomp>Umbreon/Gengar",
+       0.667
+      ]
+     ],
+     "rivalsAtZero": 2,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Gengar/Umbreon",
+       "aiBranch": 0.667,
+       "worstBranch": 0.667,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.667,
+        "setup": 0.667,
+        "switch": 1,
+        "utility": 0.667
+       }
+      },
+      "aceLead": {
+       "rival": "Indeedee/Garchomp/Gengar",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Primarina/Garchomp",
+     "worst": 0,
+     "mean": 0.897,
+     "worstBy": [
+      "Indeedee>Gengar/Gyarados",
+      "Gengar>Indeedee/Gyarados",
+      "Gengar>Hippowdon/Gyarados"
+     ]
+    },
+    "sets": [
+     "Indeedee@Quick Claw:Dazzling Gleam/Expanding Force/Mystical Fire/Trick",
+     "Hippowdon@Leftovers:Earthquake/Yawn/Stealth Rock/Slack Off",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Umbreon@Rocky Helmet:Foul Play/Moonlight/Yawn/Protect",
+     "Gengar@Gengarite:Shadow Ball/Thunderbolt/Taunt/Perish Song",
+     "Gyarados@Sitrus Berry:Dragon Dance/Waterfall/Earthquake/Taunt"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Hippowdon/Garchomp",
+    "rivalLead": "Indeedee",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Indeedee:Trick",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Indeedee:Expanding Force",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Garchomp/Gengar",
+    "rivalLead": "Indeedee",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Indeedee:Expanding Force",
+    "ourT1": "Rotom:Will-O-Wisp (10/12)",
+    "rivalT2": "Indeedee:Expanding Force (10/12)",
+    "ourT2": "Rotom fainted, replace→Garchomp (8/12)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Hippowdon/Garchomp",
+    "rivalLead": "Indeedee",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Indeedee:Expanding Force",
+    "ourT1": "Rotom:Will-O-Wisp (4/6)",
+    "rivalT2": "Indeedee:Expanding Force (4/6)",
+    "ourT2": "Rotom fainted, replace→Garchomp (4/6)",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Garchomp/Gengar",
+    "rivalLead": "Indeedee",
+    "branch": "attack",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Indeedee:Expanding Force",
+    "ourT1": "Rotom:Will-O-Wisp (10/12)",
+    "rivalT2": "Indeedee:Expanding Force (10/12)",
+    "ourT2": "Rotom fainted, replace→Garchomp (8/12)",
+    "failureLine": null,
+    "requested": {
+     "executed": 22,
+     "preempted": 2
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Hippowdon/Garchomp",
+    "rivalLead": "Indeedee",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Indeedee:Trick",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Indeedee:Expanding Force",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Garchomp/Gengar",
+    "rivalLead": "Indeedee",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Indeedee:Expanding Force",
+    "ourT1": "Rotom:Will-O-Wisp (10/12)",
+    "rivalT2": "Indeedee:Expanding Force (10/12)",
+    "ourT2": "Rotom fainted, replace→Garchomp (8/12)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Hippowdon/Garchomp",
+    "rivalLead": "Indeedee",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Mega Garchomp, Garchomp:Earth Power",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 4,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Garchomp/Gengar",
+    "rivalLead": "Indeedee",
+    "branch": "switch",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Hippowdon/Garchomp",
+    "rivalLead": "Indeedee",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Indeedee:Trick",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Indeedee:Trick",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Indeedee/Garchomp/Gengar",
+    "rivalLead": "Indeedee",
+    "branch": "utility",
+    "won": 10,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "4/6"
+    },
+    "rivalT1": "Indeedee:Expanding Force (6/12)",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Indeedee:Expanding Force (6/12)",
+    "ourT2": "Rotom fainted, replace→Garchomp (6/12)",
+    "failureLine": "T1 Indeedee:Trick / Rotom:Will-O-Wisp ; T2 Indeedee:Trick / Rotom:Thunderbolt",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Hippowdon/Garchomp/Indeedee",
+    "rivalLead": "Hippowdon",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Hippowdon:Earthquake",
+    "ourT1": "Rotom:Hydro Pump",
+    "rivalT2": "Hippowdon fainted, replace→Garchomp",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Gengar/Umbreon",
+    "rivalLead": "Garchomp",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 12,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Hippowdon/Garchomp/Indeedee",
+    "rivalLead": "Hippowdon",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Hippowdon:Earthquake",
+    "ourT1": "Rotom:Hydro Pump",
+    "rivalT2": "Hippowdon fainted, replace→Garchomp",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 6,
+     "preempted": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Gengar/Umbreon",
+    "rivalLead": "Garchomp",
+    "branch": "attack",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 12,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Hippowdon/Garchomp/Indeedee",
+    "rivalLead": "Hippowdon",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Hippowdon:Earthquake",
+    "ourT1": "Rotom:Hydro Pump",
+    "rivalT2": "Hippowdon fainted, replace→Garchomp",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Gengar/Umbreon",
+    "rivalLead": "Garchomp",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 12,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Hippowdon/Garchomp/Indeedee",
+    "rivalLead": "Hippowdon",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Hydro Pump",
+    "rivalT2": "Mega Garchomp, Garchomp:Earth Power",
+    "ourT2": "Rotom:Will-O-Wisp (4/6)",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Gengar/Umbreon",
+    "rivalLead": "Garchomp",
+    "branch": "switch",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "switch→Umbreon",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Umbreon:Foul Play",
+    "ourT2": "switch→Primarina",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 12,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Hippowdon/Garchomp/Indeedee",
+    "rivalLead": "Hippowdon",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "scarf": "6/6"
+    },
+    "rivalT1": "Hippowdon:Yawn",
+    "ourT1": "Rotom:Hydro Pump",
+    "rivalT2": "Hippowdon fainted, replace→Garchomp",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 6,
+     "preempted": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Gengar/Umbreon",
+    "rivalLead": "Garchomp",
+    "branch": "utility",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "sash": "6/6",
+     "quickclaw": "6/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 12,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "E_sun",
+  "ace": "Charizard",
+  "human1": "Rotom-Wash>Metagross/Garchomp",
+  "hypotheses": [
+   {
+    "hyp": "case",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.667,
+     "aceCoverage": 0.6,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Raichu>Meowscarada/Corviknight",
+       0
+      ],
+      [
+       "Charizard>Raichu/Corviknight",
+       0
+      ],
+      [
+       "Charizard>Meowscarada/Garchomp",
+       0
+      ],
+      [
+       "Meowscarada>Charizard/Corviknight",
+       0
+      ]
+     ],
+     "rivalsAtZero": 11,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.667,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 1,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       0.282
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.197
+      ],
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       0.166
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.117
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.106
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.084
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.048
+      ]
+     ],
+     "security": 0.184,
+     "mean": 0.617,
+     "aceCoverage": 0.615,
+     "aceSecurity": 0.297,
+     "worstRival": [
+      [
+       "Corviknight>Meowscarada/Basculegion",
+       0.184
+      ],
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0.267
+      ],
+      [
+       "Corviknight>Meowscarada/Charizard",
+       0.297
+      ],
+      [
+       "Raichu>Meowscarada/Corviknight",
+       0.31
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.489,
+       "worstBranch": 0.306,
+       "cleanAi": 0.503,
+       "byBranch": {
+        "ai": 0.489,
+        "attack": 0.635,
+        "setup": 0.489,
+        "switch": 0.522,
+        "utility": 0.643
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0.552,
+       "worstBranch": 0.485,
+       "cleanAi": 0.584,
+       "byBranch": {
+        "ai": 0.552,
+        "attack": 0.513,
+        "setup": 0.552,
+        "switch": 0.879,
+        "utility": 0.837
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       0.589
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.411
+      ]
+     ],
+     "security": 0,
+     "mean": 0.614,
+     "aceCoverage": 0.603,
+     "aceSecurity": 0.137,
+     "worstRival": [
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0
+      ],
+      [
+       "Corviknight>Meowscarada/Charizard",
+       0.137
+      ],
+      [
+       "Corviknight>Meowscarada/Basculegion",
+       0.196
+      ],
+      [
+       "Garchomp>Charizard/Corviknight",
+       0.196
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.765,
+       "worstBranch": 0.491,
+       "cleanAi": 0.765,
+       "byBranch": {
+        "ai": 0.765,
+        "attack": 0.765,
+        "setup": 0.765,
+        "switch": 0.589,
+        "utility": 0.765
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0.589,
+       "worstBranch": 0.589,
+       "cleanAi": 0.589,
+       "byBranch": {
+        "ai": 0.589,
+        "attack": 0.589,
+        "setup": 0.589,
+        "switch": 0.863,
+        "utility": 0.726
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.467,
+     "aceCoverage": 0.489,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Raichu>Meowscarada/Charizard",
+       0
+      ],
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0
+      ],
+      [
+       "Raichu>Charizard/Basculegion",
+       0
+      ],
+      [
+       "Basculegion>Raichu/Charizard",
+       0
+      ]
+     ],
+     "rivalsAtZero": 19,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.667,
+       "worstBranch": 0,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.667,
+        "setup": 0.667,
+        "switch": 0,
+        "utility": 0.667
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.667,
+     "worstBy": [
+      "Raichu>Meowscarada/Corviknight",
+      "Charizard>Raichu/Corviknight",
+      "Charizard>Meowscarada/Garchomp"
+     ]
+    },
+    "sets": [
+     "Raichu@Focus Sash:Thunderbolt/Grass Knot/Focus Blast/Nasty Plot",
+     "Meowscarada@Life Orb:Flower Trick/Knock Off/U-turn/Sucker Punch",
+     "Charizard@Charizardite Y:Flamethrower/Solar Beam/Air Slash/Roost",
+     "Garchomp@Choice Scarf:Earthquake/Outrage/Rock Slide/Poison Jab",
+     "Basculegion@Mystic Water:Wave Crash/Last Respects/Aqua Jet/Flip Turn",
+     "Corviknight@Rocky Helmet:Roost/U-turn/Body Press/Iron Head"
+    ]
+   },
+   {
+    "hyp": "E2",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.744,
+     "aceCoverage": 0.689,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Meowscarada>Raichu/Garchomp",
+       0
+      ],
+      [
+       "Meowscarada>Charizard/Garchomp",
+       0
+      ],
+      [
+       "Meowscarada>Charizard/Basculegion",
+       0
+      ],
+      [
+       "Basculegion>Meowscarada/Charizard",
+       0
+      ]
+     ],
+     "rivalsAtZero": 4,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.333,
+       "worstBranch": 0.167,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0.333,
+        "setup": 0.333,
+        "switch": 0.833,
+        "utility": 0.333
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0.333,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0.167,
+        "setup": 0,
+        "switch": 0.333,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       0.282
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.197
+      ],
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       0.166
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.117
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.106
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.084
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.048
+      ]
+     ],
+     "security": 0.126,
+     "mean": 0.629,
+     "aceCoverage": 0.588,
+     "aceSecurity": 0.126,
+     "worstRival": [
+      [
+       "Corviknight>Meowscarada/Charizard",
+       0.126
+      ],
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0.245
+      ],
+      [
+       "Corviknight>Meowscarada/Garchomp",
+       0.259
+      ],
+      [
+       "Corviknight>Meowscarada/Basculegion",
+       0.274
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.488,
+       "worstBranch": 0.274,
+       "cleanAi": 0.462,
+       "byBranch": {
+        "ai": 0.487,
+        "attack": 0.487,
+        "setup": 0.487,
+        "switch": 0.451,
+        "utility": 0.593
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0.781,
+       "worstBranch": 0.077,
+       "cleanAi": 0.954,
+       "byBranch": {
+        "ai": 0.781,
+        "attack": 0.439,
+        "setup": 0.699,
+        "switch": 0.44,
+        "utility": 0.781
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       0.589
+      ],
+      [
+       "Rotom-Wash>Metagross/Hydreigon",
+       0.411
+      ]
+     ],
+     "security": 0.069,
+     "mean": 0.558,
+     "aceCoverage": 0.487,
+     "aceSecurity": 0.098,
+     "worstRival": [
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0.069
+      ],
+      [
+       "Garchomp>Charizard/Basculegion",
+       0.098
+      ],
+      [
+       "Garchomp>Charizard/Corviknight",
+       0.098
+      ],
+      [
+       "Charizard>Raichu/Corviknight",
+       0.196
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 0.589,
+       "worstBranch": 0.392,
+       "cleanAi": 0.544,
+       "byBranch": {
+        "ai": 0.589,
+        "attack": 0.589,
+        "setup": 0.589,
+        "switch": 0.392,
+        "utility": 0.589
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 0.726,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 0.726,
+        "attack": 0.392,
+        "setup": 0.589,
+        "switch": 0.333,
+        "utility": 0.726
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.561,
+     "aceCoverage": 0.622,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Raichu>Meowscarada/Corviknight",
+       0
+      ],
+      [
+       "Corviknight>Raichu/Meowscarada",
+       0
+      ],
+      [
+       "Corviknight>Raichu/Charizard",
+       0
+      ],
+      [
+       "Garchomp>Meowscarada/Charizard",
+       0
+      ]
+     ],
+     "rivalsAtZero": 14,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Garchomp/Meowscarada/Corviknight",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0,
+        "utility": 0.667
+       }
+      },
+      "aceLead": {
+       "rival": "Charizard/Garchomp/Meowscarada",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.667,
+        "setup": 1,
+        "switch": 0,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.744,
+     "worstBy": [
+      "Meowscarada>Raichu/Garchomp",
+      "Meowscarada>Charizard/Garchomp",
+      "Meowscarada>Charizard/Basculegion"
+     ]
+    },
+    "sets": [
+     "Raichu@Focus Sash:Thunderbolt/Grass Knot/Focus Blast/Nasty Plot",
+     "Meowscarada@Life Orb:Flower Trick/Knock Off/U-turn/Sucker Punch",
+     "Charizard@Charizardite X:Dragon Dance/Flare Blitz/Dragon Claw/Earthquake",
+     "Garchomp@Choice Scarf:Earthquake/Outrage/Rock Slide/Poison Jab",
+     "Basculegion@Mystic Water:Wave Crash/Last Respects/Aqua Jet/Flip Turn",
+     "Corviknight@Rocky Helmet:Roost/U-turn/Body Press/Iron Head"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Garchomp/Meowscarada",
+    "rivalLead": "Charizard",
+    "branch": "ai",
+    "won": 2,
+    "n": 12,
+    "byHypothesis": {
+     "case": "0/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Garchomp (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Garchomp / Garchomp:Rock Slide (6/10)",
+    "requested": null,
+    "rivalTagged": 4,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Garchomp/Meowscarada",
+    "rivalLead": "Charizard",
+    "branch": "attack",
+    "won": 1,
+    "n": 12,
+    "byHypothesis": {
+     "case": "0/6",
+     "E2": "1/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Garchomp (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Garchomp / Garchomp:Rock Slide (6/11)",
+    "requested": {
+     "executed": 18,
+     "preempted": 6
+    },
+    "rivalTagged": 8,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Garchomp/Meowscarada",
+    "rivalLead": "Charizard",
+    "branch": "setup",
+    "won": 0,
+    "n": 12,
+    "byHypothesis": {
+     "case": "0/6",
+     "E2": "0/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam (6/12)",
+    "ourT1": "Rotom fainted, replace→Garchomp (6/12)",
+    "rivalT2": "Charizard fainted, replace→Garchomp (6/12)",
+    "ourT2": "Garchomp:Rock Slide (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Garchomp / Garchomp:Rock Slide (6/12)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 8,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Garchomp/Meowscarada",
+    "rivalLead": "Charizard",
+    "branch": "switch",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "switch→Garchomp",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Will-O-Wisp",
+    "failureLine": "T1 switch→Garchomp / Rotom:Thunderbolt ; T2 Garchomp:Earthquake / Rotom:Will-O-Wisp",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 2,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Charizard/Garchomp/Meowscarada",
+    "rivalLead": "Charizard",
+    "branch": "utility",
+    "won": 4,
+    "n": 12,
+    "byHypothesis": {
+     "case": "2/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Roost (6/12)",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Charizard:Roost (6/12)",
+    "ourT2": "Rotom:Thunderbolt (6/12)",
+    "failureLine": "T1 Mega Charizard, Charizard:Roost / Rotom:Thunderbolt ; T2 Charizard:Roost / Rotom:Thunderbolt (4/8)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 2,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Meowscarada/Corviknight",
+    "rivalLead": "Garchomp",
+    "branch": "ai",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": "T1 Garchomp:Earthquake / Rotom:Will-O-Wisp ; T2 Garchomp:Earthquake / Rotom:Hydro Pump",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Meowscarada/Corviknight",
+    "rivalLead": "Garchomp",
+    "branch": "attack",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": "T1 Garchomp:Earthquake / Rotom:Will-O-Wisp ; T2 Garchomp:Earthquake / Rotom:Hydro Pump",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Meowscarada/Corviknight",
+    "rivalLead": "Garchomp",
+    "branch": "setup",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": "T1 Garchomp:Earthquake / Rotom:Will-O-Wisp ; T2 Garchomp:Earthquake / Rotom:Hydro Pump",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Meowscarada/Corviknight",
+    "rivalLead": "Garchomp",
+    "branch": "switch",
+    "won": 9,
+    "n": 12,
+    "byHypothesis": {
+     "case": "4/6",
+     "E2": "5/6"
+    },
+    "rivalT1": "switch→Meowscarada",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Meowscarada:Flower Trick",
+    "ourT2": "switch→Garchomp",
+    "failureLine": "T1 switch→Meowscarada / Rotom:Will-O-Wisp ; T2 Meowscarada:Flower Trick / switch→Garchomp",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 1,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Garchomp/Meowscarada/Corviknight",
+    "rivalLead": "Garchomp",
+    "branch": "utility",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "case": "6/6",
+     "E2": "2/6"
+    },
+    "rivalT1": "Garchomp:Earthquake",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Garchomp:Earthquake",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": "T1 Garchomp:Earthquake / Rotom:Will-O-Wisp ; T2 Garchomp:Earthquake / Rotom:Hydro Pump",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 4
+   }
+  ]
+ },
+ {
+  "six": "HX_rain",
+  "ace": "Swampert",
+  "human1": "Garchomp>Metagross/Hydreigon",
+  "hypotheses": [
+   {
+    "hyp": "a",
+    "human1": {
+     "support": [
+      [
+       "Garchomp>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.722,
+     "aceCoverage": 0.6,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Pelipper>Swampert/Archaludon",
+       0
+      ],
+      [
+       "Swampert>Pelipper/Archaludon",
+       0
+      ],
+      [
+       "Pelipper>Archaludon/Gholdengo",
+       0
+      ],
+      [
+       "Swampert>Archaludon/Dragonite",
+       0
+      ]
+     ],
+     "rivalsAtZero": 8,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.667,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 1,
+        "utility": 0
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.169
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.148
+      ],
+      [
+       "Metagross>Hydreigon/Primarina",
+       0.147
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.116
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.105
+      ],
+      [
+       "Metagross>Hydreigon/Tyranitar",
+       0.102
+      ],
+      [
+       "Primarina>Hydreigon/Tyranitar",
+       0.087
+      ],
+      [
+       "Garchomp>Metagross/Hydreigon",
+       0.085
+      ],
+      [
+       "Garchomp>Hydreigon/Primarina",
+       0.041
+      ]
+     ],
+     "security": 0.111,
+     "mean": 0.621,
+     "aceCoverage": 0.539,
+     "aceSecurity": 0.111,
+     "worstRival": [
+      [
+       "Archaludon>Swampert/Gholdengo",
+       0.111
+      ],
+      [
+       "Gholdengo>Swampert/Archaludon",
+       0.249
+      ],
+      [
+       "Pelipper>Swampert/Dragonite",
+       0.266
+      ],
+      [
+       "Archaludon>Swampert/Rillaboom",
+       0.271
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0.111,
+       "worstBranch": 0,
+       "cleanAi": 0.111,
+       "byBranch": {
+        "ai": 0.111,
+        "attack": 0.111,
+        "setup": 0.111,
+        "switch": 0.557,
+        "utility": 0.111
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0.333,
+       "worstBranch": 0.172,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0.421,
+        "setup": 0.333,
+        "switch": 0.479,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.533
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.467
+      ]
+     ],
+     "security": 0,
+     "mean": 0.5,
+     "aceCoverage": 0.394,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Pelipper>Swampert/Archaludon",
+       0
+      ],
+      [
+       "Archaludon>Swampert/Gholdengo",
+       0
+      ],
+      [
+       "Dragonite>Swampert/Gholdengo",
+       0
+      ],
+      [
+       "Swampert>Gholdengo/Rillaboom",
+       0
+      ]
+     ],
+     "rivalsAtZero": 4,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0.467,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0.156,
+       "worstBranch": 0,
+       "cleanAi": 0.156,
+       "byBranch": {
+        "ai": 0.156,
+        "attack": 0.311,
+        "setup": 0.156,
+        "switch": 0,
+        "utility": 0.156
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.872,
+     "aceCoverage": 0.844,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Swampert>Archaludon/Gholdengo",
+       0
+      ],
+      [
+       "Archaludon>Swampert/Gholdengo",
+       0
+      ],
+      [
+       "Dragonite>Swampert/Gholdengo",
+       0
+      ],
+      [
+       "Swampert>Gholdengo/Rillaboom",
+       0
+      ]
+     ],
+     "rivalsAtZero": 5,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Garchomp>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.722,
+     "worstBy": [
+      "Pelipper>Swampert/Archaludon",
+      "Swampert>Pelipper/Archaludon",
+      "Pelipper>Archaludon/Gholdengo"
+     ]
+    },
+    "sets": [
+     "Pelipper@Focus Sash:Hurricane/Weather Ball/U-turn/Roost",
+     "Swampert@Swampertite:Liquidation/Earthquake/Ice Punch/Flip Turn",
+     "Archaludon@Sitrus Berry:Electro Shot/Draco Meteor/Flash Cannon/Thunderbolt",
+     "Dragonite@Lum Berry:Dragon Dance/Extreme Speed/Earthquake/Fire Punch",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt",
+     "Rillaboom@Miracle Seed:Grassy Glide/High Horsepower/Knock Off/U-turn"
+    ]
+   },
+   {
+    "hyp": "b",
+    "human1": {
+     "support": [
+      [
+       "Garchomp>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.917,
+     "aceCoverage": 0.956,
+     "aceSecurity": 0.333,
+     "worstRival": [
+      [
+       "Archaludon>Pelipper/Dragonite",
+       0
+      ],
+      [
+       "Archaludon>Swampert/Dragonite",
+       0.333
+      ],
+      [
+       "Archaludon>Dragonite/Gholdengo",
+       0.333
+      ],
+      [
+       "Archaludon>Dragonite/Rillaboom",
+       0.333
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0.667,
+       "worstBranch": 0,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0,
+        "setup": 0.667,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.169
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.148
+      ],
+      [
+       "Metagross>Hydreigon/Primarina",
+       0.147
+      ],
+      [
+       "Hydreigon>Metagross/Garchomp",
+       0.116
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.105
+      ],
+      [
+       "Metagross>Hydreigon/Tyranitar",
+       0.102
+      ],
+      [
+       "Primarina>Hydreigon/Tyranitar",
+       0.087
+      ],
+      [
+       "Garchomp>Metagross/Hydreigon",
+       0.085
+      ],
+      [
+       "Garchomp>Hydreigon/Primarina",
+       0.041
+      ]
+     ],
+     "security": 0.352,
+     "mean": 0.767,
+     "aceCoverage": 0.782,
+     "aceSecurity": 0.497,
+     "worstRival": [
+      [
+       "Archaludon>Dragonite/Gholdengo",
+       0.352
+      ],
+      [
+       "Archaludon>Swampert/Rillaboom",
+       0.497
+      ],
+      [
+       "Archaludon>Dragonite/Rillaboom",
+       0.538
+      ],
+      [
+       "Swampert>Gholdengo/Rillaboom",
+       0.556
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0.684,
+       "worstBranch": 0.606,
+       "cleanAi": 0.74,
+       "byBranch": {
+        "ai": 0.684,
+        "attack": 0.684,
+        "setup": 0.684,
+        "switch": 0.921,
+        "utility": 0.684
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0.893,
+       "worstBranch": 0.697,
+       "cleanAi": 0.893,
+       "byBranch": {
+        "ai": 0.893,
+        "attack": 0.901,
+        "setup": 0.893,
+        "switch": 1,
+        "utility": 0.796
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Tyranitar>Primarina/Garchomp",
+       0.533
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.467
+      ]
+     ],
+     "security": 0.156,
+     "mean": 0.697,
+     "aceCoverage": 0.705,
+     "aceSecurity": 0.156,
+     "worstRival": [
+      [
+       "Gholdengo>Swampert/Rillaboom",
+       0.156
+      ],
+      [
+       "Swampert>Archaludon/Rillaboom",
+       0.311
+      ],
+      [
+       "Gholdengo>Archaludon/Dragonite",
+       0.311
+      ],
+      [
+       "Rillaboom>Archaludon/Dragonite",
+       0.311
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 0.645,
+       "worstBranch": 0.489,
+       "cleanAi": 0.484,
+       "byBranch": {
+        "ai": 0.645,
+        "attack": 0.645,
+        "setup": 0.645,
+        "switch": 0.844,
+        "utility": 0.645
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 0.844,
+       "worstBranch": 0.667,
+       "cleanAi": 0.844,
+       "byBranch": {
+        "ai": 0.844,
+        "attack": 1,
+        "setup": 0.844,
+        "switch": 1,
+        "utility": 0.667
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0.333,
+     "mean": 0.967,
+     "aceCoverage": 0.989,
+     "aceSecurity": 0.667,
+     "worstRival": [
+      [
+       "Pelipper>Archaludon/Gholdengo",
+       0.333
+      ],
+      [
+       "Gholdengo>Archaludon/Rillaboom",
+       0.333
+      ],
+      [
+       "Swampert>Gholdengo/Rillaboom",
+       0.667
+      ],
+      [
+       "Archaludon>Gholdengo/Rillaboom",
+       0.667
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Archaludon/Gholdengo/Swampert",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Swampert/Archaludon/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Garchomp>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.917,
+     "worstBy": [
+      "Archaludon>Pelipper/Dragonite"
+     ]
+    },
+    "sets": [
+     "Pelipper@Focus Sash:Hurricane/Weather Ball/U-turn/Roost",
+     "Swampert@Sitrus Berry:Liquidation/Earthquake/Stealth Rock/Flip Turn",
+     "Archaludon@Leftovers:Electro Shot/Draco Meteor/Flash Cannon/Thunderbolt",
+     "Dragonite@Dragoninite:Dragon Dance/Extreme Speed/Earthquake/Fire Punch",
+     "Gholdengo@Choice Scarf:Make It Rain/Shadow Ball/Thunderbolt/Focus Blast",
+     "Rillaboom@Miracle Seed:Grassy Glide/High Horsepower/Knock Off/U-turn"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Swampert/Archaludon/Gholdengo",
+    "rivalLead": "Swampert",
+    "branch": "ai",
+    "won": 4,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "4/6"
+    },
+    "rivalT1": "Mega Swampert, Swampert:Ice Punch (6/12)",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon (6/12)",
+    "rivalT2": "Swampert:Earthquake (6/12)",
+    "ourT2": "Hydreigon:Draco Meteor (6/12)",
+    "failureLine": "T1 Mega Swampert, Swampert:Ice Punch / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Swampert fainted, replace→Archaludon / Hydreigon:Draco Meteor (4/8)",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Swampert/Archaludon/Gholdengo",
+    "rivalLead": "Swampert",
+    "branch": "attack",
+    "won": 0,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "0/6"
+    },
+    "rivalT1": "Mega Swampert, Swampert:Ice Punch (6/12)",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon (6/12)",
+    "rivalT2": "Swampert:Earthquake (8/12)",
+    "ourT2": "Hydreigon:Draco Meteor (6/12)",
+    "failureLine": "T1 Swampert:Earthquake / Garchomp:Earthquake ; T2 Swampert:Earthquake / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon (6/12)",
+    "requested": {
+     "executed": 20,
+     "preempted": 4
+    },
+    "rivalTagged": 0,
+    "ownTagged": 8
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Swampert/Archaludon/Gholdengo",
+    "rivalLead": "Swampert",
+    "branch": "setup",
+    "won": 4,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "4/6"
+    },
+    "rivalT1": "Mega Swampert, Swampert:Ice Punch (6/12)",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon (6/12)",
+    "rivalT2": "Swampert:Earthquake (6/12)",
+    "ourT2": "Hydreigon:Draco Meteor (6/12)",
+    "failureLine": "T1 Mega Swampert, Swampert:Ice Punch / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Swampert fainted, replace→Archaludon / Hydreigon:Draco Meteor (4/8)",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Swampert/Archaludon/Gholdengo",
+    "rivalLead": "Swampert",
+    "branch": "switch",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "a": "6/6",
+     "b": "6/6"
+    },
+    "rivalT1": "switch→Archaludon",
+    "ourT1": "Garchomp:Earthquake",
+    "rivalT2": "Archaludon fainted, replace→Swampert (10/12)",
+    "ourT2": "Garchomp:Earthquake (10/12)",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Swampert/Archaludon/Gholdengo",
+    "rivalLead": "Swampert",
+    "branch": "utility",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Mega Swampert, Swampert:Ice Punch (6/12)",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon (6/12)",
+    "rivalT2": "Swampert:Stealth Rock (6/12)",
+    "ourT2": "Hydreigon:Draco Meteor (6/12)",
+    "failureLine": "T1 Mega Swampert, Swampert:Ice Punch / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Swampert fainted, replace→Archaludon / Hydreigon:Draco Meteor (4/6)",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 4
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Archaludon/Gholdengo/Swampert",
+    "rivalLead": "Archaludon",
+    "branch": "ai",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Archaludon:Draco Meteor",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon",
+    "rivalT2": "Archaludon fainted, replace→Swampert (10/12)",
+    "ourT2": "Hydreigon:Draco Meteor",
+    "failureLine": "T1 Archaludon:Draco Meteor / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Archaludon fainted, replace→Swampert / Hydreigon:Draco Meteor (4/6)",
+    "requested": null,
+    "rivalTagged": 4,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Archaludon/Gholdengo/Swampert",
+    "rivalLead": "Archaludon",
+    "branch": "attack",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Archaludon:Draco Meteor",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon",
+    "rivalT2": "Archaludon fainted, replace→Swampert (10/12)",
+    "ourT2": "Hydreigon:Draco Meteor",
+    "failureLine": "T1 Archaludon:Draco Meteor / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Archaludon fainted, replace→Swampert / Hydreigon:Draco Meteor (4/6)",
+    "requested": {
+     "executed": 14,
+     "preempted": 10
+    },
+    "rivalTagged": 4,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Archaludon/Gholdengo/Swampert",
+    "rivalLead": "Archaludon",
+    "branch": "setup",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Archaludon:Draco Meteor",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon",
+    "rivalT2": "Archaludon fainted, replace→Swampert (10/12)",
+    "ourT2": "Hydreigon:Draco Meteor",
+    "failureLine": "T1 Archaludon:Draco Meteor / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Archaludon fainted, replace→Swampert / Hydreigon:Draco Meteor (4/6)",
+    "requested": null,
+    "rivalTagged": 4,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Archaludon/Gholdengo/Swampert",
+    "rivalLead": "Archaludon",
+    "branch": "switch",
+    "won": 10,
+    "n": 12,
+    "byHypothesis": {
+     "a": "4/6",
+     "b": "6/6"
+    },
+    "rivalT1": "switch→Swampert",
+    "ourT1": "Garchomp:Earthquake",
+    "rivalT2": "Swampert:Stealth Rock (6/12)",
+    "ourT2": "Garchomp:Earthquake (10/12)",
+    "failureLine": "T1 switch→Swampert / Garchomp:Earthquake ; T2 Mega Swampert, Swampert:Ice Punch, Swampert fainted, replace→Archaludon / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 2,
+    "ownTagged": 2
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Archaludon/Gholdengo/Swampert",
+    "rivalLead": "Archaludon",
+    "branch": "utility",
+    "won": 6,
+    "n": 12,
+    "byHypothesis": {
+     "a": "0/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Archaludon:Draco Meteor",
+    "ourT1": "Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon",
+    "rivalT2": "Archaludon fainted, replace→Swampert (10/12)",
+    "ourT2": "Hydreigon:Draco Meteor",
+    "failureLine": "T1 Archaludon:Draco Meteor / Garchomp:Earthquake, Garchomp fainted, replace→Hydreigon ; T2 Archaludon fainted, replace→Swampert / Hydreigon:Draco Meteor (4/6)",
+    "requested": null,
+    "rivalTagged": 4,
+    "ownTagged": 2
+   }
+  ]
+ },
+ {
+  "six": "HX_gyarados",
+  "ace": "Garchomp",
+  "human1": "Primarina>Metagross/Hydreigon",
+  "hypotheses": [
+   {
+    "hyp": "a",
+    "human1": {
+     "support": [
+      [
+       "Primarina>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.678,
+     "aceCoverage": 0.489,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gyarados>Garchomp/Corviknight",
+       0
+      ],
+      [
+       "Corviknight>Gyarados/Garchomp",
+       0
+      ],
+      [
+       "Gyarados>Garchomp/Baxcalibur",
+       0
+      ],
+      [
+       "Corviknight>Garchomp/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 10,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Gholdengo/Corviknight",
+       "aiBranch": 1,
+       "worstBranch": 0,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 0.333,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.333,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.2
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.174
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.132
+      ],
+      [
+       "Garchomp>Hydreigon/Primarina",
+       0.12
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.099
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Primarina",
+       0.097
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.07
+      ],
+      [
+       "Metagross>Hydreigon/Primarina",
+       0.055
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.053
+      ]
+     ],
+     "security": 0.212,
+     "mean": 0.584,
+     "aceCoverage": 0.608,
+     "aceSecurity": 0.3,
+     "worstRival": [
+      [
+       "Gholdengo>Corviknight/Baxcalibur",
+       0.212
+      ],
+      [
+       "Corviknight>Mimikyu/Gholdengo",
+       0.267
+      ],
+      [
+       "Corviknight>Garchomp/Gholdengo",
+       0.3
+      ],
+      [
+       "Gholdengo>Gyarados/Mimikyu",
+       0.314
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Gholdengo/Corviknight",
+       "aiBranch": 0.494,
+       "worstBranch": 0.217,
+       "cleanAi": 0.439,
+       "byBranch": {
+        "ai": 0.494,
+        "attack": 0.57,
+        "setup": 0.512,
+        "switch": 0.308,
+        "utility": 0.494
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0.487,
+       "worstBranch": 0.107,
+       "cleanAi": 0.655,
+       "byBranch": {
+        "ai": 0.487,
+        "attack": 0.477,
+        "setup": 0.487,
+        "switch": 0.435,
+        "utility": 0.661
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.534
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.466
+      ]
+     ],
+     "security": 0,
+     "mean": 0.532,
+     "aceCoverage": 0.614,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gholdengo>Gyarados/Mimikyu",
+       0
+      ],
+      [
+       "Gholdengo>Gyarados/Corviknight",
+       0
+      ],
+      [
+       "Gholdengo>Garchomp/Baxcalibur",
+       0
+      ],
+      [
+       "Gholdengo>Corviknight/Baxcalibur",
+       0
+      ]
+     ],
+     "rivalsAtZero": 4,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Gholdengo/Corviknight",
+       "aiBranch": 0.31,
+       "worstBranch": 0.155,
+       "cleanAi": 0,
+       "byBranch": {
+        "ai": 0.31,
+        "attack": 0.466,
+        "setup": 0.31,
+        "switch": 0.31,
+        "utility": 0.31
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0.31,
+       "worstBranch": 0,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.31,
+        "attack": 0.466,
+        "setup": 0.31,
+        "switch": 0.155,
+        "utility": 0.466
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Metagross/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.833,
+     "aceCoverage": 0.756,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Garchomp>Gyarados/Baxcalibur",
+       0
+      ],
+      [
+       "Garchomp>Mimikyu/Baxcalibur",
+       0
+      ],
+      [
+       "Mimikyu>Garchomp/Baxcalibur",
+       0
+      ],
+      [
+       "Garchomp>Gholdengo/Baxcalibur",
+       0
+      ]
+     ],
+     "rivalsAtZero": 5,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Gholdengo/Corviknight",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.667,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0,
+        "setup": 0,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.678,
+     "worstBy": [
+      "Gyarados>Garchomp/Corviknight",
+      "Corviknight>Gyarados/Garchomp",
+      "Gyarados>Garchomp/Baxcalibur"
+     ]
+    },
+    "sets": [
+     "Gyarados@Sitrus Berry:Dragon Dance/Waterfall/Earthquake/Taunt",
+     "Garchomp@Garchompite Z:Earth Power/Draco Meteor/Flamethrower/Stealth Rock",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt",
+     "Corviknight@Rocky Helmet:Roost/U-turn/Body Press/Iron Head",
+     "Baxcalibur@Focus Sash:Ice Shard/Earthquake/Glaive Rush/Icicle Crash"
+    ]
+   },
+   {
+    "hyp": "b",
+    "human1": {
+     "support": [
+      [
+       "Primarina>Metagross/Hydreigon",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.739,
+     "aceCoverage": 0.689,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gholdengo>Gyarados/Garchomp",
+       0
+      ],
+      [
+       "Baxcalibur>Gyarados/Garchomp",
+       0
+      ],
+      [
+       "Baxcalibur>Gyarados/Mimikyu",
+       0
+      ],
+      [
+       "Gholdengo>Gyarados/Corviknight",
+       0
+      ]
+     ],
+     "rivalsAtZero": 8,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Garchomp/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.2
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.174
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.132
+      ],
+      [
+       "Garchomp>Hydreigon/Primarina",
+       0.12
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.099
+      ],
+      [
+       "Rotom-Wash>Hydreigon/Primarina",
+       0.097
+      ],
+      [
+       "Garchomp>Metagross/Rotom-Wash",
+       0.07
+      ],
+      [
+       "Metagross>Hydreigon/Primarina",
+       0.055
+      ],
+      [
+       "Metagross>Hydreigon/Garchomp",
+       0.053
+      ]
+     ],
+     "security": 0.185,
+     "mean": 0.516,
+     "aceCoverage": 0.526,
+     "aceSecurity": 0.185,
+     "worstRival": [
+      [
+       "Gyarados>Garchomp/Gholdengo",
+       0.185
+      ],
+      [
+       "Garchomp>Gyarados/Gholdengo",
+       0.229
+      ],
+      [
+       "Gholdengo>Mimikyu/Baxcalibur",
+       0.239
+      ],
+      [
+       "Baxcalibur>Gyarados/Gholdengo",
+       0.253
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Garchomp/Gholdengo",
+       "aiBranch": 0.321,
+       "worstBranch": 0.233,
+       "cleanAi": 0.385,
+       "byBranch": {
+        "ai": 0.321,
+        "attack": 0.486,
+        "setup": 0.387,
+        "switch": 0.644,
+        "utility": 0.321
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0.338,
+       "worstBranch": 0.152,
+       "cleanAi": 0.264,
+       "byBranch": {
+        "ai": 0.338,
+        "attack": 0.338,
+        "setup": 0.471,
+        "switch": 0.501,
+        "utility": 0.338
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.534
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.466
+      ]
+     ],
+     "security": 0,
+     "mean": 0.477,
+     "aceCoverage": 0.523,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gyarados>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Garchomp>Gyarados/Gholdengo",
+       0
+      ],
+      [
+       "Gyarados>Mimikyu/Gholdengo",
+       0
+      ],
+      [
+       "Mimikyu>Gyarados/Gholdengo",
+       0
+      ]
+     ],
+     "rivalsAtZero": 7,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Garchomp/Gholdengo",
+       "aiBranch": 0.233,
+       "worstBranch": 0.155,
+       "cleanAi": 0.233,
+       "byBranch": {
+        "ai": 0.233,
+        "attack": 0.466,
+        "setup": 0.388,
+        "switch": 0.322,
+        "utility": 0.233
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0.233,
+       "worstBranch": 0,
+       "cleanAi": 0.233,
+       "byBranch": {
+        "ai": 0.233,
+        "attack": 0.233,
+        "setup": 0.233,
+        "switch": 0.233,
+        "utility": 0.233
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Hydreigon>Metagross/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.556,
+     "aceCoverage": 0.556,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Gyarados>Garchomp/Gholdengo",
+       0
+      ],
+      [
+       "Garchomp>Gyarados/Gholdengo",
+       0
+      ],
+      [
+       "Baxcalibur>Gyarados/Garchomp",
+       0
+      ],
+      [
+       "Baxcalibur>Gyarados/Mimikyu",
+       0
+      ]
+     ],
+     "rivalsAtZero": 7,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Baxcalibur/Garchomp/Gholdengo",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.667,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Garchomp/Baxcalibur/Gholdengo",
+       "aiBranch": 0.333,
+       "worstBranch": 0,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 0.333,
+        "setup": 0.333,
+        "switch": 0.333,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "worst": 0,
+     "mean": 0.739,
+     "worstBy": [
+      "Gholdengo>Gyarados/Garchomp",
+      "Baxcalibur>Gyarados/Garchomp",
+      "Baxcalibur>Gyarados/Mimikyu"
+     ]
+    },
+    "sets": [
+     "Gyarados@Gyaradosite:Dragon Dance/Waterfall/Crunch/Earthquake",
+     "Garchomp@Choice Scarf:Earthquake/Dragon Claw/Rock Slide/Poison Jab",
+     "Mimikyu@Life Orb:Play Rough/Shadow Sneak/Swords Dance/Shadow Claw",
+     "Gholdengo@Air Balloon:Shadow Ball/Make It Rain/Nasty Plot/Thunderbolt",
+     "Corviknight@Leftovers:Roost/U-turn/Body Press/Brave Bird",
+     "Baxcalibur@Focus Sash:Ice Shard/Earthquake/Glaive Rush/Icicle Crash"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Garchomp/Baxcalibur/Gholdengo",
+    "rivalLead": "Garchomp",
+    "branch": "ai",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "a": "6/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Mega Garchomp, Garchomp:Stealth Rock, Garchomp fainted, replace→Gholdengo (6/12)",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot (6/12)",
+    "ourT2": "Primarina:Sparkling Aria (6/12)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Garchomp/Baxcalibur/Gholdengo",
+    "rivalLead": "Garchomp",
+    "branch": "attack",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "a": "6/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Mega Garchomp, Garchomp:Earth Power, Garchomp fainted, replace→Gholdengo (6/12)",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt",
+    "ourT2": "Primarina fainted, replace→Hydreigon (8/12)",
+    "failureLine": null,
+    "requested": {
+     "executed": 24
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Garchomp/Baxcalibur/Gholdengo",
+    "rivalLead": "Garchomp",
+    "branch": "setup",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "a": "6/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Mega Garchomp, Garchomp:Stealth Rock, Garchomp fainted, replace→Gholdengo (6/12)",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Garchomp/Baxcalibur/Gholdengo",
+    "rivalLead": "Garchomp",
+    "branch": "switch",
+    "won": 8,
+    "n": 12,
+    "byHypothesis": {
+     "a": "2/6",
+     "b": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt (8/12)",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Garchomp/Baxcalibur/Gholdengo",
+    "rivalLead": "Garchomp",
+    "branch": "utility",
+    "won": 12,
+    "n": 12,
+    "byHypothesis": {
+     "a": "6/6",
+     "b": "6/6"
+    },
+    "rivalT1": "Mega Garchomp, Garchomp:Stealth Rock, Garchomp fainted, replace→Gholdengo (6/12)",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Nasty Plot (6/12)",
+    "ourT2": "Primarina:Sparkling Aria (6/12)",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Gholdengo/Corviknight",
+    "rivalLead": "Baxcalibur",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Garchomp/Gholdengo",
+    "rivalLead": "Baxcalibur",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo (4/6)",
+    "ourT2": "Primarina:Moonblast (4/6)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Gholdengo/Corviknight",
+    "rivalLead": "Baxcalibur",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Garchomp/Gholdengo",
+    "rivalLead": "Baxcalibur",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo (4/6)",
+    "ourT2": "Primarina:Moonblast (4/6)",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Gholdengo/Corviknight",
+    "rivalLead": "Baxcalibur",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Garchomp/Gholdengo",
+    "rivalLead": "Baxcalibur",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo (4/6)",
+    "ourT2": "Primarina:Moonblast (4/6)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Gholdengo/Corviknight",
+    "rivalLead": "Baxcalibur",
+    "branch": "switch",
+    "won": 0,
+    "n": 6,
+    "byHypothesis": {
+     "a": "0/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt (4/6)",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": "T1 switch→Gholdengo / Primarina:Moonblast ; T2 Gholdengo:Thunderbolt / Primarina:Sparkling Aria (4/6)",
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Garchomp/Gholdengo",
+    "rivalLead": "Baxcalibur",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "switch→Gholdengo",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Gholdengo:Thunderbolt (4/6)",
+    "ourT2": "Primarina:Sparkling Aria",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Gholdengo/Corviknight",
+    "rivalLead": "Baxcalibur",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo",
+    "ourT2": "Primarina:Moonblast",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Baxcalibur/Garchomp/Gholdengo",
+    "rivalLead": "Baxcalibur",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Baxcalibur:Earthquake",
+    "ourT1": "Primarina:Moonblast",
+    "rivalT2": "Baxcalibur:Earthquake, Baxcalibur fainted, replace→Gholdengo (4/6)",
+    "ourT2": "Primarina:Moonblast (4/6)",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "HOLD_psychic_offense",
+  "ace": "Alakazam",
+  "human1": "Rotom-Wash>Garchomp/Tyranitar",
+  "hypotheses": [
+   {
+    "hyp": "case",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Garchomp/Tyranitar",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.911,
+     "aceCoverage": 0.911,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Alakazam>Starmie/Swampert",
+       0
+      ],
+      [
+       "Starmie>Sneasler/Gyarados",
+       0.333
+      ],
+      [
+       "Sneasler>Armarouge/Gyarados",
+       0.333
+      ],
+      [
+       "Alakazam>Sneasler/Armarouge",
+       0.667
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Sneasler/Armarouge/Starmie",
+       "aiBranch": 1,
+       "worstBranch": 0.333,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 0.667,
+        "switch": 0.667,
+        "utility": 1
+       }
+      },
+      "aceLead": {
+       "rival": "Alakazam/Sneasler/Armarouge",
+       "aiBranch": 0.667,
+       "worstBranch": 0.667,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 1,
+        "setup": 0.667,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Metagross>Garchomp/Rotom-Wash",
+       0.291
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.226
+      ],
+      [
+       "Tyranitar>Metagross/Garchomp",
+       0.116
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.105
+      ],
+      [
+       "Garchomp>Tyranitar/Rotom-Wash",
+       0.098
+      ],
+      [
+       "Rotom-Wash>Primarina/Garchomp",
+       0.066
+      ],
+      [
+       "Garchomp>Metagross/Primarina",
+       0.055
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.043
+      ]
+     ],
+     "security": 0.291,
+     "mean": 0.819,
+     "aceCoverage": 0.852,
+     "aceSecurity": 0.565,
+     "worstRival": [
+      [
+       "Swampert>Starmie/Armarouge",
+       0.291
+      ],
+      [
+       "Armarouge>Starmie/Swampert",
+       0.529
+      ],
+      [
+       "Swampert>Armarouge/Gyarados",
+       0.556
+      ],
+      [
+       "Armarouge>Alakazam/Starmie",
+       0.565
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Sneasler/Armarouge/Starmie",
+       "aiBranch": 0.676,
+       "worstBranch": 0.147,
+       "cleanAi": 0.676,
+       "byBranch": {
+        "ai": 0.676,
+        "attack": 0.417,
+        "setup": 0.442,
+        "switch": 0.517,
+        "utility": 0.676
+       }
+      },
+      "aceLead": {
+       "rival": "Alakazam/Sneasler/Armarouge",
+       "aiBranch": 0.924,
+       "worstBranch": 0.924,
+       "cleanAi": 0.924,
+       "byBranch": {
+        "ai": 0.924,
+        "attack": 0.956,
+        "setup": 0.924,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Metagross>Garchomp/Rotom-Wash",
+       0.563
+      ],
+      [
+       "Primarina>Metagross/Garchomp",
+       0.437
+      ]
+     ],
+     "security": 0.188,
+     "mean": 0.852,
+     "aceCoverage": 0.882,
+     "aceSecurity": 0.563,
+     "worstRival": [
+      [
+       "Swampert>Starmie/Armarouge",
+       0.188
+      ],
+      [
+       "Sneasler>Starmie/Armarouge",
+       0.437
+      ],
+      [
+       "Armarouge>Sneasler/Starmie",
+       0.437
+      ],
+      [
+       "Armarouge>Starmie/Swampert",
+       0.437
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Sneasler/Armarouge/Starmie",
+       "aiBranch": 0.437,
+       "worstBranch": 0,
+       "cleanAi": 0.437,
+       "byBranch": {
+        "ai": 0.437,
+        "attack": 0.146,
+        "setup": 0.188,
+        "switch": 0.437,
+        "utility": 0.437
+       }
+      },
+      "aceLead": {
+       "rival": "Alakazam/Sneasler/Armarouge",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Metagross>Hydreigon/Tyranitar",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.689,
+     "aceCoverage": 0.744,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Alakazam>Sneasler/Armarouge",
+       0
+      ],
+      [
+       "Armarouge>Alakazam/Sneasler",
+       0
+      ],
+      [
+       "Swampert>Alakazam/Sneasler",
+       0
+      ],
+      [
+       "Starmie>Sneasler/Armarouge",
+       0
+      ]
+     ],
+     "rivalsAtZero": 10,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Sneasler/Armarouge/Starmie",
+       "aiBranch": 0.333,
+       "worstBranch": 0.333,
+       "cleanAi": 0.333,
+       "byBranch": {
+        "ai": 0.333,
+        "attack": 1,
+        "setup": 1,
+        "switch": 0.333,
+        "utility": 0.333
+       }
+      },
+      "aceLead": {
+       "rival": "Alakazam/Sneasler/Armarouge",
+       "aiBranch": 0,
+       "worstBranch": 0,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 0,
+        "attack": 0.333,
+        "setup": 0,
+        "switch": 0,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Garchomp/Tyranitar",
+     "worst": 0,
+     "mean": 0.911,
+     "worstBy": [
+      "Alakazam>Starmie/Swampert"
+     ]
+    },
+    "sets": [
+     "Alakazam@Alakazite:Expanding Force/Shadow Ball/Focus Blast/Encore",
+     "Sneasler@Psychic Seed:Close Combat/Dire Claw/Acrobatics/Swords Dance",
+     "Starmie@Choice Scarf:Ice Beam/Hydro Pump/Grass Knot/Trick",
+     "Armarouge@Life Orb:Expanding Force/Armor Cannon/Energy Ball/Shadow Ball",
+     "Swampert@Swampertite:Liquidation/Earthquake/Ice Punch/Flip Turn",
+     "Gyarados@Sitrus Berry:Dragon Dance/Waterfall/Earthquake/Taunt"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Alakazam/Sneasler/Armarouge",
+    "rivalLead": "Alakazam",
+    "branch": "ai",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Mega Alakazam, Alakazam:Expanding Force",
+    "ourT1": "switch→Tyranitar",
+    "rivalT2": "switch→Sneasler",
+    "ourT2": "Tyranitar:Knock Off",
+    "failureLine": "T1 Mega Alakazam, Alakazam:Expanding Force / switch→Tyranitar ; T2 switch→Sneasler / Tyranitar:Knock Off",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Alakazam/Sneasler/Armarouge",
+    "rivalLead": "Alakazam",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "Mega Alakazam, Alakazam:Expanding Force",
+    "ourT1": "switch→Tyranitar",
+    "rivalT2": "Alakazam:Focus Blast, Alakazam fainted, replace→Sneasler",
+    "ourT2": "Tyranitar:Knock Off",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Alakazam/Sneasler/Armarouge",
+    "rivalLead": "Alakazam",
+    "branch": "setup",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Mega Alakazam, Alakazam:Expanding Force",
+    "ourT1": "switch→Tyranitar",
+    "rivalT2": "switch→Sneasler",
+    "ourT2": "Tyranitar:Knock Off",
+    "failureLine": "T1 Mega Alakazam, Alakazam:Expanding Force / switch→Tyranitar ; T2 switch→Sneasler / Tyranitar:Knock Off",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Alakazam/Sneasler/Armarouge",
+    "rivalLead": "Alakazam",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "switch→Sneasler",
+    "ourT1": "switch→Tyranitar",
+    "rivalT2": "Sneasler:Close Combat",
+    "ourT2": "switch→Garchomp",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "aceLead",
+    "rival3": "Alakazam/Sneasler/Armarouge",
+    "rivalLead": "Alakazam",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "Mega Alakazam, Alakazam:Encore",
+    "ourT1": "switch→Tyranitar",
+    "rivalT2": "Alakazam:Encore, Alakazam fainted, replace→Sneasler",
+    "ourT2": "Tyranitar:Knock Off",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Sneasler/Armarouge/Starmie",
+    "rivalLead": "Sneasler",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "Sneasler:Close Combat",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Sneasler:Close Combat, Sneasler fainted, replace→Armarouge",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Sneasler/Armarouge/Starmie",
+    "rivalLead": "Sneasler",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "Sneasler:Close Combat",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Sneasler:Close Combat, Sneasler fainted, replace→Armarouge",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Sneasler/Armarouge/Starmie",
+    "rivalLead": "Sneasler",
+    "branch": "setup",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Sneasler:Swords Dance",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Sneasler:Swords Dance",
+    "ourT2": "Rotom:Thunderbolt",
+    "failureLine": "T1 Sneasler:Swords Dance / Rotom:Will-O-Wisp ; T2 Sneasler:Swords Dance / Rotom:Thunderbolt",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Sneasler/Armarouge/Starmie",
+    "rivalLead": "Sneasler",
+    "branch": "switch",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "switch→Armarouge",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Armarouge:Energy Ball, Armarouge fainted, replace→Sneasler (4/6)",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": "T1 switch→Armarouge / Rotom:Will-O-Wisp ; T2 Armarouge:Energy Ball / Rotom:Hydro Pump",
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Sneasler/Armarouge/Starmie",
+    "rivalLead": "Sneasler",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "Sneasler:Close Combat",
+    "ourT1": "Rotom:Will-O-Wisp",
+    "rivalT2": "Sneasler:Close Combat, Sneasler fainted, replace→Armarouge",
+    "ourT2": "Rotom:Hydro Pump",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "HOLD_sun_balance",
+  "ace": "Charizard",
+  "human1": "Rotom-Wash>Metagross/Garchomp",
+  "hypotheses": [
+   {
+    "hyp": "case",
+    "human1": {
+     "support": [
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.95,
+     "aceCoverage": 0.9,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Charizard>Dragonite/Toxapex",
+       0
+      ],
+      [
+       "Eelektross>Charizard/Basculegion",
+       0.333
+      ],
+      [
+       "Toxapex>Charizard/Eelektross",
+       0.667
+      ],
+      [
+       "Charizard>Eelektross/Skarmory",
+       0.667
+      ]
+     ],
+     "rivalsAtZero": 1,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Charizard/Basculegion/Skarmory",
+       "aiBranch": 0.667,
+       "worstBranch": 0.333,
+       "cleanAi": 0.667,
+       "byBranch": {
+        "ai": 0.667,
+        "attack": 0.667,
+        "setup": 0.667,
+        "switch": 1,
+        "utility": 0.333
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Primarina",
+       0.334
+      ],
+      [
+       "Metagross>Tyranitar/Rotom-Wash",
+       0.222
+      ],
+      [
+       "Metagross>Primarina/Garchomp",
+       0.222
+      ],
+      [
+       "Rotom-Wash>Metagross/Garchomp",
+       0.222
+      ]
+     ],
+     "security": 0.408,
+     "mean": 0.797,
+     "aceCoverage": 0.683,
+     "aceSecurity": 0.408,
+     "worstRival": [
+      [
+       "Eelektross>Charizard/Basculegion",
+       0.408
+      ],
+      [
+       "Charizard>Dragonite/Toxapex",
+       0.408
+      ],
+      [
+       "Charizard>Eelektross/Basculegion",
+       0.443
+      ],
+      [
+       "Skarmory>Charizard/Basculegion",
+       0.443
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Charizard/Basculegion/Skarmory",
+       "aiBranch": 0.704,
+       "worstBranch": 0.296,
+       "cleanAi": 0.704,
+       "byBranch": {
+        "ai": 0.704,
+        "attack": 0.704,
+        "setup": 0.704,
+        "switch": 0.666,
+        "utility": 0.852
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Tyranitar>Metagross/Primarina",
+       0.601
+      ],
+      [
+       "Metagross>Tyranitar/Rotom-Wash",
+       0.399
+      ]
+     ],
+     "security": 0,
+     "mean": 0.73,
+     "aceCoverage": 0.567,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Charizard>Eelektross/Basculegion",
+       0
+      ],
+      [
+       "Skarmory>Charizard/Basculegion",
+       0
+      ],
+      [
+       "Skarmory>Charizard/Eelektross",
+       0.2
+      ],
+      [
+       "Skarmory>Charizard/Dragonite",
+       0.2
+      ]
+     ],
+     "rivalsAtZero": 2,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Charizard/Basculegion/Skarmory",
+       "aiBranch": 0.867,
+       "worstBranch": 0.266,
+       "cleanAi": 0.867,
+       "byBranch": {
+        "ai": 0.867,
+        "attack": 0.867,
+        "setup": 0.867,
+        "switch": 0.399,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Tyranitar>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.844,
+     "aceCoverage": 0.722,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Eelektross>Charizard/Dragonite",
+       0
+      ],
+      [
+       "Eelektross>Charizard/Basculegion",
+       0
+      ],
+      [
+       "Basculegion>Charizard/Eelektross",
+       0
+      ],
+      [
+       "Basculegion>Charizard/Toxapex",
+       0
+      ]
+     ],
+     "rivalsAtZero": 6,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Charizard/Basculegion/Skarmory",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "worst": 0,
+     "mean": 0.95,
+     "worstBy": [
+      "Charizard>Dragonite/Toxapex"
+     ]
+    },
+    "sets": [
+     "Charizard@Charizardite Y:Flamethrower/Solar Beam/Air Slash/Roost",
+     "Eelektross@Rocky Helmet:Thunderbolt/Volt Switch/Flamethrower/Grass Knot",
+     "Dragonite@Lum Berry:Dragon Dance/Extreme Speed/Earthquake/Fire Punch",
+     "Toxapex@Leftovers:Recover/Haze/Toxic Spikes/Chilling Water",
+     "Basculegion@Choice Scarf:Last Respects/Aqua Jet/Wave Crash/Flip Turn",
+     "Skarmory@Chesto Berry:Roost/Spikes/Brave Bird/Whirlwind"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Charizard/Basculegion/Skarmory",
+    "rivalLead": "Charizard",
+    "branch": "ai",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam",
+    "ourT1": "Rotom fainted, replace→Garchomp",
+    "rivalT2": "Charizard fainted, replace→Skarmory",
+    "ourT2": "Garchomp:Rock Slide",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Skarmory / Garchomp:Rock Slide",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Charizard/Basculegion/Skarmory",
+    "rivalLead": "Charizard",
+    "branch": "attack",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam",
+    "ourT1": "Rotom fainted, replace→Garchomp",
+    "rivalT2": "Charizard fainted, replace→Skarmory",
+    "ourT2": "Garchomp:Rock Slide",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Skarmory / Garchomp:Rock Slide",
+    "requested": {
+     "executed": 6,
+     "preempted": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Charizard/Basculegion/Skarmory",
+    "rivalLead": "Charizard",
+    "branch": "setup",
+    "won": 4,
+    "n": 6,
+    "byHypothesis": {
+     "case": "4/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Solar Beam",
+    "ourT1": "Rotom fainted, replace→Garchomp",
+    "rivalT2": "Charizard fainted, replace→Skarmory",
+    "ourT2": "Garchomp:Rock Slide",
+    "failureLine": "T1 Mega Charizard, Charizard:Solar Beam / Rotom fainted, replace→Garchomp ; T2 Charizard fainted, replace→Skarmory / Garchomp:Rock Slide",
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Charizard/Basculegion/Skarmory",
+    "rivalLead": "Charizard",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "case": "6/6"
+    },
+    "rivalT1": "switch→Basculegion",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Basculegion:Wave Crash, Basculegion fainted, replace→Charizard",
+    "ourT2": "Rotom:Thunderbolt",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Charizard/Basculegion/Skarmory",
+    "rivalLead": "Charizard",
+    "branch": "utility",
+    "won": 2,
+    "n": 6,
+    "byHypothesis": {
+     "case": "2/6"
+    },
+    "rivalT1": "Mega Charizard, Charizard:Roost",
+    "ourT1": "Rotom:Thunderbolt",
+    "rivalT2": "Charizard:Roost",
+    "ourT2": "Rotom:Thunderbolt",
+    "failureLine": "T1 Mega Charizard, Charizard:Roost / Rotom:Thunderbolt ; T2 Charizard:Roost / Rotom:Thunderbolt",
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 2,
+    "ownTagged": 0
+   }
+  ]
+ },
+ {
+  "six": "HX_sand",
+  "ace": "Excadrill",
+  "human1": "Hydreigon>Garchomp/Rotom-Wash",
+  "hypotheses": [
+   {
+    "hyp": "a",
+    "human1": {
+     "support": [
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.761,
+     "aceCoverage": 0.844,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Hippowdon>Kingambit/Sylveon",
+       0
+      ],
+      [
+       "Excadrill>Kingambit/Sylveon",
+       0
+      ],
+      [
+       "Sylveon>Excadrill/Kingambit",
+       0
+      ],
+      [
+       "Dragapult>Excadrill/Kingambit",
+       0
+      ]
+     ],
+     "rivalsAtZero": 12,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Kingambit/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Primarina>Tyranitar/Rotom-Wash",
+       0.267
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.259
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.18
+      ],
+      [
+       "Hydreigon>Metagross/Tyranitar",
+       0.137
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.12
+      ],
+      [
+       "Tyranitar>Hydreigon/Primarina",
+       0.037
+      ]
+     ],
+     "security": 0.344,
+     "mean": 0.833,
+     "aceCoverage": 0.877,
+     "aceSecurity": 0.618,
+     "worstRival": [
+      [
+       "Dragapult>Kingambit/Sylveon",
+       0.344
+      ],
+      [
+       "Rotom-Heat>Kingambit/Sylveon",
+       0.574
+      ],
+      [
+       "Rotom-Heat>Kingambit/Dragapult",
+       0.591
+      ],
+      [
+       "Dragapult>Excadrill/Sylveon",
+       0.618
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Kingambit/Rotom-Heat",
+       "aiBranch": 0.96,
+       "worstBranch": 0.834,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 0.96,
+        "attack": 0.914,
+        "setup": 0.96,
+        "switch": 0.88,
+        "utility": 0.96
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Primarina>Tyranitar/Rotom-Wash",
+       0.508
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.492
+      ]
+     ],
+     "security": 0.503,
+     "mean": 0.956,
+     "aceCoverage": 0.989,
+     "aceSecurity": 0.836,
+     "worstRival": [
+      [
+       "Dragapult>Kingambit/Sylveon",
+       0.503
+      ],
+      [
+       "Sylveon>Kingambit/Dragapult",
+       0.661
+      ],
+      [
+       "Rotom-Heat>Kingambit/Sylveon",
+       0.672
+      ],
+      [
+       "Sylveon>Hippowdon/Kingambit",
+       0.831
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Kingambit/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.778,
+     "aceCoverage": 0.744,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Hippowdon>Excadrill/Sylveon",
+       0
+      ],
+      [
+       "Hippowdon>Excadrill/Rotom-Heat",
+       0
+      ],
+      [
+       "Hippowdon>Rotom-Heat/Dragapult",
+       0
+      ],
+      [
+       "Sylveon>Excadrill/Kingambit",
+       0
+      ]
+     ],
+     "rivalsAtZero": 8,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Kingambit/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 0.667,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 0.667,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Hydreigon>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.761,
+     "worstBy": [
+      "Hippowdon>Kingambit/Sylveon",
+      "Excadrill>Kingambit/Sylveon",
+      "Sylveon>Excadrill/Kingambit"
+     ]
+    },
+    "sets": [
+     "Hippowdon@Leftovers:Stealth Rock/Earthquake/Slack Off/Yawn",
+     "Excadrill@Excadrite:Swords Dance/Earthquake/Iron Head/Rock Slide",
+     "Kingambit@Life Orb:Kowtow Cleave/Iron Head/Sucker Punch/Swords Dance",
+     "Sylveon@Sitrus Berry:Hyper Voice/Mystical Fire/Wish/Protect",
+     "Rotom-Heat@Choice Scarf:Overheat/Thunderbolt/Volt Switch/Trick",
+     "Dragapult@Focus Sash:Dragon Darts/Phantom Force/U-turn/Thunder Wave"
+    ]
+   },
+   {
+    "hyp": "b",
+    "human1": {
+     "support": [
+      [
+       "Hydreigon>Garchomp/Rotom-Wash",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.706,
+     "aceCoverage": 0.778,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Hippowdon>Kingambit/Dragapult",
+       0
+      ],
+      [
+       "Hippowdon>Sylveon/Dragapult",
+       0
+      ],
+      [
+       "Sylveon>Hippowdon/Dragapult",
+       0
+      ],
+      [
+       "Excadrill>Kingambit/Sylveon",
+       0
+      ]
+     ],
+     "rivalsAtZero": 15,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Dragapult/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "general": {
+     "support": [
+      [
+       "Primarina>Tyranitar/Rotom-Wash",
+       0.267
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.259
+      ],
+      [
+       "Hydreigon>Metagross/Primarina",
+       0.18
+      ],
+      [
+       "Hydreigon>Metagross/Tyranitar",
+       0.137
+      ],
+      [
+       "Tyranitar>Metagross/Rotom-Wash",
+       0.12
+      ],
+      [
+       "Tyranitar>Hydreigon/Primarina",
+       0.037
+      ]
+     ],
+     "security": 0.603,
+     "mean": 0.846,
+     "aceCoverage": 0.864,
+     "aceSecurity": 0.671,
+     "worstRival": [
+      [
+       "Sylveon>Rotom-Heat/Dragapult",
+       0.603
+      ],
+      [
+       "Sylveon>Hippowdon/Excadrill",
+       0.671
+      ],
+      [
+       "Dragapult>Sylveon/Rotom-Heat",
+       0.683
+      ],
+      [
+       "Sylveon>Hippowdon/Kingambit",
+       0.685
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Dragapult/Rotom-Heat",
+       "aiBranch": 0.963,
+       "worstBranch": 0.963,
+       "cleanAi": 0.95,
+       "byBranch": {
+        "ai": 0.963,
+        "attack": 0.963,
+        "setup": 0.963,
+        "switch": 0.963,
+        "utility": 0.963
+       }
+      }
+     }
+    },
+    "top2": {
+     "support": [
+      [
+       "Primarina>Tyranitar/Rotom-Wash",
+       0.508
+      ],
+      [
+       "Garchomp>Primarina/Rotom-Wash",
+       0.492
+      ]
+     ],
+     "security": 0.508,
+     "mean": 0.975,
+     "aceCoverage": 0.995,
+     "aceSecurity": 0.836,
+     "worstRival": [
+      [
+       "Rotom-Heat>Sylveon/Dragapult",
+       0.508
+      ],
+      [
+       "Sylveon>Hippowdon/Kingambit",
+       0.661
+      ],
+      [
+       "Sylveon>Kingambit/Dragapult",
+       0.661
+      ],
+      [
+       "Rotom-Heat>Excadrill/Dragapult",
+       0.836
+      ]
+     ],
+     "rivalsAtZero": 0,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Dragapult/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": 1,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "fallback": {
+     "support": [
+      [
+       "Garchomp>Metagross/Primarina",
+       1
+      ]
+     ],
+     "security": 0,
+     "mean": 0.894,
+     "aceCoverage": 0.922,
+     "aceSecurity": 0,
+     "worstRival": [
+      [
+       "Hippowdon>Sylveon/Rotom-Heat",
+       0
+      ],
+      [
+       "Rotom-Heat>Hippowdon/Sylveon",
+       0
+      ],
+      [
+       "Hippowdon>Sylveon/Dragapult",
+       0
+      ],
+      [
+       "Rotom-Heat>Excadrill/Sylveon",
+       0
+      ]
+     ],
+     "rivalsAtZero": 4,
+     "rational": {
+      "rivalLegacy": {
+       "rival": "Excadrill/Dragapult/Rotom-Heat",
+       "aiBranch": 1,
+       "worstBranch": 1,
+       "cleanAi": null,
+       "byBranch": {
+        "ai": 1,
+        "attack": 1,
+        "setup": 1,
+        "switch": 1,
+        "utility": 1
+       }
+      }
+     }
+    },
+    "perPick": {
+     "pick": "Hydreigon>Garchomp/Rotom-Wash",
+     "worst": 0,
+     "mean": 0.706,
+     "worstBy": [
+      "Hippowdon>Kingambit/Dragapult",
+      "Hippowdon>Sylveon/Dragapult",
+      "Sylveon>Hippowdon/Dragapult"
+     ]
+    },
+    "sets": [
+     "Hippowdon@Rocky Helmet:Stealth Rock/Earthquake/Slack Off/Yawn",
+     "Excadrill@Choice Scarf:Earthquake/Iron Head/Rock Slide/Rapid Spin",
+     "Kingambit@Lum Berry:Swords Dance/Kowtow Cleave/Iron Head/Sucker Punch",
+     "Sylveon@Leftovers:Hyper Voice/Calm Mind/Wish/Protect",
+     "Rotom-Heat@Sitrus Berry:Will-O-Wisp/Overheat/Volt Switch/Pain Split",
+     "Dragapult@Life Orb:Draco Meteor/Shadow Ball/Flamethrower/U-turn"
+    ]
+   }
+  ],
+  "rows": [
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Kingambit/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Mega Excadrill, Excadrill:Swords Dance, Excadrill fainted, replace→Kingambit",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Kingambit:Swords Dance",
+    "ourT2": "Hydreigon:Flamethrower",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Dragapult/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "ai",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Excadrill:Earthquake, Excadrill fainted, replace→Dragapult",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Dragapult:Draco Meteor",
+    "ourT2": "Hydreigon fainted, replace→Garchomp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Kingambit/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Mega Excadrill, Excadrill:Earthquake, Excadrill fainted, replace→Kingambit",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Kingambit:Iron Head",
+    "ourT2": "Hydreigon:Flamethrower (4/6)",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 6
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Dragapult/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "attack",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Excadrill:Earthquake, Excadrill fainted, replace→Dragapult",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Dragapult:Draco Meteor",
+    "ourT2": "Hydreigon fainted, replace→Garchomp",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Kingambit/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Mega Excadrill, Excadrill:Swords Dance, Excadrill fainted, replace→Kingambit",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Kingambit:Swords Dance",
+    "ourT2": "Hydreigon:Flamethrower",
+    "failureLine": null,
+    "requested": {
+     "executed": 12
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Dragapult/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "setup",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Excadrill:Earthquake, Excadrill fainted, replace→Dragapult",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Dragapult:Draco Meteor",
+    "ourT2": "Hydreigon fainted, replace→Garchomp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Kingambit/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "switch→Kingambit",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Kingambit fainted, replace→Excadrill",
+    "ourT2": "Hydreigon:Flamethrower",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Dragapult/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "switch",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "switch→Rotom",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Rotom fainted, replace→Dragapult",
+    "ourT2": "Hydreigon:Draco Meteor",
+    "failureLine": null,
+    "requested": {
+     "executed": 6
+    },
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Kingambit/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "a": "6/6"
+    },
+    "rivalT1": "Mega Excadrill, Excadrill:Swords Dance, Excadrill fainted, replace→Kingambit",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Kingambit:Swords Dance",
+    "ourT2": "Hydreigon:Flamethrower",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 0,
+    "ownTagged": 0
+   },
+   {
+    "rivalSource": "rivalLegacy",
+    "rival3": "Excadrill/Dragapult/Rotom-Heat",
+    "rivalLead": "Excadrill",
+    "branch": "utility",
+    "won": 6,
+    "n": 6,
+    "byHypothesis": {
+     "b": "6/6"
+    },
+    "rivalT1": "Excadrill:Earthquake, Excadrill fainted, replace→Dragapult",
+    "ourT1": "Hydreigon:Flamethrower",
+    "rivalT2": "Dragapult:Draco Meteor",
+    "ourT2": "Hydreigon fainted, replace→Garchomp",
+    "failureLine": null,
+    "requested": null,
+    "rivalTagged": 6,
+    "ownTagged": 0
+   }
+  ]
+ }
+]

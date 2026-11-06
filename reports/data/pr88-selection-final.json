@@ -1,0 +1,2096 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "phase": "FINAL",
+ "seedBase": 8690000,
+ "own": "reportedLive",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "games": 1704,
+ "seconds": {
+  "selection": 109,
+  "games": 10
+ },
+ "summary": {
+  "legacy": {
+   "hyps": 6,
+   "meanRat": 0.568,
+   "worstCellMean": 0.267,
+   "perHyp": {
+    "F1_gallade/a": 0.12,
+    "F1_gallade/b": 0.36,
+    "F2_feraligatr/a": 0.4,
+    "F2_feraligatr/b": 0.75,
+    "F3_glimmora/a": 0.775,
+    "F3_glimmora/b": 1
+   }
+  },
+  "quick": {
+   "hyps": 6,
+   "meanRat": 0.923,
+   "worstCellMean": 0.858,
+   "perHyp": {
+    "F1_gallade/a": 0.99,
+    "F1_gallade/b": 1,
+    "F2_feraligatr/a": 0.55,
+    "F2_feraligatr/b": 1,
+    "F3_glimmora/a": 1,
+    "F3_glimmora/b": 1
+   }
+  },
+  "guarded": {
+   "hyps": 6,
+   "meanRat": 0.886,
+   "worstCellMean": 0.742,
+   "perHyp": {
+    "F1_gallade/a": 0.99,
+    "F1_gallade/b": 1,
+    "F2_feraligatr/a": 0.55,
+    "F2_feraligatr/b": 1,
+    "F3_glimmora/a": 0.775,
+    "F3_glimmora/b": 1
+   }
+  }
+ },
+ "sixes": {
+  "F1_gallade": {
+   "publicSix": [
+    "Gallade",
+    "Arcanine-Hisui",
+    "Rotom-Frost",
+    "Garganacl",
+    "Whimsicott",
+    "Hydrapple"
+   ],
+   "ace": "Gallade",
+   "selection": {
+    "legacy": {
+     "pick": [
+      "Garchomp",
+      "Primarina",
+      "Hydreigon"
+     ],
+     "seconds": 0.015
+    },
+    "quick": {
+     "pick": [
+      "Primarina",
+      "Metagross",
+      "Tyranitar"
+     ],
+     "seconds": 8.88
+    },
+    "guarded": {
+     "pick": [
+      "Primarina",
+      "Metagross",
+      "Tyranitar"
+     ],
+     "seconds": 26.9,
+     "status": "guarded",
+     "reason": "candidate worst 0.844 >= legacy 0.292+0.1",
+     "games": {
+      "search": 3456,
+      "guard": 1920
+     },
+     "scores": [
+      {
+       "pick": "Garchomp>Hydreigon/Primarina",
+       "legacy": true,
+       "worst": 0.292,
+       "mean": 0.471,
+       "zeroCells": 13,
+       "byScenario": [
+        0.615,
+        0.469,
+        0.385,
+        0.292,
+        0.594
+       ]
+      },
+      {
+       "pick": "Tyranitar>Metagross/Garchomp",
+       "legacy": false,
+       "worst": 0.823,
+       "mean": 0.869,
+       "zeroCells": 0,
+       "byScenario": [
+        0.885,
+        0.823,
+        0.833,
+        0.938,
+        0.865
+       ]
+      },
+      {
+       "pick": "Garchomp>Metagross/Primarina",
+       "legacy": false,
+       "worst": 0.688,
+       "mean": 0.838,
+       "zeroCells": 0,
+       "byScenario": [
+        0.823,
+        0.896,
+        0.688,
+        0.896,
+        0.885
+       ]
+      },
+      {
+       "pick": "Primarina>Metagross/Tyranitar",
+       "legacy": false,
+       "worst": 0.844,
+       "mean": 0.869,
+       "zeroCells": 0,
+       "byScenario": [
+        0.854,
+        0.844,
+        0.917,
+        0.875,
+        0.854
+       ]
+      }
+     ]
+    }
+   },
+   "hyps": {
+    "a": {
+     "rivalLegacy": [
+      "Hydrapple",
+      "Gallade",
+      "Rotom-Frost"
+     ],
+     "cells": [
+      "legacy:Hydrapple/Gallade/Rotom-Frost",
+      "view1:Gallade/Rotom-Frost/Whimsicott",
+      "view2:Gallade/Rotom-Frost/Arcanine-Hisui",
+      "aceLead:Gallade/Hydrapple/Rotom-Frost",
+      "aceBack:Hydrapple/Gallade/Garganacl"
+     ],
+     "picks": {
+      "legacy": "Garchomp>Primarina>Hydreigon",
+      "quick": "Primarina>Metagross>Tyranitar",
+      "guarded": "Primarina>Metagross>Tyranitar"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Primarina>Hydreigon",
+       "mean": 0.1,
+       "meanRat": 0.12,
+       "nRat": 100,
+       "worstCellRat": 0,
+       "byCellRat": {
+        "legacy": 0,
+        "view1": 0,
+        "view2": 0.1,
+        "aceLead": 0.3,
+        "aceBack": 0.2
+       },
+       "zeroCellBranch": [
+        "legacy|ai",
+        "legacy|attack",
+        "legacy|setup",
+        "legacy|switch",
+        "legacy|utility",
+        "legacy|utilityRational",
+        "view1|ai",
+        "view1|attack",
+        "view1|setup",
+        "view1|switch",
+        "view1|utility",
+        "view1|utilityRational",
+        "view2|ai",
+        "view2|setup",
+        "view2|switch",
+        "view2|utility",
+        "view2|utilityRational",
+        "aceLead|ai",
+        "aceLead|switch",
+        "aceLead|utility",
+        "aceLead|utilityRational",
+        "aceBack|ai",
+        "aceBack|attack",
+        "aceBack|setup",
+        "aceBack|utility",
+        "aceBack|utilityRational"
+       ]
+      },
+      "quick": {
+       "pick": "Primarina>Metagross>Tyranitar",
+       "mean": 0.992,
+       "meanRat": 0.99,
+       "nRat": 100,
+       "worstCellRat": 0.95,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 0.95,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Tyranitar",
+       "mean": 0.992,
+       "meanRat": 0.99,
+       "nRat": 100,
+       "worstCellRat": 0.95,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 0.95,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Garchomp>Primarina>Hydreigon",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 6,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Garchomp|Dragon Claw|p2a: Hydrapple",
+         "T1 |-damage|p2a: Hydrapple|81/213",
+         "T1 |move|p2a: Hydrapple|Draco Meteor|p1a: Garchomp",
+         "T1 |-damage|p1a: Garchomp|0 fnt",
+         "T1 |-unboost|p2a: Hydrapple|spa|2",
+         "T1 |faint|p1a: Garchomp",
+         "T1 |switch|p1a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Hydreigon|Draco Meteor|p2a: Hydrapple|[miss]",
+         "T2 |move|p2a: Hydrapple|Draco Meteor|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|31/169",
+         "T2 |-unboost|p2a: Hydrapple|spa|2",
+         "T3 |move|p1a: Hydreigon|Draco Meteor|p2a: Hydrapple",
+         "T3 |-damage|p2a: Hydrapple|0 fnt",
+         "T3 |-unboost|p1a: Hydreigon|spa|2",
+         "T3 |faint|p2a: Hydrapple",
+         "T3 |-damage|p1a: Hydreigon|15/169|[from] item: Life Orb",
+         "T3 |switch|p2a: Gallade|Gallade, L50, M|145/145"
+        ]
+       },
+       {
+        "own": "Garchomp>Primarina>Hydreigon",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 6,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Garchomp|Dragon Claw|p1a: Hydrapple",
+         "T1 |-damage|p1a: Hydrapple|81/213",
+         "T1 |move|p1a: Hydrapple|Draco Meteor|p2a: Garchomp",
+         "T1 |-damage|p2a: Garchomp|0 fnt",
+         "T1 |-unboost|p1a: Hydrapple|spa|2",
+         "T1 |faint|p2a: Garchomp",
+         "T1 |switch|p2a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Hydreigon|Draco Meteor|p1a: Hydrapple|[miss]",
+         "T2 |move|p1a: Hydrapple|Draco Meteor|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|31/169",
+         "T2 |-unboost|p1a: Hydrapple|spa|2",
+         "T3 |move|p2a: Hydreigon|Draco Meteor|p1a: Hydrapple",
+         "T3 |-damage|p1a: Hydrapple|0 fnt",
+         "T3 |-unboost|p2a: Hydreigon|spa|2",
+         "T3 |faint|p1a: Hydrapple",
+         "T3 |-damage|p2a: Hydreigon|15/169|[from] item: Life Orb",
+         "T3 |switch|p1a: Gallade|Gallade, L50, M|145/145"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Gallade>Rotom-Frost>Arcanine-Hisui",
+        "cell": "view2",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p2a: Gallade|Gallade|Galladite",
+         "T1 |move|p2a: Gallade|Leaf Blade|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|27/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|73/187|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Gallade",
+         "T1 |-damage|p2a: Gallade|0 fnt",
+         "T1 |faint|p2a: Gallade",
+         "T1 |switch|p2a: Rotom|Rotom-Frost, L50|157/157",
+         "T2 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|156/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p2a: Rotom|148/157|[from] Sandstorm",
+         "T3 |move|p2a: Rotom|Will-O-Wisp|p1a: Tyranitar",
+         "T3 |-status|p1a: Tyranitar|brn",
+         "T3 |move|p1a: Tyranitar|Stone Edge|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|46/157",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p2a: Rotom|37/157|[from] Sandstorm",
+         "T3 |-damage|p1a: Tyranitar|144/207 brn|[from] brn"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Gallade>Rotom-Frost>Arcanine-Hisui",
+        "cell": "view2",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p1a: Gallade|Gallade|Galladite",
+         "T1 |move|p1a: Gallade|Leaf Blade|p2a: Primarina",
+         "T1 |-damage|p2a: Primarina|27/187",
+         "T1 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p2a: Primarina|73/187|[from] item: Sitrus Berry",
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Gallade",
+         "T1 |-damage|p1a: Gallade|0 fnt",
+         "T1 |faint|p1a: Gallade",
+         "T1 |switch|p1a: Rotom|Rotom-Frost, L50|157/157",
+         "T2 |switch|p2a: Tyranitar|Tyranitar, L50, M|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T2 |-damage|p2a: Tyranitar|156/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p1a: Rotom|148/157|[from] Sandstorm",
+         "T3 |move|p1a: Rotom|Will-O-Wisp|p2a: Tyranitar",
+         "T3 |-status|p2a: Tyranitar|brn",
+         "T3 |move|p2a: Tyranitar|Stone Edge|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|46/157",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p1a: Rotom|37/157|[from] Sandstorm",
+         "T3 |-damage|p2a: Tyranitar|144/207 brn|[from] brn"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Gallade>Rotom-Frost>Arcanine-Hisui",
+        "cell": "view2",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p2a: Gallade|Gallade|Galladite",
+         "T1 |move|p2a: Gallade|Leaf Blade|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|27/187",
+         "T1 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Primarina|73/187|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Gallade",
+         "T1 |-damage|p2a: Gallade|0 fnt",
+         "T1 |faint|p2a: Gallade",
+         "T1 |switch|p2a: Rotom|Rotom-Frost, L50|157/157",
+         "T2 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|156/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p2a: Rotom|148/157|[from] Sandstorm",
+         "T3 |move|p2a: Rotom|Will-O-Wisp|p1a: Tyranitar",
+         "T3 |-status|p1a: Tyranitar|brn",
+         "T3 |move|p1a: Tyranitar|Stone Edge|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|46/157",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p2a: Rotom|37/157|[from] Sandstorm",
+         "T3 |-damage|p1a: Tyranitar|144/207 brn|[from] brn"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Gallade>Rotom-Frost>Arcanine-Hisui",
+        "cell": "view2",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p1a: Gallade|Gallade|Galladite",
+         "T1 |move|p1a: Gallade|Leaf Blade|p2a: Primarina",
+         "T1 |-damage|p2a: Primarina|27/187",
+         "T1 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+         "T1 |-heal|p2a: Primarina|73/187|[from] item: Sitrus Berry",
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Gallade",
+         "T1 |-damage|p1a: Gallade|0 fnt",
+         "T1 |faint|p1a: Gallade",
+         "T1 |switch|p1a: Rotom|Rotom-Frost, L50|157/157",
+         "T2 |switch|p2a: Tyranitar|Tyranitar, L50, M|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T2 |-damage|p2a: Tyranitar|156/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p1a: Rotom|148/157|[from] Sandstorm",
+         "T3 |move|p1a: Rotom|Will-O-Wisp|p2a: Tyranitar",
+         "T3 |-status|p2a: Tyranitar|brn",
+         "T3 |move|p2a: Tyranitar|Stone Edge|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|46/157",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |-damage|p1a: Rotom|37/157|[from] Sandstorm",
+         "T3 |-damage|p2a: Tyranitar|144/207 brn|[from] brn"
+        ]
+       }
+      ]
+     }
+    },
+    "b": {
+     "rivalLegacy": [
+      "Hydrapple",
+      "Gallade",
+      "Rotom-Frost"
+     ],
+     "cells": [
+      "legacy:Hydrapple/Gallade/Rotom-Frost",
+      "view1:Hydrapple/Gallade/Garganacl",
+      "view2:Arcanine-Hisui/Gallade/Rotom-Frost",
+      "aceLead:Gallade/Hydrapple/Rotom-Frost",
+      "aceBack:Hydrapple/Gallade/Whimsicott"
+     ],
+     "picks": {
+      "legacy": "Garchomp>Primarina>Hydreigon",
+      "quick": "Primarina>Metagross>Tyranitar",
+      "guarded": "Primarina>Metagross>Tyranitar"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Primarina>Hydreigon",
+       "mean": 0.35,
+       "meanRat": 0.36,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "byCellRat": {
+        "legacy": 0.2,
+        "view1": 0.2,
+        "view2": 0.2,
+        "aceLead": 0.7,
+        "aceBack": 0.5
+       },
+       "zeroCellBranch": [
+        "legacy|ai",
+        "legacy|attack",
+        "legacy|setup",
+        "legacy|utility",
+        "legacy|utilityRational",
+        "view1|ai",
+        "view1|attack",
+        "view1|setup",
+        "view1|utility",
+        "view1|utilityRational",
+        "view2|ai",
+        "view2|setup",
+        "view2|switch",
+        "view2|utility",
+        "view2|utilityRational",
+        "aceLead|switch"
+       ]
+      },
+      "quick": {
+       "pick": "Primarina>Metagross>Tyranitar",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Tyranitar",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Garchomp>Primarina>Hydreigon",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Garchomp|Dragon Claw|p2a: Hydrapple",
+         "T1 |-damage|p2a: Hydrapple|85/213",
+         "T1 |-enditem|p2a: Hydrapple|Sitrus Berry|[eat]",
+         "T1 |-heal|p2a: Hydrapple|138/213|[from] item: Sitrus Berry",
+         "T1 |move|p2a: Hydrapple|Draco Meteor|p1a: Garchomp",
+         "T1 |-damage|p1a: Garchomp|0 fnt",
+         "T1 |-unboost|p2a: Hydrapple|spa|2",
+         "T1 |faint|p1a: Garchomp",
+         "T1 |switch|p1a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Hydreigon|Draco Meteor|p2a: Hydrapple|[miss]",
+         "T2 |move|p2a: Hydrapple|Draco Meteor|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|31/169",
+         "T2 |-unboost|p2a: Hydrapple|spa|2",
+         "T3 |move|p1a: Hydreigon|Draco Meteor|p2a: Hydrapple",
+         "T3 |-damage|p2a: Hydrapple|0 fnt",
+         "T3 |-unboost|p1a: Hydreigon|spa|2",
+         "T3 |faint|p2a: Hydrapple",
+         "T3 |-damage|p1a: Hydreigon|15/169|[from] item: Life Orb",
+         "T3 |switch|p2a: Gallade|Gallade, L50, M|145/145"
+        ]
+       },
+       {
+        "own": "Garchomp>Primarina>Hydreigon",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Garchomp|Dragon Claw|p1a: Hydrapple",
+         "T1 |-damage|p1a: Hydrapple|85/213",
+         "T1 |-enditem|p1a: Hydrapple|Sitrus Berry|[eat]",
+         "T1 |-heal|p1a: Hydrapple|138/213|[from] item: Sitrus Berry",
+         "T1 |move|p1a: Hydrapple|Draco Meteor|p2a: Garchomp",
+         "T1 |-damage|p2a: Garchomp|0 fnt",
+         "T1 |-unboost|p1a: Hydrapple|spa|2",
+         "T1 |faint|p2a: Garchomp",
+         "T1 |switch|p2a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Hydreigon|Draco Meteor|p1a: Hydrapple|[miss]",
+         "T2 |move|p1a: Hydrapple|Draco Meteor|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|31/169",
+         "T2 |-unboost|p1a: Hydrapple|spa|2",
+         "T3 |move|p2a: Hydreigon|Draco Meteor|p1a: Hydrapple",
+         "T3 |-damage|p1a: Hydrapple|0 fnt",
+         "T3 |-unboost|p2a: Hydreigon|spa|2",
+         "T3 |faint|p1a: Hydrapple",
+         "T3 |-damage|p2a: Hydreigon|15/169|[from] item: Life Orb",
+         "T3 |switch|p1a: Gallade|Gallade, L50, M|145/145"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 5,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Hydrapple",
+         "T1 |-damage|p2a: Hydrapple|0 fnt",
+         "T1 |faint|p2a: Hydrapple",
+         "T1 |switch|p2a: Rotom|Rotom-Frost, L50|127/127",
+         "T2 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|158/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p2a: Rotom|120/127|[from] Sandstorm",
+         "T3 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T3 |-damage|p1a: Tyranitar|110/207",
+         "T3 |move|p1a: Tyranitar|Stone Edge|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|0 fnt",
+         "T3 |faint|p2a: Rotom",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |switch|p2a: Gallade|Gallade, L50, M|145/145"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 5,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Hydrapple",
+         "T1 |-damage|p1a: Hydrapple|0 fnt",
+         "T1 |faint|p1a: Hydrapple",
+         "T1 |switch|p1a: Rotom|Rotom-Frost, L50|127/127",
+         "T2 |switch|p2a: Tyranitar|Tyranitar, L50, M|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T2 |-damage|p2a: Tyranitar|158/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p1a: Rotom|120/127|[from] Sandstorm",
+         "T3 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T3 |-damage|p2a: Tyranitar|110/207",
+         "T3 |move|p2a: Tyranitar|Stone Edge|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|0 fnt",
+         "T3 |faint|p1a: Rotom",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |switch|p1a: Gallade|Gallade, L50, M|145/145"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 5,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Hydrapple",
+         "T1 |-damage|p2a: Hydrapple|0 fnt",
+         "T1 |faint|p2a: Hydrapple",
+         "T1 |switch|p2a: Rotom|Rotom-Frost, L50|127/127",
+         "T2 |switch|p1a: Tyranitar|Tyranitar, L50, F|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p1a: Tyranitar",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T2 |-damage|p1a: Tyranitar|158/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p2a: Rotom|120/127|[from] Sandstorm",
+         "T3 |move|p2a: Rotom|Thunderbolt|p1a: Tyranitar",
+         "T3 |-damage|p1a: Tyranitar|110/207",
+         "T3 |move|p1a: Tyranitar|Stone Edge|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|0 fnt",
+         "T3 |faint|p2a: Rotom",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |switch|p2a: Gallade|Gallade, L50, M|145/145"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Tyranitar",
+        "foe": "Hydrapple>Gallade>Rotom-Frost",
+        "cell": "legacy",
+        "seed": [
+         20869,
+         64275,
+         51216,
+         17157
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 5,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Hydrapple",
+         "T1 |-damage|p1a: Hydrapple|0 fnt",
+         "T1 |faint|p1a: Hydrapple",
+         "T1 |switch|p1a: Rotom|Rotom-Frost, L50|127/127",
+         "T2 |switch|p2a: Tyranitar|Tyranitar, L50, M|207/207",
+         "T2 |-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Tyranitar",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T2 |-damage|p2a: Tyranitar|158/207",
+         "T2 |-weather|Sandstorm|[upkeep]",
+         "T2 |-damage|p1a: Rotom|120/127|[from] Sandstorm",
+         "T3 |move|p1a: Rotom|Thunderbolt|p2a: Tyranitar",
+         "T3 |-damage|p2a: Tyranitar|110/207",
+         "T3 |move|p2a: Tyranitar|Stone Edge|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|0 fnt",
+         "T3 |faint|p1a: Rotom",
+         "T3 |-weather|Sandstorm|[upkeep]",
+         "T3 |switch|p1a: Gallade|Gallade, L50, M|145/145"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  },
+  "F2_feraligatr": {
+   "publicSix": [
+    "Feraligatr",
+    "Infernape",
+    "Hatterene",
+    "Mudsdale",
+    "Noivern",
+    "Aegislash"
+   ],
+   "ace": "Feraligatr",
+   "selection": {
+    "legacy": {
+     "pick": [
+      "Garchomp",
+      "Hydreigon",
+      "Rotom-Wash"
+     ],
+     "seconds": 0.003
+    },
+    "quick": {
+     "pick": [
+      "Hydreigon",
+      "Metagross",
+      "Primarina"
+     ],
+     "seconds": 9.21
+    },
+    "guarded": {
+     "pick": [
+      "Primarina",
+      "Metagross",
+      "Hydreigon"
+     ],
+     "seconds": 28.1,
+     "status": "guarded",
+     "reason": "candidate worst 0.958 >= legacy 0.552+0.1",
+     "games": {
+      "search": 3456,
+      "guard": 2304
+     },
+     "scores": [
+      {
+       "pick": "Garchomp>Hydreigon/Rotom-Wash",
+       "legacy": true,
+       "worst": 0.552,
+       "mean": 0.696,
+       "zeroCells": 9,
+       "byScenario": [
+        0.813,
+        0.635,
+        0.646,
+        0.552,
+        0.729,
+        0.802
+       ]
+      },
+      {
+       "pick": "Primarina>Metagross/Garchomp",
+       "legacy": false,
+       "worst": 0.938,
+       "mean": 0.967,
+       "zeroCells": 0,
+       "byScenario": [
+        0.969,
+        0.99,
+        0.969,
+        0.958,
+        0.979,
+        0.938
+       ]
+      },
+      {
+       "pick": "Primarina>Metagross/Hydreigon",
+       "legacy": false,
+       "worst": 0.958,
+       "mean": 0.972,
+       "zeroCells": 0,
+       "byScenario": [
+        0.99,
+        0.958,
+        0.979,
+        0.969,
+        0.969,
+        0.969
+       ]
+      },
+      {
+       "pick": "Metagross>Primarina/Rotom-Wash",
+       "legacy": false,
+       "worst": 0.917,
+       "mean": 0.948,
+       "zeroCells": 0,
+       "byScenario": [
+        0.969,
+        0.948,
+        1,
+        0.927,
+        0.917,
+        0.927
+       ]
+      }
+     ]
+    }
+   },
+   "hyps": {
+    "a": {
+     "rivalLegacy": [
+      "Hatterene",
+      "Infernape",
+      "Mudsdale"
+     ],
+     "cells": [
+      "legacy:Hatterene/Infernape/Mudsdale",
+      "view1:Hatterene/Infernape/Aegislash",
+      "view2:Hatterene/Infernape/Feraligatr",
+      "aceLead:Feraligatr/Hatterene/Infernape"
+     ],
+     "picks": {
+      "legacy": "Garchomp>Hydreigon>Rotom-Wash",
+      "quick": "Hydreigon>Metagross>Primarina",
+      "guarded": "Primarina>Metagross>Hydreigon"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Hydreigon>Rotom-Wash",
+       "mean": 0.417,
+       "meanRat": 0.4,
+       "nRat": 80,
+       "worstCellRat": 0,
+       "byCellRat": {
+        "legacy": 0.8,
+        "view1": 0,
+        "view2": 0.8,
+        "aceLead": 0
+       },
+       "zeroCellBranch": [
+        "legacy|switch",
+        "view1|ai",
+        "view1|attack",
+        "view1|setup",
+        "view1|switch",
+        "view1|utility",
+        "view1|utilityRational",
+        "view2|switch",
+        "aceLead|ai",
+        "aceLead|attack",
+        "aceLead|setup",
+        "aceLead|switch",
+        "aceLead|utility",
+        "aceLead|utilityRational"
+       ]
+      },
+      "quick": {
+       "pick": "Hydreigon>Metagross>Primarina",
+       "mean": 0.542,
+       "meanRat": 0.55,
+       "nRat": 80,
+       "worstCellRat": 0.2,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 0.2,
+        "view2": 0.2,
+        "aceLead": 0.8
+       },
+       "zeroCellBranch": [
+        "view1|ai",
+        "view1|attack",
+        "view1|setup",
+        "view1|utility",
+        "view1|utilityRational",
+        "view2|ai",
+        "view2|attack",
+        "view2|setup",
+        "view2|utility",
+        "view2|utilityRational",
+        "aceLead|switch"
+       ]
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Hydreigon",
+       "mean": 0.542,
+       "meanRat": 0.55,
+       "nRat": 80,
+       "worstCellRat": 0.1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 0.2,
+        "view2": 0.1,
+        "aceLead": 0.9
+       },
+       "zeroCellBranch": [
+        "view1|ai",
+        "view1|attack",
+        "view1|setup",
+        "view1|utility",
+        "view1|utilityRational",
+        "view2|ai",
+        "view2|attack",
+        "view2|setup",
+        "view2|utility",
+        "view2|utilityRational"
+       ]
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Garchomp>Hydreigon>Rotom-Wash",
+        "foe": "Hatterene>Infernape>Aegislash",
+        "cell": "view1",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 6,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Garchomp|Poison Jab|p2a: Hatterene",
+         "T1 |-damage|p2a: Hatterene|68/164",
+         "T1 |move|p2a: Hatterene|Dazzling Gleam|p1a: Garchomp",
+         "T1 |-damage|p1a: Garchomp|0 fnt",
+         "T1 |faint|p1a: Garchomp",
+         "T1 |-heal|p2a: Hatterene|78/164|[from] item: Leftovers",
+         "T1 |switch|p1a: Rotom|Rotom-Wash, L50|157/157",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Hatterene",
+         "T2 |-damage|p2a: Hatterene|0 fnt",
+         "T2 |faint|p2a: Hatterene",
+         "T2 |switch|p2a: Aegislash|Aegislash, L50, M|167/167",
+         "T3 |move|p1a: Rotom|Will-O-Wisp|p2a: Aegislash",
+         "T3 |-status|p2a: Aegislash|brn",
+         "T3 |-enditem|p2a: Aegislash|Lum Berry|[eat]",
+         "T3 |move|p2a: Aegislash|Shadow Ball|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|27/157",
+         "T3 |-heal|p1a: Rotom|36/157|[from] item: Leftovers"
+        ]
+       },
+       {
+        "own": "Garchomp>Hydreigon>Rotom-Wash",
+        "foe": "Hatterene>Infernape>Aegislash",
+        "cell": "view1",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 6,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Garchomp|Poison Jab|p1a: Hatterene",
+         "T1 |-damage|p1a: Hatterene|68/164",
+         "T1 |move|p1a: Hatterene|Dazzling Gleam|p2a: Garchomp",
+         "T1 |-damage|p2a: Garchomp|0 fnt",
+         "T1 |faint|p2a: Garchomp",
+         "T1 |-heal|p1a: Hatterene|78/164|[from] item: Leftovers",
+         "T1 |switch|p2a: Rotom|Rotom-Wash, L50|157/157",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Hatterene",
+         "T2 |-damage|p1a: Hatterene|0 fnt",
+         "T2 |faint|p1a: Hatterene",
+         "T2 |switch|p1a: Aegislash|Aegislash, L50, F|167/167",
+         "T3 |move|p2a: Rotom|Will-O-Wisp|p1a: Aegislash",
+         "T3 |-status|p1a: Aegislash|brn",
+         "T3 |-enditem|p1a: Aegislash|Lum Berry|[eat]",
+         "T3 |move|p1a: Aegislash|Shadow Ball|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|27/157",
+         "T3 |-heal|p2a: Rotom|36/157|[from] item: Leftovers"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Hydreigon>Metagross>Primarina",
+        "foe": "Hatterene>Infernape>Aegislash",
+        "cell": "view1",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p2a: Hatterene|Dazzling Gleam|p1a: Metagross",
+         "T1 |-damage|p1a: Metagross|115/157",
+         "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p1a: Metagross|Meteor Mash|p2a: Hatterene|[miss]",
+         "T2 |move|p2a: Hatterene|Mystical Fire|p1a: Metagross",
+         "T2 |-damage|p1a: Metagross|21/157",
+         "T2 |-unboost|p1a: Metagross|spa|1",
+         "T3 |move|p1a: Metagross|Meteor Mash|p2a: Hatterene",
+         "T3 |-damage|p2a: Hatterene|0 fnt",
+         "T3 |faint|p2a: Hatterene",
+         "T3 |switch|p2a: Aegislash|Aegislash, L50, M|167/167"
+        ]
+       },
+       {
+        "own": "Hydreigon>Metagross>Primarina",
+        "foe": "Hatterene>Infernape>Aegislash",
+        "cell": "view1",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p2a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p1a: Hatterene|Dazzling Gleam|p2a: Metagross",
+         "T1 |-damage|p2a: Metagross|115/157",
+         "T2 |-mega|p2a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p2a: Metagross|Meteor Mash|p1a: Hatterene|[miss]",
+         "T2 |move|p1a: Hatterene|Mystical Fire|p2a: Metagross",
+         "T2 |-damage|p2a: Metagross|21/157",
+         "T2 |-unboost|p2a: Metagross|spa|1",
+         "T3 |move|p2a: Metagross|Meteor Mash|p1a: Hatterene",
+         "T3 |-damage|p1a: Hatterene|0 fnt",
+         "T3 |faint|p1a: Hatterene",
+         "T3 |switch|p1a: Aegislash|Aegislash, L50, F|167/167"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Metagross>Hydreigon",
+        "foe": "Hatterene>Infernape>Feraligatr",
+        "cell": "view2",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p2a: Hatterene|Psychic|p1a: Metagross",
+         "T1 |-damage|p1a: Metagross|133/157",
+         "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p1a: Metagross|Meteor Mash|p2a: Hatterene",
+         "T2 |-damage|p2a: Hatterene|0 fnt",
+         "T2 |faint|p2a: Hatterene",
+         "T2 |switch|p2a: Feraligatr|Feraligatr, L50, F|162/162",
+         "T3 |-mega|p2a: Feraligatr|Feraligatr|Feraligite",
+         "T3 |move|p1a: Metagross|Thunder Punch|p2a: Feraligatr",
+         "T3 |-damage|p2a: Feraligatr|106/162",
+         "T3 |move|p2a: Feraligatr|Dragon Dance|p2a: Feraligatr",
+         "T3 |-boost|p2a: Feraligatr|atk|1",
+         "T3 |-boost|p2a: Feraligatr|spe|1"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Hydreigon",
+        "foe": "Hatterene>Infernape>Feraligatr",
+        "cell": "view2",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p2a: Metagross|Metagross, L50|157/157",
+         "T1 |move|p1a: Hatterene|Psychic|p2a: Metagross",
+         "T1 |-damage|p2a: Metagross|133/157",
+         "T2 |-mega|p2a: Metagross|Metagross|Metagrossite",
+         "T2 |move|p2a: Metagross|Meteor Mash|p1a: Hatterene",
+         "T2 |-damage|p1a: Hatterene|0 fnt",
+         "T2 |faint|p1a: Hatterene",
+         "T2 |switch|p1a: Feraligatr|Feraligatr, L50, F|162/162",
+         "T3 |-mega|p1a: Feraligatr|Feraligatr|Feraligite",
+         "T3 |move|p2a: Metagross|Thunder Punch|p1a: Feraligatr",
+         "T3 |-damage|p1a: Feraligatr|106/162",
+         "T3 |move|p1a: Feraligatr|Dragon Dance|p1a: Feraligatr",
+         "T3 |-boost|p1a: Feraligatr|atk|1",
+         "T3 |-boost|p1a: Feraligatr|spe|1"
+        ]
+       }
+      ]
+     }
+    },
+    "b": {
+     "rivalLegacy": [
+      "Infernape",
+      "Hatterene",
+      "Mudsdale"
+     ],
+     "cells": [
+      "legacy:Infernape/Hatterene/Mudsdale",
+      "view1:Infernape/Hatterene/Aegislash",
+      "view2:Infernape/Hatterene/Feraligatr",
+      "aceLead:Feraligatr/Infernape/Hatterene"
+     ],
+     "picks": {
+      "legacy": "Garchomp>Hydreigon>Rotom-Wash",
+      "quick": "Hydreigon>Metagross>Primarina",
+      "guarded": "Primarina>Metagross>Hydreigon"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Hydreigon>Rotom-Wash",
+       "mean": 0.75,
+       "meanRat": 0.75,
+       "nRat": 80,
+       "worstCellRat": 0,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 0
+       },
+       "zeroCellBranch": [
+        "aceLead|ai",
+        "aceLead|attack",
+        "aceLead|setup",
+        "aceLead|switch",
+        "aceLead|utility",
+        "aceLead|utilityRational"
+       ]
+      },
+      "quick": {
+       "pick": "Hydreigon>Metagross>Primarina",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 80,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1
+       },
+       "zeroCellBranch": []
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Hydreigon",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 80,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1
+       },
+       "zeroCellBranch": []
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Garchomp>Hydreigon>Rotom-Wash",
+        "foe": "Feraligatr>Infernape>Hatterene",
+        "cell": "aceLead",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p1a: Rotom|Rotom-Wash, L50|157/157",
+         "T1 |move|p2a: Feraligatr|Ice Fang|p1a: Rotom",
+         "T1 |-damage|p1a: Rotom|142/157",
+         "T1 |-heal|p1a: Rotom|151/157|[from] item: Leftovers",
+         "T2 |move|p2a: Feraligatr|Ice Fang|p1a: Rotom",
+         "T2 |-damage|p1a: Rotom|135/157",
+         "T2 |move|p1a: Rotom|Thunderbolt|p2a: Feraligatr",
+         "T2 |-damage|p2a: Feraligatr|12/162",
+         "T2 |-heal|p1a: Rotom|144/157|[from] item: Leftovers",
+         "T3 |move|p2a: Feraligatr|Ice Fang|p1a: Rotom",
+         "T3 |-damage|p1a: Rotom|128/157",
+         "T3 |move|p1a: Rotom|Thunderbolt|p2a: Feraligatr",
+         "T3 |-damage|p2a: Feraligatr|0 fnt",
+         "T3 |faint|p2a: Feraligatr",
+         "T3 |-heal|p1a: Rotom|137/157|[from] item: Leftovers",
+         "T3 |switch|p2a: Hatterene|Hatterene, L50, F|164/164"
+        ]
+       },
+       {
+        "own": "Garchomp>Hydreigon>Rotom-Wash",
+        "foe": "Feraligatr>Infernape>Hatterene",
+        "cell": "aceLead",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p2a: Rotom|Rotom-Wash, L50|157/157",
+         "T1 |move|p1a: Feraligatr|Ice Fang|p2a: Rotom",
+         "T1 |-damage|p2a: Rotom|142/157",
+         "T1 |-heal|p2a: Rotom|151/157|[from] item: Leftovers",
+         "T2 |move|p1a: Feraligatr|Ice Fang|p2a: Rotom",
+         "T2 |-damage|p2a: Rotom|135/157",
+         "T2 |move|p2a: Rotom|Thunderbolt|p1a: Feraligatr",
+         "T2 |-damage|p1a: Feraligatr|12/162",
+         "T2 |-heal|p2a: Rotom|144/157|[from] item: Leftovers",
+         "T3 |move|p1a: Feraligatr|Ice Fang|p2a: Rotom",
+         "T3 |-damage|p2a: Rotom|128/157",
+         "T3 |move|p2a: Rotom|Thunderbolt|p1a: Feraligatr",
+         "T3 |-damage|p1a: Feraligatr|0 fnt",
+         "T3 |faint|p1a: Feraligatr",
+         "T3 |-heal|p2a: Rotom|137/157|[from] item: Leftovers",
+         "T3 |switch|p1a: Hatterene|Hatterene, L50, F|164/164"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Hydreigon>Metagross>Primarina",
+        "foe": "Infernape>Hatterene>Mudsdale",
+        "cell": "legacy",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p2a: Hatterene|Hatterene, L50, F|164/164",
+         "T1 |switch|p1a: Primarina|Primarina, L50, F|187/187",
+         "T2 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T2 |move|p2a: Hatterene|Psychic|p1a: Metagross",
+         "T2 |-damage|p1a: Metagross|133/157",
+         "T3 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p1a: Metagross|Meteor Mash|p2a: Hatterene",
+         "T3 |-damage|p2a: Hatterene|0 fnt",
+         "T3 |faint|p2a: Hatterene",
+         "T3 |switch|p2a: Mudsdale|Mudsdale, L50, M|207/207"
+        ]
+       },
+       {
+        "own": "Hydreigon>Metagross>Primarina",
+        "foe": "Infernape>Hatterene>Mudsdale",
+        "cell": "legacy",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |switch|p1a: Hatterene|Hatterene, L50, F|164/164",
+         "T1 |switch|p2a: Primarina|Primarina, L50, M|187/187",
+         "T2 |switch|p2a: Metagross|Metagross, L50|157/157",
+         "T2 |move|p1a: Hatterene|Psychic|p2a: Metagross",
+         "T2 |-damage|p2a: Metagross|133/157",
+         "T3 |-mega|p2a: Metagross|Metagross|Metagrossite",
+         "T3 |move|p2a: Metagross|Meteor Mash|p1a: Hatterene",
+         "T3 |-damage|p1a: Hatterene|0 fnt",
+         "T3 |faint|p1a: Hatterene",
+         "T3 |switch|p1a: Mudsdale|Mudsdale, L50, M|207/207"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Metagross>Hydreigon",
+        "foe": "Infernape>Hatterene>Mudsdale",
+        "cell": "legacy",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Infernape|Grass Knot|p1a: Primarina",
+         "T1 |-damage|p1a: Primarina|133/187",
+         "T1 |move|p1a: Primarina|Sparkling Aria|p2a: Infernape",
+         "T1 |-enditem|p2a: Infernape|Focus Sash",
+         "T1 |-damage|p2a: Infernape|1/153",
+         "T2 |move|p2a: Infernape|Grass Knot|p1a: Primarina",
+         "T2 |-damage|p1a: Primarina|41/187",
+         "T2 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p1a: Primarina|87/187|[from] item: Sitrus Berry",
+         "T2 |move|p1a: Primarina|Sparkling Aria|p2a: Infernape",
+         "T2 |-damage|p2a: Infernape|0 fnt",
+         "T2 |faint|p2a: Infernape",
+         "T2 |switch|p2a: Hatterene|Hatterene, L50, F|164/164",
+         "T3 |switch|p1a: Metagross|Metagross, L50|157/157",
+         "T3 |move|p2a: Hatterene|Psychic|p1a: Metagross",
+         "T3 |-damage|p1a: Metagross|132/157"
+        ]
+       },
+       {
+        "own": "Primarina>Metagross>Hydreigon",
+        "foe": "Infernape>Hatterene>Mudsdale",
+        "cell": "legacy",
+        "seed": [
+         21077,
+         62572,
+         43644,
+         61416
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Infernape|Grass Knot|p2a: Primarina",
+         "T1 |-damage|p2a: Primarina|133/187",
+         "T1 |move|p2a: Primarina|Sparkling Aria|p1a: Infernape",
+         "T1 |-enditem|p1a: Infernape|Focus Sash",
+         "T1 |-damage|p1a: Infernape|1/153",
+         "T2 |move|p1a: Infernape|Grass Knot|p2a: Primarina",
+         "T2 |-damage|p2a: Primarina|41/187",
+         "T2 |-enditem|p2a: Primarina|Sitrus Berry|[eat]",
+         "T2 |-heal|p2a: Primarina|87/187|[from] item: Sitrus Berry",
+         "T2 |move|p2a: Primarina|Sparkling Aria|p1a: Infernape",
+         "T2 |-damage|p1a: Infernape|0 fnt",
+         "T2 |faint|p1a: Infernape",
+         "T2 |switch|p1a: Hatterene|Hatterene, L50, F|164/164",
+         "T3 |switch|p2a: Metagross|Metagross, L50|157/157",
+         "T3 |move|p1a: Hatterene|Psychic|p2a: Metagross",
+         "T3 |-damage|p2a: Metagross|132/157"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  },
+  "F3_glimmora": {
+   "publicSix": [
+    "Glimmora",
+    "Conkeldurr",
+    "Grimmsnarl",
+    "Cinderace",
+    "Basculegion-F",
+    "Sinistcha"
+   ],
+   "ace": "Glimmora",
+   "selection": {
+    "legacy": {
+     "pick": [
+      "Primarina",
+      "Garchomp",
+      "Hydreigon"
+     ],
+     "seconds": 0.004
+    },
+    "quick": {
+     "pick": [
+      "Metagross",
+      "Hydreigon",
+      "Garchomp"
+     ],
+     "seconds": 9.08
+    },
+    "guarded": {
+     "pick": [
+      "Primarina",
+      "Hydreigon",
+      "Garchomp"
+     ],
+     "seconds": 27.2,
+     "status": "legacy",
+     "reason": "legacy kept: best candidate 0.927/0.958 vs legacy 0.854/0.915 below margin",
+     "games": {
+      "search": 3456,
+      "guard": 1920
+     },
+     "scores": [
+      {
+       "pick": "Primarina>Hydreigon/Garchomp",
+       "legacy": true,
+       "worst": 0.854,
+       "mean": 0.915,
+       "zeroCells": 0,
+       "byScenario": [
+        0.938,
+        0.958,
+        0.854,
+        0.896,
+        0.927
+       ]
+      },
+      {
+       "pick": "Metagross>Hydreigon/Garchomp",
+       "legacy": false,
+       "worst": 0.906,
+       "mean": 0.975,
+       "zeroCells": 0,
+       "byScenario": [
+        0.979,
+        0.99,
+        1,
+        0.906,
+        1
+       ]
+      },
+      {
+       "pick": "Garchomp>Metagross/Hydreigon",
+       "legacy": false,
+       "worst": 0.927,
+       "mean": 0.958,
+       "zeroCells": 0,
+       "byScenario": [
+        0.927,
+        0.958,
+        1,
+        0.948,
+        0.958
+       ]
+      },
+      {
+       "pick": "Primarina>Metagross/Rotom-Wash",
+       "legacy": false,
+       "worst": 0.896,
+       "mean": 0.931,
+       "zeroCells": 0,
+       "byScenario": [
+        0.896,
+        0.896,
+        0.99,
+        0.958,
+        0.917
+       ]
+      }
+     ]
+    }
+   },
+   "hyps": {
+    "a": {
+     "rivalLegacy": [
+      "Conkeldurr",
+      "Grimmsnarl",
+      "Sinistcha"
+     ],
+     "cells": [
+      "legacy:Conkeldurr/Grimmsnarl/Sinistcha",
+      "view1:Conkeldurr/Cinderace/Sinistcha",
+      "view2:Conkeldurr/Grimmsnarl/Glimmora",
+      "aceLead:Glimmora/Conkeldurr/Grimmsnarl"
+     ],
+     "picks": {
+      "legacy": "Primarina>Garchomp>Hydreigon",
+      "quick": "Metagross>Hydreigon>Garchomp",
+      "guarded": "Primarina>Hydreigon>Garchomp"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Primarina>Garchomp>Hydreigon",
+       "mean": 0.75,
+       "meanRat": 0.775,
+       "nRat": 80,
+       "worstCellRat": 0.4,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 0.4,
+        "view2": 1,
+        "aceLead": 0.7
+       },
+       "zeroCellBranch": [
+        "view1|ai",
+        "view1|attack",
+        "view1|utility",
+        "view1|utilityRational"
+       ]
+      },
+      "quick": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 80,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1
+       },
+       "zeroCellBranch": []
+      },
+      "guarded": {
+       "pick": "Primarina>Hydreigon>Garchomp",
+       "mean": 0.75,
+       "meanRat": 0.775,
+       "nRat": 80,
+       "worstCellRat": 0.4,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 0.4,
+        "view2": 1,
+        "aceLead": 0.7
+       },
+       "zeroCellBranch": [
+        "view1|ai",
+        "view1|attack",
+        "view1|utility",
+        "view1|utilityRational"
+       ]
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Primarina>Garchomp>Hydreigon",
+        "foe": "Conkeldurr>Cinderace>Sinistcha",
+        "cell": "view1",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Matcha Gotcha|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|138/169",
+         "T3 |switch|p2a: Cinderace|Cinderace, L50, M|157/157",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Cinderace",
+         "T3 |-damage|p2a: Cinderace|32/157",
+         "T3 |-damage|p1a: Hydreigon|122/169|[from] item: Life Orb"
+        ]
+       },
+       {
+        "own": "Primarina>Garchomp>Hydreigon",
+        "foe": "Conkeldurr>Cinderace>Sinistcha",
+        "cell": "view1",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Matcha Gotcha|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|138/169",
+         "T3 |switch|p1a: Cinderace|Cinderace, L50, M|157/157",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Cinderace",
+         "T3 |-damage|p1a: Cinderace|32/157",
+         "T3 |-damage|p2a: Hydreigon|122/169|[from] item: Life Orb"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Metagross>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Shadow Ball|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|136/169",
+         "T3 |switch|p2a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Grimmsnarl",
+         "T3 |-damage|p2a: Grimmsnarl|184/202",
+         "T3 |-damage|p1a: Hydreigon|120/169|[from] item: Life Orb"
+        ]
+       },
+       {
+        "own": "Metagross>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 8,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p2a: Metagross|Metagross|Metagrossite",
+         "T1 |move|p2a: Metagross|Psychic Fangs|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Shadow Ball|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|136/169",
+         "T3 |switch|p1a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Grimmsnarl",
+         "T3 |-damage|p1a: Grimmsnarl|184/202",
+         "T3 |-damage|p2a: Hydreigon|120/169|[from] item: Life Orb"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Cinderace>Sinistcha",
+        "cell": "view1",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 0,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Matcha Gotcha|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|138/169",
+         "T3 |switch|p2a: Cinderace|Cinderace, L50, M|157/157",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Cinderace",
+         "T3 |-damage|p2a: Cinderace|32/157",
+         "T3 |-damage|p1a: Hydreigon|122/169|[from] item: Life Orb"
+        ]
+       },
+       {
+        "own": "Primarina>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Cinderace>Sinistcha",
+        "cell": "view1",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 0,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Matcha Gotcha|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|138/169",
+         "T3 |switch|p1a: Cinderace|Cinderace, L50, M|157/157",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Cinderace",
+         "T3 |-damage|p1a: Cinderace|32/157",
+         "T3 |-damage|p2a: Hydreigon|122/169|[from] item: Life Orb"
+        ]
+       }
+      ]
+     }
+    },
+    "b": {
+     "rivalLegacy": [
+      "Conkeldurr",
+      "Grimmsnarl",
+      "Sinistcha"
+     ],
+     "cells": [
+      "legacy:Conkeldurr/Grimmsnarl/Sinistcha",
+      "view1:Conkeldurr/Cinderace/Sinistcha",
+      "view2:Conkeldurr/Sinistcha/Glimmora",
+      "aceLead:Glimmora/Conkeldurr/Grimmsnarl",
+      "aceBack:Conkeldurr/Grimmsnarl/Glimmora"
+     ],
+     "picks": {
+      "legacy": "Primarina>Garchomp>Hydreigon",
+      "quick": "Metagross>Hydreigon>Garchomp",
+      "guarded": "Primarina>Hydreigon>Garchomp"
+     },
+     "byPolicy": {
+      "legacy": {
+       "pick": "Primarina>Garchomp>Hydreigon",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      },
+      "quick": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      },
+      "guarded": {
+       "pick": "Primarina>Hydreigon>Garchomp",
+       "mean": 1,
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "zeroCellBranch": []
+      }
+     },
+     "logs": {
+      "legacy": [
+       {
+        "own": "Primarina>Garchomp>Hydreigon",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Matcha Gotcha|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|138/169",
+         "T3 |switch|p2a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Grimmsnarl",
+         "T3 |-damage|p2a: Grimmsnarl|172/202",
+         "T3 |-damage|p1a: Hydreigon|122/169|[from] item: Life Orb",
+         "T3 |-heal|p2a: Grimmsnarl|184/202|[from] item: Leftovers"
+        ]
+       },
+       {
+        "own": "Primarina>Garchomp>Hydreigon",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Matcha Gotcha|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|138/169",
+         "T3 |switch|p1a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Grimmsnarl",
+         "T3 |-damage|p1a: Grimmsnarl|172/202",
+         "T3 |-damage|p2a: Hydreigon|122/169|[from] item: Life Orb",
+         "T3 |-heal|p1a: Grimmsnarl|184/202|[from] item: Leftovers"
+        ]
+       }
+      ],
+      "quick": [
+       {
+        "own": "Metagross>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+         "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Shadow Ball|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|136/169",
+         "T3 |switch|p2a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Grimmsnarl",
+         "T3 |-damage|p2a: Grimmsnarl|175/202",
+         "T3 |-damage|p1a: Hydreigon|120/169|[from] item: Life Orb",
+         "T3 |-heal|p2a: Grimmsnarl|187/202|[from] item: Leftovers"
+        ]
+       },
+       {
+        "own": "Metagross>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 7,
+        "requested": [],
+        "lines": [
+         "T1 |-mega|p2a: Metagross|Metagross|Metagrossite",
+         "T1 |move|p2a: Metagross|Psychic Fangs|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Shadow Ball|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|136/169",
+         "T3 |switch|p1a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Grimmsnarl",
+         "T3 |-damage|p1a: Grimmsnarl|175/202",
+         "T3 |-damage|p2a: Hydreigon|120/169|[from] item: Life Orb",
+         "T3 |-heal|p1a: Grimmsnarl|187/202|[from] item: Leftovers"
+        ]
+       }
+      ],
+      "guarded": [
+       {
+        "own": "Primarina>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": false,
+        "side": "p1",
+        "won": 1,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p1a: Primarina|Moonblast|p2a: Conkeldurr",
+         "T1 |-damage|p2a: Conkeldurr|0 fnt",
+         "T1 |faint|p2a: Conkeldurr",
+         "T1 |switch|p2a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+         "T2 |move|p2a: Sinistcha|Matcha Gotcha|p1a: Hydreigon",
+         "T2 |-damage|p1a: Hydreigon|138/169",
+         "T3 |switch|p2a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Grimmsnarl",
+         "T3 |-damage|p2a: Grimmsnarl|172/202",
+         "T3 |-damage|p1a: Hydreigon|122/169|[from] item: Life Orb",
+         "T3 |-heal|p2a: Grimmsnarl|184/202|[from] item: Leftovers"
+        ]
+       },
+       {
+        "own": "Primarina>Hydreigon>Garchomp",
+        "foe": "Conkeldurr>Grimmsnarl>Sinistcha",
+        "cell": "legacy",
+        "seed": [
+         808,
+         53529,
+         60006,
+         60778
+        ],
+        "reverse": true,
+        "side": "p2",
+        "won": 1,
+        "turns": 9,
+        "requested": [],
+        "lines": [
+         "T1 |move|p2a: Primarina|Moonblast|p1a: Conkeldurr",
+         "T1 |-damage|p1a: Conkeldurr|0 fnt",
+         "T1 |faint|p1a: Conkeldurr",
+         "T1 |switch|p1a: Sinistcha|Sinistcha, L50|178/178",
+         "T2 |switch|p2a: Hydreigon|Hydreigon, L50, F|169/169",
+         "T2 |move|p1a: Sinistcha|Matcha Gotcha|p2a: Hydreigon",
+         "T2 |-damage|p2a: Hydreigon|138/169",
+         "T3 |switch|p1a: Grimmsnarl|Grimmsnarl, L50, M|202/202",
+         "T3 |move|p2a: Hydreigon|Dark Pulse|p1a: Grimmsnarl",
+         "T3 |-damage|p1a: Grimmsnarl|172/202",
+         "T3 |-damage|p2a: Hydreigon|122/169|[from] item: Life Orb",
+         "T3 |-heal|p1a: Grimmsnarl|184/202|[from] item: Leftovers"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "note": "Selectors see only the six public species strings. Rival 3+lead from the rival view (its own sets). AI vs AI, NOT a ladder win rate."
+}

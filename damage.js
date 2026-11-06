@@ -73,8 +73,23 @@ function estimateDamage(dex,attacker,foeName,moveName,info={}){
     ?(move.type==='Fire'?1.5:move.type==='Water'?0.5:1)
     :weather==='raindance'
       ?(move.type==='Water'?1.5:move.type==='Fire'?0.5:1):1;
-  let min=damage(50,power,atk,maxDef*scaleStage(defStage),stab,eff,.85)*weatherMultiplier/maxHp;
-  let max=damage(50,power,atk,minDef*scaleStage(defStage),stab,eff,1)*weatherMultiplier/minHp;
+  // Opt-in: only our own fully known current ability/item. In the live
+  // player's request, a knocked-off item is explicitly empty; never restore
+  // it from the original set. Mega ability comes from current, public forme
+  // (not the pre-Mega ability stored on the original team sheet).
+  let knownMultiplier=1;
+  if(info.knownOwnOffense){
+    const item=canon(info.attackerItem===undefined?attacker.item:info.attackerItem);
+    const ability=canon(info.attackerAbility===undefined
+      ?(species.isMega?species.abilities['0']:attacker.ability):info.attackerAbility);
+    if(item==='lifeorb')knownMultiplier*=1.3;
+    if(item==='choiceband'&&move.category==='Physical')knownMultiplier*=1.5;
+    if(item==='choicespecs'&&move.category==='Special')knownMultiplier*=1.5;
+    if(ability==='toughclaws'&&move.flags?.contact)knownMultiplier*=1.3;
+    if(ability==='adaptability'&&species.types.includes(move.type))knownMultiplier*=4/3;
+  }
+  let min=damage(50,power,atk,maxDef*scaleStage(defStage),stab,eff,.85)*weatherMultiplier*knownMultiplier/maxHp;
+  let max=damage(50,power,atk,minDef*scaleStage(defStage),stab,eff,1)*weatherMultiplier*knownMultiplier/minHp;
   if(info.burned&&move.category==='Physical'&&canon(attacker.ability)!=='guts'&&move.id!=='facade'){
     min*=0.5;max*=0.5;
   }
@@ -104,12 +119,16 @@ function incomingRisk(dex,defender,foeName,info={}){
     const atk=(foe.baseStats[stat]+32+20)*1.1*scaleStage(stage);
     const ourDef=knownStat(dex,defender,def);
     const stab=foe.types.includes(move.type)?1.5:1;
+    // Public attacking ability (only passed by lab.js publicMegaAbility):
+    // Tough Claws x1.3 on contact; a public physical STAB is treated as contact.
+    const claws=canon(info.attackerAbility)==='toughclaws'&&move.category==='Physical'
+      &&(move.id==='publicstab'||move.flags?.contact)?1.3:1;
     const weather=canon(info.weather);
     const multiplier=weather==='sunnyday'
       ?(move.type==='Fire'?1.5:move.type==='Water'?0.5:1)
       :weather==='raindance'
         ?(move.type==='Water'?1.5:move.type==='Fire'?0.5:1):1;
-    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)*multiplier/hp);
+    peak=Math.max(peak,damage(50,powerOf(move,own),atk,ourDef,stab,eff)*multiplier*claws/hp);
   }
   return peak;
 }

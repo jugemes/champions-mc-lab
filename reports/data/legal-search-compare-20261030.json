@@ -1,0 +1,6052 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "seedBases": [
+  7400000,
+  7500000,
+  7600000
+ ],
+ "own": "reportedLive() (docs/REAL-BATTLE-CASES-2026-10-27.md)",
+ "note": "Preview picks use rival PUBLIC species only. Full games: baseline turn AI both sides, 6 seeds x side-reverse per rival three. NOT a ladder win rate. Same seed reused across policies, so cells sharing a three share games.",
+ "cases": {
+  "A_golisopod": {
+   "holdout": false,
+   "public": [
+    "Golisopod",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Hippowdon",
+    "Gholdengo"
+   ],
+   "picks": {
+    "legacy": [
+     "Hydreigon",
+     "Primarina",
+     "Metagross"
+    ],
+    "strategic": [
+     "Primarina",
+     "Metagross",
+     "Garchomp"
+    ],
+    "legal-search-v1": [
+     "Primarina",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "legal-search": [
+     "Garchomp",
+     "Primarina",
+     "Rotom-Wash"
+    ]
+   },
+   "search": {
+    "ms": 12850,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Golisopod",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Hippowdon",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Hippowdon",
+       "Primarina",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Golisopod",
+       "Primarina",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Golisopod",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Hippowdon",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Hippowdon",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Primarina",
+       "Golisopod"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Golisopod",
+       "Primarina",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Golisopod@Golisopite:Iron Head/Pin Missile/Close Combat/Sucker Punch",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Choice Scarf:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Life Orb:Play Rough/Wood Hammer/Shadow Claw/Shadow Sneak",
+      "Hippowdon@Leftovers:Slack Off/Stealth Rock/Earthquake/Superpower",
+      "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover"
+     ],
+     [
+      "Golisopod@Golisopite:Swords Dance/Iron Head/Pin Missile/Sucker Punch",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Life Orb:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Leftovers:Will-O-Wisp/Play Rough/Wood Hammer/Shadow Claw",
+      "Hippowdon@Sitrus Berry:Stealth Rock/Earthquake/Superpower/Stone Edge",
+      "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover"
+     ],
+     [
+      "Golisopod@Golisopite:Swords Dance/Iron Head/Pin Missile/Sucker Punch",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Primarina@Leftovers:Encore/Moonblast/Sparkling Aria/Ice Beam",
+      "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak",
+      "Hippowdon@Sitrus Berry:Stealth Rock/Earthquake/Superpower/Stone Edge",
+      "Gholdengo@Choice Scarf:Make It Rain/Shadow Ball/Surf/Thunderbolt"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "score": -0.67,
+      "min": -1.099,
+      "mean": -0.241,
+      "worst": {
+       "rival": [
+        "Golisopod",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1.099
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.672,
+      "min": -1.106,
+      "mean": -0.238,
+      "worst": {
+       "rival": [
+        "Golisopod",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1.106
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "score": -0.688,
+      "min": -1,
+      "mean": -0.376,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Metagross",
+       "Rotom-Wash"
+      ],
+      "score": -0.691,
+      "min": -1.196,
+      "mean": -0.186,
+      "worst": {
+       "rival": [
+        "Golisopod",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1.196
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Tyranitar",
+       "Rotom-Wash"
+      ],
+      "score": -0.714,
+      "min": -1.196,
+      "mean": -0.233,
+      "worst": {
+       "rival": [
+        "Golisopod",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1.196
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Hydreigon/Primarina/Metagross",
+     "total": [
+      15,
+      36
+     ],
+     "clean": [
+      5,
+      24
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 10
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 5,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "strategic": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      30,
+      36
+     ],
+     "clean": [
+      18,
+      24
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search-v1": {
+     "three": "Primarina/Metagross/Rotom-Wash",
+     "total": [
+      26,
+      36
+     ],
+     "clean": [
+      9,
+      19
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 8,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 5
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      0,
+      36
+     ],
+     "clean": [
+      0,
+      20
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Golisopod/Garchomp/Mimikyu"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Hippowdon/Primarina/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Gholdengo"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedA"
+    }
+   },
+   "failingSeeds": [
+    "legacy forcedA 5715-27841-34312-23269 fwd Golisopod/Garchomp/Mimikyu",
+    "legacy forcedA 5715-27841-34312-23269 rev Golisopod/Garchomp/Mimikyu",
+    "legacy forcedB 24607-37498-61142-45282 fwd Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 24607-37498-61142-45282 rev Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 46895-12472-40468-5737 fwd Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 46895-12472-40468-5737 rev Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 29719-41916-53714-51437 fwd Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 5715-27841-34312-23269 fwd Hippowdon/Primarina/Gholdengo",
+    "legacy forcedB 5715-27841-34312-23269 rev Hippowdon/Primarina/Gholdengo",
+    "legacy rivalLegacy 24607-37498-61142-45282 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 24607-37498-61142-45282 rev Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 54677-39695-2357-40305 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 54677-39695-2357-40305 rev Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 46895-12472-40468-5737 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 46895-12472-40468-5737 rev Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 29719-41916-53714-51437 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 29719-41916-53714-51437 rev Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 53403-16281-13640-50859 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 53403-16281-13640-50859 rev Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 5715-27841-34312-23269 fwd Primarina/Garchomp/Gholdengo",
+    "legacy rivalLegacy 5715-27841-34312-23269 rev Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 24607-37498-61142-45282 fwd Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 54677-39695-2357-40305 fwd Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 46895-12472-40468-5737 rev Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 29719-41916-53714-51437 rev Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 53403-16281-13640-50859 rev Primarina/Garchomp/Gholdengo",
+    "strategic rivalLegacy 5715-27841-34312-23269 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 forcedB 24607-37498-61142-45282 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search-v1 forcedB 24607-37498-61142-45282 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search-v1 forcedB 54677-39695-2357-40305 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search-v1 forcedB 54677-39695-2357-40305 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search-v1 rivalLegacy 24607-37498-61142-45282 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 rivalLegacy 54677-39695-2357-40305 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 rivalLegacy 46895-12472-40468-5737 rev Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 rivalLegacy 29719-41916-53714-51437 rev Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 rivalLegacy 53403-16281-13640-50859 rev Primarina/Garchomp/Gholdengo",
+    "legal-search-v1 rivalLegacy 5715-27841-34312-23269 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search forcedA 24607-37498-61142-45282 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 24607-37498-61142-45282 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 54677-39695-2357-40305 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 54677-39695-2357-40305 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 46895-12472-40468-5737 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 46895-12472-40468-5737 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 29719-41916-53714-51437 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 29719-41916-53714-51437 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 53403-16281-13640-50859 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 53403-16281-13640-50859 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 5715-27841-34312-23269 fwd Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedA 5715-27841-34312-23269 rev Golisopod/Garchomp/Mimikyu",
+    "legal-search forcedB 24607-37498-61142-45282 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 24607-37498-61142-45282 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 54677-39695-2357-40305 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 54677-39695-2357-40305 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 46895-12472-40468-5737 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 46895-12472-40468-5737 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 29719-41916-53714-51437 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 29719-41916-53714-51437 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 53403-16281-13640-50859 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 53403-16281-13640-50859 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 5715-27841-34312-23269 fwd Hippowdon/Primarina/Gholdengo",
+    "legal-search forcedB 5715-27841-34312-23269 rev Hippowdon/Primarina/Gholdengo",
+    "legal-search rivalLegacy 24607-37498-61142-45282 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 24607-37498-61142-45282 rev Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 54677-39695-2357-40305 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 54677-39695-2357-40305 rev Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 46895-12472-40468-5737 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 46895-12472-40468-5737 rev Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 29719-41916-53714-51437 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 29719-41916-53714-51437 rev Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 53403-16281-13640-50859 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 53403-16281-13640-50859 rev Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 5715-27841-34312-23269 fwd Primarina/Garchomp/Gholdengo",
+    "legal-search rivalLegacy 5715-27841-34312-23269 rev Primarina/Garchomp/Gholdengo"
+   ],
+   "lossSamples": [
+    {
+     "three": "Hydreigon/Primarina/Metagross",
+     "rival": "forcedA",
+     "foe": "Golisopod/Garchomp/Mimikyu",
+     "seed": "5715-27841-34312-23269",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Hydreigon|Hydreigon, L50, F",
+      "switch|RIVAL:Golisopod|Golisopod, L50, M",
+      "T1",
+      "-mega|RIVAL:Golisopod|Golisopod",
+      "move|OWN:Hydreigon|Draco Meteor",
+      "move|RIVAL:Golisopod|Leech Life",
+      "faint|OWN:Hydreigon",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T2",
+      "move|OWN:Primarina|Sparkling Aria",
+      "move|RIVAL:Golisopod|Swords Dance",
+      "T3",
+      "move|OWN:Primarina|Encore",
+      "move|RIVAL:Golisopod|Swords Dance"
+     ]
+    },
+    {
+     "three": "Hydreigon/Primarina/Metagross",
+     "rival": "forcedB",
+     "foe": "Hippowdon/Primarina/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "switch|RIVAL:Hippowdon|Hippowdon, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "move|OWN:Hydreigon|Draco Meteor",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|OWN:Hydreigon|Flash Cannon",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Hydreigon",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Hydreigon/Primarina/Metagross",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|OWN:Hydreigon|Flash Cannon",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Hydreigon",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T2",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "T3",
+      "move|OWN:Metagross|Thunder Punch",
+      "move|RIVAL:Gholdengo|Shadow Ball",
+      "faint|OWN:Metagross",
+      "switch|OWN:Primarina|Primarina, L50, F"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast",
+      "T3",
+      "move|OWN:Primarina|Moonblast",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Rotom-Wash",
+     "rival": "forcedB",
+     "foe": "Hippowdon/Primarina/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Hippowdon|Hippowdon, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|OWN:Primarina|Sparkling Aria",
+      "faint|RIVAL:Hippowdon",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50",
+      "T2",
+      "move|RIVAL:Gholdengo|Nasty Plot",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|Sandstorm|[upkeep]",
+      "T3",
+      "move|RIVAL:Gholdengo|Thunderbolt",
+      "faint|OWN:Primarina",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Rotom|Rotom-Wash, L50"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast",
+      "T3",
+      "move|OWN:Primarina|Moonblast",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50"
+     ]
+    },
+    {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "rival": "forcedA",
+     "foe": "Golisopod/Garchomp/Mimikyu",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Golisopod|Golisopod, L50, F",
+      "T1",
+      "-mega|RIVAL:Golisopod|Golisopod",
+      "move|OWN:Garchomp|Rock Slide",
+      "move|RIVAL:Golisopod|Swords Dance",
+      "T2",
+      "move|OWN:Garchomp|Rock Slide",
+      "move|RIVAL:Golisopod|Leech Life",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Rotom|Rotom-Wash, L50",
+      "T3",
+      "move|OWN:Rotom|Will-O-Wisp",
+      "move|RIVAL:Golisopod|Leech Life"
+     ]
+    },
+    {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "rival": "forcedB",
+     "foe": "Hippowdon/Primarina/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Hippowdon|Hippowdon, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "switch|OWN:Rotom|Rotom-Wash, L50",
+      "move|RIVAL:Hippowdon|Stealth Rock",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|OWN:Rotom|Hydro Pump",
+      "move|RIVAL:Hippowdon|Earthquake",
+      "-weather|Sandstorm|[upkeep]",
+      "T3",
+      "move|OWN:Rotom|Hydro Pump",
+      "faint|RIVAL:Hippowdon",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50"
+     ]
+    },
+    {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Gholdengo",
+     "seed": "24607-37498-61142-45282",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|OWN:Garchomp|Poison Jab",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Rotom|Rotom-Wash, L50",
+      "T2",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M",
+      "move|OWN:Rotom|Thunderbolt",
+      "T3",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Rotom|Will-O-Wisp"
+     ]
+    }
+   ]
+  },
+  "B_lucarioZ": {
+   "holdout": false,
+   "public": [
+    "Lucario",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Archaludon",
+    "Corviknight"
+   ],
+   "picks": {
+    "legacy": [
+     "Garchomp",
+     "Hydreigon",
+     "Metagross"
+    ],
+    "strategic": [
+     "Garchomp",
+     "Metagross",
+     "Hydreigon"
+    ],
+    "legal-search-v1": [
+     "Primarina",
+     "Metagross",
+     "Garchomp"
+    ],
+    "legal-search": [
+     "Primarina",
+     "Garchomp",
+     "Rotom-Wash"
+    ]
+   },
+   "search": {
+    "ms": 12787,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Lucario",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Archaludon",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Mimikyu",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Lucario",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Archaludon",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Mimikyu",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Mimikyu",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Lucario",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Archaludon",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Archaludon",
+       "Primarina",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Corviknight",
+       "Primarina",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Archaludon",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Archaludon",
+       "Primarina",
+       "Lucario"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Lucario",
+       "Primarina",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Archaludon",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Archaludon",
+       "Primarina",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Archaludon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Archaludon",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Archaludon",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Archaludon"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Lucario@Lucarionite:High Jump Kick/Meteor Mash/Earthquake/Extreme Speed",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Choice Scarf:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Life Orb:Play Rough/Wood Hammer/Shadow Claw/Shadow Sneak",
+      "Archaludon@Leftovers:Stealth Rock/Draco Meteor/Flash Cannon/Aura Sphere",
+      "Corviknight@Focus Sash:Bulk Up/Brave Bird/Iron Head/Roost"
+     ],
+     [
+      "Lucario@Lucarionite Z:Aura Sphere/Flash Cannon/Psychic/Vacuum Wave",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Life Orb:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Leftovers:Will-O-Wisp/Play Rough/Wood Hammer/Shadow Claw",
+      "Archaludon@Sitrus Berry:Stealth Rock/Thunder Wave/Draco Meteor/Flash Cannon",
+      "Corviknight@Focus Sash:Bulk Up/Brave Bird/Iron Head/Roost"
+     ],
+     [
+      "Lucario@Lucarionite Z:Aura Sphere/Flash Cannon/Psychic/Vacuum Wave",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Primarina@Leftovers:Encore/Moonblast/Sparkling Aria/Ice Beam",
+      "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak",
+      "Archaludon@Sitrus Berry:Stealth Rock/Thunder Wave/Draco Meteor/Flash Cannon",
+      "Corviknight@Choice Scarf:Brave Bird/Iron Head/Body Press/Double-Edge"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.471,
+      "min": -0.968,
+      "mean": 0.025,
+      "worst": {
+       "rival": [
+        "Mimikyu",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "attack",
+       "value": -0.968
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Metagross",
+       "Rotom-Wash"
+      ],
+      "score": -0.549,
+      "min": -1.079,
+      "mean": -0.018,
+      "worst": {
+       "rival": [
+        "Mimikyu",
+        "Primarina",
+        "Archaludon"
+       ],
+       "scenario": 2,
+       "branch": "setup",
+       "value": -1.079
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "score": -0.553,
+      "min": -1.079,
+      "mean": -0.028,
+      "worst": {
+       "rival": [
+        "Mimikyu",
+        "Primarina",
+        "Archaludon"
+       ],
+       "scenario": 2,
+       "branch": "setup",
+       "value": -1.079
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.61,
+      "min": -1.039,
+      "mean": -0.181,
+      "worst": {
+       "rival": [
+        "Mimikyu",
+        "Primarina",
+        "Lucario"
+       ],
+       "scenario": 2,
+       "branch": "setup",
+       "value": -1.039
+      }
+     },
+     {
+      "three": [
+       "Garchomp",
+       "Metagross",
+       "Primarina"
+      ],
+      "score": -0.633,
+      "min": -1,
+      "mean": -0.266,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Lucario"
+       ],
+       "scenario": 0,
+       "branch": "switch",
+       "value": -1
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Hydreigon/Metagross",
+     "total": [
+      13,
+      36
+     ],
+     "clean": [
+      11,
+      34
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "strategic": {
+     "three": "Garchomp/Metagross/Hydreigon",
+     "total": [
+      13,
+      36
+     ],
+     "clean": [
+      11,
+      34
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search-v1": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      13,
+      36
+     ],
+     "clean": [
+      13,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 11,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search": {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "total": [
+      15,
+      36
+     ],
+     "clean": [
+      9,
+      30
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Lucario/Garchomp/Mimikyu"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Primarina/Archaludon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Primarina/Garchomp/Lucario"
+       ],
+       "w": 7,
+       "n": 12,
+       "foeMisplayWins": 6
+      }
+     },
+     "worstCell": "forcedB"
+    }
+   },
+   "failingSeeds": [
+    "legacy forcedA 18307-35909-17529-45040 rev Lucario/Garchomp/Mimikyu",
+    "legacy forcedB 30021-52617-13915-28893 fwd Corviknight/Primarina/Archaludon",
+    "legacy forcedB 30021-52617-13915-28893 rev Corviknight/Primarina/Archaludon",
+    "legacy forcedB 32926-20587-12166-54749 fwd Corviknight/Primarina/Archaludon",
+    "legacy forcedB 32926-20587-12166-54749 rev Corviknight/Primarina/Archaludon",
+    "legacy forcedB 49264-58102-14487-19971 fwd Corviknight/Primarina/Archaludon",
+    "legacy forcedB 49264-58102-14487-19971 rev Corviknight/Primarina/Archaludon",
+    "legacy forcedB 18307-35909-17529-45040 fwd Corviknight/Primarina/Archaludon",
+    "legacy forcedB 18307-35909-17529-45040 rev Corviknight/Primarina/Archaludon",
+    "legacy forcedB 61116-10138-35632-37680 fwd Corviknight/Primarina/Archaludon",
+    "legacy forcedB 61116-10138-35632-37680 rev Corviknight/Primarina/Archaludon",
+    "legacy rivalLegacy 30021-52617-13915-28893 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 30021-52617-13915-28893 rev Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 32926-20587-12166-54749 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 32926-20587-12166-54749 rev Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 27657-12602-44696-6046 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 27657-12602-44696-6046 rev Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 49264-58102-14487-19971 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 49264-58102-14487-19971 rev Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 18307-35909-17529-45040 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 18307-35909-17529-45040 rev Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 61116-10138-35632-37680 fwd Primarina/Garchomp/Lucario",
+    "legacy rivalLegacy 61116-10138-35632-37680 rev Primarina/Garchomp/Lucario",
+    "strategic forcedA 18307-35909-17529-45040 rev Lucario/Garchomp/Mimikyu",
+    "strategic forcedB 30021-52617-13915-28893 fwd Corviknight/Primarina/Archaludon",
+    "strategic forcedB 30021-52617-13915-28893 rev Corviknight/Primarina/Archaludon",
+    "strategic forcedB 32926-20587-12166-54749 fwd Corviknight/Primarina/Archaludon",
+    "strategic forcedB 32926-20587-12166-54749 rev Corviknight/Primarina/Archaludon",
+    "strategic forcedB 49264-58102-14487-19971 fwd Corviknight/Primarina/Archaludon",
+    "strategic forcedB 49264-58102-14487-19971 rev Corviknight/Primarina/Archaludon",
+    "strategic forcedB 18307-35909-17529-45040 fwd Corviknight/Primarina/Archaludon",
+    "strategic forcedB 18307-35909-17529-45040 rev Corviknight/Primarina/Archaludon",
+    "strategic forcedB 61116-10138-35632-37680 fwd Corviknight/Primarina/Archaludon",
+    "strategic forcedB 61116-10138-35632-37680 rev Corviknight/Primarina/Archaludon",
+    "strategic rivalLegacy 30021-52617-13915-28893 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 30021-52617-13915-28893 rev Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 32926-20587-12166-54749 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 32926-20587-12166-54749 rev Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 27657-12602-44696-6046 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 27657-12602-44696-6046 rev Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 49264-58102-14487-19971 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 49264-58102-14487-19971 rev Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 18307-35909-17529-45040 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 18307-35909-17529-45040 rev Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 61116-10138-35632-37680 fwd Primarina/Garchomp/Lucario",
+    "strategic rivalLegacy 61116-10138-35632-37680 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 forcedA 32926-20587-12166-54749 fwd Lucario/Garchomp/Mimikyu",
+    "legal-search-v1 forcedB 30021-52617-13915-28893 fwd Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 30021-52617-13915-28893 rev Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 32926-20587-12166-54749 fwd Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 32926-20587-12166-54749 rev Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 27657-12602-44696-6046 fwd Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 27657-12602-44696-6046 rev Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 49264-58102-14487-19971 fwd Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 49264-58102-14487-19971 rev Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 61116-10138-35632-37680 fwd Corviknight/Primarina/Archaludon",
+    "legal-search-v1 forcedB 61116-10138-35632-37680 rev Corviknight/Primarina/Archaludon",
+    "legal-search-v1 rivalLegacy 30021-52617-13915-28893 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 30021-52617-13915-28893 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 32926-20587-12166-54749 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 32926-20587-12166-54749 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 27657-12602-44696-6046 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 27657-12602-44696-6046 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 49264-58102-14487-19971 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 49264-58102-14487-19971 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 18307-35909-17529-45040 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 18307-35909-17529-45040 rev Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 61116-10138-35632-37680 fwd Primarina/Garchomp/Lucario",
+    "legal-search-v1 rivalLegacy 61116-10138-35632-37680 rev Primarina/Garchomp/Lucario",
+    "legal-search forcedA 30021-52617-13915-28893 rev Lucario/Garchomp/Mimikyu",
+    "legal-search forcedA 32926-20587-12166-54749 fwd Lucario/Garchomp/Mimikyu",
+    "legal-search forcedA 32926-20587-12166-54749 rev Lucario/Garchomp/Mimikyu",
+    "legal-search forcedA 27657-12602-44696-6046 fwd Lucario/Garchomp/Mimikyu",
+    "legal-search forcedA 49264-58102-14487-19971 rev Lucario/Garchomp/Mimikyu",
+    "legal-search forcedA 61116-10138-35632-37680 rev Lucario/Garchomp/Mimikyu",
+    "legal-search forcedB 30021-52617-13915-28893 fwd Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 30021-52617-13915-28893 rev Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 32926-20587-12166-54749 fwd Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 32926-20587-12166-54749 rev Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 27657-12602-44696-6046 fwd Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 27657-12602-44696-6046 rev Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 18307-35909-17529-45040 fwd Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 18307-35909-17529-45040 rev Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 61116-10138-35632-37680 fwd Corviknight/Primarina/Archaludon",
+    "legal-search forcedB 61116-10138-35632-37680 rev Corviknight/Primarina/Archaludon",
+    "legal-search rivalLegacy 32926-20587-12166-54749 fwd Primarina/Garchomp/Lucario",
+    "legal-search rivalLegacy 27657-12602-44696-6046 fwd Primarina/Garchomp/Lucario",
+    "legal-search rivalLegacy 49264-58102-14487-19971 fwd Primarina/Garchomp/Lucario",
+    "legal-search rivalLegacy 18307-35909-17529-45040 fwd Primarina/Garchomp/Lucario",
+    "legal-search rivalLegacy 61116-10138-35632-37680 rev Primarina/Garchomp/Lucario"
+   ],
+   "lossSamples": [
+    {
+     "three": "Garchomp/Hydreigon/Metagross",
+     "rival": "forcedA",
+     "foe": "Lucario/Garchomp/Mimikyu",
+     "seed": "18307-35909-17529-45040",
+     "reverse": true,
+     "t1to3": [
+      "switch|RIVAL:Lucario|Lucario, L50, M",
+      "switch|OWN:Garchomp|Garchomp, L50, M",
+      "T1",
+      "-mega|RIVAL:Lucario|Lucario",
+      "move|OWN:Garchomp|Earthquake",
+      "faint|RIVAL:Lucario",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M",
+      "T2",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "move|OWN:Garchomp|Earthquake",
+      "T3",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Hydreigon|Hydreigon, L50, F"
+     ]
+    },
+    {
+     "three": "Garchomp/Hydreigon/Metagross",
+     "rival": "forcedB",
+     "foe": "Corviknight/Primarina/Archaludon",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T1",
+      "move|OWN:Garchomp|Rock Slide",
+      "move|RIVAL:Corviknight|Iron Head",
+      "T2",
+      "move|OWN:Garchomp|Rock Slide",
+      "T3",
+      "switch|OWN:Metagross|Metagross, L50",
+      "move|RIVAL:Corviknight|Roost"
+     ]
+    },
+    {
+     "three": "Garchomp/Hydreigon/Metagross",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Lucario",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|OWN:Garchomp|Poison Jab",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T2",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T3",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Metagross|Psychic Fangs",
+      "faint|OWN:Metagross",
+      "switch|OWN:Hydreigon|Hydreigon, L50, M"
+     ]
+    },
+    {
+     "three": "Garchomp/Metagross/Hydreigon",
+     "rival": "forcedA",
+     "foe": "Lucario/Garchomp/Mimikyu",
+     "seed": "18307-35909-17529-45040",
+     "reverse": true,
+     "t1to3": [
+      "switch|RIVAL:Lucario|Lucario, L50, M",
+      "switch|OWN:Garchomp|Garchomp, L50, M",
+      "T1",
+      "-mega|RIVAL:Lucario|Lucario",
+      "move|OWN:Garchomp|Earthquake",
+      "faint|RIVAL:Lucario",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M",
+      "T2",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "move|OWN:Garchomp|Earthquake",
+      "T3",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Hydreigon|Hydreigon, L50, F"
+     ]
+    },
+    {
+     "three": "Garchomp/Metagross/Hydreigon",
+     "rival": "forcedB",
+     "foe": "Corviknight/Primarina/Archaludon",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T1",
+      "move|OWN:Garchomp|Rock Slide",
+      "move|RIVAL:Corviknight|Iron Head",
+      "T2",
+      "move|OWN:Garchomp|Rock Slide",
+      "T3",
+      "switch|OWN:Metagross|Metagross, L50",
+      "move|RIVAL:Corviknight|Roost"
+     ]
+    },
+    {
+     "three": "Garchomp/Metagross/Hydreigon",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Lucario",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|OWN:Garchomp|Poison Jab",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Garchomp",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T2",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T3",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Metagross|Psychic Fangs",
+      "faint|OWN:Metagross",
+      "switch|OWN:Hydreigon|Hydreigon, L50, M"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "forcedA",
+     "foe": "Lucario/Garchomp/Mimikyu",
+     "seed": "32926-20587-12166-54749",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Lucario|Lucario, L50, F",
+      "T1",
+      "-mega|RIVAL:Lucario|Lucario",
+      "move|RIVAL:Lucario|Nasty Plot",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Lucario|Flash Cannon",
+      "move|OWN:Primarina|Encore",
+      "T3",
+      "move|RIVAL:Lucario|Flash Cannon",
+      "faint|OWN:Primarina",
+      "switch|OWN:Garchomp|Garchomp, L50, M"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "forcedB",
+     "foe": "Corviknight/Primarina/Archaludon",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T1",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "T2",
+      "move|RIVAL:Corviknight|Roost",
+      "move|OWN:Primarina|Sparkling Aria",
+      "T3",
+      "move|RIVAL:Corviknight|Roost",
+      "move|OWN:Primarina|Encore"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Lucario",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "T1",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Primarina|Moonblast",
+      "T3",
+      "move|OWN:Primarina|Moonblast",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F"
+     ]
+    },
+    {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "rival": "forcedA",
+     "foe": "Lucario/Garchomp/Mimikyu",
+     "seed": "30021-52617-13915-28893",
+     "reverse": true,
+     "t1to3": [
+      "switch|RIVAL:Lucario|Lucario, L50, M",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T1",
+      "-mega|RIVAL:Lucario|Lucario",
+      "move|RIVAL:Lucario|Nasty Plot",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Lucario|Flash Cannon",
+      "move|OWN:Primarina|Encore",
+      "T3",
+      "move|RIVAL:Lucario|Flash Cannon",
+      "faint|OWN:Primarina",
+      "switch|OWN:Garchomp|Garchomp, L50, M"
+     ]
+    },
+    {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "rival": "forcedB",
+     "foe": "Corviknight/Primarina/Archaludon",
+     "seed": "30021-52617-13915-28893",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T1",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "T2",
+      "move|RIVAL:Corviknight|Roost",
+      "move|OWN:Primarina|Sparkling Aria",
+      "T3",
+      "move|RIVAL:Corviknight|Roost",
+      "move|OWN:Primarina|Encore"
+     ]
+    },
+    {
+     "three": "Primarina/Garchomp/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Primarina/Garchomp/Lucario",
+     "seed": "32926-20587-12166-54749",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Primarina|Primarina, L50, F",
+      "T1",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast",
+      "T2",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast",
+      "T3",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Primarina|Moonblast",
+      "faint|RIVAL:Primarina",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M"
+     ]
+    }
+   ]
+  },
+  "C_charizardY": {
+   "holdout": false,
+   "public": [
+    "Charizard",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Gholdengo",
+    "Baxcalibur"
+   ],
+   "picks": {
+    "legacy": [
+     "Tyranitar",
+     "Hydreigon",
+     "Metagross"
+    ],
+    "strategic": [
+     "Tyranitar",
+     "Metagross",
+     "Hydreigon"
+    ],
+    "legal-search-v1": [
+     "Tyranitar",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "legal-search": [
+     "Hydreigon",
+     "Primarina",
+     "Tyranitar"
+    ]
+   },
+   "search": {
+    "ms": 11835,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Baxcalibur",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Baxcalibur",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Charizard",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Baxcalibur",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Charizard",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Baxcalibur",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Baxcalibur",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Charizard",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Choice Scarf:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Life Orb:Play Rough/Wood Hammer/Shadow Claw/Shadow Sneak",
+      "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+      "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard"
+     ],
+     [
+      "Charizard@Charizardite Y:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Life Orb:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Leftovers:Will-O-Wisp/Play Rough/Wood Hammer/Shadow Claw",
+      "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover",
+      "Baxcalibur@Baxcalibrite:Swords Dance/Glaive Rush/Icicle Spear/Ice Shard"
+     ],
+     [
+      "Charizard@Charizardite Y:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Primarina@Leftovers:Encore/Moonblast/Sparkling Aria/Ice Beam",
+      "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak",
+      "Gholdengo@Sitrus Berry:Trick/Make It Rain/Shadow Ball/Surf",
+      "Baxcalibur@Baxcalibrite:Swords Dance/Glaive Rush/Icicle Spear/Ice Shard"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Hydreigon",
+       "Primarina",
+       "Tyranitar"
+      ],
+      "score": -0.81,
+      "min": -1.022,
+      "mean": -0.599,
+      "worst": {
+       "rival": [
+        "Baxcalibur",
+        "Primarina",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "switch",
+       "value": -1.022
+      }
+     },
+     {
+      "three": [
+       "Tyranitar",
+       "Metagross",
+       "Rotom-Wash"
+      ],
+      "score": -0.872,
+      "min": -1.452,
+      "mean": -0.292,
+      "worst": {
+       "rival": [
+        "Gholdengo",
+        "Primarina",
+        "Charizard"
+       ],
+       "scenario": 2,
+       "branch": "ai",
+       "value": -1.452
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Hydreigon",
+       "Tyranitar"
+      ],
+      "score": -0.974,
+      "min": -1.535,
+      "mean": -0.414,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Baxcalibur"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -1.535
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Tyranitar",
+       "Rotom-Wash"
+      ],
+      "score": -0.985,
+      "min": -1.443,
+      "mean": -0.527,
+      "worst": {
+       "rival": [
+        "Gholdengo",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 0,
+       "branch": "switch",
+       "value": -1.443
+      }
+     },
+     {
+      "three": [
+       "Hydreigon",
+       "Metagross",
+       "Tyranitar"
+      ],
+      "score": -1.013,
+      "min": -1.433,
+      "mean": -0.592,
+      "worst": {
+       "rival": [
+        "Primarina",
+        "Garchomp",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -1.433
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "total": [
+      22,
+      36
+     ],
+     "clean": [
+      22,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "strategic": {
+     "three": "Tyranitar/Metagross/Hydreigon",
+     "total": [
+      22,
+      36
+     ],
+     "clean": [
+      22,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search-v1": {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "total": [
+      28,
+      36
+     ],
+     "clean": [
+      8,
+      12
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 10
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 8,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 10
+      }
+     },
+     "worstCell": "forcedB"
+    },
+    "legal-search": {
+     "three": "Hydreigon/Primarina/Tyranitar",
+     "total": [
+      9,
+      36
+     ],
+     "clean": [
+      9,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 4,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 3,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    }
+   },
+   "failingSeeds": [
+    "legacy forcedA 56014-40680-46765-45944 fwd Charizard/Garchomp/Mimikyu",
+    "legacy forcedA 56014-40680-46765-45944 rev Charizard/Garchomp/Mimikyu",
+    "legacy rivalLegacy 56014-40680-46765-45944 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 56014-40680-46765-45944 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 11800-59338-45853-43892 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 11800-59338-45853-43892 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 5186-49580-7543-12990 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 5186-49580-7543-12990 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 36038-57322-55982-56136 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 36038-57322-55982-56136 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 6255-51333-39640-6612 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 6255-51333-39640-6612 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 37682-6549-608-32840 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 37682-6549-608-32840 rev Baxcalibur/Primarina/Garchomp",
+    "strategic forcedA 56014-40680-46765-45944 fwd Charizard/Garchomp/Mimikyu",
+    "strategic forcedA 56014-40680-46765-45944 rev Charizard/Garchomp/Mimikyu",
+    "strategic rivalLegacy 56014-40680-46765-45944 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 56014-40680-46765-45944 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 11800-59338-45853-43892 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 11800-59338-45853-43892 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 5186-49580-7543-12990 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 5186-49580-7543-12990 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 36038-57322-55982-56136 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 36038-57322-55982-56136 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 6255-51333-39640-6612 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 6255-51333-39640-6612 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 37682-6549-608-32840 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 37682-6549-608-32840 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search-v1 forcedA 56014-40680-46765-45944 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search-v1 forcedA 56014-40680-46765-45944 rev Charizard/Garchomp/Mimikyu",
+    "legal-search-v1 forcedB 5186-49580-7543-12990 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 5186-49580-7543-12990 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 6255-51333-39640-6612 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 6255-51333-39640-6612 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 rivalLegacy 56014-40680-46765-45944 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search-v1 rivalLegacy 56014-40680-46765-45944 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search forcedA 56014-40680-46765-45944 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 56014-40680-46765-45944 rev Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 11800-59338-45853-43892 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 11800-59338-45853-43892 rev Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 36038-57322-55982-56136 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 36038-57322-55982-56136 rev Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 6255-51333-39640-6612 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 6255-51333-39640-6612 rev Charizard/Garchomp/Mimikyu",
+    "legal-search forcedB 56014-40680-46765-45944 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 11800-59338-45853-43892 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 11800-59338-45853-43892 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 5186-49580-7543-12990 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 5186-49580-7543-12990 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 36038-57322-55982-56136 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 36038-57322-55982-56136 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 6255-51333-39640-6612 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 6255-51333-39640-6612 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 37682-6549-608-32840 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search rivalLegacy 56014-40680-46765-45944 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 11800-59338-45853-43892 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 11800-59338-45853-43892 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 5186-49580-7543-12990 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 36038-57322-55982-56136 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 36038-57322-55982-56136 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 6255-51333-39640-6612 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 37682-6549-608-32840 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 37682-6549-608-32840 rev Baxcalibur/Primarina/Garchomp"
+   ],
+   "lossSamples": [
+    {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "rival": "forcedA",
+     "foe": "Charizard/Garchomp/Mimikyu",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Charizard|Charizard, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "-mega|RIVAL:Charizard|Charizard",
+      "-weather|SunnyDay|[from] ability: Drought",
+      "move|RIVAL:Charizard|Solar Beam",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|SunnyDay|[upkeep]",
+      "T2",
+      "move|RIVAL:Charizard|Solar Beam",
+      "faint|OWN:Tyranitar",
+      "-weather|SunnyDay|[upkeep]",
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "T3",
+      "move|RIVAL:Charizard|Air Slash",
+      "-weather|SunnyDay|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Meteor Mash",
+      "faint|RIVAL:Baxcalibur",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Hydreigon",
+     "rival": "forcedA",
+     "foe": "Charizard/Garchomp/Mimikyu",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Charizard|Charizard, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "-mega|RIVAL:Charizard|Charizard",
+      "-weather|SunnyDay|[from] ability: Drought",
+      "move|RIVAL:Charizard|Solar Beam",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|SunnyDay|[upkeep]",
+      "T2",
+      "move|RIVAL:Charizard|Solar Beam",
+      "faint|OWN:Tyranitar",
+      "-weather|SunnyDay|[upkeep]",
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "T3",
+      "move|RIVAL:Charizard|Air Slash",
+      "-weather|SunnyDay|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Hydreigon",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Meteor Mash",
+      "faint|RIVAL:Baxcalibur",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "forcedA",
+     "foe": "Charizard/Garchomp/Mimikyu",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Charizard|Charizard, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "-mega|RIVAL:Charizard|Charizard",
+      "-weather|SunnyDay|[from] ability: Drought",
+      "move|RIVAL:Charizard|Solar Beam",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|SunnyDay|[upkeep]",
+      "T2",
+      "move|RIVAL:Charizard|Solar Beam",
+      "faint|OWN:Tyranitar",
+      "-weather|SunnyDay|[upkeep]",
+      "switch|OWN:Rotom|Rotom-Wash, L50",
+      "T3",
+      "move|RIVAL:Charizard|Solar Beam",
+      "faint|OWN:Rotom",
+      "-weather|SunnyDay|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "forcedB",
+     "foe": "Primarina/Baxcalibur/Gholdengo",
+     "seed": "5186-49580-7543-12990",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Primarina|Primarina, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Meteor Mash",
+      "faint|RIVAL:Baxcalibur",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M"
+     ]
+    },
+    {
+     "three": "Hydreigon/Primarina/Tyranitar",
+     "rival": "forcedA",
+     "foe": "Charizard/Garchomp/Mimikyu",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "switch|RIVAL:Charizard|Charizard, L50, M",
+      "T1",
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "-mega|RIVAL:Charizard|Charizard",
+      "-weather|SunnyDay|[from] ability: Drought",
+      "move|RIVAL:Charizard|Air Slash",
+      "-weather|SunnyDay|[upkeep]",
+      "T2",
+      "move|RIVAL:Charizard|Solar Beam",
+      "faint|OWN:Tyranitar",
+      "-weather|SunnyDay|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "T3",
+      "move|RIVAL:Charizard|Solar Beam",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|SunnyDay|[upkeep]"
+     ]
+    },
+    {
+     "three": "Hydreigon/Primarina/Tyranitar",
+     "rival": "forcedB",
+     "foe": "Primarina/Baxcalibur/Gholdengo",
+     "seed": "56014-40680-46765-45944",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "switch|RIVAL:Primarina|Primarina, L50, F",
+      "T1",
+      "move|OWN:Hydreigon|Flash Cannon",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Hydreigon",
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "T2",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Primarina|Moonblast",
+      "T3",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast"
+     ]
+    },
+    {
+     "three": "Hydreigon/Primarina/Tyranitar",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "56014-40680-46765-45944",
+     "reverse": true,
+     "t1to3": [
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, M",
+      "switch|OWN:Hydreigon|Hydreigon, L50, M",
+      "T1",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "move|OWN:Hydreigon|Draco Meteor",
+      "T2",
+      "move|OWN:Hydreigon|Flash Cannon",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Hydreigon",
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "T3",
+      "move|OWN:Primarina|Moonblast",
+      "move|RIVAL:Primarina|Moonblast"
+     ]
+    }
+   ]
+  },
+  "C_charizardX": {
+   "holdout": false,
+   "public": [
+    "Charizard",
+    "Garchomp",
+    "Primarina",
+    "Mimikyu",
+    "Gholdengo",
+    "Baxcalibur"
+   ],
+   "picks": {
+    "legacy": [
+     "Tyranitar",
+     "Hydreigon",
+     "Metagross"
+    ],
+    "strategic": [
+     "Tyranitar",
+     "Hydreigon",
+     "Garchomp"
+    ],
+    "legal-search-v1": [
+     "Tyranitar",
+     "Metagross",
+     "Rotom-Wash"
+    ],
+    "legal-search": [
+     "Tyranitar",
+     "Metagross",
+     "Rotom-Wash"
+    ]
+   },
+   "search": {
+    "ms": 11637,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Baxcalibur",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Baxcalibur",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Charizard",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Baxcalibur",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Garchomp",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Charizard",
+       "Garchomp",
+       "Primarina"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Mimikyu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Mimikyu",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Baxcalibur",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Baxcalibur",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Baxcalibur"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Charizard",
+       "Primarina",
+       "Gholdengo"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Primarina",
+       "Gholdengo",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gholdengo",
+       "Primarina",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Primarina",
+       "Gholdengo"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Choice Scarf:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Life Orb:Play Rough/Wood Hammer/Shadow Claw/Shadow Sneak",
+      "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+      "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard"
+     ],
+     [
+      "Charizard@Charizardite Y:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Primarina@Life Orb:Moonblast/Sparkling Aria/Ice Beam/Psychic",
+      "Mimikyu@Leftovers:Will-O-Wisp/Play Rough/Wood Hammer/Shadow Claw",
+      "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover",
+      "Baxcalibur@Baxcalibrite:Swords Dance/Glaive Rush/Icicle Spear/Ice Shard"
+     ],
+     [
+      "Charizard@Charizardite Y:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Primarina@Leftovers:Encore/Moonblast/Sparkling Aria/Ice Beam",
+      "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak",
+      "Gholdengo@Sitrus Berry:Trick/Make It Rain/Shadow Ball/Surf",
+      "Baxcalibur@Baxcalibrite:Swords Dance/Glaive Rush/Icicle Spear/Ice Shard"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Tyranitar",
+       "Metagross",
+       "Rotom-Wash"
+      ],
+      "score": -0.53,
+      "min": -0.881,
+      "mean": -0.179,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "ai",
+       "value": -0.881
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Metagross",
+       "Tyranitar"
+      ],
+      "score": -0.81,
+      "min": -1.16,
+      "mean": -0.46,
+      "worst": {
+       "rival": [
+        "Gholdengo",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -1.16
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Primarina",
+       "Tyranitar"
+      ],
+      "score": -0.844,
+      "min": -1.16,
+      "mean": -0.528,
+      "worst": {
+       "rival": [
+        "Gholdengo",
+        "Garchomp",
+        "Primarina"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -1.16
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Hydreigon",
+       "Tyranitar"
+      ],
+      "score": -0.968,
+      "min": -1.483,
+      "mean": -0.453,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "setup",
+       "value": -1.483
+      }
+     },
+     {
+      "three": [
+       "Metagross",
+       "Tyranitar",
+       "Rotom-Wash"
+      ],
+      "score": -0.968,
+      "min": -1.481,
+      "mean": -0.456,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Primarina",
+        "Gholdengo"
+       ],
+       "scenario": 0,
+       "branch": "setup",
+       "value": -1.481
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      24,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "strategic": {
+     "three": "Tyranitar/Hydreigon/Garchomp",
+     "total": [
+      16,
+      36
+     ],
+     "clean": [
+      16,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 4,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search-v1": {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "total": [
+      26,
+      36
+     ],
+     "clean": [
+      16,
+      18
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 10
+      }
+     },
+     "worstCell": "forcedB"
+    },
+    "legal-search": {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "total": [
+      26,
+      36
+     ],
+     "clean": [
+      16,
+      18
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Mimikyu"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Primarina/Baxcalibur/Gholdengo"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Baxcalibur/Primarina/Garchomp"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 10
+      }
+     },
+     "worstCell": "forcedB"
+    }
+   },
+   "failingSeeds": [
+    "legacy rivalLegacy 58726-64481-48916-17677 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 58726-64481-48916-17677 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 55697-64063-47927-29016 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 55697-64063-47927-29016 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 64140-29384-54480-8549 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 64140-29384-54480-8549 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 41875-26449-27083-14204 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 41875-26449-27083-14204 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 17540-1685-62996-23039 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 17540-1685-62996-23039 rev Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 5652-13836-6477-4793 fwd Baxcalibur/Primarina/Garchomp",
+    "legacy rivalLegacy 5652-13836-6477-4793 rev Baxcalibur/Primarina/Garchomp",
+    "strategic forcedB 55697-64063-47927-29016 fwd Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 55697-64063-47927-29016 rev Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 41875-26449-27083-14204 fwd Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 41875-26449-27083-14204 rev Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 17540-1685-62996-23039 fwd Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 17540-1685-62996-23039 rev Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 5652-13836-6477-4793 fwd Primarina/Baxcalibur/Gholdengo",
+    "strategic forcedB 5652-13836-6477-4793 rev Primarina/Baxcalibur/Gholdengo",
+    "strategic rivalLegacy 58726-64481-48916-17677 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 58726-64481-48916-17677 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 55697-64063-47927-29016 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 55697-64063-47927-29016 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 64140-29384-54480-8549 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 64140-29384-54480-8549 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 41875-26449-27083-14204 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 41875-26449-27083-14204 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 17540-1685-62996-23039 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 17540-1685-62996-23039 rev Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 5652-13836-6477-4793 fwd Baxcalibur/Primarina/Garchomp",
+    "strategic rivalLegacy 5652-13836-6477-4793 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search-v1 forcedA 17540-1685-62996-23039 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search-v1 forcedA 17540-1685-62996-23039 rev Charizard/Garchomp/Mimikyu",
+    "legal-search-v1 forcedB 58726-64481-48916-17677 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 58726-64481-48916-17677 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 55697-64063-47927-29016 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 55697-64063-47927-29016 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 41875-26449-27083-14204 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 forcedB 41875-26449-27083-14204 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search-v1 rivalLegacy 5652-13836-6477-4793 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search-v1 rivalLegacy 5652-13836-6477-4793 rev Baxcalibur/Primarina/Garchomp",
+    "legal-search forcedA 17540-1685-62996-23039 fwd Charizard/Garchomp/Mimikyu",
+    "legal-search forcedA 17540-1685-62996-23039 rev Charizard/Garchomp/Mimikyu",
+    "legal-search forcedB 58726-64481-48916-17677 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 58726-64481-48916-17677 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 55697-64063-47927-29016 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 55697-64063-47927-29016 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 41875-26449-27083-14204 fwd Primarina/Baxcalibur/Gholdengo",
+    "legal-search forcedB 41875-26449-27083-14204 rev Primarina/Baxcalibur/Gholdengo",
+    "legal-search rivalLegacy 5652-13836-6477-4793 fwd Baxcalibur/Primarina/Garchomp",
+    "legal-search rivalLegacy 5652-13836-6477-4793 rev Baxcalibur/Primarina/Garchomp"
+   ],
+   "lossSamples": [
+    {
+     "three": "Tyranitar/Hydreigon/Metagross",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "58726-64481-48916-17677",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "faint|RIVAL:Baxcalibur",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M",
+      "T2",
+      "move|RIVAL:Garchomp|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Hydreigon|Hydreigon, L50, F",
+      "T3",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "move|OWN:Hydreigon|Draco Meteor",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Hydreigon/Garchomp",
+     "rival": "forcedB",
+     "foe": "Primarina/Baxcalibur/Gholdengo",
+     "seed": "55697-64063-47927-29016",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "T3",
+      "move|OWN:Garchomp|Poison Jab",
+      "faint|RIVAL:Primarina",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F"
+     ]
+    },
+    {
+     "three": "Tyranitar/Hydreigon/Garchomp",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "58726-64481-48916-17677",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "faint|RIVAL:Baxcalibur",
+      "switch|RIVAL:Garchomp|Garchomp, L50, M",
+      "T2",
+      "move|RIVAL:Garchomp|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Hydreigon|Hydreigon, L50, F",
+      "T3",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "move|OWN:Hydreigon|Draco Meteor",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "forcedA",
+     "foe": "Charizard/Garchomp/Mimikyu",
+     "seed": "17540-1685-62996-23039",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Charizard|Charizard, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "-mega|RIVAL:Charizard|Charizard",
+      "move|RIVAL:Charizard|Dragon Dance",
+      "move|OWN:Tyranitar|Stone Edge",
+      "faint|RIVAL:Charizard",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T2",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Tyranitar|Ice Punch",
+      "faint|RIVAL:Garchomp",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Mimikyu|Mimikyu, L50, M",
+      "T3",
+      "move|RIVAL:Mimikyu|Play Rough",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "forcedB",
+     "foe": "Primarina/Baxcalibur/Gholdengo",
+     "seed": "58726-64481-48916-17677",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Primarina|Primarina, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Primarina|Moonblast",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Primarina|Moonblast",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "switch|RIVAL:Gholdengo|Gholdengo, L50",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Thunder Punch",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Baxcalibur/Primarina/Garchomp",
+     "seed": "5652-13836-6477-4793",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Baxcalibur|Baxcalibur, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Baxcalibur|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Metagross|Metagross, L50",
+      "T3",
+      "-mega|OWN:Metagross|Metagross",
+      "move|OWN:Metagross|Meteor Mash",
+      "faint|RIVAL:Baxcalibur",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F"
+     ]
+    }
+   ]
+  },
+  "Real_indeedee_scarf": {
+   "holdout": false,
+   "public": [
+    "Indeedee",
+    "Hippowdon",
+    "Garchomp",
+    "Umbreon",
+    "Gengar",
+    "Gyarados"
+   ],
+   "picks": {
+    "legacy": [
+     "Garchomp",
+     "Primarina",
+     "Rotom-Wash"
+    ],
+    "strategic": [
+     "Garchomp",
+     "Primarina",
+     "Rotom-Wash"
+    ],
+    "legal-search-v1": [
+     "Rotom-Wash",
+     "Primarina",
+     "Tyranitar"
+    ],
+    "legal-search": [
+     "Primarina",
+     "Metagross",
+     "Garchomp"
+    ]
+   },
+   "search": {
+    "ms": 15362,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Indeedee",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gyarados",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gyarados"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Indeedee",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gyarados",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gyarados"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gengar",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Indeedee",
+       "Hippowdon",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gyarados",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Gyarados"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Indeedee@Choice Scarf:Psychic/Energy Ball/Mystical Fire/Dazzling Gleam",
+      "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Umbreon@Leftovers:Moonlight/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Sludge Wave/Shadow Ball/Energy Ball/Psychic",
+      "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage"
+     ],
+     [
+      "Indeedee@Focus Sash:Calm Mind/Psychic/Energy Ball/Wish",
+      "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Umbreon@Leftovers:Moonlight/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Nasty Plot/Sludge Wave/Shadow Ball/Protect",
+      "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect"
+     ],
+     [
+      "Indeedee@Leftovers:Wish/Encore/Psychic/Energy Ball",
+      "Hippowdon@Choice Scarf:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Umbreon@Sitrus Berry:Taunt/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Nasty Plot/Sludge Wave/Shadow Ball/Protect",
+      "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "score": -0.068,
+      "min": -0.347,
+      "mean": 0.211,
+      "worst": {
+       "rival": [
+        "Indeedee",
+        "Hippowdon",
+        "Garchomp"
+       ],
+       "scenario": 2,
+       "branch": "setup",
+       "value": -0.347
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.267,
+      "min": -0.646,
+      "mean": 0.111,
+      "worst": {
+       "rival": [
+        "Gyarados",
+        "Garchomp",
+        "Umbreon"
+       ],
+       "scenario": 0,
+       "branch": "attack",
+       "value": -0.646
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Garchomp",
+       "Tyranitar"
+      ],
+      "score": -0.39,
+      "min": -0.941,
+      "mean": 0.16,
+      "worst": {
+       "rival": [
+        "Indeedee",
+        "Garchomp",
+        "Hippowdon"
+       ],
+       "scenario": 0,
+       "branch": "switch",
+       "value": -0.941
+      }
+     },
+     {
+      "three": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "score": -0.459,
+      "min": -1,
+      "mean": 0.082,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Hippowdon",
+        "Gengar"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -1
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Primarina",
+       "Garchomp"
+      ],
+      "score": -0.509,
+      "min": -1.157,
+      "mean": 0.14,
+      "worst": {
+       "rival": [
+        "Indeedee",
+        "Garchomp",
+        "Umbreon"
+       ],
+       "scenario": 1,
+       "branch": "setup",
+       "value": -1.157
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      36,
+      36
+     ],
+     "clean": [
+      32,
+      32
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      }
+     },
+     "worstCell": "forcedA"
+    },
+    "strategic": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      36,
+      36
+     ],
+     "clean": [
+      32,
+      32
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      }
+     },
+     "worstCell": "forcedA"
+    },
+    "legal-search-v1": {
+     "three": "Rotom-Wash/Primarina/Tyranitar",
+     "total": [
+      36,
+      36
+     ],
+     "clean": [
+      30,
+      30
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 4
+      }
+     },
+     "worstCell": "forcedA"
+    },
+    "legal-search": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      24,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Hippowdon/Garchomp/Indeedee"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    }
+   },
+   "failingSeeds": [
+    "legal-search forcedB 40874-4538-27917-33482 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 40874-4538-27917-33482 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 180-33213-57959-38511 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 180-33213-57959-38511 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 3280-60866-22764-45457 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 3280-60866-22764-45457 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 38905-27064-53490-45561 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 38905-27064-53490-45561 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 10160-61883-19748-54729 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 10160-61883-19748-54729 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 51046-28083-25160-17299 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 51046-28083-25160-17299 rev Gyarados/Hippowdon/Umbreon"
+   ],
+   "lossSamples": [
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "forcedB",
+     "foe": "Gyarados/Hippowdon/Umbreon",
+     "seed": "40874-4538-27917-33482",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "switch|RIVAL:Gyarados|Gyarados, L50, M",
+      "T1",
+      "move|RIVAL:Gyarados|Dragon Dance",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Gyarados|Earthquake",
+      "move|OWN:Primarina|Encore",
+      "T3",
+      "move|RIVAL:Gyarados|Earthquake",
+      "faint|OWN:Primarina",
+      "switch|OWN:Metagross|Metagross, L50"
+     ]
+    }
+   ]
+  },
+  "Real_indeedee_sash": {
+   "holdout": false,
+   "public": [
+    "Indeedee",
+    "Hippowdon",
+    "Garchomp",
+    "Umbreon",
+    "Gengar",
+    "Gyarados"
+   ],
+   "picks": {
+    "legacy": [
+     "Garchomp",
+     "Primarina",
+     "Rotom-Wash"
+    ],
+    "strategic": [
+     "Tyranitar",
+     "Metagross",
+     "Primarina"
+    ],
+    "legal-search-v1": [
+     "Primarina",
+     "Metagross",
+     "Garchomp"
+    ],
+    "legal-search": [
+     "Primarina",
+     "Metagross",
+     "Garchomp"
+    ]
+   },
+   "search": {
+    "ms": 13699,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Indeedee",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Gyarados",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gyarados"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Hippowdon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gengar",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Indeedee",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Indeedee",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Gyarados",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Umbreon",
+       "Garchomp",
+       "Gyarados"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Gengar",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gengar",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Gengar"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Garchomp",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Hippowdon",
+       "Indeedee"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Indeedee",
+       "Hippowdon",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Hippowdon",
+       "Gyarados",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Gyarados",
+       "Hippowdon",
+       "Umbreon"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Umbreon",
+       "Hippowdon",
+       "Gyarados"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Indeedee@Choice Scarf:Psychic/Energy Ball/Mystical Fire/Dazzling Gleam",
+      "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Umbreon@Leftovers:Moonlight/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Sludge Wave/Shadow Ball/Energy Ball/Psychic",
+      "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage"
+     ],
+     [
+      "Indeedee@Focus Sash:Calm Mind/Psychic/Energy Ball/Wish",
+      "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Umbreon@Leftovers:Moonlight/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Nasty Plot/Sludge Wave/Shadow Ball/Protect",
+      "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect"
+     ],
+     [
+      "Indeedee@Leftovers:Wish/Encore/Psychic/Energy Ball",
+      "Hippowdon@Choice Scarf:Earthquake/Superpower/Stone Edge/Crunch",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Umbreon@Sitrus Berry:Taunt/Thunder Wave/Foul Play/Double-Edge",
+      "Gengar@Gengarite:Nasty Plot/Sludge Wave/Shadow Ball/Protect",
+      "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Primarina",
+       "Metagross",
+       "Garchomp"
+      ],
+      "score": -0.087,
+      "min": -0.347,
+      "mean": 0.174,
+      "worst": {
+       "rival": [
+        "Indeedee",
+        "Hippowdon",
+        "Garchomp"
+       ],
+       "scenario": 2,
+       "branch": "attack",
+       "value": -0.347
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.248,
+      "min": -0.625,
+      "mean": 0.13,
+      "worst": {
+       "rival": [
+        "Gyarados",
+        "Garchomp",
+        "Umbreon"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -0.625
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Primarina",
+       "Garchomp"
+      ],
+      "score": -0.369,
+      "min": -0.883,
+      "mean": 0.146,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Indeedee",
+        "Umbreon"
+       ],
+       "scenario": 1,
+       "branch": "switch",
+       "value": -0.883
+      }
+     },
+     {
+      "three": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "score": -0.414,
+      "min": -1,
+      "mean": 0.172,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Gengar",
+        "Umbreon"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -1
+      }
+     },
+     {
+      "three": [
+       "Rotom-Wash",
+       "Garchomp",
+       "Tyranitar"
+      ],
+      "score": -0.434,
+      "min": -1,
+      "mean": 0.132,
+      "worst": {
+       "rival": [
+        "Indeedee",
+        "Garchomp",
+        "Umbreon"
+       ],
+       "scenario": 0,
+       "branch": "switch",
+       "value": -1
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      34,
+      36
+     ],
+     "clean": [
+      14,
+      16
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 8
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "strategic": {
+     "three": "Tyranitar/Metagross/Primarina",
+     "total": [
+      16,
+      36
+     ],
+     "clean": [
+      16,
+      36
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 6,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedA"
+    },
+    "legal-search-v1": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      16,
+      28
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 8
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    },
+    "legal-search": {
+     "three": "Primarina/Metagross/Garchomp",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      16,
+      28
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Indeedee/Garchomp/Gengar"
+       ],
+       "w": 10,
+       "n": 12,
+       "foeMisplayWins": 8
+      },
+      "forcedB": {
+       "foe": [
+        "Gyarados/Hippowdon/Umbreon"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Gengar/Umbreon"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    }
+   },
+   "failingSeeds": [
+    "legacy rivalLegacy 20399-23473-23645-6242 fwd Garchomp/Gengar/Umbreon",
+    "legacy rivalLegacy 20399-23473-23645-6242 rev Garchomp/Gengar/Umbreon",
+    "strategic forcedA 49144-43356-34023-37696 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 49144-43356-34023-37696 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedA 42157-50095-36079-31262 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 42157-50095-36079-31262 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedA 45416-20211-24910-37793 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 45416-20211-24910-37793 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedA 20399-23473-23645-6242 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 20399-23473-23645-6242 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedA 16742-11330-14229-39485 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 16742-11330-14229-39485 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedA 39991-21582-44377-46939 fwd Indeedee/Garchomp/Gengar",
+    "strategic forcedA 39991-21582-44377-46939 rev Indeedee/Garchomp/Gengar",
+    "strategic forcedB 45416-20211-24910-37793 fwd Gyarados/Hippowdon/Umbreon",
+    "strategic forcedB 45416-20211-24910-37793 rev Gyarados/Hippowdon/Umbreon",
+    "strategic rivalLegacy 20399-23473-23645-6242 fwd Garchomp/Gengar/Umbreon",
+    "strategic rivalLegacy 20399-23473-23645-6242 rev Garchomp/Gengar/Umbreon",
+    "strategic rivalLegacy 16742-11330-14229-39485 fwd Garchomp/Gengar/Umbreon",
+    "strategic rivalLegacy 16742-11330-14229-39485 rev Garchomp/Gengar/Umbreon",
+    "strategic rivalLegacy 39991-21582-44377-46939 fwd Garchomp/Gengar/Umbreon",
+    "strategic rivalLegacy 39991-21582-44377-46939 rev Garchomp/Gengar/Umbreon",
+    "legal-search-v1 forcedA 49144-43356-34023-37696 fwd Indeedee/Garchomp/Gengar",
+    "legal-search-v1 forcedA 16742-11330-14229-39485 fwd Indeedee/Garchomp/Gengar",
+    "legal-search-v1 forcedB 49144-43356-34023-37696 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 49144-43356-34023-37696 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 42157-50095-36079-31262 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 42157-50095-36079-31262 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 45416-20211-24910-37793 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 45416-20211-24910-37793 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 20399-23473-23645-6242 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 20399-23473-23645-6242 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 16742-11330-14229-39485 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search-v1 forcedB 16742-11330-14229-39485 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedA 49144-43356-34023-37696 fwd Indeedee/Garchomp/Gengar",
+    "legal-search forcedA 16742-11330-14229-39485 fwd Indeedee/Garchomp/Gengar",
+    "legal-search forcedB 49144-43356-34023-37696 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 49144-43356-34023-37696 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 42157-50095-36079-31262 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 42157-50095-36079-31262 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 45416-20211-24910-37793 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 45416-20211-24910-37793 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 20399-23473-23645-6242 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 20399-23473-23645-6242 rev Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 16742-11330-14229-39485 fwd Gyarados/Hippowdon/Umbreon",
+    "legal-search forcedB 16742-11330-14229-39485 rev Gyarados/Hippowdon/Umbreon"
+   ],
+   "lossSamples": [
+    {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Gengar/Umbreon",
+     "seed": "20399-23473-23645-6242",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T1",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "move|OWN:Garchomp|Dragon Claw",
+      "T2",
+      "move|RIVAL:Garchomp|Dragon Claw",
+      "faint|OWN:Garchomp",
+      "faint|RIVAL:Garchomp",
+      "switch|RIVAL:Umbreon|Umbreon, L50, F",
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "T3",
+      "move|RIVAL:Umbreon|Foul Play",
+      "move|OWN:Primarina|Moonblast"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Primarina",
+     "rival": "forcedA",
+     "foe": "Indeedee/Garchomp/Gengar",
+     "seed": "49144-43356-34023-37696",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, F",
+      "switch|RIVAL:Indeedee|Indeedee, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "move|OWN:Tyranitar|Knock Off",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Garchomp|Earthquake",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T3",
+      "move|RIVAL:Garchomp|Poison Jab",
+      "move|OWN:Primarina|Moonblast",
+      "faint|RIVAL:Garchomp",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Gengar|Gengar, L50, F"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Primarina",
+     "rival": "forcedB",
+     "foe": "Gyarados/Hippowdon/Umbreon",
+     "seed": "45416-20211-24910-37793",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Gyarados|Gyarados, L50, M",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Gyarados|Dragon Dance",
+      "move|OWN:Tyranitar|Stone Edge",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Gyarados|Waterfall",
+      "move|OWN:Tyranitar|Stone Edge",
+      "faint|RIVAL:Gyarados",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Hippowdon|Hippowdon, L50, F",
+      "T3",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "move|RIVAL:Hippowdon|Earthquake",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Metagross/Primarina",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Gengar/Umbreon",
+     "seed": "20399-23473-23645-6242",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Tyranitar|Ice Punch",
+      "faint|RIVAL:Garchomp",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Umbreon|Umbreon, L50, F",
+      "T2",
+      "switch|OWN:Primarina|Primarina, L50, F",
+      "move|RIVAL:Umbreon|Foul Play",
+      "-weather|Sandstorm|[upkeep]",
+      "T3",
+      "move|RIVAL:Umbreon|Foul Play",
+      "move|OWN:Primarina|Moonblast",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "forcedA",
+     "foe": "Indeedee/Garchomp/Gengar",
+     "seed": "49144-43356-34023-37696",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "switch|RIVAL:Indeedee|Indeedee, L50, M",
+      "T1",
+      "move|RIVAL:Indeedee|Expanding Force",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Indeedee|Expanding Force",
+      "faint|OWN:Primarina",
+      "switch|OWN:Garchomp|Garchomp, L50, F",
+      "T3",
+      "move|OWN:Garchomp|Earthquake",
+      "faint|RIVAL:Indeedee",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F"
+     ]
+    },
+    {
+     "three": "Primarina/Metagross/Garchomp",
+     "rival": "forcedB",
+     "foe": "Gyarados/Hippowdon/Umbreon",
+     "seed": "49144-43356-34023-37696",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "switch|RIVAL:Gyarados|Gyarados, L50, M",
+      "T1",
+      "move|RIVAL:Gyarados|Dragon Dance",
+      "move|OWN:Primarina|Moonblast",
+      "T2",
+      "move|RIVAL:Gyarados|Earthquake",
+      "move|OWN:Primarina|Encore",
+      "T3",
+      "move|RIVAL:Gyarados|Earthquake",
+      "faint|OWN:Primarina",
+      "switch|OWN:Metagross|Metagross, L50"
+     ]
+    }
+   ]
+  },
+  "NEW_realE_sun": {
+   "holdout": true,
+   "public": [
+    "Raichu",
+    "Meowscarada",
+    "Charizard",
+    "Garchomp",
+    "Basculegion",
+    "Corviknight"
+   ],
+   "picks": {
+    "legacy": [
+     "Tyranitar",
+     "Garchomp",
+     "Primarina"
+    ],
+    "strategic": [
+     "Tyranitar",
+     "Primarina",
+     "Garchomp"
+    ],
+    "legal-search-v1": [
+     "Garchomp",
+     "Primarina",
+     "Rotom-Wash"
+    ],
+    "legal-search": [
+     "Rotom-Wash",
+     "Garchomp",
+     "Tyranitar"
+    ]
+   },
+   "search": {
+    "ms": 12769,
+    "cells": [
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Meowscarada",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Meowscarada"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Basculegion",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Basculegion",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Basculegion"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Raichu",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Raichu",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Raichu"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Garchomp",
+       "Charizard",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Charizard",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 0,
+      "rival": [
+       "Corviknight",
+       "Garchomp",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Meowscarada",
+       "Basculegion",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Basculegion",
+       "Meowscarada",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Charizard",
+       "Meowscarada",
+       "Basculegion"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Meowscarada",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Corviknight",
+       "Meowscarada",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Meowscarada",
+       "Basculegion",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Basculegion",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Corviknight",
+       "Meowscarada",
+       "Basculegion"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Meowscarada",
+       "Corviknight",
+       "Raichu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Corviknight",
+       "Meowscarada",
+       "Raichu"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Raichu",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Meowscarada",
+       "Garchomp",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Garchomp",
+       "Meowscarada",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 1,
+      "rival": [
+       "Charizard",
+       "Meowscarada",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Meowscarada",
+       "Basculegion",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Basculegion",
+       "Meowscarada",
+       "Charizard"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Charizard",
+       "Meowscarada",
+       "Basculegion"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Meowscarada",
+       "Garchomp",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Garchomp",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Corviknight",
+       "Meowscarada",
+       "Garchomp"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Meowscarada",
+       "Basculegion",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Basculegion",
+       "Meowscarada",
+       "Corviknight"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Corviknight",
+       "Meowscarada",
+       "Basculegion"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Meowscarada",
+       "Basculegion",
+       "Raichu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Basculegion",
+       "Meowscarada",
+       "Raichu"
+      ]
+     },
+     {
+      "scenario": 2,
+      "rival": [
+       "Raichu",
+       "Meowscarada",
+       "Basculegion"
+      ]
+     }
+    ],
+    "scenarios": [
+     [
+      "Raichu@Raichunite X:Volt Tackle/Play Rough/Trailblaze/Quick Attack",
+      "Meowscarada@Choice Scarf:Foul Play/Petal Blizzard/Play Rough/Brick Break",
+      "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+      "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+      "Basculegion@Life Orb:Wave Crash/Head Smash/Outrage/Aqua Jet",
+      "Corviknight@Leftovers:Roost/Taunt/Brave Bird/Iron Head"
+     ],
+     [
+      "Raichu@Raichunite Y:Nasty Plot/Thunderbolt/Surf/Wish",
+      "Meowscarada@Life Orb:Foul Play/Petal Blizzard/Play Rough/Sucker Punch",
+      "Charizard@Choice Scarf:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Basculegion@Leftovers:Flip Turn/Wave Crash/Head Smash/Outrage",
+      "Corviknight@Focus Sash:Bulk Up/Brave Bird/Iron Head/Roost"
+     ],
+     [
+      "Raichu@Raichunite Y:Nasty Plot/Thunderbolt/Surf/Wish",
+      "Meowscarada@Sitrus Berry:Taunt/U-turn/Foul Play/Petal Blizzard",
+      "Charizard@Charizardite Y:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+      "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+      "Basculegion@Leftovers:Flip Turn/Wave Crash/Head Smash/Outrage",
+      "Corviknight@Focus Sash:Bulk Up/Brave Bird/Iron Head/Roost"
+     ]
+    ],
+    "top": [
+     {
+      "three": [
+       "Rotom-Wash",
+       "Garchomp",
+       "Tyranitar"
+      ],
+      "score": -0.438,
+      "min": -0.758,
+      "mean": -0.117,
+      "worst": {
+       "rival": [
+        "Corviknight",
+        "Meowscarada",
+        "Garchomp"
+       ],
+       "scenario": 2,
+       "branch": "ai",
+       "value": -0.758
+      }
+     },
+     {
+      "three": [
+       "Garchomp",
+       "Primarina",
+       "Rotom-Wash"
+      ],
+      "score": -0.481,
+      "min": -0.902,
+      "mean": -0.061,
+      "worst": {
+       "rival": [
+        "Garchomp",
+        "Meowscarada",
+        "Charizard"
+       ],
+       "scenario": 1,
+       "branch": "ai",
+       "value": -0.902
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Rotom-Wash"
+      ],
+      "score": -0.539,
+      "min": -0.932,
+      "mean": -0.145,
+      "worst": {
+       "rival": [
+        "Meowscarada",
+        "Basculegion",
+        "Charizard"
+       ],
+       "scenario": 1,
+       "branch": "attack",
+       "value": -0.932
+      }
+     },
+     {
+      "three": [
+       "Primarina",
+       "Garchomp",
+       "Tyranitar"
+      ],
+      "score": -0.609,
+      "min": -1,
+      "mean": -0.218,
+      "worst": {
+       "rival": [
+        "Charizard",
+        "Meowscarada",
+        "Basculegion"
+       ],
+       "scenario": 2,
+       "branch": "ai",
+       "value": -1
+      }
+     },
+     {
+      "three": [
+       "Garchomp",
+       "Primarina",
+       "Tyranitar"
+      ],
+      "score": -0.609,
+      "min": -1,
+      "mean": -0.219,
+      "worst": {
+       "rival": [
+        "Basculegion",
+        "Garchomp",
+        "Corviknight"
+       ],
+       "scenario": 0,
+       "branch": "setup",
+       "value": -1
+      }
+     }
+    ]
+   },
+   "summary": {
+    "legacy": {
+     "three": "Tyranitar/Garchomp/Primarina",
+     "total": [
+      16,
+      36
+     ],
+     "clean": [
+      14,
+      34
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 2
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    },
+    "strategic": {
+     "three": "Tyranitar/Primarina/Garchomp",
+     "total": [
+      16,
+      36
+     ],
+     "clean": [
+      10,
+      30
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 6
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 2,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "forcedB"
+    },
+    "legal-search-v1": {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      12,
+      24
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 12
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    },
+    "legal-search": {
+     "three": "Rotom-Wash/Garchomp/Tyranitar",
+     "total": [
+      24,
+      36
+     ],
+     "clean": [
+      24,
+      24
+     ],
+     "cells": {
+      "forcedA": {
+       "foe": [
+        "Charizard/Garchomp/Meowscarada"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "forcedB": {
+       "foe": [
+        "Corviknight/Basculegion/Raichu"
+       ],
+       "w": 12,
+       "n": 12,
+       "foeMisplayWins": 0
+      },
+      "rivalLegacy": {
+       "foe": [
+        "Garchomp/Meowscarada/Corviknight"
+       ],
+       "w": 0,
+       "n": 12,
+       "foeMisplayWins": 0
+      }
+     },
+     "worstCell": "rivalLegacy"
+    }
+   },
+   "failingSeeds": [
+    "legacy forcedB 63036-30387-50839-19845 fwd Corviknight/Basculegion/Raichu",
+    "legacy forcedB 63036-30387-50839-19845 rev Corviknight/Basculegion/Raichu",
+    "legacy forcedB 28466-4221-28802-25073 fwd Corviknight/Basculegion/Raichu",
+    "legacy forcedB 28466-4221-28802-25073 rev Corviknight/Basculegion/Raichu",
+    "legacy forcedB 11489-671-45815-55815 fwd Corviknight/Basculegion/Raichu",
+    "legacy forcedB 11489-671-45815-55815 rev Corviknight/Basculegion/Raichu",
+    "legacy forcedB 3605-42970-59940-13124 fwd Corviknight/Basculegion/Raichu",
+    "legacy forcedB 3605-42970-59940-13124 rev Corviknight/Basculegion/Raichu",
+    "legacy forcedB 50773-5995-28579-62625 fwd Corviknight/Basculegion/Raichu",
+    "legacy forcedB 50773-5995-28579-62625 rev Corviknight/Basculegion/Raichu",
+    "legacy rivalLegacy 63036-30387-50839-19845 fwd Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 63036-30387-50839-19845 rev Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 28466-4221-28802-25073 fwd Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 28466-4221-28802-25073 rev Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 11489-671-45815-55815 fwd Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 11489-671-45815-55815 rev Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 3605-42970-59940-13124 fwd Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 3605-42970-59940-13124 rev Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 34015-15068-16294-63414 fwd Garchomp/Meowscarada/Corviknight",
+    "legacy rivalLegacy 34015-15068-16294-63414 rev Garchomp/Meowscarada/Corviknight",
+    "strategic forcedB 63036-30387-50839-19845 fwd Corviknight/Basculegion/Raichu",
+    "strategic forcedB 63036-30387-50839-19845 rev Corviknight/Basculegion/Raichu",
+    "strategic forcedB 28466-4221-28802-25073 fwd Corviknight/Basculegion/Raichu",
+    "strategic forcedB 28466-4221-28802-25073 rev Corviknight/Basculegion/Raichu",
+    "strategic forcedB 11489-671-45815-55815 fwd Corviknight/Basculegion/Raichu",
+    "strategic forcedB 11489-671-45815-55815 rev Corviknight/Basculegion/Raichu",
+    "strategic forcedB 3605-42970-59940-13124 fwd Corviknight/Basculegion/Raichu",
+    "strategic forcedB 3605-42970-59940-13124 rev Corviknight/Basculegion/Raichu",
+    "strategic forcedB 50773-5995-28579-62625 fwd Corviknight/Basculegion/Raichu",
+    "strategic forcedB 50773-5995-28579-62625 rev Corviknight/Basculegion/Raichu",
+    "strategic rivalLegacy 63036-30387-50839-19845 fwd Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 63036-30387-50839-19845 rev Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 28466-4221-28802-25073 fwd Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 28466-4221-28802-25073 rev Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 11489-671-45815-55815 fwd Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 11489-671-45815-55815 rev Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 3605-42970-59940-13124 fwd Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 3605-42970-59940-13124 rev Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 34015-15068-16294-63414 fwd Garchomp/Meowscarada/Corviknight",
+    "strategic rivalLegacy 34015-15068-16294-63414 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 63036-30387-50839-19845 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 63036-30387-50839-19845 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 28466-4221-28802-25073 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 28466-4221-28802-25073 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 11489-671-45815-55815 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 11489-671-45815-55815 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 3605-42970-59940-13124 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 3605-42970-59940-13124 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 50773-5995-28579-62625 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 50773-5995-28579-62625 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 34015-15068-16294-63414 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search-v1 rivalLegacy 34015-15068-16294-63414 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 63036-30387-50839-19845 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 63036-30387-50839-19845 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 28466-4221-28802-25073 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 28466-4221-28802-25073 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 11489-671-45815-55815 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 11489-671-45815-55815 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 3605-42970-59940-13124 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 3605-42970-59940-13124 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 50773-5995-28579-62625 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 50773-5995-28579-62625 rev Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 34015-15068-16294-63414 fwd Garchomp/Meowscarada/Corviknight",
+    "legal-search rivalLegacy 34015-15068-16294-63414 rev Garchomp/Meowscarada/Corviknight"
+   ],
+   "lossSamples": [
+    {
+     "three": "Tyranitar/Garchomp/Primarina",
+     "rival": "forcedB",
+     "foe": "Corviknight/Basculegion/Raichu",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Corviknight|Body Press",
+      "move|OWN:Tyranitar|Stealth Rock",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Corviknight|Body Press",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T3",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Garchomp/Primarina",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Meowscarada/Corviknight",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Tyranitar|Ice Punch",
+      "faint|RIVAL:Garchomp",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T2",
+      "move|RIVAL:Corviknight|Body Press",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T3",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Primarina/Garchomp",
+     "rival": "forcedB",
+     "foe": "Corviknight/Basculegion/Raichu",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Corviknight|Body Press",
+      "move|OWN:Tyranitar|Stealth Rock",
+      "-weather|Sandstorm|[upkeep]",
+      "T2",
+      "move|RIVAL:Corviknight|Body Press",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T3",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Tyranitar/Primarina/Garchomp",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Meowscarada/Corviknight",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Tyranitar|Tyranitar, L50, M",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "-weather|Sandstorm|[from] ability: Sand Stream",
+      "T1",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Tyranitar|Ice Punch",
+      "faint|RIVAL:Garchomp",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "T2",
+      "move|RIVAL:Corviknight|Body Press",
+      "faint|OWN:Tyranitar",
+      "-weather|Sandstorm|[upkeep]",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T3",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "-weather|Sandstorm|[upkeep]"
+     ]
+    },
+    {
+     "three": "Garchomp/Primarina/Rotom-Wash",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Meowscarada/Corviknight",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Garchomp|Garchomp, L50, M",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T1",
+      "move|OWN:Garchomp|Dragon Claw",
+      "move|RIVAL:Garchomp|Outrage",
+      "faint|OWN:Garchomp",
+      "faint|RIVAL:Garchomp",
+      "switch|RIVAL:Corviknight|Corviknight, L50, F",
+      "switch|OWN:Primarina|Primarina, L50, M",
+      "T2",
+      "move|RIVAL:Corviknight|Iron Head",
+      "move|OWN:Primarina|Sparkling Aria",
+      "T3",
+      "move|RIVAL:Corviknight|Roost",
+      "move|OWN:Primarina|Sparkling Aria"
+     ]
+    },
+    {
+     "three": "Rotom-Wash/Garchomp/Tyranitar",
+     "rival": "rivalLegacy",
+     "foe": "Garchomp/Meowscarada/Corviknight",
+     "seed": "63036-30387-50839-19845",
+     "reverse": false,
+     "t1to3": [
+      "switch|OWN:Rotom|Rotom-Wash, L50",
+      "switch|RIVAL:Garchomp|Garchomp, L50, F",
+      "T1",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Rotom|Will-O-Wisp",
+      "T2",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Rotom|Will-O-Wisp",
+      "T3",
+      "move|RIVAL:Garchomp|Earthquake",
+      "move|OWN:Rotom|Hydro Pump"
+     ]
+    }
+   ]
+  }
+ }
+}

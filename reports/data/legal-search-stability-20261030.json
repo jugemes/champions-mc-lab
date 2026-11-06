@@ -1,0 +1,58 @@
+[
+ {
+  "case": "A_golisopod",
+  "picks": [
+   "Garchomp/Primarina/Rotom-Wash (-0.67 vs 2nd -0.67)",
+   "Primarina/Metagross/Rotom-Wash (-0.65 vs 2nd -0.67)",
+   "Garchomp/Primarina/Rotom-Wash (-0.60 vs 2nd -0.71)"
+  ]
+ },
+ {
+  "case": "B_lucarioZ",
+  "picks": [
+   "Primarina/Garchomp/Rotom-Wash (-0.42 vs 2nd -0.51)",
+   "Primarina/Garchomp/Rotom-Wash (-0.09 vs 2nd -0.23)",
+   "Primarina/Garchomp/Rotom-Wash (-0.07 vs 2nd -0.36)"
+  ]
+ },
+ {
+  "case": "C_charizardY",
+  "picks": [
+   "Primarina/Metagross/Tyranitar (-0.50 vs 2nd -0.52)",
+   "Primarina/Metagross/Tyranitar (-0.64 vs 2nd -0.73)",
+   "Primarina/Metagross/Tyranitar (-0.53 vs 2nd -0.58)"
+  ]
+ },
+ {
+  "case": "C_charizardX",
+  "picks": [
+   "Primarina/Metagross/Tyranitar (-0.50 vs 2nd -0.52)",
+   "Primarina/Metagross/Tyranitar (-0.64 vs 2nd -0.73)",
+   "Primarina/Metagross/Tyranitar (-0.53 vs 2nd -0.58)"
+  ]
+ },
+ {
+  "case": "Real_indeedee_scarf",
+  "picks": [
+   "Primarina/Metagross/Garchomp (-0.12 vs 2nd -0.26)",
+   "Primarina/Metagross/Garchomp (-0.10 vs 2nd -0.26)",
+   "Primarina/Metagross/Garchomp (-0.08 vs 2nd -0.26)"
+  ]
+ },
+ {
+  "case": "Real_indeedee_sash",
+  "picks": [
+   "Primarina/Metagross/Garchomp (-0.12 vs 2nd -0.26)",
+   "Primarina/Metagross/Garchomp (-0.10 vs 2nd -0.26)",
+   "Primarina/Metagross/Garchomp (-0.08 vs 2nd -0.26)"
+  ]
+ },
+ {
+  "case": "NEW_realE_sun",
+  "picks": [
+   "Garchomp/Primarina/Rotom-Wash (-0.49 vs 2nd -0.53)",
+   "Rotom-Wash/Garchomp/Tyranitar (-0.51 vs 2nd -0.55)",
+   "Rotom-Wash/Garchomp/Tyranitar (-0.50 vs 2nd -0.51)"
+  ]
+ }
+]

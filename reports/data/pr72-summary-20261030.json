@@ -1,0 +1,1348 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "note": "Heuristic AI vs heuristic AI, NOT a ladder win rate.",
+ "pr71AuditCount": {
+  "rows": 3552,
+  "perOwnAI": {
+   "old": 1776,
+   "guard": 1776
+  },
+  "rationalRows": 1728,
+  "referenceToGarchompRows": 96
+ },
+ "matrix": {
+  "H0|new": {
+   "games": 43200,
+   "value": 0.225,
+   "gap": 0.008,
+   "rivalEq": [
+    {
+     "pick": "Golisopod>Primarina/Mimikyu",
+     "p": 0.306
+    },
+    {
+     "pick": "Gholdengo>Golisopod/Primarina",
+     "p": 0.191
+    },
+    {
+     "pick": "Primarina>Golisopod/Gholdengo",
+     "p": 0.179
+    },
+    {
+     "pick": "Mimikyu>Golisopod/Gholdengo",
+     "p": 0.126
+    },
+    {
+     "pick": "Golisopod>Primarina/Gholdengo",
+     "p": 0.108
+    },
+    {
+     "pick": "Garchomp>Golisopod/Gholdengo",
+     "p": 0.066
+    }
+   ],
+   "ownEq": [
+    {
+     "pick": "Hydreigon>Primarina/Rotom-Wash",
+     "p": 0.235
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.176
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "p": 0.145
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.127
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.116
+    },
+    {
+     "pick": "Primarina>Hydreigon/Rotom-Wash",
+     "p": 0.092
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "p": 0.074
+    }
+   ],
+   "ref": {
+    "Primarina>Metagross/Garchomp": 0.05,
+    "Garchomp>Metagross/Primarina": 0.152,
+    "Tyranitar>Metagross/Primarina": 0.228
+   }
+  },
+  "H1|new": {
+   "games": 43200,
+   "value": 0.58,
+   "gap": 0.0063,
+   "rivalEq": [
+    {
+     "pick": "Gholdengo>Primarina/Mimikyu",
+     "p": 0.203
+    },
+    {
+     "pick": "Mimikyu>Garchomp/Primarina",
+     "p": 0.181
+    },
+    {
+     "pick": "Hippowdon>Garchomp/Gholdengo",
+     "p": 0.16
+    },
+    {
+     "pick": "Gholdengo>Garchomp/Primarina",
+     "p": 0.107
+    },
+    {
+     "pick": "Primarina>Mimikyu/Gholdengo",
+     "p": 0.085
+    },
+    {
+     "pick": "Hippowdon>Primarina/Mimikyu",
+     "p": 0.08
+    },
+    {
+     "pick": "Hippowdon>Primarina/Gholdengo",
+     "p": 0.068
+    },
+    {
+     "pick": "Mimikyu>Primarina/Gholdengo",
+     "p": 0.058
+    }
+   ],
+   "ownEq": [
+    {
+     "pick": "Hydreigon>Metagross/Rotom-Wash",
+     "p": 0.216
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.181
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.144
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "p": 0.111
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "p": 0.098
+    },
+    {
+     "pick": "Metagross>Hydreigon/Rotom-Wash",
+     "p": 0.095
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "p": 0.091
+    }
+   ],
+   "ref": {
+    "Primarina>Metagross/Garchomp": 0.572,
+    "Garchomp>Metagross/Primarina": 0.583,
+    "Tyranitar>Metagross/Primarina": 0.584
+   }
+  },
+  "H0|new|rivalEncoreStay": {
+   "games": 43200,
+   "value": 0.282,
+   "gap": 0.0069,
+   "rivalEq": [
+    {
+     "pick": "Gholdengo>Golisopod/Primarina",
+     "p": 0.224
+    },
+    {
+     "pick": "Primarina>Golisopod/Gholdengo",
+     "p": 0.181
+    },
+    {
+     "pick": "Mimikyu>Golisopod/Primarina",
+     "p": 0.18
+    },
+    {
+     "pick": "Hippowdon>Golisopod/Gholdengo",
+     "p": 0.089
+    },
+    {
+     "pick": "Golisopod>Primarina/Mimikyu",
+     "p": 0.076
+    },
+    {
+     "pick": "Primarina>Garchomp/Gholdengo",
+     "p": 0.074
+    },
+    {
+     "pick": "Golisopod>Garchomp/Gholdengo",
+     "p": 0.062
+    }
+   ],
+   "ownEq": [
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.191
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "p": 0.159
+    },
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "p": 0.153
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.114
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.113
+    },
+    {
+     "pick": "Hydreigon>Primarina/Rotom-Wash",
+     "p": 0.093
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "p": 0.085
+    },
+    {
+     "pick": "Rotom-Wash>Hydreigon/Primarina",
+     "p": 0.066
+    }
+   ],
+   "ref": {
+    "Primarina>Metagross/Garchomp": 0.213,
+    "Garchomp>Metagross/Primarina": 0.145,
+    "Tyranitar>Metagross/Primarina": 0.285
+   }
+  },
+  "H0|old|rivalEncoreStay": {
+   "games": 43200,
+   "value": 0.281,
+   "gap": 0.0076,
+   "rivalEq": [
+    {
+     "pick": "Gholdengo>Golisopod/Primarina",
+     "p": 0.246
+    },
+    {
+     "pick": "Primarina>Golisopod/Gholdengo",
+     "p": 0.205
+    },
+    {
+     "pick": "Mimikyu>Garchomp/Primarina",
+     "p": 0.148
+    },
+    {
+     "pick": "Golisopod>Garchomp/Gholdengo",
+     "p": 0.102
+    },
+    {
+     "pick": "Golisopod>Primarina/Mimikyu",
+     "p": 0.1
+    },
+    {
+     "pick": "Mimikyu>Golisopod/Primarina",
+     "p": 0.077
+    }
+   ],
+   "ownEq": [
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.189
+    },
+    {
+     "pick": "Tyranitar>Metagross/Hydreigon",
+     "p": 0.142
+    },
+    {
+     "pick": "Rotom-Wash>Hydreigon/Primarina",
+     "p": 0.125
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.119
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.118
+    },
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "p": 0.097
+    },
+    {
+     "pick": "Hydreigon>Primarina/Rotom-Wash",
+     "p": 0.094
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "p": 0.089
+    }
+   ],
+   "ref": {
+    "Primarina>Metagross/Garchomp": 0.212,
+    "Garchomp>Metagross/Primarina": 0.247,
+    "Tyranitar>Metagross/Primarina": 0.282
+   }
+  },
+  "H1|new|rivalEncoreStay": {
+   "games": 43200,
+   "value": 0.582,
+   "gap": 0.0065,
+   "rivalEq": [
+    {
+     "pick": "Hippowdon>Garchomp/Gholdengo",
+     "p": 0.193
+    },
+    {
+     "pick": "Gholdengo>Primarina/Mimikyu",
+     "p": 0.191
+    },
+    {
+     "pick": "Mimikyu>Garchomp/Primarina",
+     "p": 0.15
+    },
+    {
+     "pick": "Gholdengo>Garchomp/Primarina",
+     "p": 0.139
+    },
+    {
+     "pick": "Hippowdon>Primarina/Mimikyu",
+     "p": 0.08
+    },
+    {
+     "pick": "Primarina>Mimikyu/Gholdengo",
+     "p": 0.058
+    },
+    {
+     "pick": "Garchomp>Mimikyu/Gholdengo",
+     "p": 0.056
+    },
+    {
+     "pick": "Garchomp>Hippowdon/Gholdengo",
+     "p": 0.056
+    },
+    {
+     "pick": "Mimikyu>Primarina/Gholdengo",
+     "p": 0.054
+    }
+   ],
+   "ownEq": [
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.214
+    },
+    {
+     "pick": "Hydreigon>Metagross/Rotom-Wash",
+     "p": 0.186
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.138
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "p": 0.13
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "p": 0.111
+    },
+    {
+     "pick": "Metagross>Hydreigon/Rotom-Wash",
+     "p": 0.076
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "p": 0.065
+    }
+   ],
+   "ref": {
+    "Primarina>Metagross/Garchomp": 0.562,
+    "Garchomp>Metagross/Primarina": 0.58,
+    "Tyranitar>Metagross/Primarina": 0.585
+   }
+  }
+ },
+ "branch": {
+  "H0|Garchomp>Metagross/Primarina": {
+   "aiOnly": [
+    10,
+    84
+   ],
+   "worstRational": [
+    0,
+    84
+   ],
+   "pairs": [
+    {
+     "rival": "Garchomp>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "Dragon Claw>ai x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Golisopod/Primarina",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Shadow Ball x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Leech Life x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Mimikyu",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Swords Dance>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Golisopod/Gholdengo",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Shadow Sneak x12",
+      "ai>Shadow Claw x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Golisopod/Gholdengo",
+     "aiOnly": "5/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Sparkling Aria>ai x12",
+      "Sparkling Aria>Moonblast x12"
+     ]
+    }
+   ]
+  },
+  "H0|Hydreigon>Primarina/Rotom-Wash": {
+   "aiOnly": [
+    12,
+    84
+   ],
+   "worstRational": [
+    0,
+    84
+   ],
+   "pairs": [
+    {
+     "rival": "Garchomp>Golisopod/Gholdengo",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Sucker Punch x12",
+      "ai>Leech Life x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Golisopod/Primarina",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Mimikyu",
+     "aiOnly": "8/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Leech Life>ai x12",
+      "Leech Life>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Play Rough x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    }
+   ]
+  },
+  "H0|Primarina>Metagross/Garchomp": {
+   "aiOnly": [
+    5,
+    84
+   ],
+   "worstRational": [
+    0,
+    84
+   ],
+   "pairs": [
+    {
+     "rival": "Garchomp>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Make It Rain x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Golisopod/Primarina",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Shadow Ball x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Sucker Punch>Swords Dance x12",
+      "Sucker Punch>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Mimikyu",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Sucker Punch>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Golisopod/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Shadow Claw x12",
+      "Play Rough>ai x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    }
+   ]
+  },
+  "H0|Tyranitar>Hydreigon/Primarina": {
+   "aiOnly": [
+    25,
+    84
+   ],
+   "worstRational": [
+    12,
+    84
+   ],
+   "pairs": [
+    {
+     "rival": "Garchomp>Golisopod/Gholdengo",
+     "aiOnly": "12/12",
+     "worstRational": "12/12",
+     "topBeatenBy": []
+    },
+    {
+     "rival": "Gholdengo>Golisopod/Primarina",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ratSwitch>Encore x10",
+      "ai>ai x6"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Sucker Punch x12",
+      "Sucker Punch>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Leech Life x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Mimikyu",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Sucker Punch x12",
+      "ai>Swords Dance x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Play Rough x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Golisopod/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x10",
+      "ai>Moonblast x10"
+     ]
+    }
+   ]
+  },
+  "H0|Tyranitar>Metagross/Primarina": {
+   "aiOnly": [
+    18,
+    84
+   ],
+   "worstRational": [
+    0,
+    84
+   ],
+   "pairs": [
+    {
+     "rival": "Garchomp>Golisopod/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Make It Rain x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Golisopod/Primarina",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Encore x12",
+      "Make It Rain>Encore x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Leech Life x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Sucker Punch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Primarina/Mimikyu",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Leech Life x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Golisopod/Gholdengo",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Play Rough>ai x10",
+      "Play Rough>Play Rough x10"
+     ]
+    },
+    {
+     "rival": "Primarina>Golisopod/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Encore>ai x11",
+      "Encore>Moonblast x11"
+     ]
+    }
+   ]
+  },
+  "H1|Garchomp>Metagross/Primarina": {
+   "aiOnly": [
+    66,
+    108
+   ],
+   "worstRational": [
+    6,
+    108
+   ],
+   "pairs": [
+    {
+     "rival": "Gholdengo>Garchomp/Primarina",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Shadow Ball x12",
+      "ai>Nasty Plot x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Primarina/Mimikyu",
+     "aiOnly": "9/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Nasty Plot>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "2/12",
+     "topBeatenBy": [
+      "Leech Life>Leech Life x6",
+      "Leech Life>ratSwitch x6"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Garchomp/Gholdengo",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Earthquake>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Gholdengo",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Earthquake>Earthquake x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Mimikyu",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Slack Off>ai x11",
+      "Slack Off>Stealth Rock x11"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Garchomp/Primarina",
+     "aiOnly": "12/12",
+     "worstRational": "4/12",
+     "topBeatenBy": [
+      "Play Rough>Shadow Sneak x4",
+      "Play Rough>ratSwitch x4"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Primarina/Gholdengo",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x12",
+      "Swords Dance>ratSwitch x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Mimikyu/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Moonblast x12",
+      "ai>Sparkling Aria x12"
+     ]
+    }
+   ]
+  },
+  "H1|Hydreigon>Primarina/Rotom-Wash": {
+   "aiOnly": [
+    46,
+    108
+   ],
+   "worstRational": [
+    10,
+    108
+   ],
+   "pairs": [
+    {
+     "rival": "Gholdengo>Garchomp/Primarina",
+     "aiOnly": "10/12",
+     "worstRational": "4/12",
+     "topBeatenBy": [
+      "ai>Encore x8",
+      "ratSwitch>Encore x8"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Primarina/Mimikyu",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "6/12",
+     "topBeatenBy": [
+      "ai>Swords Dance x4",
+      "Leech Life>Swords Dance x4"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Garchomp/Gholdengo",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Yawn>ratSwitch x8",
+      "Earthquake>ratSwitch x6"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Yawn>Earthquake x12",
+      "Yawn>Yawn x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Garchomp/Primarina",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Mimikyu/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Moonblast x12"
+     ]
+    }
+   ]
+  },
+  "H1|Primarina>Metagross/Garchomp": {
+   "aiOnly": [
+    65,
+    108
+   ],
+   "worstRational": [
+    4,
+    108
+   ],
+   "pairs": [
+    {
+     "rival": "Gholdengo>Garchomp/Primarina",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Shadow Ball x12",
+      "Nasty Plot>Shadow Ball x12"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Primarina/Mimikyu",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ratSwitch>Shadow Claw x10",
+      "ratSwitch>Shadow Sneak x8"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x6",
+      "ai>Play Rough x6"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Garchomp/Gholdengo",
+     "aiOnly": "10/12",
+     "worstRational": "4/12",
+     "topBeatenBy": [
+      "ai>Thunderbolt x4",
+      "Earthquake>ai x4"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Gholdengo",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ratSwitch>ai x12",
+      "ratSwitch>Moonblast x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ratSwitch>ai x12",
+      "ratSwitch>Play Rough x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Garchomp/Primarina",
+     "aiOnly": "7/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Shadow Claw>Swords Dance x9",
+      "ai>Shadow Sneak x8"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Primarina/Gholdengo",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Shadow Sneak>Shadow Claw x12",
+      "Shadow Claw>Shadow Sneak x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Mimikyu/Gholdengo",
+     "aiOnly": "6/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Sparkling Aria x8",
+      "Moonblast>Sparkling Aria x8"
+     ]
+    }
+   ]
+  },
+  "H1|Tyranitar>Hydreigon/Primarina": {
+   "aiOnly": [
+    38,
+    108
+   ],
+   "worstRational": [
+    18,
+    108
+   ],
+   "pairs": [
+    {
+     "rival": "Gholdengo>Garchomp/Primarina",
+     "aiOnly": "4/12",
+     "worstRational": "1/12",
+     "topBeatenBy": [
+      "ai>ai x8",
+      "ai>Moonblast x8"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Primarina/Mimikyu",
+     "aiOnly": "3/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ratSwitch x11",
+      "Make It Rain>ratSwitch x11"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "10/12",
+     "topBeatenBy": [
+      "ai>Earth Power x2",
+      "Leech Life>Earth Power x2"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Garchomp/Gholdengo",
+     "aiOnly": "10/12",
+     "worstRational": "6/12",
+     "topBeatenBy": [
+      "ai>Slack Off x4",
+      "Earthquake>Slack Off x4"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Slack Off x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Mimikyu",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Earthquake x12",
+      "ai>Stealth Rock x12"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Garchomp/Primarina",
+     "aiOnly": "1/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x11",
+      "ai>Play Rough x11"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Primarina/Gholdengo",
+     "aiOnly": "0/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x12",
+      "ai>Play Rough x12"
+     ]
+    },
+    {
+     "rival": "Primarina>Mimikyu/Gholdengo",
+     "aiOnly": "7/12",
+     "worstRational": "1/12",
+     "topBeatenBy": [
+      "ai>Encore x7",
+      "Moonblast>Encore x7"
+     ]
+    }
+   ]
+  },
+  "H1|Tyranitar>Metagross/Primarina": {
+   "aiOnly": [
+    61,
+    108
+   ],
+   "worstRational": [
+    18,
+    108
+   ],
+   "pairs": [
+    {
+     "rival": "Gholdengo>Garchomp/Primarina",
+     "aiOnly": "12/12",
+     "worstRational": "7/12",
+     "topBeatenBy": [
+      "ratSwitch>Draco Meteor x5",
+      "ratSwitch>Earth Power x4"
+     ]
+    },
+    {
+     "rival": "Gholdengo>Primarina/Mimikyu",
+     "aiOnly": "12/12",
+     "worstRational": "1/12",
+     "topBeatenBy": [
+      "Nasty Plot>Encore x6",
+      "ratSwitch>ai x6"
+     ]
+    },
+    {
+     "rival": "Golisopod>Garchomp/Mimikyu",
+     "aiOnly": "10/12",
+     "worstRational": "6/12",
+     "topBeatenBy": [
+      "ai>ai x2",
+      "ai>Draco Meteor x2"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Garchomp/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>Yawn x12",
+      "Earthquake>ai x12"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Gholdengo",
+     "aiOnly": "6/12",
+     "worstRational": "2/12",
+     "topBeatenBy": [
+      "ai>ai x6",
+      "ai>Earthquake x6"
+     ]
+    },
+    {
+     "rival": "Hippowdon>Primarina/Mimikyu",
+     "aiOnly": "5/12",
+     "worstRational": "1/12",
+     "topBeatenBy": [
+      "Earthquake>Yawn x9",
+      "Earthquake>Stealth Rock x9"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Garchomp/Primarina",
+     "aiOnly": "8/12",
+     "worstRational": "1/12",
+     "topBeatenBy": [
+      "Play Rough>Shadow Sneak x11",
+      "ai>ai x4"
+     ]
+    },
+    {
+     "rival": "Mimikyu>Primarina/Gholdengo",
+     "aiOnly": "4/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "Play Rough>ai x10",
+      "Play Rough>Play Rough x10"
+     ]
+    },
+    {
+     "rival": "Primarina>Mimikyu/Gholdengo",
+     "aiOnly": "2/12",
+     "worstRational": "0/12",
+     "topBeatenBy": [
+      "ai>ai x10",
+      "ai>Aqua Jet x10"
+     ]
+    }
+   ]
+  }
+ },
+ "holdoutSeeds": {
+  "H0": [
+   {
+    "pick": "Hydreigon>Primarina/Rotom-Wash",
+    "inSample": 0.229,
+    "freshSeeds": 0.273
+   },
+   {
+    "pick": "Tyranitar>Metagross/Primarina",
+    "inSample": 0.228,
+    "freshSeeds": 0.312
+   },
+   {
+    "pick": "Tyranitar>Hydreigon/Primarina",
+    "inSample": 0.227,
+    "freshSeeds": 0.118
+   },
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "inSample": 0.226,
+    "freshSeeds": 0.163
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "inSample": 0.224,
+    "freshSeeds": 0.248
+   },
+   {
+    "pick": "Primarina>Hydreigon/Rotom-Wash",
+    "inSample": 0.227,
+    "freshSeeds": 0.163
+   },
+   {
+    "pick": "Tyranitar>Metagross/Hydreigon",
+    "inSample": 0.224,
+    "freshSeeds": 0.257
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "inSample": 0.05,
+    "freshSeeds": 0.057
+   },
+   {
+    "pick": "Garchomp>Metagross/Primarina",
+    "inSample": 0.152,
+    "freshSeeds": 0.267
+   },
+   {
+    "pick": "Primarina>Garchomp/Rotom-Wash",
+    "inSample": 0.09,
+    "freshSeeds": 0.083
+   }
+  ],
+  "H1": [
+   {
+    "pick": "Hydreigon>Metagross/Rotom-Wash",
+    "inSample": 0.581,
+    "freshSeeds": 0.738
+   },
+   {
+    "pick": "Tyranitar>Metagross/Primarina",
+    "inSample": 0.584,
+    "freshSeeds": 0.405
+   },
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "inSample": 0.582,
+    "freshSeeds": 0.521
+   },
+   {
+    "pick": "Hydreigon>Metagross/Garchomp",
+    "inSample": 0.579,
+    "freshSeeds": 0.507
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "inSample": 0.583,
+    "freshSeeds": 0.572
+   },
+   {
+    "pick": "Metagross>Hydreigon/Rotom-Wash",
+    "inSample": 0.583,
+    "freshSeeds": 0.593
+   },
+   {
+    "pick": "Garchomp>Metagross/Primarina",
+    "inSample": 0.583,
+    "freshSeeds": 0.582
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "inSample": 0.572,
+    "freshSeeds": 0.687
+   },
+   {
+    "pick": "Primarina>Garchomp/Rotom-Wash",
+    "inSample": 0.528,
+    "freshSeeds": 0.506
+   }
+  ]
+ },
+ "nonregression": {
+  "base": [
+   622,
+   1080
+  ],
+  "v1": [
+   652,
+   1080
+  ],
+  "new": [
+   652,
+   1080
+  ],
+  "flipsV1toNew": {
+   "winToLoss": 0,
+   "lossToWin": 0
+  },
+  "diffV1New": 0,
+  "games": 1080
+ },
+ "encoreGuardBoundary": {
+  "summary": {
+   "v1allow|v2allow|start": 220,
+   "v1block|v2block|fail": 260
+  },
+  "falsePositiveV1": 0,
+  "falsePositiveV2": 0,
+  "failAllowedV1": 0,
+  "failAllowedV2": 0
+ }
+}

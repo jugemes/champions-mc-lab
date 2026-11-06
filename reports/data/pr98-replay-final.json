@@ -1,0 +1,82 @@
+{
+ "saved": "pr96-eval-final.json",
+ "replay": "pr96-eval-final.replay.json",
+ "determinism": {
+  "policyRowsCompared": 144,
+  "differences": 0,
+  "first": []
+ },
+ "shadow": {
+  "battlesLogged": 4936,
+  "workerBattleCountFinal": 110658,
+  "aware": {
+   "battles": 350,
+   "pr96Hit": 350,
+   "pr98Known": 101,
+   "pr96HitT12": 141,
+   "pr98KnownT12": 0,
+   "pr96OnlySameTurnMega": 0,
+   "pr96OnlyLocked": 249,
+   "pr96OnlyOther": 0,
+   "pr98OnlyBalloon": 0,
+   "possibleMega": 0,
+   "lockedLines": 249,
+   "maskerDisagree": 0,
+   "knownWhy": {
+    "only ability levitate | Headlong Rush -> Hydreigon": 5,
+    "only ability levitate | Headlong Rush -> Rotom-Wash": 3,
+    "type | Outrage -> Primarina": 24,
+    "only ability levitate | Earthquake -> Hydreigon": 25,
+    "type | Gunk Shot -> Metagross": 4,
+    "type | Gunk Shot -> Metagross-Mega": 46,
+    "only ability levitate | Earthquake -> Rotom-Wash": 28,
+    "type | Psychic -> Hydreigon": 2,
+    "type | Psychic -> Tyranitar": 4
+   },
+   "knownT12Why": {},
+   "knownT12Choice": {}
+  },
+  "naive": {
+   "battles": 4586,
+   "pr96Hit": 4586,
+   "pr98Known": 4236,
+   "pr96HitT12": 1342,
+   "pr98KnownT12": 1153,
+   "pr96OnlySameTurnMega": 0,
+   "pr96OnlyLocked": 352,
+   "pr96OnlyOther": 0,
+   "pr98OnlyBalloon": 0,
+   "possibleMega": 0,
+   "lockedLines": 352,
+   "maskerDisagree": 0,
+   "knownWhy": {
+    "only ability levitate | Headlong Rush -> Rotom-Wash": 2072,
+    "only ability levitate | Earthquake -> Rotom-Wash": 5055,
+    "only ability levitate | Headlong Rush -> Hydreigon": 56,
+    "type | Gunk Shot -> Metagross-Mega": 91,
+    "type | Gunk Shot -> Metagross": 10,
+    "only ability levitate | Scorching Sands -> Rotom-Wash": 2369,
+    "type | Psychic -> Hydreigon": 4,
+    "type | Outrage -> Primarina": 40,
+    "only ability levitate | Earthquake -> Hydreigon": 130
+   },
+   "knownT12Why": {
+    "only ability levitate | Headlong Rush -> Rotom-Wash": 788,
+    "only ability levitate | Earthquake -> Rotom-Wash": 460,
+    "only ability levitate | Scorching Sands -> Rotom-Wash": 628,
+    "only ability levitate | Earthquake -> Hydreigon": 12
+   },
+   "knownT12Choice": {
+    "base AI [masker saw Headlong Rush]": 731,
+    "move 1 [masker saw Headlong Rush]": 57,
+    "base AI [masker saw Earthquake]": 38,
+    "move 4 mega [masker saw Scorching Sands]": 311,
+    "move 4 [masker saw Scorching Sands]": 317,
+    "move 3 mega [masker saw Earthquake]": 230,
+    "move 3 [masker saw Earthquake]": 194,
+    "move 2 [masker saw Earthquake]": 10
+   }
+  }
+ },
+ "awareResidualExamples": []
+}

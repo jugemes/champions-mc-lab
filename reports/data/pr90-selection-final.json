@@ -1,0 +1,243 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "phase": "FINAL",
+ "workers": 4,
+ "budgetSeconds": 90,
+ "searchSeedBase": 8700000,
+ "guard": {
+  "altRatio": 0.85,
+  "k": 3,
+  "branches": [
+   "ai",
+   "attack",
+   "setup",
+   "switch"
+  ],
+  "reps": 2,
+  "margin": 0.1,
+  "meanSlack": 0.02,
+  "pairedSides": true
+ },
+ "sixes": {
+  "F1_gallade": {
+   "publicSix": [
+    "Gallade",
+    "Arcanine-Hisui",
+    "Rotom-Frost",
+    "Garganacl",
+    "Whimsicott",
+    "Hydrapple"
+   ],
+   "pr88": {
+    "pick": "Primarina>Metagross>Tyranitar",
+    "seconds": 26.9,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Tyranitar>Metagross>Garchomp",
+    "label": "Tyranitar>Metagross/Garchomp",
+    "status": "guarded",
+    "seconds": 42.4,
+    "reason": "eligible 3; best worst 0.839 mean 0.875 vs legacy 0.292/0.471",
+    "eligible": [
+     "Tyranitar>Metagross/Garchomp",
+     "Primarina>Metagross/Tyranitar",
+     "Garchomp>Metagross/Primarina"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 3840
+    },
+    "scores": [
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "legacy": true,
+      "worst": 0.292,
+      "mean": 0.471,
+      "left": 0.471,
+      "right": 0.471,
+      "sideSplit": 0,
+      "pairs": 480
+     },
+     {
+      "pick": "Tyranitar>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.839,
+      "mean": 0.875,
+      "left": 0.877,
+      "right": 0.873,
+      "sideSplit": 8,
+      "pairs": 480
+     },
+     {
+      "pick": "Garchomp>Metagross/Primarina",
+      "legacy": false,
+      "worst": 0.703,
+      "mean": 0.847,
+      "left": 0.84,
+      "right": 0.854,
+      "sideSplit": 77,
+      "pairs": 480
+     },
+     {
+      "pick": "Primarina>Metagross/Tyranitar",
+      "legacy": false,
+      "worst": 0.833,
+      "mean": 0.874,
+      "left": 0.869,
+      "right": 0.879,
+      "sideSplit": 29,
+      "pairs": 480
+     }
+    ]
+   },
+   "changed": true
+  },
+  "F2_feraligatr": {
+   "publicSix": [
+    "Feraligatr",
+    "Infernape",
+    "Hatterene",
+    "Mudsdale",
+    "Noivern",
+    "Aegislash"
+   ],
+   "pr88": {
+    "pick": "Primarina>Metagross>Hydreigon",
+    "seconds": 28.1,
+    "status": "guarded"
+   },
+   "v2": {
+    "pick": "Primarina>Metagross>Hydreigon",
+    "label": "Primarina>Metagross/Hydreigon",
+    "status": "guarded",
+    "seconds": 47.8,
+    "reason": "eligible 3; best worst 0.958 mean 0.97 vs legacy 0.552/0.696",
+    "eligible": [
+     "Primarina>Metagross/Hydreigon",
+     "Primarina>Metagross/Garchomp",
+     "Metagross>Primarina/Rotom-Wash"
+    ],
+    "games": {
+     "search": 3456,
+     "guard": 4608
+    },
+    "scores": [
+     {
+      "pick": "Garchomp>Hydreigon/Rotom-Wash",
+      "legacy": true,
+      "worst": 0.552,
+      "mean": 0.696,
+      "left": 0.696,
+      "right": 0.696,
+      "sideSplit": 0,
+      "pairs": 576
+     },
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": false,
+      "worst": 0.938,
+      "mean": 0.965,
+      "left": 0.967,
+      "right": 0.964,
+      "sideSplit": 2,
+      "pairs": 576
+     },
+     {
+      "pick": "Primarina>Metagross/Hydreigon",
+      "legacy": false,
+      "worst": 0.958,
+      "mean": 0.97,
+      "left": 0.972,
+      "right": 0.969,
+      "sideSplit": 2,
+      "pairs": 576
+     },
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.917,
+      "mean": 0.951,
+      "left": 0.953,
+      "right": 0.948,
+      "sideSplit": 3,
+      "pairs": 576
+     }
+    ]
+   },
+   "changed": false
+  },
+  "F3_glimmora": {
+   "publicSix": [
+    "Glimmora",
+    "Conkeldurr",
+    "Grimmsnarl",
+    "Cinderace",
+    "Basculegion-F",
+    "Sinistcha"
+   ],
+   "pr88": {
+    "pick": "Primarina>Hydreigon>Garchomp",
+    "seconds": 27.2,
+    "status": "legacy"
+   },
+   "v2": {
+    "pick": "Primarina>Hydreigon>Garchomp",
+    "label": "Primarina>Hydreigon/Garchomp",
+    "status": "legacy",
+    "seconds": 43.6,
+    "reason": "legacy kept: no candidate with worst >= 0.854+0.1 and mean >= 0.915-0.02",
+    "eligible": [],
+    "games": {
+     "search": 3456,
+     "guard": 3840
+    },
+    "scores": [
+     {
+      "pick": "Primarina>Hydreigon/Garchomp",
+      "legacy": true,
+      "worst": 0.854,
+      "mean": 0.915,
+      "left": 0.915,
+      "right": 0.915,
+      "sideSplit": 0,
+      "pairs": 480
+     },
+     {
+      "pick": "Metagross>Hydreigon/Garchomp",
+      "legacy": false,
+      "worst": 0.906,
+      "mean": 0.975,
+      "left": 0.975,
+      "right": 0.975,
+      "sideSplit": 0,
+      "pairs": 480
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "legacy": false,
+      "worst": 0.927,
+      "mean": 0.958,
+      "left": 0.958,
+      "right": 0.958,
+      "sideSplit": 0,
+      "pairs": 480
+     },
+     {
+      "pick": "Primarina>Metagross/Rotom-Wash",
+      "legacy": false,
+      "worst": 0.896,
+      "mean": 0.931,
+      "left": 0.931,
+      "right": 0.931,
+      "sideSplit": 0,
+      "pairs": 480
+     }
+    ]
+   },
+   "changed": false
+  }
+ },
+ "note": "Selection only. Guard games: each seed on both sides. AI vs AI on constructed sets, NOT a ladder win rate."
+}
