@@ -1,0 +1,69 @@
+name: Engine-search turn AI (opt-in research)
+on:
+  pull_request:
+    paths:
+      - 'engine-*.js'
+      - 'encore-lead-audit.js'
+      - 'test/engine-search.test.js'
+      - '.github/workflows/engine-search.yml'
+  workflow_dispatch:
+    inputs:
+      games:
+        description: 'Games per series (even)'
+        default: '10'
+        type: choice
+        options: ['2','10','20']
+permissions:
+  contents: read
+env:
+  SHOWDOWN_DIR: ${{ github.workspace }}/showdown
+  PIN: 3a766f2cfb5e51c1e428cfe87d0dba91a8f01640
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: {repository: smogon/pokemon-showdown, ref: '3a766f2cfb5e51c1e428cfe87d0dba91a8f01640', path: showdown, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm, cache-dependency-path: showdown/package-lock.json}
+      - name: Build pinned engine
+        run: cd showdown && npm ci && npm run build
+      - name: Engine-search tests
+        run: node --test test/engine-search.test.js
+      - name: Full regression and M-C legality
+        run: |
+          test "$(git -C showdown rev-parse HEAD)" = "$PIN"
+          npm test
+          npm run check
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ['mirror:live_A','mirror:O2','mirror:sun_charizard_y',
+               'branch:sun/A','branch:sun/Y_back_Mimikyu','branch:mixedElectric/A']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: {repository: smogon/pokemon-showdown, ref: '3a766f2cfb5e51c1e428cfe87d0dba91a8f01640', path: showdown, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm, cache-dependency-path: showdown/package-lock.json}
+      - name: Build pinned engine
+        run: cd showdown && npm ci && npm run build
+      - name: Benchmark (AI vs AI, not ladder win rates)
+        id: run
+        run: |
+          safe=$(echo '${{ matrix.part }}' | tr ':/' '__')
+          echo "safe=$safe" >> "$GITHUB_OUTPUT"
+          node engine-search-benchmark.js --games "${{ inputs.games || '10' }}" --only '${{ matrix.part }}' \
+            --out "output/engine-search-$safe.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: engine-search-${{ steps.run.outputs.safe }}-${{ github.run_id }}
+          path: output/engine-search-*.json
+          retention-days: 30
+          if-no-files-found: warn
