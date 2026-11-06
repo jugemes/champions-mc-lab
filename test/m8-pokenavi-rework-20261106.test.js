@@ -29,7 +29,8 @@ test('the rival double pivot reacts to either revealed bulky switch-in', () => {
     { active: true, details: 'Garchomp-Mega-Z, L50', condition: '100/100' },
     { active: false, details: 'Mimikyu, L50', condition: '100/100' },
   ] } };
-  for (const foeActive of ['Primarina', 'Goodra-Hisui']) {
+  const goodra = build('goodra').find(member => member.species.startsWith('Goodra'));
+  for (const foeActive of ['Primarina', goodra.species]) {
     const events = [];
     const play = branch.makePolicy(events);
     assert.equal(play(request, { foeActive: 'Gholdengo' }, { canSwitch: true, turn: 3 }), null);

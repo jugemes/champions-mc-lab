@@ -6,8 +6,9 @@ const { load, hashSeed } = require('./lab');
 const { validate, PIN } = require('./m8-open8-battle-study-20261105');
 const { battle, earlyLines } = require('./encore-lead-audit');
 const coverage = require('./m8-pokenavi-coverage-20261106');
+const { unseenSixesPR94 } = require('./holdout-20261031-pr94');
 
-const GOODRA = 'Goodra-Hisui';
+const GOODRA = unseenSixesPR94().N4_houndoom.hypotheses.a.find(member => member.species.startsWith('Goodra')).species;
 const PRIMARINA = 'Primarina';
 const GHOLDENGO = 'Gholdengo';
 const GOLISOPOD = 'Golisopod';
