@@ -1,0 +1,1292 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "ownAI": "new",
+ "own": [
+  "Hydreigon>Primarina/Rotom-Wash",
+  "Tyranitar>Metagross/Primarina",
+  "Tyranitar>Hydreigon/Primarina",
+  "Primarina>Metagross/Garchomp",
+  "Garchomp>Metagross/Primarina"
+ ],
+ "hyps": [
+  "H1"
+ ],
+ "seeds": [
+  "24607-37498-61142-45282",
+  "54677-39695-2357-40305",
+  "46895-12472-40468-5737",
+  "29719-41916-53714-51437",
+  "53403-16281-13640-50859",
+  "5715-27841-34312-23269"
+ ],
+ "branches": [
+  "ai",
+  "m1",
+  "m2",
+  "m3",
+  "m4",
+  "ratSwitch"
+ ],
+ "reproducesPR73Bits": "19440/19440",
+ "note": "worst = seed/side games won under EVERY branch kept by the labelling. Heuristic AI vs heuristic AI, NOT a ladder win rate.",
+ "totals": {
+  "old": "56/540",
+  "newStrict": "61/540",
+  "newUnknownAsPlausible": "59/540"
+ },
+ "pairs": [
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Gholdengo>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "labels": {
+    "plausible": 792,
+    "weak": 72
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Mimikyu>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 298
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 178
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 178
+   },
+   "labels": {
+    "weak": 278,
+    "plausible": 562,
+    "blunder": 24
+   },
+   "oldPlausibleNowExcluded": 120,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Hippowdon>Garchomp/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 242
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "labels": {
+    "plausible": 662,
+    "unknown": 94,
+    "blunder": 108
+   },
+   "oldPlausibleNowExcluded": 190,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Gholdengo>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newStrict": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newUnknownAsPlausible": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 360
+   },
+   "labels": {
+    "plausible": 792,
+    "weak": 72
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Primarina>Mimikyu/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 264
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 264
+   },
+   "labels": {
+    "plausible": 660,
+    "weak": 192,
+    "blunder": 12
+   },
+   "oldPlausibleNowExcluded": 60,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Hippowdon>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 408
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 228
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 300
+   },
+   "labels": {
+    "plausible": 648,
+    "weak": 48,
+    "unknown": 84,
+    "blunder": 84
+   },
+   "oldPlausibleNowExcluded": 180,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Hippowdon>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 408
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 252
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "labels": {
+    "plausible": 672,
+    "weak": 24,
+    "unknown": 84,
+    "blunder": 84
+   },
+   "oldPlausibleNowExcluded": 156,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Mimikyu>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 300
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 180
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 180
+   },
+   "labels": {
+    "weak": 276,
+    "plausible": 564,
+    "blunder": 24
+   },
+   "oldPlausibleNowExcluded": 120,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Hydreigon>Primarina/Rotom-Wash|Golisopod>Garchomp/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newStrict": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newUnknownAsPlausible": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 360
+   },
+   "labels": {
+    "plausible": 792,
+    "weak": 72
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Gholdengo>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 336
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 336
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 336
+   },
+   "labels": {
+    "plausible": 768,
+    "weak": 84,
+    "blunder": 12
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Mimikyu>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 242
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 234
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 234
+   },
+   "labels": {
+    "plausible": 634,
+    "blunder": 86,
+    "weak": 144
+   },
+   "oldPlausibleNowExcluded": 8,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Hippowdon>Garchomp/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 252
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 264
+   },
+   "labels": {
+    "plausible": 672,
+    "blunder": 180,
+    "unknown": 12
+   },
+   "oldPlausibleNowExcluded": 180,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Gholdengo>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 7,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newStrict": {
+    "won": 7,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newUnknownAsPlausible": {
+    "won": 7,
+    "games": 12,
+    "branchGames": 348
+   },
+   "labels": {
+    "plausible": 780,
+    "weak": 84
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Primarina>Mimikyu/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 400
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 328
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 328
+   },
+   "labels": {
+    "plausible": 760,
+    "weak": 20,
+    "blunder": 84
+   },
+   "oldPlausibleNowExcluded": 72,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Hippowdon>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 408
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 228
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 240
+   },
+   "labels": {
+    "plausible": 648,
+    "blunder": 192,
+    "unknown": 12,
+    "weak": 12
+   },
+   "oldPlausibleNowExcluded": 180,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Hippowdon>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 2,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 252
+   },
+   "newUnknownAsPlausible": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 264
+   },
+   "labels": {
+    "plausible": 672,
+    "blunder": 180,
+    "unknown": 12
+   },
+   "oldPlausibleNowExcluded": 180,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Mimikyu>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 240
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 236
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 236
+   },
+   "labels": {
+    "plausible": 644,
+    "blunder": 76,
+    "weak": 144
+   },
+   "oldPlausibleNowExcluded": 4,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Metagross/Primarina|Golisopod>Garchomp/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newStrict": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newUnknownAsPlausible": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 348
+   },
+   "labels": {
+    "plausible": 780,
+    "weak": 72,
+    "blunder": 12
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Gholdengo>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 336
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 336
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 336
+   },
+   "labels": {
+    "plausible": 768,
+    "weak": 84,
+    "blunder": 12
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Mimikyu>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 242
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 234
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 234
+   },
+   "labels": {
+    "plausible": 634,
+    "blunder": 86,
+    "weak": 144
+   },
+   "oldPlausibleNowExcluded": 8,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Hippowdon>Garchomp/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 8,
+    "games": 12,
+    "branchGames": 72
+   },
+   "newUnknownAsPlausible": {
+    "won": 6,
+    "games": 12,
+    "branchGames": 264
+   },
+   "labels": {
+    "plausible": 456,
+    "unknown": 228,
+    "blunder": 180
+   },
+   "oldPlausibleNowExcluded": 360,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Gholdengo>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 348
+   },
+   "labels": {
+    "plausible": 780,
+    "weak": 84
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Primarina>Mimikyu/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 400
+   },
+   "newStrict": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 328
+   },
+   "newUnknownAsPlausible": {
+    "won": 1,
+    "games": 12,
+    "branchGames": 328
+   },
+   "labels": {
+    "plausible": 760,
+    "weak": 20,
+    "blunder": 84
+   },
+   "oldPlausibleNowExcluded": 72,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Hippowdon>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 420
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 144
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 252
+   },
+   "labels": {
+    "plausible": 528,
+    "unknown": 144,
+    "blunder": 156,
+    "weak": 36
+   },
+   "oldPlausibleNowExcluded": 276,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Hippowdon>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 144
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 264
+   },
+   "labels": {
+    "plausible": 528,
+    "unknown": 156,
+    "blunder": 180
+   },
+   "oldPlausibleNowExcluded": 288,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Mimikyu>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 240
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 236
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 236
+   },
+   "labels": {
+    "plausible": 644,
+    "blunder": 76,
+    "weak": 144
+   },
+   "oldPlausibleNowExcluded": 4,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Tyranitar>Hydreigon/Primarina|Golisopod>Garchomp/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 10,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newStrict": {
+    "won": 10,
+    "games": 12,
+    "branchGames": 348
+   },
+   "newUnknownAsPlausible": {
+    "won": 10,
+    "games": 12,
+    "branchGames": 348
+   },
+   "labels": {
+    "plausible": 780,
+    "weak": 72,
+    "blunder": 12
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Gholdengo>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "labels": {
+    "plausible": 864
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Mimikyu>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "labels": {
+    "plausible": 864
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Hippowdon>Garchomp/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 356
+   },
+   "newUnknownAsPlausible": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 356
+   },
+   "labels": {
+    "plausible": 788,
+    "blunder": 76
+   },
+   "oldPlausibleNowExcluded": 76,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Gholdengo>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "labels": {
+    "plausible": 864
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Primarina>Mimikyu/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "labels": {
+    "plausible": 786,
+    "blunder": 78
+   },
+   "oldPlausibleNowExcluded": 72,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Hippowdon>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 356
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 356
+   },
+   "labels": {
+    "plausible": 788,
+    "blunder": 76
+   },
+   "oldPlausibleNowExcluded": 76,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Hippowdon>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 356
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 356
+   },
+   "labels": {
+    "plausible": 788,
+    "blunder": 76
+   },
+   "oldPlausibleNowExcluded": 76,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Mimikyu>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "labels": {
+    "plausible": 864
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Primarina>Metagross/Garchomp|Golisopod>Garchomp/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "labels": {
+    "plausible": 864
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Gholdengo>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "labels": {
+    "plausible": 732,
+    "blunder": 132
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Mimikyu>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newStrict": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 356
+   },
+   "newUnknownAsPlausible": {
+    "won": 4,
+    "games": 12,
+    "branchGames": 356
+   },
+   "labels": {
+    "plausible": 788,
+    "blunder": 76
+   },
+   "oldPlausibleNowExcluded": 4,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Hippowdon>Garchomp/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "labels": {
+    "plausible": 732,
+    "blunder": 120,
+    "unknown": 12
+   },
+   "oldPlausibleNowExcluded": 120,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Gholdengo>Garchomp/Primarina",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 304
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 304
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 304
+   },
+   "labels": {
+    "plausible": 724,
+    "blunder": 140
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Primarina>Mimikyu/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 420
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "labels": {
+    "plausible": 732,
+    "blunder": 60,
+    "weak": 72
+   },
+   "oldPlausibleNowExcluded": 108,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Hippowdon>Primarina/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 420
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "labels": {
+    "plausible": 732,
+    "blunder": 120,
+    "unknown": 12
+   },
+   "oldPlausibleNowExcluded": 108,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Hippowdon>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 432
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 312
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 324
+   },
+   "labels": {
+    "plausible": 732,
+    "blunder": 120,
+    "unknown": 12
+   },
+   "oldPlausibleNowExcluded": 120,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Mimikyu>Primarina/Gholdengo",
+   "branchGames": 432,
+   "old": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newStrict": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "newUnknownAsPlausible": {
+    "won": 0,
+    "games": 12,
+    "branchGames": 360
+   },
+   "labels": {
+    "plausible": 792,
+    "blunder": 72
+   },
+   "oldPlausibleNowExcluded": 0,
+   "oldExcludedNowPlausible": 0
+  },
+  {
+   "pair": "H1|Garchomp>Metagross/Primarina|Golisopod>Garchomp/Mimikyu",
+   "branchGames": 432,
+   "old": {
+    "won": 2,
+    "games": 12,
+    "branchGames": 408
+   },
+   "newStrict": {
+    "won": 2,
+    "games": 12,
+    "branchGames": 372
+   },
+   "newUnknownAsPlausible": {
+    "won": 2,
+    "games": 12,
+    "branchGames": 396
+   },
+   "labels": {
+    "plausible": 804,
+    "unknown": 24,
+    "weak": 12,
+    "blunder": 24
+   },
+   "oldPlausibleNowExcluded": 36,
+   "oldExcludedNowPlausible": 0
+  }
+ ],
+ "why": {
+  "preempted (no executed line)": 3268,
+  "executed and failed": 2082,
+  "preempted (forced switch-out before moving)": 1152,
+  "cant": 112
+ },
+ "topExcluded": [
+  [
+   "scripted:Slack Off:blunder",
+   912
+  ],
+  [
+   "scripted:Shadow Claw:weak",
+   904
+  ],
+  [
+   "scripted:Slack Off:blunder(executed and failed)",
+   432
+  ],
+  [
+   "scripted:Swords Dance:blunder",
+   428
+  ],
+  [
+   "scripted:Sparkling Aria:weak",
+   324
+  ],
+  [
+   "scripted:Shadow Ball:weak",
+   304
+  ],
+  [
+   "scripted:Stealth Rock:blunder(executed and failed)",
+   294
+  ],
+  [
+   "scripted:Thunderbolt:blunder(executed and failed)",
+   272
+  ],
+  [
+   "scripted:Encore:blunder(executed and failed)",
+   198
+  ],
+  [
+   "scripted:Slack Off:blunder(preempted (no executed line))",
+   180
+  ],
+  [
+   "ai:Primarina:weak",
+   168
+  ],
+  [
+   "fallback:Primarina:weak",
+   168
+  ],
+  [
+   "scripted:Swords Dance:blunder(preempted (no executed line))",
+   164
+  ],
+  [
+   "scripted:Flamethrower:weak",
+   156
+  ],
+  [
+   "scripted:Encore:weak",
+   144
+  ],
+  [
+   "scripted:Shadow Claw:weak(preempted (no executed line))",
+   94
+  ],
+  [
+   "scripted:Stealth Rock:blunder(preempted (no executed line))",
+   66
+  ],
+  [
+   "ai:Swords Dance:blunder",
+   54
+  ],
+  [
+   "scripted:Encore:blunder",
+   36
+  ],
+  [
+   "scripted:Encore:blunder(preempted (no executed line))",
+   36
+  ],
+  [
+   "fallback:Swords Dance:blunder",
+   34
+  ],
+  [
+   "ai:Swords Dance:blunder(cant)",
+   4
+  ],
+  [
+   "scripted:Swords Dance:blunder(cant)",
+   4
+  ]
+ ]
+}
