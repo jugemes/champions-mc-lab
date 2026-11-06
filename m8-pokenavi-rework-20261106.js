@@ -14,12 +14,18 @@ const GHOLDENGO = 'Gholdengo';
 const GOLISOPOD = 'Golisopod';
 const SKELEDIRGE = 'Skeledirge';
 const MEOWSCARADA = 'Meowscarada';
-const guarded = id => id === 'goodraGuard' || id === 'goodraFinal';
+const CHARIZARD = 'Charizard';
+const preservesSkeledirge = id => id === 'goodraFinal' || id === 'charRain';
+const guarded = id => id === 'goodraGuard' || preservesSkeledirge(id);
 const usesGoodra = id => id === 'goodra' || guarded(id);
 const physicalDragoniteMoves = new Set(['Dragon Dance', 'Earthquake', 'Fire Punch']);
 
 function build(id) {
   return coverage.rosters().energy.map(member => {
+    if (id === 'charRain' && member.species === 'Aerodactyl') {
+      return { species: CHARIZARD, item: 'Charizardite Y', ability: 'Blaze', nature: 'Timid',
+        evs: { hp: 2, spa: 32, spe: 32 }, moves: ['Flamethrower', 'Solar Beam', 'Dragon Pulse', 'Ancient Power'] };
+    }
     if (!usesGoodra(id) || member.species !== PRIMARINA) return member;
     return { species: GOODRA, item: 'Air Balloon', ability: 'Sap Sipper', nature: 'Modest',
       evs: { hp: 32, spa: 32, spd: 2 }, moves: ['Ice Beam', 'Earthquake', 'Flash Cannon', 'Thunderbolt'] };
@@ -33,6 +39,11 @@ function select(id, publicCase) {
   if (publicCase === 'mixed') return id === 'goodra'
     ? [GOLISOPOD, GOODRA, MEOWSCARADA] : [GOLISOPOD, PRIMARINA, SKELEDIRGE];
   if (usesGoodra(id) && publicCase === 'sand') return [MEOWSCARADA, GOLISOPOD, SKELEDIRGE];
+  if (id === 'charRain') {
+    if (['rain', 'rainPivot'].includes(publicCase)) return [MEOWSCARADA, GHOLDENGO, CHARIZARD];
+    if (['sun', 'charX'].includes(publicCase)) return [CHARIZARD, SKELEDIRGE, GOODRA];
+    return plan.map(species => species === 'Aerodactyl' ? CHARIZARD : species === PRIMARINA ? GOODRA : species);
+  }
   return usesGoodra(id) ? plan.map(species => species === PRIMARINA ? GOODRA : species) : plan;
 }
 
@@ -52,6 +63,41 @@ function pivot(request, info, species) {
   return index < 0 ? null : `switch ${index + 1}`;
 }
 
+function charizardPolicy(publicCase, own, foe, request, bot, info) {
+  const attack = (move, mega) => pickMove(request, move, mega);
+  const switchTo = species => pivot(request, info, species);
+  const canSetSun = request.active[0].canMegaEvo;
+  const sun = bot.weather === 'sunnyday';
+  if (['rain', 'rainPivot'].includes(publicCase)) {
+    if (own === MEOWSCARADA && info.turn === 1 && ['Pelipper', 'Archaludon'].includes(foe)) {
+      return attack('uturn');
+    }
+    if (!own.startsWith(CHARIZARD)) return null;
+    if (foe.startsWith('Swampert') && (canSetSun || sun)) return attack('solarbeam', true);
+    if (foe === 'Pelipper' && !canSetSun && !sun) return switchTo(GHOLDENGO) ?? attack('ancientpower');
+    return attack('flamethrower', true);
+  }
+  if (publicCase === 'sun') {
+    if (own === SKELEDIRGE && foe.startsWith(CHARIZARD)) return attack('shadowball');
+    if (own === SKELEDIRGE && ['Garchomp', 'Primarina', 'Baxcalibur'].includes(foe)) return switchTo(GOODRA);
+    if (own === GOODRA && [CHARIZARD, 'Charizard-Mega-X'].includes(foe)) return switchTo(SKELEDIRGE);
+    if (own.startsWith(CHARIZARD) && foe === CHARIZARD) return attack('dragonpulse', true);
+    if (own.startsWith(CHARIZARD) && foe === 'Primarina' && info.turn === 2) {
+      return switchTo(GOODRA) ?? attack('solarbeam');
+    }
+  }
+  if (!own.startsWith(CHARIZARD)) return null;
+  if (foe === 'Garchomp' && (info.turn === 1 || publicCase === 'sun')) {
+    return switchTo(GOODRA) ?? attack('dragonpulse', true);
+  }
+  if (/^(Garchomp|Salamence|Dragonite|Charizard-Mega-X|Baxcalibur)/.test(foe)) return attack('dragonpulse', true);
+  if (/^(Charizard|Volcarona|Pelipper)/.test(foe)) return attack('ancientpower', true);
+  if (/^(Swampert|Primarina|Toxapex|Hippowdon|Starmie)/.test(foe) && (canSetSun || sun)) {
+    return attack('solarbeam', true);
+  }
+  return attack('flamethrower', true);
+}
+
 function play(id, publicCase, request, bot, info) {
   const fallback = () => coverage.dualPolicy(true, true, true, publicCase, request, bot, info, true, true);
   if (id === 'original') return fallback();
@@ -61,6 +107,10 @@ function play(id, publicCase, request, bot, info) {
   const switchTo = species => pivot(request, info, species);
   const partner = usesGoodra(id) ? GOODRA : PRIMARINA;
 
+  if (id === 'charRain') {
+    const choice = charizardPolicy(publicCase, own, foe, request, bot, info);
+    if (choice) return choice;
+  }
   if (['rain', 'rainPivot'].includes(publicCase) && own === GHOLDENGO) {
     if (foe === 'Pelipper') return attack('shadowball') ?? attack('thunderbolt');
     if (foe === 'Archaludon') return attack('shadowball') ?? switchTo('Aerodactyl');
@@ -70,7 +120,7 @@ function play(id, publicCase, request, bot, info) {
       if (own.startsWith(GOLISOPOD) && foe.startsWith('Dragonite')) {
         const seenPhysical = physicalDragoniteMoves.has(bot.lastMove) ||
           bot.seenMoves?.[foe]?.some(move => physicalDragoniteMoves.has(move));
-        if (id === 'goodraFinal' && info.turn > 1 && !seenPhysical) {
+        if (preservesSkeledirge(id) && info.turn > 1 && !seenPhysical) {
           const choice = switchTo(GOODRA);
           if (choice) return choice;
         }
@@ -137,17 +187,23 @@ function doublePivot(events) {
   };
 }
 
-function fixtures(audit, physical = false, chains = false) {
+function fixtures(audit, physical = false, chains = false, longRain = false) {
   const publicCases = coverage.opponents(true, true, true);
-  return publicCases.map(c => ({ ...c, branches: [
-    ...c.branches.map(b => ({ ...b, makePolicy: () => coverage.policy(b) })),
-    ...audit.BRANCHES.filter(b => b.scenario === c.id).map(b => ({
-      ...b, makePolicy: b.id === 'gyaraChompThenMimikyu' ? doublePivot : b.rival,
-    })),
-    ...extraBranches(c.id, audit.rival),
-    ...(physical ? followupBranches(c.id, audit.rival) : []),
-    ...(chains ? chainBranches(c.id, audit.rival) : []),
-  ] }));
+  return publicCases.map(c => {
+    const branches = [
+      ...c.branches.map(b => ({ ...b, makePolicy: () => coverage.policy(b) })),
+      ...audit.BRANCHES.filter(b => b.scenario === c.id).map(b => ({
+        ...b, makePolicy: b.id === 'gyaraChompThenMimikyu' ? doublePivot : b.rival,
+      })),
+      ...extraBranches(c.id, audit.rival),
+      ...(physical ? followupBranches(c.id, audit.rival) : []),
+      ...(chains ? chainBranches(c.id, audit.rival) : []),
+    ];
+    if (longRain && ['rain', 'rainPivot'].includes(c.id)) {
+      branches.push(...longRainBranches(c, branches, audit.rival));
+    }
+    return { ...c, branches };
+  });
 }
 
 function extraBranches(id, rival) {
@@ -219,6 +275,31 @@ function chainBranches(id, rival) {
   return [];
 }
 
+function longRainBranches(c, branches, rival) {
+  const pelipper = c.team.find(p => p.species === 'Pelipper');
+  const swampert = c.team.find(p => p.species === 'Swampert');
+  const sets = [
+    { ...pelipper, item: 'Damp Rock', nature: 'Relaxed', evs: { hp: 32, def: 32, spd: 2 },
+      moves: ['Hurricane', 'Surf', 'U-turn', 'Ice Beam'] },
+    { ...swampert, moves: swampert.moves.map(move => move === 'Liquidation' ? 'Wave Crash' : move) },
+  ];
+  const lead = { id: 'swampertLead', three: ['Swampert', 'Pelipper', 'Archaludon'],
+    makePolicy: rival.switchT1('Pelipper') };
+  const wave = { id: 'waveCrashThenArch', three: ['Pelipper', 'Swampert', 'Archaludon'], makePolicy: () => {
+    const rest = rival.doubleSwitch('Swampert', 'Swampert', MEOWSCARADA, 'Archaludon')();
+    return (request, bot, info) => {
+      const active = request.side.pokemon.find(p => p.active);
+      if (info.turn === 2 && speciesOf(active) === 'Swampert') {
+        return pickMove(request, 'wavecrash', true) ?? rest(request, bot, info);
+      }
+      return rest(request, bot, info);
+    };
+  } };
+  return [...branches.filter(b => b.id !== 'pelipperSwampertliquidationThenArch'), wave, lead].map(b => ({
+    ...b, id: `long-${b.id}`, sets: [...sets, ...(b.sets ?? [])],
+  }));
+}
+
 function foeTeam(c, b) {
   return c.team.map(member => {
     const set = b.sets?.find(candidate => candidate.species === member.species) ?? member;
@@ -227,7 +308,8 @@ function foeTeam(c, b) {
   });
 }
 
-async function run(audit, { trials = 8, seedBase = 67130000, ids = ['original', 'adjusted', 'goodra'], only, physical = false, chains = false } = {}) {
+async function run(audit, { trials = 8, seedBase = 67130000, ids = ['original', 'adjusted', 'goodra'],
+  only, physical = false, chains = false, longRain = false } = {}) {
   if (!Number.isInteger(trials) || trials < 1 || trials > 40 || !Number.isSafeInteger(seedBase)) {
     throw new Error('Expected 1–40 trials per branch and an integer seed base');
   }
@@ -238,7 +320,7 @@ async function run(audit, { trials = 8, seedBase = 67130000, ids = ['original', 
   for (const [id, team] of Object.entries(teams)) validate(sim, team, id);
   const rows = [];
   const observed = new Map();
-  for (const [ci, c] of fixtures(audit, physical, chains).entries()) {
+  for (const [ci, c] of fixtures(audit, physical, chains, longRain).entries()) {
     if (only && !only.includes(c.id)) continue;
     const choices = Object.fromEntries(ids.map(id => [id, select(id, c.id)]));
     const key = c.team.map(member => member.species).sort().join('/');
@@ -264,7 +346,11 @@ async function run(audit, { trials = 8, seedBase = 67130000, ids = ['original', 
             ownOptions: { script: play.bind(null, id, c.id === 'charX' ? 'sun' : c.id) },
           });
           if (r.errors || r.foe.join('/') !== b.three.join('/')) throw new Error(`Invalid battle ${c.id}/${b.id}`);
-          games.push({ won: r.won, scriptedPivots, early: earlyLines(r.log, r.ownSide, 7) });
+          const observation = { won: r.won, scriptedPivots, early: earlyLines(r.log, r.ownSide, 7) };
+          if (longRain && ['rain', 'rainPivot'].includes(c.id)) {
+            observation.weather = r.log.split('\n').filter(line => line.startsWith('|-weather|') && !line.includes('[upkeep]'));
+          }
+          games.push(observation);
         }
         observations[id] = games;
       }
@@ -282,6 +368,7 @@ if (require.main === module) run(require('./m8-pokenavi-claude-audit-20261106'),
   ids: process.env.M8_REWORK_VARIANTS?.split(','), only: process.env.M8_REWORK_CASES?.split(','),
   physical: process.env.M8_REWORK_PHYSICAL === '1',
   chains: process.env.M8_REWORK_CHAINS === '1',
+  longRain: process.env.M8_REWORK_LONG_RAIN === '1',
 }).catch(error => { console.error(error); process.exitCode = 1; });
 
 module.exports = { build, select, play, fixtures, run };
