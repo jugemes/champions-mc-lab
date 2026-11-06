@@ -1,0 +1,2594 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "phase": "FINAL",
+ "coverOpts": {
+  "cellRule": "rational"
+ },
+ "evalSeedBase": 9400000,
+ "selectorSeedBase": 9410000,
+ "seeds": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "sides": "one side per seed (reverse = s%2)",
+ "own": "reportedLive",
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "games": 2400,
+ "seconds": {
+  "selectionAndTables": 214,
+  "evalGames": 12
+ },
+ "summary": {
+  "legacy": {
+   "hyps": 4,
+   "meanRat": 0.66,
+   "worstCellMean": 0.287,
+   "zeroWorstCells": 1,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.88,
+     0.4
+    ],
+    "N1_blaziken/b": [
+     0.75,
+     0.35
+    ],
+    "N2_heracross/a": [
+     0.66,
+     0.4
+    ],
+    "N2_heracross/b": [
+     0.35,
+     0
+    ]
+   }
+  },
+  "quick": {
+   "hyps": 4,
+   "meanRat": 0.855,
+   "worstCellMean": 0.663,
+   "zeroWorstCells": 0,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.96,
+     0.8
+    ],
+    "N1_blaziken/b": [
+     0.96,
+     0.8
+    ],
+    "N2_heracross/a": [
+     0.94,
+     0.85
+    ],
+    "N2_heracross/b": [
+     0.56,
+     0.2
+    ]
+   }
+  },
+  "guarded": {
+   "hyps": 4,
+   "meanRat": 0.867,
+   "worstCellMean": 0.487,
+   "zeroWorstCells": 0,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.88,
+     0.4
+    ],
+    "N1_blaziken/b": [
+     0.75,
+     0.35
+    ],
+    "N2_heracross/a": [
+     1,
+     1
+    ],
+    "N2_heracross/b": [
+     0.84,
+     0.2
+    ]
+   }
+  },
+  "v2": {
+   "hyps": 4,
+   "meanRat": 0.867,
+   "worstCellMean": 0.487,
+   "zeroWorstCells": 0,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.88,
+     0.4
+    ],
+    "N1_blaziken/b": [
+     0.75,
+     0.35
+    ],
+    "N2_heracross/a": [
+     1,
+     1
+    ],
+    "N2_heracross/b": [
+     0.84,
+     0.2
+    ]
+   }
+  },
+  "proposed": {
+   "hyps": 4,
+   "meanRat": 0.91,
+   "worstCellMean": 0.75,
+   "zeroWorstCells": 0,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.99,
+     0.95
+    ],
+    "N1_blaziken/b": [
+     1,
+     1
+    ],
+    "N2_heracross/a": [
+     0.68,
+     0.2
+    ],
+    "N2_heracross/b": [
+     0.97,
+     0.85
+    ]
+   }
+  },
+  "proposedT1T2": {
+   "hyps": 4,
+   "meanRat": 0.91,
+   "worstCellMean": 0.75,
+   "zeroWorstCells": 0,
+   "perHyp": {
+    "N1_blaziken/a": [
+     0.99,
+     0.95
+    ],
+    "N1_blaziken/b": [
+     1,
+     1
+    ],
+    "N2_heracross/a": [
+     0.68,
+     0.2
+    ],
+    "N2_heracross/b": [
+     0.97,
+     0.85
+    ]
+   }
+  }
+ },
+ "verdict": {
+  "rule": "NOT READY if any FINAL hyp: proposed worstCellRat = 0, or meanRat < max(legacy,v2) - 0.15",
+  "proposed": {
+   "fails": [
+    "N2_heracross/a: meanRat 0.68 < max(legacy,v2) 1 - 0.15"
+   ],
+   "pass": false
+  },
+  "proposedT1T2": {
+   "fails": [
+    "N2_heracross/a: meanRat 0.68 < max(legacy,v2) 1 - 0.15"
+   ],
+   "pass": false
+  }
+ },
+ "sixes": {
+  "N1_blaziken": {
+   "publicSix": [
+    "Blaziken",
+    "Rhyperior",
+    "Slowking-Galar",
+    "Froslass",
+    "Pawmot",
+    "Inteleon"
+   ],
+   "ace": "Blaziken",
+   "selection": {
+    "legacy": "Primarina>Garchomp>Metagross",
+    "quick": "Rotom-Wash>Primarina>Garchomp",
+    "guarded": "Primarina>Metagross>Garchomp",
+    "v2": "Primarina>Metagross>Garchomp",
+    "proposed": "Metagross>Primarina>Garchomp"
+   },
+   "selectorSeconds": {
+    "legacy": 0.017,
+    "quick": 9.94,
+    "guarded": 28.2,
+    "v2": 35.8,
+    "proposed": 26.3
+   },
+   "proposed": {
+    "status": "cover",
+    "pick": [
+     "Metagross",
+     "Primarina",
+     "Garchomp"
+    ],
+    "label": "Metagross>Primarina/Garchomp",
+    "reason": "eligible 6; best CVaR 0.933 mean 0.983 vs legacy 0.413/0.824",
+    "eligible": [
+     "Metagross>Primarina/Garchomp",
+     "Metagross>Tyranitar/Rotom-Wash",
+     "Garchomp>Metagross/Rotom-Wash",
+     "Garchomp>Tyranitar/Rotom-Wash",
+     "Tyranitar>Metagross/Rotom-Wash",
+     "Metagross>Hydreigon/Tyranitar"
+    ],
+    "legacy": "Primarina>Metagross/Garchomp",
+    "seconds": 26.3,
+    "budgetSeconds": 300,
+    "games": {
+     "screen": 3060,
+     "guard": 2856
+    },
+    "scenarios": 8,
+    "coverage": {
+     "required": 20,
+     "covered": 20,
+     "missing": []
+    },
+    "altScenarios": [
+     "Blaziken:Special",
+     "Froslass:Special"
+    ],
+    "cells": 51,
+    "megaAceCells": 5,
+    "screenTop": [
+     {
+      "pick": "Garchomp>Metagross/Rotom-Wash",
+      "cvar": 0.846,
+      "mean": 0.961
+     },
+     {
+      "pick": "Metagross>Primarina/Garchomp",
+      "cvar": 0.769,
+      "mean": 0.941
+     },
+     {
+      "pick": "Metagross>Tyranitar/Rotom-Wash",
+      "cvar": 0.769,
+      "mean": 0.941
+     },
+     {
+      "pick": "Garchomp>Tyranitar/Rotom-Wash",
+      "cvar": 0.692,
+      "mean": 0.922
+     },
+     {
+      "pick": "Metagross>Hydreigon/Tyranitar",
+      "cvar": 0.692,
+      "mean": 0.922
+     },
+     {
+      "pick": "Tyranitar>Metagross/Rotom-Wash",
+      "cvar": 0.692,
+      "mean": 0.922
+     },
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "cvar": 0.615,
+      "mean": 0.902
+     },
+     {
+      "pick": "Metagross>Garchomp/Rotom-Wash",
+      "cvar": 0.538,
+      "mean": 0.882
+     }
+    ],
+    "scores": [
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "legacy": true,
+      "cvar": 0.413,
+      "mean": 0.824,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.25,
+        "scenario": 0,
+        "rival": "Pawmot/Froslass/Slowking-Galar",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.25,
+        "scenario": 4,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.25,
+        "scenario": 5,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "megaAce"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Metagross/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.798,
+      "mean": 0.944,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.625,
+        "scenario": 0,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.625,
+        "scenario": 0,
+        "rival": "Pawmot/Froslass/Slowking-Galar",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Pawmot/Blaziken/Inteleon",
+        "src": "view1"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Primarina/Garchomp",
+      "legacy": false,
+      "cvar": 0.933,
+      "mean": 0.983,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.75,
+        "scenario": 5,
+        "rival": "Pawmot/Rhyperior/Inteleon",
+        "src": "legacy"
+       },
+       {
+        "v": 0.875,
+        "scenario": 0,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.875,
+        "scenario": 3,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Tyranitar/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.808,
+      "mean": 0.946,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.625,
+        "scenario": 6,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Pawmot/Rhyperior/Blaziken",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.75,
+        "scenario": 3,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Tyranitar/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.779,
+      "mean": 0.939,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.5,
+        "scenario": 3,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.625,
+        "scenario": 3,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Pawmot/Blaziken/Inteleon",
+        "src": "view1"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Hydreigon/Tyranitar",
+      "legacy": false,
+      "cvar": 0.567,
+      "mean": 0.819,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.125,
+        "scenario": 4,
+        "rival": "Froslass/Pawmot/Rhyperior",
+        "src": "aceLead"
+       },
+       {
+        "v": 0.25,
+        "scenario": 0,
+        "rival": "Pawmot/Rhyperior/Inteleon",
+        "src": "legacy"
+       },
+       {
+        "v": 0.5,
+        "scenario": 1,
+        "rival": "Pawmot/Rhyperior/Blaziken",
+        "src": "aceBack"
+       }
+      ]
+     },
+     {
+      "pick": "Tyranitar>Metagross/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.673,
+      "mean": 0.89,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.375,
+        "scenario": 7,
+        "rival": "Blaziken/Inteleon/Slowking-Galar",
+        "src": "view2"
+       },
+       {
+        "v": 0.5,
+        "scenario": 6,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "megaAce"
+       },
+       {
+        "v": 0.625,
+        "scenario": 0,
+        "rival": "Pawmot/Inteleon/Froslass",
+        "src": "aceBack"
+       }
+      ]
+     }
+    ]
+   },
+   "t1t2": {
+    "table": {
+     "T1|Pawmot": "ai",
+     "T1|Blaziken": "ai",
+     "T1|Froslass": "ai",
+     "T2|Pawmot|Metagross|Pawmot": "ai",
+     "T2|Blaziken|Metagross|Slowking-Galar": "ai",
+     "T2|Blaziken|Metagross|Rhyperior": "ai",
+     "T2|Froslass|Metagross|Rhyperior": "ai",
+     "T2|Pawmot|Metagross|Rhyperior": "ai",
+     "T2|Pawmot|Metagross|Blaziken": "ai",
+     "T2|Blaziken|Metagross|Inteleon": "ai",
+     "T2|Pawmot|Metagross|Inteleon": "ai",
+     "T2|Pawmot|Metagross|Slowking-Galar": "ai"
+    },
+    "rules": [
+     "T1: rival lead Blaziken -> AI default: move:Psychic Fangs (100%)",
+     "T1: rival lead Froslass -> AI default: move:Meteor Mash (100%)",
+     "T1: rival lead Pawmot -> AI default: move:Psychic Fangs (100%)",
+     "T2: rival lead Blaziken, our Metagross vs rival Inteleon -> AI default: move:Thunder Punch (100%)",
+     "T2: rival lead Blaziken, our Metagross vs rival Rhyperior -> AI default: move:Meteor Mash (100%)",
+     "T2: rival lead Blaziken, our Metagross vs rival Slowking-Galar -> AI default: move:Psychic Fangs (100%)",
+     "T2: rival lead Froslass, our Metagross vs rival Rhyperior -> AI default: switch:Primarina (60%)",
+     "T2: rival lead Pawmot, our Metagross vs rival Blaziken -> AI default: move:Psychic Fangs (100%)",
+     "T2: rival lead Pawmot, our Metagross vs rival Inteleon -> AI default: move:Thunder Punch (100%)",
+     "T2: rival lead Pawmot, our Metagross vs rival Pawmot -> AI default: move:Psychic Fangs (100%)",
+     "T2: rival lead Pawmot, our Metagross vs rival Rhyperior -> AI default: move:Meteor Mash (100%)",
+     "T2: rival lead Pawmot, our Metagross vs rival Slowking-Galar -> AI default: move:Psychic Fangs (100%)"
+    ],
+    "stats": {
+     "T1": {
+      "T1|Pawmot": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": {
+        "label": "move:Psychic Fangs",
+        "n": 132,
+        "v": 0.97,
+        "ai": 0.97
+       },
+       "options": [
+        {
+         "label": "move:Psychic Fangs",
+         "n": 132,
+         "v": 0.97,
+         "ai": 0.97
+        },
+        {
+         "label": "move:Meteor Mash",
+         "n": 132,
+         "v": 0.955,
+         "ai": 0.97
+        },
+        {
+         "label": "move:Bullet Punch",
+         "n": 132,
+         "v": 0.947,
+         "ai": 0.97
+        },
+        {
+         "label": "switch:Garchomp",
+         "n": 132,
+         "v": 0.947,
+         "ai": 0.97
+        }
+       ]
+      },
+      "T1|Blaziken": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": {
+        "label": "move:Psychic Fangs",
+        "n": 52,
+        "v": 1,
+        "ai": 1
+       },
+       "options": [
+        {
+         "label": "move:Psychic Fangs",
+         "n": 52,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "switch:Garchomp",
+         "n": 52,
+         "v": 0.962,
+         "ai": 1
+        },
+        {
+         "label": "switch:Primarina",
+         "n": 52,
+         "v": 0.942,
+         "ai": 1
+        },
+        {
+         "label": "move:Thunder Punch",
+         "n": 52,
+         "v": 0.712,
+         "ai": 1
+        }
+       ]
+      },
+      "T1|Froslass": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Meteor Mash",
+        "share": 1
+       },
+       "best": {
+        "label": "move:Meteor Mash",
+        "n": 20,
+        "v": 0.95,
+        "ai": 0.95
+       },
+       "options": [
+        {
+         "label": "move:Meteor Mash",
+         "n": 20,
+         "v": 0.95,
+         "ai": 0.95
+        },
+        {
+         "label": "switch:Primarina",
+         "n": 20,
+         "v": 0.8,
+         "ai": 0.95
+        },
+        {
+         "label": "move:Psychic Fangs",
+         "n": 20,
+         "v": 0.75,
+         "ai": 0.95
+        },
+        {
+         "label": "move:Bullet Punch",
+         "n": 20,
+         "v": 0.7,
+         "ai": 0.95
+        }
+       ]
+      }
+     },
+     "T2": {
+      "T2|Pawmot|Metagross|Pawmot": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": {
+        "label": "move:Bullet Punch",
+        "n": 16,
+        "v": 1,
+        "ai": 1
+       },
+       "options": [
+        {
+         "label": "move:Bullet Punch",
+         "n": 16,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Psychic Fangs",
+         "n": 16,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Thunder Punch",
+         "n": 16,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Meteor Mash",
+         "n": 16,
+         "v": 0.938,
+         "ai": 1
+        }
+       ]
+      },
+      "T2|Blaziken|Metagross|Slowking-Galar": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Blaziken|Metagross|Rhyperior": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Meteor Mash",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Froslass|Metagross|Rhyperior": {
+       "action": "ai",
+       "aiAction": {
+        "label": "switch:Primarina",
+        "share": 0.6
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Pawmot|Metagross|Rhyperior": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Meteor Mash",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Pawmot|Metagross|Blaziken": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Blaziken|Metagross|Inteleon": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Thunder Punch",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Pawmot|Metagross|Inteleon": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Thunder Punch",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Pawmot|Metagross|Slowking-Galar": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Psychic Fangs",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      }
+     }
+    },
+    "games": 2244,
+    "seconds": 13.2
+   },
+   "hyps": {
+    "a": {
+     "rivalLegacy": [
+      "Pawmot",
+      "Rhyperior",
+      "Inteleon"
+     ],
+     "cells": [
+      "legacy:Pawmot/Rhyperior/Inteleon",
+      "view1:Pawmot/Blaziken/Inteleon",
+      "view2:Pawmot/Inteleon/Slowking-Galar",
+      "aceLead:Blaziken/Pawmot/Rhyperior",
+      "aceBack:Pawmot/Blaziken/Froslass"
+     ],
+     "byPolicy": {
+      "legacy": {
+       "pick": "Primarina>Garchomp>Metagross",
+       "plan": "ai",
+       "meanRat": 0.88,
+       "nRat": 100,
+       "worstCellRat": 0.4,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.4,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.7,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p2a: Pawmot|Double Shock||[still]",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T3 |move|p2a: Pawmot|Double Shock||[still]",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "quick": {
+       "pick": "Rotom-Wash>Primarina>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.96,
+       "nRat": 100,
+       "worstCellRat": 0.8,
+       "worstCell": "view2",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 0.8,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.9,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Inteleon>Slowking-Galar",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Rotom-Wash|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Rotom",
+          "T1 |-damage|p1a: Rotom|72/157",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |move|p1a: Rotom|Hydro Pump|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|42/147",
+          "T1 |-heal|p1a: Rotom|81/157|[from] item: Leftovers",
+          "T2 |move|p2a: Pawmot|Double Shock||[still]",
+          "T2 |move|p1a: Rotom|Hydro Pump|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|0 fnt",
+          "T2 |faint|p2a: Pawmot",
+          "T2 |-heal|p1a: Rotom|90/157|[from] item: Leftovers",
+          "T2 |switch|p2a: Slowking|Slowking-Galar, L50, F|202/202",
+          "T3 |move|p1a: Rotom|Will-O-Wisp|p2a: Slowking",
+          "T3 |move|p2a: Slowking|Sludge Bomb|p1a: Rotom",
+          "T3 |-damage|p1a: Rotom|36/157",
+          "T3 |-heal|p1a: Rotom|45/157|[from] item: Leftovers",
+          "T3 |-damage|p2a: Slowking|190/202 brn|[from] brn"
+         ]
+        }
+       ]
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.88,
+       "nRat": 100,
+       "worstCellRat": 0.4,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.4,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.7,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p2a: Pawmot|Double Shock||[still]",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T3 |move|p2a: Pawmot|Double Shock||[still]",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "v2": {
+       "pick": "Primarina>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.88,
+       "nRat": 100,
+       "worstCellRat": 0.4,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.4,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.7,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p2a: Pawmot|Double Shock||[still]",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T3 |move|p2a: Pawmot|Double Shock||[still]",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "proposed": {
+       "pick": "Metagross>Primarina>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.99,
+       "nRat": 100,
+       "worstCellRat": 0.95,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.95,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.975,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Metagross|Rhyperior"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Metagross",
+          "T1 |-damage|p1a: Metagross|70/157",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|0 fnt",
+          "T1 |faint|p2a: Pawmot",
+          "T1 |switch|p2a: Rhyperior|Rhyperior, L50, F|222/222",
+          "T2 |move|p1a: Metagross|Meteor Mash|p2a: Rhyperior",
+          "T2 |-damage|p2a: Rhyperior|90/222",
+          "T2 |move|p2a: Rhyperior|High Horsepower|p1a: Metagross|[miss]",
+          "T3 |move|p1a: Metagross|Meteor Mash|p2a: Rhyperior",
+          "T3 |-damage|p2a: Rhyperior|0 fnt",
+          "T3 |faint|p2a: Rhyperior",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "proposedT1T2": {
+       "pick": "Metagross>Primarina>Garchomp",
+       "plan": "T1T2",
+       "meanRat": 0.99,
+       "nRat": 100,
+       "worstCellRat": 0.95,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.95,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.975,
+       "tableUse": {
+        "T1": 0,
+        "T2": 0,
+        "n": 120
+       },
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Metagross|Rhyperior"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Metagross",
+          "T1 |-damage|p1a: Metagross|70/157",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|0 fnt",
+          "T1 |faint|p2a: Pawmot",
+          "T1 |switch|p2a: Rhyperior|Rhyperior, L50, F|222/222",
+          "T2 |move|p1a: Metagross|Meteor Mash|p2a: Rhyperior",
+          "T2 |-damage|p2a: Rhyperior|90/222",
+          "T2 |move|p2a: Rhyperior|High Horsepower|p1a: Metagross|[miss]",
+          "T3 |move|p1a: Metagross|Meteor Mash|p2a: Rhyperior",
+          "T3 |-damage|p2a: Rhyperior|0 fnt",
+          "T3 |faint|p2a: Rhyperior",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      }
+     }
+    },
+    "b": {
+     "rivalLegacy": [
+      "Pawmot",
+      "Rhyperior",
+      "Inteleon"
+     ],
+     "cells": [
+      "legacy:Pawmot/Rhyperior/Inteleon",
+      "view1:Pawmot/Blaziken/Inteleon",
+      "view2:Pawmot/Inteleon/Slowking-Galar",
+      "aceLead:Blaziken/Pawmot/Rhyperior",
+      "aceBack:Pawmot/Blaziken/Froslass"
+     ],
+     "byPolicy": {
+      "legacy": {
+       "pick": "Primarina>Garchomp>Metagross",
+       "plan": "ai",
+       "meanRat": 0.75,
+       "nRat": 100,
+       "worstCellRat": 0.35,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.35,
+        "view1": 1,
+        "view2": 0.8,
+        "aceLead": 1,
+        "aceBack": 0.6
+       },
+       "aceBroughtRat": 0.867,
+       "aceAbsentRat": 0.575,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T2 |-enditem|p2a: Pawmot|Sitrus Berry|[eat]",
+          "T2 |-heal|p2a: Pawmot|62/147|[from] item: Sitrus Berry",
+          "T2 |move|p2a: Pawmot|Close Combat|p1a: Garchomp",
+          "T2 |-damage|p1a: Garchomp|83/185",
+          "T2 |-damage|p2a: Pawmot|44/147|[from] ability: Rough Skin|[of] p1a: Garchomp",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "quick": {
+       "pick": "Rotom-Wash>Primarina>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.96,
+       "nRat": 100,
+       "worstCellRat": 0.8,
+       "worstCell": "view2",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 0.8,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 0.9,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Inteleon>Slowking-Galar",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Rotom-Wash|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Rotom",
+          "T1 |-damage|p1a: Rotom|87/157",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |move|p1a: Rotom|Hydro Pump|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|42/147",
+          "T1 |-enditem|p2a: Pawmot|Sitrus Berry|[eat]",
+          "T1 |-heal|p2a: Pawmot|78/147|[from] item: Sitrus Berry",
+          "T1 |-heal|p1a: Rotom|96/157|[from] item: Leftovers",
+          "T2 |move|p2a: Pawmot|Double Shock||[still]",
+          "T2 |move|p1a: Rotom|Hydro Pump|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|0 fnt",
+          "T2 |faint|p2a: Pawmot",
+          "T2 |-heal|p1a: Rotom|105/157|[from] item: Leftovers",
+          "T2 |switch|p2a: Slowking|Slowking-Galar, L50, F|202/202",
+          "T3 |move|p1a: Rotom|Will-O-Wisp|p2a: Slowking",
+          "T3 |move|p2a: Slowking|Sludge Bomb|p1a: Rotom",
+          "T3 |-damage|p1a: Rotom|23/157",
+          "T3 |-heal|p1a: Rotom|32/157|[from] item: Leftovers",
+          "T3 |-damage|p2a: Slowking|190/202 brn|[from] brn"
+         ]
+        }
+       ]
+      },
+      "guarded": {
+       "pick": "Primarina>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.75,
+       "nRat": 100,
+       "worstCellRat": 0.35,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.35,
+        "view1": 1,
+        "view2": 0.8,
+        "aceLead": 1,
+        "aceBack": 0.6
+       },
+       "aceBroughtRat": 0.867,
+       "aceAbsentRat": 0.575,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T2 |-enditem|p2a: Pawmot|Sitrus Berry|[eat]",
+          "T2 |-heal|p2a: Pawmot|62/147|[from] item: Sitrus Berry",
+          "T2 |move|p2a: Pawmot|Close Combat|p1a: Garchomp",
+          "T2 |-damage|p1a: Garchomp|83/185",
+          "T2 |-damage|p2a: Pawmot|44/147|[from] ability: Rough Skin|[of] p1a: Garchomp",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "v2": {
+       "pick": "Primarina>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.75,
+       "nRat": 100,
+       "worstCellRat": 0.35,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.35,
+        "view1": 1,
+        "view2": 0.8,
+        "aceLead": 1,
+        "aceBack": 0.6
+       },
+       "aceBroughtRat": 0.867,
+       "aceAbsentRat": 0.575,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Garchomp|Pawmot"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p2a: Pawmot|Double Shock|p1a: Primarina",
+          "T1 |-damage|p1a: Primarina|0 fnt",
+          "T1 |-start|p2a: Pawmot|typechange|???/Fighting|[from] move: Double Shock",
+          "T1 |faint|p1a: Primarina",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, M|185/185",
+          "T2 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T2 |-damage|p2a: Pawmot|26/147",
+          "T2 |-enditem|p2a: Pawmot|Sitrus Berry|[eat]",
+          "T2 |-heal|p2a: Pawmot|62/147|[from] item: Sitrus Berry",
+          "T2 |move|p2a: Pawmot|Close Combat|p1a: Garchomp",
+          "T2 |-damage|p1a: Garchomp|83/185",
+          "T2 |-damage|p2a: Pawmot|44/147|[from] ability: Rough Skin|[of] p1a: Garchomp",
+          "T3 |move|p1a: Garchomp|Earthquake|p2a: Pawmot",
+          "T3 |-damage|p2a: Pawmot|0 fnt",
+          "T3 |faint|p2a: Pawmot",
+          "T3 |switch|p2a: Inteleon|Inteleon, L50, F|147/147"
+         ]
+        }
+       ]
+      },
+      "proposed": {
+       "pick": "Metagross>Primarina>Garchomp",
+       "plan": "ai",
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 1,
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Metagross|Inteleon"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|0 fnt",
+          "T1 |faint|p2a: Pawmot",
+          "T1 |switch|p2a: Inteleon|Inteleon, L50, F|147/147",
+          "T2 |move|p2a: Inteleon|Dark Pulse|p1a: Metagross",
+          "T2 |-damage|p1a: Metagross|69/157",
+          "T2 |cant|p1a: Metagross|flinch",
+          "T3 |move|p2a: Inteleon|Dark Pulse|p1a: Metagross",
+          "T3 |-damage|p1a: Metagross|0 fnt",
+          "T3 |faint|p1a: Metagross",
+          "T3 |switch|p1a: Primarina|Primarina, L50, M|187/187"
+         ]
+        }
+       ]
+      },
+      "proposedT1T2": {
+       "pick": "Metagross>Primarina>Garchomp",
+       "plan": "T1T2",
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceLead": 1,
+        "aceBack": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": 1,
+       "tableUse": {
+        "T1": 0,
+        "T2": 0,
+        "n": 120
+       },
+       "lossLines": [
+        {
+         "foe": "Pawmot>Rhyperior>Inteleon",
+         "seed": [
+          50761,
+          7362,
+          18606,
+          38114
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 5,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Pawmot",
+          "2": "T2|Pawmot|Metagross|Inteleon"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Pawmot",
+          "T1 |-damage|p2a: Pawmot|0 fnt",
+          "T1 |faint|p2a: Pawmot",
+          "T1 |switch|p2a: Inteleon|Inteleon, L50, F|147/147",
+          "T2 |move|p2a: Inteleon|Dark Pulse|p1a: Metagross",
+          "T2 |-damage|p1a: Metagross|69/157",
+          "T2 |cant|p1a: Metagross|flinch",
+          "T3 |move|p2a: Inteleon|Dark Pulse|p1a: Metagross",
+          "T3 |-damage|p1a: Metagross|0 fnt",
+          "T3 |faint|p1a: Metagross",
+          "T3 |switch|p1a: Primarina|Primarina, L50, M|187/187"
+         ]
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  "N2_heracross": {
+   "publicSix": [
+    "Heracross",
+    "Empoleon",
+    "Reuniclus",
+    "Lycanroc-Dusk",
+    "Rotom-Mow",
+    "Mabosstiff"
+   ],
+   "ace": "Heracross",
+   "selection": {
+    "legacy": "Garchomp>Primarina>Hydreigon",
+    "quick": "Hydreigon>Metagross>Garchomp",
+    "guarded": "Metagross>Hydreigon>Garchomp",
+    "v2": "Metagross>Hydreigon>Garchomp",
+    "proposed": "Rotom-Wash>Hydreigon>Primarina"
+   },
+   "selectorSeconds": {
+    "legacy": 0.008,
+    "quick": 10.41,
+    "guarded": 28.5,
+    "v2": 34.6,
+    "proposed": 17.4
+   },
+   "proposed": {
+    "status": "cover",
+    "pick": [
+     "Rotom-Wash",
+     "Hydreigon",
+     "Primarina"
+    ],
+    "label": "Rotom-Wash>Hydreigon/Primarina",
+    "reason": "eligible 6; best CVaR 0.813 mean 0.953 vs legacy 0.25/0.594",
+    "eligible": [
+     "Rotom-Wash>Hydreigon/Primarina",
+     "Metagross>Hydreigon/Rotom-Wash",
+     "Garchomp>Metagross/Hydreigon",
+     "Metagross>Primarina/Rotom-Wash",
+     "Metagross>Primarina/Garchomp",
+     "Metagross>Primarina/Tyranitar"
+    ],
+    "legacy": "Garchomp>Hydreigon/Primarina",
+    "seconds": 17.4,
+    "budgetSeconds": 300,
+    "games": {
+     "screen": 1440,
+     "guard": 1344
+    },
+    "scenarios": 6,
+    "coverage": {
+     "required": 16,
+     "covered": 16,
+     "missing": []
+    },
+    "altScenarios": [],
+    "cells": 24,
+    "megaAceCells": 0,
+    "screenTop": [
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Rotom-Wash>Hydreigon/Primarina",
+      "cvar": 1,
+      "mean": 1
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "cvar": 0.833,
+      "mean": 0.958
+     },
+     {
+      "pick": "Metagross>Hydreigon/Rotom-Wash",
+      "cvar": 0.833,
+      "mean": 0.958
+     },
+     {
+      "pick": "Metagross>Primarina/Garchomp",
+      "cvar": 0.833,
+      "mean": 0.958
+     },
+     {
+      "pick": "Metagross>Primarina/Tyranitar",
+      "cvar": 0.833,
+      "mean": 0.958
+     },
+     {
+      "pick": "Primarina>Garchomp/Rotom-Wash",
+      "cvar": 0.833,
+      "mean": 0.958
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Hydreigon",
+      "cvar": 0.833,
+      "mean": 0.958
+     }
+    ],
+    "scores": [
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "legacy": true,
+      "cvar": 0.25,
+      "mean": 0.594,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.125,
+        "scenario": 5,
+        "rival": "Heracross/Lycanroc-Dusk/Rotom-Mow",
+        "src": "view2"
+       },
+       {
+        "v": 0.25,
+        "scenario": 3,
+        "rival": "Heracross/Mabosstiff/Rotom-Mow",
+        "src": "view1"
+       },
+       {
+        "v": 0.25,
+        "scenario": 4,
+        "rival": "Heracross/Lycanroc-Dusk/Rotom-Mow",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.688,
+      "mean": 0.906,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.5,
+        "scenario": 1,
+        "rival": "Heracross/Rotom-Mow/Empoleon",
+        "src": "legacy"
+       },
+       {
+        "v": 0.625,
+        "scenario": 1,
+        "rival": "Heracross/Rotom-Mow/Mabosstiff",
+        "src": "view1"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Mabosstiff",
+        "src": "view1"
+       }
+      ]
+     },
+     {
+      "pick": "Rotom-Wash>Hydreigon/Primarina",
+      "legacy": false,
+      "cvar": 0.813,
+      "mean": 0.953,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.375,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Lycanroc-Dusk",
+        "src": "view2"
+       },
+       {
+        "v": 0.75,
+        "scenario": 5,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.875,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Empoleon",
+        "src": "legacy"
+       }
+      ]
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "legacy": false,
+      "cvar": 0.708,
+      "mean": 0.917,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.5,
+        "scenario": 5,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.625,
+        "scenario": 0,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Lycanroc-Dusk",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Hydreigon/Rotom-Wash",
+      "legacy": false,
+      "cvar": 0.771,
+      "mean": 0.943,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.5,
+        "scenario": 5,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Lycanroc-Dusk",
+        "src": "view2"
+       },
+       {
+        "v": 0.75,
+        "scenario": 5,
+        "rival": "Heracross/Lycanroc-Dusk/Rotom-Mow",
+        "src": "view2"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Primarina/Garchomp",
+      "legacy": false,
+      "cvar": 0.646,
+      "mean": 0.906,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.125,
+        "scenario": 0,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.5,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Lycanroc-Dusk",
+        "src": "view2"
+       },
+       {
+        "v": 0.75,
+        "scenario": 0,
+        "rival": "Heracross/Rotom-Mow/Empoleon",
+        "src": "legacy"
+       }
+      ]
+     },
+     {
+      "pick": "Metagross>Primarina/Tyranitar",
+      "legacy": false,
+      "cvar": 0.542,
+      "mean": 0.859,
+      "zeroCells": 0,
+      "worstCells": [
+       {
+        "v": 0.25,
+        "scenario": 1,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       },
+       {
+        "v": 0.375,
+        "scenario": 1,
+        "rival": "Heracross/Rotom-Mow/Empoleon",
+        "src": "legacy"
+       },
+       {
+        "v": 0.5,
+        "scenario": 0,
+        "rival": "Rotom-Mow/Empoleon/Heracross",
+        "src": "aceBack"
+       }
+      ]
+     }
+    ]
+   },
+   "t1t2": {
+    "table": {
+     "T1|Heracross": "ai",
+     "T1|Rotom-Mow": "ai",
+     "T2|Heracross|Rotom-Wash|Rotom-Mow": "ai",
+     "T2|Rotom-Mow|Hydreigon|Rotom-Mow": "ai",
+     "T2|Heracross|Rotom-Wash|Heracross": "ai"
+    },
+    "rules": [
+     "T1: rival lead Heracross -> AI default: move:Will-O-Wisp (100%)",
+     "T1: rival lead Rotom-Mow -> AI default: switch:Hydreigon (100%)",
+     "T2: rival lead Heracross, our Rotom-Wash vs rival Heracross -> AI default: move:Thunderbolt (80%)",
+     "T2: rival lead Heracross, our Rotom-Wash vs rival Rotom-Mow -> AI default: switch:Hydreigon (100%)",
+     "T2: rival lead Rotom-Mow, our Hydreigon vs rival Rotom-Mow -> AI default: move:Flamethrower (100%)"
+    ],
+    "stats": {
+     "T1": {
+      "T1|Heracross": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Will-O-Wisp",
+        "share": 1
+       },
+       "best": {
+        "label": "move:Will-O-Wisp",
+        "n": 72,
+        "v": 0.958,
+        "ai": 0.958
+       },
+       "options": [
+        {
+         "label": "move:Will-O-Wisp",
+         "n": 72,
+         "v": 0.958,
+         "ai": 0.958
+        },
+        {
+         "label": "move:Hydro Pump",
+         "n": 72,
+         "v": 0.944,
+         "ai": 0.958
+        },
+        {
+         "label": "move:Volt Switch",
+         "n": 72,
+         "v": 0.944,
+         "ai": 0.958
+        },
+        {
+         "label": "move:Thunderbolt",
+         "n": 72,
+         "v": 0.931,
+         "ai": 0.958
+        }
+       ]
+      },
+      "T1|Rotom-Mow": {
+       "action": "ai",
+       "aiAction": {
+        "label": "switch:Hydreigon",
+        "share": 1
+       },
+       "best": {
+        "label": "switch:Hydreigon",
+        "n": 24,
+        "v": 1,
+        "ai": 1
+       },
+       "options": [
+        {
+         "label": "switch:Hydreigon",
+         "n": 24,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "switch:Primarina",
+         "n": 24,
+         "v": 0.667,
+         "ai": 1
+        },
+        {
+         "label": "move:Hydro Pump",
+         "n": 24,
+         "v": 0.458,
+         "ai": 1
+        },
+        {
+         "label": "move:Thunderbolt",
+         "n": 24,
+         "v": 0.458,
+         "ai": 1
+        }
+       ]
+      }
+     },
+     "T2": {
+      "T2|Heracross|Rotom-Wash|Rotom-Mow": {
+       "action": "ai",
+       "aiAction": {
+        "label": "switch:Hydreigon",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Rotom-Mow|Hydreigon|Rotom-Mow": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Flamethrower",
+        "share": 1
+       },
+       "best": null,
+       "options": []
+      },
+      "T2|Heracross|Rotom-Wash|Heracross": {
+       "action": "ai",
+       "aiAction": {
+        "label": "move:Thunderbolt",
+        "share": 0.8
+       },
+       "best": {
+        "label": "move:Hydro Pump",
+        "n": 15,
+        "v": 1,
+        "ai": 1
+       },
+       "options": [
+        {
+         "label": "move:Hydro Pump",
+         "n": 15,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Thunderbolt",
+         "n": 15,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Volt Switch",
+         "n": 15,
+         "v": 1,
+         "ai": 1
+        },
+        {
+         "label": "move:Will-O-Wisp",
+         "n": 15,
+         "v": 0.933,
+         "ai": 1
+        }
+       ]
+      }
+     }
+    },
+    "games": 1056,
+    "seconds": 9
+   },
+   "hyps": {
+    "a": {
+     "rivalLegacy": [
+      "Heracross",
+      "Rotom-Mow",
+      "Reuniclus"
+     ],
+     "cells": [
+      "legacy:Heracross/Rotom-Mow/Reuniclus",
+      "view1:Heracross/Rotom-Mow/Empoleon",
+      "view2:Heracross/Rotom-Mow/Lycanroc-Dusk",
+      "aceBack:Rotom-Mow/Reuniclus/Heracross",
+      "view3:Heracross/Rotom-Mow/Mabosstiff"
+     ],
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Primarina>Hydreigon",
+       "plan": "ai",
+       "meanRat": 0.66,
+       "nRat": 100,
+       "worstCellRat": 0.4,
+       "worstCell": "view1",
+       "byCellRat": {
+        "legacy": 0.9,
+        "view1": 0.4,
+        "view2": 0.4,
+        "aceBack": 0.95,
+        "view3": 0.65
+       },
+       "aceBroughtRat": 0.66,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Empoleon",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 7,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Primarina|Heracross"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Primarina|Primarina, L50, M|187/187",
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |move|p2a: Heracross|Swords Dance|p2a: Heracross",
+          "T1 |-boost|p2a: Heracross|atk|2",
+          "T2 |move|p2a: Heracross|Close Combat|p1a: Primarina",
+          "T2 |-damage|p1a: Primarina|0 fnt",
+          "T2 |faint|p1a: Primarina",
+          "T2 |switch|p1a: Garchomp|Garchomp, L50, F|185/185",
+          "T3 |move|p1a: Garchomp|Dragon Claw|p2a: Heracross",
+          "T3 |-damage|p2a: Heracross|60/157",
+          "T3 |move|p2a: Heracross|Close Combat|p1a: Garchomp",
+          "T3 |-damage|p1a: Garchomp|0 fnt",
+          "T3 |-damage|p2a: Heracross|41/157|[from] ability: Rough Skin|[of] p1a: Garchomp",
+          "T3 |faint|p1a: Garchomp",
+          "T3 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169"
+         ]
+        }
+       ]
+      },
+      "quick": {
+       "pick": "Hydreigon>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.94,
+       "nRat": 100,
+       "worstCellRat": 0.85,
+       "worstCell": "view1",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 0.85,
+        "view2": 0.85,
+        "aceBack": 1,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.94,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Empoleon",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 8,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Garchomp|Heracross"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |move|p2a: Heracross|Close Combat|p1a: Metagross",
+          "T1 |-damage|p1a: Metagross|0 fnt",
+          "T1 |faint|p1a: Metagross",
+          "T1 |switch|p1a: Garchomp|Garchomp, L50, F|185/185",
+          "T2 |move|p1a: Garchomp|Dragon Claw|p2a: Heracross",
+          "T2 |-damage|p2a: Heracross|60/157",
+          "T2 |move|p2a: Heracross|Close Combat|p1a: Garchomp",
+          "T2 |-damage|p1a: Garchomp|0 fnt",
+          "T2 |-damage|p2a: Heracross|41/157|[from] ability: Rough Skin|[of] p1a: Garchomp",
+          "T2 |faint|p1a: Garchomp",
+          "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T3 |move|p1a: Hydreigon|Flamethrower|p2a: Heracross",
+          "T3 |-damage|p2a: Heracross|0 fnt",
+          "T3 |faint|p2a: Heracross",
+          "T3 |-damage|p1a: Hydreigon|153/169|[from] item: Life Orb",
+          "T3 |switch|p2a: Empoleon|Empoleon, L50, F|191/191"
+         ]
+        }
+       ]
+      },
+      "guarded": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "plan": "ai",
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 1,
+        "view3": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Reuniclus",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 4,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Metagross|Reuniclus"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Heracross",
+          "T1 |-damage|p2a: Heracross|0 fnt",
+          "T1 |faint|p2a: Heracross",
+          "T1 |switch|p2a: Reuniclus|Reuniclus, L50, F|217/217",
+          "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T2 |move|p2a: Reuniclus|Shadow Ball|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|133/169",
+          "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Reuniclus",
+          "T3 |-damage|p2a: Reuniclus|0 fnt",
+          "T3 |faint|p2a: Reuniclus",
+          "T3 |-damage|p1a: Hydreigon|117/169|[from] item: Life Orb",
+          "T3 |switch|p2a: Rotom|Rotom-Mow, L50|127/127"
+         ]
+        }
+       ]
+      },
+      "v2": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "plan": "ai",
+       "meanRat": 1,
+       "nRat": 100,
+       "worstCellRat": 1,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 1,
+        "view3": 1
+       },
+       "aceBroughtRat": 1,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Reuniclus",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 4,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Metagross|Reuniclus"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T1 |move|p1a: Metagross|Psychic Fangs|p2a: Heracross",
+          "T1 |-damage|p2a: Heracross|0 fnt",
+          "T1 |faint|p2a: Heracross",
+          "T1 |switch|p2a: Reuniclus|Reuniclus, L50, F|217/217",
+          "T2 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T2 |move|p2a: Reuniclus|Shadow Ball|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|133/169",
+          "T3 |move|p1a: Hydreigon|Dark Pulse|p2a: Reuniclus",
+          "T3 |-damage|p2a: Reuniclus|0 fnt",
+          "T3 |faint|p2a: Reuniclus",
+          "T3 |-damage|p1a: Hydreigon|117/169|[from] item: Life Orb",
+          "T3 |switch|p2a: Rotom|Rotom-Mow, L50|127/127"
+         ]
+        }
+       ]
+      },
+      "proposed": {
+       "pick": "Rotom-Wash>Hydreigon>Primarina",
+       "plan": "ai",
+       "meanRat": 0.68,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "worstCell": "view2",
+       "byCellRat": {
+        "legacy": 0.75,
+        "view1": 0.45,
+        "view2": 0.2,
+        "aceBack": 1,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.68,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Lycanroc-Dusk",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 6,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Primarina|Heracross"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |move|p2a: Heracross|Close Combat|p1a: Rotom",
+          "T1 |-damage|p1a: Rotom|0 fnt",
+          "T1 |faint|p1a: Rotom",
+          "T1 |switch|p1a: Primarina|Primarina, L50, M|187/187",
+          "T2 |move|p2a: Heracross|Swords Dance|p2a: Heracross",
+          "T2 |-boost|p2a: Heracross|atk|2",
+          "T2 |move|p1a: Primarina|Moonblast|p2a: Heracross",
+          "T2 |-damage|p2a: Heracross|0 fnt",
+          "T2 |faint|p2a: Heracross",
+          "T2 |switch|p2a: Rotom|Rotom-Mow, L50|127/127",
+          "T3 |move|p2a: Rotom|Leaf Storm|p1a: Primarina",
+          "T3 |-damage|p1a: Primarina|1/187",
+          "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+          "T3 |-heal|p1a: Primarina|47/187|[from] item: Sitrus Berry",
+          "T3 |move|p1a: Primarina|Moonblast|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|33/127"
+         ]
+        }
+       ]
+      },
+      "proposedT1T2": {
+       "pick": "Rotom-Wash>Hydreigon>Primarina",
+       "plan": "T1T2",
+       "meanRat": 0.68,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "worstCell": "view2",
+       "byCellRat": {
+        "legacy": 0.75,
+        "view1": 0.45,
+        "view2": 0.2,
+        "aceBack": 1,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.68,
+       "aceAbsentRat": null,
+       "tableUse": {
+        "T1": 0,
+        "T2": 0,
+        "n": 120
+       },
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Lycanroc-Dusk",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 6,
+         "aceMega": true,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Primarina|Heracross"
+         },
+         "used": {},
+         "lines": [
+          "T1 |-mega|p2a: Heracross|Heracross|Heracronite",
+          "T1 |move|p2a: Heracross|Close Combat|p1a: Rotom",
+          "T1 |-damage|p1a: Rotom|0 fnt",
+          "T1 |faint|p1a: Rotom",
+          "T1 |switch|p1a: Primarina|Primarina, L50, M|187/187",
+          "T2 |move|p2a: Heracross|Swords Dance|p2a: Heracross",
+          "T2 |-boost|p2a: Heracross|atk|2",
+          "T2 |move|p1a: Primarina|Moonblast|p2a: Heracross",
+          "T2 |-damage|p2a: Heracross|0 fnt",
+          "T2 |faint|p2a: Heracross",
+          "T2 |switch|p2a: Rotom|Rotom-Mow, L50|127/127",
+          "T3 |move|p2a: Rotom|Leaf Storm|p1a: Primarina",
+          "T3 |-damage|p1a: Primarina|1/187",
+          "T3 |-enditem|p1a: Primarina|Sitrus Berry|[eat]",
+          "T3 |-heal|p1a: Primarina|47/187|[from] item: Sitrus Berry",
+          "T3 |move|p1a: Primarina|Moonblast|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|33/127"
+         ]
+        }
+       ]
+      }
+     }
+    },
+    "b": {
+     "rivalLegacy": [
+      "Heracross",
+      "Rotom-Mow",
+      "Empoleon"
+     ],
+     "cells": [
+      "legacy:Heracross/Rotom-Mow/Empoleon",
+      "view1:Heracross/Rotom-Mow/Reuniclus",
+      "view2:Heracross/Rotom-Mow/Lycanroc-Dusk",
+      "aceBack:Rotom-Mow/Empoleon/Heracross",
+      "view3:Heracross/Rotom-Mow/Mabosstiff"
+     ],
+     "byPolicy": {
+      "legacy": {
+       "pick": "Garchomp>Primarina>Hydreigon",
+       "plan": "ai",
+       "meanRat": 0.35,
+       "nRat": 100,
+       "worstCellRat": 0,
+       "worstCell": "aceBack",
+       "byCellRat": {
+        "legacy": 0.25,
+        "view1": 0.25,
+        "view2": 1,
+        "aceBack": 0,
+        "view3": 0.25
+       },
+       "aceBroughtRat": 0.35,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Rotom-Mow>Empoleon>Heracross",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 8,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Rotom-Mow",
+          "2": "T2|Rotom-Mow|Garchomp|Empoleon"
+         },
+         "used": {},
+         "lines": [
+          "T1 |move|p1a: Garchomp|Poison Jab|p2a: Rotom",
+          "T1 |-enditem|p2a: Rotom|Focus Sash",
+          "T1 |-damage|p2a: Rotom|1/127",
+          "T1 |move|p2a: Rotom|Leaf Storm|p1a: Garchomp",
+          "T1 |-damage|p1a: Garchomp|68/185",
+          "T1 |-damage|p2a: Rotom|0 fnt|[from] psn",
+          "T1 |faint|p2a: Rotom",
+          "T1 |switch|p2a: Empoleon|Empoleon, L50, F|191/191",
+          "T2 |move|p1a: Garchomp|Poison Jab|p2a: Empoleon",
+          "T2 |move|p2a: Empoleon|Ice Beam|p1a: Garchomp",
+          "T2 |-damage|p1a: Garchomp|0 fnt",
+          "T2 |faint|p1a: Garchomp",
+          "T2 |switch|p1a: Primarina|Primarina, L50, M|187/187",
+          "T3 |move|p1a: Primarina|Moonblast|p2a: Empoleon",
+          "T3 |-damage|p2a: Empoleon|143/191",
+          "T3 |move|p2a: Empoleon|Grass Knot|p1a: Primarina",
+          "T3 |-damage|p1a: Primarina|119/187"
+         ]
+        }
+       ]
+      },
+      "quick": {
+       "pick": "Hydreigon>Metagross>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.56,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "worstCell": "legacy",
+       "byCellRat": {
+        "legacy": 0.2,
+        "view1": 0.8,
+        "view2": 1,
+        "aceBack": 0.6,
+        "view3": 0.2
+       },
+       "aceBroughtRat": 0.56,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Heracross>Rotom-Mow>Empoleon",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 7,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Heracross",
+          "2": "T2|Heracross|Metagross|Heracross"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Metagross|Metagross, L50|157/157",
+          "T1 |move|p2a: Heracross|Close Combat|p1a: Metagross",
+          "T1 |-damage|p1a: Metagross|30/157",
+          "T2 |-mega|p1a: Metagross|Metagross|Metagrossite",
+          "T2 |move|p2a: Heracross|Close Combat|p1a: Metagross",
+          "T2 |-damage|p1a: Metagross|0 fnt",
+          "T2 |faint|p1a: Metagross",
+          "T2 |switch|p1a: Garchomp|Garchomp, L50, F|185/185",
+          "T3 |move|p1a: Garchomp|Dragon Claw|p2a: Heracross",
+          "T3 |-damage|p2a: Heracross|0 fnt",
+          "T3 |faint|p2a: Heracross",
+          "T3 |switch|p2a: Empoleon|Empoleon, L50, F|191/191"
+         ]
+        }
+       ]
+      },
+      "guarded": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.84,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "worstCell": "aceBack",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 0.2,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.84,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Rotom-Mow>Empoleon>Heracross",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 8,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Rotom-Mow",
+          "2": "T2|Rotom-Mow|Hydreigon|Rotom-Mow"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T1 |move|p2a: Rotom|Will-O-Wisp|p1a: Hydreigon",
+          "T1 |-damage|p1a: Hydreigon|159/169 brn|[from] brn",
+          "T2 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T2 |-enditem|p2a: Rotom|Focus Sash",
+          "T2 |-damage|p2a: Rotom|1/127",
+          "T2 |-damage|p1a: Hydreigon|143/169 brn|[from] item: Life Orb",
+          "T2 |move|p2a: Rotom|Leaf Storm|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|87/169 brn",
+          "T2 |-damage|p1a: Hydreigon|77/169 brn|[from] brn",
+          "T3 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|0 fnt",
+          "T3 |faint|p2a: Rotom",
+          "T3 |-damage|p1a: Hydreigon|61/169 brn|[from] item: Life Orb",
+          "T3 |-damage|p1a: Hydreigon|51/169 brn|[from] brn",
+          "T3 |switch|p2a: Heracross|Heracross, L50, M|157/157"
+         ]
+        }
+       ]
+      },
+      "v2": {
+       "pick": "Metagross>Hydreigon>Garchomp",
+       "plan": "ai",
+       "meanRat": 0.84,
+       "nRat": 100,
+       "worstCellRat": 0.2,
+       "worstCell": "aceBack",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 0.2,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.84,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Rotom-Mow>Empoleon>Heracross",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 0,
+         "turns": 8,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Rotom-Mow",
+          "2": "T2|Rotom-Mow|Hydreigon|Rotom-Mow"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T1 |move|p2a: Rotom|Will-O-Wisp|p1a: Hydreigon",
+          "T1 |-damage|p1a: Hydreigon|159/169 brn|[from] brn",
+          "T2 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T2 |-enditem|p2a: Rotom|Focus Sash",
+          "T2 |-damage|p2a: Rotom|1/127",
+          "T2 |-damage|p1a: Hydreigon|143/169 brn|[from] item: Life Orb",
+          "T2 |move|p2a: Rotom|Leaf Storm|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|87/169 brn",
+          "T2 |-damage|p1a: Hydreigon|77/169 brn|[from] brn",
+          "T3 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|0 fnt",
+          "T3 |faint|p2a: Rotom",
+          "T3 |-damage|p1a: Hydreigon|61/169 brn|[from] item: Life Orb",
+          "T3 |-damage|p1a: Hydreigon|51/169 brn|[from] brn",
+          "T3 |switch|p2a: Heracross|Heracross, L50, M|157/157"
+         ]
+        }
+       ]
+      },
+      "proposed": {
+       "pick": "Rotom-Wash>Hydreigon>Primarina",
+       "plan": "ai",
+       "meanRat": 0.97,
+       "nRat": 100,
+       "worstCellRat": 0.85,
+       "worstCell": "aceBack",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 0.85,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.97,
+       "aceAbsentRat": null,
+       "lossLines": [
+        {
+         "foe": "Rotom-Mow>Empoleon>Heracross",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 8,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Rotom-Mow",
+          "2": "T2|Rotom-Mow|Hydreigon|Rotom-Mow"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T1 |move|p2a: Rotom|Leaf Storm|p1a: Hydreigon",
+          "T1 |-damage|p1a: Hydreigon|87/169",
+          "T2 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T2 |-enditem|p2a: Rotom|Focus Sash",
+          "T2 |-damage|p2a: Rotom|1/127",
+          "T2 |-damage|p1a: Hydreigon|71/169|[from] item: Life Orb",
+          "T2 |move|p2a: Rotom|Will-O-Wisp|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|61/169 brn|[from] brn",
+          "T3 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|0 fnt",
+          "T3 |faint|p2a: Rotom",
+          "T3 |-damage|p1a: Hydreigon|45/169 brn|[from] item: Life Orb",
+          "T3 |-damage|p1a: Hydreigon|35/169 brn|[from] brn",
+          "T3 |switch|p2a: Heracross|Heracross, L50, M|157/157"
+         ]
+        }
+       ]
+      },
+      "proposedT1T2": {
+       "pick": "Rotom-Wash>Hydreigon>Primarina",
+       "plan": "T1T2",
+       "meanRat": 0.97,
+       "nRat": 100,
+       "worstCellRat": 0.85,
+       "worstCell": "aceBack",
+       "byCellRat": {
+        "legacy": 1,
+        "view1": 1,
+        "view2": 1,
+        "aceBack": 0.85,
+        "view3": 1
+       },
+       "aceBroughtRat": 0.97,
+       "aceAbsentRat": null,
+       "tableUse": {
+        "T1": 0,
+        "T2": 0,
+        "n": 120
+       },
+       "lossLines": [
+        {
+         "foe": "Rotom-Mow>Empoleon>Heracross",
+         "seed": [
+          53549,
+          4593,
+          31510,
+          64716
+         ],
+         "reverse": false,
+         "won": 1,
+         "turns": 8,
+         "aceMega": false,
+         "keys": {
+          "1": "T1|Rotom-Mow",
+          "2": "T2|Rotom-Mow|Hydreigon|Rotom-Mow"
+         },
+         "used": {},
+         "lines": [
+          "T1 |switch|p1a: Hydreigon|Hydreigon, L50, M|169/169",
+          "T1 |move|p2a: Rotom|Leaf Storm|p1a: Hydreigon",
+          "T1 |-damage|p1a: Hydreigon|87/169",
+          "T2 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T2 |-enditem|p2a: Rotom|Focus Sash",
+          "T2 |-damage|p2a: Rotom|1/127",
+          "T2 |-damage|p1a: Hydreigon|71/169|[from] item: Life Orb",
+          "T2 |move|p2a: Rotom|Will-O-Wisp|p1a: Hydreigon",
+          "T2 |-damage|p1a: Hydreigon|61/169 brn|[from] brn",
+          "T3 |move|p1a: Hydreigon|Flamethrower|p2a: Rotom",
+          "T3 |-damage|p2a: Rotom|0 fnt",
+          "T3 |faint|p2a: Rotom",
+          "T3 |-damage|p1a: Hydreigon|45/169 brn|[from] item: Life Orb",
+          "T3 |-damage|p1a: Hydreigon|35/169 brn|[from] brn",
+          "T3 |switch|p2a: Heracross|Heracross, L50, M|157/157"
+         ]
+        }
+       ]
+      }
+     }
+    }
+   }
+  }
+ },
+ "note": "Selectors see only the six public species strings; T1/T2 tables are built from the selector public-derived scenarios and executed against the real sets. AI vs AI, NOT a ladder win rate."
+}

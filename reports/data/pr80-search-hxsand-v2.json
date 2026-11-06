@@ -1,0 +1,1048 @@
+{
+ "HX_sand": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Dragapult",
+   "Excadrill",
+   "Hippowdon",
+   "Kingambit",
+   "Rotom-Heat",
+   "Sylveon"
+  ],
+  "publicKey": "Dragapult|Excadrill|Hippowdon|Kingambit|Rotom-Heat|Sylveon",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Dragapult@Focus Sash:Dragon Dance/Outrage/Steel Wing/Sucker Punch",
+    "Excadrill@Excadrite:Swords Dance/Earthquake/Iron Head/Protect",
+    "Hippowdon@Leftovers:Slack Off/Stealth Rock/Earthquake/Superpower",
+    "Kingambit@Life Orb:Foul Play/Iron Head/X-Scissor/Sucker Punch",
+    "Rotom-Heat@Choice Scarf:Overheat/Thunderbolt/Hyper Voice/Dark Pulse",
+    "Sylveon@Sitrus Berry:Moonblast/Psychic/Mystical Fire/Shadow Ball"
+   ],
+   [
+    "Dragapult@Life Orb:Outrage/Steel Wing/Double-Edge/Sucker Punch",
+    "Excadrill@Excadrite:Earthquake/Iron Head/Megahorn/Rock Blast",
+    "Hippowdon@Leftovers:Slack Off/Stealth Rock/Earthquake/Superpower",
+    "Kingambit@Choice Scarf:Foul Play/Iron Head/X-Scissor/Stone Edge",
+    "Rotom-Heat@Sitrus Berry:Volt Switch/Thunder Wave/Overheat/Thunderbolt",
+    "Sylveon@Focus Sash:Calm Mind/Moonblast/Psychic/Wish"
+   ],
+   [
+    "Dragapult@Life Orb:Outrage/Steel Wing/Double-Edge/Sucker Punch",
+    "Excadrill@Excadrite:Earthquake/Iron Head/Megahorn/Rock Blast",
+    "Hippowdon@Leftovers:Slack Off/Stealth Rock/Earthquake/Superpower",
+    "Kingambit@Sitrus Berry:Stealth Rock/Taunt/Foul Play/Iron Head",
+    "Rotom-Heat@Focus Sash:Nasty Plot/Overheat/Thunderbolt/Protect",
+    "Sylveon@Choice Scarf:Moonblast/Psychic/Mystical Fire/Shadow Ball"
+   ],
+   [
+    "Dragapult@Choice Scarf:Outrage/Steel Wing/Double-Edge/Psychic Fangs",
+    "Excadrill@Excadrite:Earthquake/Iron Head/Megahorn/Rock Blast",
+    "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+    "Kingambit@Focus Sash:Swords Dance/Foul Play/Iron Head/Sucker Punch",
+    "Rotom-Heat@Leftovers:Will-O-Wisp/Overheat/Thunderbolt/Hyper Voice",
+    "Sylveon@Sitrus Berry:Moonblast/Psychic/Mystical Fire/Shadow Ball"
+   ],
+   [
+    "Dragapult@Sitrus Berry:U-turn/Thunder Wave/Outrage/Steel Wing",
+    "Excadrill@Excadrite:Earthquake/Iron Head/Megahorn/Rock Blast",
+    "Hippowdon@Choice Scarf:Earthquake/Superpower/Stone Edge/Crunch",
+    "Kingambit@Life Orb:Foul Play/Iron Head/X-Scissor/Sucker Punch",
+    "Rotom-Heat@Leftovers:Will-O-Wisp/Overheat/Thunderbolt/Hyper Voice",
+    "Sylveon@Focus Sash:Calm Mind/Moonblast/Psychic/Wish"
+   ],
+   [
+    "Dragapult@Lum Berry:Outrage/Steel Wing/Double-Edge/Psychic Fangs",
+    "Excadrill@Choice Scarf:Earthquake/Iron Head/Megahorn/Rock Blast",
+    "Hippowdon@Life Orb:Earthquake/Superpower/Stone Edge/Crunch",
+    "Kingambit@Leftovers:Stealth Rock/Foul Play/Iron Head/X-Scissor",
+    "Rotom-Heat@Focus Sash:Nasty Plot/Overheat/Thunderbolt/Protect",
+    "Sylveon@Sitrus Berry:Moonblast/Psychic/Mystical Fire/Shadow Ball"
+   ]
+  ],
+  "coverage": {
+   "required": 18,
+   "covered": 18,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Rotom-Heat>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Kingambit>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Kingambit>Sylveon/Excadrill",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rotom-Heat>Hippowdon/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Kingambit>Hippowdon/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Kingambit>Excadrill/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Kingambit>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Kingambit>Sylveon/Excadrill",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rotom-Heat>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Kingambit>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Kingambit>Sylveon/Excadrill",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rotom-Heat>Hippowdon/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Kingambit>Hippowdon/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Kingambit>Excadrill/Sylveon",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Excadrill/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Excadrill>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Hippowdon>Sylveon/Excadrill",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Hippowdon>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Kingambit>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Hippowdon>Dragapult/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Dragapult>Hippowdon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Excadrill>Sylveon/Kingambit",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Kingambit>Sylveon/Excadrill",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Hippowdon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Hippowdon>Sylveon/Rotom-Heat",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Rotom-Heat>Sylveon/Hippowdon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Kingambit/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Kingambit/Rotom-Heat",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Dragapult/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sylveon>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Rotom-Heat>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rotom-Heat>Dragapult/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sylveon>Dragapult/Rotom-Heat",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Rotom-Heat>Kingambit/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Dragapult/Excadrill",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Kingambit/Rotom-Heat",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Excadrill>Dragapult/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Rotom-Heat>Dragapult/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Dragapult/Rotom-Heat",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragapult>Rotom-Heat/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rotom-Heat>Kingambit/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rotom-Heat>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sylveon>Dragapult/Rotom-Heat",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rotom-Heat>Dragapult/Kingambit",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Hippowdon/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Kingambit>Dragapult/Sylveon",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Dragapult>Rotom-Heat/Sylveon",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Hydreigon>Primarina/Rotom-Wash",
+   "Hydreigon>Garchomp/Rotom-Wash",
+   "Garchomp>Metagross/Rotom-Wash",
+   "Primarina>Metagross/Rotom-Wash",
+   "Metagross>Garchomp/Rotom-Wash",
+   "Garchomp>Primarina/Rotom-Wash",
+   "Primarina>Tyranitar/Rotom-Wash",
+   "Rotom-Wash>Metagross/Primarina",
+   "Tyranitar>Garchomp/Rotom-Wash",
+   "Rotom-Wash>Hydreigon/Primarina",
+   "Garchomp>Tyranitar/Rotom-Wash",
+   "Rotom-Wash>Metagross/Tyranitar",
+   "Hydreigon>Metagross/Primarina",
+   "Tyranitar>Metagross/Rotom-Wash",
+   "Hydreigon>Metagross/Tyranitar",
+   "Tyranitar>Hydreigon/Primarina"
+  ],
+  "support": [
+   {
+    "pick": "Primarina>Tyranitar/Rotom-Wash",
+    "oi": 54,
+    "p": 0.2672
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "oi": 52,
+    "p": 0.2588
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "oi": 1,
+    "p": 0.1804
+   },
+   {
+    "pick": "Hydreigon>Metagross/Tyranitar",
+    "oi": 7,
+    "p": 0.1367
+   },
+   {
+    "pick": "Tyranitar>Metagross/Rotom-Wash",
+    "oi": 28,
+    "p": 0.1201
+   },
+   {
+    "pick": "Tyranitar>Hydreigon/Primarina",
+    "oi": 35,
+    "p": 0.0368
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.254,
+  "securityAll": 0.254,
+  "mean": 0.552,
+  "raw": {
+   "support": [
+    {
+     "pick": "Primarina>Tyranitar/Rotom-Wash",
+     "p": 0.2502
+    },
+    {
+     "pick": "Garchomp>Primarina/Rotom-Wash",
+     "p": 0.2423
+    },
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "p": 0.1689
+    },
+    {
+     "pick": "Hydreigon>Metagross/Tyranitar",
+     "p": 0.128
+    },
+    {
+     "pick": "Tyranitar>Metagross/Rotom-Wash",
+     "p": 0.1124
+    },
+    {
+     "pick": "Tyranitar>Hydreigon/Primarina",
+     "p": 0.0344
+    },
+    {
+     "pick": "Metagross>Garchomp/Rotom-Wash",
+     "p": 0.0296
+    },
+    {
+     "pick": "Rotom-Wash>Hydreigon/Primarina",
+     "p": 0.0214
+    },
+    {
+     "pick": "Hydreigon>Garchomp/Rotom-Wash",
+     "p": 0.008
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Tyranitar",
+     "p": 0.004
+    },
+    {
+     "pick": "Primarina>Metagross/Rotom-Wash",
+     "p": 0.0008
+    }
+   ],
+   "droppedMass": 0.0638,
+   "security": 0.271,
+   "securityAll": 0.271,
+   "mean": 0.556
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 15,
+    "added": [
+     {
+      "pick": "Tyranitar>Garchomp/Rotom-Wash",
+      "screenWinsOnBinding": "13/15"
+     },
+     {
+      "pick": "Rotom-Wash>Hydreigon/Primarina",
+      "screenWinsOnBinding": "13/15"
+     },
+     {
+      "pick": "Garchomp>Tyranitar/Rotom-Wash",
+      "screenWinsOnBinding": "12/15"
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Tyranitar",
+      "screenWinsOnBinding": "12/15"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 8,
+    "added": [
+     {
+      "pick": "Hydreigon>Metagross/Primarina",
+      "screenWinsOnBinding": "7/8"
+     },
+     {
+      "pick": "Tyranitar>Metagross/Rotom-Wash",
+      "screenWinsOnBinding": "6/8"
+     },
+     {
+      "pick": "Hydreigon>Metagross/Tyranitar",
+      "screenWinsOnBinding": "6/8"
+     },
+     {
+      "pick": "Tyranitar>Hydreigon/Primarina",
+      "screenWinsOnBinding": "6/8"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Hydreigon>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.607,
+    "mean": 0.712
+   },
+   {
+    "pick": "Metagross>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.579,
+    "mean": 0.712
+   },
+   {
+    "pick": "Primarina>Tyranitar/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.579,
+    "mean": 0.667
+   },
+   {
+    "pick": "Primarina>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.553,
+    "mean": 0.672
+   },
+   {
+    "pick": "Garchomp>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.553,
+    "mean": 0.662
+   },
+   {
+    "pick": "Hydreigon>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.474,
+    "mean": 0.652
+   },
+   {
+    "pick": "Tyranitar>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.469,
+    "mean": 0.672
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.469,
+    "mean": 0.626
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.433,
+    "mean": 0.566
+   },
+   {
+    "pick": "Garchomp>Tyranitar/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.395,
+    "mean": 0.505
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.368,
+    "mean": 0.551
+   },
+   {
+    "pick": "Tyranitar>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.281,
+    "mean": 0.46
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.263,
+    "mean": 0.596
+   },
+   {
+    "pick": "Rotom-Wash>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.25,
+    "mean": 0.434
+   },
+   {
+    "pick": "Tyranitar>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.1,
+    "mean": 0.207
+   },
+   {
+    "pick": "Hydreigon>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.063,
+    "mean": 0.303
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Dragapult/Excadrill",
+    "src": "bestResponse",
+    "v": 0.254
+   },
+   {
+    "scenario": 4,
+    "rival": "Sylveon>Dragapult/Kingambit",
+    "src": "bestResponse",
+    "v": 0.256
+   },
+   {
+    "scenario": 3,
+    "rival": "Kingambit>Hippowdon/Dragapult",
+    "src": "view",
+    "v": 0.259
+   },
+   {
+    "scenario": 2,
+    "rival": "Rotom-Heat>Dragapult/Kingambit",
+    "src": "bestResponse",
+    "v": 0.259
+   },
+   {
+    "scenario": 1,
+    "rival": "Sylveon>Dragapult/Kingambit",
+    "src": "bestResponse",
+    "v": 0.259
+   },
+   {
+    "scenario": 2,
+    "rival": "Sylveon>Excadrill/Kingambit",
+    "src": "view",
+    "v": 0.267
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 2,
+     "rival": "Rotom-Heat>Kingambit/Sylveon",
+     "value": 0
+    },
+    {
+     "scenario": 2,
+     "rival": "Rotom-Heat>Dragapult/Kingambit",
+     "value": 0.125
+    },
+    {
+     "scenario": 2,
+     "rival": "Sylveon>Kingambit/Rotom-Heat",
+     "value": 0.173
+    },
+    {
+     "scenario": 2,
+     "rival": "Rotom-Heat>Dragapult/Sylveon",
+     "value": 0.27
+    },
+    {
+     "scenario": 1,
+     "rival": "Sylveon>Dragapult/Kingambit",
+     "value": 0.285
+    },
+    {
+     "scenario": 5,
+     "rival": "Rotom-Heat>Dragapult/Kingambit",
+     "value": 0.292
+    },
+    {
+     "scenario": 4,
+     "rival": "Sylveon>Dragapult/Kingambit",
+     "value": 0.297
+    },
+    {
+     "scenario": 1,
+     "rival": "Rotom-Heat>Dragapult/Sylveon",
+     "value": 0.316
+    },
+    {
+     "scenario": 0,
+     "rival": "Sylveon>Dragapult/Rotom-Heat",
+     "value": 0.336
+    },
+    {
+     "scenario": 2,
+     "rival": "Sylveon>Dragapult/Kingambit",
+     "value": 0.352
+    },
+    {
+     "scenario": 5,
+     "rival": "Rotom-Heat>Kingambit/Sylveon",
+     "value": 0.354
+    },
+    {
+     "scenario": 2,
+     "rival": "Sylveon>Dragapult/Excadrill",
+     "value": 0.393
+    },
+    {
+     "scenario": 5,
+     "rival": "Sylveon>Kingambit/Rotom-Heat",
+     "value": 0.42
+    },
+    {
+     "scenario": 1,
+     "rival": "Excadrill>Dragapult/Sylveon",
+     "value": 0.428
+    },
+    {
+     "scenario": 5,
+     "rival": "Rotom-Heat>Dragapult/Sylveon",
+     "value": 0.429
+    },
+    {
+     "scenario": 4,
+     "rival": "Sylveon>Dragapult/Rotom-Heat",
+     "value": 0.429
+    },
+    {
+     "scenario": 0,
+     "rival": "Dragapult>Rotom-Heat/Sylveon",
+     "value": 0.434
+    },
+    {
+     "scenario": 4,
+     "rival": "Rotom-Heat>Kingambit/Sylveon",
+     "value": 0.455
+    },
+    {
+     "scenario": 3,
+     "rival": "Rotom-Heat>Dragapult/Kingambit",
+     "value": 0.456
+    },
+    {
+     "scenario": 5,
+     "rival": "Sylveon>Dragapult/Rotom-Heat",
+     "value": 0.46
+    },
+    {
+     "scenario": 4,
+     "rival": "Rotom-Heat>Dragapult/Kingambit",
+     "value": 0.469
+    },
+    {
+     "scenario": 2,
+     "rival": "Rotom-Heat>Hippowdon/Sylveon",
+     "value": 0.47
+    },
+    {
+     "scenario": 3,
+     "rival": "Kingambit>Dragapult/Sylveon",
+     "value": 0.481
+    },
+    {
+     "scenario": 5,
+     "rival": "Dragapult>Rotom-Heat/Sylveon",
+     "value": 0.482
+    }
+   ],
+   "checked": 360
+  },
+  "games": {
+   "screen": 4500,
+   "refine": 12672,
+   "expansion": 9360,
+   "total": 26532
+  },
+  "seconds": 167,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ }
+}

@@ -1,0 +1,374 @@
+'use strict';
+
+const { execFileSync } = require('node:child_process');
+const { mkdirSync, writeFileSync } = require('node:fs');
+const { load, hashSeed } = require('./lab');
+const { validate, PIN } = require('./m8-open8-battle-study-20261105');
+const { battle, earlyLines } = require('./encore-lead-audit');
+const coverage = require('./m8-pokenavi-coverage-20261106');
+const { unseenSixesPR94 } = require('./holdout-20261031-pr94');
+
+const GOODRA = unseenSixesPR94().N4_houndoom.hypotheses.a.find(member => member.species.startsWith('Goodra')).species;
+const PRIMARINA = 'Primarina';
+const GHOLDENGO = 'Gholdengo';
+const GOLISOPOD = 'Golisopod';
+const SKELEDIRGE = 'Skeledirge';
+const MEOWSCARADA = 'Meowscarada';
+const CHARIZARD = 'Charizard';
+const preservesSkeledirge = id => id === 'goodraFinal' || id === 'charRain';
+const guarded = id => id === 'goodraGuard' || preservesSkeledirge(id);
+const usesGoodra = id => id === 'goodra' || guarded(id);
+const physicalDragoniteMoves = new Set(['Dragon Dance', 'Earthquake', 'Fire Punch']);
+
+function build(id) {
+  return coverage.rosters().energy.map(member => {
+    if (id === 'charRain' && member.species === 'Aerodactyl') {
+      return { species: CHARIZARD, item: 'Charizardite Y', ability: 'Blaze', nature: 'Timid',
+        evs: { hp: 2, spa: 32, spe: 32 }, moves: ['Flamethrower', 'Solar Beam', 'Dragon Pulse', 'Ancient Power'] };
+    }
+    if (!usesGoodra(id) || member.species !== PRIMARINA) return member;
+    return { species: GOODRA, item: 'Air Balloon', ability: 'Sap Sipper', nature: 'Modest',
+      evs: { hp: 32, spa: 32, spd: 2 }, moves: ['Ice Beam', 'Earthquake', 'Flash Cannon', 'Thunderbolt'] };
+  });
+}
+
+function select(id, publicCase) {
+  const plan = coverage.readyPlans[publicCase];
+  if (id === 'original') return plan;
+  if (guarded(id) && publicCase === 'mixed') return [GOLISOPOD, GOODRA, SKELEDIRGE];
+  if (publicCase === 'mixed') return id === 'goodra'
+    ? [GOLISOPOD, GOODRA, MEOWSCARADA] : [GOLISOPOD, PRIMARINA, SKELEDIRGE];
+  if (usesGoodra(id) && publicCase === 'sand') return [MEOWSCARADA, GOLISOPOD, SKELEDIRGE];
+  if (id === 'charRain') {
+    if (['rain', 'rainPivot'].includes(publicCase)) return [MEOWSCARADA, GHOLDENGO, CHARIZARD];
+    if (['sun', 'charX'].includes(publicCase)) return [CHARIZARD, SKELEDIRGE, GOODRA];
+    return plan.map(species => species === 'Aerodactyl' ? CHARIZARD : species === PRIMARINA ? GOODRA : species);
+  }
+  return usesGoodra(id) ? plan.map(species => species === PRIMARINA ? GOODRA : species) : plan;
+}
+
+const speciesOf = member => member.details.split(',')[0];
+
+function pickMove(request, id, mega = false) {
+  const active = request.active[0];
+  const index = active.moves.findIndex(entry => entry.id === id && !entry.disabled);
+  if (index < 0) return null;
+  return `move ${index + 1}${mega && active.canMegaEvo ? ' mega' : ''}`;
+}
+
+function pivot(request, info, species) {
+  if (!info.canSwitch) return null;
+  const index = request.side.pokemon.findIndex(member => !member.active &&
+    !member.condition.endsWith(' fnt') && speciesOf(member) === species);
+  return index < 0 ? null : `switch ${index + 1}`;
+}
+
+function charizardPolicy(publicCase, own, foe, request, bot, info) {
+  const attack = (move, mega) => pickMove(request, move, mega);
+  const switchTo = species => pivot(request, info, species);
+  const canSetSun = request.active[0].canMegaEvo;
+  const sun = bot.weather === 'sunnyday';
+  if (['rain', 'rainPivot'].includes(publicCase)) {
+    if (own === MEOWSCARADA && info.turn === 1 && ['Pelipper', 'Archaludon'].includes(foe)) {
+      return attack('uturn');
+    }
+    if (!own.startsWith(CHARIZARD)) return null;
+    if (foe.startsWith('Swampert') && (canSetSun || sun)) return attack('solarbeam', true);
+    if (foe === 'Pelipper' && !canSetSun && !sun) return switchTo(GHOLDENGO) ?? attack('ancientpower');
+    return attack('flamethrower', true);
+  }
+  if (publicCase === 'sun') {
+    if (own === SKELEDIRGE && foe.startsWith(CHARIZARD)) return attack('shadowball');
+    if (own === SKELEDIRGE && ['Garchomp', 'Primarina', 'Baxcalibur'].includes(foe)) return switchTo(GOODRA);
+    if (own === GOODRA && [CHARIZARD, 'Charizard-Mega-X'].includes(foe)) return switchTo(SKELEDIRGE);
+    if (own.startsWith(CHARIZARD) && foe === CHARIZARD) return attack('dragonpulse', true);
+    if (own.startsWith(CHARIZARD) && foe === 'Primarina' && info.turn === 2) {
+      return switchTo(GOODRA) ?? attack('solarbeam');
+    }
+  }
+  if (!own.startsWith(CHARIZARD)) return null;
+  if (foe === 'Garchomp' && (info.turn === 1 || publicCase === 'sun')) {
+    return switchTo(GOODRA) ?? attack('dragonpulse', true);
+  }
+  if (/^(Garchomp|Salamence|Dragonite|Charizard-Mega-X|Baxcalibur)/.test(foe)) return attack('dragonpulse', true);
+  if (/^(Charizard|Volcarona|Pelipper)/.test(foe)) return attack('ancientpower', true);
+  if (/^(Swampert|Primarina|Toxapex|Hippowdon|Starmie)/.test(foe) && (canSetSun || sun)) {
+    return attack('solarbeam', true);
+  }
+  return attack('flamethrower', true);
+}
+
+function play(id, publicCase, request, bot, info) {
+  const fallback = () => coverage.dualPolicy(true, true, true, publicCase, request, bot, info, true, true);
+  if (id === 'original') return fallback();
+  const own = speciesOf(request.side.pokemon.find(member => member.active));
+  const foe = bot.foeActive;
+  const attack = (move, mega) => pickMove(request, move, mega);
+  const switchTo = species => pivot(request, info, species);
+  const partner = usesGoodra(id) ? GOODRA : PRIMARINA;
+
+  if (id === 'charRain') {
+    const choice = charizardPolicy(publicCase, own, foe, request, bot, info);
+    if (choice) return choice;
+  }
+  if (['rain', 'rainPivot'].includes(publicCase) && own === GHOLDENGO) {
+    if (foe === 'Pelipper') return attack('shadowball') ?? attack('thunderbolt');
+    if (foe === 'Archaludon') return attack('shadowball') ?? switchTo('Aerodactyl');
+  }
+  if (publicCase === 'mixed') {
+    if (guarded(id)) {
+      if (own.startsWith(GOLISOPOD) && foe.startsWith('Dragonite')) {
+        const seenPhysical = physicalDragoniteMoves.has(bot.lastMove) ||
+          bot.seenMoves?.[foe]?.some(move => physicalDragoniteMoves.has(move));
+        if (preservesSkeledirge(id) && info.turn > 1 && !seenPhysical) {
+          const choice = switchTo(GOODRA);
+          if (choice) return choice;
+        }
+        return switchTo(SKELEDIRGE) ?? attack('suckerpunch', true);
+      }
+      if (own.startsWith(GOLISOPOD) && foe.startsWith('Garchomp') && info.turn === 1) return attack('firstimpression', true);
+      if (own === SKELEDIRGE && foe.startsWith('Dragonite')) {
+        if (physicalDragoniteMoves.has(bot.lastMove)) {
+          return attack(bot.foeStatus === 'brn' ? 'slackoff' : 'willowisp');
+        }
+        return attack('shadowball');
+      }
+      if (own === GOODRA && foe.startsWith('Greninja')) return attack('thunderbolt');
+    }
+    if (own.startsWith(GOLISOPOD) && foe.startsWith('Garchomp')) return switchTo(partner) ?? attack('leechlife', true);
+    if (own.startsWith(GOLISOPOD) && foe.startsWith('Dragonite')) {
+      if (usesGoodra(id) && info.turn === 1) return attack('suckerpunch', true);
+      return switchTo(partner) ?? attack('suckerpunch', true);
+    }
+    if (own === SKELEDIRGE && foe.startsWith('Dragonite')) return attack('shadowball');
+    if (own === MEOWSCARADA && foe.startsWith('Garchomp')) return switchTo(partner) ?? attack('tripleaxel');
+    if (own === partner) {
+      if (foe.startsWith('Metagross')) return switchTo(GOLISOPOD) ?? attack(usesGoodra(id) ? 'earthquake' : 'sparklingaria');
+      if (foe.startsWith('Sneasler')) return switchTo(SKELEDIRGE) ?? switchTo(GOLISOPOD);
+      if (id === 'adjusted' && /^(Garchomp|Dragonite|Greninja)/.test(foe)) return attack('moonblast');
+    }
+  }
+  if (publicCase === 'gyarados') {
+    if (foe.startsWith('Mimikyu')) {
+      if (own === PRIMARINA && foe === 'Mimikyu-Busted' && !bot.foeStatus) return attack('encore');
+      if (own === PRIMARINA || own === GHOLDENGO) return switchTo(SKELEDIRGE) ?? attack('makeitrain') ?? attack('moonblast');
+      if (own === SKELEDIRGE) return attack(bot.foeStatus ? 'shadowball' : 'willowisp');
+    }
+    if (own === GHOLDENGO && foe.startsWith('Garchomp')) return attack('makeitrain') ?? switchTo(partner);
+    if (own === PRIMARINA && foe.startsWith('Garchomp')) return attack('moonblast');
+  }
+  if (usesGoodra(id)) {
+    if (publicCase === 'sun' && own.startsWith('Aerodactyl') && foe === 'Garchomp' && info.turn === 1) {
+      return switchTo(GOODRA) ?? attack('icefang', true);
+    }
+    if (own === GOODRA) {
+      if (/^(Garchomp|Dragonite|Salamence)/.test(foe)) return attack('icebeam');
+      if (foe.startsWith('Mimikyu') || foe === 'Baxcalibur') return attack('flashcannon');
+      if (['Gyarados', 'Corviknight', 'Charizard-Mega-Y'].includes(foe)) return attack('thunderbolt');
+      if (foe === GHOLDENGO && bot.foeItem === 'Air Balloon') return switchTo(GHOLDENGO) ?? attack('thunderbolt');
+      if (['Archaludon', 'Gholdengo', 'Charizard-Mega-X'].includes(foe)) return attack('earthquake');
+    }
+  }
+  return fallback();
+}
+
+function doublePivot(events) {
+  let secondDone = false;
+  return (request, bot, info) => {
+    if (info.turn === 1) return pivot(request, info, 'Garchomp');
+    const own = speciesOf(request.side.pokemon.find(member => member.active));
+    if (secondDone || !own.startsWith('Garchomp') || ![PRIMARINA, GOODRA].includes(bot.foeActive)) return null;
+    const choice = pivot(request, info, 'Mimikyu');
+    if (choice) {
+      secondDone = true;
+      events.push({ turn: info.turn, facing: bot.foeActive, switchTo: 'Mimikyu' });
+    }
+    return choice;
+  };
+}
+
+function fixtures(audit, physical = false, chains = false, longRain = false) {
+  const publicCases = coverage.opponents(true, true, true);
+  return publicCases.map(c => {
+    const branches = [
+      ...c.branches.map(b => ({ ...b, makePolicy: () => coverage.policy(b) })),
+      ...audit.BRANCHES.filter(b => b.scenario === c.id).map(b => ({
+        ...b, makePolicy: b.id === 'gyaraChompThenMimikyu' ? doublePivot : b.rival,
+      })),
+      ...extraBranches(c.id, audit.rival),
+      ...(physical ? followupBranches(c.id, audit.rival) : []),
+      ...(chains ? chainBranches(c.id, audit.rival) : []),
+    ];
+    if (longRain && ['rain', 'rainPivot'].includes(c.id)) {
+      branches.push(...longRainBranches(c, branches, audit.rival));
+    }
+    return { ...c, branches };
+  });
+}
+
+function extraBranches(id, rival) {
+  if (id === 'mixed') return [
+    { id: 'scarfChompRockSlide', three: ['Garchomp', 'Dragonite', 'Metagross'], makePolicy: () =>
+      (request, bot, info) => info.turn === 1 ? pickMove(request, 'rockslide') : null },
+  ];
+  if (id === 'rain') return [
+    { id: 'pelipperToFastArch', three: ['Pelipper', 'Archaludon', 'Swampert'],
+      sets: [{ species: 'Archaludon', item: 'Sitrus Berry', ability: 'Stamina', nature: 'Modest',
+        evs: { hp: 2, spa: 32, spe: 32 }, moves: ['Electro Shot', 'Draco Meteor', 'Flash Cannon', 'Aura Sphere'] }],
+      makePolicy: rival.switchT1('Archaludon') },
+  ];
+  return [];
+}
+
+function followupBranches(id, rival) {
+  if (id === 'mixed') {
+    const dragonite = physicalDragonite();
+    const three = ['Dragonite', 'Greninja', 'Sneasler'];
+    return [
+      ...['dragondance', 'firepunch', 'extremespeed'].map(move => ({ id: `physical-${move}`, three,
+        sets: [dragonite], makePolicy: rival.megaT1(move) })),
+      { id: 'physical-dd-fire', three, sets: [dragonite], makePolicy: () => (request, bot, info) => {
+        if (info.turn === 1) return pickMove(request, 'dragondance', true);
+        return info.turn === 2 ? pickMove(request, 'firepunch') : null;
+      } },
+    ];
+  }
+  if (id === 'steelBunker') return [
+    { id: 'scarfChompLead', three: ['Garchomp', 'Archaludon', 'Gholdengo'], makePolicy: () => null },
+    { id: 'archLead', three: ['Archaludon', 'Corviknight', 'Gholdengo'], makePolicy: () => null },
+  ];
+  return [];
+}
+
+function physicalDragonite() {
+  return { species: 'Dragonite', item: 'Dragoninite', ability: 'Multiscale', nature: 'Adamant',
+    evs: { hp: 2, atk: 32, spe: 32 }, moves: ['Dragon Dance', 'Extreme Speed', 'Earthquake', 'Fire Punch'] };
+}
+
+function chainBranches(id, rival) {
+  if (id === 'mixed') {
+    const three = ['Greninja', 'Dragonite', 'Sneasler'];
+    return ['dragondance', 'firepunch'].map(move => ({ id: `gren-pivot-physical-${move}`, three,
+      sets: [physicalDragonite()], makePolicy: () => {
+        let opened = false;
+        return (request, bot, info) => {
+          const active = speciesOf(request.side.pokemon.find(member => member.active));
+          if (info.turn === 2 && active === 'Greninja') return pivot(request, info, 'Dragonite');
+          if (opened || active !== 'Dragonite' || info.turn === 1) return null;
+          const choice = pickMove(request, move, true);
+          if (choice) opened = true;
+          return choice;
+        };
+      } }));
+  }
+  if (id === 'rain') return ['icepunch', 'liquidation'].map(move => ({
+    id: `pelipperSwampert${move}ThenArch`, three: ['Pelipper', 'Swampert', 'Archaludon'],
+    makePolicy: () => {
+      const rest = rival.doubleSwitch('Swampert', 'Swampert', 'Meowscarada', 'Archaludon')();
+      return (request, bot, info) => {
+        const active = speciesOf(request.side.pokemon.find(member => member.active));
+        if (info.turn === 2 && active.startsWith('Swampert')) return pickMove(request, move, true);
+        return rest(request, bot, info);
+      };
+    },
+  }));
+  return [];
+}
+
+function longRainBranches(c, branches, rival) {
+  const pelipper = c.team.find(p => p.species === 'Pelipper');
+  const swampert = c.team.find(p => p.species === 'Swampert');
+  const sets = [
+    { ...pelipper, item: 'Damp Rock', nature: 'Relaxed', evs: { hp: 32, def: 32, spd: 2 },
+      moves: ['Hurricane', 'Surf', 'U-turn', 'Ice Beam'] },
+    { ...swampert, moves: swampert.moves.map(move => move === 'Liquidation' ? 'Wave Crash' : move) },
+  ];
+  const lead = { id: 'swampertLead', three: ['Swampert', 'Pelipper', 'Archaludon'],
+    makePolicy: rival.switchT1('Pelipper') };
+  const wave = { id: 'waveCrashThenArch', three: ['Pelipper', 'Swampert', 'Archaludon'], makePolicy: () => {
+    const rest = rival.doubleSwitch('Swampert', 'Swampert', MEOWSCARADA, 'Archaludon')();
+    return (request, bot, info) => {
+      const active = request.side.pokemon.find(p => p.active);
+      if (info.turn === 2 && speciesOf(active) === 'Swampert') {
+        return pickMove(request, 'wavecrash', true) ?? rest(request, bot, info);
+      }
+      return rest(request, bot, info);
+    };
+  } };
+  return [...branches.filter(b => b.id !== 'pelipperSwampertliquidationThenArch'), wave, lead].map(b => ({
+    ...b, id: `long-${b.id}`, sets: [...sets, ...(b.sets ?? [])],
+  }));
+}
+
+function foeTeam(c, b) {
+  return c.team.map(member => {
+    const set = b.sets?.find(candidate => candidate.species === member.species) ?? member;
+    const item = b.itemOverrides?.[member.species] ?? (b.three[0] === member.species ? b.item : undefined) ?? set.item;
+    return { ...set, item };
+  });
+}
+
+async function run(audit, { trials = 8, seedBase = 67130000, ids = ['original', 'adjusted', 'goodra'],
+  only, physical = false, chains = false, longRain = false } = {}) {
+  if (!Number.isInteger(trials) || trials < 1 || trials > 40 || !Number.isSafeInteger(seedBase)) {
+    throw new Error('Expected 1–40 trials per branch and an integer seed base');
+  }
+  const engine = execFileSync('git', ['-C', process.env.SHOWDOWN_DIR, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+  if (engine !== PIN) throw new Error(`Unexpected engine ${engine}`);
+  const sim = load();
+  const teams = Object.fromEntries(ids.map(id => [id, build(id)]));
+  for (const [id, team] of Object.entries(teams)) validate(sim, team, id);
+  const rows = [];
+  const observed = new Map();
+  for (const [ci, c] of fixtures(audit, physical, chains, longRain).entries()) {
+    if (only && !only.includes(c.id)) continue;
+    const choices = Object.fromEntries(ids.map(id => [id, select(id, c.id)]));
+    const key = c.team.map(member => member.species).sort().join('/');
+    if (observed.has(key) && observed.get(key) !== JSON.stringify(choices)) throw new Error(`Preview drift: ${key}`);
+    observed.set(key, JSON.stringify(choices));
+    for (const [id, three] of Object.entries(choices)) {
+      if (new Set(three).size !== 3 || !three.every(species => teams[id].some(member => member.species === species))) {
+        throw new Error(`Invalid selection ${c.id}/${id}`);
+      }
+    }
+    for (const [bi, b] of c.branches.entries()) {
+      const enemy = foeTeam(c, b);
+      validate(sim, enemy, `${c.id}/${b.id}`);
+      const observations = {};
+      for (const [id, team] of Object.entries(teams)) {
+        const games = [];
+        for (let si = 0; si < trials; si++) {
+          const seed = hashSeed(seedBase + ci * 1000 + bi * 40 + si);
+          const scriptedPivots = [];
+          const r = await battle(sim, structuredClone(team), structuredClone(enemy), seed, {
+            ownThree: choices[id], foeThree: b.three, reverse: si % 2 === 1,
+            script: b.makePolicy(scriptedPivots), rivalImmuneAware: true,
+            ownOptions: { script: play.bind(null, id, c.id === 'charX' ? 'sun' : c.id) },
+          });
+          if (r.errors || r.foe.join('/') !== b.three.join('/')) throw new Error(`Invalid battle ${c.id}/${b.id}`);
+          const observation = { won: r.won, scriptedPivots, early: earlyLines(r.log, r.ownSide, 7) };
+          if (longRain && ['rain', 'rainPivot'].includes(c.id)) {
+            observation.weather = r.log.split('\n').filter(line => line.startsWith('|-weather|') && !line.includes('[upkeep]'));
+          }
+          games.push(observation);
+        }
+        observations[id] = games;
+      }
+      const wins = Object.fromEntries(ids.map(id => [id, observations[id].filter(r => r.won).length]));
+      rows.push({ scenario: c.id, branch: b.id, rivalThree: b.three, choices, wins, observations });
+      console.log(c.id, b.id, JSON.stringify(wins));
+    }
+  }
+  mkdirSync('output', { recursive: true });
+  writeFileSync(`output/m8-pokenavi-rework-${seedBase}.json`, JSON.stringify({ engine, trials, seedBase, teams, rows }, null, 2));
+}
+
+if (require.main === module) run(require('./m8-pokenavi-claude-audit-20261106'), {
+  trials: Number(process.env.M8_REWORK_TRIALS ?? 8), seedBase: Number(process.env.M8_REWORK_BASE ?? 67130000),
+  ids: process.env.M8_REWORK_VARIANTS?.split(','), only: process.env.M8_REWORK_CASES?.split(','),
+  physical: process.env.M8_REWORK_PHYSICAL === '1',
+  chains: process.env.M8_REWORK_CHAINS === '1',
+  longRain: process.env.M8_REWORK_LONG_RAIN === '1',
+}).catch(error => { console.error(error); process.exitCode = 1; });
+
+module.exports = { build, select, play, fixtures, run };

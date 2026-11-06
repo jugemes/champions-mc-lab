@@ -1,0 +1,216 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "foe": [
+  "Heracross",
+  "Rotom-Mow",
+  "Lycanroc-Dusk"
+ ],
+ "picks": {
+  "pr93": [
+   "Rotom-Wash",
+   "Hydreigon",
+   "Primarina"
+  ],
+  "v2": [
+   "Metagross",
+   "Hydreigon",
+   "Garchomp"
+  ]
+ },
+ "seeds": "hashSeed(9550000+variant*1000+(attack?100:0)+s), s=0..15, side s%2",
+ "rows": [
+  {
+   "variant": "real",
+   "pick": "pr93",
+   "branch": "ai",
+   "n": 16,
+   "won": 0,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "Close Combat"
+   ]
+  },
+  {
+   "variant": "real",
+   "pick": "pr93",
+   "branch": "attack",
+   "n": 16,
+   "won": 0,
+   "ourLeadKOdT1": 1,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "Close Combat"
+   ]
+  },
+  {
+   "variant": "real",
+   "pick": "v2",
+   "branch": "ai",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "real",
+   "pick": "v2",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "jollySkillLink",
+   "pick": "pr93",
+   "branch": "ai",
+   "n": 16,
+   "won": 12,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "jollySkillLink",
+   "pick": "pr93",
+   "branch": "attack",
+   "n": 16,
+   "won": 0,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "Close Combat"
+   ]
+  },
+  {
+   "variant": "jollySkillLink",
+   "pick": "v2",
+   "branch": "ai",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "jollySkillLink",
+   "pick": "v2",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "adamantTemplateMoves",
+   "pick": "pr93",
+   "branch": "ai",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 16,
+   "rivalT1Moves": [
+    "Earthquake"
+   ]
+  },
+  {
+   "variant": "adamantTemplateMoves",
+   "pick": "pr93",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 16,
+   "rivalT1Moves": [
+    "Earthquake"
+   ]
+  },
+  {
+   "variant": "adamantTemplateMoves",
+   "pick": "v2",
+   "branch": "ai",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "adamantTemplateMoves",
+   "pick": "v2",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "template",
+   "pick": "pr93",
+   "branch": "ai",
+   "n": 16,
+   "won": 15,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 16,
+   "rivalT1Moves": [
+    "Earthquake"
+   ]
+  },
+  {
+   "variant": "template",
+   "pick": "pr93",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 16,
+   "rivalT1Moves": [
+    "Earthquake"
+   ]
+  },
+  {
+   "variant": "template",
+   "pick": "v2",
+   "branch": "ai",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  },
+  {
+   "variant": "template",
+   "pick": "v2",
+   "branch": "attack",
+   "n": 16,
+   "won": 16,
+   "ourLeadKOdT1": 0,
+   "publicImmuneGames": 0,
+   "rivalT1Moves": [
+    "-"
+   ]
+  }
+ ]
+}

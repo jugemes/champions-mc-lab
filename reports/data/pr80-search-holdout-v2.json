@@ -1,0 +1,3918 @@
+{
+ "HX_rain": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Archaludon",
+   "Dragonite",
+   "Gholdengo",
+   "Pelipper",
+   "Rillaboom",
+   "Swampert"
+  ],
+  "publicKey": "Archaludon|Dragonite|Gholdengo|Pelipper|Rillaboom|Swampert",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Archaludon@Life Orb:Draco Meteor/Flash Cannon/Aura Sphere/Thunderbolt",
+    "Dragonite@Focus Sash:Dragon Dance/Outrage/Superpower/Extreme Speed",
+    "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+    "Pelipper@Sitrus Berry:U-turn/Surf/Hurricane/Ice Beam",
+    "Rillaboom@Choice Scarf:Wood Hammer/Earthquake/Superpower/Double-Edge",
+    "Swampert@Swampertite:Bulk Up/Wave Crash/Earthquake/Protect"
+   ],
+   [
+    "Archaludon@Life Orb:Draco Meteor/Flash Cannon/Aura Sphere/Thunderbolt",
+    "Dragonite@Dragoninite:Draco Meteor/Hurricane/Fire Blast/Surf",
+    "Gholdengo@Choice Scarf:Make It Rain/Shadow Ball/Surf/Thunderbolt",
+    "Pelipper@Leftovers:Roost/Knock Off/Surf/Hurricane",
+    "Rillaboom@Focus Sash:Swords Dance/Wood Hammer/Earthquake/Grassy Glide",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Archaludon@Life Orb:Draco Meteor/Flash Cannon/Aura Sphere/Thunderbolt",
+    "Dragonite@Choice Scarf:Outrage/Superpower/Earthquake/Iron Head",
+    "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover",
+    "Pelipper@Sitrus Berry:U-turn/Surf/Hurricane/Ice Beam",
+    "Rillaboom@Leftovers:Taunt/Wood Hammer/Earthquake/Superpower",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Archaludon@Life Orb:Draco Meteor/Flash Cannon/Aura Sphere/Thunderbolt",
+    "Dragonite@Leftovers:Roost/Thunder Wave/Outrage/Superpower",
+    "Gholdengo@Lum Berry:Make It Rain/Shadow Ball/Surf/Thunderbolt",
+    "Pelipper@Sitrus Berry:U-turn/Surf/Hurricane/Ice Beam",
+    "Rillaboom@Focus Sash:Swords Dance/Wood Hammer/Earthquake/Grassy Glide",
+    "Swampert@Choice Scarf:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Archaludon@Choice Scarf:Draco Meteor/Flash Cannon/Aura Sphere/Thunderbolt",
+    "Dragonite@Dragoninite:Draco Meteor/Hurricane/Fire Blast/Surf",
+    "Gholdengo@Life Orb:Make It Rain/Shadow Ball/Surf/Thunderbolt",
+    "Pelipper@Leftovers:Roost/Knock Off/Surf/Hurricane",
+    "Rillaboom@Focus Sash:Swords Dance/Wood Hammer/Earthquake/Grassy Glide",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ]
+  ],
+  "coverage": {
+   "required": 17,
+   "covered": 17,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Rillaboom>Dragonite/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Rillaboom>Archaludon/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Swampert>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Rillaboom>Dragonite/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Swampert>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Rillaboom>Archaludon/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Archaludon>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Rillaboom>Archaludon/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Archaludon>Rillaboom/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Pelipper>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rillaboom>Archaludon/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Archaludon>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gholdengo>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rillaboom>Archaludon/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rillaboom>Archaludon/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Archaludon>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Rillaboom>Archaludon/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Archaludon>Rillaboom/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Pelipper>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Dragonite/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Archaludon/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Dragonite/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Archaludon/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Archaludon>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Archaludon/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Archaludon>Rillaboom/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Pelipper>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rillaboom>Dragonite/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gholdengo>Dragonite/Rillaboom",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rillaboom>Dragonite/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Dragonite/Rillaboom",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rillaboom>Archaludon/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Rillaboom/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Rillaboom>Dragonite/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Pelipper>Dragonite/Rillaboom",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rillaboom>Archaludon/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Archaludon>Rillaboom/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rillaboom>Archaludon/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Swampert>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rillaboom>Archaludon/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Archaludon>Rillaboom/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Rillaboom>Archaludon/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Archaludon>Rillaboom/Pelipper",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Pelipper>Rillaboom/Archaludon",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Archaludon/Gholdengo",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Archaludon/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Archaludon/Gholdengo",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Gholdengo/Rillaboom",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Garchomp>Metagross/Hydreigon",
+   "Rotom-Wash>Metagross/Hydreigon",
+   "Metagross>Hydreigon/Garchomp",
+   "Primarina>Metagross/Hydreigon",
+   "Garchomp>Metagross/Primarina",
+   "Hydreigon>Metagross/Garchomp",
+   "Metagross>Hydreigon/Primarina",
+   "Rotom-Wash>Hydreigon/Primarina",
+   "Garchomp>Hydreigon/Primarina",
+   "Hydreigon>Metagross/Primarina",
+   "Hydreigon>Metagross/Tyranitar",
+   "Garchomp>Metagross/Tyranitar",
+   "Primarina>Hydreigon/Tyranitar",
+   "Tyranitar>Primarina/Garchomp",
+   "Primarina>Garchomp/Tyranitar",
+   "Metagross>Hydreigon/Tyranitar"
+  ],
+  "support": [
+   {
+    "pick": "Tyranitar>Primarina/Garchomp",
+    "oi": 50,
+    "p": 0.1689
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "oi": 1,
+    "p": 0.1481
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "oi": 0,
+    "p": 0.1472
+   },
+   {
+    "pick": "Hydreigon>Metagross/Garchomp",
+    "oi": 4,
+    "p": 0.1156
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "oi": 3,
+    "p": 0.1051
+   },
+   {
+    "pick": "Metagross>Hydreigon/Tyranitar",
+    "oi": 6,
+    "p": 0.1017
+   },
+   {
+    "pick": "Primarina>Hydreigon/Tyranitar",
+    "oi": 34,
+    "p": 0.0874
+   },
+   {
+    "pick": "Garchomp>Metagross/Hydreigon",
+    "oi": 5,
+    "p": 0.0853
+   },
+   {
+    "pick": "Garchomp>Hydreigon/Primarina",
+    "oi": 32,
+    "p": 0.0407
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.191,
+  "securityAll": 0.191,
+  "mean": 0.455,
+  "raw": {
+   "support": [
+    {
+     "pick": "Tyranitar>Primarina/Garchomp",
+     "p": 0.1605
+    },
+    {
+     "pick": "Hydreigon>Metagross/Primarina",
+     "p": 0.1408
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "p": 0.14
+    },
+    {
+     "pick": "Hydreigon>Metagross/Garchomp",
+     "p": 0.1099
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.0999
+    },
+    {
+     "pick": "Metagross>Hydreigon/Tyranitar",
+     "p": 0.0967
+    },
+    {
+     "pick": "Primarina>Hydreigon/Tyranitar",
+     "p": 0.0831
+    },
+    {
+     "pick": "Garchomp>Metagross/Hydreigon",
+     "p": 0.0811
+    },
+    {
+     "pick": "Garchomp>Hydreigon/Primarina",
+     "p": 0.0387
+    },
+    {
+     "pick": "Garchomp>Metagross/Tyranitar",
+     "p": 0.0202
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Hydreigon",
+     "p": 0.0173
+    },
+    {
+     "pick": "Hydreigon>Metagross/Tyranitar",
+     "p": 0.0073
+    },
+    {
+     "pick": "Primarina>Garchomp/Tyranitar",
+     "p": 0.0034
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.0009
+    },
+    {
+     "pick": "Rotom-Wash>Hydreigon/Primarina",
+     "p": 0.0003
+    }
+   ],
+   "droppedMass": 0.0494,
+   "security": 0.209,
+   "securityAll": 0.209,
+   "mean": 0.454
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 5,
+    "added": [
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "screenWinsOnBinding": "4/5"
+     },
+     {
+      "pick": "Hydreigon>Metagross/Primarina",
+      "screenWinsOnBinding": "3/5"
+     },
+     {
+      "pick": "Hydreigon>Metagross/Tyranitar",
+      "screenWinsOnBinding": "3/5"
+     },
+     {
+      "pick": "Garchomp>Metagross/Tyranitar",
+      "screenWinsOnBinding": "3/5"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 8,
+    "added": [
+     {
+      "pick": "Primarina>Hydreigon/Tyranitar",
+      "screenWinsOnBinding": "6/8"
+     },
+     {
+      "pick": "Tyranitar>Primarina/Garchomp",
+      "screenWinsOnBinding": "6/8"
+     },
+     {
+      "pick": "Primarina>Garchomp/Tyranitar",
+      "screenWinsOnBinding": "6/8"
+     },
+     {
+      "pick": "Metagross>Hydreigon/Tyranitar",
+      "screenWinsOnBinding": "5/8"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Garchomp>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.5,
+    "mean": 0.65
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.433,
+    "mean": 0.593
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.393,
+    "mean": 0.529
+   },
+   {
+    "pick": "Hydreigon>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.357,
+    "mean": 0.629
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.357,
+    "mean": 0.543
+   },
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.321,
+    "mean": 0.55
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.3,
+    "mean": 0.486
+   },
+   {
+    "pick": "Garchomp>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.3,
+    "mean": 0.407
+   },
+   {
+    "pick": "Rotom-Wash>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.267,
+    "mean": 0.436
+   },
+   {
+    "pick": "Garchomp>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.25,
+    "mean": 0.393
+   },
+   {
+    "pick": "Hydreigon>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.179,
+    "mean": 0.5
+   },
+   {
+    "pick": "Garchomp>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.179,
+    "mean": 0.343
+   },
+   {
+    "pick": "Metagross>Hydreigon/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.179,
+    "mean": 0.314
+   },
+   {
+    "pick": "Primarina>Hydreigon/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.143,
+    "mean": 0.364
+   },
+   {
+    "pick": "Primarina>Garchomp/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.1,
+    "mean": 0.186
+   },
+   {
+    "pick": "Tyranitar>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0,
+    "mean": 0.193
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Rillaboom/Swampert",
+    "src": "view",
+    "v": 0.191
+   },
+   {
+    "scenario": 3,
+    "rival": "Archaludon>Rillaboom/Swampert",
+    "src": "view",
+    "v": 0.206
+   },
+   {
+    "scenario": 4,
+    "rival": "Rillaboom>Archaludon/Dragonite",
+    "src": "view",
+    "v": 0.209
+   },
+   {
+    "scenario": 2,
+    "rival": "Rillaboom>Dragonite/Gholdengo",
+    "src": "view",
+    "v": 0.211
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Rillaboom/Swampert",
+    "src": "view",
+    "v": 0.211
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Rillaboom/Archaludon",
+    "src": "view",
+    "v": 0.211
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 4,
+     "rival": "Dragonite>Archaludon/Gholdengo",
+     "value": 0.083
+    },
+    {
+     "scenario": 4,
+     "rival": "Dragonite>Archaludon/Swampert",
+     "value": 0.083
+    },
+    {
+     "scenario": 1,
+     "rival": "Dragonite>Archaludon/Gholdengo",
+     "value": 0.166
+    },
+    {
+     "scenario": 1,
+     "rival": "Dragonite>Gholdengo/Rillaboom",
+     "value": 0.166
+    }
+   ],
+   "checked": 300
+  },
+  "games": {
+   "screen": 3960,
+   "refine": 8960,
+   "expansion": 3840,
+   "total": 16760
+  },
+  "seconds": 102,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ },
+ "HX_gyarados": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Baxcalibur",
+   "Corviknight",
+   "Garchomp",
+   "Gholdengo",
+   "Gyarados",
+   "Mimikyu"
+  ],
+  "publicKey": "Baxcalibur|Corviknight|Garchomp|Gholdengo|Gyarados|Mimikyu",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Baxcalibur@Baxcalibrite:Swords Dance/Glaive Rush/Icicle Spear/Ice Shard",
+    "Corviknight@Focus Sash:Bulk Up/Brave Bird/Iron Head/Roost",
+    "Garchomp@Garchompite Z:Draco Meteor/Fire Blast/Earth Power/Surf",
+    "Gholdengo@Choice Scarf:Make It Rain/Shadow Ball/Surf/Thunderbolt",
+    "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect",
+    "Mimikyu@Life Orb:Play Rough/Wood Hammer/Shadow Claw/Shadow Sneak"
+   ],
+   [
+    "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard",
+    "Corviknight@Life Orb:Brave Bird/Iron Head/Body Press/Double-Edge",
+    "Garchomp@Garchompite:Swords Dance/Earthquake/Outrage/Protect",
+    "Gholdengo@Focus Sash:Nasty Plot/Make It Rain/Shadow Ball/Recover",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Mimikyu@Choice Scarf:Play Rough/Wood Hammer/Shadow Claw/Drain Punch"
+   ],
+   [
+    "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard",
+    "Corviknight@Life Orb:Brave Bird/Iron Head/Body Press/Double-Edge",
+    "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+    "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+    "Gyarados@Choice Scarf:Aqua Tail/Earthquake/Outrage/Stone Edge",
+    "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak"
+   ],
+   [
+    "Baxcalibur@Choice Scarf:Glaive Rush/Icicle Spear/Earthquake/Iron Head",
+    "Corviknight@Life Orb:Brave Bird/Iron Head/Body Press/Double-Edge",
+    "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+    "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak"
+   ],
+   [
+    "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard",
+    "Corviknight@Life Orb:Brave Bird/Iron Head/Body Press/Double-Edge",
+    "Garchomp@Choice Scarf:Earthquake/Outrage/Iron Head/Double-Edge",
+    "Gholdengo@Leftovers:Recover/Trick/Make It Rain/Shadow Ball",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Mimikyu@Focus Sash:Swords Dance/Play Rough/Wood Hammer/Shadow Sneak"
+   ],
+   [
+    "Baxcalibur@Baxcalibrite:Glaive Rush/Icicle Spear/Earthquake/Ice Shard",
+    "Corviknight@Choice Scarf:Brave Bird/Iron Head/Body Press/Double-Edge",
+    "Garchomp@Garchompite:Earthquake/Outrage/Iron Head/Double-Edge",
+    "Gholdengo@Life Orb:Make It Rain/Shadow Ball/Surf/Thunderbolt",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Mimikyu@Leftovers:Will-O-Wisp/Play Rough/Wood Hammer/Shadow Claw"
+   ]
+  ],
+  "coverage": {
+   "required": 21,
+   "covered": 21,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Baxcalibur/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Corviknight>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Gholdengo/Garchomp",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Baxcalibur/Garchomp",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Garchomp>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gholdengo>Baxcalibur/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gyarados>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Garchomp>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gholdengo>Garchomp/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Corviknight>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Baxcalibur>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gholdengo>Baxcalibur/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Corviknight>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gholdengo>Garchomp/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gyarados>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Garchomp>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Garchomp/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Corviknight>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Baxcalibur>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Baxcalibur/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Corviknight>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gholdengo>Garchomp/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gyarados>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Garchomp>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Baxcalibur>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gholdengo>Garchomp/Baxcalibur",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Garchomp>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gholdengo>Garchomp/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Corviknight>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Baxcalibur>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gholdengo>Baxcalibur/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Garchomp>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Baxcalibur>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Garchomp/Baxcalibur",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Garchomp>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Garchomp/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Corviknight>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Garchomp/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gyarados>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Garchomp>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gholdengo>Garchomp/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Corviknight>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Baxcalibur>Gholdengo/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gholdengo>Baxcalibur/Corviknight",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Corviknight>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gholdengo>Garchomp/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gyarados>Garchomp/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Baxcalibur>Gholdengo/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gholdengo>Baxcalibur/Mimikyu",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Mimikyu>Baxcalibur/Gholdengo",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Garchomp>Baxcalibur/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Garchomp>Gholdengo/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Gholdengo/Gyarados",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Baxcalibur/Garchomp",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Garchomp>Corviknight/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Corviknight/Garchomp",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gyarados>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Garchomp/Gyarados",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Corviknight/Gyarados",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Mimikyu>Baxcalibur/Gyarados",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Baxcalibur/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Garchomp/Gholdengo",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gyarados>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gyarados>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Mimikyu>Garchomp/Gyarados",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Corviknight>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Garchomp/Gholdengo",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Mimikyu>Baxcalibur/Garchomp",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Baxcalibur>Gyarados/Mimikyu",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Primarina>Metagross/Hydreigon",
+   "Metagross>Hydreigon/Garchomp",
+   "Metagross>Hydreigon/Rotom-Wash",
+   "Hydreigon>Primarina/Garchomp",
+   "Metagross>Hydreigon/Primarina",
+   "Metagross>Hydreigon/Tyranitar",
+   "Primarina>Metagross/Garchomp",
+   "Metagross>Primarina/Garchomp",
+   "Garchomp>Hydreigon/Primarina",
+   "Rotom-Wash>Primarina/Garchomp",
+   "Rotom-Wash>Hydreigon/Primarina",
+   "Hydreigon>Primarina/Tyranitar",
+   "Garchomp>Metagross/Rotom-Wash",
+   "Rotom-Wash>Metagross/Garchomp",
+   "Garchomp>Primarina/Rotom-Wash",
+   "Tyranitar>Metagross/Primarina"
+  ],
+  "support": [
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "oi": 26,
+    "p": 0.1999
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "oi": 12,
+    "p": 0.1741
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "oi": 13,
+    "p": 0.1325
+   },
+   {
+    "pick": "Garchomp>Hydreigon/Primarina",
+    "oi": 32,
+    "p": 0.1197
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "oi": 52,
+    "p": 0.0993
+   },
+   {
+    "pick": "Rotom-Wash>Hydreigon/Primarina",
+    "oi": 38,
+    "p": 0.0968
+   },
+   {
+    "pick": "Garchomp>Metagross/Rotom-Wash",
+    "oi": 25,
+    "p": 0.07
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "oi": 0,
+    "p": 0.055
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "oi": 3,
+    "p": 0.0527
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.212,
+  "securityAll": 0.212,
+  "mean": 0.557,
+  "raw": {
+   "support": [
+    {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "p": 0.1914
+    },
+    {
+     "pick": "Metagross>Primarina/Garchomp",
+     "p": 0.1666
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "p": 0.1268
+    },
+    {
+     "pick": "Garchomp>Hydreigon/Primarina",
+     "p": 0.1146
+    },
+    {
+     "pick": "Garchomp>Primarina/Rotom-Wash",
+     "p": 0.095
+    },
+    {
+     "pick": "Rotom-Wash>Hydreigon/Primarina",
+     "p": 0.0927
+    },
+    {
+     "pick": "Garchomp>Metagross/Rotom-Wash",
+     "p": 0.067
+    },
+    {
+     "pick": "Metagross>Hydreigon/Primarina",
+     "p": 0.0526
+    },
+    {
+     "pick": "Metagross>Hydreigon/Garchomp",
+     "p": 0.0504
+    },
+    {
+     "pick": "Rotom-Wash>Primarina/Garchomp",
+     "p": 0.027
+    },
+    {
+     "pick": "Primarina>Metagross/Hydreigon",
+     "p": 0.0118
+    },
+    {
+     "pick": "Hydreigon>Primarina/Garchomp",
+     "p": 0.0019
+    },
+    {
+     "pick": "Metagross>Hydreigon/Tyranitar",
+     "p": 0.0008
+    },
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.0008
+    },
+    {
+     "pick": "Hydreigon>Primarina/Tyranitar",
+     "p": 0.0005
+    },
+    {
+     "pick": "Metagross>Hydreigon/Rotom-Wash",
+     "p": 0.0001
+    }
+   ],
+   "droppedMass": 0.0428,
+   "security": 0.236,
+   "securityAll": 0.236,
+   "mean": 0.558
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 10,
+    "added": [
+     {
+      "pick": "Garchomp>Hydreigon/Primarina",
+      "screenWinsOnBinding": "9/10"
+     },
+     {
+      "pick": "Rotom-Wash>Primarina/Garchomp",
+      "screenWinsOnBinding": "9/10"
+     },
+     {
+      "pick": "Rotom-Wash>Hydreigon/Primarina",
+      "screenWinsOnBinding": "9/10"
+     },
+     {
+      "pick": "Hydreigon>Primarina/Tyranitar",
+      "screenWinsOnBinding": "8/10"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 9,
+    "added": [
+     {
+      "pick": "Garchomp>Metagross/Rotom-Wash",
+      "screenWinsOnBinding": "8/9"
+     },
+     {
+      "pick": "Rotom-Wash>Metagross/Garchomp",
+      "screenWinsOnBinding": "7/9"
+     },
+     {
+      "pick": "Garchomp>Primarina/Rotom-Wash",
+      "screenWinsOnBinding": "7/9"
+     },
+     {
+      "pick": "Tyranitar>Metagross/Primarina",
+      "screenWinsOnBinding": "7/9"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Primarina>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.565,
+    "mean": 0.677
+   },
+   {
+    "pick": "Garchomp>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.5,
+    "mean": 0.615
+   },
+   {
+    "pick": "Metagross>Hydreigon/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.469,
+    "mean": 0.552
+   },
+   {
+    "pick": "Hydreigon>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.457,
+    "mean": 0.563
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.423,
+    "mean": 0.51
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.412,
+    "mean": 0.583
+   },
+   {
+    "pick": "Metagross>Hydreigon/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.406,
+    "mean": 0.609
+   },
+   {
+    "pick": "Metagross>Hydreigon/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.406,
+    "mean": 0.594
+   },
+   {
+    "pick": "Hydreigon>Primarina/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.391,
+    "mean": 0.458
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.375,
+    "mean": 0.62
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.346,
+    "mean": 0.568
+   },
+   {
+    "pick": "Garchomp>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.324,
+    "mean": 0.432
+   },
+   {
+    "pick": "Rotom-Wash>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.231,
+    "mean": 0.557
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.231,
+    "mean": 0.5
+   },
+   {
+    "pick": "Rotom-Wash>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.192,
+    "mean": 0.573
+   },
+   {
+    "pick": "Tyranitar>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.088,
+    "mean": 0.26
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 4,
+    "rival": "Garchomp>Baxcalibur/Gholdengo",
+    "src": "view",
+    "v": 0.212
+   },
+   {
+    "scenario": 4,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view",
+    "v": 0.216
+   },
+   {
+    "scenario": 0,
+    "rival": "Mimikyu>Garchomp/Gyarados",
+    "src": "bestResponse",
+    "v": 0.219
+   },
+   {
+    "scenario": 4,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse",
+    "v": 0.231
+   },
+   {
+    "scenario": 1,
+    "rival": "Garchomp>Gholdengo/Gyarados",
+    "src": "view",
+    "v": 0.232
+   },
+   {
+    "scenario": 0,
+    "rival": "Baxcalibur>Garchomp/Mimikyu",
+    "src": "bestResponse",
+    "v": 0.233
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 0,
+     "rival": "Garchomp>Baxcalibur/Mimikyu",
+     "value": 0.035
+    },
+    {
+     "scenario": 3,
+     "rival": "Gyarados>Garchomp/Mimikyu",
+     "value": 0.059
+    },
+    {
+     "scenario": 0,
+     "rival": "Garchomp>Gholdengo/Mimikyu",
+     "value": 0.128
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Gholdengo/Gyarados",
+     "value": 0.157
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Baxcalibur/Garchomp",
+     "value": 0.158
+    },
+    {
+     "scenario": 0,
+     "rival": "Garchomp>Corviknight/Mimikyu",
+     "value": 0.164
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Corviknight/Garchomp",
+     "value": 0.205
+    },
+    {
+     "scenario": 4,
+     "rival": "Gyarados>Garchomp/Mimikyu",
+     "value": 0.238
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Garchomp/Gyarados",
+     "value": 0.287
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Corviknight/Gyarados",
+     "value": 0.288
+    },
+    {
+     "scenario": 5,
+     "rival": "Mimikyu>Baxcalibur/Gyarados",
+     "value": 0.296
+    },
+    {
+     "scenario": 3,
+     "rival": "Gyarados>Baxcalibur/Mimikyu",
+     "value": 0.297
+    },
+    {
+     "scenario": 2,
+     "rival": "Baxcalibur>Garchomp/Mimikyu",
+     "value": 0.297
+    },
+    {
+     "scenario": 3,
+     "rival": "Gyarados>Garchomp/Gholdengo",
+     "value": 0.298
+    },
+    {
+     "scenario": 1,
+     "rival": "Gyarados>Garchomp/Mimikyu",
+     "value": 0.314
+    },
+    {
+     "scenario": 4,
+     "rival": "Baxcalibur>Garchomp/Mimikyu",
+     "value": 0.326
+    },
+    {
+     "scenario": 5,
+     "rival": "Gyarados>Garchomp/Mimikyu",
+     "value": 0.326
+    },
+    {
+     "scenario": 4,
+     "rival": "Mimikyu>Garchomp/Gyarados",
+     "value": 0.369
+    },
+    {
+     "scenario": 0,
+     "rival": "Corviknight>Garchomp/Mimikyu",
+     "value": 0.385
+    },
+    {
+     "scenario": 0,
+     "rival": "Mimikyu>Garchomp/Gholdengo",
+     "value": 0.386
+    },
+    {
+     "scenario": 0,
+     "rival": "Baxcalibur>Garchomp/Mimikyu",
+     "value": 0.412
+    },
+    {
+     "scenario": 4,
+     "rival": "Mimikyu>Baxcalibur/Garchomp",
+     "value": 0.421
+    },
+    {
+     "scenario": 3,
+     "rival": "Baxcalibur>Garchomp/Mimikyu",
+     "value": 0.422
+    },
+    {
+     "scenario": 3,
+     "rival": "Baxcalibur>Gyarados/Mimikyu",
+     "value": 0.432
+    }
+   ],
+   "checked": 360
+  },
+  "games": {
+   "screen": 4320,
+   "refine": 12288,
+   "expansion": 7200,
+   "total": 23808
+  },
+  "seconds": 152,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ },
+ "HOLD_psychic_offense": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Alakazam",
+   "Armarouge",
+   "Gyarados",
+   "Sneasler",
+   "Starmie",
+   "Swampert"
+  ],
+  "publicKey": "Alakazam|Armarouge|Gyarados|Sneasler|Starmie|Swampert",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Alakazam@Alakazite:Nasty Plot/Psychic/Energy Ball/Recover",
+    "Armarouge@Choice Scarf:Armor Cannon/Psychic/Energy Ball/Dragon Pulse",
+    "Gyarados@Gyaradosite:Dragon Dance/Aqua Tail/Crunch/Protect",
+    "Sneasler@Focus Sash:Swords Dance/Close Combat/Gunk Shot/Quick Attack",
+    "Starmie@Starminite:Surf/Psychic/Ice Beam/Flash Cannon",
+    "Swampert@Swampertite:Bulk Up/Wave Crash/Earthquake/Protect"
+   ],
+   [
+    "Alakazam@Alakazite:Psychic/Energy Ball/Shadow Ball/Dazzling Gleam",
+    "Armarouge@Focus Sash:Calm Mind/Armor Cannon/Psychic/Protect",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Sneasler@Life Orb:Close Combat/Gunk Shot/Throat Chop/Quick Attack",
+    "Starmie@Choice Scarf:Surf/Psychic/Ice Beam/Flash Cannon",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Alakazam@Alakazite:Psychic/Energy Ball/Shadow Ball/Dazzling Gleam",
+    "Armarouge@Focus Sash:Calm Mind/Armor Cannon/Psychic/Protect",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Sneasler@Life Orb:Close Combat/Gunk Shot/Throat Chop/Quick Attack",
+    "Starmie@Leftovers:Recover/Thunder Wave/Surf/Psychic",
+    "Swampert@Choice Scarf:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Alakazam@Alakazite:Psychic/Energy Ball/Shadow Ball/Dazzling Gleam",
+    "Armarouge@Life Orb:Armor Cannon/Psychic/Energy Ball/Dragon Pulse",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Sneasler@Choice Scarf:Close Combat/Gunk Shot/Throat Chop/Fire Punch",
+    "Starmie@Starminite:Surf/Psychic/Ice Beam/Flash Cannon",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Alakazam@Alakazite:Psychic/Energy Ball/Shadow Ball/Dazzling Gleam",
+    "Armarouge@Leftovers:Will-O-Wisp/Armor Cannon/Psychic/Energy Ball",
+    "Gyarados@Choice Scarf:Aqua Tail/Earthquake/Outrage/Stone Edge",
+    "Sneasler@Life Orb:Close Combat/Gunk Shot/Throat Chop/Quick Attack",
+    "Starmie@Starminite:Surf/Psychic/Ice Beam/Flash Cannon",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ],
+   [
+    "Alakazam@Choice Scarf:Psychic/Energy Ball/Shadow Ball/Dazzling Gleam",
+    "Armarouge@Life Orb:Armor Cannon/Psychic/Energy Ball/Dragon Pulse",
+    "Gyarados@Gyaradosite:Aqua Tail/Crunch/Earthquake/Outrage",
+    "Sneasler@Leftovers:Taunt/Close Combat/Gunk Shot/Throat Chop",
+    "Starmie@Starminite:Surf/Psychic/Ice Beam/Flash Cannon",
+    "Swampert@Swampertite:Wave Crash/Earthquake/Superpower/Outrage"
+   ]
+  ],
+  "coverage": {
+   "required": 18,
+   "covered": 18,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Sneasler>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Starmie>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sneasler>Armarouge/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sneasler>Armarouge/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Armarouge>Sneasler/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Alakazam>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Sneasler>Armarouge/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Armarouge>Sneasler/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Gyarados>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sneasler>Starmie/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Starmie>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Starmie/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Starmie>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sneasler>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Alakazam/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Swampert/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Gyarados/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Gyarados>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Swampert/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Sneasler>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Starmie>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Alakazam/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Alakazam>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Armarouge>Swampert/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Swampert>Gyarados/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Gyarados>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Armarouge>Swampert/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Sneasler>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Starmie>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Sneasler>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Starmie>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Alakazam/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Alakazam>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Swampert/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Armarouge/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Swampert/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sneasler>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Starmie>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Sneasler>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Swampert>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Starmie>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Swampert>Alakazam/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Alakazam>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Swampert/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Swampert>Gyarados/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Gyarados>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Swampert/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sneasler>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Starmie>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sneasler>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Swampert>Sneasler/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Armarouge>Sneasler/Swampert",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Swampert>Armarouge/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Starmie>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Swampert>Alakazam/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Alakazam>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Armarouge>Swampert/Alakazam",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Swampert>Armarouge/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Armarouge>Swampert/Gyarados",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gyarados>Swampert/Armarouge",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Alakazam>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Alakazam>Gyarados/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Alakazam>Gyarados/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Alakazam>Armarouge/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Alakazam>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Sneasler/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Armarouge/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Alakazam/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Gyarados>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Sneasler/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Alakazam>Gyarados/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Alakazam>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Gyarados/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Alakazam>Gyarados/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 5,
+    "rival": "Sneasler>Gyarados/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Alakazam>Starmie/Swampert",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Alakazam>Armarouge/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Alakazam/Sneasler",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Sneasler>Alakazam/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Swampert>Alakazam/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Alakazam/Starmie",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Alakazam>Gyarados/Sneasler",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Rotom-Wash>Garchomp/Tyranitar",
+   "Metagross>Primarina/Garchomp",
+   "Metagross>Primarina/Rotom-Wash",
+   "Primarina>Garchomp/Tyranitar",
+   "Rotom-Wash>Primarina/Garchomp",
+   "Metagross>Garchomp/Rotom-Wash",
+   "Rotom-Wash>Metagross/Garchomp",
+   "Garchomp>Tyranitar/Rotom-Wash",
+   "Primarina>Garchomp/Rotom-Wash",
+   "Garchomp>Primarina/Rotom-Wash",
+   "Hydreigon>Primarina/Garchomp",
+   "Tyranitar>Hydreigon/Rotom-Wash",
+   "Primarina>Metagross/Garchomp",
+   "Garchomp>Metagross/Primarina",
+   "Garchomp>Metagross/Hydreigon",
+   "Tyranitar>Metagross/Garchomp"
+  ],
+  "support": [
+   {
+    "pick": "Metagross>Garchomp/Rotom-Wash",
+    "oi": 24,
+    "p": 0.2911
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "oi": 13,
+    "p": 0.2261
+   },
+   {
+    "pick": "Tyranitar>Metagross/Garchomp",
+    "oi": 23,
+    "p": 0.1163
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "oi": 12,
+    "p": 0.1052
+   },
+   {
+    "pick": "Garchomp>Tyranitar/Rotom-Wash",
+    "oi": 57,
+    "p": 0.0975
+   },
+   {
+    "pick": "Rotom-Wash>Primarina/Garchomp",
+    "oi": 53,
+    "p": 0.0659
+   },
+   {
+    "pick": "Garchomp>Metagross/Primarina",
+    "oi": 14,
+    "p": 0.0553
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "oi": 52,
+    "p": 0.0426
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.532,
+  "securityAll": 0.532,
+  "mean": 0.76,
+  "raw": {
+   "support": [
+    {
+     "pick": "Metagross>Garchomp/Rotom-Wash",
+     "p": 0.2782
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "p": 0.2161
+    },
+    {
+     "pick": "Tyranitar>Metagross/Garchomp",
+     "p": 0.1112
+    },
+    {
+     "pick": "Metagross>Primarina/Garchomp",
+     "p": 0.1006
+    },
+    {
+     "pick": "Garchomp>Tyranitar/Rotom-Wash",
+     "p": 0.0931
+    },
+    {
+     "pick": "Rotom-Wash>Primarina/Garchomp",
+     "p": 0.063
+    },
+    {
+     "pick": "Garchomp>Metagross/Primarina",
+     "p": 0.0529
+    },
+    {
+     "pick": "Garchomp>Primarina/Rotom-Wash",
+     "p": 0.0408
+    },
+    {
+     "pick": "Rotom-Wash>Garchomp/Tyranitar",
+     "p": 0.0243
+    },
+    {
+     "pick": "Primarina>Garchomp/Rotom-Wash",
+     "p": 0.0163
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "p": 0.0019
+    },
+    {
+     "pick": "Garchomp>Metagross/Hydreigon",
+     "p": 0.0015
+    },
+    {
+     "pick": "Metagross>Primarina/Rotom-Wash",
+     "p": 0.0003
+    }
+   ],
+   "droppedMass": 0.0442,
+   "security": 0.55,
+   "securityAll": 0.55,
+   "mean": 0.76
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 11,
+    "added": [
+     {
+      "pick": "Primarina>Garchomp/Rotom-Wash",
+      "screenWinsOnBinding": "11/11"
+     },
+     {
+      "pick": "Garchomp>Primarina/Rotom-Wash",
+      "screenWinsOnBinding": "11/11"
+     },
+     {
+      "pick": "Hydreigon>Primarina/Garchomp",
+      "screenWinsOnBinding": "11/11"
+     },
+     {
+      "pick": "Tyranitar>Hydreigon/Rotom-Wash",
+      "screenWinsOnBinding": "11/11"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 11,
+    "added": [
+     {
+      "pick": "Primarina>Metagross/Garchomp",
+      "screenWinsOnBinding": "11/11"
+     },
+     {
+      "pick": "Garchomp>Metagross/Primarina",
+      "screenWinsOnBinding": "10/11"
+     },
+     {
+      "pick": "Garchomp>Metagross/Hydreigon",
+      "screenWinsOnBinding": "10/11"
+     },
+     {
+      "pick": "Tyranitar>Metagross/Garchomp",
+      "screenWinsOnBinding": "10/11"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Rotom-Wash>Garchomp/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.652,
+    "mean": 0.796
+   },
+   {
+    "pick": "Metagross>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.636,
+    "mean": 0.824
+   },
+   {
+    "pick": "Garchomp>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.636,
+    "mean": 0.713
+   },
+   {
+    "pick": "Garchomp>Tyranitar/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.614,
+    "mean": 0.769
+   },
+   {
+    "pick": "Primarina>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.614,
+    "mean": 0.75
+   },
+   {
+    "pick": "Primarina>Garchomp/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.614,
+    "mean": 0.681
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.588,
+    "mean": 0.736
+   },
+   {
+    "pick": "Garchomp>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.568,
+    "mean": 0.787
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.565,
+    "mean": 0.75
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.559,
+    "mean": 0.778
+   },
+   {
+    "pick": "Rotom-Wash>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.522,
+    "mean": 0.718
+   },
+   {
+    "pick": "Metagross>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.478,
+    "mean": 0.616
+   },
+   {
+    "pick": "Hydreigon>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.457,
+    "mean": 0.648
+   },
+   {
+    "pick": "Tyranitar>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.457,
+    "mean": 0.616
+   },
+   {
+    "pick": "Garchomp>Metagross/Hydreigon",
+    "worstCell": 0,
+    "worstScenario": 0.364,
+    "mean": 0.556
+   },
+   {
+    "pick": "Tyranitar>Hydreigon/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.154,
+    "mean": 0.458
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 4,
+    "rival": "Armarouge>Sneasler/Starmie",
+    "src": "view",
+    "v": 0.532
+   },
+   {
+    "scenario": 5,
+    "rival": "Swampert>Armarouge/Starmie",
+    "src": "view",
+    "v": 0.538
+   },
+   {
+    "scenario": 3,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view",
+    "v": 0.543
+   },
+   {
+    "scenario": 1,
+    "rival": "Armarouge>Swampert/Starmie",
+    "src": "view",
+    "v": 0.545
+   },
+   {
+    "scenario": 3,
+    "rival": "Gyarados>Alakazam/Starmie",
+    "src": "bestResponse",
+    "v": 0.549
+   },
+   {
+    "scenario": 1,
+    "rival": "Swampert>Gyarados/Sneasler",
+    "src": "bestResponse",
+    "v": 0.551
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 1,
+     "rival": "Alakazam>Starmie/Swampert",
+     "value": 0.283
+    },
+    {
+     "scenario": 3,
+     "rival": "Alakazam>Starmie/Swampert",
+     "value": 0.308
+    },
+    {
+     "scenario": 5,
+     "rival": "Alakazam>Gyarados/Starmie",
+     "value": 0.373
+    },
+    {
+     "scenario": 4,
+     "rival": "Alakazam>Gyarados/Sneasler",
+     "value": 0.377
+    },
+    {
+     "scenario": 3,
+     "rival": "Alakazam>Armarouge/Starmie",
+     "value": 0.388
+    },
+    {
+     "scenario": 4,
+     "rival": "Alakazam>Starmie/Swampert",
+     "value": 0.396
+    },
+    {
+     "scenario": 1,
+     "rival": "Alakazam>Sneasler/Starmie",
+     "value": 0.398
+    },
+    {
+     "scenario": 3,
+     "rival": "Gyarados>Starmie/Swampert",
+     "value": 0.415
+    },
+    {
+     "scenario": 1,
+     "rival": "Alakazam>Armarouge/Sneasler",
+     "value": 0.465
+    },
+    {
+     "scenario": 3,
+     "rival": "Gyarados>Alakazam/Starmie",
+     "value": 0.466
+    },
+    {
+     "scenario": 5,
+     "rival": "Gyarados>Starmie/Swampert",
+     "value": 0.477
+    },
+    {
+     "scenario": 1,
+     "rival": "Alakazam>Sneasler/Swampert",
+     "value": 0.477
+    },
+    {
+     "scenario": 3,
+     "rival": "Alakazam>Gyarados/Sneasler",
+     "value": 0.491
+    },
+    {
+     "scenario": 5,
+     "rival": "Alakazam>Starmie/Swampert",
+     "value": 0.508
+    },
+    {
+     "scenario": 1,
+     "rival": "Swampert>Gyarados/Sneasler",
+     "value": 0.509
+    },
+    {
+     "scenario": 1,
+     "rival": "Alakazam>Gyarados/Sneasler",
+     "value": 0.516
+    },
+    {
+     "scenario": 5,
+     "rival": "Sneasler>Gyarados/Starmie",
+     "value": 0.522
+    },
+    {
+     "scenario": 0,
+     "rival": "Alakazam>Starmie/Swampert",
+     "value": 0.528
+    },
+    {
+     "scenario": 2,
+     "rival": "Alakazam>Armarouge/Sneasler",
+     "value": 0.53
+    },
+    {
+     "scenario": 3,
+     "rival": "Armarouge>Alakazam/Sneasler",
+     "value": 0.535
+    },
+    {
+     "scenario": 1,
+     "rival": "Sneasler>Alakazam/Starmie",
+     "value": 0.539
+    },
+    {
+     "scenario": 3,
+     "rival": "Swampert>Alakazam/Starmie",
+     "value": 0.549
+    },
+    {
+     "scenario": 3,
+     "rival": "Armarouge>Alakazam/Starmie",
+     "value": 0.564
+    },
+    {
+     "scenario": 2,
+     "rival": "Alakazam>Gyarados/Sneasler",
+     "value": 0.575
+    }
+   ],
+   "checked": 360
+  },
+  "games": {
+   "screen": 5040,
+   "refine": 13824,
+   "expansion": 7920,
+   "total": 26784
+  },
+  "seconds": 156,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ },
+ "HOLD_sun_balance": {
+  "version": "general-v2",
+  "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+  "format": "gen9championsbssregmc",
+  "code": "d52ddeac9629890f",
+  "ownAI": {
+   "encoreGuard": "speedSafe",
+   "publicMegaAbility": true,
+   "publicCondition": true,
+   "ownCondition": true
+  },
+  "params": {
+   "maxScenarios": 6,
+   "n1": 8,
+   "r2": 2,
+   "addOwn": 4,
+   "maxAdd": 24,
+   "branches": [
+    "ai",
+    "attack",
+    "setup",
+    "switch"
+   ],
+   "expand": true,
+   "seedBase": 7810000
+  },
+  "ownHash": "1de55ec661481a42",
+  "publicSix": [
+   "Basculegion",
+   "Charizard",
+   "Dragonite",
+   "Eelektross",
+   "Skarmory",
+   "Toxapex"
+  ],
+  "publicKey": "Basculegion|Charizard|Dragonite|Eelektross|Skarmory|Toxapex",
+  "codeFiles": {
+   "a-preview-matrix-audit.js": "815281bd157f",
+   "cycle2-teams.js": "c6b2caefc541",
+   "cycle3-teams.js": "5e4178b710f2",
+   "damage.js": "6a41161bba35",
+   "decision-v2.js": "f2fcb5aec6e4",
+   "encore-lead-audit.js": "bb0ae6a80fc0",
+   "encore-turn-p0-audit.js": "3dc42f1009ba",
+   "environment-m7-teams.js": "24ccf952fd2e",
+   "field-counterplay.js": "34b013702557",
+   "fixtures.js": "1bcd445c8fc8",
+   "holdout-20261030-claude.js": "4b7dcfcd337f",
+   "holdout-20261030.js": "168f867874b8",
+   "hybrid01-audit.js": "34daf40c240c",
+   "lab.js": "6d7bad3246db",
+   "legal-role-hypotheses.js": "e4cc4fe62852",
+   "legal-search-compare.js": "1edff7bc4e97",
+   "legal-search-v2-compare.js": "de2da36dba17",
+   "misplay-tags-v2.js": "e2cb6ad4f7aa",
+   "misplay-tags-v3.js": "4bb726ea06b9",
+   "optimize.js": "7958d637736b",
+   "preview-legal-search.js": "f1b021ebebee",
+   "preview-opponents.js": "85cd76ad56d2",
+   "preview-policy.js": "704a3b2e1b5a",
+   "preview-strategic.js": "2205cc7e836f",
+   "provisional-rank-roster-20261018.js": "5f51b8380268",
+   "public-six-general.js": "f0be1fbf5ad5",
+   "reported-live-roster-20261027.js": "83256b0dbb1b",
+   "robust-preview.js": "977a1275d61b",
+   "tactics.js": "2a0cc439669f",
+   "threat-scenarios-20261014.js": "4075b74c4890",
+   "threat.js": "23b13d37139c"
+  },
+  "workers": 4,
+  "rivalAI": "base + rational switch when Encore-locked; T1/T2 branches ai/attack/setup/switch",
+  "scenarios": [
+   [
+    "Basculegion@Life Orb:Wave Crash/Head Smash/Outrage/Aqua Jet",
+    "Charizard@Charizardite Y:Overheat/Solar Beam/Hurricane/Dragon Pulse",
+    "Dragonite@Focus Sash:Dragon Dance/Outrage/Superpower/Extreme Speed",
+    "Eelektross@Choice Scarf:Supercell Slam/Close Combat/Outrage/Liquidation",
+    "Skarmory@Skarmorite:Swords Dance/Brave Bird/Iron Head/Roost",
+    "Toxapex@Leftovers:Recover/Toxic/Liquidation/Gunk Shot"
+   ],
+   [
+    "Basculegion@Choice Scarf:Wave Crash/Head Smash/Outrage/Ice Fang",
+    "Charizard@Charizardite X:Swords Dance/Flare Blitz/Outrage/Roost",
+    "Dragonite@Dragoninite:Draco Meteor/Hurricane/Fire Blast/Surf",
+    "Eelektross@Eelektrossite:Bulk Up/Supercell Slam/Close Combat/Protect",
+    "Skarmory@Skarmorite:Brave Bird/Iron Head/Drill Run/Body Press",
+    "Toxapex@Life Orb:Liquidation/Gunk Shot/Pin Missile/Ice Spinner"
+   ],
+   [
+    "Basculegion@Leftovers:Flip Turn/Wave Crash/Head Smash/Outrage",
+    "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+    "Dragonite@Choice Scarf:Outrage/Superpower/Earthquake/Iron Head",
+    "Eelektross@Eelektrossite:Supercell Slam/Close Combat/Outrage/Liquidation",
+    "Skarmory@Skarmorite:Brave Bird/Iron Head/Drill Run/Body Press",
+    "Toxapex@Life Orb:Liquidation/Gunk Shot/Pin Missile/Ice Spinner"
+   ],
+   [
+    "Basculegion@Leftovers:Flip Turn/Wave Crash/Head Smash/Outrage",
+    "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+    "Dragonite@Dragoninite:Draco Meteor/Hurricane/Fire Blast/Surf",
+    "Eelektross@Eelektrossite:Supercell Slam/Close Combat/Outrage/Liquidation",
+    "Skarmory@Choice Scarf:Brave Bird/Iron Head/Drill Run/Body Press",
+    "Toxapex@Life Orb:Liquidation/Gunk Shot/Pin Missile/Ice Spinner"
+   ],
+   [
+    "Basculegion@Life Orb:Last Respects/Wave Crash/Head Smash/Outrage",
+    "Charizard@Charizardite X:Flare Blitz/Outrage/Earthquake/Double-Edge",
+    "Dragonite@Leftovers:Roost/Thunder Wave/Outrage/Superpower",
+    "Eelektross@Eelektrossite:Supercell Slam/Close Combat/Outrage/Liquidation",
+    "Skarmory@Skarmorite:Brave Bird/Iron Head/Drill Run/Body Press",
+    "Toxapex@Choice Scarf:Liquidation/Gunk Shot/Pin Missile/Ice Spinner"
+   ],
+   [
+    "Basculegion@Leftovers:Flip Turn/Wave Crash/Head Smash/Outrage",
+    "Charizard@Choice Scarf:Overheat/Hurricane/Scorching Sands/Dragon Pulse",
+    "Dragonite@Dragoninite:Draco Meteor/Hurricane/Fire Blast/Surf",
+    "Eelektross@Eelektrossite:Supercell Slam/Close Combat/Outrage/Liquidation",
+    "Skarmory@Skarmorite:Brave Bird/Iron Head/Drill Run/Body Press",
+    "Toxapex@Life Orb:Liquidation/Gunk Shot/Pin Missile/Ice Spinner"
+   ]
+  ],
+  "coverage": {
+   "required": 25,
+   "covered": 25,
+   "missing": []
+  },
+  "cells": [
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Eelektross/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Eelektross>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Charizard>Dragonite/Eelektross",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Toxapex>Dragonite/Eelektross",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Eelektross/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Eelektross>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Skarmory>Dragonite/Eelektross",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Basculegion>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Toxapex>Dragonite/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Dragonite>Charizard/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Charizard>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 0,
+    "rival": "Toxapex>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Toxapex>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Eelektross>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Eelektross/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Skarmory>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Eelektross>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Basculegion>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Toxapex>Eelektross/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Eelektross>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Eelektross/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Charizard>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Toxapex>Dragonite/Eelektross",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Skarmory/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Skarmory>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Toxapex>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Basculegion>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Toxapex>Dragonite/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Dragonite>Charizard/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Charizard>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 2,
+    "rival": "Toxapex>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Eelektross>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Eelektross/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Skarmory>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Toxapex>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Eelektross>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Basculegion>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Toxapex>Eelektross/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Eelektross>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Dragonite>Eelektross/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 3,
+    "rival": "Charizard>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Toxapex>Dragonite/Eelektross",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Skarmory/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Skarmory>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Toxapex>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Basculegion>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Toxapex>Dragonite/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Dragonite>Charizard/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Charizard>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 4,
+    "rival": "Toxapex>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Eelektross>Dragonite/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Dragonite>Eelektross/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Charizard>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Dragonite>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Toxapex>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Eelektross>Dragonite/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Dragonite>Eelektross/Skarmory",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Skarmory>Eelektross/Dragonite",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Eelektross>Basculegion/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Basculegion>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Toxapex>Eelektross/Basculegion",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Eelektross>Charizard/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Charizard>Eelektross/Toxapex",
+    "src": "view"
+   },
+   {
+    "scenario": 5,
+    "rival": "Toxapex>Eelektross/Charizard",
+    "src": "view"
+   },
+   {
+    "scenario": 1,
+    "rival": "Basculegion>Charizard/Dragonite",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 2,
+    "rival": "Charizard>Dragonite/Eelektross",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Basculegion>Charizard/Dragonite",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Charizard>Basculegion/Skarmory",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Toxapex>Charizard/Dragonite",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 4,
+    "rival": "Basculegion>Charizard/Dragonite",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Basculegion>Charizard/Dragonite",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Basculegion>Charizard/Skarmory",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 0,
+    "rival": "Charizard>Basculegion/Eelektross",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 1,
+    "rival": "Dragonite>Basculegion/Eelektross",
+    "src": "bestResponse"
+   },
+   {
+    "scenario": 3,
+    "rival": "Charizard>Basculegion/Dragonite",
+    "src": "bestResponse"
+   }
+  ],
+  "survivors": [
+   "Primarina>Metagross/Garchomp",
+   "Rotom-Wash>Metagross/Primarina",
+   "Rotom-Wash>Metagross/Garchomp",
+   "Tyranitar>Metagross/Rotom-Wash",
+   "Metagross>Tyranitar/Rotom-Wash",
+   "Metagross>Primarina/Garchomp",
+   "Hydreigon>Metagross/Primarina",
+   "Metagross>Hydreigon/Tyranitar",
+   "Hydreigon>Metagross/Rotom-Wash",
+   "Metagross>Primarina/Rotom-Wash",
+   "Metagross>Hydreigon/Primarina",
+   "Hydreigon>Primarina/Rotom-Wash",
+   "Tyranitar>Metagross/Primarina",
+   "Metagross>Garchomp/Rotom-Wash",
+   "Garchomp>Metagross/Tyranitar",
+   "Metagross>Primarina/Tyranitar"
+  ],
+  "support": [
+   {
+    "pick": "Tyranitar>Metagross/Primarina",
+    "oi": 17,
+    "p": 0.3343
+   },
+   {
+    "pick": "Metagross>Tyranitar/Rotom-Wash",
+    "oi": 27,
+    "p": 0.2224
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "oi": 12,
+    "p": 0.2217
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "oi": 26,
+    "p": 0.2216
+   }
+  ],
+  "emitMin": 0.03,
+  "security": 0.666,
+  "securityAll": 0.666,
+  "mean": 0.898,
+  "raw": {
+   "support": [
+    {
+     "pick": "Tyranitar>Metagross/Primarina",
+     "p": 0.332
+    },
+    {
+     "pick": "Metagross>Tyranitar/Rotom-Wash",
+     "p": 0.2208
+    },
+    {
+     "pick": "Metagross>Primarina/Garchomp",
+     "p": 0.2201
+    },
+    {
+     "pick": "Rotom-Wash>Metagross/Garchomp",
+     "p": 0.22
+    },
+    {
+     "pick": "Metagross>Primarina/Tyranitar",
+     "p": 0.0018
+    },
+    {
+     "pick": "Hydreigon>Metagross/Rotom-Wash",
+     "p": 0.0017
+    },
+    {
+     "pick": "Primarina>Metagross/Garchomp",
+     "p": 0.0012
+    },
+    {
+     "pick": "Metagross>Garchomp/Rotom-Wash",
+     "p": 0.0011
+    },
+    {
+     "pick": "Garchomp>Metagross/Tyranitar",
+     "p": 0.0008
+    },
+    {
+     "pick": "Tyranitar>Metagross/Rotom-Wash",
+     "p": 0.0005
+    }
+   ],
+   "droppedMass": 0.0071,
+   "security": 0.666,
+   "securityAll": 0.666,
+   "mean": 0.897
+  },
+  "unanswered": [],
+  "answers": [
+   {
+    "stage": "view cells",
+    "bindingCells": 4,
+    "added": [
+     {
+      "pick": "Hydreigon>Metagross/Rotom-Wash",
+      "screenWinsOnBinding": "4/4"
+     },
+     {
+      "pick": "Metagross>Primarina/Rotom-Wash",
+      "screenWinsOnBinding": "4/4"
+     },
+     {
+      "pick": "Metagross>Hydreigon/Primarina",
+      "screenWinsOnBinding": "4/4"
+     },
+     {
+      "pick": "Hydreigon>Primarina/Rotom-Wash",
+      "screenWinsOnBinding": "4/4"
+     }
+    ]
+   },
+   {
+    "stage": "best-response cells",
+    "bindingCells": 9,
+    "added": [
+     {
+      "pick": "Tyranitar>Metagross/Primarina",
+      "screenWinsOnBinding": "8/9"
+     },
+     {
+      "pick": "Metagross>Garchomp/Rotom-Wash",
+      "screenWinsOnBinding": "8/9"
+     },
+     {
+      "pick": "Garchomp>Metagross/Tyranitar",
+      "screenWinsOnBinding": "8/9"
+     },
+     {
+      "pick": "Metagross>Primarina/Tyranitar",
+      "screenWinsOnBinding": "8/9"
+     }
+    ]
+   }
+  ],
+  "pure": [
+   {
+    "pick": "Rotom-Wash>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.9,
+    "mean": 0.933
+   },
+   {
+    "pick": "Tyranitar>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.833,
+    "mean": 0.91
+   },
+   {
+    "pick": "Tyranitar>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.808,
+    "mean": 0.888
+   },
+   {
+    "pick": "Hydreigon>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.769,
+    "mean": 0.876
+   },
+   {
+    "pick": "Metagross>Primarina/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.767,
+    "mean": 0.904
+   },
+   {
+    "pick": "Rotom-Wash>Metagross/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.75,
+    "mean": 0.893
+   },
+   {
+    "pick": "Metagross>Tyranitar/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.733,
+    "mean": 0.871
+   },
+   {
+    "pick": "Primarina>Metagross/Garchomp",
+    "worstCell": 0,
+    "worstScenario": 0.731,
+    "mean": 0.927
+   },
+   {
+    "pick": "Garchomp>Metagross/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.7,
+    "mean": 0.831
+   },
+   {
+    "pick": "Hydreigon>Metagross/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.688,
+    "mean": 0.831
+   },
+   {
+    "pick": "Metagross>Garchomp/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.633,
+    "mean": 0.876
+   },
+   {
+    "pick": "Metagross>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.567,
+    "mean": 0.792
+   },
+   {
+    "pick": "Metagross>Hydreigon/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.538,
+    "mean": 0.77
+   },
+   {
+    "pick": "Metagross>Hydreigon/Primarina",
+    "worstCell": 0,
+    "worstScenario": 0.346,
+    "mean": 0.657
+   },
+   {
+    "pick": "Hydreigon>Primarina/Rotom-Wash",
+    "worstCell": 0,
+    "worstScenario": 0.324,
+    "mean": 0.511
+   },
+   {
+    "pick": "Metagross>Primarina/Tyranitar",
+    "worstCell": 0,
+    "worstScenario": 0.308,
+    "mean": 0.669
+   }
+  ],
+  "worstCells": [
+   {
+    "scenario": 1,
+    "rival": "Toxapex>Eelektross/Basculegion",
+    "src": "view",
+    "v": 0.666
+   },
+   {
+    "scenario": 4,
+    "rival": "Basculegion>Charizard/Dragonite",
+    "src": "bestResponse",
+    "v": 0.666
+   },
+   {
+    "scenario": 3,
+    "rival": "Basculegion>Charizard/Skarmory",
+    "src": "bestResponse",
+    "v": 0.666
+   },
+   {
+    "scenario": 1,
+    "rival": "Eelektross>Dragonite/Skarmory",
+    "src": "view",
+    "v": 0.667
+   },
+   {
+    "scenario": 1,
+    "rival": "Charizard>Eelektross/Dragonite",
+    "src": "view",
+    "v": 0.667
+   },
+   {
+    "scenario": 2,
+    "rival": "Eelektross>Dragonite/Toxapex",
+    "src": "view",
+    "v": 0.667
+   }
+  ],
+  "expansion": {
+   "added": [
+    {
+     "scenario": 1,
+     "rival": "Basculegion>Charizard/Dragonite",
+     "value": 0.3
+    },
+    {
+     "scenario": 2,
+     "rival": "Charizard>Dragonite/Eelektross",
+     "value": 0.399
+    },
+    {
+     "scenario": 0,
+     "rival": "Basculegion>Charizard/Dragonite",
+     "value": 0.401
+    },
+    {
+     "scenario": 3,
+     "rival": "Charizard>Basculegion/Skarmory",
+     "value": 0.499
+    },
+    {
+     "scenario": 1,
+     "rival": "Toxapex>Charizard/Dragonite",
+     "value": 0.501
+    },
+    {
+     "scenario": 4,
+     "rival": "Basculegion>Charizard/Dragonite",
+     "value": 0.501
+    },
+    {
+     "scenario": 3,
+     "rival": "Basculegion>Charizard/Dragonite",
+     "value": 0.599
+    },
+    {
+     "scenario": 3,
+     "rival": "Basculegion>Charizard/Skarmory",
+     "value": 0.599
+    },
+    {
+     "scenario": 0,
+     "rival": "Charizard>Basculegion/Eelektross",
+     "value": 0.599
+    },
+    {
+     "scenario": 1,
+     "rival": "Dragonite>Basculegion/Eelektross",
+     "value": 0.599
+    },
+    {
+     "scenario": 3,
+     "rival": "Charizard>Basculegion/Dragonite",
+     "value": 0.599
+    }
+   ],
+   "checked": 360
+  },
+  "games": {
+   "screen": 4680,
+   "refine": 11392,
+   "expansion": 3540,
+   "total": 19612
+  },
+  "seconds": 116,
+  "note": "Rival sets are role-template hypotheses (no usage weights). security/securityAll/mean are for the EMITTED support (what games draw from); raw.* for the solved x. Security = min over rival cells of our expected win fraction under the mixture, NOT a single-pick guarantee. Heuristic AI vs heuristic AI, NOT a ladder win rate."
+ }
+}

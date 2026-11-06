@@ -1,0 +1,280 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "determinism": {
+  "policyRows": 144,
+  "differences": 0,
+  "first": [],
+  "selectionsIdentical": {
+   "N5_kangaskhan": true,
+   "N6_altaria": true
+  },
+  "verdictSaved": [
+   "(b) N6_altaria/a/tm: meanAce 0.917 < max(legacy,v2,pr95) 1 - 0.05"
+  ],
+  "verdictReplay": [
+   "(b) N6_altaria/a/tm: meanAce 0.917 < max(legacy,v2,pr95) 1 - 0.05"
+  ]
+ },
+ "battlesThroughHook": 110658,
+ "battlesWithKnown": {
+  "aware": 101,
+  "naive": 4236,
+  "awareWithT3plus": 101
+ },
+ "knownHitsByClass": {
+  "naive | T3+ | naive rival (no masker): would be masked": 7380,
+  "naive | T1-2 | naive rival (no masker): would be masked": 1888,
+  "naive | T3+ | forced": 559,
+  "aware | T3+ | forced": 141
+ },
+ "forcedBy": {
+  "naive | choice lock + no bench": 556,
+  "aware | choice lock + no bench": 139,
+  "naive | encore lock + no bench": 3,
+  "aware | encore lock + no bench": 2
+ },
+ "awareByMove": {
+  "forced | Headlong Rush -> Hydreigon": 5,
+  "forced | Headlong Rush -> Rotom-Wash": 3,
+  "forced | Outrage -> Primarina": 24,
+  "forced | Earthquake -> Hydreigon": 25,
+  "forced | Gunk Shot -> Metagross-Mega": 46,
+  "forced | Gunk Shot -> Metagross": 4,
+  "forced | Earthquake -> Rotom-Wash": 28,
+  "forced | Psychic -> Hydreigon": 2,
+  "forced | Psychic -> Tyranitar": 4
+ },
+ "awareExamples": {
+  "forced | choice lock + no bench": [
+   {
+    "seed": [
+     42285,
+     36805,
+     45693,
+     6394
+    ],
+    "reverse": false,
+    "own": [
+     "Metagross",
+     "Hydreigon",
+     "Primarina"
+    ],
+    "foe": [
+     "Golurk",
+     "Quaquaval",
+     "Tsareena"
+    ],
+    "turn": 10,
+    "move": "Headlong Rush",
+    "target": "Hydreigon",
+    "decision": {
+     "turn": 10,
+     "foeActive": "Hydreigon",
+     "foeItem": "",
+     "imm": [
+      "Headlong Rush:ability levitate"
+     ],
+     "enabled": [
+      "Headlong Rush"
+     ],
+     "unmasked": [],
+     "trapped": false,
+     "bench": 0,
+     "lockReason": "choice",
+     "item": "choicescarf",
+     "choice": "move 1"
+    },
+    "protocol": [
+     "|move|p2a: Golurk|Headlong Rush|p1a: Hydreigon",
+     "|-immune|p1a: Hydreigon|[from] ability: Levitate",
+     "|move|p1a: Hydreigon|Dark Pulse|p2a: Golurk",
+     "|faint|p2a: Golurk"
+    ]
+   },
+   {
+    "seed": [
+     42285,
+     36805,
+     45693,
+     6394
+    ],
+    "reverse": false,
+    "own": [
+     "Garchomp",
+     "Hydreigon",
+     "Rotom-Wash"
+    ],
+    "foe": [
+     "Golurk",
+     "Quaquaval",
+     "Tsareena"
+    ],
+    "turn": 8,
+    "move": "Headlong Rush",
+    "target": "Rotom-Wash",
+    "decision": {
+     "turn": 8,
+     "foeActive": "Rotom-Wash",
+     "foeItem": "",
+     "imm": [
+      "Headlong Rush:ability levitate"
+     ],
+     "enabled": [
+      "Headlong Rush"
+     ],
+     "unmasked": [],
+     "trapped": false,
+     "bench": 0,
+     "lockReason": "choice",
+     "item": "choicescarf",
+     "choice": "move 1"
+    },
+    "protocol": [
+     "|move|p2a: Golurk|Headlong Rush|p1a: Rotom",
+     "|-immune|p1a: Rotom|[from] ability: Levitate",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Golurk"
+    ]
+   },
+   {
+    "seed": [
+     42285,
+     36805,
+     45693,
+     6394
+    ],
+    "reverse": false,
+    "own": [
+     "Garchomp",
+     "Hydreigon",
+     "Rotom-Wash"
+    ],
+    "foe": [
+     "Golurk",
+     "Quaquaval",
+     "Tsareena"
+    ],
+    "turn": 9,
+    "move": "Headlong Rush",
+    "target": "Rotom-Wash",
+    "decision": {
+     "turn": 9,
+     "foeActive": "Rotom-Wash",
+     "foeItem": "",
+     "imm": [
+      "Headlong Rush:ability levitate"
+     ],
+     "enabled": [
+      "Headlong Rush"
+     ],
+     "unmasked": [],
+     "trapped": false,
+     "bench": 0,
+     "lockReason": "choice",
+     "item": "choicescarf",
+     "choice": "move 1"
+    },
+    "protocol": [
+     "|move|p2a: Golurk|Headlong Rush|p1a: Rotom",
+     "|-immune|p1a: Rotom|[from] ability: Levitate",
+     "|move|p1a: Rotom|Hydro Pump|p2a: Golurk"
+    ]
+   }
+  ],
+  "forced | encore lock + no bench": [
+   {
+    "seed": [
+     20454,
+     43226,
+     62999,
+     46769
+    ],
+    "reverse": true,
+    "own": [
+     "Rotom-Wash",
+     "Hydreigon",
+     "Primarina"
+    ],
+    "foe": [
+     "Chesnaught",
+     "Overqwil",
+     "Delphox"
+    ],
+    "turn": 9,
+    "move": "Psychic",
+    "target": "Hydreigon",
+    "decision": {
+     "turn": 9,
+     "foeActive": "Hydreigon",
+     "foeItem": "",
+     "imm": [
+      "Psychic:type"
+     ],
+     "enabled": [
+      "Psychic"
+     ],
+     "unmasked": [],
+     "trapped": false,
+     "bench": 0,
+     "lockReason": "encore",
+     "item": "delphoxite",
+     "choice": "move 3"
+    },
+    "protocol": [
+     "|move|p1a: Delphox|Psychic|p2a: Hydreigon",
+     "|-immune|p2a: Hydreigon",
+     "|move|p2a: Hydreigon|Dark Pulse|p1a: Delphox",
+     "|faint|p1a: Delphox",
+     "|faint|p2a: Hydreigon"
+    ]
+   },
+   {
+    "seed": [
+     31060,
+     60245,
+     35783,
+     54105
+    ],
+    "reverse": true,
+    "own": [
+     "Rotom-Wash",
+     "Hydreigon",
+     "Primarina"
+    ],
+    "foe": [
+     "Chesnaught",
+     "Overqwil",
+     "Delphox"
+    ],
+    "turn": 9,
+    "move": "Psychic",
+    "target": "Hydreigon",
+    "decision": {
+     "turn": 9,
+     "foeActive": "Hydreigon",
+     "foeItem": "",
+     "imm": [
+      "Psychic:type"
+     ],
+     "enabled": [
+      "Psychic"
+     ],
+     "unmasked": [],
+     "trapped": false,
+     "bench": 0,
+     "lockReason": "encore",
+     "item": "delphoxite",
+     "choice": "move 3"
+    },
+    "protocol": [
+     "|move|p1a: Delphox|Psychic|p2a: Hydreigon",
+     "|-immune|p2a: Hydreigon",
+     "|move|p2a: Hydreigon|Dark Pulse|p1a: Delphox",
+     "|faint|p1a: Delphox",
+     "|faint|p2a: Hydreigon"
+    ]
+   }
+  ]
+ },
+ "note": "Shadow only (same choices). aware = pr96 immuneAware rival (selector, T1/T2 and eval games); naive = rivals without the masker (older selectors, naive eval rows). Heuristic AI vs heuristic AI, NOT a ladder win rate."
+}
