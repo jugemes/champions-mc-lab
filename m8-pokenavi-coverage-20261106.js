@@ -9,6 +9,7 @@ const aero = require('./m8-pokenavi-aerodactyl-20261105');
 const { provisional } = require('./provisional-rank-roster-20261018');
 const { holdoutSixPR80 } = require('./holdout-20261031-pr80');
 
+const hisuianSamurott = aero.team().find(member => member.species.startsWith('Samurott')).species;
 const set = (species, item, ability, nature, evs, moves) => ({ species, item, ability, nature, evs, moves });
 const fastPhysical = { hp: 2, atk: 32, spe: 32 };
 const fastSpecial = { hp: 2, spa: 32, spe: 32 };
@@ -58,7 +59,7 @@ const plans = {
   mixed: plan(['Golisopod', 'Meowscarada', 'Skeledirge'], ['Meowscarada', 'Skeledirge', 'Rotom-Wash'],
     ['Garchomp', 'Primarina', 'Gholdengo']),
   psychicSneasler: plan(['Meowscarada', 'Skeledirge', 'Garchomp'], ['Meowscarada', 'Skeledirge', 'Tyranitar'],
-    ['Gholdengo', 'Garchomp', 'Samurott-Hisui']),
+    ['Gholdengo', 'Garchomp', hisuianSamurott]),
   sun, charX: sun, rain, gyarados: gyara,
   megaGolisopod: plan(['Skeledirge', 'Meowscarada', 'Garchomp'], ['Skeledirge', 'Dragonite', 'Meowscarada']),
   lastRespects: plan(['Skeledirge', 'Meowscarada', 'Golisopod'], ['Skeledirge', 'Meowscarada', 'Dragonite']),
