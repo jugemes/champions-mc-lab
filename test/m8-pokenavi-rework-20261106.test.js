@@ -1,0 +1,40 @@
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { build, select, fixtures } = require('../m8-pokenavi-rework-20261106');
+const { opponents } = require('../m8-pokenavi-coverage-20261106');
+
+test('reworked choices stay within the six and use one preview plan for both Charizard stones', () => {
+  for (const id of ['original', 'adjusted', 'goodra']) {
+    const own = new Set(build(id).map(member => member.species));
+    const publicPlans = new Map();
+    for (const c of opponents(true, true, true)) {
+      const key = c.team.map(member => member.species).sort().join('/');
+      const three = select(id, c.id);
+      assert.equal(new Set(three).size, 3);
+      assert.ok(three.every(species => own.has(species)), `${id}/${c.id}`);
+      if (publicPlans.has(key)) assert.deepEqual(three, publicPlans.get(key));
+      publicPlans.set(key, three);
+    }
+  }
+});
+
+test('the rival double pivot reacts to either revealed bulky switch-in', () => {
+  const audit = { BRANCHES: [{ scenario: 'gyarados', id: 'gyaraChompThenMimikyu' }],
+    rival: { switchT1: () => () => null } };
+  const fixture = fixtures(audit).find(c => c.id === 'gyarados');
+  const branch = fixture.branches.find(b => b.id === 'gyaraChompThenMimikyu');
+  const request = { side: { pokemon: [
+    { active: true, details: 'Garchomp-Mega-Z, L50', condition: '100/100' },
+    { active: false, details: 'Mimikyu, L50', condition: '100/100' },
+  ] } };
+  for (const foeActive of ['Primarina', 'Goodra-Hisui']) {
+    const events = [];
+    const play = branch.makePolicy(events);
+    assert.equal(play(request, { foeActive: 'Gholdengo' }, { canSwitch: true, turn: 3 }), null);
+    assert.equal(play(request, { foeActive }, { canSwitch: true, turn: 4 }), 'switch 2');
+    assert.deepEqual(events, [{ turn: 4, facing: foeActive, switchTo: 'Mimikyu' }]);
+    assert.equal(play(request, { foeActive }, { canSwitch: true, turn: 5 }), null);
+  }
+});
