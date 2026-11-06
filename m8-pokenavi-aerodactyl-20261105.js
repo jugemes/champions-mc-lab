@@ -247,4 +247,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(error => { console.error(error); process.exitCode = 1; });
-module.exports = { team, preview, scenarios };
+module.exports = { team, preview, scenarios, rivalPolicy, ownPolicy };
