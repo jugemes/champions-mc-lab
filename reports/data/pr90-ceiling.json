@@ -1,0 +1,778 @@
+{
+ "showdown": "3a766f2cfb5e51c1e428cfe87d0dba91a8f01640",
+ "format": "gen9championsbssregmc",
+ "seconds": 186,
+ "branches": [
+  "ai",
+  "attack",
+  "setup",
+  "switch",
+  "utility",
+  "utilityRational"
+ ],
+ "results": {
+  "A_golisopod/H0": {
+   "phase": "DEV",
+   "cells": [
+    "legacy:Primarina/Garchomp/Gholdengo",
+    "view1:Primarina/Garchomp/Golisopod",
+    "view2:Primarina/Garchomp/Mimikyu",
+    "aceLead:Golisopod/Primarina/Garchomp"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Hydreigon>Primarina>Metagross",
+     "savedMeanRat": 0.1,
+     "rerunMeanRat": 0.1,
+     "rank": 47
+    },
+    "quick": {
+     "pick": "Primarina>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.4,
+     "rerunMeanRat": 0.4,
+     "rank": 16
+    },
+    "guarded": {
+     "pick": "Metagross>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.35,
+     "rerunMeanRat": 0.35,
+     "rank": 19
+    },
+    "human1": {
+     "pick": "Primarina>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.4,
+     "rerunMeanRat": 0.4,
+     "rank": 16
+    }
+   },
+   "top5": [
+    {
+     "label": "Primarina>Hydreigon/Rotom-Wash",
+     "meanRat": 0.9,
+     "worstCellRat": 0.7,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 0.7,
+      "aceLead": 0.9
+     }
+    },
+    {
+     "label": "Rotom-Wash>Metagross/Hydreigon",
+     "meanRat": 0.825,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Rotom-Wash>Hydreigon/Primarina",
+     "meanRat": 0.7,
+     "worstCellRat": 0.3,
+     "byCellRat": {
+      "legacy": 0.3,
+      "view1": 0.95,
+      "view2": 0.95,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Metagross>Hydreigon/Rotom-Wash",
+     "meanRat": 0.65,
+     "worstCellRat": 0,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 0.8,
+      "view2": 0.8,
+      "aceLead": 0
+     }
+    },
+    {
+     "label": "Garchomp>Hydreigon/Rotom-Wash",
+     "meanRat": 0.625,
+     "worstCellRat": 0.2,
+     "byCellRat": {
+      "legacy": 0.5,
+      "view1": 0.8,
+      "view2": 1,
+      "aceLead": 0.2
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Primarina>Hydreigon/Rotom-Wash",
+     "meanRat": 0.9,
+     "worstCellRat": 0.7,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 0.7,
+      "aceLead": 0.9
+     }
+    },
+    {
+     "label": "Rotom-Wash>Metagross/Hydreigon",
+     "meanRat": 0.825,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Primarina>Hydreigon/Tyranitar",
+     "meanRat": 0.575,
+     "worstCellRat": 0.4,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.5,
+      "view2": 0.4,
+      "aceLead": 0.5
+     }
+    }
+   ],
+   "picksAbove0_8": 2
+  },
+  "A_golisopod/H2": {
+   "phase": "DEV",
+   "cells": [
+    "legacy:Primarina/Garchomp/Gholdengo",
+    "view1:Primarina/Garchomp/Golisopod",
+    "view2:Primarina/Garchomp/Mimikyu",
+    "aceLead:Golisopod/Primarina/Garchomp"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Hydreigon>Primarina>Metagross",
+     "savedMeanRat": 0.175,
+     "rerunMeanRat": 0.163,
+     "rank": 43
+    },
+    "quick": {
+     "pick": "Primarina>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.4,
+     "rerunMeanRat": 0.4,
+     "rank": 16
+    },
+    "guarded": {
+     "pick": "Metagross>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.45,
+     "rerunMeanRat": 0.45,
+     "rank": 13
+    },
+    "human1": {
+     "pick": "Primarina>Garchomp>Rotom-Wash",
+     "savedMeanRat": 0.4,
+     "rerunMeanRat": 0.4,
+     "rank": 16
+    }
+   },
+   "top5": [
+    {
+     "label": "Rotom-Wash>Primarina/Garchomp",
+     "meanRat": 0.887,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 0.95,
+      "view2": 1,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Rotom-Wash>Hydreigon/Garchomp",
+     "meanRat": 0.825,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Rotom-Wash>Metagross/Hydreigon",
+     "meanRat": 0.725,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.5,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Primarina>Hydreigon/Rotom-Wash",
+     "meanRat": 0.65,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.6,
+      "view2": 0.5,
+      "aceLead": 0.7
+     }
+    },
+    {
+     "label": "Rotom-Wash>Hydreigon/Primarina",
+     "meanRat": 0.65,
+     "worstCellRat": 0.1,
+     "byCellRat": {
+      "legacy": 0.1,
+      "view1": 0.95,
+      "view2": 0.95,
+      "aceLead": 0.6
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Rotom-Wash>Primarina/Garchomp",
+     "meanRat": 0.887,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 0.95,
+      "view2": 1,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Rotom-Wash>Hydreigon/Garchomp",
+     "meanRat": 0.825,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    },
+    {
+     "label": "Rotom-Wash>Metagross/Hydreigon",
+     "meanRat": 0.725,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.5,
+      "view1": 0.9,
+      "view2": 0.9,
+      "aceLead": 0.6
+     }
+    }
+   ],
+   "picksAbove0_8": 2
+  },
+  "C_charizard/X": {
+   "phase": "DEV",
+   "cells": [
+    "legacy:Baxcalibur/Primarina/Garchomp",
+    "view1:Baxcalibur/Primarina/Gholdengo",
+    "view2:Baxcalibur/Primarina/Charizard",
+    "aceLead:Charizard/Baxcalibur/Primarina"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Tyranitar>Hydreigon>Metagross",
+     "savedMeanRat": 0.375,
+     "rerunMeanRat": 0.375,
+     "rank": 27
+    },
+    "quick": {
+     "pick": "Tyranitar>Metagross>Garchomp",
+     "savedMeanRat": 0.7,
+     "rerunMeanRat": 0.7,
+     "rank": 6
+    },
+    "guarded": {
+     "pick": "Primarina>Metagross>Garchomp",
+     "savedMeanRat": 0.75,
+     "rerunMeanRat": 0.75,
+     "rank": 3
+    },
+    "human1": {
+     "pick": "Rotom-Wash>Metagross>Garchomp",
+     "savedMeanRat": 0.175,
+     "rerunMeanRat": 0.175,
+     "rank": 42
+    }
+   },
+   "top5": [
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 0.787,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.85,
+      "view2": 0.5,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Primarina>Metagross/Tyranitar",
+     "meanRat": 0.787,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.95,
+      "view1": 0.95,
+      "view2": 0.75,
+      "aceLead": 0.5
+     }
+    },
+    {
+     "label": "Primarina>Metagross/Garchomp",
+     "meanRat": 0.75,
+     "worstCellRat": 0.2,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.2,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Tyranitar>Metagross/Primarina",
+     "meanRat": 0.725,
+     "worstCellRat": 0,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 0,
+      "aceLead": 0.9
+     }
+    },
+    {
+     "label": "Metagross>Garchomp/Rotom-Wash",
+     "meanRat": 0.7,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.5,
+      "view1": 0.9,
+      "view2": 0.5,
+      "aceLead": 0.9
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 0.787,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.85,
+      "view2": 0.5,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Primarina>Metagross/Tyranitar",
+     "meanRat": 0.787,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.95,
+      "view1": 0.95,
+      "view2": 0.75,
+      "aceLead": 0.5
+     }
+    },
+    {
+     "label": "Metagross>Garchomp/Rotom-Wash",
+     "meanRat": 0.7,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 0.5,
+      "view1": 0.9,
+      "view2": 0.5,
+      "aceLead": 0.9
+     }
+    }
+   ],
+   "picksAbove0_8": 0
+  },
+  "C_charizard/Y": {
+   "phase": "DEV",
+   "cells": [
+    "legacy:Baxcalibur/Primarina/Garchomp",
+    "view1:Baxcalibur/Primarina/Gholdengo",
+    "view2:Baxcalibur/Primarina/Charizard",
+    "aceLead:Charizard/Baxcalibur/Primarina"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Tyranitar>Hydreigon>Metagross",
+     "savedMeanRat": 0.7,
+     "rerunMeanRat": 0.7,
+     "rank": 9
+    },
+    "quick": {
+     "pick": "Tyranitar>Metagross>Garchomp",
+     "savedMeanRat": 0.725,
+     "rerunMeanRat": 0.725,
+     "rank": 8
+    },
+    "guarded": {
+     "pick": "Primarina>Metagross>Garchomp",
+     "savedMeanRat": 0.75,
+     "rerunMeanRat": 0.75,
+     "rank": 7
+    },
+    "human1": {
+     "pick": "Rotom-Wash>Metagross>Garchomp",
+     "savedMeanRat": 0.275,
+     "rerunMeanRat": 0.275,
+     "rank": 33
+    }
+   },
+   "top5": [
+    {
+     "label": "Primarina>Metagross/Hydreigon",
+     "meanRat": 0.9,
+     "worstCellRat": 0.75,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 1,
+      "view2": 0.95,
+      "aceLead": 0.75
+     }
+    },
+    {
+     "label": "Metagross>Hydreigon/Rotom-Wash",
+     "meanRat": 0.85,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.6,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Tyranitar>Metagross/Rotom-Wash",
+     "meanRat": 0.85,
+     "worstCellRat": 0.5,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 0.9,
+      "aceLead": 0.5
+     }
+    },
+    {
+     "label": "Primarina>Metagross/Tyranitar",
+     "meanRat": 0.825,
+     "worstCellRat": 0.4,
+     "byCellRat": {
+      "legacy": 0.95,
+      "view1": 0.95,
+      "view2": 1,
+      "aceLead": 0.4
+     }
+    },
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 0.813,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.85,
+      "view2": 0.6,
+      "aceLead": 1
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Primarina>Metagross/Hydreigon",
+     "meanRat": 0.9,
+     "worstCellRat": 0.75,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 1,
+      "view2": 0.95,
+      "aceLead": 0.75
+     }
+    },
+    {
+     "label": "Metagross>Hydreigon/Rotom-Wash",
+     "meanRat": 0.85,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.9,
+      "view1": 0.9,
+      "view2": 0.6,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 0.813,
+     "worstCellRat": 0.6,
+     "byCellRat": {
+      "legacy": 0.8,
+      "view1": 0.85,
+      "view2": 0.6,
+      "aceLead": 1
+     }
+    }
+   ],
+   "picksAbove0_8": 5
+  },
+  "F2_feraligatr/a": {
+   "phase": "FINAL",
+   "cells": [
+    "legacy:Hatterene/Infernape/Mudsdale",
+    "view1:Hatterene/Infernape/Aegislash",
+    "view2:Hatterene/Infernape/Feraligatr",
+    "aceLead:Feraligatr/Hatterene/Infernape"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Garchomp>Hydreigon>Rotom-Wash",
+     "savedMeanRat": 0.4,
+     "rerunMeanRat": 0.4,
+     "rank": 52
+    },
+    "quick": {
+     "pick": "Hydreigon>Metagross>Primarina",
+     "savedMeanRat": 0.55,
+     "rerunMeanRat": 0.55,
+     "rank": 41
+    },
+    "guarded": {
+     "pick": "Primarina>Metagross>Hydreigon",
+     "savedMeanRat": 0.55,
+     "rerunMeanRat": 0.55,
+     "rank": 43
+    }
+   },
+   "top5": [
+    {
+     "label": "Metagross>Hydreigon/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Garchomp>Metagross/Hydreigon",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Hydreigon/Rotom-Wash",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Hydreigon>Metagross/Rotom-Wash",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Primarina/Rotom-Wash",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Metagross>Hydreigon/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Garchomp>Metagross/Hydreigon",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Hydreigon/Rotom-Wash",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    }
+   ],
+   "picksAbove0_8": 34
+  },
+  "F3_glimmora/a": {
+   "phase": "FINAL",
+   "cells": [
+    "legacy:Conkeldurr/Grimmsnarl/Sinistcha",
+    "view1:Conkeldurr/Cinderace/Sinistcha",
+    "view2:Conkeldurr/Grimmsnarl/Glimmora",
+    "aceLead:Glimmora/Conkeldurr/Grimmsnarl"
+   ],
+   "games": 5760,
+   "reproduce": {
+    "legacy": {
+     "pick": "Primarina>Garchomp>Hydreigon",
+     "savedMeanRat": 0.775,
+     "rerunMeanRat": 0.775,
+     "rank": 32
+    },
+    "quick": {
+     "pick": "Metagross>Hydreigon>Garchomp",
+     "savedMeanRat": 1,
+     "rerunMeanRat": 1,
+     "rank": 1
+    },
+    "guarded": {
+     "pick": "Primarina>Hydreigon>Garchomp",
+     "savedMeanRat": 0.775,
+     "rerunMeanRat": 0.775,
+     "rank": 32
+    }
+   },
+   "top5": [
+    {
+     "label": "Metagross>Hydreigon/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Tyranitar>Metagross/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Garchomp/Rotom-Wash",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Primarina>Metagross/Garchomp",
+     "meanRat": 0.975,
+     "worstCellRat": 0.9,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 0.9,
+      "view2": 1,
+      "aceLead": 1
+     }
+    }
+   ],
+   "bestWorstCell": [
+    {
+     "label": "Metagross>Hydreigon/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Metagross>Primarina/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    },
+    {
+     "label": "Tyranitar>Metagross/Garchomp",
+     "meanRat": 1,
+     "worstCellRat": 1,
+     "byCellRat": {
+      "legacy": 1,
+      "view1": 1,
+      "view2": 1,
+      "aceLead": 1
+     }
+    }
+   ],
+   "picksAbove0_8": 31
+  }
+ },
+ "note": "POST-HOC upper bound using the rival real sets: diagnosis only, NOT a selector, NOT tuning. AI vs AI, NOT a ladder win rate."
+}

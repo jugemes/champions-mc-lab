@@ -1,0 +1,154 @@
+[
+ {
+  "case": "Real_indeedee_scarf",
+  "seedBase": 7340000,
+  "chosen": "Rotom-Wash/Hydreigon/Tyranitar",
+  "score": -0.091,
+  "gap": 0.032,
+  "source": "legal-search-v2-compare"
+ },
+ {
+  "case": "NEW_realE_sun",
+  "seedBase": 7360000,
+  "chosen": "Rotom-Wash/Metagross/Garchomp",
+  "score": -0.241,
+  "gap": 0.135,
+  "source": "legal-search-v2-compare"
+ },
+ {
+  "case": "C_charizardY",
+  "seedBase": 7320000,
+  "chosen": "Garchomp/Metagross/Primarina",
+  "score": -0.327,
+  "gap": 0.144,
+  "source": "legal-search-v2-compare"
+ },
+ {
+  "case": "A_golisopod",
+  "seedBase": 7300000,
+  "chosen": "Garchomp/Metagross/Primarina",
+  "score": -0.535,
+  "gap": 0.013,
+  "source": "legal-search-v2-compare"
+ },
+ {
+  "case": "A_golisopod",
+  "seedBase": 8300000,
+  "chosen": "Garchomp/Primarina/Rotom-Wash",
+  "score": -0.579,
+  "second": "Primarina/Garchomp/Rotom-Wash",
+  "gap": 0.016,
+  "top5": [
+   "Garchomp/Primarina/Rotom-Wash -0.579",
+   "Primarina/Garchomp/Rotom-Wash -0.595",
+   "Garchomp/Hydreigon/Primarina -0.605",
+   "Primarina/Hydreigon/Rotom-Wash -0.621",
+   "Garchomp/Tyranitar/Rotom-Wash -0.632"
+  ]
+ },
+ {
+  "case": "A_golisopod",
+  "seedBase": 9300000,
+  "chosen": "Metagross/Garchomp/Rotom-Wash",
+  "score": -0.451,
+  "second": "Primarina/Hydreigon/Garchomp",
+  "gap": 0.098,
+  "top5": [
+   "Metagross/Garchomp/Rotom-Wash -0.451",
+   "Primarina/Hydreigon/Garchomp -0.548",
+   "Garchomp/Metagross/Primarina -0.552",
+   "Garchomp/Primarina/Tyranitar -0.580",
+   "Garchomp/Primarina/Rotom-Wash -0.590"
+  ]
+ },
+ {
+  "case": "C_charizardY",
+  "seedBase": 8300000,
+  "chosen": "Garchomp/Metagross/Primarina",
+  "score": -0.344,
+  "second": "Garchomp/Metagross/Tyranitar",
+  "gap": 0.2,
+  "top5": [
+   "Garchomp/Metagross/Primarina -0.344",
+   "Garchomp/Metagross/Tyranitar -0.544",
+   "Primarina/Metagross/Garchomp -0.547",
+   "Primarina/Metagross/Hydreigon -0.561",
+   "Garchomp/Hydreigon/Primarina -0.563"
+  ]
+ },
+ {
+  "case": "C_charizardY",
+  "seedBase": 9300000,
+  "chosen": "Garchomp/Metagross/Primarina",
+  "score": -0.41,
+  "second": "Primarina/Metagross/Garchomp",
+  "gap": 0.123,
+  "top5": [
+   "Garchomp/Metagross/Primarina -0.410",
+   "Primarina/Metagross/Garchomp -0.533",
+   "Primarina/Garchomp/Rotom-Wash -0.538",
+   "Garchomp/Primarina/Rotom-Wash -0.543",
+   "Primarina/Metagross/Hydreigon -0.546"
+  ]
+ },
+ {
+  "case": "NEW_realE_sun",
+  "seedBase": 8300000,
+  "chosen": "Rotom-Wash/Metagross/Garchomp",
+  "score": -0.371,
+  "second": "Hydreigon/Primarina/Garchomp",
+  "gap": 0.033,
+  "top5": [
+   "Rotom-Wash/Metagross/Garchomp -0.371",
+   "Hydreigon/Primarina/Garchomp -0.405",
+   "Primarina/Metagross/Garchomp -0.406",
+   "Garchomp/Primarina/Rotom-Wash -0.416",
+   "Primarina/Garchomp/Rotom-Wash -0.466"
+  ]
+ },
+ {
+  "case": "NEW_realE_sun",
+  "seedBase": 9300000,
+  "chosen": "Rotom-Wash/Metagross/Garchomp",
+  "score": -0.261,
+  "second": "Garchomp/Primarina/Rotom-Wash",
+  "gap": 0.097,
+  "top5": [
+   "Rotom-Wash/Metagross/Garchomp -0.261",
+   "Garchomp/Primarina/Rotom-Wash -0.358",
+   "Hydreigon/Primarina/Garchomp -0.392",
+   "Garchomp/Hydreigon/Primarina -0.400",
+   "Garchomp/Metagross/Primarina -0.415"
+  ]
+ },
+ {
+  "case": "Real_indeedee_scarf",
+  "seedBase": 8300000,
+  "chosen": "Rotom-Wash/Metagross/Garchomp",
+  "score": -0.158,
+  "second": "Primarina/Metagross/Garchomp",
+  "gap": 0.021,
+  "top5": [
+   "Rotom-Wash/Metagross/Garchomp -0.158",
+   "Primarina/Metagross/Garchomp -0.179",
+   "Garchomp/Primarina/Rotom-Wash -0.196",
+   "Primarina/Garchomp/Rotom-Wash -0.258",
+   "Garchomp/Metagross/Primarina -0.262"
+  ]
+ },
+ {
+  "case": "Real_indeedee_scarf",
+  "seedBase": 9300000,
+  "chosen": "Hydreigon/Primarina/Garchomp",
+  "score": -0.091,
+  "second": "Primarina/Metagross/Garchomp",
+  "gap": 0.08,
+  "top5": [
+   "Hydreigon/Primarina/Garchomp -0.091",
+   "Primarina/Metagross/Garchomp -0.171",
+   "Rotom-Wash/Metagross/Garchomp -0.250",
+   "Rotom-Wash/Hydreigon/Garchomp -0.254",
+   "Primarina/Garchomp/Rotom-Wash -0.257"
+  ]
+ }
+]

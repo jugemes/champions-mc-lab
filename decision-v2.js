@@ -11,7 +11,8 @@ function evaluateMove(dex,own,foeName,moveName,context={}){
   const foeHp=Math.max(.001,Number(context.foeHP??1));
   const info={
     boosts:context.boosts||{},foeBoosts:context.foeBoosts||{},
-    foeHP:foeHp,foeItem:context.foeItem||'',foeAbility:context.foeAbility||'',terrain:context.terrain||'',weather:context.weather||''
+    foeHP:foeHp,foeItem:context.foeItem||'',foeAbility:context.foeAbility||'',terrain:context.terrain||'',weather:context.weather||'',
+    knownOwnOffense:Boolean(context.knownOwnOffense),attackerItem:context.attackerItem,attackerAbility:context.attackerAbility
   };
   const risk=incomingRisk(dex,own,foeName,{
     foeBoosts:info.foeBoosts,seenMoves:context.seenMoves||[],weather:context.weather||''
