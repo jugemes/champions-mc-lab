@@ -2,11 +2,11 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { build, select, fixtures } = require('../m8-pokenavi-rework-20261106');
+const { build, select, play, fixtures } = require('../m8-pokenavi-rework-20261106');
 const { opponents } = require('../m8-pokenavi-coverage-20261106');
 
 test('reworked choices stay within the six and use one preview plan for both Charizard stones', () => {
-  for (const id of ['original', 'adjusted', 'goodra', 'goodraGuard']) {
+  for (const id of ['original', 'adjusted', 'goodra', 'goodraGuard', 'goodraFinal']) {
     const own = new Set(build(id).map(member => member.species));
     const publicPlans = new Map();
     for (const c of opponents(true, true, true)) {
@@ -18,6 +18,18 @@ test('reworked choices stay within the six and use one preview plan for both Cha
       publicPlans.set(key, three);
     }
   }
+});
+
+test('the mixed plan preserves Skeledirge against a later Dragonite until physical moves are revealed', () => {
+  const [lead, goodra, skeledirge] = select('goodraFinal', 'mixed');
+  const request = { side: { pokemon: [lead, goodra, skeledirge].map((species, index) => ({
+    active: index === 0, details: `${species}, L50`, condition: '100/100',
+  })) } };
+  const bot = { foeActive: 'Dragonite-Mega', lastMove: '', seenMoves: {} };
+  assert.equal(play('goodraFinal', 'mixed', request, bot, { canSwitch: true, turn: 1 }), 'switch 3');
+  assert.equal(play('goodraFinal', 'mixed', request, bot, { canSwitch: true, turn: 3 }), 'switch 2');
+  bot.seenMoves[bot.foeActive] = ['Fire Punch'];
+  assert.equal(play('goodraFinal', 'mixed', request, bot, { canSwitch: true, turn: 3 }), 'switch 3');
 });
 
 test('the rival double pivot reacts to either revealed bulky switch-in', () => {
