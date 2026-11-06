@@ -6,7 +6,7 @@ const { build, select, fixtures } = require('../m8-pokenavi-rework-20261106');
 const { opponents } = require('../m8-pokenavi-coverage-20261106');
 
 test('reworked choices stay within the six and use one preview plan for both Charizard stones', () => {
-  for (const id of ['original', 'adjusted', 'goodra']) {
+  for (const id of ['original', 'adjusted', 'goodra', 'goodraGuard']) {
     const own = new Set(build(id).map(member => member.species));
     const publicPlans = new Map();
     for (const c of opponents(true, true, true)) {
